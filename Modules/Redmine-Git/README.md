@@ -1,2 +1,2 @@
 RedmineGit fixes
-This is the trial version of the first README.md
+This is the trial version of the first README
