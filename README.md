@@ -1,4 +1,4 @@
 <html>
   <head></head>
-  <body>Hello</body>
+  <body><h1>Hello</h1></body>
   </html>
