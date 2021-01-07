@@ -1,0 +1,7 @@
+Difference between Fetch and Pull ?
+ ->In fetch, it's just like checking to see if there are changes available.
+ ->In pull , it's brings changes from the remote repository.
+
+Difference between stage the changes and stash the changes ?
+-> In stash , stash will modified file into a stack ,so later in same or another branch ,you will be bring them back.
+-> In stage , step before making a commit ,we add modified files to the staging area to create the next commit.  
