@@ -104,3 +104,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+/Modules/.vs/Modules/config/applicationhost.config
+/Modules/.vs/Modules/v16/.suo
+/Modules/.vs/slnx.sqlite
