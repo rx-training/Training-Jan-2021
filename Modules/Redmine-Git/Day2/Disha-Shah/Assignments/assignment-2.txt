@@ -1,0 +1,4 @@
+fetch - it receives all the changes from remote repository but does not merge them into local repository.
+	  - does not change local repository
+pull - it receives all the changes from remote repository and merge them into local repository.
+     - changes local repository
