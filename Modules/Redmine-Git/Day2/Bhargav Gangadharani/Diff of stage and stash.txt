@@ -1,0 +1,15 @@
+Stage Changes:
+
+To stage a file is simply to prepare it finely for a commit. 
+Git, with its index allows you to commit only certain parts of the changes you've done since the last commit. 
+Say you're working on two features - one is finished, and one still needs some work done. 
+You'd like to make a commit and go home but wouldn't like to commit the parts of the second feature, which is not done yet.
+You stage the parts you know belong to the first feature, and commit. 
+Now your commit is your project with the first feature done, while the second is still in work-in-progress in your working directory.
+
+Stash Changes:
+
+Stash will move your modified files into a stack. 
+So, later in the same or in another branch, you will be able to bring them back and see those modifications in your project.
+Say, you and your friend working on same repository, and it may arise conflict, so then you need to stash your changes, pull files of your friend and then unstash files to commit.
+Inshort it keeps that file aside while you pull changes that were done by other user.
