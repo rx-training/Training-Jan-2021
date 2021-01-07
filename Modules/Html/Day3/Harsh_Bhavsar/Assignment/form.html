@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html >
+<head>
+    
+    <title>Employees Details</title>
+</head>
+<body>
+    <P style="text-align:center; font-size: 40px;"><b>Employees Details</b> </P>
+    <form name='registration'>
+        <style>
+            table.center {
+                margin-left: auto;
+                margin-right: auto;
+        </style>
+        <table style="width:30%"  class="center">
+            <tr>
+                <td>  <label for="Empname">EmployeeName:</label></td>
+                <td> <input type="text" name="Empname" size="20" required /></td>
+            </tr>
+            <tr>
+                <td> <label for="age">Age:</label></td>
+                <td>    <input type="number" name="age" size="2" required /></td>
+            </tr>
+            <tr>
+                <td>  <label id="gender">Gender:</label></td>
+                <td>
+                    <input type="radio" name="msex" value="Male" />
+                    <span>Male</span>
+                    <input type="radio" name="fsex" value="Female" />
+                    <span>Female</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td> <label for="desg">Designation:</label></td>
+                <td> <input type="text" name="desg" size="10" required /></td>
+
+            </tr>
+            <tr>
+                <td>  <label for="salary">Salary:</label></td>
+                <td>  <input type="number" name="Salary" size="10" required /></td>
+            </tr>
+            <tr>
+                <td>  <label for="location">Location:</label></td>
+
+                <td>
+                    <select name="location">
+                        <option selected="" value="Default">(Please select a country)</option>
+                        <option value="AH">Ahmedabad</option>
+                        <option value="GN">Gandhinagar</option>
+                        <option value="RJ">Rajkot</option>
+                        <option value="MH">Mehasana</option>
+                        required
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>  <label for="doj">Date of Joining:</label></td>
+                <td>  <input type="date" name="doj" required /></td>
+            </tr>
+            <tr>
+                <td> <label for="email">Email id:</label></td>
+                <td> <input type="email" name="email" size="30" required /></td>
+            </tr>
+            <tr>
+                <td>  <label for="number">Contact Number:</label></td>
+                <td>  <input type="text" name="number" size="10" required /></td>
+            </tr>
+
+
+        </table>
+
+
+
+</body>
+</html>
