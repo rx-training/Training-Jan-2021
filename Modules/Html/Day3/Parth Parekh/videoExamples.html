@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+</head>
+<body>
+    <h1>Hotel Booking</h1>
+    <label >search</label>
+    <input type="search" name="search" placeholder="Enter Hotel Name">
+    <br><br>
+    <form action="#" method="POST">
+        <label >Hotel Name :</label>
+        <input type="text" list="mydatalist" required> 
+        <datalist id="mydatalist">
+            <option value="Patang Hotel"></option>
+            <option value="Nova Hotel"></option>
+            <option value="Style Hotel"></option>
+        </datalist><br><br>
+        <label>booking Date :</label>
+        <input type="date" name="date"> <br> <br>
+        <label >Price Range</label> <br><br>
+        <input type="range" name="range" max="50" min="15">
+        <label >Booking Time :</label>
+        <input type="time" name="time"><br><br>
+        <label >Hotel progress</label>
+        <progress id="progress data" value="12" max="15"></progress> 
+        <label>Hotel Rating</label>
+        <meter value="40" max="100" min="20" high="90" low="40"></meter>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
