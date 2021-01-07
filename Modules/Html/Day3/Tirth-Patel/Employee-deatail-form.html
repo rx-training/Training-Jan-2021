@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Employee Details form</h2>
+    <form>
+        <div>
+            NAME: <input type="text" required>
+        </div>
+        <br>
+        <div>
+
+            Age <input type="number" required>
+
+        </div>
+        <br>
+        <div>
+            Gender:
+            Male<input type="radio" id="Male">
+            Female<input type="radio" id="FeMale">
+            Others<input type="radio" id="Others">
+        </div>
+        <br>
+        <div>
+            Designation <input type="text" required>
+        </div>
+        <br>
+        <div>
+
+            Salary<input type="number" required>
+
+        </div>
+        <br>
+        <div>
+            <label for="loc">Location</label>
+            <select name="Location" id="loc" required>
+                <option value="Amd">Ahmedabad</option>
+                <option value="rjk">Bhavnagar</option>
+                <option value="bhav">Rajkot</option>
+                <option value="srt">Surat</option>
+
+
+
+            </select>
+        </div>
+        <br>
+        <div>
+
+            EmailID: <input type="email" required>
+
+        </div>
+        <br>
+        <div>
+            Date-Of-Joining: <input type="date" required>
+        </div>
+        <br>
+        <div>
+            Contact number: <input type="tel" pattern="[0-9] {10}" maxlength="10" required>
+
+        </div>
+        <br>
+        <div>
+            <input type="submit">
+            <input type="reset">
+        </div>
+
+
+
+
+
+
+    </form>
+
+</body>
+
+</html>
