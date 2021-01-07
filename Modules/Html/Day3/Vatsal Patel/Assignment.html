@@ -1,0 +1,51 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Assaignment Day : 3</title>
+        <meta name='viewport' content="width = device-width ; initial-scale = 1.0" />
+        <link rel="stylesheet" href="./assets/styles/Assaignment.css" />
+    </head>
+    <body>
+        
+        <section>
+            <div class="container">
+            <h1>Student Registration form</h1>
+            <hr />
+                <form action='#' method="GET">
+                    <label for="name">Enter your name:</label><br />
+                    <input type="text" id="name" placeholder="Please enter the name" name="name" value="vatsal" required/><br />
+                    <label for="age">Enter your age:</label><br />
+                    <input type="number" id='age' placeholder="Please enter the age" name="age" required/><br />
+                    <label for="designation">Enter your designation:</label><br />
+                    <input type="text" id="designation" placeholder="Please enter the name" name="designation" required/><br />
+                    <label for="salary">Enter your salary:</label><br />
+                    <input type="number" id="salary" placeholder="Please enter the salary" name='salary' required/><br />
+                    <label for="email">Enter your email:</label><br />
+                    <input type="email" placeholder="Please enter your email" name='email' required/><br />
+                    <label for="joining">Enter your Joining date:</label><br />
+                    <input type="date" id="joining" placeholder="Please enter your joining date" name='date' required /><br />
+                    <label for="phone">Enter your salary:</label><br />
+                    <input type="tel" id='phone' placeholder="Please enter the salary" name='tel' required/><br />
+                    <label for="location">Enter your location:</label><br />
+                    <select name="location" id="location">
+                        <option value="null" selected>Please choose the city : </option>
+                        <option value="Ahmedabad">Ahmedabad</option>
+                        <option value="Vadodare">Vadodara</option>
+                        <option value="Surat">Surat</option>
+                            
+                    </select>
+                    <br />
+                    <label for="gender">Male:</label>
+                    <input type="radio" name="gender" value="male">
+                    <label for="gender">Female</label>
+                    <input type="radio" name="gender" value="Female">
+                    <div class="btn-container">
+                        <button type="reset">Reset</button>
+                        <button type="submit">Submit</button>    
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
