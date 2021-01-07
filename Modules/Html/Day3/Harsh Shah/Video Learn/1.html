@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <form id="myForm">
+            <label for="time-input">Please Enter a time:</label>
+            <input type="time" id="time-input"><br>
+            <label for="month-input">Please Select a month:</label>
+            <input type="month" id="month-input"><br>
+            <label for="week-input">Please Select a week:</label>
+            <input type="week" id="week-input"><br>
+            <label for="range-input">Range:</label>
+            <input type="range" id="range-input" min="1" max="10"><br>
+            <label for="search-data">Search:</label>
+            <input type="search" id="search-data" placeholder="Enter search here"><br>
+            <input type="submit" value="Submit"><br>
+            <label for="tel-data">Telephone:</label>
+            <input type="tel" id="tel-data"><br>
+            <label for="email-data">Email:</label>
+            <input type="email" id="email-data" multiple><br>
+            <label for="color-data">Color:</label>
+            <input type="color" id="color-data"><br>
+            <label for="list-data">Data List:</label>
+            <input type="text" list="myDataList">
+            <datalist id="myDataList">
+                <option label="Mr." value="Mr."></option>
+                <option label="Mrs." value="Mrs."></option>
+                <option label="Ms." value="Ms."></option>
+            </datalist><br>
+            <label for="progress-data">Progress Bar:</label>
+            <progress id="progress-data" value="5" max="15"></progress><br>
+            <label for="meter-data">Meter:</label>
+            <progress id="meter-data" min="10" max="100" value="50" low="20" high="70" optimum="50"></meter><br>
+            
+        </form>
+
+        <label for="outsideText-data">Other Text:</label>
+        <input type="text" id="outsideText-data" form="myForm">
+        
+    </body>
+</html>
