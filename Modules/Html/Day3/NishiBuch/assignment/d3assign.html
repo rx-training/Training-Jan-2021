@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+    
+<html>   
+   <head>
+    
+    <center>
+        <title>Employee Details</title>
+    </center>  
+      <h1>EMPLOYEE DETAILS</h1>    
+      <script type = "text/javascript">
+         function validate() {​​​​​​​
+      
+         if( document.myForm.Name.value == "" ) {​​​​​​​
+            alert( "Please provide your name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }​​​​​​​
+
+
+    if( document.myForm.Designation.value == "" ) {​​​​​​​
+            alert( "Please provide your designation!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }​​​​​​​
+
+
+         if( document.myForm.Email.value == "" ) {​​​​​​​
+            alert( "Please provide your Email!" );
+            document.myForm.Email.focus() ;
+            return false;
+         }​​​​​​​
+
+
+    if( document.myForm.Date.value == "" ) {​​​​​​​
+            alert( "Please provide your Date!" );
+            document.myForm.Date.focus() ;
+            return false;
+         }​​​​​​​
+
+
+         if( document.myForm.Age.value == "" || isNaN( document.myForm.Age.value ) ||
+            document.myForm.Age.value.length != 2 ) {​​​​​​​
+            
+            alert( "Please provide a age in the format #####." );
+            document.myForm.Age.focus() ;
+            return false;
+         }​​​​​​​
+
+
+    if( document.myForm.Contact.value == "" ) {​​​​​​​
+            alert( "Please provide your Contact!" );
+            document.myForm.Contact.focus() ;
+            return false;
+         }​​​​​​​
+
+
+    if( document.myForm.Salary.value == "" ) {​​​​​​​
+            alert( "Please provide your Salary!" );
+            document.myForm.Salary.focus() ;
+            return false;
+         }​​​​​​​
+
+
+         if( document.myForm.Location.value == "-1" ) {​​​​​​​
+            alert( "Please provide your Location!" );
+            return false;
+         }​​​​​​​
+         return( true );
+      }​​​​​​​
+      </script>      
+   </head>
+   <body style="background-color: crimson;">
+    <center>
+      <form action = "/cgi-bin/test.cgi" name = "myForm" onsubmit = "return(validate());">
+         <table>
+            
+            <tr>
+               <td align = "right">Name</td>
+               <td><input type = "text" name = "Name" /></td>
+            </tr>
+                        <tr>
+               <td align = "right">Age</td>
+               <td><input type = "number" name = "Age" /></td>
+            </tr>
+            
+            <tr>
+                <td align = "right">EMail</td>
+                <td><input type = "text" name = "EMail" /></td>
+             </tr>
+ 
+            <tr>
+                <td align = "right">Location</td>
+                <td>
+                   <select name = "Location">
+                      <option value = "-1" ></option>
+                      <option value = "1">Ahmedabad</option>
+                      <option value = "2">kutch</option>
+                      <option value = "3">delhi</option>
+                      <option value = "1">karnataka</option>
+                      <option value = "2">jammu</option>
+                      <option value = "3">UK</option>
+                   </select>
+                </td>
+             </tr>
+             
+
+        <tr>
+               <td align = "right">Designation</td>
+               <td><input type = "text" name = "Designation" /></td>
+            </tr>
+
+
+       <tr>
+               <td align = "right">Salary</td>
+               <td><input type = "number" name = "Salary" /></td>
+            </tr>
+
+
+            
+
+           <tr>
+               <td align = "right">Contact Number</td>
+               <td><input type = "number" name = "Contact" /></td>
+            </tr>
+
+
+       
+           <tr>
+               <td align = "right">Date</td>
+               <td><input type ="date" name="date"/></td>
+            </tr>
+
+
+       <tr>
+       <td align="right">
+       Gender:
+           </td>
+           <td>
+           <input type="radio" name="Gender">Male
+           <input type="radio" name="Gender">Female
+           </td>
+           </tr>
+
+
+            <tr>
+               <td align = "right">Location</td>
+               <td>
+                  <select name = "Location">
+                     <option value = "-1" </option>
+                     <option value = "1">Ahmedabad</option>
+                     <option value = "2">Banglore</option>
+                     <option value = "3">Chennai</option>
+                     <option value = "1">Mumbai</option>
+                     <option value = "2">Banglore</option>
+                     <option value = "3">Delhi</option>
+                  </select>
+               </td>
+            </tr>
+            
+            <tr>
+               <td align = "right"></td>
+               <td><input type = "submit" value = "Submit" /></td>
+            </tr>
+            
+         </table>
+         </form>
+      </form>   
+      </center>   
+   </body>
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
