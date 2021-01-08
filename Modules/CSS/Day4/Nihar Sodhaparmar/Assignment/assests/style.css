@@ -1,0 +1,163 @@
+html
+{
+    font-family: sans-serif;
+}
+#main_div
+{
+    padding: 15px;
+    margin: auto;
+}
+
+.name
+{
+    margin-top: 15px;
+    font-family: sans-serif;
+    color: cornflowerblue;
+    font-size: 36px;
+}
+
+#inline_display
+{
+    display: flex;
+}
+
+#div_add
+{
+    margin-left: 50px;
+}
+
+#add_ul
+{
+    font-family: sans-serif;
+    text-align: right;
+    list-style-type: none;
+}
+
+#add_ul li
+{
+    margin: 5px;
+    font-size: 13px;
+}
+
+.my_icon
+{
+    font-size:20px; 
+    color: cornflowerblue; 
+    margin-left: 5px;
+}
+
+.title1
+{
+    font-size: 25px;
+    font-weight: bold;
+    color:cornflowerblue;
+    border-style: solid none;
+    width: fit-content;
+    margin-top: 50px;
+}
+
+#degree
+{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#clg
+{
+    font-weight: 515;
+    margin-top: 3px;
+}
+
+#year_and_per
+{
+    display: flex;
+}
+
+#year
+{
+    color: gray;
+    margin-top: 5px;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#percentage
+{
+    color: gray;
+    margin-top: 5px;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 220px;
+}
+
+.left_div
+{
+    width: fit-content;
+}
+
+.project_div
+{
+    margin-left: 14px;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+#soc_demo
+{
+    margin-left: 14px;
+}
+
+#lower_div
+{
+    display: flex;
+}
+
+.title2
+{
+    font-size: 25px;
+    font-weight: bold;
+    color:cornflowerblue;
+    border-style: solid none;
+    width: fit-content;
+    margin-top: 50px;
+}
+
+.right_div
+{
+    margin-left: 50px;
+}
+
+#skills_ul
+{
+    margin-left: -50px;
+    list-style-type: none;
+    display: flex;
+}
+
+#skills_ul li
+{
+    margin: 10px;
+    font-size: 18px;
+    width: fit-content;
+    background-color: cornflowerblue;
+    height: 20px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.language_div
+{
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.language_rate_div
+{
+    margin-top: 5px;
+    font-size: 14px;
+    color: cornflowerblue;
+    font-style: italic;
+}
