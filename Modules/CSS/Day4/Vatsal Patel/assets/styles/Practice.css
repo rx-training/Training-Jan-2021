@@ -1,0 +1,52 @@
+*{
+
+    /*Provide background color.*/
+    background-color: lightblue;
+    margin : 0px;
+    padding : 0px;
+}
+
+.heading{
+    margin-left:20px;
+    margin-top: 10px;
+}
+
+hr{
+    margin-left : 30px;
+    margin-top : 20px;
+    margin-bottom : 20px;
+}
+
+section , article{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+p{
+    border : 1px solid grey;
+    border-radius: 10px;
+    padding : 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    list-style: none;
+}
+
+table ,tr , th , td {
+    border : 1px solid black;
+    border-collapse: collapse;
+    padding : 7px;
+
+    /*It will align text to the center.*/
+    text-align: center;
+}
+
+/*Make all tags color heading.*/
+.heading *{
+    color: blue;
+}
