@@ -1,0 +1,2 @@
+stage the changes -  it is done before commit, modified files are added to staged folder.
+stash the changes -  it is useful to resolve conflicts. it will move modified files to stash folder and we can bring them back in future to see past modifications and can also apply them.
