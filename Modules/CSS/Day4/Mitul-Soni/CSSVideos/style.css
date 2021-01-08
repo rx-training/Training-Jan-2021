@@ -1,0 +1,30 @@
+.entry-text
+{
+	border: 2px solid blue;
+	text-align: center;
+	font-size: 10px;
+	margin: 10px;
+	
+}
+.sidebar1
+{
+	width: 300px;
+	border: 2px solid black;
+	padding: 10px;
+	margin: 10px;
+	color: white;
+	background-color: #00004d;
+	display: table-cell;
+}
+.sidebar2
+{
+	width: 300px;
+	border: 2px solid black;
+	padding: 10px;
+	margin: 10px;
+	padding-left: 30px;
+	margin-right: -10px;
+	color: white;
+	background-color: #00004d;
+	display: table-cell;
+}
