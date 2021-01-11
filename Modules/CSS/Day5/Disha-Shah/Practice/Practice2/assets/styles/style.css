@@ -1,0 +1,42 @@
+.main-container{
+    height: 1000px;
+    width: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+header{
+    height: 70px;
+    width: auto;
+    background-color: black;
+    color: whitesmoke;
+    position: sticky;
+    top: 0;
+}
+.left-sidebar{
+    height: 800px;
+    width: 300px;
+    background-color: turquoise;
+    float:left;
+    overflow: scroll;
+}
+.content{
+    width: 902px;
+    height: 800px;
+    background-color: khaki;
+    float: left;
+}
+.right-sidebar{
+    height: 800px;
+    width:300px;
+    background-color: lightcoral;
+    float: right;
+    overflow: auto;
+}
+footer{
+    clear: both;
+    height: 70px;
+    width: auto;
+    background-color: black;
+    color: blanchedalmond;
+    
+}
