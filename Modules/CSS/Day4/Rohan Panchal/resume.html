@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Rohan Panchal - Resume
+        </title>
+        <link rel="icon" href="assets/img/rp6.png">
+        <link rel="stylesheet" href="assets/css/resume.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    </head>
+    <body class="theme-dark">
+        <div class="first-page">
+            <nav class="menu">
+                <img src="assets/img/rp4.png" height="100" width="100">
+                <ul>
+                    <li><a href="#about" onclick="about()">About</a></li>
+                    <li><a href="#resume" onclick="resume()">Resume</a></li>
+                    <li> <a>Contact</a> </li>
+                </ul>
+            </nav>
+            <div class="centerName">
+                <h1>Rohan Panchal</h1>
+                
+            </div>
+            <div class="social-content">
+                <ul>
+                    <li><a href="https://www.facebook.com/rohan.panchal.7564129" target="_blanck"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a></li>
+                   <li><a href="https://www.instagram.com/iamrohan_07" target="_blanck"> <i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="https://wa.me/8264778650" target="_blanck"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/rohan15877657" target="_blanck"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="https://github.com/rohan7299" target="_blanck"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-page disapper" id="about">
+            <div class="close">
+              <h3><a href="" onclick="close()">Close</a></h3>
+            </div>
+            <div class="about-header">
+                <h4>Get to know me</h4>
+                <h1>About Me</h1>
+                <hr style="width: 20%; margin-bottom: 5%;">
+            </div>
+            <div class="main-container">
+                <div class="img-container">
+                    <img src="assets/img/rohan3.jpg" alt="">
+                    <p class="paragraphs"><h2 style="color: rgb(16, 150, 87);">Who am i?</h2></p>
+                    <p><h1 style="font-family: Georgia, 'Times New Roman', Times, serif;"> I'm Rohan Panchal, Training software Engineer in Radixweb</h1></p>
+                    <hr style="width: 55%;">
+                    <div style="padding: 2%;" class="grey-span">
+                        <div style="float: left; width: 30%;" >
+                            Name: <span>Rohan Panchal</span> <br><br>
+                            Age: <span> 21</span>
+                        </div>
+                        <div>
+                            Email: <span><a href="mailto:rohanpanchal7299@gmail.com" style="color:grey;">rohanpanchal7299@gmail.com</a> </span> <br><br>
+                            From: <span>Ahmedabad </span>
+                        </div>
+                    </div>
+                    <hr style="width: 10%; ">
+                    <video src="assets/img/resume.mp4" width="700" controls></video>
+                </div>
+                <div class="text-container">
+                   
+                </div>
+            </div>
+        </div>
+        <div class="resume-page disapper" id="resume">
+            <div class="close">
+              <h3><a href="">Close</a></h3>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    function about(){
+        var ele = document.getElementById('about');
+        ele.classList.remove('disapper');
+    }
+    function resume()
+    {
+        var ele = document.getElementById('resume');
+        ele.classList.remove('disapper');
+    }
+</script>
