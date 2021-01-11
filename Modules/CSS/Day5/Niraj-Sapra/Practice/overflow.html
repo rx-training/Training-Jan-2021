@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>
+            overflow 
+        </title>
+        <style>
+        .main{
+        background-color: #eee;                  
+        width: 200px;
+        height: 50px;
+        border: 1px dotted black;
+        }
+        .visible{
+            overflow: visible;
+        }
+        .hidden{
+            float: right;
+            overflow: hidden;
+        }
+        .scroll{
+            height: 150px;
+            margin-top: 150px;
+            overflow: scroll;
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="visible main">visible You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div><br>     
+            <div class="hidden main">hidden You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div><br>
+            <div class="scroll main">Scroll You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div><br>     
+        </div>
+    </body>
+</html>
