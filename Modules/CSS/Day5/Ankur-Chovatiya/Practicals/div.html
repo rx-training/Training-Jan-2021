@@ -7,9 +7,12 @@
     <style>
         div.main{
             border: 2px solid blue;
-            overflow: visible;
-            height: 200px;
-            width: 1200px;
+            display: flex;
+            height: 500px;
+            justify-content: center;
+            width: 100%;
+            /* text-align: center; */
+
         }
         div.sub{
             border: 2px solid red;
@@ -17,13 +20,24 @@
 
         }
         #div1{
-            position: sticky;
+            float: left;
+            /* position: absolute; */
+            width: 300px;
+            height: 300px;
+            /* display: flex; */
         }
         #div2{
-            position: relative;
+            /* position: absolute; */
+            float: left;
+            width: 300px;
+            height: 300px;
         }
         #div3{
-            position: static;
+            /* position: absolut; */
+            float: left;
+            width: 300px;
+            height: 300px;
+           
         }
     </style> 
 </head>
@@ -32,7 +46,7 @@
     <div class="main">
         <div class="sub" id="div1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, nihil distinctio? Illum quo tempore animi excepturi, quas, laborum mollitia soluta laboriosam maxime veritatis laudantium, non quod dignissimos. Ad numquam ullam eaque, veritatis quo quaerat similique exercitationem consequatur omnis dolor nesciunt ipsa, sapiente ex in, quod adipisci soluta repellendus eveniet. Facere.</div>
         <div class="sub" id="div2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, architecto? Illo architecto enim culpa aspernatur adipisci porro minima, ullam labore eius odio dolore error, facere recusandae libero vitae totam deleniti ea maiores modi? Maiores aperiam itaque atque repellat at eveniet, dignissimos, consequuntur delectus ipsam, modi maxime facilis animi laboriosam laborum?</div>
-        <div class="sub" id="3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste doloribus similique hic, eius quae cumque? Ad minus tempore unde omnis eos nesciunt rem nisi, illum labore error quod incidunt ipsum ex, quo asperiores modi? Nisi id vero harum cum laboriosam ea ipsum dolor, quas ducimus molestiae eum aliquid ab beatae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam illo fuga magnam doloribus odio, rerum placeat. Non, deserunt amet, consectetur asperiores dolorum cum qui eveniet adipisci neque maiores nisi facilis!lorem50lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, incidunt provident veritatis natus nemo soluta praesentium quam molestiae maxime aspernatur voluptas nihil libero culpa eveniet tempore at hic ad omnis minima dolorem? Nulla, itaque hic! Nobis quis est exercitationem. Minima quod voluptates eaque architecto expedita vitae nostrum debitis beatae iure!</div>
+        <div class="sub" id="div3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste doloribus similique hic, eius quae cumque? Ad minus tempore unde omnis eos nesciunt rem nisi, illum labore error quod incidunt ipsum ex, quo asperiores modi? Nisi id vero harum cum laboriosam ea ipsum dolor, quas ducimus molestiae eum aliquid ab! Nobis quis est exercitationem. Minima quod voluptates eaque architecto expedita vitae nostrum debitis beatae iure!</div>
     </div>
 
 </body>
