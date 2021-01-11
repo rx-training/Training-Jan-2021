@@ -5,10 +5,14 @@ div.main{
     background-image: url("Capture.PNG");
     background-repeat: no-repeat ;
     background-position: top;
+    padding-left: 15px;
     
 }
 div.top{
-    text-align: right;  list-style-type: none;
+    text-align: right;  
+    list-style-type: none;
+    margin-right:5% ;
+
 }
 table{
     width: 90%; 
@@ -36,6 +40,6 @@ span{
 }
 #video{
     float: Right;
-    padding-right: 50px;
+    padding-right: 5%;
 }
 
