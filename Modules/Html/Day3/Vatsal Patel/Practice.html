@@ -74,7 +74,7 @@
         </table>
         </section>
 
-        <h1>List demo</h1>
+        <h1 class="heading">List demo</h1>
         <hr />
         <section class="list-section">
         <ul style="list-style: circle;">
@@ -87,25 +87,34 @@
             <li>This is 2.</li>
             <li>This is 3.</li>
         </ol>
-        <ol>
-            <li>Developer
-                <ul style="list-style: disc;">
-                    <li>First name.</li>
-                    <li>Second name</li>
+
+
+        <!-- It is an exaple of nested list. -->
+        <dl>
+            <dt>Developer</dt>
+                <dd>
+                    <ul style="list-style-type: disc; padding-left: 50px;">
+                        <li>First name</li>
+                        <li>Second name</li>
+                        <li>Third name</li>
+                        <li>Fourth name</li>
                 </ul>
-            </li>
-            
-            <li>Accountant
-                <ul style="list-style: disc;">
+                </dd>
+            <dt>Accountant</dt>
+            <dd>
+                <ul style="list-style-type: disc; padding-left: 50px;">
                     <li>First name</li>
                     <li>Second name</li>
-                </ul>
-            </li>
-        </ol>
+                    <li>Third name</li>
+                    <li>Fourth name</li>
+            </ul>
+            </dd>
+          </dl>
+          
         </section>
 
 
-        <h1>Login Form</h1>
+        <h1 class="heading">Login Form</h1>
         <hr />
         <section>
         <form action="#" method="GET">
@@ -118,7 +127,7 @@
         </form>
         </section>
 
-        <h1>Article Tag</h1>
+        <h1 class="heading">Article Tag</h1>
         <hr />
         <article>
             <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

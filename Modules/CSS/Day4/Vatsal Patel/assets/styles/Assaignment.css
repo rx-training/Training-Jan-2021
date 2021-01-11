@@ -117,3 +117,25 @@ ol li ul{
     list-style-type: circle;
     padding: 5px;
 }
+
+
+footer{
+    width : 100%;
+    margin-top: 20px;
+    background-color :#34495e;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > h4{
+    color: white;
+    font-family: sans-serif;
+    padding-top :5px;
+}
+
+footer > h4 a{
+    color: white;
+}
