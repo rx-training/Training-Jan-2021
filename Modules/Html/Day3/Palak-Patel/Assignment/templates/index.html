@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Forms</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <br><br><br><br>
+    <form class="form" action="index.html" align="center" name="myform" onsubmit="return myFun()">
+        <fieldset>
+            <legend> Employee Detail Form </legend><br>
+            <table align="center" border="0" cellspacing="15">
+                <tr>
+                    <td>Employee Name</td>
+                    <td><input type="text" name="fname" placeholder="Employee name" required></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="number" name="age" placeholder="Age" required></td>
+                </tr>
+
+
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" required>male
+                        <input type="radio" name="gender" required>female
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Designation:</td>
+                    <td><input type="text" name="designation" placeholder="Designation" required></td>
+                </tr>
+
+                <tr>
+                    <td>Salary:</td>
+                    <td><input type="number" name="salary" placeholder="Salary in INR" required></td>
+                </tr>
+
+
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <select name="city" required>
+                            <option value="vadodara"> vadodara </option>
+                            <option value="Surat">Surat </option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>E-mail: </td>
+                    <td><input type="email" name="email" placeholder="Email ID" required></td>
+                    <!--<td><span id="msg"></span></td>-->
+                </tr>
+
+                <tr>
+                    <td>Date of Joining</td>
+                    <td><input type="date" type="doj" placeholder="Date of Joining" required></td>
+                </tr>
+
+                <tr>
+                    <td>Contact No:</td>
+                    <td><input type="number" name="contact" placeholder="Contact No." required></td>
+                </tr>
+
+                <tr>
+                    <td class="btns" colspan="2">
+                        <input class="btn btn-success" type="submit" name="submit" value="Submit">
+                        <input class="btn btn-success" type="reset" name="reset" value="Reset">
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+    </form>
+
+    <!-- Script tags -->
+    <!--<script>
+        function myFun(){
+            var a = document.myform.email.value;
+            if(a.indexOf('@')<=0){
+                document.getElementById("msg").innerHTML="**Invalid @ position";
+                return false;
+            }
+            if(a.charAt(a.length-4)!='.'){
+                document.getElementById("msg").innerHTML="**Invalid . position";
+                return false;
+            }
+            if(a.charAt(a.length-3)!='.'){
+                document.getElementById("msg").innerHTML="**Invalid . position";
+                return false;
+            }
+        }
+    </script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+            integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
