@@ -5,10 +5,11 @@ html
 
 .logo
 {
-    color: cornflowerblue;
+    color: dodgerblue;
     text-align: center;
     width: 100%;
     height: 65px;
+    font-size: large;
 }
 
 #header_ul
@@ -33,7 +34,7 @@ html
 
 #header_ul li:hover
 {
-        color: cornflowerblue;
+        color: dodgerblue;
 }
 
 .banner img
@@ -166,7 +167,7 @@ html
 
 .quest_div
 {
-    background-color: cornflowerblue;
+    background-color: dodgerblue;
     width: 100%;
     height: 124px;
     margin-top: 70px;
@@ -181,79 +182,99 @@ html
     text-align: center;
 }
 
-.footer_div
-{
-    background-color: lightgray;
+footer {
+    background-color: lightgrey;
     width: 100%;
-    display: inline-block;
+    height: 250px;
+    padding-top: 70px;
+    padding-bottom: 10%;
 }
 
 .footer_list1
 {
-    font-size: 15px;
+    padding-left: 15%;
     float: left;
-    /*background-color: lightpink;*/
-    width: 25%;
 }
 
-.footer_list1_header
+.footer_list1 h4
 {
-    padding-top: 70px;
-    font-weight: bold;
-    margin-left: 25%;
-}
-
-.footer_list1 ul
-{
-    list-style-type: none;
-    margin-left: 13.35%;
-    width: 85%;
+    margin-left: 40px;
 }
 
 .footer_list1 ul li
 {
-    padding: 5px 0;
-}
-
-.footer_list2_header
-{
-    padding-top: 70px;
-    font-weight: bold;
-    margin-left: 27.56%;
-}
-
-.footer_list2 ul
-{
     list-style-type: none;
-    margin-left: 25%;
+    padding-top: 5px;
 }
 
-.footer_list2 ul li
+.footer_list1 ul li a
 {
-    padding: 5px 0;
-}
-
-.footer_lists
-{
-    margin-left: 13.7%;
+    color: black;
 }
 
 .footer_list2
 {
-    font-size: 15px;
-    /*background-color: lightgreen;*/
-    width: 46%;
+    padding-left: 9%;
+    float: left;
 }
 
-.get_in_touch
+.footer_list2 h4
 {
-    background-color: lightsalmon;
-    width: 30%;
+    margin-left: 40px;
 }
 
-.get_in_touch_header
+.footer_list2 ul li
 {
-    padding-top: 70px;
-    font-weight: bold;
-    margin-left: 27.56%;
+    list-style-type: none;
+    padding-top: 5px;
+}
+
+.footer_list2 ul li a
+{
+    color: black;
+}
+
+.get_in_touch_container
+{
+    padding-left: 10%;
+    float: left;
+}
+
+#send_button
+{
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#coin_button
+{
+    margin-top: 7px;
+    position: absolute;
+    margin-left: 15px;
+    background-color: white;
+    color: black;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.acarna_header
+{
+    padding-top: 17px;
+    color: white;
+    text-align: center;
+}
+
+#learn_button
+{
+    margin-left: 10px;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid dodgerblue;
 }
