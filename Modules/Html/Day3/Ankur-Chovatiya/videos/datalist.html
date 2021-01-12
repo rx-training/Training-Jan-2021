@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datalist</title>
+    
+</head>
+<body>
+    <h1>This is datalist exapmle</h1>
+    <label for="name">Enter your name: </label>
+    <input type="text" list="dlist" id="name" >
+    <datalist id="dlist">
+        <option value="Mr. "></option>
+        <option value="Mrs. "></option>
+        <option value="Ms. "></option>
+    </datalist>
+</body>
+<script>
+    
+    console.log("testing");
+   let x = document.getElementById("name");
+   x.onchange = () => {
+       console.log(x.value);
+   }
+    
+</script>
+</html>
