@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This is simple image gallery!</title>
+	<style type="text/css">
+		
+		.maincontainer
+		{
+			width: 90%;
+			display: flex;
+			margin: 0 auto;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.img-class
+		{
+			display: block;
+			flex-basis: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		@media only screen and (min-width: 640px)
+		{
+			.img-class
+			{
+				flex-basis: 50%;
+			}
+		}
+
+		
+		@media only screen and (min-width: 960px)
+		{
+			.img-class
+			{
+				flex-basis: 33.33%%;
+			}
+		}
+
+
+		@media only screen and (min-width: 1280px)
+		{
+			.img-class
+			{
+				flex-basis: 25%;
+			}
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="maincontainer">
+		<img src="a.jpg" class="img-class">
+		<img src="b.jpg" class="img-class">
+		<img src="c.jpg" class="img-class">
+		<img src="d.jpg" class="img-class">
+		<img src="e.jpg" class="img-class">
+		<img src="f.jpg" class="img-class">
+		<img src="g.jpg" class="img-class">
+		<img src="h.jpg" class="img-class">
+		<img src="i.jpg" class="img-class">
+		<img src="j.jpg" class="img-class">
+		<img src="k.jpg" class="img-class">
+		<img src="l.jpg" class="img-class">
+		<img src="m.png" class="img-class">
+		<img src="k.jpg" class="img-class">
+</body>
+</html>
