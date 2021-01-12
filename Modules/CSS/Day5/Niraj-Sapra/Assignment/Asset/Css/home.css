@@ -107,6 +107,7 @@ float: left;
   width: 100%;
   padding-top:50px;
   margin-left: 10%;
+  padding-bottom: 5%;
 }
 .footerthirdclass{
   width: 40%;
@@ -119,6 +120,9 @@ float: left;
   overflow: hidden;
 }
 .atag{
+  display: block;
+  color: #878787;
+  padding: 8px 0px;
   text-decoration: none;
 }
 .footerfirst{
@@ -133,5 +137,11 @@ float: left;
 .footermain{
     background-color: #ebe9e6;
     height: auto;
-    display: flow-root;
+    display:flex;
+}
+.footerlogo{
+  background-color: #ebe9e6;
+  text-align: center;
+  color: #7b8485;
+  padding-bottom: 30px;
 }
