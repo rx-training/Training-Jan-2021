@@ -13,13 +13,16 @@
         #navbar{
             height: 75px;
             background-color: #333333;
-           text-align: center;
+            text-align: center;
+           
+           
         }
         #navbar ul{
             list-style-type: none;
             margin: 0;
             padding: 0;
             background-color: #333333;
+        
         }
         #navbar li {
             display: inline-block;
@@ -206,9 +209,18 @@
    }
 
    #socialIcon{
-       height: 80px;
+      
        background-color: burlywood;
-       font-size: 36px;
        text-align: center;
    }
    
+   #socialIcon ul{
+    list-style-type: none;
+    text-align: center;
+    padding-top: 25px;
+}
+    #socialIcon ul li{
+    display: inline;
+    padding-left: 15px;
+    font-size: 1.5em;
+}
