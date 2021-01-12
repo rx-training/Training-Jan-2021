@@ -1,146 +1,29 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Form Validation</title>
-    <script type="text/javascript">
-         function validate() {
-
-         if( document.myForm.Name.value == "" ) {
-            alert( "Please provide your name!" );
-            document.myForm.Name.focus() ;
-            return false;
-         }
-
-	if( document.myForm.Designation.value == "" ) {
-            alert( "Please provide your designation!" );
-            document.myForm.Name.focus() ;
-            return false;
-         }
-
-         if( document.myForm.Email.value == "" ) {
-            alert( "Please provide your Email!" );
-            document.myForm.Email.focus() ;
-            return false;
-         }
-
-	if( document.myForm.Date.value == "" ) {
-            alert( "Please provide your Date!" );
-            document.myForm.Date.focus() ;
-            return false;
-         }
-
-         if( document.myForm.Age.value == "" || isNaN( document.myForm.Age.value ) ||
-            document.myForm.Age.value.length != 2 ) {
-
-            alert( "Please provide a age in the format #####." );
-            document.myForm.Age.focus() ;
-            return false;
-         }
-
-	if( document.myForm.Contact.value == "" ) {
-            alert( "Please provide your Contact!" );
-            document.myForm.Contact.focus() ;
-            return false;
-         }
-
-	if( document.myForm.Salary.value == "" ) {
-            alert( "Please provide your Salary!" );
-            document.myForm.Salary.focus() ;
-            return false;
-         }
-
-         if( document.myForm.Location.value == "-1" ) {
-            alert( "Please provide your Location!" );
-            return false;
-         }
-         return( true );
-      }
-    </script>
+    <title></title>
+    <form method="post" action="first.html">
 </head>
-<body style="background-color:powderblue;">
-    <form action="/cgi-bin/test.cgi" name="myForm" onsubmit="return(validate());">
-        <table>
-
-            <tr>
-                <td align="right">Name</td>
-                <td><input type="text" name="Name" /></td>
-            </tr>
-
-            <tr>
-                <td align="right">Designation</td>
-                <td><input type="text" name="Designation" /></td>
-            </tr>
-
-            <tr>
-                <td align="right">Salary</td>
-                <td><input type="number" name="Salary" /></td>
-            </tr>
-
-            <tr>
-                <td align="right">Location</td>
-                <td>
-                    <select name="Location">
-                        <option value="-1" selected>[choose yours]</option>
-                        <option value="1">Ahmedabad</option>
-                        <option value="2">Banglore</option>
-                        <option value="3">Chennai</option>
-                        <option value="1">Mumbai</option>
-                        <option value="2">Banglore</option>
-                        <option value="3">Delhi</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">EMail</td>
-                <td><input type="text" name="EMail" /></td>
-            </tr>
-
-            <tr>
-                <td align="right">Age</td>
-                <td><input type="number" name="Age" /></td>
-            </tr>
-
-            <tr>
-                <td align="right">Contact Number</td>
-                <td><input type="number" name="Contact" /></td>
-            </tr>
-
-
-            <tr>
-                <td align="right">Date</td>
-                <td><input type="date" name="date" /></td>
-            </tr>
-
-            <tr>
-                <td>
-                    Gender:
-                </td>
-                <td>
-                    <input type="radio" name="Gender">Male
-                    <input type="radio" name="Gender">Female
-                </td>
-            </tr>
-
-            <tr>
-                <td align="right">Location</td>
-                <td>
-                    <select name="Location">
-                        <option value="-1" selected>[choose yours]</option>
-                        <option value="1">Ahmedabad</option>
-                        <option value="2">Banglore</option>
-                        <option value="3">Chennai</option>
-                        <option value="1">Mumbai</option>
-                        <option value="2">Banglore</option>
-                        <option value="3">Delhi</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td align="right"></td>
-                <td><input type="submit" value="Submit" /></td>
-            </tr>
-
-        </table>
-    </form>
+<body>
+    <h3>Employee Details</h3>
+    Enter Name:<input type="text" id="username" required></br></br>
+    Enter Username:<input type="email" id="txt1" required></br></br>
+    Enter Date Of Joining:<input type="date" id="date" required=""></br></br>
+    Contact Number:<input type="tel" id="phone" name="phone" placeholder="9999999999" pattern="[0-9]{10}" required></br></br>
+    Age:<input type="number" id="age" name="age" placeholder="23" pattern="[0-9]{1,2}" required></br></br>
+    Year Of Passing:<input type="number" id="year" name="year" placeholder="2015" pattern="[0-9]{4}" required></br></br>
+    Male:<input type="radio" id="male" name="gender" value="male" required>
+    Female:<input type="radio" id="female" name="gender" value="female" required></br></br>
+    Salary:<input type="number" id="salary" name="salary" required></br></br>
+    Designation:<input type="number" id="designation" name="designation" required></br></br>
+    <label for="location">Location:</label>
+    <select id="location" name="location">
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Baroda">Baroda</option>
+        <option value="Rajkot">Rajkot</option>
+        <option value="Vadodra">Vadodra</option>
+    </select>
+    </br>
+    <input type="submit" value="submit">
 </body>
 </html>
