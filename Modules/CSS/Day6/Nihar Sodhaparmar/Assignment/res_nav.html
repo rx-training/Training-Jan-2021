@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Responsive Menu
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+
+            .menu
+            {
+                background: black;
+                overflow: hidden;
+            }
+
+            .menu a
+            {
+                float: left;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .menu a:hover
+            {
+                background-color: lightgray;
+                color: black;
+            }
+
+            .menu a.active
+            {
+                background-color: cornflowerblue;
+                color: white;
+            }
+
+            .menu a.icon
+            {
+                display: none;
+            }
+
+            @media (max-width: 600px)
+            {
+                .menu a:not(:first-child)
+                {
+                    display: none;
+                }
+
+                .menu a.icon
+                {
+                    float: right;
+                    display: block;
+                }
+            }
+
+            @media (max-width: 600px)
+            {
+                .menu.res_menu a.icon
+                {
+                    position:absolute;
+                    right: 0;
+                    top: 0;
+                }
+
+                .menu.res_menu
+                {
+                    position: relative;
+                }
+
+                .menu.res_menu a
+                {
+                    float: none;
+                    display: block;
+                    text-align: left;
+                    width: auto;
+                }
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="menu" id="menu_id">
+            <a href="#home" class="active">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+
+          <script>
+                function myFunction() {
+                    var x = document.getElementById("menu_id");
+                    if (x.className === "menu") {
+                        x.className += " res_menu";
+                    } else {
+                        x.className = "menu";
+                    }
+                }
+          </script>
+    </body>
+</html>
