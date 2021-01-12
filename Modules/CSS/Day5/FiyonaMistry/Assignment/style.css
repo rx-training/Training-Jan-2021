@@ -9,19 +9,20 @@ header {
     line-height:30px;
     color:lightskyblue;
 }
-nav {
+nav{
     background-color: black;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    color:gray;
+    display:flex;
+    justify-content:center;
+    padding:20px;
 }
-a:visited {
+nav a {
+    padding: 10px;
+    color: gray;
+    font-size: 20px;
+    text-decoration: none;
+}
+a:hover {
     color: white;
-}
-a:link{
-    color:gray;
-    text-decoration:none;
 }
 .banner {
     height:100%;
@@ -62,17 +63,15 @@ img{
 }
 .subtitle {
     text-align: center;
-    line-height:50px;
+    line-height:0px;
     height: 50px;
     background-color: floralwhite;
     color:gray;
 }
 .everything {
     text-align: center;
-    margin-top: 150px;
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-bottom:150px;
+    margin:150px;
+    justify-content:center;
 }
 .insertCoin{
     height:100px;
@@ -94,15 +93,16 @@ img{
     margin-top:50px;
     margin-left:200px;
 }
+.links td a{
+    color:gray; 
+}
 .getInTouch {
     text-align: left;
     float:right;
     margin-top:65px;
     margin-right:220px;
 }
-footer{
-    background-color:gray;
-    text-align:center;
-    height:100px;
-    
+.footer {
+    background-color: lightgray;
+    text-align: center;
 }
