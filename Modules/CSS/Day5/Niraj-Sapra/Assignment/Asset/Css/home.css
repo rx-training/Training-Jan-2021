@@ -2,33 +2,124 @@
 width:100%;
 }
 .header{
-    width:100%;
-    border-bottom: 3px solid blue;
+  width: 100%;
+  border-bottom: 8px solid blue;
+  display: table;
 }
 .logoheder{
-background-color: antiquewhite;
-font-size: small;
-color: blue;
-padding: 10px 0px;
-text-align: center;
+  background-color: #fcf7f7;
+  font-size: small;
+  color: #5ad4e2;
+  padding: 10px 0px;
+  text-align: center;
 }
-nevigationlist {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
- .floatleftuse{
+.nevigationbar{
+background-color: #333;
+}
+.nevigationlist {
+  display: table;
+  margin: 0 auto;
+  text-decoration: none;
+}
+.floatleftuse{
     float: left;
-  }
- .atagnevigation{
+}
+.atagnevigation{
     display: block;
     color: rgb(92, 88, 88);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
-  atagnevigation:hover {
-    background-color:azure;
-  }
+}
+.atagnevigation:hover {
+    color:white;
+}
+.bannerclass{
+width: 100%;
+}
+.buttonclass{
+  background-color: #00b8ff;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 2px;
+    cursor: pointer;
+}
+.secsection{
+  margin-left: 20%;
+  margin-top: 60px;
+}
+.secdivfirst,.secdivsec,.secdivthird{
+  width: 20%;
+  float: left;
+  text-align: center;
+  margin: 0px 20px;
+  display: table;
+}
+.secimagediv{
+  margin: 10px 0px;
+}
+.boldsec {
+  width: 100%;
+  text-align: center;
+  padding: 48px 0px;
+  display: table;
+  font-size: 26px;
+  background-color: #f6f3ee;
+}
+.articaltag{
+  padding-top: 30px;
+  padding-left: 15%;
+}
+.fistblogimg{
+  float: left;
+  padding-right: 30px;
+}
+.firstblog{
+  width: 40%;
+  float: left;
+  margin: 0% 1%;
+}
+.secblog
+{width: 40%;
+float: left;
+}
+.secarticaltag {
+  padding-top: 28px;
+  display: table;
+  width: 100%;
+  margin-bottom: 5%;
+}
+.secarticalnotification{
+    width: 100%;
+    padding: 30px 0px;
+    background-color: deepskyblue;
+    color: white;
+}
+.fotterclass{
+  width: 100%;
+  padding-top:50px;
+  margin-left: 10%;
+}
+.footerthirdclass{
+  width: 40%;
+}
+.articaltagsetlinkfirst,.setlinkfirst{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  overflow: hidden;
+}
+.atag{
+  text-decoration: none;
+}
+.footerfirst{
+  width: 20%;
+}
+.linkstuf{
+  padding-top: 15px;
+}
