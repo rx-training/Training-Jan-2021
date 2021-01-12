@@ -209,11 +209,12 @@
 .footer_list2 {
     font-size: 15px;
     /*background-color: lightgreen;*/
-    width: 46%;
+    width: 20%;
+    float: left;
 }
 
 .get_in_touch {
-    background-color: lightsalmon;
+    
     width: 30%;
     float: left;
 }
