@@ -19,6 +19,7 @@ nav ul {
 
 nav ul li {
     float: left;
+    width: 16.66%;
 }
 
 nav ul li a {
