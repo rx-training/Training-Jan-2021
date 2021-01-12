@@ -1,0 +1,23 @@
+.flexbox{
+    background-color: rgb(163, 221, 221);
+    display: flex;
+}
+.flexbox > div{
+    background-color:rgb(9, 170, 117);
+    margin : 10px;
+    padding : 25px;
+    font-size : 25px;    
+}
+
+.direction{
+    background-color :rgb(228, 241, 107);
+    display : flex;
+    flex-direction: row-reverse;
+
+}
+.direction >div{
+    background-color:rgb(9, 170, 117);
+    margin : 10px;
+    padding : 25px;
+    font-size : 25px;
+}
