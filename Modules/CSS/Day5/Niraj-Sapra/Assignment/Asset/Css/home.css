@@ -3,7 +3,7 @@ width:100%;
 }
 .header{
   width: 100%;
-  border-bottom: 8px solid blue;
+  border-bottom: 10px solid dodgerblue;
   display: table;
 }
 .logoheder{
@@ -12,14 +12,17 @@ width:100%;
   color: #5ad4e2;
   padding: 10px 0px;
   text-align: center;
+  padding: 30px 0px;
 }
 .nevigationbar{
-background-color: #333;
+  background-color: black;
+  color: aliceblue;
 }
 .nevigationlist {
   display: table;
   margin: 0 auto;
   text-decoration: none;
+  list-style-type: none;
 }
 .floatleftuse{
     float: left;
@@ -28,7 +31,7 @@ background-color: #333;
     display: block;
     color: rgb(92, 88, 88);
     text-align: center;
-    padding: 14px 16px;
+    padding: 18px 16px;
     text-decoration: none;
 }
 .atagnevigation:hover {
@@ -51,6 +54,7 @@ width: 100%;
 .secsection{
   margin-left: 20%;
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 .secdivfirst,.secdivsec,.secdivthird{
   width: 20%;
@@ -122,4 +126,12 @@ float: left;
 }
 .linkstuf{
   padding-top: 15px;
+}
+.fontweightbold{
+  font-weight: bold;
+}
+.footermain{
+    background-color: #ebe9e6;
+    height: auto;
+    display: flow-root;
 }
