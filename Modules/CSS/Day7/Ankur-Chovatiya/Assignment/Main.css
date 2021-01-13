@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: aqua;
+    display: none;
+}
+.banner img{
+    width: 100%;
+}
+
+/*          for iPad            */
+
+
+@media only screen and (min-width:600px){
+    .navbar{
+        background-color: #555555;
+        width: 100%;
+        text-align: center;
+        display: inline-block;
+    }
+    .navbar ul{
+        /* background-color: aqua; */
+        list-style-type: none;
+        text-align: center;
+        padding: 16px 20px;
+    }
+    .navbar li{
+        display: inline;
+        margin-right: 15px;
+        padding-top:15px;
+        /* text-align: center; */
+       }
+
+       .navbar li a{
+           text-decoration: none;
+           color: #ffffff;
+           padding: 16px 20px;
+       }
+       .navbar li a:hover{
+            background-color: #999999;
+       }
+}
