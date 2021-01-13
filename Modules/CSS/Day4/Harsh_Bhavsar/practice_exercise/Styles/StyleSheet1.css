@@ -1,0 +1,16 @@
+﻿/*bordered paragraph*/
+p.solid {
+    border-style: solid;
+}
+/*city list*/
+li {
+    display: inline;
+}
+/*background colour blue using universal selector*/
+*{
+    background-color: blue;
+}
+/*applying h1 and h2 red color*/
+#div1{
+    color: red;
+}

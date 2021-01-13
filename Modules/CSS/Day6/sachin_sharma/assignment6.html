@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+        .nav{
+            border-bottom: 1px solid black;
+            text-align: right;
+            height: 100px;
+            line-height: 100px;
+        }
+        .menu{
+            margin: 0 30px 0 0;
+
+        }
+        .menu a{
+            clear: right;
+            text-decoration: none;
+            color: gray;
+            margin: 0 10px;
+            line-height: 100px;
+        }
+        span{
+            color: green;
+
+        }
+        label{
+            margin: 0 40px 0 0;
+            font-size: 26px;
+            display: none;
+            line-height: 100px;
+            width: 26px;
+            float: right;
+        }
+        #toggle{
+            display: none;
+        }
+        @media screen and (max-width:500px){
+            label{
+                display: block;
+                cursor: pointer;
+            }
+            .menu{
+                text-align: center;
+                width: 100%;
+                display: none;
+            }
+            .menu a{
+                display: block;
+                border-bottom: 1px solid;
+                margin: 0;
+
+            }
+            #toggle:checked + .menu {
+                display: block;
+            }
+
+
+        }
+        
+    
+            
+
+    </style>
+    <title>Day6 Assignment resposive menu </title>
+</head>
+<body>
+    <div class="nav">
+        <label for="toggle">&#9776;</label>
+        <input type="checkbox" id="toggle">
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">service</a>
+            <a href="#">About us</a>
+            <a href="#"><span>Contact us</span></a>
+        </div>    
+    </div>
+    
+</body>
+</html>
