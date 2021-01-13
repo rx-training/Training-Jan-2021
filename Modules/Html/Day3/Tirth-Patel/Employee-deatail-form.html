@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form{
+            
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,30 +20,33 @@
         <div>
             NAME: <input type="text" required>
         </div>
-        <br>
+        
         <div>
 
             Age <input type="number" required>
 
         </div>
-        <br>
+        
         <div>
             Gender:
-            Male<input type="radio" id="Male">
-            Female<input type="radio" id="FeMale">
-            Others<input type="radio" id="Others">
+            <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                 <label for="other">Other</label>
         </div>
-        <br>
+        
         <div>
             Designation <input type="text" required>
         </div>
-        <br>
+        
         <div>
 
             Salary<input type="number" required>
 
         </div>
-        <br>
+        
         <div>
             <label for="loc">Location</label>
             <select name="Location" id="loc" required>
@@ -49,31 +59,29 @@
 
             </select>
         </div>
-        <br>
+        
         <div>
 
             EmailID: <input type="email" required>
 
         </div>
-        <br>
+        
         <div>
             Date-Of-Joining: <input type="date" required>
         </div>
-        <br>
+        
         <div>
             Contact number: <input type="tel" pattern="[0-9] {10}" maxlength="10" required>
 
         </div>
-        <br>
+        
         <div>
-            <input type="submit">
-            <input type="reset">
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
         </div>
 
 
-
-
-
+<!---->
 
     </form>
 
