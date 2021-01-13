@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+}
+.header{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100px;
+}
+.header h3{
+    padding: 20px;
+    widows: 30%;
+    float: left;
+    color: green;
+}
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+ .header li {
+    float: right;
+  }
+  
+ .header li a {
+    display: block;
+    color: rgb(0, 0, 0);   
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .bgimg{
+    width: 100%;
+    height: 400px;
+  }
+  .para
+  {
+    padding: 20px 30px;
+  }
+
+  .para span{
+    background-color: rgb(80, 240, 80);
+    color: black;
+    padding: 5px;
+  }
+  .para1
+  {
+    margin-top: 50px;
+  }
+  .para11{
+    float: left;
+    padding: 100px 120px;
+    background-color: silver;
+    margin: 20px;
+    text-align: center;
+  }
+  .para12{
+    float: left;
+    width: 300px;
+    height: 220px;
+    margin: 20px;
+    text-align: left;
+    margin-top: 0;
+  }
+  .para12p{
+    font-size: larger;
+  }
+  .para2{
+    float: left;
+  }
+  .paralast{
+    background-color: silver;
+    float: left;
+    padding: 150px 314px;
+    font-size: larger;  
+    margin-bottom: 40px;
+  }
+  .logo{
+    padding: 4px;
+    float: left;
+  }
+  .logo img{
+    width: 130px;
+    height: 100px;
+  }
+  .footer{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.877);
+    margin-top: 40px;
+    padding: 15px;
+    float: left;
+  }
+  .head0{
+    float: left;
+    width: 45%;
+    margin-right:30px;
+    
+  }
+
+  @media screen and (min-width:768px){
+    .para span{
+      float: right;
+    }
+    .helo{
+      width: 33%;
+      float: left;
+      padding: 20px;
+    }
+    .para11{
+      width: 25%;
+      float: left;
+    }
+    .para12{
+      width: 25%;
+      float: none;
+    }
+    .logo{
+      clear:both;
+      float: left;
+
+    }
+
+  }
