@@ -1,1 +1,20 @@
 Pull request
+
+-git pull, in contrast, is used with a different goal in mind: to update your current HEAD branch with the latest changes from the remote server. 
+-This means that pull not only downloads new data; it also directly integrates it into your current working copy files. 
+-In pull request if any changes that all changes can be allowed and showed in local repository.
+
+Fetch request
+
+-git fetch really only downloads new data from a remote repository - but it doesn't integrate any of this new data into your working files. 
+-Fetch is great for getting a fresh view on all the things that happened in a remote repository.
+-To show what kind of changes to apply in git account to local repository.
+
+Stach Request
+
+-Stash will move your modified files into a stack. So, later in the same or in another branch, 
+-you will be able to bring them back and see those modifications in your project.
+
+Stage Request
+
+-Stage is the step before to make a commit, you add modified files to "Staged files" to create your next commit.
