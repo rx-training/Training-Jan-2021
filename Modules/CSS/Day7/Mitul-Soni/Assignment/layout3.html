@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Layout</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<style type="text/css">
+	*
+	{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	.first-header h4
+	{
+		text-align: right;
+		color: black;
+		margin-top: 10px;
+		font-size: 15px;
+		font-family: arial;
+	}
+	.first-header a
+	{
+		color: black;
+		text-decoration-line: none;
+		
+	}
+	.first-header a:hover
+	{
+		background-color: grey;
+	}
+	.logo-header h2
+	{
+		color: green;
+		padding: 0 80px;
+	}
+	nav
+	{
+		background:white;
+		height: 80px;
+		width: 100%;
+	}
+	label.logo
+	{
+		color: green;
+		font-size: 35px;
+		line-height: 80px;
+		padding: 0 100px;
+		font-weight: bold;
+		font-family: arial;
+	}
+	nav ul
+	{
+		float:right;
+		margin-right: 20px;
+	}
+	nav ul li
+	{
+		display: inline-block;;
+		line-height: 80px;
+		margin: 0 5px;
+	}
+	nav ul li a
+	{
+		color:black;
+		font-size: 17px;
+		padding: 7px 13px;
+		border-radius: 3px;
+		text-transform: uppercase;
+		text-decoration-line: none;
+		font-family: arial;
+	}
+	.banner
+	{
+		background-repeat:no-repeat;
+		background-position: center top;
+		display:block;
+		margin:0px auto;
+		line-height: 40px; 
+	}
+	.second-part h3
+	{
+		padding: 10px;
+		font-family: arial;
+
+	}
+	.second-part p
+	{
+		padding: 10px;
+		font-family: arial;
+		width: 80%;
+	}
+	.third-part h2
+	{
+		padding: 10px;
+		font-family: arial;
+
+	}
+	.third-part p
+	{
+		padding: 10px;
+		font-family: arial;
+		width: 80%;
+	}
+
+
+	.button
+	{
+		float: right;
+		margin-right: 60px;
+		color: white;
+		height: 30px;
+		background-color: green;
+	}
+	.fourth-part h2
+	{
+		padding: 10px;
+		font-family: arial;
+
+	}
+	.fourth-subpart p
+	{
+		padding: 10px;
+		font-family: arial;
+		width: 100%;
+	}
+	.fifth-part h2
+	{
+		padding: 10px;
+		font-family: arial;
+
+	}
+	.fifth-subpart p
+	{
+		padding: 10px;
+		font-family: arial;
+		width: 100%;
+	}
+	.six-part h2
+	{
+		padding: 10px;
+		font-family: arial;
+
+	}
+	.demo
+	{
+		float: left;
+	}
+	@media only screen and (max-width: 600px)
+	{
+		label.logo{
+			font-size: 30px;
+			padding-left: 50px;
+		}
+		nav ul li a{
+			font-size: 16px;
+		}
+		.bgimg
+		{
+			width: 100%;
+			height: 400px;
+		}
+        .second-part h3
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+		}
+		.second-part p
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+		}
+		.button
+		{
+			float: left;
+			margin: 10px;
+			align-items:center;
+		}
+		.third-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+		}
+		.third-part p
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 30px;
+		}
+		.vl
+		{
+			border-left: 6px solid gray;
+			margin-left: 5px;
+			height: 200px;
+			background-color: grey;
+		}
+		.fourth-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+		}
+		.fourth-subpart
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 30px;
+			text-align: center;
+		}
+		.project-logo
+		{
+			width: 50%;
+			height: 200px;
+			border: 2px solid black;
+			margin-left: 25%;
+		}
+		
+		.fifth-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+			
+		}
+		.fifth-subpart p
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 30px;
+			text-align:left;
+		}
+		.fifth-sub-part
+		{
+			padding: 50px;
+			line-height: 30px;
+			font-family: arial;
+			background-color: #ccccb3;
+		}
+		.six-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+			
+		}
+		.seven-part
+		{
+			margin:30px;
+		}
+		.eight-part
+		{
+			width: 100%;
+			height: auto;
+			background-color:#1B2631 ;
+		}
+		.eight-sub-part
+		{
+			color: white;
+			padding-left: 50px;
+			font-family: arial;
+			width: 100%;
+		}
+		.nine-part
+		{
+			background-color:#1B2631 ;
+		}
+		.ten-part
+		{
+			background-color:#1B2631 ;
+			text-align: center; 
+			color: white;
+			font-size: 20px;
+			font-family: arial;	
+		}
+		.elev-part
+		{
+			background-color: black;
+			text-align: center; 
+			color: white;
+			font-size: 20px;
+			font-family: arial;
+			line-height: 50px;	
+		}
+		.lastimages 
+		{
+	        margin-left: 205px;
+	        word-spacing: 10px;
+	    }
+	}
+	
+	@media only screen and (min-width: 1200px)
+	{
+		label.logo{
+			font-size: 30px;
+			padding-left: 50px;
+		}
+		nav ul li a{
+			font-size: 16px;
+		}
+		.bgimg
+		{
+			width: 100%;
+			height: 400px;
+		}
+        .second-part h3
+		{
+			display: block;
+			width: 100%;
+			background-color:#ccccb3;
+			font-size: 30px;
+		}
+		.second-part p
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			font-size: 20px;
+		}
+		.button
+		{
+			float: left;
+			margin: 10px;
+			align-items:center;
+		}
+		.third-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+		}
+		.third-part p
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 30px;
+		}
+		.fourth-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+		}
+		.fourth-subpart
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 30px;
+			text-align: center;
+		}
+		.project-logo
+		{
+			width: 50%;
+			height: 200px;
+			border: 2px solid black;
+			margin-left: 25%;
+		}
+		
+		.fifth-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+			
+		}
+		.fifth-subpart p
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 30px;
+			text-align:left;
+		}
+		.fifth-sub-part
+		{
+			padding: 50px;
+			line-height: 30px;
+			font-family: arial;
+			background-color: #ccccb3;
+		}
+		.six-part h2
+		{
+			display: block;
+			width: 100%;
+			background-color: #ccccb3;
+			line-height: 40px;	
+			
+		}
+		.seven-part
+		{
+			margin:30px;
+		}
+		.eight-part
+		{
+			width: 100%;
+			height: auto;
+			background-color:#1B2631 ;
+		}
+		.eight-sub-part
+		{
+			color: white;
+			padding-left: 50px;
+			font-family: arial;
+			width: 100%;
+		}
+		.nine-part
+		{
+			background-color:#1B2631 ;
+		}
+		.ten-part
+		{
+			background-color:#1B2631 ;
+			text-align: center; 
+			color: white;
+			font-size: 20px;
+			font-family: arial;	
+		}
+		.elev-part
+		{
+			background-color: black;
+			text-align: center; 
+			color: white;
+			font-size: 20px;
+			font-family: arial;
+			line-height: 50px;	
+		}
+	}
+        
+</style>
+<body>
+	<div class="first-header">
+		<h4>
+			<i class="fas fa-globe-americas"></i>
+			<a href="#">LANGUAGES </a>|&nbsp<a href="#">HELP</a> | <a href="#">LOGIN</a> 
+		</h4>
+	</div>
+	<nav>
+		<label class="logo">Logo Here</label>
+			<ul>
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Serivce</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Feeback</a></li>
+			</ul>
+	</nav>
+	<img src="img/bg.jpg" class="bgimg">
+	<div class="second-part">
+		<h3>
+			Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+		</h3>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+		<button class="button"><i class="far fa-cloud-download-alt"></i>Download Now</button>
+		
+	</div>
+	<br><br><br>
+	<hr>
+	<div class="third-part">
+		<h2>
+			Fully Responsive
+		</h2>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+	</div>
+	<div class="third-part">
+		<h2>
+			HTML5 + CSS3
+		</h2>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+	</div>
+	<div class="third-part">
+		<h2>
+			Launch Ready
+		</h2>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+	</div>
+	<br><br>
+	<hr>
+	<section>
+		<div class="demo">
+			<h1>
+				Hiii
+			</h1>
+			<img src="img/logo2.png">
+		</div>
+	</section>
+	<!--<div class="fourth-part">
+		<h2>Recent Works</h2>
+	</div>
+	<img src="img/logo2.png" class="project-logo">
+	<div class="fourth-subpart">
+		<h4 style="text-align: center;font-family: arial;font-size: 30px">Project One</h4>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+	</div>
+	<img src="img/logo2.png" class="project-logo">
+	<div class="fourth-subpart">
+		<h4 style="text-align: center;font-family: arial;font-size: 30px">Project One</h4>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+	</div>
+	<br>
+	<img src="img/logo2.png" class="project-logo">
+	<div class="fourth-subpart">
+		<h4 style="text-align: center;font-family: arial;font-size: 30px">Project One</h4>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+	</div>
+	<br>
+	<img src="img/logo2.png" class="project-logo">
+	<div class="fourth-subpart">
+		<h4 style="text-align: center;font-family: arial;font-size: 30px">Project One</h4>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+	</div>-->
+	<br><br>
+	<div class="fifth-part">
+		<h2>Welcome To This Site</h2>
+	</div>
+	<br>
+	<img src="img/logo2.png" class="project-logo">
+	<div class="fifth-subpart">
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		</p>
+		<div class="fifth-sub-part">
+			<i class="fas fa-check" style="color: green;"></i>&nbsp Lorem Ipsum is simply dummy text of the printing<br>
+			<i class="fas fa-check" style="color: green;"></i>&nbsp Lorem Ipsum is simply dummy text of the printing<br>
+			<i class="fas fa-check" style="color: green;"></i>&nbsp Lorem Ipsum is simply dummy text of the printing<br>
+			<i class="fas fa-check" style="color: green;"></i>&nbsp Lorem Ipsum is simply dummy text of the printing
+		</div>
+		<div class="vl"> 
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br><br>
+			-CEO Jack Bour.
+		</p>
+		</div>
+	</div>
+	<br><br>
+	<div class="six-part">
+		<h2>Latest Shots</h2>
+	</div>
+	<br>
+	<img src="img/logo2.png" class="project-logo">
+	<br><br>
+	
+	<div class="six-part">
+		<h2>Our Clients</h2>
+		<div class="seven-part">
+			<img src="img/logo9.png" height="80" width="120">
+			<img src="img/logo9.png" height="80" width="120">
+			<img src="img/logo9.png" height="80" width="120">
+			<img src="img/logo9.png" height="80" width="120">
+		</div>
+	</div>
+	<br><br>
+	
+	<div class="eight-part">
+		<label class="logo">Logo Here</label>
+		<div class="eight-sub-part">
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+			</p>
+
+			<br><br>			
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+			</p>
+			
+		</div>
+	</div>
+	
+	<div class="nine-part">
+		<label class="logo" style="color:white;">
+			Latest Posts
+		</label>
+		<div>
+			<h5  style="color:white;padding-left: 50px;font-size: 20px;">
+				Incridible Content
+			</h5>
+			<h6 style="color:white;padding-left: 50px;font-size: 20px;">
+				<u>May 8,2014 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</u>
+			</h6>
+		</div>
+		<br>
+		<div>
+			<h5  style="color:white;padding-left: 50px;font-size: 20px;">
+				Incridible Content
+			</h5>
+			<h6 style="color:white;padding-left: 50px;font-size: 20px;">
+				<u>May 8,2014 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</u>
+			</h6>
+		</div>
+		<br>
+		<div>
+			<h5  style="color:white;padding-left: 50px;font-size: 20px;">
+				Incridible Content
+			</h5>
+			<h6 style="color:white;padding-left: 50px;font-size: 20px;">
+				<u>May 8,2014 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</u>
+			</h6>
+		</div>
+		<br><br>
+		<label class="logo" style="color:white;">
+			Useful Links
+		</label>
+		<br><br>
+		<div>
+			<h6 style="color:white;padding-left: 50px;font-size: 20px;">
+				<u>ABOUT US &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-caret-right"></i></u><br><br>
+			</h6>
+			<h6 style="color:white;padding-left: 50px;font-size: 20px;">
+				<u>ABOUT US &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-caret-right"></i></u><br><br>
+			</h6>
+			<h6 style="color:white;padding-left: 50px;font-size: 20px;">
+				<u>ABOUT US &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-caret-right"></i></u><br><br>
+			</h6>
+			<h6 style="color:white;padding-left: 50px;font-size: 20px;">
+				<u>ABOUT US &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-caret-right"></i></u><br>
+			</h6>
+		</div>
+		<br><br>
+	</div>
+		
+	<div class="ten-part">
+		<P>Contact Us</P><br>
+		<p>30/B Adarsh Society,</p>
+		<p>Near Kaashi Parekh Complex,</p>
+		<p>Swastik Char Rasta,C G Road,</p>
+		<p>Ahmedabad-380009</p>
+		<p>Gujarat-India</p>
+		<p>Phone :- <font color="green">+91-79-26400685</font></p>
+	</div>
+	<div class="elev-part">
+		<p>2015 &#169; All Rights Reserved. <font color="green">Privacy Policy | Terms of Services</font></p>
+		<div class="lastimages">
+                <img src="img/fb.jpg" width="20px" height="20px">
+                <img src="img/skype.jpg" width="20px" height="20px">
+                <img src="img/google.png" width="20px" height="20px">
+                <img src="img/lnk.png" width="20px" height="20px">
+                <img src="pintrest.jpeg" width="20px" height="20px">
+                <img src="img/twitter.png" width="20px" height="20px">
+            </div>
+	</div>
+
+</body>
+</html>
