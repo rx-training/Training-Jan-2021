@@ -145,4 +145,12 @@ body{
         float:left;
         padding:4px;
      }
+     .flex{
+         display: flex;
+     }
+     .set{
+        height:235px;
+        width:350px;
+        padding:4px;
+     }
 }
