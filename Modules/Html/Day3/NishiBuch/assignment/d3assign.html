@@ -7,91 +7,30 @@
         <title>Employee Details</title>
     </center>  
       <h1>EMPLOYEE DETAILS</h1>    
-      <script type = "text/javascript">
-         function validate() {​​​​​​​
-      
-         if( document.myForm.Name.value == "" ) {​​​​​​​
-            alert( "Please provide your name!" );
-            document.myForm.Name.focus() ;
-            return false;
-         }​​​​​​​
-
-
-    if( document.myForm.Designation.value == "" ) {​​​​​​​
-            alert( "Please provide your designation!" );
-            document.myForm.Name.focus() ;
-            return false;
-         }​​​​​​​
-
-
-         if( document.myForm.Email.value == "" ) {​​​​​​​
-            alert( "Please provide your Email!" );
-            document.myForm.Email.focus() ;
-            return false;
-         }​​​​​​​
-
-
-    if( document.myForm.Date.value == "" ) {​​​​​​​
-            alert( "Please provide your Date!" );
-            document.myForm.Date.focus() ;
-            return false;
-         }​​​​​​​
-
-
-         if( document.myForm.Age.value == "" || isNaN( document.myForm.Age.value ) ||
-            document.myForm.Age.value.length != 2 ) {​​​​​​​
-            
-            alert( "Please provide a age in the format #####." );
-            document.myForm.Age.focus() ;
-            return false;
-         }​​​​​​​
-
-
-    if( document.myForm.Contact.value == "" ) {​​​​​​​
-            alert( "Please provide your Contact!" );
-            document.myForm.Contact.focus() ;
-            return false;
-         }​​​​​​​
-
-
-    if( document.myForm.Salary.value == "" ) {​​​​​​​
-            alert( "Please provide your Salary!" );
-            document.myForm.Salary.focus() ;
-            return false;
-         }​​​​​​​
-
-
-         if( document.myForm.Location.value == "-1" ) {​​​​​​​
-            alert( "Please provide your Location!" );
-            return false;
-         }​​​​​​​
-         return( true );
-      }​​​​​​​
-      </script>      
-   </head>
+</head>
    <body style="background-color: crimson;">
     <center>
-      <form action = "/cgi-bin/test.cgi" name = "myForm" onsubmit = "return(validate());">
+      <form>
          <table>
             
             <tr>
                <td align = "right">Name</td>
-               <td><input type = "text" name = "Name" /></td>
+               <td><input type = "text" placeholder="Enter Name"  required/></td>
             </tr>
                         <tr>
                <td align = "right">Age</td>
-               <td><input type = "number" name = "Age" /></td>
+               <td><input type = "number"placeholder="Enter age"required min="1" max="90" /></td>
             </tr>
             
             <tr>
                 <td align = "right">EMail</td>
-                <td><input type = "text" name = "EMail" /></td>
+                <td><input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required /></td>
              </tr>
  
             <tr>
                 <td align = "right">Location</td>
                 <td>
-                   <select name = "Location">
+                   <select required ><option value=" ">Location</option>
                       <option value = "-1" ></option>
                       <option value = "1">Ahmedabad</option>
                       <option value = "2">kutch</option>
@@ -106,13 +45,13 @@
 
         <tr>
                <td align = "right">Designation</td>
-               <td><input type = "text" name = "Designation" /></td>
+               <td><input type = "text" required /></td>
             </tr>
 
 
        <tr>
                <td align = "right">Salary</td>
-               <td><input type = "number" name = "Salary" /></td>
+               <td><input type = "number"  required pattern="[0-9]+" /></td>
             </tr>
 
 
@@ -120,14 +59,14 @@
 
            <tr>
                <td align = "right">Contact Number</td>
-               <td><input type = "number" name = "Contact" /></td>
+               <td><input type = "number" required pattern="[0-9]+"/></td>
             </tr>
 
 
        
            <tr>
                <td align = "right">Date</td>
-               <td><input type ="date" name="date"/></td>
+               <td><input type ="date" required/></td>
             </tr>
 
 
@@ -142,24 +81,10 @@
            </tr>
 
 
-            <tr>
-               <td align = "right">Location</td>
-               <td>
-                  <select name = "Location">
-                     <option value = "-1" </option>
-                     <option value = "1">Ahmedabad</option>
-                     <option value = "2">Banglore</option>
-                     <option value = "3">Chennai</option>
-                     <option value = "1">Mumbai</option>
-                     <option value = "2">Banglore</option>
-                     <option value = "3">Delhi</option>
-                  </select>
-               </td>
-            </tr>
-            
+
             <tr>
                <td align = "right"></td>
-               <td><input type = "submit" value = "Submit" /></td>
+               <td><input type = "submit" value = "Submit" required /></td>
             </tr>
             
          </table>
