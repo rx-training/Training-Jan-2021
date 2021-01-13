@@ -1,0 +1,31 @@
+﻿.container{
+    height:200px;
+    width:600px;
+    border:solid black;
+    background-color: cornflowerblue;
+}
+.left {
+    height: 180px;
+    width: 185px;
+    border: solid black;
+    background-color: cornflowerblue;
+    float: left;
+    margin: 5px;
+}
+.center {
+    height: 180px;
+    width: 185px;
+    border: solid black;
+    background-color: cornflowerblue;
+    float: left;
+    margin: 5px;
+}
+
+.right {
+    height: 180px;
+    width: 180px;
+    border: solid black;
+    background-color: cornflowerblue;
+    float: right;
+    margin: 5px;
+}
