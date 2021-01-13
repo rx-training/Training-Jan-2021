@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice1 - Day5</title>
+    <style>
+        .flex-box {
+            display: flex;
+            align-items: stretch;
+            background-color: blueviolet;
+        }
+
+        .flex-box div{
+            margin: 5px;
+            height: 100px;
+            width: 100px;
+            padding: 20px;
+            font-size: 30px;
+            background-color: burlywood;
+        }
+
+        .flex-box:nth-child(3) {
+            flex-grow: 3;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- grow, shrink, basis property -->
+    <div class="flex-box">
+        <div><h1>1</h1></div>
+        <div style="flex-grow: 1;flex-basis: 200px;"><h1>2</h1></div>
+        <div style="flex-shrink: 2;"><h1>3</h1></div>
+        <div><h1>4</h1></div>
+    </div>
+    <br>
+    <!-- wraping property -->
+    <div class="flex-box" style="background-color: cadetblue;flex-wrap:wrap-reverse;">
+        <div><h1>1</h1></div>
+        <div style="flex-grow: 1;flex-basis: 200px;"><h1>2</h1></div>
+        <div style="flex-shrink: 2;"><h1>3</h1></div>
+        <div><h1>4</h1></div>
+        <div><h1>5</h1></div>
+        <div><h1>6</h1></div>
+        <div><h1>7</h1></div>
+        <div><h1>8</h1></div>
+        <div><h1>9</h1></div>
+        <div><h1>10</h1></div>
+        <div><h1>11</h1></div>
+        <div><h1>12</h1></div>
+        <div><h1>13</h1></div>
+        <div><h1>14</h1></div>
+        <div><h1>15</h1></div>
+        <div><h1>16</h1></div>
+        <div><h1>17</h1></div>
+        <div><h1>18</h1></div>
+        <div><h1>19</h1></div>
+        <div><h1>20</h1></div>
+    </div>
+    <br>
+
+    <!-- column flex with wrap and alignment properties -->
+    <div class="flex-box" style="height: 300px;flex-flow: column wrap;">
+        <div style="align-self: center;"><h1>1</h1></div>
+        <div style="align-self: baseline;"><h1>2</h1></div>
+        <div style="align-self:flex-start"><h1>3</h1></div>
+        <div style="align-self:flex-end"><h1>4</h1></div>
+    </div>
+    <br>
+
+    <!-- right to left order -->
+    <div class="flex-box" style="height: 300px;flex-direction: row-reverse;background-color: lightgreen;">
+        <div style="align-self: center;"><h1>1</h1></div>
+        <div style="align-self: baseline;"><h1>2</h1></div>
+        <div style="align-self:flex-start"><h1>3</h1></div>
+        <div style="align-self:flex-end"><h1>4</h1></div>
+    </div>
+
+
+</body>
+</html>
