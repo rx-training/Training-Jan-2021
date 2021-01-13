@@ -2,20 +2,156 @@
     margin: 0;
     padding: 0;
 }
-.navbar{
-    background-color: aqua;
-    display: none;
-}
-.banner img{
-    width: 100%;
+
+@media only screen and (max-width:450px){
+    
+    .navbar{
+        background-color: aqua;
+        display: none;
+    }
+    .banner img{
+        width: 100%;
+    }
+    .down-title{
+        font-size: 2em;
+        padding: 10px;
+    }
+    .down-desc{
+        padding: 10px;
+    }
+    .download button {
+        margin: 10px;
+        margin-bottom: 25px;
+        background-color: rgb(3, 212, 3);
+        border: none;
+        border-radius: 2px;
+        padding: 15px;
+        font-size: 16px;
+        color: #ffffff;
+    }
+    .sub-web{
+        margin: 35px 0;
+    }
+    .web-title{
+        font-size: 2em;
+        margin: 15px;
+    }
+    .web-desc{
+    margin: 15px;
+    }
+
+.work{
+    text-align: center;
+    padding: 20px;
 }
 
+.work img{
+    width: 350px;
+    height: 220px;
+    background-color: #555555;
+}
+.work-title{
+  font-size: 1.5em;
+  margin: 15px;
+}
+.wel{
+    padding: 25px;
+ }
+.wel img{
+    text-align: ;
+    width: 315px;
+    height: 200px;
+}
+.wel-desc{
+ margin: 24px 0;
+}
+.description{
+    border: none;
+    /* border: 2px solid #555555; */
+    border-left-style: solid;   
+}
+.description p{
+    padding-left:15px ;
+}
+.ceo{
+     font-size: 1em;
+     margin: 15px 0;
+}
+.latest{
+    padding: 25px;
+}
+.latest img {
+    padding: 25px;
+}
+
+.latest p{
+    font-size: 1.5em;
+    padding-bottom: 15px;
+}
+
+.client-bag{
+    background-image: url(img/logo9.png);
+    background-repeat: repeat-x;
+    background-size: 80px 40px;
+    height: 100px;
+    margin-top: 15px;
+
+}
+.client-title{
+    font-size: 1.5em;
+    margin: 15px;
+}
+.client{
+    padding: 15px;
+}
+
+.main-footer{
+    background-color:#777;
+    padding: 25px 0;
+      
+  }
+.footer-logo{
+    margin: 15px;
+    /* margin-bottom: 25px; */
+   
+}
+    .footer-posts{
+        margin: 15px;
+        margin-top: 35px;
+    }
+    .footer-links{
+        margin: 15px;
+        margin-top: 35px;
+    }
+    .footer-contact{
+        margin: 15px;
+        margin-top: 35px;
+    }
+    .sub-footer{
+        background-color: #333333;
+    }
+    .sub-footer p{
+        padding: 25px;
+    }
+    .footer p{
+        color: #d3d1d1;
+        padding: 5px 0;
+    }
+    address{
+        color: #d3d1d1;
+    }
+
+    .footer-title{
+        font-size: 2em;
+    }
+
+}
 /*          for iPad            */
 
 
 @media only screen and (min-width:600px){
     .navbar{
-        background-color: #555555;
+        background-color:#ffffff;
         width: 100%;
         text-align: center;
         display: inline-block;
@@ -35,10 +171,14 @@
 
        .navbar li a{
            text-decoration: none;
-           color: #ffffff;
+           color: black;
+           float: right;
            padding: 16px 20px;
        }
        .navbar li a:hover{
             background-color: #999999;
        }
 }
+
+
+/*          for desktop     */
