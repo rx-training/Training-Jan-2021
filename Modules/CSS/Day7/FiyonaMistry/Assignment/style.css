@@ -1,0 +1,124 @@
+*{
+    margin:0px;
+}
+/*Phone view*/
+@media only screen and (max-width:600px){
+    .fullyResponsive {
+        display: flex;
+        color: gray;
+        margin: 30px;
+        flex-direction: column;
+    }
+    .client1, .client2, .client3{
+        display:none;
+    }
+}
+/*iPad view*/
+@media only screen and (max-width:780px) {
+    header{
+        
+    }
+    .fullyResponsive {
+        display: flex;
+        color: gray;
+        margin: 30px;
+        flex-direction: column;
+    }
+}
+/*Desktop view*/
+@media only screen and (min-width:992px) and (max-width:1200px) {
+   
+}
+header {
+    padding: 10px;
+    color: green;
+}
+.banner img{
+    width:100%;
+    height:100%;
+}
+.downloadNow{
+    margin:30px;
+    color:gray;
+}
+.downloadNow input{
+    background-color:limegreen;
+    color:white;
+    padding:10px;
+    border:0px;
+}
+.fullyResponsive {
+    display: flex;
+    color: gray;
+    margin: 30px;
+}
+.recentWorks {
+    color: gray;
+    margin: 30px;
+    margin-top: 50px;
+    text-align: center;
+}
+.recentWorks img {
+    width: 50%;
+    height:50%;
+    padding: 20px;
+}
+.welcomeToSite{
+    margin-top:50px;
+    color:gray;
+    margin:30px;
+}
+.welcomeToSite img{
+    padding:20px;
+    width:50%;
+    height:50%;
+}
+.latestShots{
+    margin:30px;
+    color:gray;
+}
+.latestShots img{
+    padding:10px;
+    width:100%;
+    height:100%;
+}
+.client{
+    margin:30px;
+    color:gray;
+}
+.client img{
+    padding:10px;
+    width:15%;
+    height:15%;
+}
+.logoHere{
+    background-color:dimgray;
+    padding:30px;
+    color:white;
+}
+.links {
+    background-color: dimgray;
+    padding: 30px;
+    color: white;
+}
+.links p a{
+    color:white;
+    text-decoration:none;
+}
+.contactUs {
+    background-color: dimgray;
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+.contactUs address{
+    margin:30px;
+    text-align:center;
+    padding:10px;
+}
+.footer{
+    color:white;
+    padding:10px;
+    background-color:black;
+    text-align:center;
+}
