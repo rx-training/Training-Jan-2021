@@ -1,0 +1,87 @@
+body,.mainclass{
+    display: table;
+    width: 100%;
+    margin: 0px;
+}
+.header{
+    font-size: 50px;
+}
+.headermain{
+    width: 100%;
+    padding: 20px 0px;
+    display: table;
+}
+.logodiv{
+    width: 30%;
+    float: left;
+}
+.menubar{
+    width: 12%;
+    float: right;
+}
+.bannermain{
+    margin: 10px 0px 75px;
+}
+.bannerclass{
+    width: 100%;
+    height: auto;
+}
+.titlebanner{
+    margin: 0 auto;
+    color: #767678;
+    width: 80%;
+    font-size: 58px;
+}
+.download{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 36px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.bannercontain{
+    border-bottom: 1px solid #767678;
+}
+.mainartical{
+    width: 100%;
+    border-bottom: 1px solid #767678;
+}
+.articalcontainer{
+    width: 80%;
+    margin: 0 auto;
+    color: #767678;
+    font-size: 58px;
+}
+.subcontainer{
+    margin-top: 60px;
+}
+.contentartical{
+    font-size: 53px;
+}
+.resentmain{
+    width: 100%;
+    border-bottom: 1px solid #767678;
+}
+.resentclass{
+    width: 80%;
+    margin: 0 auto;
+}
+.headfontsize{
+    font-size: 58px;
+    color:#767678;
+}
+.textfontsize{
+    font-size: 58px;
+    color:#767678;
+}
+.projectone{
+    margin: 20px 0px;
+    font-size: 53px;
+}
+.imgresent{
+    
+    background-color: #74736f
+}
