@@ -1,100 +1,598 @@
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <style>
-        ul li {
-            float: right;
-            margin-left: 10px;
-            font-size: 14px;
-            padding-bottom: 5px;
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">.
+	<style>
+        
 
-        }
 
-        .btn1 {
-            
-            color: white;
-            padding: 10px 40px;
-            text-align: center;
-            text-decoration: none;
-            display: inline;
-            font-size: 16px;
-            margin-right: 50px;
-            background-color: green;
-            
-        }
-        .s1
-        {
-            float: left;
-        }
-         .btn1{
-             float: right;
-         }
-         img
-         {
-             width: 200px;
-             height: 200px;
-         }
-         .t1 
-         {
-             float: left;
-         }
-         
+ 
+
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	line-height: 1.5;
+	padding: 0;
+	margin: 0;
+	background-color: #F4F4F4;
+}
+.container
+{
+	width:80%;
+	margin:auto;
+	overflow:hidden;
+}
+
+ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+header
+{
+	background-color: #F4F4F4;
+	color:green;
+}
+
+header a
+{
+	color: black;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size:16px;
+}
+
+header ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+header li
+{
+	float :left;
+	display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #branding
+{
+	padding:0;
+	float:left;
+}
+header #branding
+{
+	margin :0;
+}
+
+header nav
+{
+	float :right;
+}
+
+#newsletter
+{
+	padding:15px;
+	color:black;
+	background-color:#F4F4F4; 
+}
+
+#showcase h1
+{
+	float: left;
+	padding:5px;
+	margin: 10px;
+}
+#showcase p
+{
+	float: left;
+	margin: 10px;
+	padding:5px;
+	width:80%;
+}
+#showcase button
+{
+	background:green;
+	color:white;
+	text-decoration: none;
+	float :right;
+	margin: 10px;
+	padding:5px;
+}
+
+#boxes1 .container
+{
+	width:90%;
+}
+
+#boxes1
+{
+	margin-top: 20px;
+}
+
+#boxes1 .box1
+{
+	float: left;
+	width: 30%;
+	padding:10px;
+	text-align: left;
+}
+
+#boxes2 .container
+{
+	width:90%;
+}
+
+#boxes2
+{
+	margin-top: 20px;
+}
+
+#boxes2 .box2
+{
+	float: left;
+	width: 20%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+#boxes2 .box24
+{
+	float: left;
+	width: 20%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+
+#boxes2 .box2 img
+{
+	width: 100px;
+	height: 100px;
+}
+
+
+#boxes3 .container
+{
+	width:90%;
+}
+
+#boxes3
+{
+	margin-top: 20px;
+}
+
+#boxes3 .box3
+{
+	float: left;
+	width: 20%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+#boxes3 .box3 img
+{
+	width: 100px;
+	height: 100px;
+}
+
+#boxes3 .box32
+{
+	float: left;
+	width: 50%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+#boxes3 .box33 img
+{
+	width: 100px;
+	height: 100px;
+}
+
+#boxes3 .box33
+{
+	float: right;
+	width: 10%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+#boxes3 .box34
+{
+	float: left;
+	width: 70%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+#boxes4 .container
+{
+	width:90%;
+}
+
+#boxes4
+{
+	margin-top: 20px;
+}
+
+#boxes4 .box4
+{
+	float: left;
+	width: 9%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+#boxes4 .box4 img
+{
+	width: 100px;
+	height: 100px;
+}
+
+#boxes4 .box42
+{
+	float: left;
+	width: 9%;
+	text-align: right;
+	position: relative;
+	padding:30px;
+}
+
+#boxes4 .box42 img
+{
+	width: 100px;
+	height: 100px;
+}
+
+#boxes5 .container
+{
+	width:100%;
+	background-color:	#404040;
+}
+
+#boxes5
+{
+	margin-top: 20px;
+}
+
+#boxes5 .box52
+{
+	float: left;
+	width: 20%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+#boxes5 .box52 h1
+{
+	color: green;
+}
+
+#boxes5 .box52 h5
+{
+	color: white;
+}
+
+#boxes5 .box53
+{
+	float: left;
+	width: 20%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+	color: white;
+}
+
+#boxes5 .box53 h1
+{
+	color: white;
+}
+
+#boxes5 .box53 h5
+{
+	color: white;
+}
+
+hr.new
+{
+	color: white;
+}
+
+#boxes5 .box54
+{
+	float: left;
+	width: 20%;
+	text-align: left;
+	position: relative;
+	padding:30px;
+	color: white;
+}
+
+#boxes5 .box55
+{
+	float: right;
+	width: 20%;
+	color:white;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+
+#boxes5 .box55 .mob
+{
+	color:green;
+}
+
+#boxes6 .container
+{
+	width:100%;
+	background-color:black;
+}
+#boxes6 .box62
+{
+	float: left;
+	width: 50%;
+	color:white;
+	text-align: left;
+	position: relative;
+	padding:30px;
+}
+#boxes6 .box63
+{
+	float: right;
+	width: 50%;
+	color:white;
+	text-align: left;
+	position: relative;
+	padding:1px;
+}
+
+#boxes6 .box63 img
+{
+	width: 50px;
+	height: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  header #branding,
+  header nav,
+  header nav li,
+  
+  #showcase1{
+   		float : none;
+   		text-align: center;
+   		width:100%;
+  }
+  header
+  {
+  	padding-bottom: 20px;
+  }
+
+  showcase h1
+  {
+  	margin-top: 40 px;
+  }
+       
+.box2
+{
+    float: left;
+}
+
     </style>
 </head>
-
 <body>
-    <h2 style="color:green;font-weight: lighter;">Logo here</h2>
-    <ul style="list-style-type: none; align-content: right;">
-        <li>SHORTCODES</li>
-        <li>FEATURES</li>
-        <li>PORTFOLIO</li>
-        <li>BLOG</li>
-        <li>PAGES</li>
-        <li>HOME</li>
-    </ul>
-    <img src="D:\D\nishi data\lt1.jpg" alt="failed" style="width: 100%;">
-    <div class="first">
-        <button class="btn1" style="float: right;">Download Now</button>
-        <h2 style="font-weight: lighter;">lorem ipsum dolor sit amet,consectetur adipiscing elit.</h2>
-        <p style="font-size: 14px;"><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque cum, velit
-            voluptatem nam, doloremque illo ab illum voluptate assumenda natus sunt, ex pariatur cupiditate nesciunt
-           <br> officia necessitatibus. Sit, corrupti ex.
-            lorLorem ipsum dolor sit amet consectetur 
-        </small></p><hr>
-    </div>
-    <div class="second" >
-      <div class="s1">  <h2 style="font-weight: lighter;margin-left: 30px;">Fully Responsive</h2>
-        <p style="font-size: 14px;margin-left: 30px;"><small>voluptatem nam, doloremque illo ab illum voluptate Lorem ipsum dolor <br>sit amet consectetur adipisicing elit. Atque cum, velitipsum dolor sit<br>
-            lorLorem ipsum dolor sit amet consectetur
-        </small></p>
-        
-      </div>
-      <div class="s1">  <h2 style="font-weight: lighter; margin-left: 150px;">HTML5+CSS3</h2>
-        <p style="font-size: 14px;margin-left: 150px;"><small>voluptatem nam, doloremque illo ab illum voluptate Lorem ipsum dolor <br>sit amet consectetur adipisicing elit. Atque cum, velitipsum dolor sit<br>
-            lorLorem ipsum dolor sit amet consectetur
-        </small></p>
-        
-      </div>
-    
-      <div class="s1">  <h2 style="font-weight: lighter; margin-left: 150px;">Launch Ready</h2>
-        <p style="font-size: 14px;margin-left: 150px;"><small>voluptatem nam, doloremque illo ab illum voluptate Lorem ipsum dolor <br>sit amet consectetur adipisicing elit. Atque cum, velitipsum dolor sit<br>
-            lorLorem ipsum dolor sit amet consectetur
-        </small></p>
-        
-      </div>
-    </div>
-    <h2 style="font-weight: lighter;padding-top: 150px;">Recent Works</h2><hr>
-    <div class="third">
-       <div class="t1" style="margin-left: 40px;"><img src="D:\D\nishi data\img1.jpg"></div>
-       <div class="t1" style="margin-left: 100px;"><img src="D:\D\nishi data\img1.jpg"></div>
-       <div class="t1" style="margin-left: 100px;"><img src="D:\D\nishi data\img1.jpg"></div>
-       <div class="t1" style="margin-left: 100px;"><img src="D:\D\nishi data\img1.jpg"></div>
-        
-    </div>
+	<header>
+		<div class="container">
+			<div class="branding">
+				<h1>Logo Here</h1>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="">HOME</a></li>
+					<li><a href="">PAGES</a></li>
+					<li><a href="">BLOG</a></li>
+					<li><a href="">PORTFOLIO</a></li>
+					<li><a href="">FEATURES</a></li>
+					<li><a href="">SHORTCODE</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="showcase1">
+		<div id ="container">
+			<img src="D:\D\nishi data\lt1.jpg" width="100%" height="500px">
+		</div>
+	</section>
+
+	<section id="showcase">
+		<div id ="container">
+			<h3>Lorem ipsum dolor sit amet, consectetur adispiscing elit.</h3>
+			<p>Nullam sed leo risus. Ut tellus leo, faucibus vitae tortor sed, euismod dignissim ex. Cras non mi vitae enim faucibus dignissim. Praesent scelerisque condimentum elit, non congue metus lacinia malesuada. Vesitbulum purus arcu, molestie in mattis sit amet, aliquet eget est.</p>
+			<button type="submit" class="button1">Download Now</button>
+		</div>
+	</section>
+	</br>
+
+<section id="boxes1">
+<div class="container">
+	<hr>
+	<div class="box1">
+		<h1>Fully Responsive</h1>
+		<p>Ut mollis enim est,frementum nisi viverra hendrerit. Fusce sed est ac ante posuere convallis. Vivamus egestas mauris sit amet lobortis cursus.Vestibulum hendreit molestie sagittis.</p>
+	</div>
+	<div class="box1">
+		<h1>HTML5 + CSS3</h1>
+		<p>Ut mollis enim est,frementum nisi viverra hendrerit. Fusce sed est ac ante posuere convallis. Vivamus egestas mauris sit amet lobortis cursus.Vestibulum hendreit molestie sagittis.</p>
+	</div>
+	<div class="box1">
+		<h1>Launch Ready</h1>
+		<p>Ut mollis enim est,frementum nisi viverra hendrerit. Fusce sed est ac ante posuere convallis. Vivamus egestas mauris sit amet lobortis cursus.Vestibulum hendreit molestie sagittis.</p>
+	</div>
+</div>
+</section>
+
+
+
+<section id="boxes2">
+	<h1>Recent Works</h1>
+	<div class="container">
+		<div class="box2">
+			<img src="D:\D\nishi data\ocean.jpg" style="width: 200px;height: 200px;">
+			<h3>project One</h3>
+			<p>Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare odio. Maecenas sodales mauris eget neque pulvinar, ac gravida ante lacinia.</p>
+		</div>
+		<div class="box2">
+			<img src="D:\D\nishi data\ocean.jpg "style="width: 200px;height: 200px;">
+			<h3>project One</h3>
+			<p>Donec a pellentesque turpis. </br>Integer ligula odio, posuere </br>egestas sapien in, ornare </br>ornare odio. Maecenas </br>sodales mauris eget neque </br>pulvinar, ac gravida ante lacinia.</p>
+		</div>
+		<div class="box2">
+			<img src="D:\D\nishi data\ocean.jpg" style="width: 200px;height: 200px;">
+			<h3>project One</h3>
+			<p>Donec a pellentesque turpis.Integer ligula odio, posuere egestas sapien in, ornare ornare odio. Maecenas sodales mauris eget neque pulvinar, ac gravida ante lacinia.</p>
+		</div>
+		<div class="box2">
+			<img src="D:\D\nishi data\ocean.jpg "style="width: 200px;height: 200px;">
+			<h3>project One</h3>
+			<p>Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare odio. Maecenas sodales mauris eget neque pulvinar, ac gravida ante lacinia.</p>
+		</div>
+	</div>
+</section>
+
+<section id="boxes3">
+	<div class="container">
+		<div class="box3">
+			<h3>Welcome to this site</h3>
+			<img src="D:\D\nishi data\ocean.jpg  " "style=width:200px;height:200px;">
+		</div>
+		<div class="box32">
+			<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu magna diam. Phasellus ut porttitor urna. Donec lacus magna, laoreet quis tempor ac, facilisis sed urna.</h3><br>
+			Donec aliquet val massa ut venenatis.<br>
+			cras eu mana diam.<br>
+			Aenean non tellus ligula.<br>
+			Ut sed vulputate nulla.<br>
+		</div>
+		<div class="box33">
+			<h3>Latest Shots</h3><br>
+			<img src="D:\D\nishi data\ocean.jpg " "style=width:200px;height:200px;">
+		</div>
+		<div class="box34">
+			<p>Blue foUntain Media is a digital agency in NYC that is founded on the premise that client results and stunning design go hand. They provide 360 degree solutions from strategy and design to development and digital marketing services, with ROI as their factor for sucess.</p>
+			<p>-CEO,Jack Bour </p><br>
+		</div>
+	</div>
+</section>
+
+<section id="boxes4">
+	<h3>Our Clients</h3>
+	<hr>
+	<div class="container">
+		<div class="box4">
+			<img src="D:\D\nishi data\logo9.png">
+		</div>
+		<div class="box4">
+			<img src="D:\D\nishi data\logo9.png">
+		</div>
+		<div class="box4">
+			<img src="D:\D\nishi data\logo9.png">
+		</div>
+		<div class="box4">
+			<img src="D:\D\nishi data\logo9.png">
+		</div>
+		<div class="box4">
+			<img src="D:\D\nishi data\logo9.png">
+		</div>
+		<div class="box4">
+			<img src="D:\D\nishi data\logo9.png">
+		</div>
+		<div class="box42">
+			<img src="D:\D\nishi data\logo9.png">
+		</div>
+	</div>
+</section>
+
+<section id="boxes5">
+	<div class="container">
+		<div class="box52">
+		<h1>Logo Here</h1>
+		<h5>
+Etiam pharetra magna viate fringilla posuere.Integer
+lacinia,nisi nec semper faucibus, elit neque imperddiet sem,
+ut molestie felis nisi sit amet leo.</h5><h5>
+Etiam pharetra magna viate fringilla posuere.Integer
+lacinia,nisi nec semper faucibus, elit neque imperddiet sem,
+ut molestie felis nisi sit amet leo.</h5>
+		</div>
+		<div class="box53">
+		<h1>Latest Posts</h1>
+		<hr class="new1">
+		<h5>Incredible Content</h5>
+		May 8,2014
+		<hr class="new1">
+		<h5>Incredible Content</h5>
+		May 8,2014
+		<hr class="new1">
+		<h5>Incredible Content</h5>
+		May 8,2014
+		</div>
+
+		<div class="box54">
+		<h1>Useful Links</h1>
+		<hr class="new1">
+		About Us
+		<hr class="new1">
+		About Us
+		<hr class="new1">
+		About Us
+		<hr class="new1">
+		About Us
+		<hr class="new1">
+		About Us
+		</div>
+		<div class="box55">
+			<h1>Contact Us</h1>
+			30/B Adarsh Society,
+			Near Kaashi Parekh Complex,
+			Swastik Char Rasta,C G Road,
+			Ahmedabad-38009
+			Gujarat-India
+			Phone:<div class="mob">+91-79-26400685</div>
+		</div>
+	</div>
+</section>
+
+<section id="boxes6">
+	<div class="container">
+		<div class="box62">
+		<h3>2015 © All Rights Reserved.Privacy Policy|Teams of Service</h3>
+		</div>
+		<div class="box63">
+		<img src="D:\D\nishi data\fb.png">
+		<img src="D:\D\nishi data\linkedin.png">
+		<img src="D:\D\nishi data\github.png">
+		<img src="D:\D\nishi data\twitter.jpg">
+	
+
+		</div>
+	
+	</div>
+</section>
 
 </body>
-
 </html>
