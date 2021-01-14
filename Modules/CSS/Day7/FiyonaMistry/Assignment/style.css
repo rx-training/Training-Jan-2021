@@ -3,14 +3,36 @@
 }
 /*Phone view*/
 @media only screen and (max-width:600px){
-    .fullyResponsive {
+    .downloadNow {
         display: flex;
-        color: gray;
-        margin: 30px;
         flex-direction: column;
+        justify-content: left;
+    }
+    .downloadNow input {
+        float:left;
+    }
+    .fullyResponsive {
+        flex-direction: row;
+    }
+    .desk-fullyResponsive{
+        padding:10px;
+    }
+    .recentWorks{
+        flex-direction:column;
+    }
+    .siteAndShots{
+        flex-direction:column;
+    }   
+    .client img{
+        padding:10px;
+        width:50%;
+        height:50%;
     }
     .client1, .client2, .client3{
         display:none;
+    }
+    .footer{
+        flex-direction:column;
     }
 }
 /*iPad view*/
@@ -20,14 +42,38 @@
     }
     .fullyResponsive {
         display: flex;
-        color: gray;
-        margin: 30px;
         flex-direction: column;
     }
 }
 /*Desktop view*/
 @media only screen and (min-width:992px) and (max-width:1200px) {
-   
+    .desk-fullyResponsive{
+        display:flex;
+        flex-direction:column;
+        margin:20px;
+    }
+    .recentWorks{
+        flex-direction:row;
+    }
+    .desk-recentWorks {
+        margin: 20px;
+    }
+    .siteAndShots {
+        flex-direction: row;
+    }
+    .welcomeToSite img{
+        float:left;
+    }
+    .welcomeToSite ul li{
+        float:left;
+    }
+    .latestShots h2, img{
+        float:right;
+    }
+    .footer{
+        display:flex;
+        flex-direction:row;
+    }
 }
 header {
     padding: 10px;
@@ -48,11 +94,13 @@ header {
     border:0px;
 }
 .fullyResponsive {
-    display: flex;
     color: gray;
-    margin: 30px;
+    margin:20px;
+    padding:20px;
+    display: flex;
 }
 .recentWorks {
+    display:flex;
     color: gray;
     margin: 30px;
     margin-top: 50px;
@@ -62,6 +110,9 @@ header {
     width: 50%;
     height:50%;
     padding: 20px;
+}
+.siteAndShots {
+    display: flex;
 }
 .welcomeToSite{
     margin-top:50px;
@@ -86,15 +137,23 @@ header {
     margin:30px;
     color:gray;
 }
-.client img{
-    padding:10px;
-    width:15%;
-    height:15%;
+.client img {
+    padding: 10px;
+    width: 10%;
+    height: 10%;
+}
+.footer{
+    display:flex;
 }
 .logoHere{
     background-color:dimgray;
     padding:30px;
     color:white;
+}
+.latestPosts {
+    background-color: dimgray;
+    padding: 30px;
+    color: white;
 }
 .links {
     background-color: dimgray;
@@ -116,7 +175,7 @@ header {
     text-align:center;
     padding:10px;
 }
-.footer{
+.main-footer{
     color:white;
     padding:10px;
     background-color:black;
