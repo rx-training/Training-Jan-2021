@@ -460,14 +460,16 @@
 
 /* For Ipad */
 
-@media only screen and (min-width : 768px)
+@media only screen and (min-width : 827px)
 {
-
     .menu a.icon
     {
         display: none;
     }
+}
 
+@media only screen and (min-width : 768px)
+{
     .projects
     {
         display: flex;
