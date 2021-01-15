@@ -2,7 +2,7 @@ body{
     padding: 0;
     margin: 0;
     font-family:Arial, Helvetica, sans-serif;
-    width:100%
+    width:100%;
 }
 .img{
     height:200px;
@@ -52,7 +52,7 @@ body{
 }
 .button1{
     background-color: lime;
-    color: linen;
+    color: white;
     text-align: center;
     height: 25px;
     border: none;
@@ -153,4 +153,65 @@ body{
         width:350px;
         padding:4px;
      }
+     .mobile img{
+         height:60px;
+         width:100px;
+     }
+     .ipad img{
+        height:60px;
+        width:100px;
+    }
+}
+@media (min-width: 1280px) {
+    .img{
+        height: 500px;
+     }
+     .div1{
+         display: flex;
+     }
+     .setwidth1{
+         width:80%;
+     }
+     .setwidth2{
+        width:20%;
+        padding:40px;
+    }
+    .div2{
+        display: flex;
+    }
+    #none{
+        display: none;
+    }
+    .setwidth3{
+        width: 33%;
+    }
+    .flexlogos{
+        display: flex;
+    }
+    .width6{
+        width:24%;
+    }
+    .desktop{
+        display: inline;
+    }
+    .mobile img{
+        height:80px;
+        width:125px;
+    }
+    .ipad img{
+       height:80px;
+       width:125px;
+    }
+    .desktop img{
+        height:80px;
+        width:125px;
+    }
+    .div5{
+        display: flex;
+    }
+    .setwidth4{
+        width:33%;
+        padding: 20px;
+    }
+
 }
