@@ -16,7 +16,6 @@ body,.mainclass{
     float: left;
 }
 .menubar{
-    width: 12%;
     float: right;
 }
 .bannermain{
@@ -32,15 +31,19 @@ body,.mainclass{
     width: 80%;
     font-size: 58px;
 }
+.titlesmallbanner {
+ /*   width: 90%;
+    font-size: 34px;*/
+}
 .download{
     background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 36px;
     text-align: center;
-    font-size: 16px;
+    font-size: 40px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 .bannercontain{
     border-bottom: 1px solid #767678;
@@ -73,15 +76,271 @@ body,.mainclass{
     font-size: 58px;
     color:#767678;
 }
+.resentwork{
+    margin: 40px 0px 4px 0px;
+}
+.containresent{
+    margin-top: 40px;
+}
+.resentimg{
+    width: 100%; 
+    height: 220px;
+}
+.img
+    width: 100%;
+    height: 220px;
 .textfontsize{
     font-size: 58px;
     color:#767678;
 }
 .projectone{
     margin: 20px 0px;
-    font-size: 53px;
+    font-size: 58px;
+    text-align: center;
+    color: #767678;
 }
-.imgresent{
-    
+.imgresent{   
     background-color: #74736f
 }
+.mainleftborder{
+    border-left: 4px solid #767678;
+}
+.subleftfolder{
+    width: 80%;
+    margin: 0 auto;
+    color: #767678;
+    font-size: 53px;
+}
+.img_ourclient{
+    width: 19%;
+    float: left;
+    margin: 65px 3% 65px 3%;
+}
+.footermain{
+    width: 100%;
+}
+.footerclass{
+    display: table;
+    width: 80%;
+    margin: 0 auto;
+    background-color: black ;
+}
+.footercontainer{
+    padding-left: 10%;
+    font-size: 35px;
+}
+.letesttext{
+    font-size: 45px;
+}
+.footcontinerright{
+    padding-right: 20%;
+}
+.footerlogo {
+    color: green;
+    font-size: 58px;
+    margin-bottom: 100px;
+}
+.footercontainertext{
+    padding-bottom: 10%;
+}
+.footertext {
+    color: white;
+}
+.footerseccontainer {
+    padding-right: 10%;
+    color: white;
+    margin-bottom: 10%;
+}
+.footerseccontainerhedding {
+    border-bottom: 5px dashed white;
+}
+.centerfooter
+{
+    text-align: center;
+    margin-bottom: 10%;
+}
+.rightmenulist,.allmenu{
+    display: none;
+}
+@media only screen and (min-width: 738px) {
+    .headermain {
+        padding: 0px 0px 4px 0px;
+    }    
+    .allmenu{
+     display: block;
+     margin-top: 20px;   
+    }
+    .mobilemenu{
+    display: none;
+    }
+    .rightmenulist {
+        float: right;
+        display: block;
+    }
+    .rightmenulistul {
+        margin: 0px;
+        float: right;
+        font-size: 25px;
+        color: #767678;
+        list-style-type: none;
+        text-decoration: none;
+    }
+    .rightmenulistli {
+        list-style-type: none;
+        text-decoration: none;
+        float: left;
+        padding: 0px 8px;
+    }
+    .logodiv {
+        margin-top: 20px;
+        color:green;
+    }
+    .menubar {
+        float: right;
+    }
+    .titlebanner {
+        width: 90%;
+        font-size: 40px;
+        margin: 0 auto;
+        color: #767678;
+    }
+    .titlesmallbanner {
+        margin: 0 auto;
+        color: #767678;
+        width: 90%;
+        font-size: 34px;
+    }
+    .articalcontainer {
+        width: 90%;
+        margin: 0 auto;
+        color: #767678;
+        font-size: 40px;
+    }
+    .haddingtitle{
+        margin-top: 2px;
+    }
+    .subcontainer{
+        margin: 0px 0px;
+    }
+    .contentartical {
+        font-size: 34px;
+    }
+    .marginusefor{
+        margin: 0px 0px;
+    }
+    .resentclass {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .headfontsize {
+        font-size: 40px;
+    }
+    .resentwork {
+        margin: 110px 0px 4px 0px;
+    }
+    .resentmain {
+        width: 100%;
+    }
+    .containresent {
+        margin-top: 10px;
+        width: 46%;
+        float: left;
+        padding: 2%;
+    }
+    .projectone {
+        font-size: 40px;
+        color: #767678;
+        text-align: unset;
+    }
+    .projectheading{
+        margin: 20px 0px;
+        font-size: 40px;
+    }
+    .textfontsize {
+        font-size: 34px;
+        color: #767678;
+        display: table;
+        margin-top: 10px;
+    }
+    .resentmain {
+        width: 100%;
+        border-bottom: none;
+    }
+    .imgwelcome {
+        width: 40%;
+        background-color: #74736f;
+        float: left;
+        margin: 10px 10px 10px 0px;
+        height: 350px;
+    }
+    .welcomeparagraph{
+    margin: 10px 0px;
+    display: table;
+    }
+    .subleftfolder {
+        width: 90%;
+        margin: 0 auto;
+        color: #767678;
+        font-size: 34px;
+    }
+    .containletestshote {
+        width: 100%;
+    }
+    .footercontainertext {
+     padding-bottom: 0%;
+    }
+    .letesttext {
+        font-size: 34px;
+    }
+    .addressfooter{
+        width: 90%;
+    }
+  }
+  @media only screen and (min-width:1024px) {
+    .rightmenulist {
+        width: 100%;
+        display: table;
+    }
+    .menubar {
+        float: right;
+        width: 49%;
+    }
+    .logodiv {
+        margin-top: 0px;
+    }
+    .banner{
+        width: 100%;
+    }
+    .containresent {
+        margin-top: 10px;
+        width: 28%;
+        float: left;
+        padding: 2%;
+    }
+    .img_ourclient {
+        width: 10%;
+        float: left;
+        margin: 10px 2% 10px 2%;
+    }
+    .footerclass {
+        width: 90%;
+    }
+    .footercontainer {
+        padding-left: 0%;
+    }
+    .footerlogo {
+        color: green;
+        font-size: 40px;
+    }
+    .footcontinerright {
+        padding-left: 30px;
+        padding-top: 3%;
+        width: 20%;
+        float: left;
+        padding-right: 3%;
+    }
+    .contentartical {
+        font-size: 20px;
+    }
+
+  }
