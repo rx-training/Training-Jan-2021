@@ -8,9 +8,13 @@
     .navbar{
         background-color: aqua;
         display: none;
+        position: fixed;
     }
     .banner img{
         width: 100%;
+    }
+    .main{
+        max-width: 450px;
     }
     .down-title{
         font-size: 2em;
