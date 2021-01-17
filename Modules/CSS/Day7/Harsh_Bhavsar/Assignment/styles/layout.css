@@ -1,0 +1,167 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width:600px) {
+    .menu {
+        background-color: aqua;
+        display: none;
+    }
+
+    .banner img {
+        width: 100%;
+    }
+
+    .ban_title {
+        font-size: 2em;
+        padding: 10px;
+    }
+
+    .title_p {
+        padding: 10px;
+    }
+
+    .ban_down button {
+        margin: 10px;
+        margin-bottom: 25px;
+        background-color: rgb(3, 212, 3);
+        border: none;
+        border-radius: 2px;
+        padding: 15px;
+        font-size: 16px;
+        color: white;
+    }
+
+    .column1 {
+        margin: 35px 0;
+    }
+
+    .title1 {
+        font-size: 2em;
+        margin: 15px;
+    }
+
+    .description1 {
+        margin: 15px;
+    }
+
+    .column2 {
+        text-align: center;
+        padding: 20px;
+    }
+
+        .column2 img {
+            width: 350px;
+            height: 220px;
+            background-color: #555555;
+        }
+
+    .title2 {
+        font-size: 1.5em;
+        margin: 15px;
+    }
+
+    .column3 {
+        padding: 25px;
+    }
+
+        .column3 img {
+            text-align:;
+            width: 315px;
+            height: 200px;
+        }
+
+    .col_side {
+        margin: 24px 0;
+    }
+
+    .description3 {
+        border: none;
+        border-left-style: solid;
+    }
+
+        .description3 p {
+            padding-left: 15px;
+        }
+
+    .name {
+        font-size: 1em;
+        margin: 15px;
+    }
+
+    .column3_img {
+        padding: 25px;
+       
+    }
+
+        .column3_img img {
+            padding: 25px;
+            width: 315px;
+            height: 200px;
+        }
+
+        .column3_img p {
+            font-size: 1.5em;
+            padding-bottom: 15px;
+        }
+
+    .client_img {
+       background-image: url(..\images\logo9.png);
+        background-repeat: repeat-x;
+        background-size: 80px 40px;
+        height: 100px;
+        margin-top: 15px;
+    }
+
+    .column4_title {
+        font-size: 1.5em;
+        margin: 15px;
+    }
+
+    .row4 {
+        padding: 15px;
+    }
+
+    .main_footer {
+        background-color: #777;
+        padding: 25px 0;
+    }
+
+    .footer_logo {
+        margin: 15px;
+    }
+
+    .post {
+        margin: 15px;
+        margin-top: 335px;
+    }
+    .fot_links {
+        margin: 15px;
+        margin-top: 335px;
+    }
+    .fot_contact {
+        margin: 15px;
+        margin-top: 335px;
+    }
+    .sub_footer{
+        background-color:#333333;
+
+    }
+    .sub_footer p{
+        padding: 25px;
+
+    }
+    .footer p{
+        color: #d3d1d1;
+        padding: 5px 0;
+    }
+    address {
+        color: #d3d1d1;
+    }
+    .fot_title{
+        font-size: 2em;
+    }
+}
+
+
