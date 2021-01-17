@@ -309,21 +309,385 @@ hr.new {
         height: 50px;
     }
 
+@media only screen and (max-width: 600px) {
+    header #branding,
+    header nav,
+    header nav li,
+    {
+        float: none;
+        text-align:center;
+        width:100%;
+    }
+ header li
+{
+    display: block;
+    width :100%;
+}
+#showcase1 #container img
+{
+    width:100%;
+}
+#boxes1 .box1
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+#boxes2 h1
+{
+    float: none;
+    text-align: center;
+    width:100%;
+}
+#boxes2 .box2
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+#boxes2 .box24
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+
+
+#boxes2 .box2 img
+{
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+#boxes3 .container
+{
+    width:100%;
+}
+
+#boxes3
+{
+    margin-top: 20px;
+}
+
+#boxes3 .box3
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+
+#boxes3 .box3 img
+{
+    width: 100%;
+    height: 100px;
+}
+
+#boxes3 .box32
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+#boxes3 .box33 img
+{
+    width: 100%;
+    height: 100px;
+}
+
+#boxes3 .box33
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+
+#boxes3 .box34
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+
+#boxes4 h3
+{
+    text-align:center;
+}
+
+#boxes4 .box4
+{
+    float: none;
+    width: 9%;
+}
+
+#boxes4 .box4 img
+{
+    width: 100px;
+    height: 100px;
+}
+
+#boxes4 .box42
+{
+    float: none;
+    width: 9%;
+    position: relative;
+    padding:30px;
+}
+
+#boxes4 .box42 img
+{
+    width: 100px;
+    height: 100px;
+}
+
+#boxes5 .box52
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes5 .box53
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes5 .box54
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes5 .box55
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes6 .box62
+{
+    float: none;
+    width: 5%;
+    text-align: center;
+}
+
+#boxes6 .box62 h3
+{
+    float: none;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+#boxes6 .box63
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes6 .box63 img
+{
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+
 @media only screen and (max-width: 768px) {
     header #branding,
     header nav,
     header nav li,
-    #showcase1 {
+    {
         float: none;
-        text-align: center;
-        width: 100%;
+        text-align:center;
+        width:100%;
     }
+ header li
+{
+    display: block;
+    width :100%;
+}
+#showcase1 #container img
+{
+    width:100%;
+}
+#boxes1 .box1
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+#boxes2 h1
+{
+    float: none;
+    text-align: center;
+    width:100%;
+}
+#boxes2 .box2
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+#boxes2 .box24
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
 
-    header {
-        padding-bottom: 20px;
-    }
 
-    showcase h1 {
-        margin-top: 40 px;
-    }
+#boxes2 .box2 img
+{
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+#boxes3 .container
+{
+    width:100%;
+}
+
+#boxes3
+{
+    margin-top: 20px;
+}
+
+#boxes3 .box3
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+
+#boxes3 .box3 img
+{
+    width: 100%;
+    height: 100px;
+}
+
+#boxes3 .box32
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+#boxes3 .box33 img
+{
+    width: 100%;
+    height: 100px;
+}
+
+#boxes3 .box33
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+
+#boxes3 .box34
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+    overflow :hidden;
+}
+
+#boxes4 h3
+{
+    text-align:center;
+}
+
+#boxes4 .box4
+{
+    float: none;
+    width: 9%;
+}
+
+#boxes4 .box4 img
+{
+    width: 100px;
+    height: 100px;
+}
+
+#boxes4 .box42
+{
+    float: none;
+    width: 9%;
+    position: relative;
+    padding:30px;
+}
+
+#boxes4 .box42 img
+{
+    width: 100px;
+    height: 100px;
+}
+
+#boxes5 .box52
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes5 .box53
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes5 .box54
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes5 .box55
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes6 .box62
+{
+    float: none;
+    width: 5%;
+    text-align: center;
+}
+
+#boxes6 .box62 h3
+{
+    float: none;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+#boxes6 .box63
+{
+    float: none;
+    width: 9%;
+    text-align: center;
+}
+
+#boxes6 .box63 img
+{
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
 }
