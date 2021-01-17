@@ -11,6 +11,7 @@
         .main{
             width: 100%;
             height: 100%;
+            
                         
         }
         .header{
@@ -70,8 +71,7 @@
             color: gray;
             border-bottom: 2px solid gray;
         }
-        .dwnld .dwnld_content{
-            width: 70%;
+        .dwnld div{
             float: left;
         }
         
@@ -85,18 +85,22 @@
             color: white;
             border: 2px solid green;
         }
-        .content{
+        .main_content{
             width: 100%;
-            height: 220px;
-            padding-top: 40px;
+            height: 35%;
+        }
+        .main_content .content{
+            width: 32%;
+            padding-top: 1%;
             background-color: white;
-            padding-left: 14px;
+            padding-left: 1%;
             color: gray;
-            border-bottom: 2px solid gray;
+            float: left;            
         }
         .work{
             color: gray;
             width: 100%;
+            height: 70%;
             background-color: white;
             border: 2px solid white;
         }
@@ -117,39 +121,46 @@
             padding-top: 65px;
             color: black;
         }
+        .work div{
+            float: left;
+        }
         .work_content {
             color: gray;
-            margin-left: 20px;
+            margin-left: 1.3%;            
+            width: 22%;
         }
        .work_content h1{
            text-align: center;
        } 
-       #tmp{
-           margin-left: 30px;
+       .work_content p{
+           padding-left: 7%;
        }
-       .work ul {
-        list-style: none;   
-        font-size: 20px;   
-        margin-left: 30px;
-       }
-       .work ul li span{
-           color: green;
-           font-size: 25px;
-           font-weight: bolder;
-       }
+    
+       
+    
+        
+        
+
+    
        #ceo{
            border-left: 2px solid gray;
            padding-left: 20px;
        }
        .client ul li {
            display: inline;
-           margin-left: 20px;
+           margin-left: 3%;
        }
        .client ul li img{
-            height: 50px;
-            width: 55px;
+            height: 6%;
+            width: 10%;
             
 
+       }
+       .client #title{
+        padding-top: 40px;
+            color: gray;
+            padding-left: 14px;
+            border-bottom:1px dashed gray ;
        }
        .footer{
            background-color: black;
@@ -157,7 +168,13 @@
            opacity: 0.8; 
             color: white;
             padding-left:14px; 
-            
+            height: 50%;
+       }
+       .footer div{
+           float: left;
+           width: 23%;
+           margin-left: 1%;
+           padding-top: 3%;
        }
        .footer h1 {
            padding-top:10px;
@@ -173,9 +190,7 @@
         list-style: none;   
         border-bottom: 2px solid white;
        }
-       .contact_us{
-           text-align: center;
-       }
+       
        .contact_us #contact{
            text-align: center;
        }
@@ -184,12 +199,19 @@
        }
        .social{
            background-color: black;
-           text-align: center;
-       }
-       .social ul li {
-           display: inline;
+           color: white;
+           height: 10%;
+           width: 100%;
+           padding-top: 2%;
 
        }
+       .social ul li {
+           float: right;
+           display: inline;
+           padding-right: 3%;
+
+       }
+        
        
     </style>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -216,76 +238,71 @@
             <img src="assets/bg.jpg" alt="" class="slider_img">
         </div>
         <div class="dwnld">
-            <div class="dwnd_content">
-            <h1>Lorem ipsum dolor sitamet, consectetur adipiscing elit. </h1>
-            <br><br>
-             <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one.
-            </p>
+            <div>
+                 <h1>Lorem ipsum dolor sitamet, consectetur adipiscing elit. </h1>
+                 <br>
+                 <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one.
+                </p>
+            </div>
+             <div>
+                 <input type="submit" value="Download Now">
+             </div>       
         </div>
-        <div class="dwnd_btn">
-           <input type="submit" value="Download Now">
-        </div>       
-        </div>
-        <div class="content">
+        <div class="main_content">
+        <div class="content" id="cont1">
             <h1>Fully Responsive</h1>
             <br><br>
              <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument.
             </p>
         </div>
-        <div class="content">
+        <div class="content" id="cont2">
             <h1>HTML5 + CSS3</h1>
             <br><br>
              <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument.
             </p>
         </div>
-        <div class="work">
-            <h1 id="title">Recent Works</h1>
+        <div class="content" id="cont3">
+            <h1>Launch Ready</h1>
             <br><br>
-             <div class="box"><p>350 x 220</p></div>
-            <div class="work_content">
-                <h1>Project One</h1>
-                <br><br>
              <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument.
-             </p>   
-            </div> <br>
-            <div class="box"><p>350 x 220</p></div>
-            <div class="work_content">
+            </p>
+        </div>
+        </div>
+    
+        <div class="work">
+            <h1 id="title">Recent Works</h1> <br>
+            <div class="work_content" id="work1">
+                <div class="box"><p>350 x 220</p></div> <br>
                 <h1>Project One</h1>
-                <br><br>
-             <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument.
+                <br>
+             <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unitity paragraph is a sentence. 
              </p>   
-            </div> <br>
-            <div class="box"><p>350 x 220</p></div>
-            <div class="work_content">
+            </div>
+            <div class="work_content" id="work2">
+                <div class="box"><p>350 x 220</p></div> <br>
                 <h1>Project One</h1>
-                <br><br>
-             <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument.
+                <br>
+                <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unitity paragraph is a sentence. 
              </p>   
-            </div> <br>
-            <div class="box"><p>350 x 220</p></div>
-            <div class="work_content">
+            </div>
+            <div class="work_content" id="work3">
+                <div class="box"><p>350 x 220</p></div> <br>
                 <h1>Project One</h1>
-                <br><br>
-             <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument.
+                <br>
+                <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unitity paragraph is a sentence. 
              </p>   
-            </div> <br><br>
-            <h1 id="title">Welcome to this site</h1> <br> <br>
-            <div class="box"><p>350 x 220</p></div>
-            <p id="tmp">A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument. </p>
-               <br> <br>
-                <ul>
-                    <li><span>&check;</span>&nbsp;&nbsp; Donec aliquet vel massa ut</li>
-                    <li><span>&check;</span>&nbsp;&nbsp; Donec aliquet vel massa ut</li>
-                    <li><span>&check;</span>&nbsp;&nbsp; Donec aliquet vel massa ut</li>
-                    <li><span>&check;</span>&nbsp;&nbsp; Donec aliquet vel massa ut</li>
-                </ul> <br> <br>
-                <div class="work_content" id="ceo">
-                 <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence <br> or a group of sentences that supports one central, unified idea. Paragraphs add one<br> idea at a time to your broader argument.
-                    <br><br> <h3>-CEO. Jack Bour</h3>
-                 </p>   
-                </div> <br>
-                <h1 id="title">Letest shots</h1> <br> <br>
-                <div class="box"><p>350 x 220</p></div> <br> <br> <br>
+            </div>
+            <div class="work_content" id="work4">
+                <div class="box"><p>350 x 220</p></div> <br>
+                <h1>Project One</h1>
+                <br>
+                <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unitity paragraph is a sentence. 
+             </p>   
+            </div>
+        </div>
+           
+            
+
                 <div class="client">
                 <h1 id="title">Our clients</h1> <br> <br>
                 <ul>
@@ -293,27 +310,33 @@
                     <li><img src="assets/logo9.png" alt=""></li>
                     <li><img src="assets/logo9.png" alt=""></li>
                     <li><img src="assets/logo9.png" alt=""></li>
+                    <li><img src="assets/logo9.png" alt=""></li>
+                    <li><img src="assets/logo9.png" alt=""></li>
+                    <li><img src="assets/logo9.png" alt=""></li>
                 </ul>
                 </div>
-        </div> <br>
-
+        
+               
         <div class="footer">
-            <h1>Logo Here </h1> <br> <br>
-            <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence
-            </p>
-            <br> <br>
-            <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence 
-                <br><br>    
+            <div>
+                <h1>Logo Here </h1> <br>
+                <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence
+                </p>
+                <br> 
+                <p>A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence 
+            </div>
+            <div>
                 <h2>
                     Latest Posts
-                </h2> <br><br>
+                </h2> <br>
                 <ul>
                     <li>Incredibal Content <br> May 8, 2014 </li> <br>
                     <li>Incredibal Content <br> May 8, 2014 </li> <br>
                     <li>Incredibal Content <br> May 8, 2014 </li> <br>
                     
-                </ul> <br> <br>
-
+                </ul>
+            </div>
+            <div>
                 <h2>
                     Useful Links
                 </h2> <br><br>
@@ -323,26 +346,26 @@
                     <li>ABOUT US</li> <br>
                     <li>ABOUT US</li> <br>
                     
-                </ul> <br> <br>
-                <div class="contact_us">
+                </ul>
+            </div>
+            <div class="contact_us">
                 <h2 id="contact">
                     Contact Us
-             </h2> <br><br>
+                </h2> <br>
              <p>30/B Adarsh Societ,<br> Near Khashi Parekh complex, <br> swastik Char Rasta C G ROAD <br>  Phone no : <span id="phone">+91-00-0000000 </span> </p>
-            </div> <br>
-            <div class="social">
-               <p> 2015 &copy; All rights reservered <span id="phone">privacy policy</span>|  <span id="phone">Terms of services</span></p>
-                <br> <br>
-                <ul>
-                    <li><i class="fab fa-twitter-square" aria-hidden="true"></i></li>
-                        <li><i class="fab fa-facebook-square" aria-hidden="true"></i></li>
-                        <li><i class="fab fa-github"></i></li>
-                         <li><i class="fab fa-linkedin-in"></i></li>
-                         <li><i class="fab fa-google-plus-g"></i></li>
-                </ul>    
-            </div>    
+            </div>
+                
         </div>
-
+        <div class="social">
+            <p> 2015 &copy; All rights reservered <span id="phone">privacy policy</span>|  <span id="phone">Terms of services</span></p>
+             <ul>
+                 <li><i class="fab fa-twitter-square" aria-hidden="true"></i></li>
+                     <li><i class="fab fa-facebook-square" aria-hidden="true"></i></li>
+                     <li><i class="fab fa-github"></i></li>
+                      <li><i class="fab fa-linkedin-in"></i></li>
+                      <li><i class="fab fa-google-plus-g"></i></li>
+             </ul>    
+         </div>    
     </div>
 </body>
 </html>
