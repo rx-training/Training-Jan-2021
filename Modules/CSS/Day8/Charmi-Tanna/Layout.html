@@ -1,152 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 <head>
+    <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <style type="text/css">
         .d1 {
             display: grid;
-            grid-template-columns: 5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
-            grid-template-rows: 0.2fr;
-            grid-template-areas: "h2 home pages blogs portfolio features shortcode";
-            height: 10vh;
+            grid-template-rows: 1fr;
+            grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        }
+
+        .c {
+            background-color: white;
         }
 
         .d2 {
             display: grid;
-            grid-template-columns: 6.5fr 1.5fr;
             grid-template-rows: 1fr 1fr;
-            grid-template-areas: "h3 bt" "p";
+            grid-template-columns: 2fr 0.5fr;
         }
 
-        h4 {
-            font-weight: lighter;
-            font-size: 12px;
-        }
-
-        .button {
+        button {
             background-color: green;
-            border: none;
             color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            margin: 4px 2px;
+            width: 200px;
+            height: 60px;
         }
 
         .d3 {
             display: grid;
-            grid-template-columns: 2fr 2fr 2fr;
-            grid-template-rows: 2fr;
-            grid-template-areas: "h3 h3 h3";
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
         }
 
-        .d4 {
-            display: grid;
-            grid-template-columns: 1.8fr 1.8fr 1.8fr;
-            grid-template-rows: 2fr;
-            grid-template-areas: "p p p";
+        .d33 {
+            padding: 10px;
         }
 
         .d5 {
-            padding-left: 15px;
             display: grid;
-            grid-template-columns: 2fr 2fr 2fr 2fr;
-            grid-template-rows: 1.5fr 0.2fr 1fr;
-            grid-template-areas: "im im im im" "h4 h4 h4 h4" "p p p p";
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            text-align: left;
         }
 
         .d6 {
             display: grid;
-            grid-template-columns: 6.5fr 1.5fr;
-            grid-template-rows: 0.2fr;
-            grid-template-areas: "h3 h3";
+            grid-template-rows: 1fr;
+            grid-template-columns: 6fr 1fr;
         }
 
         .d7 {
             display: grid;
-            grid-template-columns: 1fr 5.5fr 1.5fr;
-            grid-template-rows: 1.5fr,0.5fr;
-            grid-template-areas: "f th g";
-        }
-
-        .th {
-            padding-left: 10px;
-        }
-
-        .vh {
-            padding: 40px;
-            margin: auto;
-        }
-
-        .d15 h4 {
-            font-size: 150px;
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr auto 1fr;
         }
 
         .d8 {
-            padding-left: 15px;
             display: grid;
+            grid-template-rows: 1fr;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 3fr;
-            grid-template-areas: "im im im im im im im";
+            padding: 20px;
         }
-
-            .d8 .im img {
-                background-color: :#D3D3D3;
-            }
 
         .d9 {
-            background-color: #404040;
-            color: white;
             display: grid;
-            grid-template-columns: 2fr 2fr 2fr 2fr;
-            grid-template-rows: 2fr;
-            grid-template-areas: "h3 h3 h3 h3";
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding: 20px;
+            background-color: black;
+            color: white;
         }
 
-        .d10 {
-            background-color: #404040;
-            color: white;
-            display: grid;
-            grid-template-columns: 2fr 2fr 2fr 2fr;
-            grid-template-rows: 2fr;
-            grid-template-areas: "p h4 h4 p";
-        }
+            .d9 hr {
+                color: white;
+            }
 
         .d11 {
             background-color: black;
             color: white;
             display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 0.2fr;
-            grid-template-areas: "p";
+            grid-template-rows: 1fr;
+            grid-template-columns: 5fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
         }
 
-        .d12 {
-            background-color: black;
-            padding-left: 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 3fr;
-            grid-template-areas: "im im im im im im";
+
+        @media only screen and (max-width: 768px) {
+            .d1 {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+            }
+
+            .images {
+                width: 100%;
+            }
+
+            .d5 {
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+                text-align: left;
+                width: 100%;
+            }
+
+            .d7 {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr;
+                text-align: left;
+            }
+
+            .d8 {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                text-align: left;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .d1 {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+            }
+
+            .images {
+                width: 100%;
+            }
+
+            .d2 {
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+            }
+
+            .d3 {
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .d5 {
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .d6 {
+                display: grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 6fr 1fr;
+            }
+
+            .d7 {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr;
+                text-align: left;
+            }
+
+            .d8 {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                text-align: left;
+            }
+
+            .d9 {
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+                padding: 20px;
+                background-color: black;
+                color: white;
+            }
+
+                .d9 hr {
+                    color: white;
+                }
+
+            .d11 {
+                background-color: black;
+                color: white;
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="d1">
-        <h2 style="color: green;">Logo here</h2>
-        <h4>HOME</h4>
-        <h4>PAGES</h4>
-        <h4>BLOGS</h4>
-        <h4>PORTFOLIO</h4>
-        <h4>FEATURES</h4>
-        <h4>SHORTCODE</h4>
+        <h2 style="color: green;" class="c">Logo here</h2>
+        <h4 class="c">HOME</h4>
+        <h4 class="c">PAGES</h4>
+        <h4 class="c">BLOGS</h4>
+        <h4 class="c">PORTFOLIO</h4>
+        <h4 class="c">FEATURES</h4>
+        <h4 class="c">SHORTCODE</h4>
     </div>
-    <img src="Images/bg.jpg" alt="failed" style="width: 100%;">
+
+    <img src="Images/bg.jpg" alt="failed" class="images" style="width: 100%;">
     <div class="d2" style="padding-top: 20px;">
         <h3>lorem ipsum dolor sit amet,consectetur adipisicing alit</h3>
-        <div class="bt"> <button class="button">Download Now</button></div>
+        <button> Download Now</button>
 
         <p>
             Vitae quibusdam ea atque, excepturi nobis asperiores eligendi, amet a hic ipsum in fugit neque similique. Officia soluta suscipit, fugiat eveniet recusandae aliquid nostrum explicabo. Incidunt.
@@ -154,64 +217,83 @@
         </p>
     </div><hr>
     <div class="d3">
-        <h3 style="margin-left: 15px;"> Fully Responsive</h3>
-        <h3 style="margin-left: 15px;">HTML+CSS3</h3>
-        <h3 style="margin-left: 15px;">Launch Ready</h3>
+        <div class="d33">
+            <h3> Fully Responsive</h3>
+            <p>
+                Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas  bsan  bash    ASVHJX xnzjhj sjkajsk ansmah.
+            </p>
+        </div>
+
+        <div class="d33">
+            <h3>HTML+CSS3</h3>
+            <p>
+                Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn     bsana   basha    ASVHJX xnzjhj sjkajsk ansmah.
+            </p>
+        </div>
+
+        <div class="d33">
+            <h3>Launch Ready</h3>
+            <p>
+                Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
+            </p>
+        </div>
     </div>
-    <div class="d4">
-        <p style="margin-left: 15px;">
-            Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas  bsan  bash    ASVHJX xnzjhj sjkajsk ansmah.
-        </p>
-        <p style="margin-left: 15px;">
-            Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn     bsana   basha    ASVHJX xnzjhj sjkajsk ansmah.
-        </p>
-        <p style="margin-left: 15px;">
-            Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
-        </p>
-    </div>
+
     <h3 style="padding-top: 20px;">Recent Works</h3><hr>
+
     <div class="d5">
-        <div class="im"> <img src="Images/logo1.png" style="height: 200px;width: 250px;"></div>
-        <div class="im"> <img src="Images/logo2.png" style="height: 200px;width: 250px;"></div>
-        <div class="im"> <img src="Images/logo3.png" style="height: 200px;width: 250px;"></div>
-        <div class="im"> <img src="Images/logo4.png" style="height: 200px;width: 250px;"></div>
-        <h3 style="font-size: 15px;">Project One</h3>
-        <h3 style="font-size: 15px;">Project One</h3>
-        <h3 style="font-size: 15px;">Project One</h3>
-        <h3 style="font-size: 15px;">Project One</h3>
-        <p>
-            Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
-        </p>
-        <p>
-            Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
-        </p>
-        <p>
-            Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
-        </p>
-        <p>
-            Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
-        </p>
+        <div class="d55">
+            <img src="Images/logo1.png" style="height: 200px;width: 250px;">
+            <h3 style="font-size: 15px;">Project One</h3>
+            <p>
+                Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
+            </p>
+        </div>
+        <div class="d55">
+            <img src="Images/logo2.png" style="height: 200px;width: 250px;">
+            <h3 style="font-size: 15px;">Project One</h3>
+            <p>
+                Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
+            </p>
+        </div>
+        <div class="d55">
+            <img src="Images/logo3.png" style="height: 200px;width: 250px;">
+            <h3 style="font-size: 15px;">Project One</h3>
+            <p>
+                Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
+            </p>
+        </div>
+        <div class="d55">
+            <img src="Images/logo4.png" style="height: 200px;width: 250px;">
+            <h3 style="font-size: 15px;">Project One</h3>
+            <p>
+                Ut molls sajkbxnsma xsahxbsa SNKhkd xnashaks ansma asww  dbsnxbnsamb sandmadxbsa asmbdxmabdh xsbahbxhas bsn   bsana    basha      ASVHJX xnzjhj sjkajsk ansmah.
+            </p>
+        </div>
     </div>
+
     <div class="d6">
         <h3>Welcome to this Site</h3>
         <h3>Latest Shots</h3>
     </div>
     <hr>
+
     <div class="d7">
-        <div class="f"><img src="Images/logo5.png" style="width: 250px;height:200px"></div>
-        <div class="th">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, exercitationem veniam quod beatae incidunt tempora dolores vero voluptates nostrum provident maiores voluptatem accusamus quaerat eligendi quis sed alias atque vitae cupiditate odio sit fugiat.</p><br>
+        <div class="f"><img src="Images/logo5.png " style="width: 250px;height:200px"></div>
+        <div class="f">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, exercitationem veniam quod beatae incidunt tempora dolores vero voluptates nostrum provident maiores voluptatem accusamus quaerat eligendi quis sed alias atque vitae cupiditate odio sit fugiat.</p>
             <img src="Images/download.png" style="width: 10px;height: 10px;">Donnec allquet vel massa ut venenatis.<br>
             <img src="Images/download.png" style="width: 10px;height: 10px;">cras eu magna diam.<br>
             <img src="Images/download.png" style="width: 10px;height: 10px;">Aenenam non tellus ligula.<br>
             <img src="Images/download.png" style="width: 10px;height: 10px;">Ut sed vulputate nulla.
         </div>
-        <div class="g"><img src="Images/logo6.jpg" style="width: 300px;height: 300px;"></div>
-
+        <div class="f"><img src="Images/logo6.jpg" style="width: 300px;height: 300px;"></div>
+        <div class="f">
+            <p>Blue foUntain Media is a digital agency in NYC that is founded on the premise that client results and stunning design go hand. They provide 360 degree solutions from strategy and design to development and digital marketing services, with ROI as their factor for sucess.</p><p>-CEO,Jack Bour </p>
+        </div>
     </div>
-
     <div class="15">
-        <h4 style="font-size: 25px;"> Our Clients</h4>
+        <h4 style="font-size: 25px;"> Our Clients</h4><hr>
     </div>
 
     <div class="d8">
@@ -225,43 +307,51 @@
     </div>
 
     <div class="d9">
-        <h3 style="margin-left: 15px;">Logo Here</h3>
-        <h3 style="margin-left: 15px;">Latest Posts</h3>
-        <h3 style="margin-left: 15px;">Useful Links</h3>
-        <h3 style="margin-left: 15px;">Contact Us</h3>
+        <div class="d99">
+            <h3 style="margin-left: 15px;">Logo Here</h3>
+            <p style="margin-left: 15px;">Etiam pharetra magna viate fringilla posuere.Integer lacinia,nisi nec semper faucibus, elit neque imperddiet sem, ut molestie felis nisi sit amet leo.<br><br>Etiam pharetra magna viate fringilla posuere.Integer lacinia,nisi nec semper faucibus, elit neque imperddiet sem, ut molestie felis nisi sit amet leo.</p>
+        </div>
+        <div class="d99">
+            <h3 style="margin-left: 15px;">Latest Posts</h3>
+            <h4 style="margin-left: 15px;">
+                <hr>Incredible Content<br>
+                May 8,2014<hr><br>
+                Incredible Content<br>
+                May 8,2014<hr><br>
+                Incredible Content<br>
+                May 8,2014
+            </h4>
+        </div>
+        <div class="d99">
+            <h3 style="margin-left: 15px;">Useful Links</h3>
+            <h4 style="margin-left: 15px;">
+                <hr>About Us
+                <hr>About Us
+                <hr>About Us
+                <hr>About Us
+                <hr>About Us
+            </h4>
+        </div>
+        <div class="d99">
+            <h3 style="margin-left: 15px;">Contact Us</h3>
+            <p style="margin-left: 15px;">30/B Adarsh Society, Near Kaashi Parekh Complex, Swastik Char Rasta,C G Road, Ahmedabad-38009 Gujarat-India Phone:+91-79-26400685<p>
+        </div>
     </div>
-    <div class="d10">
-        <p style="margin-left: 15px;">Etiam pharetra magna viate fringilla posuere.Integer lacinia,nisi nec semper faucibus, elit neque imperddiet sem, ut molestie felis nisi sit amet leo.<br><br>Etiam pharetra magna viate fringilla posuere.Integer lacinia,nisi nec semper faucibus, elit neque imperddiet sem, ut molestie felis nisi sit amet leo.</p>
-        <h4 style="margin-left: 15px;">
-            <hr>Incredible Content<br>
-            May 8,2014<hr><br>
-            Incredible Content<br>
-            May 8,2014<hr><br>
-            Incredible Content<br>
-            May 8,2014
-        </h4>
-        <h4 style="margin-left: 15px;">
-            <hr>About Us
-            <hr>About Us
-            <hr>About Us
-            <hr>About Us
-            <hr>About Us
-        </h4>
-        <p style="margin-left: 15px;">30/B Adarsh Society, Near Kaashi Parekh Complex, Swastik Char Rasta,C G Road, Ahmedabad-38009 Gujarat-India Phone:+91-79-26400685<p>
-    </div>
+
+
+
 
     <div class="d11">
-        <p style="margin-left: 15px;">2015 � All Rights Reserved.Privacy Policy|Teams of Service</p>
-    </div>
+        <div class="im">
+            <p style="margin-left: 15px;">2015 © All Rights Reserved.Privacy Policy|Teams of Service</p>
+        </div>
 
-    <div class="d12">
-        <div class="im" style="margin-left: 150px background-color:black"> <img src="Images/twitter.png" style="height: 50px;width: 50px;"></div>
-        <div class="im" style="background-color:black;"> <img src="Images/facebook.png" style="height: 50px;width: 50px;"></div>
-        <div class="im" style="background-color:black;"> <img src="Images/google.png" style="height: 50px;width: 50px;"></div>
-        <div class="im" style="background-color:black;"> <img src="Images/pintrest.png" style="height: 50px;width: 50px;"></div>
-        <div class="im" style="background-color:black;"> <img src="Images/linkedin.png" style="height: 50px;width: 50px;"></div>
-        <div class="im" style="background-color:black;"> <img src="Images/Skype.png" style="height: 50px;width: 50px;"></div>
+        <div class="im"> <img src="Images/twitter.png" style="height: 50px;width: 50px;"></div>
+        <div class="im">  <img src="Images/facebook.png" style="height: 50px;width: 50px;"></div>
+        <div class="im"> <img src="Images/google.png" style="height: 50px;width: 50px;"></div>
+        <div class="im"> <img src="Images/pintrest.png" style="height: 50px;width: 50px;"></div>
+        <div class="im"> <img src="Images/linkedin.png" style="height: 50px;width: 50px;"></div>
+        <div class="im"> <img src="Images/Skype.png" style="height: 50px;width: 50px;"></div>
     </div>
 
 </body>
-</html>
