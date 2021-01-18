@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+	@media (min-width: 600px)
+	{
+		body
+		{
+			background: red;
+		}
+	}
+	@media (min-width: 768px)
+	{
+		body
+		{
+			background: green;
+		}
+	}
+	@media (min-width: 1200px)
+	{
+		body
+		{
+			background: white;
+		}
+	}
+</style>
+<body>
+	<h1 class="display-3 text-center my4">Basic Typography</h1>	
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">2: Utilities
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="text-alignment.html">2.1 Text Alignment & Display</a></li>
+							<li><a href="float.html">2.2 Float & Fixed Position</a></li>
+							<li><a href="color.html">2.3 Colors & Background</a></li>
+							<li><a href="margin.html">2.4 Margin & Spacing</a></li>
+							<li><a href="sizing.html">2.5 Sizing & Borders</a></li>
+							<li><a href="breakpoint.html">2.6 CSS Breakpoint</a></li>				
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">3: CSS Components
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="button.html">Buttons & Buttons Group</a></li>
+							<li><a href="navbar.html">Navbar & Nav</a></li>
+							<li><a href="listgroup.html">Listgroup & Badges</a></li>
+							<li><a href="forms.html">Forms & Input</a></li>
+							<li><a href="input.html">Input Groups</a></li>
+							<li><a href="alert.html">Alerts & Progressbar</a></li>
+							<li><a href="table.html">Tables & Pagination</a></li>
+							<li><a href="card.html">Working With Cards</a></li>
+							<li><a href="media.html">Media Objects</a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">4: Grid & Flexbox
+		  				<span class="caret"></span>
+		  			</button>
+		  		</div>
+		  	</div>
+		  	<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">5: JavaScript Widgets
+		  				<span class="caret"></span>
+		  			</button>
+				</div>
+			</div>
+		</div>	
+		<br><br>
+		<hr>
+		<br>
+		
+		<!--Width w--->
+		
+		<div class="bg-info p-3 w-25">Width 25%</div>
+		<div class="bg-info p-3 w-50">Width 50%</div>
+		<div class="bg-info p-3 w-75">Width 75%</div>
+		<div class="bg-info p-3 w-100">Width 100%</div>
+
+
+		<br><br>
+		<!--Height h-->
+		<div style="height: 300px;">
+			<div class="bg-info d-inline-block h-25">Width 25%</div>
+			<div class="bg-info d-inline-block h-50">Width 50%</div>
+			<div class="bg-info d-inline-block h-75">Width 75%</div>
+			<div class="bg-info d-inline-block h-100">Width 100%</div>
+		</div>		
+
+
+		<!--Border-->
+		<br><br>
+
+		<div class="p-3 mb-2 bg-light border">Regular</div>
+		<div class="p-3 mb-2 bg-light border border-primary rounded">Primary</div>
+		<div class="p-3 mb-2 bg-light border border-secondary">Secondary</div>
+		<div class="p-3 mb-2 bg-light border border-success">Success</div>
+		<div class="p-3 mb-2 bg-light border border-info">Info</div>
+		<div class="p-3 mb-2 bg-light border border-warning">Warning</div>
+		<div class="p-3 mb-2 bg-light border border-danger">Danger</div>
+		<div class="p-3 mb-2 bg-light border border-light">Light</div>
+		<div class="p-3 mb-2 bg-light border border-dark">Dark</div>
+		<div>White</div>
+	</div>
+</body>
+</html>
