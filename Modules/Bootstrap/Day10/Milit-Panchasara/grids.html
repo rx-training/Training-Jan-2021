@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <h1 class="display-3 text-center">Spacings</h1>
@@ -74,78 +76,101 @@
     </header>
     <!-- container class -->
     <div class="container">
-        <h1 class="bg-info">Heading Classes</h1>
-        <p class="h1">Paragraph tag with Heading class h1</p>
-        <p class="h2">Paragraph tag with Heading class h2</p>
-        <p class="h3">Paragraph tag with Heading class h3</p>
-        <p class="h4">Paragraph tag with Heading class h4</p>
-        <p class="h5">Paragraph tag with Heading class h5</p>
-        <p class="h6">Paragraph tag with Heading class h6</p>
+        <div class="row">
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border:1px solid black">
+                <ul>
+                    <li>6 columns on sm screens</li>
+                    <li>8 columns on md screen</li>
+                    <li>9 columns on lg screen</li>
+                    <li>10 columns on xl screen</li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border:1px solid black">
+                <ul>
+                    <li>6 column on sm screens</li>
+                    <li>8 column on md screen</li>
+                    <li>3 column on lg screen</li>
+                    <li>2 column on xl screen</li>
+                </ul>
+            </div>
+        </div>
         <hr>
-
-        <h1 class="bg-info">Display Classes</h1>
-        <p class="display-1">Paragraph tag with Display class display-1</p>
-        <p class="display-2">Paragraph tag with Display class display-2</p>
-        <p class="display-3">Paragraph tag with Display class display-3</p>
-        <p class="display-4">Paragraph tag with Display class display-4</p>
+        <div class="row">
+            <div class=" col" style="border:1px solid black">Equal Width</div>
+            <div class=" col" style="border:1px solid black">Equal Width</div>
+            <div class=" col" style="border:1px solid black">Equal Width</div>
+            <div class=" col" style="border:1px solid black">Equal Width</div>
+        </div>
         <hr>
-
-        <h1 class="bg-info">Lead class</h1>
-        <p>Just a paragraph without the lead class.</p>
-        <p class="lead">Just a paragraph with the lead class, which has different font-size.</p>
+        <div class="row">
+            <div class="col" style="border:1px solid black">Equal Width Multi</div>
+            <div class="col" style="border:1px solid black">Equal Width Multi</div>
+            <div class="w-100"></div>
+            <div class="col" style="border:1px solid black">Equal Width Multi</div>
+            <div class="col" style="border:1px solid black">Equal Width Multi</div>
+        </div>
         <hr>
-
-        <h1 class="bg-info">Font weight and italics</h1>
-        <p class="font-weight-bold">Bold text.</p>
-        <p class="font-weight-bolder">Bolder text.</p>
-        <p class="font-weight-normal">Normal weight text.</p>
-        <p class="font-weight-light">Light weight text.</p>
-        <p class="font-weight-lighter">Lighter weight text.</p>
-        <p class="font-italic">Italic text.</p>
+        <div class="row">
+            <div class="col" style="border:1px solid black">Auto Layout</div>
+            <div class="col-6" style="border:1px solid black">Auto Layout</div>
+            <div class="col-4" style="border:1px solid black">Auto Layout</div>
+        </div>
         <hr>
-
-        <h1 class="bg-info">Text transforms</h1>
-        <p class="text-uppercase">make uppercase</p>
-        <p class="text-lowercase">MAKE LOWER CASE</p>
-        <p class="text-capitalize">capitalize text</p>
+        <div class="row">
+            <div class="col-sm" style="border:1px solid black">Equal Width Stack in small screens</div>
+            <div class="col-sm" style="border:1px solid black">Equal Width Stack in small screens</div>
+            <div class="col-sm" style="border:1px solid black">Equal Width Stack in small screens</div>
+        </div>
         <hr>
-
-        <h1 class="bg-info">Block Quotes</h1>
-        <blockquote class="blockquote">
-            <p>block quote example with blockquote class, which has different font styling.</p>
-        </blockquote>
-
-        <blockquote class="blockquote">
-            <p>block quote example with blockquote-footer class and footer, which has different font styling.</p>
-            <p class="blockquote-footer">FOOTER</p>
-        </blockquote>
+        <div class="row">
+            <div class="col order-2" style="border:1px solid black">
+                First
+            </div>
+            <div class="col order-3" style="border:1px solid black">
+                Second
+            </div>
+            <div class="col order-1" style="border:1px solid black">
+                Third
+            </div>
+        </div>
         <hr>
-
-        <h1 class=" bg-info">Some list classes</h1>
-        <h3>Unstyled list</h3>
-        <ul class=" list-unstyled">
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-            <li>item 4</li>
-        </ul>
-
-        <h3>Inline list</h3>
-        <ul class=" list-inline">
-            <li class=" list-inline-item">item 1</li>
-            <li class=" list-inline-item">item 2</li>
-            <li class=" list-inline-item">item 3</li>
-            <li class=" list-inline-item">item 4</li>
-        </ul>
+        <div class="row">
+            <div class="col-md-4" style="border:1px solid black">4 col</div>
+            <div class="col-md-4 ml-auto" style="border:1px solid black">4 col offset 4</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 ml-auto" style="border:1px solid black">3 col offset 3</div>
+            <div class="col-md-3 ml-auto" style="border:1px solid black">3 col offset 3</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mx-auto" style="border:1px solid black">6 col offset 3</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-9" style="border:1px solid black">
+                Level 1: col-sm-9
+                <div class="row">
+                    <div class="col-sm-6" style="border:2px solid red">
+                        Level 2: .col-8 .col-sm-6
+                    </div>
+                    <div class="col-sm-6" style="border:2px solid red">
+                        Level 2: .col-4 .col-sm-6
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
     <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
 </body>
+
 </html>
