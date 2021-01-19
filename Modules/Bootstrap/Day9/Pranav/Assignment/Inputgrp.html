@@ -78,21 +78,47 @@
                 </div>
             </div>
         </div>
-        <h3 class="text-center mt-5">Colors Demo.</h3>
-        <p class="text-primary text-left mt-5">Android 11</p>
-        <p class="text-secondary text-left mt-1">Android 10</p>
-        <p class="text-success text-left mt-1">Android 9</p>
-        <p class="text-info text-left mt-1">Android 8</p>
-        <p class="text-warning text-left mt-1">Android 7</p>
-        <p class="text-danger text-left mt-1">Android 6</p>
-        <p class="text-dark text-left mt-1">Android 5</p>
-
-        <p class="bg-primary text-right mt-5">Primary</p>
-        <p class="bg-secondary text-right mt-1">Secondary</p>
-        <p class="bg-success text-right mt-1">Success</p>
-        <p class="bg-info text-right mt-1">Information</p>
-        <p class="bg-warning text-right mt-1">Warning</p>
-        <p class="bg-danger text-right mt-1">Danger</p>
-        <p class="bg-dark text-right mt-1">Dark</p>
+        <h3 class="text-center mt-5">Input Groups Add-on Demo.</h3>
+        <div class="input-group mt-4">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <br>
+        <div class="input-group mt-3">
+            <input type="text" class="form-control" placeholder="Email Address">
+            <span class="input-group-addon">@somethign.com</span>
+        </div>
+        <br>
+        <label  class="mt-3" for="profile-url">Choose Profile URL</label>
+        <div class="input-group mt-1">
+            <span class="input-group-addon">https://something.com/memeber/</span>
+            <input type="text" class="form-control" id="profile-url">           
+        </div>
+        <br>
+        <div class="input-group mt-3">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control">
+            <span class="input-group-addon">.00</span>
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <input type="checkbox">
+            </span>
+            <input type="text" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <input type="radio">
+            </span>
+            <span class="input-group-addon">$5.00</span>
+            <input type="text" class="form-control">
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search here">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">Search</button>
+            </span>
+        </div>
     </body>
 </html>

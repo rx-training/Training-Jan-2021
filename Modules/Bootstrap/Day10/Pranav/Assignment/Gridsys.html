@@ -78,21 +78,81 @@
                 </div>
             </div>
         </div>
-        <h3 class="text-center mt-5">Colors Demo.</h3>
-        <p class="text-primary text-left mt-5">Android 11</p>
-        <p class="text-secondary text-left mt-1">Android 10</p>
-        <p class="text-success text-left mt-1">Android 9</p>
-        <p class="text-info text-left mt-1">Android 8</p>
-        <p class="text-warning text-left mt-1">Android 7</p>
-        <p class="text-danger text-left mt-1">Android 6</p>
-        <p class="text-dark text-left mt-1">Android 5</p>
+        <h3 class="text-center mt-5">Grid System Demo.</h3>
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border:1px solid #333">
+                    <ul>
+                        <li>6 column on small screen</li>
+                        <li>8 columns on medium screen</li>
+                        <li>9 columns on large screen</li>
+                        <li>10 columns on extra large screen</li>                       
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border:1px solid #333">
+                    <ul>
+                        <li>6 column on small screen</li>
+                        <li>4 column on medium screen</li>
+                        <li>3 columns on large screen</li>
+                        <li>2 columns on extra large screen</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col" style="border:1px solid #333">Equal Width</div>
+                <div class="col" style="border:1px solid #333">Equal Width</div>
+                <div class="col" style="border:1px solid #333">Equal Width</div>
+            </div>
+            
+            <div class="row">
+                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+                <div class="w-100"></div>
+                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+            </div>
 
-        <p class="bg-primary text-right mt-5">Primary</p>
-        <p class="bg-secondary text-right mt-1">Secondary</p>
-        <p class="bg-success text-right mt-1">Success</p>
-        <p class="bg-info text-right mt-1">Information</p>
-        <p class="bg-warning text-right mt-1">Warning</p>
-        <p class="bg-danger text-right mt-1">Danger</p>
-        <p class="bg-dark text-right mt-1">Dark</p>
+            <div class="row">
+                <div class="col" style="border:1px solid #333">Auto Layout</div>
+                <div class="col-6" style="border:1px solid #333">Auto Layout</div>
+                <div class="col-4" style="border:1px solid #333">Auto Layout</div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+            </div>
+
+            <div class="row">
+                <div class="col order-3" style="border:1px solid #333">First</div>
+                <div class="col order-2" style="border:1px solid #333">Second</div>
+                <div class="col order-1" style="border:1px solid #333">Third</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4" style="border:1px solid #333">4 col</div>
+                <div class="col-md-4 ml-auto" style="border:1px solid #333">4 col offset 4</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col</div>
+                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col offset 3</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 m-auto" style="border:1px solid #333">6 col offset 3</div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9" style="border:1px solid #333">Level 1: .col-sm-9</div>
+                <div class="row">
+                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-8 .col-sm-6</div>
+                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-4 .col-sm-6</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

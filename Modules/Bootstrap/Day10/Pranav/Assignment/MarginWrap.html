@@ -8,6 +8,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            .row-h1 {
+                background: #f4f4f4;
+                height: 250px;
+            }
+            .item-h1 {
+                border: 1px solid #333;
+            }
+        </style>
     </head>
     <body>
         <h1 class="display-3 text-center my-4"> Basic Typography</h1>
@@ -35,6 +44,8 @@
                             CSS Components
                         </button>
                         <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Section Intro</a>
+                            <a class="dropdown-item" href="Btngroup.html">Button & Button Groups</a>
                             <a class="dropdown-item" href="Nav.html">Navbars & Nav</a>
                             <a class="dropdown-item" href="Listgrp.html">ListGroups & Badges</a>
                             <a class="dropdown-item" href="Forms.html">Form & Input</a>
@@ -79,20 +90,78 @@
             </div>
         </div>
         <h3 class="text-center mt-5">Colors Demo.</h3>
-        <p class="text-primary text-left mt-5">Android 11</p>
-        <p class="text-secondary text-left mt-1">Android 10</p>
-        <p class="text-success text-left mt-1">Android 9</p>
-        <p class="text-info text-left mt-1">Android 8</p>
-        <p class="text-warning text-left mt-1">Android 7</p>
-        <p class="text-danger text-left mt-1">Android 6</p>
-        <p class="text-dark text-left mt-1">Android 5</p>
-
-        <p class="bg-primary text-right mt-5">Primary</p>
-        <p class="bg-secondary text-right mt-1">Secondary</p>
-        <p class="bg-success text-right mt-1">Success</p>
-        <p class="bg-info text-right mt-1">Information</p>
-        <p class="bg-warning text-right mt-1">Warning</p>
-        <p class="bg-danger text-right mt-1">Danger</p>
-        <p class="bg-dark text-right mt-1">Dark</p>
+        <div class="container">
+            <div class="d-flex row-h1">
+                <div class="mr-auto p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex row-h1">
+                <div class="ml-auto p-2 item-h1">Flex Item</div>
+                <div class="ml-auto p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-column row-h1">
+                <div class="mb-auto p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-column row-h1">
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="mt-auto p-2 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-nowrap row-h1">
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-wrap row-h1">
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+                <div class="p-2 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex row-h1">
+                <div class="order-3 p-2 item-h1">Flex Item 1</div>
+                <div class="order-2 p-2 item-h1">Flex Item 2</div>
+                <div class="order-1 p-2 item-h1">Flex Item 3</div>
+            </div>
+        </div>
     </body>
 </html>
