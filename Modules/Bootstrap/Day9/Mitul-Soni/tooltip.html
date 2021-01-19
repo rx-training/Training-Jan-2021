@@ -10,36 +10,13 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<style type="text/css">
-	@media (min-width: 600px)
-	{
-		body
-		{
-			background: red;
-		}
-	}
-	@media (min-width: 768px)
-	{
-		body
-		{
-			background: green;
-		}
-	}
-	@media (min-width: 1200px)
-	{
-		body
-		{
-			background: white;
-		}
-	}
-</style>
 <body>
 	<h1 class="display-3 text-center my4">Basic Typography</h1>	
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<div class="dropdown mt-4">
-		  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">2: Utilities
+				<div class="dropdown mt-4 mx-2">
+		  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">2: Utilities
 		  				<span class="caret"></span>
 		  			</button>
 						<ul class="dropdown-menu">
@@ -74,72 +51,47 @@
 				<div class="dropdown mt-4">
 		  			<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">4: Grid & Flexbox
 		  				<span class="caret"></span>
-		  			</button>
+					  </button>
+					  <ul class="dropdown-menu">
+						<li><a href="grid-alignment.html">Grid Alignment</a></li>
+						<li><a href="flexbox.html">Flexbox Classes</a></li>
+						<li><a href="auto-margin.html">Auto Margin wrap & Ordering</a></li>
+					</ul>
 		  		</div>
 		  	</div>
 		  	<div class="col">
 				<div class="dropdown mt-4">
 		  			<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">5: JavaScript Widgets
 		  				<span class="caret"></span>
-		  			</button>
+					  </button>
+					  <ul class="dropdown-menu">
+						<li><a href="carousel.html">Carousel Slider</a></li>
+						<li><a href="collapse.html">Collpse & Accordion</a></li>
+						<li><a href="tooltip.html">Tooltips</a></li>
+						<li><a href="popover.html">Popover</a></li>
+						<li><a href="modal.html">Modal</a></li>	
+					</ul>
 				</div>
 			</div>
 		</div>	
 		<br><br>
 		<hr>
-		<br>
-		
-		<!--Buttons-->
-		<button type="button" class="btn btn-primary">Primary</button>
-		<button type="button" class="btn btn-secondary">Secondary</button>
-		<button type="button" class="btn btn-success">Success</button>
-		<button type="button" class="btn btn-danger">Danger</button>
-		<button type="button" class="btn btn-warning">Warning</button>
-		<button type="button" class="btn btn-info">Info</button>
-		<button type="button" class="btn btn-light">Light</button>
-		<button type="button" class="btn btn-dark">Dark</button>
-		<button type="button" class="btn btn-link">Link</button>
+        <br>
 
+        <!--Tooltip-->
 
-		<br><br>
-		<!--Button tag-->
-		<a class="btn btn-primary" href="#" role="button">Link</a>
-		<button class="btn btn-primary" type="submit">Button</button>
-		<input class="btn btn-primary" type="button" value="Input">
-		<input class="btn btn-primary" type="submit" value="Submit">
-		<input class="btn btn-primary" type="reset" value="Reset">
-
-		<br><br>
-		<!--Outline Button-->
-		<button type="button" class="btn btn-outline-primary">Primary</button>
-		<button type="button" class="btn btn-outline-secondary">Secondary</button>
-		<button type="button" class="btn btn-outline-success">Success</button>
-		<button type="button" class="btn btn-outline-danger">Danger</button>
-		<button type="button" class="btn btn-outline-warning">Warning</button>
-		<button type="button" class="btn btn-outline-info">Info</button>
-		<button type="button" class="btn btn-outline-light">Light</button>
-		<button type="button" class="btn btn-outline-dark">Dark</button>
-
-		<br><br>
-		<!--Button Size-->
-		<button type="button" class="btn btn-primary btn-lg">Large button</button>
-
-		<br><br>
-
-		<button type="button" class="btn btn-primary btn-sm">Small button</button>
-
-		<br><br>
-
-		<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-
-		<br><br>
-
-		<!--Button Group-->
-		<div class="btn-group p-3" role="group">
-  			<button type="button" class="btn btn-secondary">Left</button>
-  			<button type="button" class="btn btn-secondary">Middle</button>
-  			<button type="button" class="btn btn-secondary">Right</button>
-		</div>
-	</div>
+         <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+            Tooltip top
+          </button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+            Tooltip right
+          </button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+            Tooltip bottom
+          </button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+            Tooltip left
+          </button>
+    </div>
 </body>
 </html>
