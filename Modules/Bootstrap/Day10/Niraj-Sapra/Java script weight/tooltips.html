@@ -9,15 +9,16 @@
     </head>
     <body>
            <div>
-               <p class="text-center display-2">Alerts and processbar</p>
+               <p class="text-center display-2">Basic Typography</p>
            </div><br><br>
+           <hr>
            <div class="mt-3 text-center">
             <div class="dropdown float-left mx-3 ">
                 <button type="button" class="btn btn-primary dropdown-toggle bg-primary mx-5" data-toggle="dropdown">
                     2:Utilities
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="">2.2 Basic Typography</a>
+                  <a class="dropdown-item" href="basic_typography.html">2.2 Basic Typography</a>
                   <a class="dropdown-item" href="text_alignment&display.html">2.3 Text Alignment & Display</a>
                   <a class="dropdown-item" href="usefloat_fixed_positions.html">2.4 Float & Fixed Positions</a>
                   <a class="dropdown-item" href="colors&Background.html">2.5 Colors & Background</a>
@@ -59,68 +60,49 @@
                     5:Java script weight
                 </button> 
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="Java script weight/carousel_slider.html">5.2 Carousel Slider</a>
-                  <a class="dropdown-item" href="Java script weight/collapse_and_accordion.html">5.3 Collapse</a>
-                  <a class="dropdown-item" href="Java script weight/tooltips.html">5.4 Tooltips</a>
-                  <a class="dropdown-item" href="Java script weight/popovers.html">5.5 Popovers</a>
-                  <a class="dropdown-item" href="Java script weight/modals.html">5.6 Modals </a>
+                  <a class="dropdown-item" href="basic_typography.html">5.2 Basic Typography</a>
+                  <a class="dropdown-item" href="text_alignment&display.html">5.3 Text Alignment & Display</a>
+                  <a class="dropdown-item" href="usefloat_fixed_positions.html">.4 Float & Fixed Positions</a>
+                  <a class="dropdown-item" href="colors&Background.html">2.5 Colors & Background</a>
+                  <a class="dropdown-item" href="marginandSpacing.html">2.6 Spacing</a>
+                  <a class="dropdown-item" href="sizing&Borders.html">2.7 Sizing</a>
+                  <a class="dropdown-item" href="cSSBreakpoints.html">2.8 Breakpoints</a>
                 </div>
               </div>
-           </div>
-          <hr><br>
-        <!--start form-->
-        Alerts
-        <div class="container">
-                <div class="alert alert-primary">
-                    <strong>Primary</strong> Blog post added
-                </div>
-                <div  class="alert alert-secondary">
-                    <strong>Secondary</strong> Blog post added
-                </div>
-                <div  class="alert alert-info">
-                    <strong>info</strong> Blog post added
-                </div>
-                <div  class="alert alert-success">
-                    <strong>Success</strong> Blog post added
-                </div>
-                <div  class="alert alert-danger">
-                    <strong>Danger</strong> Blog post added <a class="alert-link" href="#">Read more</a>
-                </div>
-                <div  class="alert alert-warning">
-                    <strong>warning</strong> Blog post added
-                </div>
-                <div  class="alert alert-light">
-                    <strong>light</strong> Blog post added
-                </div>
-                <div  class="alert alert-dark">
-                    <strong>Dark</strong> Blog post added
-                </div>
-                 
-                 
-                 <!--DISMISABLE BUTTON-->
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button class="close" data-dismiss="alert" type="button">
-                        <span>&times;</span>
-                    </button>
-                    <strong>Dismiable</strong>Block post add
-                </div><br><br>
+           </div><br><br>
+           <div class="container">
+               
+            <!--Tooltips -->
+            
+            <button class="btn btn-primary" data-toggle="tooltip" data-placement="top"  title="Tooltip on top"> tooltip on top</button>
+            <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottam">tooltip on bottam</button>
+            <button class="btn btn-warning" data-toggle="tooltip" data-placement="right" title="Tooltip on right">tooltip on right</button>
+            <button class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Tooltip on left">tooltip on left</button>
+<br><br>
+<!--button wiht collase-->
+<button class="btn btn-primary" data-toggle="tooltip" data-placement="top" id="hello"  data-html="true" title="<h3>Hello world</h3><p>this is only tooltip</p>"> tooltip in html</button>            
 
-                <!--Process Bars-->
-                <div class="progress">
-                    <div class="progress-bar" style="width: 35%;"></div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar" style="width: 35%;">35%</div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar bg-warning" style="width: 35%;">85%</div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar bg-danger progress-bar-striped" style="width: 35%;"></div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 95%;"></div>
-                </div><br>
-            </div>
+<br>
+<br>
+<!--triger with js -->
+<button class="btn btn-secondary" onclick="showTooltip()">tooltip show</button>
+<button class="btn btn-secondary" onclick="hideTooltip()">tooltip hide</button>
+<button class="btn btn-secondary" onclick="toogleTooltip()">tooltip toogle</button>
+
+
+           </div>
+<script>
+    $('[data-toggle="tooltip"]').tooltip();
+    function showTooltip(){
+        $('#hello').tooltip('show');
+    }
+    function hideTooltip(){
+        $('#hello').tooltip('hide');
+    }
+    function hideTooltip(){
+        $('#hello').tooltip('toggle');
+    }
+</script>           
     </body>
+
 </html>

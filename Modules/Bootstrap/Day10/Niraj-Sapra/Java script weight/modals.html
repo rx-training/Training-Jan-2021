@@ -9,15 +9,16 @@
     </head>
     <body>
            <div>
-               <p class="text-center display-2">Alerts and processbar</p>
+               <p class="text-center display-2">Basic Typography</p>
            </div><br><br>
+           <hr>
            <div class="mt-3 text-center">
             <div class="dropdown float-left mx-3 ">
                 <button type="button" class="btn btn-primary dropdown-toggle bg-primary mx-5" data-toggle="dropdown">
                     2:Utilities
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="">2.2 Basic Typography</a>
+                  <a class="dropdown-item" href="basic_typography.html">2.2 Basic Typography</a>
                   <a class="dropdown-item" href="text_alignment&display.html">2.3 Text Alignment & Display</a>
                   <a class="dropdown-item" href="usefloat_fixed_positions.html">2.4 Float & Fixed Positions</a>
                   <a class="dropdown-item" href="colors&Background.html">2.5 Colors & Background</a>
@@ -59,68 +60,75 @@
                     5:Java script weight
                 </button> 
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="Java script weight/carousel_slider.html">5.2 Carousel Slider</a>
-                  <a class="dropdown-item" href="Java script weight/collapse_and_accordion.html">5.3 Collapse</a>
-                  <a class="dropdown-item" href="Java script weight/tooltips.html">5.4 Tooltips</a>
-                  <a class="dropdown-item" href="Java script weight/popovers.html">5.5 Popovers</a>
-                  <a class="dropdown-item" href="Java script weight/modals.html">5.6 Modals </a>
+                  <a class="dropdown-item" href="basic_typography.html">5.2 Basic Typography</a>
+                  <a class="dropdown-item" href="text_alignment&display.html">5.3 Text Alignment & Display</a>
+                  <a class="dropdown-item" href="usefloat_fixed_positions.html">.4 Float & Fixed Positions</a>
+                  <a class="dropdown-item" href="colors&Background.html">2.5 Colors & Background</a>
+                  <a class="dropdown-item" href="marginandSpacing.html">2.6 Spacing</a>
+                  <a class="dropdown-item" href="sizing&Borders.html">2.7 Sizing</a>
+                  <a class="dropdown-item" href="cSSBreakpoints.html">2.8 Breakpoints</a>
                 </div>
               </div>
-           </div>
-          <hr><br>
-        <!--start form-->
-        Alerts
-        <div class="container">
-                <div class="alert alert-primary">
-                    <strong>Primary</strong> Blog post added
-                </div>
-                <div  class="alert alert-secondary">
-                    <strong>Secondary</strong> Blog post added
-                </div>
-                <div  class="alert alert-info">
-                    <strong>info</strong> Blog post added
-                </div>
-                <div  class="alert alert-success">
-                    <strong>Success</strong> Blog post added
-                </div>
-                <div  class="alert alert-danger">
-                    <strong>Danger</strong> Blog post added <a class="alert-link" href="#">Read more</a>
-                </div>
-                <div  class="alert alert-warning">
-                    <strong>warning</strong> Blog post added
-                </div>
-                <div  class="alert alert-light">
-                    <strong>light</strong> Blog post added
-                </div>
-                <div  class="alert alert-dark">
-                    <strong>Dark</strong> Blog post added
-                </div>
-                 
-                 
-                 <!--DISMISABLE BUTTON-->
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button class="close" data-dismiss="alert" type="button">
-                        <span>&times;</span>
-                    </button>
-                    <strong>Dismiable</strong>Block post add
-                </div><br><br>
+           </div><br><br>
+           <div class="container">
+               
+            <!--Modal triger -->
+            
+             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Launch my model</button>
+            
+            <!--model-->     
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content"> 
+                        <div class="modal-header">
+                            <h5 class="modal-title">model title</h5>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            hello today learning in model.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">close</button>
+                        </div>
+                    </div>
 
-                <!--Process Bars-->
-                <div class="progress">
-                    <div class="progress-bar" style="width: 35%;"></div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar" style="width: 35%;">35%</div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar bg-warning" style="width: 35%;">85%</div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar bg-danger progress-bar-striped" style="width: 35%;"></div>
-                </div><br>
-                <div class="progress">
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 95%;"></div>
-                </div><br>
+                </div>
+
             </div>
+
+             <!--Login model-->
+             <button class="btn btn-info ml-3" data-toggle="modal" data-target="#loginModal">Login</button>
+
+             
+             <div class="modal" id="loginModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Login in page</h5>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" placeholder="Username" class="form-contorl">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" placeholder="Password" class="form-contorl">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">close</button>
+                            <button class="btn btn-primary" data-dismiss="modal">Login</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </body>
+
 </html>
