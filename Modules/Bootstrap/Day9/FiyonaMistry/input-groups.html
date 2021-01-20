@@ -11,34 +11,42 @@
 </head>
 <body style="margin: 50px;">
     <div class="input-group">
-        <span class="input-group-addon">@</span>
+        <div class="input-group-prepend">
+        <span class="input-group-text">@</span>
+        </div>
         <input type="text" id="name" class="form-control" placeholder="Username">
     </div>
     <br>
     <div class="input-group">
         <input type="text" id="email" class="form-control" placeholder="Email">
-        <span class="input-group-addon">@xyz.com</span>
+        <div class="input-group-prepend">
+            <span class="input-group-text">@xyz.com</span>
+            </div>
     </div>
     <br>
     <label for="profile-URL">Choose Profile URL</label>
     <div class="input-group">
-        <span class="input-group-addon">https://abc.com/xyz/</span>
+        <div class="input-group-prepend">
+            <span class="input-group-text">https://abc.com/xyz</span>
+            </div>
         <input type="text" id="url" class="form-control" id="profile-URL">
     </div>
     <br>
     <div class="input-group">
-        <span class="input-group-addon">
-            <input type="radio">
-        </span>
-        <span class="input-group-addon">$67</span>
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <input type="radio">
+            </span>
+            <span class="input-group-text">$67</span>
+            </div>
         <input type="text" class="form-control">
     </div>
     <br>
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Search">
-        <span class="input-group-btn">
+        <div class="input-group-append">
             <button class="btn btn-primary" type="button">Search</button>
-        </span>
+          </div>
     </div>
 </body>
 </html>
