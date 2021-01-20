@@ -4,84 +4,104 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="Css/mystyle.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Hello, world!</title>
   </head>
-  <body>
+  <body id="top" class="bg-dark">
     <!--s1_header-->     
     <section id="s1_header">    
-        <section>
-            <aside>
-                <h1>Rembrandt Van Rijn</h1>
-                <h5>Painter, Draughtsman &amp; Printmaker</h5>
+            <aside class="container">
+                <h1 class="text-danger display-4">Rembrandt Van Rijn</h1>
+                <h5 class="text-white"> Painter, Draughtsman &amp; Printmaker</h5>
             </aside>
-        </section>
     </section>
 
  <!--s2_trio-->     
  <section id="s2_trio">
-     <img src="img/interface-imgs/s2-prints.png" alt="prints">
-     <aside>
-         <h2>Print</h2>
-         <p>Reproductions of all of Rembrandt's prints available for purchase. Magnificent prints that show life among Rembrandt’s family and friends.
-        </p>
-     </aside>
-     <img src="img/interface-imgs/s2-paintings.png" alt="paintings">
-     <aside>
-         <h2>Paintings</h2>
-         <p>Framed, vertical, rectangular pictures,  some over four feet in height. Discovered, framed and designed for collectors like you.
-        </p>
-     </aside>
-     <img src="img/interface-imgs/s2-drawings.png" alt="Drawings">
-     <aside>
-         <h2>Drawings</h2>
-         <p>Rembrandt was one of the greatest draftsmen in the history of art. His drawings expressed his own feelings and observations.
-        </p>
-     </aside>
+    <div class="container py-5"> 
+        <div class="card mx-2">
+            <div class="card-body">
+                <img class="img-fluid border border-dark" src="img/interface-imgs/s2-prints.png" alt="prints">
+                <aside>
+                    <h2 class="text-danger my-2">Print</h2>
+                    <p>Reproductions of all of Rembrandt's prints available for purchase. Magnificent prints that show life among Rembrandt’s family and friends.
+                   </p>
+                </aside>
+            </div>
+        </div> 
+        <div class="card mx-2">
+            <div class="card-body">
+                <img class="img-fluid border border-dark" src="img/interface-imgs/s2-paintings.png" alt="paintings">
+                <aside>
+                    <h2 class="text-danger my-2">Paintings</h2>
+                    <p>Framed, vertical, rectangular pictures,  some over four feet in height. Discovered, framed and designed for collectors like you.
+                    </p>
+                </aside>
+            </div>
+        </div>
+        <div class="card mx-2">
+            <div class="card-body">
+                <img class="img-fluid border border-dark" src="img/interface-imgs/s2-drawings.png" alt="Drawings">
+                <aside>
+                    <h2 class="text-danger my-2">Drawings</h2>
+                    <p>Rembrandt was one of the greatest draftsmen in the history of art. His drawings expressed his own feelings and observations.
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </div>
  </section>
 
  <!--s3_painting_of_the_week-->     
-<section id="s3_painting_of_the_week">
-    <h1>Highlighted Painting</h1>
-    <img src="img/s3-painting-of-the-week-Rembrandt_castello_sulla_riva_1640-1650.png" alt="painting of the week">
-    <p>Castle Overlooking a River (circa 1645)</p>
+<section class="text-center py-5" id="s3_painting_of_the_week">
+    <div class="container">
+        <h1 class="text-danger">Highlighted Painting</h1>
+        <img class="img-fluid my-3 border border-light" src="img/s3-painting-of-the-week-Rembrandt_castello_sulla_riva_1640-1650.png" alt="painting of the week">
+        <p class="text-white">Castle Overlooking a River (circa 1645)</p>
+    </div>
 </section>
 
 <!--s4_about-->     
- <section id="s4_about">
-     <img src="img/interface-imgs/s4-about-Rembrandt_Self-Portrait_(1637).png" alt="Rembrandt">
-     <h3>About</h3>
+ <section class="py-5" id="s4_about">
+     <div class="container">
+     <img class="img-fluid" src="img/interface-imgs/s4-about-Rembrandt_Self-Portrait_(1637).png" alt="Rembrandt">
+     <h3 class="text-danger">About</h3>
      <p><strong>Rembrandt van Rijn</strong> was a Dutch painter and etcher. He is generally considered one of the greatest painters and printmakers in European art and the most important in Dutch history. His contributions to art came in a period of great wealth and cultural achievement that historians call the Dutch Golden Age when Dutch Golden Age painting, although in many ways antithetical to the Baroque style that dominated Europe, was extremely prolific and innovative, and gave rise to important new genres in painting.</p>
- </section>
+    </div>
+</section>
+
 
 <!--s5_prints-->     
- <section id="s5_prints">
-    <h1>Prints</h1>
-    <img src="img/prints-img/prints-thumbs/A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg" alt="A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Bald-headed-Old-Man_1630-thumb.jpg" alt="Bald-headed-Old-Man_1630-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg" alt="Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Beggar-Man-and-Beggar-Woman-Conversing-thumb.jpg" alt="Beggar-Man-and-Beggar-Woman-Conversing-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Bust-of-an-Old-Bearded-Man_1631-thumb.jpg" alt="Bust-of-an-Old-Bearded-Man_1631-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Jerome-Reading-in-the-Wilderness_1634-thumb.jpg" alt="Jerome-Reading-in-the-Wilderness_1634-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Josephs-Coat-Brought-to-Jacob_circa-1633-thumb.jpg" alt="Josephs-Coat-Brought-to-Jacob_circa-1633-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Old-Man-with-a-Snub-Nose_circa-1629-thumb.jpg" alt="Old-Man-with-a-Snub-Nose_circa-1629-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Old-Woman-Seated-in-a-Cottage-with-a-String-of-Onions-on-the-Wall_1631-thumb.jpg" alt="Old-Woman-Seated-in-a-Cottage-with-a-String-of-Onions-on-the-Wall_1631-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Rembrandt_van_Rijn_-_The_Quacksalver_1635-thumb.jpg" alt="Rembrandt_van_Rijn_-_The_Quacksalver_1635-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Self-portrait-in-a-Cap,-Laughing-_1630-thumb.jpg" alt="Self-portrait-in-a-Cap,-Laughing-_1630-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Self-portrait-Leaning-Forward_circa-1628-thumb.jpg" alt="Self-portrait-Leaning-Forward_circa-1628-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/Sheet-of-studies-of-mens-heads_-circa-1630-1631-thumb.jpg" alt="Sheet-of-studies-of-mens-heads_-circa-1630-1631-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg" alt="The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg" alt="The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg">
-    <img src="img/prints-img/prints-thumbs/The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg" alt="The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg">
-    <img src="img/interface-imgs/s5-prints.png" alt="s5-prints">
- </section>
+ <section class="py-5" id="s5_prints">
+    <div class="container py-5">
+    <h1 class="text-danger">Prints</h1>
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg" alt="A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Bald-headed-Old-Man_1630-thumb.jpg" alt="Bald-headed-Old-Man_1630-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg" alt="Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Beggar-Man-and-Beggar-Woman-Conversing-thumb.jpg" alt="Beggar-Man-and-Beggar-Woman-Conversing-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Bust-of-an-Old-Bearded-Man_1631-thumb.jpg" alt="Bust-of-an-Old-Bearded-Man_1631-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Jerome-Reading-in-the-Wilderness_1634-thumb.jpg" alt="Jerome-Reading-in-the-Wilderness_1634-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Josephs-Coat-Brought-to-Jacob_circa-1633-thumb.jpg" alt="Josephs-Coat-Brought-to-Jacob_circa-1633-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Old-Man-with-a-Snub-Nose_circa-1629-thumb.jpg" alt="Old-Man-with-a-Snub-Nose_circa-1629-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Old-Woman-Seated-in-a-Cottage-with-a-String-of-Onions-on-the-Wall_1631-thumb.jpg" alt="Old-Woman-Seated-in-a-Cottage-with-a-String-of-Onions-on-the-Wall_1631-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Rembrandt_van_Rijn_-_The_Quacksalver_1635-thumb.jpg" alt="Rembrandt_van_Rijn_-_The_Quacksalver_1635-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Self-portrait-in-a-Cap,-Laughing-_1630-thumb.jpg" alt="Self-portrait-in-a-Cap,-Laughing-_1630-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Self-portrait-Leaning-Forward_circa-1628-thumb.jpg" alt="Self-portrait-Leaning-Forward_circa-1628-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/Sheet-of-studies-of-mens-heads_-circa-1630-1631-thumb.jpg" alt="Sheet-of-studies-of-mens-heads_-circa-1630-1631-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg" alt="The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg" alt="The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg">
+    <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg" alt="The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg">
+    <img class="img-fluid" src="img/interface-imgs/s5-prints.png" alt="s5-prints">
+    </div> 
+</section>
 
  <!--s6_paintings-->     
-<section id="s6_paintings">
-    <h1>paintings</h1>
+<section class="py-5" id="s6_paintings">
+    <div class="container">
+    <h1 class="text-danger">paintings</h1>
     <div class="painting-1"></div>
     <div class="painting-2"></div>
     <div class="painting-3"></div>
@@ -92,34 +112,38 @@
     <div class="painting-8"></div>
     <div class="painting-9"></div>
     <div class="painting-10"></div>
+    </div>
 </section>
 
 <!--s7_drawings-->     
- <section id="s7_drawings">
-     <h1>Drawing</h1>" alt="">
-    <img src="img/drawings-img/drawings-thumbs/a-young-woman-having-her-hair-braided_circa-1637-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/an-elephant-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/blind-man-walking-with-a-stick-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/dutch-farmhouse-in-sunlight_circa-1635-1636-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/group-of-horsemen_circa-1632-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/lady-with-a-fan-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/landscape-with-two-cottages_circa-1633-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/man-leaning-on-a-stick-facing-right_circa-1629-1630-thumb." alt="">jpg
-    <img src="img/drawings-img/drawings-thumbs/old-man-seated-in-an-armchair_1631-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/portrait-of-harmen-gerritsz-van-rijn_1630-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/saskia-at-a-window_circa-1634-1635-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/seated-old-man_circa-1630--thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/study-of-a-girl-sleeping-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/susanna-and-the-elders_circa-1630-1633-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/the-entombment_1630-thumb.jpg" alt="">
-    <img src="img/drawings-img/drawings-thumbs/woman-carrying-a-child-downstairs_circa-1636-thumb.jpg" alt="">
-    <img src="img/interface-imgs/s7-drawing.png" alt="s7-drawing">
+ <section class="py-5" id="s7_drawings">
+    <div class="container py-5"> 
+    <h1 class="text-danger">Drawing</h1>
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/a-young-woman-having-her-hair-braided_circa-1637-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/an-elephant-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/blind-man-walking-with-a-stick-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/dutch-farmhouse-in-sunlight_circa-1635-1636-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/group-of-horsemen_circa-1632-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/lady-with-a-fan-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/landscape-with-two-cottages_circa-1633-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/man-leaning-on-a-stick-facing-right_circa-1629-1630-thumb." alt="">jpg
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/old-man-seated-in-an-armchair_1631-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/portrait-of-harmen-gerritsz-van-rijn_1630-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/saskia-at-a-window_circa-1634-1635-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/seated-old-man_circa-1630--thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/study-of-a-girl-sleeping-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/susanna-and-the-elders_circa-1630-1633-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/the-entombment_1630-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/woman-carrying-a-child-downstairs_circa-1636-thumb.jpg" alt="">
+    <img class="img-fluid" src="img/interface-imgs/s7-drawing.png" alt="s7-drawing">
+    </div>
 </section>
 
  <!--s8_contact-->     
-<section id="s8_contact">
+<section class="py-5" id="s8_contact">
+    <div class="container py-5">
     <aside>
-        <h1>Contect</h1>
+        <h1 class="text-danger">Contect</h1>
         <p>La Galerie d'art de Rembrandt<br>
             182 N. Union Ave, <br>
             Farmington, UT 84025<br>
@@ -130,18 +154,15 @@
     <p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12092399.719946038!2d-108.9313613973186!3d42.273271331500304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752fee11014e82f%3A0x1c5e3fda11f60198!2sPluralsight!5e0!3m2!1sen!2sus!4v1537034361031" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
     </p>
-    <img src="img/interface-imgs/s8-contact.png" alt="contect">
+    <img class="img-fluid" src="img/interface-imgs/s8-contact.png" alt="contect">
+    </div>
 </section>
 
 <!--s9_footer-->     
- <section id="s9_footer">
-
- </section>
-
- <!--s10_copyright-->     
-<section id="s10_copyright">
+<section class="text-white" id="s9_copyright">
+    <div class="container">
     <aside>
-        <h1>
+        <h1 class="text-danger h3">
             La Galerie d'art de Rembrandt
         </h1>
         <p>
@@ -154,8 +175,8 @@
             <i class="fab fa-instagram"></i>
     </aside>
     <aside>
-        <h1>Menu</h1>
-        <ul>
+        <h1 class="text-danger h3">Menu</h1>
+        <ul class="list-unstyled">
             <li>Home</li>
             <li>Paintings, Drawings and Prints</li>
             <li>Painting of the Week</li>
@@ -168,8 +189,8 @@
         </ul>
     </aside>
     <aside>
-        <h1>Some Museums Showing Rembrandts</h1>
-        <ul>
+        <h1 class="text-danger h3"> Some Museums Showing Rembrandts</h1>
+        <ul class="list-unstyled">
             <li>Hermitage Museum</li>
             <li>Louvre</li>
             <li>National Gallery of Art</li>
@@ -183,8 +204,8 @@
         </ul>
     </aside>
     <aside>
-        <h1>PAINTING NAMES</h1>
-        <ul>
+        <h1 class="text-danger h3"> PAINTING NAMES</h1>
+        <ul class="list-unstyled">
             <li>Self Portrait As A Young Man</li>
             <li>Portrait Of Jan Six</li>
             <li>Syndics Of The Drapers' Guild</li>
@@ -199,8 +220,8 @@
         </ul>
     </aside>
     <aside>
-        <h1>Other links</h1>
-        <ul>
+        <h1 class="text-danger h3">Other links</h1>
+        <ul class="list-unstyled">
             <li>Complete Self Portraits</li>
             <li>Selected Self Portraits</li>
             <li>About the Self Portraits</li>
@@ -212,12 +233,13 @@
         </ul>
     </aside>
     <aside>
-        <img src="img/interface-imgs/s9-footer-drawing.jpg" alt="">
+        <img class="img-fluid" src="img/interface-imgs/s9-footer-drawing.jpg" alt="">
     </aside>
-</section>
-<div>
-    <p>&copy;<script>document.write(new Date().getFullYear());</script> Whatever. All rights reserved.</p>
 </div>
+</section>
+<section class="text-white bg-dark small my-5 text-center" id="s10_copyright">
+    <p>&copy;<script>document.write(new Date().getFullYear());</script> Whatever. All rights reserved.</p>
+</section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
