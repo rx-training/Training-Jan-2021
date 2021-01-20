@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1 class="display-3 text-center my-4">Breakpoints</h1>
+        <h1 class="display-3 text-center my-4"> Auto Margins & Wrap</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -77,52 +77,99 @@
         </div>
     </header>
     <hr />
-    <style>
-       
-        @media (min-width: 576px) {
-            body {
-                background: red;
-            }
-        }
 
-      
-        @media (min-width:768px) {
-            body {
-                background: blue;
-            }
-        }
-
-        
-        @media (min-width:992px) {
-            body {
-                background: green;
-            }
-        }
-
-        
-        @media (min-width:1200px) {
-            body {
-                background: yellow;
-            }
-        }
-
-       
-        @media (max-width:575px) {
-        }
-
-       
-        @media (max-width:767px) {
-        }
-
-       
-        @media (max-width:991px) {
-        }
-
-       
-        @media (max-width:1199) {
-        }
-    </style>
     <div class="container">
+        <!-- MR-AUTO -->
+        <div class="d-flex row-hl">
+            <div class="mr-auto p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- ML-AUTO -->
+        <div class="d-flex row-hl">
+            <div class="ml-auto p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="ml-auto p-2 item-hl">Flex item</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- MB-AUTO -->
+        <div class="d-flex flex-column row-hl">
+            <div class="mb-auto p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- MT-AUTO -->
+        <div class="d-flex flex-column row-hl">
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="mt-auto p-2 item-hl">Flex item</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- NO WRAP -->
+        <div class="d-flex flex-nowrap row-hl">
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+
+        </div>
+
+        <br>
+        <br>
+
+        <!-- WRAP -->
+        <div class="d-flex flex-wrap row-hl">
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+            <div class="p-2 item-hl">Flex item</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- ORDERING -->
+        <div class="d-flex row-hl">
+            <div class="order-3 p-2 item-hl">First flex item</div>
+            <div class="order-2 p-2 item-hl">Second flex item</div>
+            <div class="order-1 p-2 item-hl">Third flex item</div>
+        </div>
 
     </div>
 

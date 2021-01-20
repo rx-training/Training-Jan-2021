@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1 class="display-3 text-center my-4">Breakpoints</h1>
+        <h1 class="display-3 text-center my-4"> Grid System</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -77,54 +77,108 @@
         </div>
     </header>
     <hr />
-    <style>
-       
-        @media (min-width: 576px) {
-            body {
-                background: red;
-            }
-        }
 
-      
-        @media (min-width:768px) {
-            body {
-                background: blue;
-            }
-        }
-
-        
-        @media (min-width:992px) {
-            body {
-                background: green;
-            }
-        }
-
-        
-        @media (min-width:1200px) {
-            body {
-                background: yellow;
-            }
-        }
-
-       
-        @media (max-width:575px) {
-        }
-
-       
-        @media (max-width:767px) {
-        }
-
-       
-        @media (max-width:991px) {
-        }
-
-       
-        @media (max-width:1199) {
-        }
-    </style>
     <div class="container">
 
+        <div class="row">
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border:1px solid #333">
+                <ul>
+                    <li>6 column on small screens</li>
+                    <li>8 column on medium screen</li>
+                    <li>9 column on large screen</li>
+                    <li>10 column on xlarge screen</li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border:1px solid #333">
+                <ul>
+                    <li>6 column on small screens</li>
+                    <li>4 column on medium screen</li>
+                    <li>3 column on large screen</li>
+                    <li>2 column on xlarge screen</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EQUAL WIDTH -->
+        <div class="row">
+            <div class="col" style="border:1px solid #333">Equal Width</div>
+            <div class="col" style="border:1px solid #333">Equal Width</div>
+            <div class="col" style="border:1px solid #333">Equal Width</div>
+            <div class="col" style="border:1px solid #333">Equal Width</div>
+        </div>
+
+        <!-- EQUAL WIDTH MULTI ROW -->
+        <div class="row">
+            <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+            <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+            <div class="w-100"></div>
+            <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+            <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+        </div>
+
+        <!-- AUTO LAYOUT -->
+        <div class="row">
+            <div class="col" style="border:1px solid #333">Auto Layout</div>
+            <div class="col-6" style="border:1px solid #333">Auto Layout</div>
+            <div class="col-4" style="border:1px solid #333">Auto Layout</div>
+        </div>
+
+        <!-- EQUAL WIDTH STACKED -->
+        <div class="row">
+            <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+            <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+            <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+        </div>
+
+        <!-- ORDERING -->
+        <div class="row">
+            <div class="col order-3" style="border:1px solid #333">
+                First
+            </div>
+            <div class="col order-2" style="border:1px solid #333">
+                Second
+            </div>
+            <div class="col order-1" style="border:1px solid #333">
+                Third
+            </div>
+        </div>
+
+        <!-- OFFSETTING -->
+        <div class="row">
+            <!-- 2 4 column divs, the second offset by 4 -->
+            <div class="col-md-4" style="border:1px solid #333">.col-md-4</div>
+            <div class="col-md-4 ml-auto" style="border:1px solid #333">.col-md-4 .offset-md-4</div>
+        </div>
+
+        <div class="row">
+            <!-- 2 3 column divs, both offset by 3 -->
+            <div class="col-md-3 ml-auto" style="border:1px solid #333">.col-md-3 .offset-md-3</div>
+            <div class="col-md-3 ml-auto" style="border:1px solid #333">.col-md-3 .offset-md-3</div>
+        </div>
+
+        <div class="row">
+            <!-- 6 column div offset by 3 -->
+            <div class="col-md-6 m-auto" style="border:1px solid #333">.col-md-6 .offset-md-3</div>
+        </div>
+
+        <!-- NESTING -->
+        <div class="row">
+            <div class="col-sm-9" style="border:1px solid blue">
+                Level 1: .col-sm-9
+                <div class="row">
+                    <div class="col-sm-6" style="border:1px solid red">
+                        Level 2: .col-8 .col-sm-6
+                    </div>
+                    <div class="col-sm-6" style="border:1px solid red">
+                        Level 2: .col-4 .col-sm-6
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+  
+
+            
 
 </body>
 </html>

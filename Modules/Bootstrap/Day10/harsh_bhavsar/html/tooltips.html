@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1 class="display-3 text-center my-4">Breakpoints</h1>
+        <h1 class="display-3 text-center my-4"> Tooltips</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -77,54 +77,70 @@
         </div>
     </header>
     <hr />
-    <style>
-       
-        @media (min-width: 576px) {
-            body {
-                background: red;
-            }
-        }
 
-      
-        @media (min-width:768px) {
-            body {
-                background: blue;
-            }
-        }
-
-        
-        @media (min-width:992px) {
-            body {
-                background: green;
-            }
-        }
-
-        
-        @media (min-width:1200px) {
-            body {
-                background: yellow;
-            }
-        }
-
-       
-        @media (max-width:575px) {
-        }
-
-       
-        @media (max-width:767px) {
-        }
-
-       
-        @media (max-width:991px) {
-        }
-
-       
-        @media (max-width:1199) {
-        }
-    </style>
     <div class="container">
+        <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tootip on top">Tooltip On Top</button>
+       
+        <button class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Tootip on right">Tooltip On Right</button>
+      
+        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Tootip on bottom">Tooltip On Bottom</button>
+       
+        <button class="btn btn-info" data-toggle="tooltip" data-placement="left" title="Tootip on left">Tooltip On Left</button>
 
+        <br><br>
+
+       
+        <button id="hello" class="btn btn-primary" data-toggle="tooltip" data-placement="top" data-html="true" title="<h3>Hello World</h3><p>Lorem ipsum dolor sit.</p>">Tooltip On Top</button>
+
+        <hr>
+
+       
+        <button class="btn btn-secondary" onclick="showToolTip()">
+            Show Tooltip
+        </button>
+
+        
+        <button class="btn btn-secondary" onclick="hideToolTip()">
+            Hide Tooltip
+        </button>
+
+       
+        <button class="btn btn-secondary" onclick="toggleToolTip()">
+            Toggle Tooltip
+        </button>
     </div>
+    <script>
+   
+    $('[data-toggle="tooltip"]').tooltip();
 
+    function showToolTip(){
+      $('#hello').tooltip('show'); 
+    }
+
+    function hideToolTip(){
+      $('#hello').tooltip('hide'); 
+    }
+
+    function toggleToolTip(){
+      $('#hello').tooltip('toggle'); 
+    }
+
+   
+    $('#hello').on('show.bs.tooltip', function(){
+      console.log('Tooltip Show');
+    });
+
+    $('#hello').on('shown.bs.tooltip', function(){
+      console.log('Tooltip Shown'); 
+    });
+
+    $('#hello').on('hide.bs.tooltip', function(){
+      console.log('Tooltip Hide'); 
+    });
+
+    $('#hello').on('hidden.bs.tooltip', function(){
+      console.log('Tooltip Hidden'); 
+    });
+    </script>
 </body>
 </html>

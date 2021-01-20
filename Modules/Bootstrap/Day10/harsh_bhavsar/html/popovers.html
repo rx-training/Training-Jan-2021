@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1 class="display-3 text-center my-4">Breakpoints</h1>
+        <h1 class="display-3 text-center my-4"> Popovers</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -77,54 +77,96 @@
         </div>
     </header>
     <hr />
-    <style>
+
+    <div class="container">
+        <button class="btn btn-danger"
+                data-toggle="popover"
+                data-placement="top"
+                title="Popover Title"
+                data-content="Toggle top">
+            Toggle popover
+        </button>
+
        
-        @media (min-width: 576px) {
-            body {
-                background: red;
-            }
-        }
+        <button class="btn btn-primary"
+                data-toggle="popover"
+                data-placement="right"
+                title="Popover Title"
+                data-content="Toggle right">
+            Toggle popover
+        </button>
+
+       
+        <button class="btn btn-warning"
+                data-toggle="popover"
+                data-placement="bottom"
+                title="Popover Title"
+                data-content="Toggle bottom">
+            Toggle popover
+        </button>
+
+        
+        <button class="btn btn-info"
+                data-toggle="popover"
+                data-placement="left"
+                title="Popover Title"
+                data-content="Toggle left">
+            Toggle popover
+        </button>
+
+        <br><br>
 
       
-        @media (min-width:768px) {
-            body {
-                background: blue;
-            }
-        }
+        <button id="myPopover"
+                class="btn btn-info"
+                data-toggle="popover"
+                data-placement="right"
+                title="Dismissible Popover"
+                data-trigger="focus"
+                data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+            Toggle popover
+        </button>
 
+        <hr>
+
+       
+        <button class="btn btn-secondary" onclick="showPopover()">Show Popover</button>
         
-        @media (min-width:992px) {
-            body {
-                background: green;
-            }
-        }
-
+        <button class="btn btn-secondary" onclick="hidePopover()">Hide Popover</button>
         
-        @media (min-width:1200px) {
-            body {
-                background: yellow;
-            }
-        }
-
-       
-        @media (max-width:575px) {
-        }
-
-       
-        @media (max-width:767px) {
-        }
-
-       
-        @media (max-width:991px) {
-        }
-
-       
-        @media (max-width:1199) {
-        }
-    </style>
-    <div class="container">
-
+        <button class="btn btn-secondary" onclick="togglePopover()">Toggle Popover</button>
     </div>
+    <script>
+    $('[data-toggle="popover"]').popover();
 
+    function showPopover() {
+        $('#myPopover').popover('show');
+        }
+        function hidePopover() {
+            $('#myPopover').popover('hide');
+        }
+
+        function togglePopover() {
+            $('#myPopover').popover('toggle');
+        }
+
+        // Popover Events
+        $('#myPopover').on('show.bs.popover', function () {
+            console.log('Popover show');
+        });
+
+        $('#myPopover').on('shown.bs.popover', function () {
+            console.log('Popover shown');
+        });
+
+        $('#myPopover').on('hide.bs.popover', function () {
+            console.log('Popover hide');
+        });
+
+        $('#myPopover').on('hidden.bs.popover', function () {
+            console.log('Popover hidden');
+        });
+    
+    </script>
 </body>
 </html>

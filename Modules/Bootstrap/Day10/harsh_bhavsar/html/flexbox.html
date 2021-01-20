@@ -8,10 +8,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .row-hl {
+            background: #f4f4f4;
+            height: 250px;
+        }
+
+        .item-hl {
+            border: 1px solid #333;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1 class="display-3 text-center my-4">Forms</h1>
+        <h1 class="display-3 text-center my-4"> Flexbox</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -77,110 +87,148 @@
         </div>
     </header>
     <hr />
+
     <div class="container">
 
-        <form>
-         
-            <div class="form-group">
-                <label for="name">Name</label>
-                
-                <input type="text" class="form-control form-control-sm" id="name" placeholder="Enter name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                
-                <input type="email" id="email" class="form-control form-control-lg" placeholder="Enter email">
-        
-                <small class="form-text text-muted">Your email will not be shared with anyone</small>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Password" readonly>
-            </div>
-            <div class="form-group">
-                <label for="gender">Gender</label>
-                <select class="form-control" id="gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="file">File input</label>
-                <input type="file" class="form-control-file" id="file">
-                <small class="form-text text-muted" id="fileHelp">Max 3mb size</small>
-            </div>
 
-            <fieldset class="form-group">
-                <legend>What are you using this service for?</legend>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" value="option1" class="form-check-input" checked>
-                        Personal
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" value="option1" class="form-check-input" checked>
-                        Commercial Use
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" value="option1" class="form-check-input" checked>
-                        Testing
-                    </label>
-                </div>
-            </fieldset>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Sign up for newsletter
-                </label>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </form>
-
-        <br><br>
-
-        
-        <form class="form-inline">
-            <input type="text" id="username" class="form-control mr-2" placeholder="Enter username">
-            <input type="text" id="password" class="form-control mr-2" placeholder="Password">
-            <div class="form-check">
-                <label class="form-check-label mr-2">
-                    <input type="checkbox" class="form-check-input"> Remember me
-                </label>
-            </div>
-
-            <button class="btn btn-secondary" type="submit">Submit</button>
-        </form>
-
-        <br><br>
-
-        
-        <div class="form-group has-success">
-            <label for="username">Username</label>
-            <input type="text" class="form-control form-control-success" id="username">
-            <div class="form-control-feedback">Username available</div>
-            <small class="form-text text-muted">Must be at least 8 characters</small>
+        <div class="d-flex flex-row row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
         </div>
-       
-        <div class="form-group has-warning">
-            <label for="password">Password</label>
-            <input type="text" class="form-control form-control-warning" id="password">
-            <div class="form-control-feedback">That password is not safe</div>
-            <small class="form-text text-muted">Please use a strong password</small>
+
+        <br>
+        <br>
+
+        <!-- FLEX ROW REVERSE -->
+        <div class="d-flex flex-row-reverse row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
         </div>
-        
-        <div class="form-group has-danger">
-            <label for="password2">Confirm Password</label>
-            <input type="text" class="form-control form-control-danger" id="password2">
-            <div class="form-control-feedback">Password does not match</div>
-            <small class="form-text text-muted">Must match the first password</small>
+
+        <br>
+        <br>
+
+        <!-- JUSTIFY CONTENT - CONTENT START -->
+        <div class="d-flex flex-row justify-content-start row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- JUSTIFY CONTENT - CONTENT CENTER -->
+        <div class="d-flex flex-row justify-content-center row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- JUSTIFY CONTENT - CONTENT END -->
+        <div class="d-flex flex-row justify-content-end row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- JUSTIFY CONTENT - CONTENT AROUND -->
+        <div class="d-flex flex-row justify-content-around row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- JUSTIFY CONTENT - CONTENT BETWEEN -->
+        <div class="d-flex flex-row justify-content-between row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- FLEX COLUMN -->
+        <div class="d-flex flex-column row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- FLEX COLUMN REVERSE -->
+        <div class="d-flex flex-column-reverse row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- VERTICAL ALIGN ITEMS - START -->
+        <div class="d-flex flex-row align-items-start row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- VERTICAL ALIGN ITEMS - CENTER -->
+        <div class="d-flex flex-row align-items-center row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- VERTICAL ALIGN ITEMS - END -->
+        <div class="d-flex flex-row align-items-end row-hl">
+            <div class="p-4 item-hl">Flex Item1</div>
+            <div class="p-4 item-hl">Flex Item2</div>
+            <div class="p-4 item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- ALIGN SELF -->
+        <div class="d-flex flex-row row-hl">
+            <div class="p-4 align-self-start item-hl">Flex Item1</div>
+            <div class="p-4 align-self-center item-hl">Flex Item2</div>
+            <div class="p-4 align-self-end item-hl">Flex Item3</div>
+            <div class="p-4 align-self-baseline item-hl">Flex Item3</div>
+            <div class="p-4 align-self-strech item-hl">Flex Item3</div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- RESPONSIVE ALIGN SELF -->
+        <div class="d-flex flex-row row-hl">
+            <div class="p-4 align-self-md-start item-hl">Flex Item1</div>
+            <div class="p-4 align-self-md-center item-hl">Flex Item2</div>
+            <div class="p-4 align-self-md-end item-hl">Flex Item3</div>
+            <div class="p-4 align-self-md-baseline item-hl">Flex Item3</div>
+            <div class="p-4 align-self-md-strech item-hl">Flex Item3</div>
         </div>
 
     </div>
