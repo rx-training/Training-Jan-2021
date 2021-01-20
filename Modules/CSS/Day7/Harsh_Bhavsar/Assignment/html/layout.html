@@ -8,23 +8,32 @@
    
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <h2>Logo Here</h2>
+    <header class="menu" id="menu_id">
+        <a href="#" style="color: limegreen;">LOGO HERE</a>
+        <div class="header_right">
+            <a href="#">HOME</a>
+            <a href="#">PAGES</a>
+            <a href="#">BLOG</a>
+            <a href="#">PORTFOLIO</a>
+            <a href="#">FEATURES</a>
+            <a href="#">SHORTCODES</a>
         </div>
-        <div class="menu">
-            <ul>
-                <li><a href="home">HOME</a></li>
-                <li><a href="pages">PAGES</a></li>
-                <li><a href="profile">PROFILE</a></li>
-                <li><a href="blog">BLOG</a></li>
-                <li><a href="portfolio">PORTFOLIO</a></li>
-                <li><a href="features">FEATURES</a></li>
-                <li><a href="sortcodes">SORTCODES</a></li>
-            </ul>
-        </div>
-    </div>
-    
+        <a class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+
+    <script>
+            function myFunction() {
+                var x = document.getElementById("menu_id");
+                if (x.className === "menu") {
+                    x.className += " res_menu";
+                } else {
+                    x.className = "menu";
+                }
+            }
+    </script>
+
     <div class="main_container">
         <div class="banner">
             <img src="..\images\bg.jpg" alt="banner" />
@@ -139,7 +148,7 @@
                     Swastic Char Rasta, C G Road<br />
                     Ahmedabad 380009<br />
                     Gujarat - India<br />
-                    Phone:- 
+                    Phone:-
                 </address>
             </div>
         </div>
