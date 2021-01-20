@@ -1,0 +1,186 @@
+img.logo {
+    width: 70px;
+    height: 70px;
+    margin-left: 49%;
+    margin-top: 15px;
+}
+nav.list {
+    padding-top: 20px;
+    text-align: center;
+    background-color: black;
+    height: 50px;
+}
+div.imgcontainer {
+    position: relative;
+}
+img.banner {
+    margin-left: 0px;
+    width: 100%;
+    height: 300px;
+}
+div.Arcana {
+    position: absolute;
+    top: 240px;
+    left: 475px;
+    background-color: black;
+    color: white;
+}
+a.Learnmore {
+    background-color: steelblue;
+}
+p.p1 {
+    text-align: center;
+    float: left;
+    margin-left: 200px;
+    width: 20%;
+}
+p.p2 {
+    text-align: center;
+    float: left;
+    margin-left: 80px;
+    width: 20%;
+    height: 225px;
+}
+p.p3 {
+    text-align: center;
+    float: left;
+    margin-left: 80px;
+    width: 20%;
+    height: 225px;
+}
+img.icon1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 80px;
+    height: 80px;
+}
+img.icon2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 80px;
+    height: 80px;
+}
+img.icon3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 80px;
+    height: 80px;
+}
+div.div3 {
+    float: left;
+    width: 100%;
+    height:250px;
+    text-align: center;
+}
+p.pic1 {
+        margin: 20px;
+		height: 120px;
+		width: 20%;
+		background-color: white;
+		margin: 30px;
+		margin-left: 15%;
+		float: left;
+}
+img.Img1
+	{
+		float: left;
+		margin-left: 10%;
+}
+p.pic2 {
+    margin: 20px;
+    height: 120px;
+    width: 20%;
+    background-color: white;
+    margin: 30px;
+    margin-left: 15%;
+    float: left;
+}
+img.Img2
+{
+    float: left;
+    margin-left: 10%;
+}
+p.pic3 {
+    margin: 20px;
+    height: 120px;
+    width: 20%;
+    background-color: white;
+    margin: 30px;
+    margin-left: 15%;
+    float: left;
+}
+img.Img3
+{
+    float: left;
+    margin-left: 10%;
+}
+p.pic4 {
+    margin: 20px;
+    height: 120px;
+    width: 20%;
+    background-color: white;
+    margin: 30px;
+    margin-left: 15%;
+    float: left;
+}
+img.Img4
+{
+    float: left;
+    margin-left: 10%;
+}
+div.div5 {
+    float: left;
+    width: 100%;
+    height:80px;
+    text-align: center;
+    margin-top: 100px;
+    background-color:deepskyblue;
+    color: white;
+    padding-top: 20px;
+    font-size: 20px;
+}
+a.insertcoin {
+    background-color:white
+}
+b {
+    margin-left: 50px;
+    margin-top: 50px;
+    font-size: 22px;
+    color: black;
+}
+ul {
+        list-style-type: none;
+}
+li {
+    color: gray;
+    font-size: 19px;
+    margin-left: 55px;
+}
+div.links1 {
+    float: left;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+div.links2 {
+    float: left;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+div.form {
+    height:50%;
+    width: 50%;
+    margin-top: 30px;
+    margin-left: 6%;
+    background-color: white;
+    float: left;
+}
+.lastimages {
+    margin-left: 700px;
+    float: left;
+}
