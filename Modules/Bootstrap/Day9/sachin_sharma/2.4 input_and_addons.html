@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-            <h1 class="display-3 text-center my-4">Spacing</h1>
+            <h1 class="display-3 text-center my-4">input and addons</h1>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
@@ -39,6 +39,10 @@
                             </button>
                             <div class="dropdown-menu">
                                 <a href="2.1 navbar.html" class="dropdown-item">Navbar</a>
+                                <a href="2.2 list_group.html" class="dropdown-item">List Group and Badges</a>
+                                <a href="2.3 form.html" class="dropdown-item">Forms</a>
+                                <a href="2.4 input_and_addons.html" class="dropdown-item">input and addons</a>
+                                <a href="2.5 progressbar.html" class="dropdown-item">Progressbar and alerts</a>
                             </div>
                         </div>
                     </div>
@@ -72,25 +76,51 @@
     
         <div class="container">
             <br>
-            <h1 class="bg-success mb-0">Margin bottom 0</h1>
-            <h1 class="bg-success mb-1">Margin bottom 1</h1>
-            <h1 class="bg-success mb-2"> Margin bottom 2</h1>
-            <h1 class="bg-success mb-3">Margin bottom 3</h1>
-            <h1 class="bg-success mb-4">Margin bottom 4</h1>
-            <h1 class="bg-success mb-5">Margin bottom 5</h1>
-            <br> <br>
-            <h1 class="bg-success mt-0">Margin top 0</h1>
-            <h1 class="bg-success mt-1">Margin top 1</h1>
-            <h1 class="bg-success mt-2"> Margin top 2</h1>
-            <h1 class="bg-success mt-3">Margin top 3</h1>
-            <h1 class="bg-success mt-4">Margin top 4</h1>
-            <h1 class="bg-success mt-5">Margin top 5</h1>
-            <br> <br>
-            <p> <span class="ml-3 bg-success">Margin Right 3</span> dolor sit amet, <span class="mr-3 bg-success">margin left 3</span> elit . </p>     
+            <div class="input-group" style="width: 100%;">
+               <span class="input-group-addon bg-dark text-white">@</span>        
+               <input type="text" placeholder="username" class="form-control">
+           </div>
+           <br>
+           <div class="input-group">
+            <input type="email" placeholder="entart email" class="form-control"> <span class="input-group-addon bg-dark text-white">abc@gmail.com</span>
+           </div >
             <br>
-            <p> <span class="mx-3 bg-success">Margin Right 3</span> dolor sit amet, <span class="mx-3 bg-success">margin left 3</span> elit . </p>     
-
+            <label>choose profile url</label>
+            <div class="input-group">
+                <span class="input-group-addon btn-warning ">https://profile/member/</span>
+                <input type="text" class="form-control">
             </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon btn-warning ">@</span>
+                <input type="text" class="form-control">
+                <span class="input-group-addon btn-warning ">@</span>
+            </div> <br>
+            <h1>large input group</h1>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon btn-warning ">@</span>
+                <input type="text" class="form-control">
+                
+            </div> <br>
+            <div class="input-group">
+                <span class="input-group-addon bg-warning "><input type="checkbox"></span>
+                <input type="text" class="form-control">
+                
+            </div> <br>
+            <div class="input-group">
+                <span class="input-group-addon bg-warning "><input type="radio" style="font-size: larger;"></span>
+                <input type="text" class="form-control">
+                
+            </div> <br>
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon"><button type="submit" class="btn-primary"> submit</button></span>
+            </div> <br>
+       
+       
+        </div>
+      
+
 
 </body>
 </html>

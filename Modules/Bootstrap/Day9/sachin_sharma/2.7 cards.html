@@ -7,11 +7,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-    <title>bootstrap_practice</title>
+    <title>Cards</title>
 </head>
 <body>
     <header>
-            <h1 class="display-3 text-center my-4">navbar</h1>
+            <h1 class="display-3 text-center my-4">cards</h1>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
@@ -42,6 +42,10 @@
                                 <a href="2.3 form.html" class="dropdown-item">Forms</a>
                                 <a href="2.4 input_and_addons.html" class="dropdown-item">input and addons</a>
                                 <a href="2.5 progressbar.html" class="dropdown-item">Progressbar and alerts</a>
+                                <a href="2.6 table.html" class="dropdown-item">Table and Pagination</a>
+                                <a href="2.7 cards.html" class="dropdown-item">Cards</a>
+
+
                             </div>
                         </div>
                     </div>
@@ -75,62 +79,94 @@
     
         <div class="container">
             <br>
-                <nav class="navbar navbar-expand-sm navbar-light">
-                    <div class="container">
-                        <a href="#">Navbar</a>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">about</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">service</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <br>
-                <nav class="navbar navbar-expand-sm navbar-light">
-                    <div class="container">
-                        <a href="#" class="navbar-brand">Navbar</a>
-                       <button class="navbar-toggler" data-toggle="collapse" data-target="navbarNav"><span class="navbar-toggler-icon"></span></button>
-                       <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">about</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">service</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    </div>
+            <!--Block-->
+            <div class="card">
+                <div class="card-body">
+                 this cards block 
+                </div>
+            </div>
+           <br> <br>
+           <!--simple card-->
+           <div class="card">
+               <div class="card-body">
+                   <h4 class="card-title"></h4>
+                   <h6 class="card-subtitle">Card subtitle</h6>
+                   <p class="card-text">para is represt detail about cards </p>
+                   <a href="#" class="btn btn-outline-primary">Read More</a>
+               </div>
+           </div>     <br> <br>
+           <!--card with images-->
+           <div class="card mb-5" style="width:20rem">
+               <img class="card-img-top" src="assets/bussiness.jpg" alt="">
+               <div class="card-body">
+                   <h4 class="card-title">card title</h4>
+                   <p class="card-text">para of card which represent information of cards</p>
+                   <a href="#" class="btn btn-success btn-block">Read More</a>
+               </div>
+           </div>
+           <div class="card">
+               <div class="card-header">
+                   My Card
+               </div>
+            <div class="card-body">
 
-                    <form action="" class="form-inline my-2 my-lg-0">
-                        <input type="text" class="form-control mr-sm-2"  placeholder="search">
-                        <button class="btn btn-outline-success my-2 my-sm-0">
-                            search
-                        </button>
-                    </form>
-                </nav>
-
-                <ul>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
+                <h4 class="card-title">card title</h4>
+                <p class="card-text">para is represt detail about cards </p>
+                <a href="#" class="btn btn-outline-primary">Read More</a>
+            </div>
+            <div class="card-footer text-muted">
+                2 day ago
+            </div>
+        </div>     <br> <br>
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item"> <a href="#" class="nav-link active">Active</a></li>
+                    <li> <a href="#" class="nav-link">Link</a></li>
+                    <li> <a href="#" class="nav-link">Disabled</a></li>
                 </ul>
+            </div>    
+                <div class="card-body">
+
+                    <h4 class="card-title">card title</h4>
+                    <p class="card-text">para is represt detail about cards </p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            
+        </div>
+        <!--image overlays-->
+        <div class="card  mb-5 bg-dark text-white">
+            <img class="card-img-top" src="assets/bussiness.jpg" alt="" style="width:40%;">
+            <div class="card-img-overlay">
+                <h4 class="card-title">card title</h4>
+                <p class="card-text">para of card which represent information of cards</p>
+                
+            </div>
+        </div> <br>
+
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">
+                Header
+            </div>
+         <div class="card-body">
+
+             <h4 class="card-title">card title</h4>
+             <p class="card-text">para is represt detail about cards </p>
+             <a href="#" class="btn btn-outline-white">Read More</a>
+         </div>
+         </div>
+
+         <div class="card text-white bg-secondary mb-3">
+            <div class="card-header">
+                Header
+            </div>
+         <div class="card-body">
+
+             <h4 class="card-title">card title</h4>
+             <p class="card-text">para is represt detail about cards </p>
+             <a href="#" class="btn btn-outline-white">Read More</a>
+         </div>
+        </div>
         </div>
 
 </body>

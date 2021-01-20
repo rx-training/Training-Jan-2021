@@ -7,11 +7,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-    <title>bootstrap_practice</title>
+    <title>Cards</title>
 </head>
 <body>
     <header>
-            <h1 class="display-3 text-center my-4">Spacing</h1>
+            <h1 class="display-3 text-center my-4">Media objects</h1>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
@@ -26,8 +26,7 @@
                                 <a href="1.3 float_fixed_postion.html" class="dropdown-item">Float and fixed postion</a>
                                 <a href="1.4 color_bg.html" class="dropdown-item">color and background</a>  
                                 <a href="1.5 spacing.html" class="dropdown-item">spacing</a>  
-                                <a href="1.6 size_border.html" class="dropdown-item">size and borders</a>
-                                <a href="1.7 break_point.html" class="dropdown-item">Break point</a>  
+                                <a href="1.6 size_border.html" class="dropdown-item">size and borders</a>  
                             </div>
                         </div>
                     </div>
@@ -39,6 +38,15 @@
                             </button>
                             <div class="dropdown-menu">
                                 <a href="2.1 navbar.html" class="dropdown-item">Navbar</a>
+                                <a href="2.2 list_group.html" class="dropdown-item">List Group and Badges</a>
+                                <a href="2.3 form.html" class="dropdown-item">Forms</a>
+                                <a href="2.4 input_and_addons.html" class="dropdown-item">input and addons</a>
+                                <a href="2.5 progressbar.html" class="dropdown-item">Progressbar and alerts</a>
+                                <a href="2.6 table.html" class="dropdown-item">Table and Pagination</a>
+                                <a href="2.7 cards.html" class="dropdown-item">Cards</a>
+                                <a href="2.8 media_object.html" class="dropdown-item">Media Object</a>
+
+
                             </div>
                         </div>
                     </div>
@@ -72,25 +80,34 @@
     
         <div class="container">
             <br>
-            <h1 class="bg-success mb-0">Margin bottom 0</h1>
-            <h1 class="bg-success mb-1">Margin bottom 1</h1>
-            <h1 class="bg-success mb-2"> Margin bottom 2</h1>
-            <h1 class="bg-success mb-3">Margin bottom 3</h1>
-            <h1 class="bg-success mb-4">Margin bottom 4</h1>
-            <h1 class="bg-success mb-5">Margin bottom 5</h1>
-            <br> <br>
-            <h1 class="bg-success mt-0">Margin top 0</h1>
-            <h1 class="bg-success mt-1">Margin top 1</h1>
-            <h1 class="bg-success mt-2"> Margin top 2</h1>
-            <h1 class="bg-success mt-3">Margin top 3</h1>
-            <h1 class="bg-success mt-4">Margin top 4</h1>
-            <h1 class="bg-success mt-5">Margin top 5</h1>
-            <br> <br>
-            <p> <span class="ml-3 bg-success">Margin Right 3</span> dolor sit amet, <span class="mr-3 bg-success">margin left 3</span> elit . </p>     
-            <br>
-            <p> <span class="mx-3 bg-success">Margin Right 3</span> dolor sit amet, <span class="mx-3 bg-success">margin left 3</span> elit . </p>     
-
+            <div class="media">
+                <img class="d-flex mr-3" src="assets/bussiness.jpg" alt="" width="100px;">
+                <div class="media-body">
+                    <h5 class="mt-0">media heading</h5>
+                    A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.
+                    
+                </div>
             </div>
+
+            <div class="media">
+                <img class="d-flex mr-3" src="assets/bussiness.jpg" alt="" width="100px;"> 
+                <div class="media-body">
+                    <h5 class="mt-0">media heading</h5>
+                    A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.
+                    
+                    <div class="media mt-3">
+                        <a href="#" class="d-flex pr-3">
+                            <img src="assets/bussiness.jpg" alt="" width="100px;">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="mt-0">meadia heading</h5>
+                            A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>
