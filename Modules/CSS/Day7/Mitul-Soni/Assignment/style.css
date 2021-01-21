@@ -607,6 +607,283 @@
 		
 
 	}
+	@media only screen and (min-width:768px)
+	{
+		.first-header h4
+		{
+			text-align: right;
+			color: black;
+			margin-top: 10px;
+			font-size: 15px;
+			font-family: arial;
+			text-align: right;
+		}
+		.first-header a
+		{
+			color: black;
+			text-decoration-line: none;
+			
+		}
+		.first-header a:hover
+		{
+			background-color: grey;
+		}
+		label.logo
+		{
+			color: green;
+			font-size: 35px;
+			line-height: 80px;
+			padding: 0 1px;
+			font-weight: bold;
+			font-family: arial;
+		}
+		ul{
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			background: #2c3e50;
+			top: 80px;
+			left: -100%;
+			text-align: center;
+			transition: all .5s;
+		}
+		nav ul li
+		{
+			display: block;
+			margin:50px 0;
+			line-height: 30px;
+		}
+		nav ul li a{
+			font-size: 20px;
+		}
+		.bgimg
+		{
+			width: 100%;
+			height: 400px;
+		}
+		.second-part 
+		{
+   		 flex-direction: column;
+  		}
+  		.flex-item-left h3
+		{	
+			padding: 2px;
+			font-family: arial;
+			text-align: left;
+			font-size: 20px;
+		}
+		.flex-item-left p
+		{
+			padding: 2px;
+			font-family: arial;
+			width: 80%;
+			font-size: 15px;
+			text-align: left;
+		}
+		.flex-item-right
+		{
+			text-align: left;
+			color: white;
+			background-color: #f1f1f1;
+		
+		}
+		.flex-item-right button
+		{
+			text-align: center;
+			color: white;
+			background-color: green;
+			height: 40px;
+			width: 20%;
+			margin-top: 1px;
+			margin-left: 2%;
+		}
+		.third-part 
+		{
+   		 flex-direction: column;
+  		}
+  		.first-flex 
+		{
+		  background-color: #f1f1f1;
+		  margin-top: 1px;
+		  flex: 50%;
+		}
+		.first-flex-content
+		{
+			margin-top: 10px;
+		}
+		.div-box
+		{
+			padding-top: 20%;
+			padding-left: 40%;	
+		}
+		.div-box-content
+		{
+			font-size:20px;
+			text-align:center;
+			font-weight: bold;
+			padding-top: 10%;
+		}
+		.div-box-sub-content
+		{
+			font-size:60%;
+			text-align: left;
+			font-size: 15px;
+			margin-top: 5%;
+			text-align: center;
+		}
+		.first-flex
+		{
+			padding: 10px;
+			flex: 50%;
+			float: left; 
+		}
+		.wrapper4 
+		{
+			flex-direction: column;
+			width: 50%;	
+  		}
+  		#section4
+		{
+			 flex-direction: column;
+			 font-size: 30px;
+			 text-align:left;
+			 margin-left: 5%;	
+		}
+		#section4-flex
+		{	
+			flex: 50%;
+		}
+		#section4-div-box
+		{
+			height:150px;
+			width:90%;
+			background-color:#CACFD2;
+		}
+		#section4-flex-content
+		{
+			font-size:40%;
+			padding-top: 10%;
+			margin-left: 5%;
+			font-size: 15px;
+		}
+		#section4-flex-div-box
+		{
+			height:60%;
+			width: 90%;
+			background-color:#CACFD2;
+		}
+		#check-mark
+		{
+			color: green;
+		}
+		#section4-flex-sub-content
+		{
+			font-size: 15px;
+			margin-top: 2%;
+			margin-left: 8%;
+		}
+		#wrapper5
+		{
+			flex-direction: column;
+			margin-top: 10px;
+		 	flex-direction: row;
+		 	font-size: 30px;
+			margin-left: 5%;
+			height: 50px;
+		 }
+		#wrapper5-first-flex 
+		{	
+			padding: 10px;
+			flex: 50%;
+		}
+		#wrapper5-image
+		{
+			margin-top: 2%;
+			margin-left: 8%;
+		}
+		#wrapper6
+		{
+			 flex-direction: column;
+			 margin-top: 50%;
+			 font-size: 30px;
+			 text-align:left;
+		}
+		#wrapper6-flex 
+		{	
+			background-color:lightgrey;
+			padding: 10px;
+			flex: 50%;
+			float: left;
+		}
+		#wrapper6-content
+		{
+			font-size:15px;
+			margin-top: 5%;
+		}
+		#wrapper6-section2
+		{
+			font-size: 20px;
+			font-weight: bold;
+			border-bottom: 2px dashed black;
+			margin-top: 5%;
+		}
+		#wrapper6-section2-content
+		{
+			font-size: 20px;
+			font-weight: bold;
+			margin-top: 5%;
+		}
+		#wrapper6-section2-sub-content
+		{
+			font-size: 15px;
+			border-bottom: 1px solid black;
+		}
+		#wrapper6-section3
+		{
+			font-size: 20px;
+			font-weight: bold;
+			border-bottom: 2px dashed black;
+			margin-top: 5%;
+		}
+		#wrapper6-section3-content
+		{
+			font-size: 15px;
+			border-bottom: 1px solid black;
+			margin-top: 5%;
+		}
+		#wrapper6-section4
+		{
+			font-size: 20px;
+			font-weight: bold;
+			border-bottom: 2px dashed black;
+			margin-top: 5%;
+		}
+		#wrapper6-section4-content
+		{
+			font-size:15px;
+			margin-top: 5%;
+			text-align: center;
+			font-size: 15px;
+		}
+		footer
+		{
+			background:black;
+			height:60px; 
+		}
+		
+		#footer-sub
+		{
+			color: white;
+			display: flex;
+			flex-direction:column;
+		}
+		#footer-image
+		{
+			margin-left: 40%;
+			margin-top: 3%;
+		}
+	}
+
 
 	@media only screen and (min-width: 1200px)
 	{	
