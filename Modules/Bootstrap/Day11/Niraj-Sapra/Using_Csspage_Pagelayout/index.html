@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="Css/mystyle.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>La Galerie d'art de Rembrandt</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Princess+Sofia&display=swap"rel="stylesheet">
+
+    <title>Hello, world!</title>
   </head>
   <body id="top" class="bg-dark">
     
@@ -19,12 +21,33 @@
                 <h5 class="text-white"> Painter, Draughtsman &amp; Printmaker</h5>
             </aside>
     </section>
+    <style>
+    #s1_header{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    #s1_header aside{
+        text-align: center;
+        grid-column: 2 / 4;
+        grid-row: 4 / 5;
+    }
 
+    @media (width: 992px){
+        #s1_header { height: 50vh;}
+        #s1_header .display-4{
+            font-size: 28px;
+        }
+        #s1_header h5{
+            font-size: 12px;
+        }
+    }
+    </style>
  <!--s2_trio-->     
  <section id="s2_trio">
-    <div class="container py-5"> 
+    <div class="container py-5 myGrid"> 
         <div class="card mx-2">
-            <div class="card-body">
+            <div class="card-body mySubGrid">
                 <img class="img-fluid border border-dark" src="img/interface-imgs/s2-prints.png" alt="prints">
                 <aside>
                     <h2 class="text-danger my-2">Print</h2>
@@ -34,7 +57,7 @@
             </div>
         </div> 
         <div class="card mx-2">
-            <div class="card-body">
+            <div class="card-body mySubGrid">
                 <img class="img-fluid border border-dark" src="img/interface-imgs/s2-paintings.png" alt="paintings">
                 <aside>
                     <h2 class="text-danger my-2">Paintings</h2>
@@ -44,7 +67,7 @@
             </div>
         </div>
         <div class="card mx-2">
-            <div class="card-body">
+            <div class="card-body mySubGrid">
                 <img class="img-fluid border border-dark" src="img/interface-imgs/s2-drawings.png" alt="Drawings">
                 <aside>
                     <h2 class="text-danger my-2">Drawings</h2>
@@ -60,17 +83,23 @@
 <section class="text-center py-5" id="s3_painting_of_the_week">
     <div class="container">
         <h1 class="text-danger">Highlighted Painting</h1>
-        <img class="img-fluid my-3 border border-light" src="img/s3-painting-of-the-week-Rembrandt_castello_sulla_riva_1640-1650.png" alt="painting of the week">
+        <img class="img-fluid my-3 border border-light" src="img/s3-painting-of-the-week-Rembrandt_castello_sulla_riva_1640-1650.png" alt="painting of the week" style="border-width:3px!important;">
         <p class="text-white">Castle Overlooking a River (circa 1645)</p>
     </div>
 </section>
 
 <!--s4_about-->     
  <section class="py-5" id="s4_about">
-     <div class="container">
-     <img class="img-fluid" src="img/interface-imgs/s4-about-Rembrandt_Self-Portrait_(1637).png" alt="Rembrandt">
-     <h3 class="text-danger">About</h3>
-     <p><strong>Rembrandt van Rijn</strong> was a Dutch painter and etcher. He is generally considered one of the greatest painters and printmakers in European art and the most important in Dutch history. His contributions to art came in a period of great wealth and cultural achievement that historians call the Dutch Golden Age when Dutch Golden Age painting, although in many ways antithetical to the Baroque style that dominated Europe, was extremely prolific and innovative, and gave rise to important new genres in painting.</p>
+    <div class="container py-5 s4_about_grid">
+        <div class="img-selfportrait">   
+            <img class="img-fluid" src="img/interface-imgs/s4-about-Rembrandt_Self-Portrait_(1637).png" alt="Rembrandt">
+        </div>
+        <div class="hd-about">
+            <h3 class="text-danger">About</h3>
+        </div>
+        <div class="txt-about">
+            <p><strong>Rembrandt van Rijn</strong> was a Dutch painter and etcher. He is generally considered one of the greatest painters and printmakers in European art and the most important in Dutch history. His contributions to art came in a period of great wealth and cultural achievement that historians call the Dutch Golden Age when Dutch Golden Age painting, although in many ways antithetical to the Baroque style that dominated Europe, was extremely prolific and innovative, and gave rise to important new genres in painting.</p>
+        </div>
     </div>
 </section>
 
@@ -79,6 +108,7 @@
  <section class="py-5" id="s5_prints">
     <div class="container py-5">
     <h1 class="text-danger">Prints</h1>
+    <div class="my-thumbs">
     <img class="img-fluid" src="img/prints-img/prints-thumbs/A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg" alt="A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg">
     <img class="img-fluid" src="img/prints-img/prints-thumbs/Bald-headed-Old-Man_1630-thumb.jpg" alt="Bald-headed-Old-Man_1630-thumb.jpg">
     <img class="img-fluid" src="img/prints-img/prints-thumbs/Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg" alt="Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg">
@@ -95,7 +125,8 @@
     <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg" alt="The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg">
     <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg" alt="The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg">
     <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg" alt="The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg">
-    <img class="img-fluid" src="img/interface-imgs/s5-prints.png" alt="s5-prints">
+    <img class="img-fluid my-bk-image" src="img/interface-imgs/s5-prints.png" alt="s5-prints">
+    </div>   
     </div> 
 </section>
 
@@ -103,6 +134,8 @@
 <section class="py-5" id="s6_paintings">
     <div class="container">
     <h1 class="text-danger">paintings</h1>
+    <aside>
+    <div class="my-paintings-container my-paintings-area my-cursor">
     <div class="painting-1"></div>
     <div class="painting-2"></div>
     <div class="painting-3"></div>
@@ -112,7 +145,10 @@
     <div class="painting-7"></div>
     <div class="painting-8"></div>
     <div class="painting-9"></div>
-    <div class="painting-10"></div>
+    <div class="painting-10"></div>    
+    </div>
+    </aside>
+    <img src="/Using_Csspage_Pagelayout/img/interface-imgs/s6-painting-200.png" alt="">
     </div>
 </section>
 
@@ -120,6 +156,7 @@
  <section class="py-5" id="s7_drawings">
     <div class="container py-5"> 
     <h1 class="text-danger">Drawing</h1>
+    <div class="my-thumbs">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/a-young-woman-having-her-hair-braided_circa-1637-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/an-elephant-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/blind-man-walking-with-a-stick-thumb.jpg" alt="">
@@ -127,7 +164,7 @@
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/group-of-horsemen_circa-1632-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/lady-with-a-fan-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/landscape-with-two-cottages_circa-1633-thumb.jpg" alt="">
-    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/man-leaning-on-a-stick-facing-right_circa-1629-1630-thumb." alt="">jpg
+    <img class="img-fluid" src="img/drawings-img/drawings-thumbs/man-leaning-on-a-stick-facing-right_circa-1629-1630-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/old-man-seated-in-an-armchair_1631-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/portrait-of-harmen-gerritsz-van-rijn_1630-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/saskia-at-a-window_circa-1634-1635-thumb.jpg" alt="">
@@ -136,15 +173,16 @@
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/susanna-and-the-elders_circa-1630-1633-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/the-entombment_1630-thumb.jpg" alt="">
     <img class="img-fluid" src="img/drawings-img/drawings-thumbs/woman-carrying-a-child-downstairs_circa-1636-thumb.jpg" alt="">
-    <img class="img-fluid" src="img/interface-imgs/s7-drawing.png" alt="s7-drawing">
+    <img class="img-fluid my-bk-image" src="img/interface-imgs/s7-drawing.png" alt="s7-drawing">
+    </div>
     </div>
 </section>
 
  <!--s8_contact-->     
 <section class="py-5" id="s8_contact">
-    <div class="container py-5">
-    <aside>
-        <h1 class="text-danger">Contect</h1>
+    <div class="container contacts_grid py-5">
+    <aside class="contact-copy">
+        <h1 class="text-danger">Contact</h1>
         <p>La Galerie d'art de Rembrandt<br>
             182 N. Union Ave, <br>
             Farmington, UT 84025<br>
@@ -152,31 +190,35 @@
             loremipsum@email.com<br>
             </p>
     </aside>
-    <p>
+    <p class="contact-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12092399.719946038!2d-108.9313613973186!3d42.273271331500304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752fee11014e82f%3A0x1c5e3fda11f60198!2sPluralsight!5e0!3m2!1sen!2sus!4v1537034361031" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
     </p>
-    <img class="img-fluid" src="img/interface-imgs/s8-contact.png" alt="contect">
+    <img class="img-fluid contact-picture" src="img/interface-imgs/s8-contact.png" alt="contect">
     </div>
 </section>
 
 <!--s9_footer-->     
-<section class="text-white" id="s9_copyright">
-    <div class="container">
-    <aside>
-        <h1 class="text-danger h3">
+<section class="text-white py-5" id="s9_footer">
+    <div class="container s9_footer_grid py-5">
+    <aside class="footer_hours py-5 " style="grid-area:footer_hours;"> 
+        <h1 class="text-danger h5">
             La Galerie d'art de Rembrandt
         </h1>
         <p>
             Tuesday - Friday: 10:00 am - 5:00 pm<br>
             Saturday: 10:00 am - 3:00 pm<br>
             Closed Sundays and Mondays</p>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-linkedin-in"></i>
-            <i class="fab fa-instagram"></i>
+            <div class="btn-toolbar" role="toolbar" aria-label="Social Media Button">
+               <div class="btn-group m-2 btn-group-sm">
+                    <button type="button" class="btn btn-info"><i class="fa fa-facebook"></i></button>
+                    <button type="button" class="btn btn-info"><i class="fa fa-twitter"></i></button>
+                    <button type="button" class="btn btn-info"><i class="fa fa-linkedin"></i></button>
+                    <button type="button" class="btn btn-info"><i class="fa fa-instagram"></i></button>
+               </div>
+            </div>
     </aside>
-    <aside>
-        <h1 class="text-danger h3">Menu</h1>
+    <aside class="footer_menu" style="grid-area:footer_menu;">
+        <h1 class="text-danger h5">Menu</h1>
         <ul class="list-unstyled">
             <li>Home</li>
             <li>Paintings, Drawings and Prints</li>
@@ -186,11 +228,10 @@
             <li>Paintings</li>
             <li>Drawings</li>
             <li>Contacts</li>
-
         </ul>
     </aside>
-    <aside>
-        <h1 class="text-danger h3"> Some Museums Showing Rembrandts</h1>
+    <aside class="footer_museum" style="grid-area:footer_museum;">
+        <h1 class="text-danger h5"> Some Museums Showing Rembrandts</h1>
         <ul class="list-unstyled">
             <li>Hermitage Museum</li>
             <li>Louvre</li>
@@ -204,8 +245,8 @@
             <li>The Metropolitan Museum of Art</li>
         </ul>
     </aside>
-    <aside>
-        <h1 class="text-danger h3"> PAINTING NAMES</h1>
+    <aside class="footer_painting_names " style="grid-area:footer_painting_names;">
+        <h1 class="text-danger h5"> PAINTING NAMES</h1>
         <ul class="list-unstyled">
             <li>Self Portrait As A Young Man</li>
             <li>Portrait Of Jan Six</li>
@@ -217,11 +258,10 @@
             <li>The Anatomy Lesson</li>
             <li>The Night Watch</li>
             <li>The Naughty Child</li>
-
         </ul>
     </aside>
-    <aside>
-        <h1 class="text-danger h3">Other links</h1>
+    <aside class="footer_links" style="grid-area:footer_links;">
+        <h1 class="text-danger h5">Other links</h1>
         <ul class="list-unstyled">
             <li>Complete Self Portraits</li>
             <li>Selected Self Portraits</li>
@@ -233,7 +273,7 @@
             <li>About the Etchings</li>
         </ul>
     </aside>
-    <aside>
+    <aside class="footer_img" style="grid-area:footer_img;">
         <img class="img-fluid" src="img/interface-imgs/s9-footer-drawing.jpg" alt="">
     </aside>
 </div>
@@ -243,8 +283,8 @@
 </section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
 </html>
