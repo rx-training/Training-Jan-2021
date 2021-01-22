@@ -46,11 +46,12 @@
                      <h5 class="text-white">Painter, Draughtsman & Printmaker</h5>
                  </aside>
          </section>
+
      <!-- s2_trio-->
          <section id="s2_trio">
-             <div class="container py-5">
+             <div class="container py-5 myGrid">
                <div class="card mx-2">
-                   <div class="card-body">
+                   <div class="card-body mySubGrid" >
              <img class="img-fluid border border-dark" src="img/interface-imgs/s2-prints.png" alt="img">
              <aside>
                  <h2 class="text-danger my-2">Prints</h2>
@@ -59,7 +60,7 @@
             </div>
             </div>      
              <div class="card mx-2">
-                 <div class="card-body">
+                 <div class="card-body mySubGrid">
              <img class="img-fluid border border-dark" src="img/interface-imgs/s2-paintings.png" alt="img">
              <aside>
                  <h2 class="text-danger my-2">Paintings</h2>
@@ -69,7 +70,7 @@
             </div>
 
             <div class="card mx-2">
-                <div class="card-body">
+                <div class="card-body mySubGrid">
              <img class="img-fluid border border-dark" src="img/interface-imgs/s2-drawings.png" alt="img">
              <aside>
                  <h2 class="text-danger my-2">Drawing</h2>
@@ -89,17 +90,24 @@
          </section>
     <!--s4_about-->
          <section class="py-5" id="s4_about">
-             <div class="container">
+             <div class="container s4_about_grid">
+                 <div class="img-selfpotrait">
              <img class="img-fluid" src="img/interface-imgs/s4-about-Rembrandt_Self-Portrait_(1637).png" alt="">
+            </div>
+            <div class="hd-about">
              <h3 class="text-danger">About</h3>
+            </div>
+            <div class="text-about">
              <p> <strong>Rembrandt van Rijn </strong> was a Dutch painter and etcher. He is generally considered one of the greatest painters and printmakers in European art and the most important in Dutch history. His contributions to art came in a period of great wealth and cultural achievement that historians call the Dutch Golden Age when Dutch Golden Age painting, although in many ways antithetical to the Baroque style that dominated Europe, was extremely prolific and innovative, and gave rise to important new genres in painting.
             </p>
             </div>
+           </div>
          </section>
     <!--s5_prints-->
         <section class="py-5" id="s5_prints">
             <div class="container py-5">
             <h1 class="text-danger">Prints</h1>
+            <div class="my-thumbs">
             <img class="img-fluid" src="img/prints-img/prints-thumbs/A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg" alt="">
             <img class="img-fluid" src="img/prints-img/prints-thumbs/Bald-headed-Old-Man_1630-thumb.jpg" alt="">
             <img class="img-fluid" src="img/prints-img/prints-thumbs/Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg" alt="">
@@ -116,14 +124,16 @@
             <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg" alt="">
             <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg" alt="">
             <img class="img-fluid" src="img/prints-img/prints-thumbs/The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg" alt="">
-            <img class="img-fluid" src="img/interface-imgs/s5-prints.png" alt="">
+            <img class="img-fluid my-bk-img" src="img/interface-imgs/s5-prints.png" alt="">
+        </div>
         </div>
         </section>
     <!--s6_paintings-->
         <section class="py-5" id="s6_paintings">
             <div class="container py-5">
             <h1 class="text-danger">Paintings</h1>
-
+         <aside>
+             <div class="my-paintings-container my-paintings-area my-cursor">
             <div class="painting-1" data-toggle="modal" data-target="#painting1"></div>
             <div class="painting-2"></div>
             <div class="painting-3"></div>
@@ -134,13 +144,16 @@
             <div class="painting-8"></div>
             <div class="painting-9"> </div>
             <div class="painting-10"></div>
+           </div> 
+        <img class="img-fluid windmill" src="img/interface-imgs/s6-painting-200.png" alt="">
+    </aside>        
         </div>
         </section>
     <!--s7_drawings-->
          <section class="py-5" id="s7_drawings">
              <div class="container py-5">
              <h1 class="text-danger">Drawings</h1>
-             
+             <div class="my-thumbs">
              <img class="img-fluid" src="img/drawings-img/drawings-thumbs/a-young-woman-having-her-hair-braided_circa-1637-thumb.jpg" alt="">
              <img class="img-fluid" src="img/drawings-img/drawings-thumbs/an-elephant-thumb.jpg" alt="">
              <img class="img-fluid" src="img/drawings-img/drawings-thumbs/blind-man-walking-with-a-stick-thumb.jpg" alt="">
@@ -157,13 +170,14 @@
              <img class="img-fluid" src="img/drawings-img/drawings-thumbs/susanna-and-the-elders_circa-1630-1633-thumb.jpg" alt="">
              <img class="img-fluid" src="img/drawings-img/drawings-thumbs/the-entombment_1630-thumb.jpg" alt="">
              <img class="img-fluid" src="img/drawings-img/drawings-thumbs/woman-carrying-a-child-downstairs_circa-1636-thumb.jpg" alt="">
-             <img class="img-fluid" src="img/interface-imgs/s7-drawing.png" alt="">
+             <img class="img-fluid my-bk-img" src="img/interface-imgs/s7-drawing.png" alt="">
             </div>
+        </div>
          </section>
     <!--s8_contact-->
          <section class="py-5" id="s8_contact">
-             <div class="container py-5">
-             <aside>
+             <div class="container contacts-grid py-5"> 
+             <aside class="contact-copy">
                  <h1 class="text-danger">Contacts</h1>
                  <p>La Galerie d'art de Rembrandt <br>
                     182 N. Union Ave, <br>
@@ -171,17 +185,19 @@
                     555-1234<br>
                     loremipsum@email.com
                  </p>
-                 <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12092399.719946038!2d-108.9313613973186!3d42.273271331500304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752fee11014e82f%3A0x1c5e3fda11f60198!2sPluralsight!5e0!3m2!1sen!2sus!4v1537034361031" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </aside>   
+                 <p class="contact-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12092399.719946038!2d-108.9313613973186!3d42.273271331500304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752fee11014e82f%3A0x1c5e3fda11f60198!2sPluralsight!5e0!3m2!1sen!2sus!4v1537034361031" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
                  </p>
-                 <img class="img-fluid" src="img/interface-imgs/s8-contact.png" alt="">
-             </aside>
+                 <img class="img-fluid contact-img" src="img/interface-imgs/s8-contact.png" alt="">
+                
+             
             </div>
          </section>
     <!--s9_footer-->
-          <section class="text-white" id="s09_footer">
-              <div class="container">
-          <aside>
-            <h1 class="text-danger d-3">La Galerie d'art de Rembrandt</h1>
+          <section class="text-white" id="s9_footer">
+              <div class="container s9_footer_grid py-5">
+          <aside class="footer_hours py-5" style="grid-area:footer_hours;">
+            <h1 class="text-danger h-5">La Galerie d'art de Rembrandt</h1>
             <p>Tuesday - Friday: 10:00 am - 5:00 pm <br>
               Saturday: 10:00 am - 3:00 pm<br>
               Closed Sundays and Mondays
@@ -195,8 +211,8 @@
                  </div>
             </div>  
         </aside>
-        <aside>
-            <h1 class="text-danger d-3">Menu</h1>
+        <aside class="footer_menu" style="grid-area:footer_menu;">
+            <h1 class="text-danger h-5">Menu</h1>
             <ul>
                 <li>Home</li>
                 <li>Paintings, Drawings and Prints</li>
@@ -208,8 +224,8 @@
                 <li>Contacts</li>
             </ul>
         </aside>
-        <aside>
-          <h1 class="text-danger d-3"> Some Museums Showing Rembrandts</h1>
+        <aside class="footer_museum" style="grid-area:footer_museum;">
+          <h1 class="text-danger h-5"> Some Museums Showing Rembrandts</h1>
           <ul class="list-unstyled">
             <li>Hermitage Museum</li>
              <li> Louvre</li>
@@ -220,8 +236,8 @@
              <li>National Gallery, London </li>
           </ul>
       </aside>
-      <aside>
-        <h1 class="text-danger d-3">Paintings</h1>
+      <aside class="footer_painting_names" style="grid-area:footer_paintings_names;">
+        <h1 class="text-danger h-5">Paintings</h1>
         <ul class="list-unstyled">
              <li>The Bride</li>
              <li>Danaë </li>
@@ -235,8 +251,8 @@
             <li>Syndics Of The Drapers' Guild</li>
         </ul>
     </aside>
-    <aside>
-        <h1 class="text-danger d-3">Other Links</h1>
+    <aside class="footer_links" style="grid-area:footer_links;">
+        <h1 class="text-danger h-5">Other Links</h1>
         <ul class="list-unstyled">
             <li>Self Portrait As A Young Man</li>
             <li>Portrait Of Jan Six</li>
@@ -250,7 +266,7 @@
             <li>The Naughty Child</li>
         </ul>
     </aside>
-    <aside><img  class="img-fluid" src="img/interface-imgs/s9-footer-drawing.jpg" alt=""></aside>
+    <aside class="footer_img" style="grid-area:footer_img;"><img  class="img-fluid" src="img/interface-imgs/s9-footer-drawing.jpg" alt=""></aside>
 </div>
 </section> 
 <section id="s10_copyright" class="text-white bg-dark small my-5 text-center">
@@ -292,20 +308,6 @@
             });
         });
     </script>    
-    <div class="modal-fade" id="painting1" tabindex="1" role="dialog" aria-labelledby="Rembrandt Painting 1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                        <img src="img/paintings-img/1920px-P1150002_Cognacq-Jay_Rembrandt_anesse_de_Balaam_rwk.jpg" alt="" class="img-fluid">
-                </div>
-            </div>
-
-        </div>
-    </div>
+    
   </body>
 </html>
