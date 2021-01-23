@@ -2,20 +2,6 @@
 	{
 		display: grid;
 		height: 100vh;
-		grid-template-columns: 1.5fr 1.5fr 1.2fr;
-		grid-template-rows: 0.2fr 1.2fr 0.8fr;
-		grid-template-areas: "section1 section1 section1" 
-		"nav nav nav"
-		"main main main"
-		"section2 section2 section2-sub-part"
-		"content1 content2 content3"
-		"section3-title section3-title section3-title"
-		"section3 section3 section3"
-		"section4 section4 section4"
-		"wrapper5 wrapper5 wrapper5"
-		"wrapper6 wrapper6 wrapper6"
-		"footer footer footer";
-		grid-gap: 0.2rem;
 	}
 	#section1 
 	{
