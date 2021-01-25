@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA Compatible" content="ie=edge">
+	</head>
+	<title>CSS Grid view</title>
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding:0;
+			
+		}
+		main
+		{
+			width:75%;
+			margin: 75px auto;
+			border:1px solid grey;
+			color: white;
+			display: grid;
+			grid-template-rows: 40px 80px 200px 20px;  
+			grid-template-columns:repeat(3,1fr) 100px;  /* 1fr equals to 225px */
+			grid-gap:20px;
+		}
+		.box1
+		{
+			background-color: red;
+			grid-column: 1/-1;
+
+		}
+		.box2
+		{
+			background-color: green;
+		}
+		.box3
+		{
+			background-color: blue;
+		}
+		.box4
+		{
+			background-color: yellow;
+		}
+		.box5
+		{
+			background-color: khaki;
+			grid-row: 2/4;
+			grid-column: 4/5;
+		}
+		.box6
+		{
+			background-color: cyan;
+			grid-column: 1/ 4;
+		}
+		.box7
+		{
+			background-color: purple;
+			grid-column: 1/-1;
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<main>
+		<div class="box1">Header</div>
+		<div class="box2">Box 1</div>
+		<div class="box3">Box 2</div>
+		<div class="box4">Box 3</div>
+		<div class="box5">Sidebar</div>
+		<div class="box6">Main content</div>
+		<div class="box7">Footer</div>
+	</main>
+</body>
+</html>
+

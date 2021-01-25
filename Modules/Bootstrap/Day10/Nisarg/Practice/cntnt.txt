@@ -1,0 +1,152 @@
+<html>
+    <head><title>Trying Bootstrap</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body style="margin-top: 100px;">
+        <header>
+            <h1 class="display 3 text-center my-4">Basic Typography</h1>
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <div class="dropdown">
+                                  <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                      2:Utilities
+                                    </button>
+
+                                      <div class="dropdown-menu">
+                                          <a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic typography</a>
+                                          <a class="dropdown-item" href="2_3_text_alignment_display.html">2.3 Text alignment</a>
+                                          <a class="dropdown-item" href="2_4_float_position.html">2.4 Floats & position</a>
+                                          <a class="dropdown-item" href="2_5_background_colors.html">2.5 Colors background</a>
+                                          <a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
+                                          <a class="dropdown-item" href="2_7_sizing.html">2.7 Floats & Sizing</a>
+                                          <a class="dropdown-item" href="2_8_breakpoints.html">2.8 Breakpoints</a>
+                                      </div>
+                                 </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    3:CSS Components
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="3_2_buttons.html">3.2  Buttons</a>
+                                        <a class="dropdown-item" href="3_3_navbar.html">3.3 Nav bar</a>
+                                        <a class="dropdown-item" href="3_4_list_group_badges.html">3.4 List group badges</a>
+                                        <a class="dropdown-item" href="3_5_forms.html">3.5 Forms</a>
+                                        <a class="dropdown-item" href="3_6_input_groups.html">3.6 Input groups</a>
+                                        <a class="dropdown-item" href="3_7_alert_progress.html">3.7 Alert progress</a>
+                                        <a class="dropdown-item" href="3_8_tables_pagination.html">3.8 Tables pagination</a>
+                                        <a class="dropdown-item" href="3_9_cards.html">3.9 Cards</a>
+                                        <a class="dropdown-item" href="3_10_media_object.html">3.10 Media objects</a>
+                                    </div>
+                               </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    4:CSS Grid & flexbox
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">4.2  Grid System</a>
+                                        <a class="dropdown-item" href="#">4.3 Grid alignment</a>
+                                        <a class="dropdown-item" href="#">4.4 Flexbox</a>
+                                        <a class="dropdown-item" href="#">4.5 Auto margin & wrap</a>
+                                    </div>
+                               </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    5:Javascript widgets
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">5.2  Carousel</a>
+                                        <a class="dropdown-item" href="#">5.3 Collapse</a>
+                                        <a class="dropdown-item" href="#">5.4 Tooltips</a>
+                                        <a class="dropdown-item" href="#">5.5 Properties</a>
+                                        <a class="dropdown-item" href="#">5.6 Modals</a>
+                                    </div>
+                               </div>
+                        </div>
+                      </div>
+
+        </div>
+
+        <!-- Starts from here-->
+        <div class="container">
+            <h1>Heading 1<small class="text-muted">Subtext</small></h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4 class="h6">Heading 4</h4><!-- h6 class will be applied-->
+            <h5>Heading 5 </h5>
+            <h6>Heading 6 </h6>
+
+            <!-- display classes-->
+            <h1 class="display-1">Display 1</h1>
+            <h1 class="display-2">Display 2</h1>
+            <h1 class="display-3">Display 3</h1>
+            <h1 class="display-4">Display 4</h1>
+            <!-- lead (displays text in more efficient way)-->
+            <p class="lead">Since there are fewer words people tend to spend more time on 
+                choosing a word that fits the subject to perfection. Because of this meticulous
+                 attitude, writing a short poem is often more tedious than writing a long poem.
+            </p>
+
+            <!-- style classes-->
+            <p class="font-weight-bold">Bold text</p>
+            <p class="font-weight-normal">Normal text</p>
+            <p class="font-italic">Italic text</p>
+
+            <!--text transform-->
+            <p class="text-lowercase">Make lowercase</p>
+            <p class="text-uppercase">Make uppercase</p>
+            <p class="text-capitalize">Make capitalize</p>
+
+            <blockquote class="blockquote">
+                <p>This is a block quote.</p>
+            </blockquote>
+
+            
+            <blockquote class="blockquote text-right">
+                <p>This is a block quote.</p>
+            </blockquote>
+
+            <blockquote class="blockquote text-right">
+                <p>This is paragraph</p>
+                <footer class="blockquote-footer">writing a short poem is often more tedious than writing a long poem.
+                    <cite title="Source title">Source title</cite>
+                </footer>
+            </blockquote>
+
+            <!-- Lists-->
+            <ul class="list-unstyled">
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li> 
+            </ul>
+
+            <!-- Inline lists-will show the list in row manner -->
+            <ul class="list-inline">
+                <li class="list-inline-item">Lorem ipsum dolor sit amet.</li>
+                <li class="list-inline-item">Lorem ipsum dolor sit amet.</li>
+                <li class="list-inline-item">Lorem ipsum dolor sit amet.</li>
+                <li class="list-inline-item">Lorem ipsum dolor sit amet.</li> 
+            </ul>
+        </div>
+
+       
+    </body>
+</html>

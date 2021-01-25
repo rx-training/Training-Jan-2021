@@ -1,0 +1,414 @@
+<html>
+    <head>
+        <title>Assignment Day 7 Layout</title>
+        <link rel="stylesheet" href="style.css">
+        <style type="text/css">
+            .logo {
+    color: green;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+@media only screen and (min-width: 1200px) {
+    .navbar {
+        padding-left: 900px;
+        overflow: hidden;
+        background-color: #333;
+    }
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+    .dropdown .pagesbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+    .navbar a:hover, .dropdown:hover .pagesbtn {
+        background-color: red;
+    }
+    .bgimg {
+        margin-top: 0px;
+        width: 100%;
+        height:400px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: none;
+    }
+    .navbar a {
+        display: none;
+    }
+    .dropdown {
+        display: none;
+    }
+    .dropdown .pagesbtn {
+        display: none;
+    }
+    .navbar a:hover, .dropdown:hover .pagesbtn {
+        display: none;
+    }
+    .bgimg {
+        width: 100%;
+        height:400px;
+    }
+    .head2 {
+        font-size: 35px;
+        margin-top: 20px;
+        color:gray;
+        margin-left: 40px;
+    }
+    .text1 {
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .download {
+        margin-top: 20px;
+        margin-left: 40px;
+        height: 50px;
+        background-color: green;
+        color: white;
+    }
+    .head3 {
+        font-size: 30px;
+        margin-top: 30px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head4 {
+        font-size: 30px;
+        margin-top: 100px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .rw {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 150px;
+        width: 250px;
+        height: 150px;
+    }
+    .proj1 {
+        margin-top: 15px;
+        margin-right: 10px;
+        margin-left: 235px;
+        color: black;
+    }
+    .text2 {
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 125px;       
+    }
+    .wts {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 150px;
+        width: 300px;
+        height: 150px;
+    }
+    .text3 {
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .vl {
+        border-left: 6px solid gray;
+        margin-left: 30px;
+        height: 250px;
+    }
+    .text4 {
+        margin-top: 40px;
+        font-size: 20px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head5 {
+        font-size: 25px;
+        margin-top: 30px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head6 {
+        font-size: 30px;
+        margin-top: 70px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .ls {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 150px;
+        width: 275px;
+        height: 250px;
+    }
+    .sp1 {
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+    }
+    .bottom {
+        margin-top: 50px;
+        background-color: black;
+    }
+    .logobottom {
+        color: green;
+        font-size: 25px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .text5 {
+        margin-top: 20px;
+        font-size: 20px;
+        color: white;
+        margin-left: 40px;       
+    }
+    .head7 {
+        font-size: 30px;
+        margin-top: 70px;
+        color: white;
+        margin-left: 40px;
+    }
+    .text6 {
+        font-size: 20px;
+        margin-top: 40px;
+        color: white;
+        margin-left: 40px;
+    }
+    .text7 {
+        font-size: 15px;
+        margin-top: 5px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .text8 {
+        font-size: 18px;
+        margin-top: 30px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head8 {
+        font-size: 30px;
+        margin-top: 70px;
+        color: white;
+        margin-left: 40px;
+        text-align: center;
+    }
+    .text9 {
+        font-size: 30px;
+        margin-top: 40px;
+        color: white;
+        margin-left: 40px;
+        text-align: center;
+    }
+    .text10 {
+        font-size: 30px;
+        margin-left: 40px;
+        text-align: center;
+        color: green;
+    }
+    .lastimages {
+        margin-left: 205px;
+        word-spacing: 10px;
+    }
+}
+        </style>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <h3 class="logo">LOGO HERE</h3>
+        <div class="navbar">
+            <a href="#HOME">Home</a>
+            <div class="dropdown">
+                <button class="pagesbtn">Pages
+                    <i class="fa fa-caret-down"></i>
+                </button>
+            </div>
+            <a href="#BLOG">BLOG</a>
+                <a href="#PORTFOLIO">PORTFOLIO</a>
+                <a href="#FEATURES">FEATURES</a>
+                <a href="#SHORTCODES">SHORTCODES</a>
+        </div>
+        <img class="bgimg" src="./assets/bg.jpg">
+        <h2 class="head2">
+        Lorem ipsum dolor sit<br>
+        amet, consectetur<br>
+        adipiscing elit
+        </h2>
+        <p class="text1">
+            Nullam sed leo risus.Ut tellus leo faucibus<br>
+            vitae tortor sed, euismod disnissim ex. Cras<br>
+            non mi vitae enim faucibus dignissim.<br>
+            Praesent scelerisque condimentum elit,<br>
+            non congue metus lacinia malesuada.<br>
+            Vestibulum purus arcu, molestie in mattis<br>
+            sit amet, aliquet eget est.
+        </p>
+        <button class="download">Download Now</button>
+        <hr>
+        <h3 class="head3">Fully Responsive</h3>
+        <p class="text1">
+            Ut mollis enim est, eu fermentum nisi<br>
+            viverra hendrerit. Fusce sed est ac ante<br>
+            posuere convallis.Vivamus egestas<br>
+            mauris sit amet lobortis cursus.<br>
+            Vestibulum hendrerit molestie sagittis.
+        </p>
+        <h3 class="head3">HTML5 + CSS3</h3>
+        <p class="text1">
+            Ut mollis enim est, eu fermentum nisi<br>
+            viverra hendrerit. Fusce sed est ac ante<br>
+            posuere convallis.Vivamus egestas<br>
+            mauris sit amet lobortis cursus.<br>
+            Vestibulum hendrerit molestie sagittis.
+        </p>
+        <h3 class="head3">Launch Ready</h3>
+        <p class="text1">
+            Ut mollis enim est, eu fermentum nisi<br>
+            viverra hendrerit. Fusce sed est ac ante<br>
+            posuere convallis.Vivamus egestas<br>
+            mauris sit amet lobortis cursus.<br>
+            Vestibulum hendrerit molestie sagittis.
+        </p>
+        <h3 class="head4">Recent Works</h3>
+        <hr>
+        <img class="rw" src="./assets/logo1.png">
+        <h3 class="proj1">Project One</h3>
+        <p class="text2">
+            Donec a pellentesque turpis. Integer ligula<br>
+            odio, posuere egestas sapien in, ornare<br>
+            ornare odio, Maecenas sodales mauris eget<br>
+            neque pulvinar,ac gravida ante lacinia.
+        </p>
+        <img class="rw" src="./assets/logo2.png">
+        <h3 class="proj1">Project One</h3>
+        <p class="text2">
+            Donec a pellentesque turpis. Integer ligula<br>
+            odio, posuere egestas sapien in, ornare<br>
+            ornare odio, Maecenas sodales mauris eget<br>
+            neque pulvinar,ac gravida ante lacinia.
+        </p>
+        <img class="rw" src="./assets/logo3.png">
+        <h3 class="proj1">Project One</h3>
+        <p class="text2">
+            Donec a pellentesque turpis. Integer ligula<br>
+            odio, posuere egestas sapien in, ornare<br>
+            ornare odio, Maecenas sodales mauris eget<br>
+            neque pulvinar,ac gravida ante lacinia.
+        </p>
+        <h3 class="head4">Welcome to this site</h3>
+        <hr>
+        <img class="wts" src="./assets/logo4.png">
+        <p class="text1">
+            Lorem ipsum dolor sit amet, consectetur<br>
+            adipiscing elit. Cras eu magna diam.<br>
+            Phasellus ut porttitor urna. Donec lacus<br>
+            magna laoreet quis tempor ac,facilisis sed<br>
+            urna.
+        </p>
+       <p class="text3">
+            <i class="fas fa-check" style="color: green;"></i>&nbsp Donec aliquet vel massa ut venenatis<br>
+            <i class="fas fa-check" style="color: green;"></i>&nbsp Cras eu magna diam<br>
+            <i class="fas fa-check" style="color: green;"></i>&nbsp Aenean non tellus ligula<br>
+            <i class="fas fa-check" style="color: green;"></i>&nbsp Ut sed vulputate nulla<br>
+       </p>
+       <div class="vl">
+        <p class="text4">
+            Blue Fountain Media is a digital agency in<br>
+            NYC that is founded on the premise that <br>
+            clients results and stunning design go<br>
+            hand in hand.They provide 360 degree<br>
+            solutions from strategy and design to<br>
+            developement and digital marketing<br>
+            services with ROI as their factor for<br>
+            success.
+       </p>
+       <h3 class="head5">-CEO,Jack Bour</h3>
+       </div>
+       <h3 class="head6">Latest Shots</h3>
+       <hr style="border: 1px dotted #808080;">
+       <img class="ls" src="./assets/logo5.png">
+       <h3 class="head6">Our Clients</h3>
+       <hr style="border: 1px dotted #808080;">
+       <img class="sp1" src="./assets/logo9.png">
+       <img class="sp1" src="./assets/logo9.png">
+       <img class="sp1" src="./assets/logo9.png">
+       <img class="sp1" src="./assets/logo9.png">
+       <img class="sp1" src="./assets/logo9.png">
+       <div class="bottom">
+            <h3 class="logobottom">LOGO HERE</h3>
+            <p class="text5">
+                Etiam pharetra magna vitae fringilla posuere.<br>
+                Integer lacinia, nisi nec semper faucibus, elit<br>
+                neque imperdietsem, ut molestie felis nisi sit<br>
+                amet leo.<br><br>
+                Etiam pharetra magna vitae fringilla posuere.<br>
+                Integer lacinia, nisi nec semper faucibus, elit<br>
+                neque imperdietsem, ut molestie felis nisi sit<br>
+                amet leo.<br><br>
+            </p>
+            <h3 class="head7">Latest Posts</h3>
+            <hr style="border: 1px dotted #FFFFFF;margin-left: 40px;">
+            <p class="text6">Incredible Content</p>
+            <p class="text7">May 8, 2014</p>
+            <hr style="color: gray;margin-left: 40px;">
+            <p class="text6">Incredible Content</p>
+            <p class="text7">May 8, 2014</p>
+            <hr style="color:gray;margin-left: 40px;">
+            <p class="text6">Incredible Content</p>
+            <p class="text7">May 8, 2014</p>
+            
+            <h3 class="head7">Useful Links</h3>
+            <hr style="border: 1px dotted #FFFFFF;margin-left: 40px;">
+            <p class="text8">About US</p>
+            <hr style="color:gray;margin-left: 40px;">
+            <p class="text8">About US</p>
+            <hr style="color:gray;margin-left: 40px;">
+            <p class="text8">About US</p>
+            <hr style="color:gray;margin-left: 40px;">
+            <p class="text8">About US</p>
+            <hr style="color:gray;margin-left: 40px;">
+            <p class="text8">About US</p>
+            <hr style="color:gray;margin-left: 40px;">
+            
+            <h3 class="head8">Contact Us</h3>
+            <hr style="border: 1px dotted #FFFFFF;margin-left: 40px;">
+            <p class="text9">
+                30/B Adarsh Society,<br>
+                Near Kaashi Parekh Complex,<br>
+                Swastik Char Rasta, C G Road,<br>
+                Ahmedabad -380009<br>
+                Gujrat-India
+                <p class="text10">Phone:+91-79-26400685</p>
+            </p>
+            <p class="text9">
+                2015 &#169; All Rights Reserved.<p class="text10">Privacy Policy | Terms of Service</p>
+            </p>
+            <div class="lastimages">
+                <img src="./assets/fb.jpg" width="20px" height="20px">
+                <img src="./assets/skype.jpeg" width="20px" height="20px">
+                <img src="./assets/googleplus.jpg" width="20px" height="20px">
+                <img src="./assets/in.jpeg" width="20px" height="20px">
+                <img src="./assets/pintrest.jpeg" width="20px" height="20px">
+                <img src="./assets/twitter.jpg" width="20px" height="20px">
+            </div>
+        </div>
+    </body>
+</html>
