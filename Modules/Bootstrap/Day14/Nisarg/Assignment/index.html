@@ -1,0 +1,992 @@
+<html>
+    <head><title>Trying Bootstrap</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            .like {
+                overflow: auto;
+                padding: 10px 0;
+            }
+    
+            .like-title {
+                font-size: 0.9em !important;
+                font-weight: 900;
+                border-bottom: 1px solid #000 !important;
+                padding: 10px;
+                text-transform: uppercase;
+                display: block;
+                overflow: hidden;
+                line-height: 100%;
+                margin: 0 0 10px 0 !important;
+            }
+    
+            .like.img-border-li .img-feat img {
+                padding: 3px;
+                margin: 0;
+                border: 1px solid #eee
+            }
+    
+            .like.colmn p {
+                text-align: left !important
+            }
+    
+            .like.colmn > * {
+                border-left: 1px dotted #000;
+                border-bottom: 0
+            }
+    
+            .like.colmn p {
+                overflow: visible
+            }
+    
+            .like.colmn footer {
+                margin-left: 0 !important
+            }
+    
+            .like .img-feat {
+                position: relative;
+                float: left;
+                margin: 0 15px 5px 0;
+            }
+    
+            .like .cat {
+                text-transform: uppercase;
+                border-bottom: 1px solid #000;
+                margin: 0 0 10px 0 !important;
+                padding-bottom: 3px;
+                color: #666;
+            }
+    
+            .like h6 {
+                font-size: 14px !important;
+            }
+
+            #g-footer {
+    background-color: #3f3f3f;
+    color: #f8f8f8;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+    border-top: 0px;
+    padding-top: 31px;
+}
+        </style>
+    </head>
+
+    <body>
+
+                <nav class="nav navbar-expand-sm navbar-info bg-info h-20">
+                    <a href="#" class="navbar-brand">
+                        <img src="./assets/guru99_logo.png">
+                    </a>
+
+                    <ul class="navbar-nav">
+                        <li>
+                            <li class="nav-item h4">
+                                <a href="#" class="nav-link text-white" data-toggle="dropdown">Home
+                                 
+                                </a>
+                            </li>
+                            
+                            <li class="nav-tem h5 text-white">
+                                <a href="#" class="nav-link text-white">Testing
+                                    <select>
+                                        <option>Agile testing</option>
+                                        <option>Bug zilla </option>
+                                        <option>Cucumber</option>
+                                        <option>Database testing</option>
+                                        <option>ETL Testing</option>
+                                        <option>JMeter</option>
+                                        <option>JIRA</option>
+                                    </select>
+                                </a>
+                            </li>
+                               
+                            <li class="nav-tem h5 text-white">
+                                <a href="#" class="nav-link text-white">SAP
+                                    <select>
+                                        <option>ABAP</option>
+                                        <option>APO </option>
+                                        <option>Beginner</option>
+                                        <option>Basis</option>
+                                        <option>BODS</option>
+                                        <option>BI</option>
+                                        <option>BPC</option>
+                                        <option>CO</option>
+                                    </select>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-tem h5 text-white">
+                                <a href="#" class="nav-link text-white">Web
+                                    <select>
+                                        <option>ASP</option>
+                                        <option>Angular </option>
+                                        <option>C</option>
+                                        <option>C#</option>
+                                        <option>DBMS</option>
+                                        <option>Javascript</option>
+                                        <option>Node JS</option>
+                                        <option>Pearl</option>
+                                    </select>
+                                </a>
+                            </li>
+
+                            <li class="nav-tem h5 text-white">
+                                <a href="#" class="nav-link text-white">Must learn!
+                                    <select>
+                                    <option>Accounting</option>
+                                    <option>Algorithm</option>
+                                    <option>Android</option>
+                                    <option>Blockchain</option>
+                                    <option>DBMS</option>
+                                    <option>Javascript</option>
+                                    <option>Node JS</option>
+                                    <option>Pearl</option>     
+                                </select>                               
+                                </a>
+                            </li>
+                               
+                            <li class="nav-tem h5 text-white">
+                                <a href="#" class="nav-link text-white"></a>Big Data
+                                <select>
+                                    <option>AWS</option>
+                                    <option>Big Data</option>
+                                    <option>Cassandra</option>
+                                    <option>Cognos</option>
+                                    <option>Data-warehousing</option>
+                                    <option>DevOps</option>
+                                    <option>HBase</option>
+                                    <option>Obilee</option>     
+                                </select>
+                            </li>
+                            
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="container">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p class="h3 mt-5 ml-30">25+ Best Free Online Education Sites (2021 List)</p><br/>
+                        </div>
+                        <div class="col-md-12">                            
+                            <p class="float-right text-left col-xl-4">
+                                Sites For Free Online Education helps you to learn courses at your comfortable place.
+                                 The courses of these websites are offered by top universities. You can learn a specific subject
+                                  without much investment. These websites offer many audio, video, articles, and e-books to 
+                                  increase your knowledge. The platforms enable you to learn the best free online courses.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 1st course era -->
+                <div class="container-fluid">
+                        <div class="row">
+                             <div class="col-md-12 text-center">
+                                <ul class="list">
+                                       <a href="https://www.coursera.org/" class="h3">1)Courseera</a>   
+                                </ul>
+                            </div>
+                        </div>
+                   <div class="row mh-50">
+                         <div class="col-md-12">
+                             <img class="mw-50 rounded mx-auto d-block" src="assets/courseera.png">
+                        </div>
+                    </div>
+                    <div class="row mh-50">
+                        <div class="col-md-6">
+                            <p class="lead ml-5 mt-5">
+                                <a href="https://www.coursera.org/">Courseera</a> is a free learning site that offers 
+                                MOOCs courses from well-known universities. All Coursera courses contain pre-recorded
+                                video lectures that you can watch when it is convenient for you.
+                            </p>
+
+                            <p class="lead ml-5 mt-5">
+                                Coursera has programs together with universities that allow you to get a master degree or
+                                 specializations. You can explore various college courses without any hassle.
+                            </p>
+                            <p class="lead ml-5 mt-5">
+                            This site is offering free programs from accredited institutions. The courses available on such platforms are designed by a leading university.
+                            </p>
+                       </div>
+                   </div>
+                    <div class="row mh-50 mt-5">
+                        <div class="col-md-6">
+                               <a href="https://www.coursera.org/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+                        </div>
+                    </div>
+                    <div class="row mh-50 mt-5">
+                        <div class="col-md-8 ml-5">
+                            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Udemy-->
+                <div class="container-fluid">
+                    <div class="row">
+                         <div class="col-md-12 text-left mt-5">
+                            <ul class="list">
+                                   <a href="https://www.udemy.com/" class="h3">2)Udemy</a>   
+                            </ul>
+                        </div>
+                    </div>
+               <div class="row mh-50">
+                     <div class="col-md-12">
+                         <img class="mw-50 rounded mx-auto d-block" src="assets/udemy.png">
+                    </div>
+                </div>
+                <div class="row mh-50">
+                    <div class="col-md-6">
+                        <p class="lead ml-5 mt-5">
+                            <a href="https://www.udemy.com/">Udemy</a> is an online platform that helps you to create courses for categories like business, design, marketing, etc.
+                        </p>
+
+                        <p class="lead ml-5 mt-5">
+                            You can develop new skills and achieving their goals by learning from the extensive library of various courses. 
+                            Subjects that are available in Udemy are taught by expert instructions.
+                        </p>
+                        <p class="lead ml-5 mt-5">
+                            The outline of courses can be viewed on all devices connected to the internet. You do not require any prequalification to take any course.
+                        </p>
+                   </div>
+               </div>
+                <div class="row mh-50 mt-5">
+                    <div class="col-md-6">
+                           <a href="https://www.udemy.com/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+                    </div>
+                </div>
+
+                <div class="row mh-50 mt-5">
+                    <div class="col-md-8 ml-5">
+                        <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+                    </div>
+                </div>
+            </div>
+                <!-- Edx-->
+                <div class="container-fluid">
+                    <div class="row">
+                         <div class="col-md-12 text-left mt-5">
+                            <ul class="list">
+                                   <a href="https://www.edx.org/" class="h3">3)Edx</a>   
+                            </ul>
+                        </div>
+                    </div>
+               <div class="row mh-50">
+                     <div class="col-md-12">
+                         <img class="mw-50 rounded mx-auto d-block" src="assets/edx.png">
+                    </div>
+                </div>
+                <div class="row mh-50">
+                    <div class="col-md-6">
+                        <p class="lead ml-5 mt-5">
+                            <a href="https://www.edx.org/">Edx</a> Edx is one of the best free online courses provider. It offers university-level courses in varieties of disciplines. You can browse various subjects like Computer science, language, data science, engineering, and more.
+                        </p>
+
+                        <p class="lead ml-5 mt-5">
+                            This site contains a weekly subject sequence. It includes a short video with learning exercises. The platform provides video tutorials, which are similar to the 
+                            on-campus discussion group and a textbook. It has an online discussion forum where students can post the questions to teaching assistants. It offers certification
+                            completion
+                        </p>
+                       
+                   </div>
+               </div>
+                <div class="row mh-50 mt-5">
+                    <div class="col-md-6">
+                           <a href="https://www.edx.org/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+                    </div>
+                </div>
+
+                <div class="row mh-50 mt-5">
+                    <div class="col-md-8 ml-5">
+                        <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+                    </div>
+                </div>
+            </div>
+             <!-- 4)Udacity-->
+             <div class="container-fluid">
+                <div class="row">
+                     <div class="col-md-12 text-left mt-5">
+                        <ul class="list">
+                               <a href="https://www.udacity.com/" class="h3">4)Udacity</a>   
+                        </ul>
+                    </div>
+                </div>
+           <div class="row mh-50">
+                 <div class="col-md-12">
+                     <img class="mw-50 rounded mx-auto d-block" src="assets/udacity.png">
+                </div>
+            </div>
+            <div class="row mh-50">
+                <div class="col-md-6">
+                    <p class="lead ml-5 mt-5">
+                        <a href="https://www.udacity.com/">Udacity</a>  online teaching platform helps you to create courses on numerous categories like development, business, design, marketing, etc.</p>
+
+                    <p class="lead ml-5 mt-5">
+                        Courses that are available in Udacity are taught by expert instructors. Students can also develop new skills and achieving their goals by learning from the extensive library of various courses
+                    </p>
+
+                    <p class="lead ml-5 mt-5">
+                        Udacity offers good quality courses. It helps you to prepare for the interview. This site provides the assistance of a mentor.
+                    </p>
+                   
+               </div>
+           </div>
+            <div class="row mh-50 mt-5">
+                <div class="col-md-6">
+                       <a href="https://www.udacity.com/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+                </div>
+            </div>
+
+            <div class="row mh-50 mt-5">
+                <div class="col-md-8 ml-5">
+                    <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+                </div>
+            </div>
+        </div>
+        <!-- 05)LinkedIn Learning -->
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-md-12 text-left mt-5">
+                    <ul class="list">
+                           <a href="https://www.linkedin.com/learning-login/" class="h3">5)LinkedIn Learning</a>   
+                    </ul>
+                </div>
+            </div>
+       <div class="row mh-50">
+             <div class="col-md-12">
+                 <img class="mw-50 rounded mx-auto d-block" src="assets/linked-in.png">
+            </div>
+        </div>
+        <div class="row mh-50">
+            <div class="col-md-6">
+                <p class="lead ml-5 mt-5">
+                    <a href="https://www.linkedin.com/learning-login/">LinkedIn Learning</a> is a website that offers video courses that are taught by experts. You can use this website to access up to 15,000 courses in more than seven languages available both for free and with a subscription.</p>
+                <p class="lead ml-5 mt-5">
+                    LinkedIn free courses give you a chance to learn from industry experts without spending a dime. These LinkedIn training courses are perfect for beginners, intermediate learners, and experts. LinkedIn Learning courses with certificates are available in various categories such as business, personal development, entrepreneurship, design & tech online courses.
+                </p>
+               
+
+           </div>
+       </div>
+        <div class="row mh-50 mt-5">
+            <div class="col-md-6">
+                   <a href="https://www.linkedin.com/learning-login/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+            </div>
+        </div>
+
+        <div class="row mh-50 mt-5">
+            <div class="col-md-8 ml-5">
+                <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- 06)alison remaining -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://alison.com/" class="h3">6)Alison</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/alison.jpg">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://alison.com/">Alison</a>  is a free online learning site that provides that offers certification on completing the course. The subjects this site offers are business, technology, health, and more.
+
+            <p class="lead ml-5 mt-5">
+                Alison helps you to study, learn, and certify through online training. It provides various courses related to specific languages like English, Spanish, German, French, and Arabic.
+            </p>
+            <p class="lead ml-5 mt-5">
+                The site enables you to choose three types of courses certificate courses, diploma courses, and learning paths (creating self-learning experiences). You can also learn your favorite subject from Alison's mobile application
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://alison.com/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    <!--07) Khan academy remaining -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://ocw.mit.edu/index.html" class="h3">8)MIT OpenCourseWare</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/MIT-OpenCourseWare.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://ocw.mit.edu/index.html">MIT </a>OpenCourseWare is a learning website that offers various courses. It provides high-quality teaching and learning material that is available in easy accessible format.
+            </p>
+            <p class="lead ml-5 mt-5">
+                The website offers free notes of lectures, videos, and exams. This platform can be accessed with login. You can find courses by department and topics.
+            </p>
+
+            <p class="lead ml-5 mt-5">
+                MIT OpenCourseWare can be accessed without any registration. The videos can be viewed online as well as offline. Such clips are accessible from Youtube and iTune.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://ocw.mit.edu/index.html"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    <!-- 08) MIT OpenCourse ware remaining -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://www.udacity.com/" class="h3">4)Udacity</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/udacity.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://www.udacity.com/">Udacity</a>  online teaching platform helps you to create courses on numerous categories like development, business, design, marketing, etc.</p>
+
+            <p class="lead ml-5 mt-5">
+                Courses that are available in Udacity are taught by expert instructors. Students can also develop new skills and achieving their goals by learning from the extensive library of various courses
+            </p>
+
+            <p class="lead ml-5 mt-5">
+                Udacity offers good quality courses. It helps you to prepare for the interview. This site provides the assistance of a mentor.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://www.udacity.com/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    <!--09) Open culture remaining -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href=" http://www.openculture.com/freeonlinecourses" class="h3">9)Open Culture</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/openculture.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href=" http://www.openculture.com/freeonlinecourses">Open culture</a> is the best education website that offers free online classes for fun. You can choose this website to learn philosophy and literature, history, biology, and physics. 
+            </p>
+            <p class="lead ml-5 mt-5">
+                The subject materials of this site are available in audio, video, and ebooks. It contains more than 800 ebooks, 200 e-books, and 300+ language lessons.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href=" http://www.openculture.com/freeonlinecourses"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+</div>
+
+    <!--10) Connections academy remaining -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://www.connectionsacademy.com/" class="h3">10)Connections Academy</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/connections_academy.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://www.connectionsacademy.com/">Connections Academy</a> is the best online course website that helps students to learn from home. The courses of this platform is designed for elementary school, middle school, and high school.</p>
+
+            <p class="lead ml-5 mt-5">
+                Connections Academy provides a personalized performance learning experience that helps teachers to improve their skills. This place enables you to easily meet teachers and classmates in the virtual classroom.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://www.connectionsacademy.com/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    <!-- 11)Academic earth remaining -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://academicearth.org/" class="h3">11)Academic Earth</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/academic_earth.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://academicearth.org/">Academic earth</a> is a top online learning site that offers many courses from various schools. In this website, you can explore numerous topics. It enables you to search the course outline by specific subjects..</p>
+
+            <p class="lead ml-5 mt-5">
+                The subjects of Academic Earth are design in a way that suits your personal and professional needs. The platform has varieties of courses related to computer and IT, business, education, and health. These courses can be learned for free.
+            </p>
+
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://academicearth.org/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+</div>
+
+    <!--12) itunes u free courses-->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href=" https://www.open.edu/itunes/" class="h3">12)iTunes U Free courses</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/iTunes.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href=" https://www.open.edu/itunes/">iTunes</a> U Free Courses is a place for free online education.</p>
+
+            <p class="lead ml-5 mt-5">
+                It integrates with any apple smartphone or iPod. Users can search for learning materials in many different ways, including categories and topics.
+            </p>
+
+            <p class="lead ml-5 mt-5">
+                Courses of this site contain contents and videos. It has a wide variety of subjects like arts and humanities, childhood and youth, education, languages, and more. The site enables you to apply for the job you are interested in.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href=" https://www.open.edu/itunes/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    <!-- 13) Stanford online -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://online.stanford.edu/" class="h3">13)Stanford</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/stanford.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://online.stanford.edu/">Stanford </a> Online is a study site that provides learning opportunities via free online degrees, online courses, e-learning, and more. You can learn a wide range of subjects including, computer science, AI, health and medicine, arts, and data science.</p>
+
+            <p class="lead ml-5 mt-5">
+                The platform offers certification after completing the program. You can enroll in courses to learn new skills, get a job, and to create a new future. It has a collection of free e-books, webinars, videos, etc.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://online.stanford.edu/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    
+    <!-- 14)Harvard extension -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://online-learning.harvard.edu/catalog/free" class="h3">13)Harvard</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/harvard.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://online-learning.harvard.edu/catalog/free">Harvard</a> Extension is the best online learning site that provides free online education courses from Harvard University. It enables students to search for courses by professional certificate. </p>
+
+            <p class="lead ml-5 mt-5">
+                Harvard Extension offers various subject areas like art and design, business, data science, health, and much more. It allows you to search for various subjects using the start date and duration. Courses of this place have three difficulty levels introductory, intermediate, and advanced.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://online-learning.harvard.edu/catalog/free"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    <!-- 15)Open Yale university -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href=" https://oyc.yale.edu/" class="h3">15)OpenYale University</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/yale.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href=" https://oyc.yale.edu/">Open Yale</a> Courses is the best online learning site website that offers free and open access to introductory courses that are taught by teachers and scholars. Lectures available on this website are recorded in Yale College classrooms.
+            </p>
+           
+            <p class="lead ml-5 mt-5">
+                Courses is the best online learning site website that offers free and open access to introductory courses that are taught by teachers and scholars. Lectures available on this website are recorded in Yale College classrooms.
+            </p>
+
+            <p class="lead ml-5 mt-5">
+                Open Yale Courses provides courses like chemistry, economics, history, arts, English, and philosophy. It includes exams, suggested readings, and problem-solving.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href=" https://oyc.yale.edu/"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+    <div class="row mh-50 mt-5">
+        <div class="col-md-8 ml-5">
+            <small class="text-muted">-------------------------------------------------------------------------------------------------------------------------------------</small>
+        </div>
+    </div>
+    </div>
+
+    <!-- 16)UC san diego Podcast lecture -->
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-12 text-left mt-5">
+                <ul class="list">
+                       <a href="https://podcast.ucsd.edu/default.aspx" class="h3">16) UC San Diego Podcast Lecture</a>   
+                </ul>
+            </div>
+        </div>
+   <div class="row mh-50">
+         <div class="col-md-12">
+             <img class="mw-50 rounded mx-auto d-block" src="assets/UCsandiego.png">
+        </div>
+    </div>
+    <div class="row mh-50">
+        <div class="col-md-6">
+            <p class="lead ml-5 mt-5">
+                <a href="https://podcast.ucsd.edu/default.aspx">UC San diego</a> Podcast Lecture is an educational technology service. It offers free audio recordings of lectures that can be downloaded onto a PC or music player.</p>
+
+            <p class="lead ml-5 mt-5">
+                You can listen to the lectures available in UC San Diego Podcast Lecture just by selecting a specific class. It has features like recent podcasts, lecture progress, and modify the playback speed. This website enables you to play video lectures without any effort. You do not require any plugins to view the lectures.
+            </p>
+           
+       </div>
+   </div>
+    <div class="row mh-50 mt-5">
+        <div class="col-md-6">
+               <a href="https://podcast.ucsd.edu/default.aspx"><img class="mw-50 rounded mx-auto d-block" src="assets/button_more_information.png"></a>
+        </div>
+    </div>
+
+
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="h3 col-md-12 text-left mt-5">
+                FAQ
+            </div>
+
+            <div class="h3 col-md-12 text-left mt-2">
+                ⚡ What are the advantages of online learning?
+            </div>
+
+            <p class="lead col-md-12 text-left mt-2">
+                The advantages of online learning are:
+                <ul class="lead">
+                    <li>You can comfortably learn the subject.</li>
+                    <li>It provides a good impact on resume.</li>
+                    <li>You can complete the target at any time.</li>
+                    <li>Online courses are cheaper than traditional classroom training.</li>
+                </ul>
+            </p>
+
+            <div class="h3 col-md-12 text-left mt-2">
+                ✔️ What are the common materials offered by online educational sites?
+            </div>
+            
+            <p class="lead col-md-12 text-left mt-2">
+                The common materials offered by online educational sites are e-books, lectures in audio and video clips, e-journals, encyclopedias, e-books, and more.
+            </p>
+
+            
+            <div class="h3 col-md-12 text-left mt-2">
+                ❓ Why should you opt for online certification courses?
+            </div>
+
+            <p class="lead col-md-12 text-left mt-2">
+                You should go for online certification courses to gain credentials that can make you more valuable at work. It also helps you to tell your skills to the employer. These certificates are an investment in building your career.
+            </p>
+            
+            
+            <div class="h3 col-md-12 text-left mt-2">
+                💰 Do I get a Printable certificate?
+            </div>
+
+            <p class="lead col-md-12 text-left mt-2">
+                Yes, you will get a printable certificate in many courses. In fact, some course providers will ship a hard copy of the certificate to your desired address
+            </p>
+
+            <div class="col-md-12 mt-2 ">
+                <!-- <div class="row d-inline-flex"> -->
+                    <div class="col-md-12  d-inline-flex">
+                        <div class="col-md-4" >
+                            <button class="btn btn-primary btn-lg float-md-left">PREV</button>
+                        </div>
+                        <div class="col-md-4" >
+                             <p class="text-center"><a href="https://form.jotform.me/72391811797466" class="text-bold">Report a Bug</a></p>
+                        </div>
+                        <div class="col-md-4" >
+                            <button class="btn btn-primary btn-lg float-md-right">NEXT</button>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </p>
+        </div>
+
+        <div>
+            <span class="like-title">YOU MIGHT LIKE:</span>
+            <!--<div class="col-md-12 ac acimage-left three-column image-border-light">-->
+            <div class="row col-md-12 like colmn img-border-li">
+                <div class="col-md-4 col-sm-6">
+                    <h6 class="cat" property="genre"> BigData </h6>
+                    <div class="img-feat"> <a href="/big-data-testing-functional-performance.html"> </a><a href="/big-data-testing-functional-performance.html"><img src="assets/dad15e83fdfed181404bf876f508eb9d.png" alt="" title=""></a>  </div>
+                    <header>
+                        <a href="/big-data-testing-functional-performance.html">
+                            <h4 class="title" property="genre">Big Data Testing Tutorial: What is, Strategy, How to test Hadoop</h4>
+                        </a>
+                    </header>
+                    <div class="content" property="articleBody">
+                        <p>Big Data Testing Big Data Testing is a testing process of a big data application in order to...</p>
+                    </div>
+                    <footer> <a class="rm" href="/big-data-testing-functional-performance.html">Read more</a> </footer>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h6 class="cat" property="genre"> SDLC </h6>
+                    <div class="img-feat"> <a href="/notepad-plus-plus-alternative.html"> </a><a href="/notepad-plus-plus-alternative.html"><img src="assets/90b4143d79445638b7055ae984b9e8fb.png" alt="" title=""></a>  </div>
+                    <header>
+                        <a href="/notepad-plus-plus-alternative.html">
+                            <h4 class="title" property="genre">10 Best Notepad++ Alternatives in 2021</h4>
+                        </a>
+                    </header>
+                    <div class="content" property="articleBody">
+                        <p>Notepad++ is open source code editor written in C++. It supports various programming languages...</p>
+                    </div>
+                    <footer> <a class="rm" href="/notepad-plus-plus-alternative.html">Read more</a> </footer>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h6 class="cat" property="genre"> BigData </h6>
+                    <div class="img-feat"> <a href="/create-your-first-hadoop-program.html"> </a><a href="/create-your-first-hadoop-program.html"><img src="assets/f07a4be377ad605ad0cb50cdc3219917.png" alt="" title=""></a>  </div>
+                    <header>
+                        <a href="/create-your-first-hadoop-program.html">
+                            <h4 class="title" property="genre">Hadoop &amp; Mapreduce Examples: Create your First Program</h4>
+                        </a>
+                    </header>
+                    <div class="content" property="articleBody">
+                        <p>In this tutorial, you will learn to use Hadoop and MapReduce with Example. The input data used is...</p>
+                    </div>
+                    <footer> <a class="rm" href="/create-your-first-hadoop-program.html">Read more</a> </footer>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h6 class="cat" property="genre"> Blog </h6>
+                    <div class="img-feat"> <a href="/tcs-interview-questions.html"> </a><a href="/tcs-interview-questions.html"><img src="assets/cb30f1640c2ac5b2febb8b3509c7533f.png" alt="" title=""></a>  </div>
+                    <header>
+                        <a href="/tcs-interview-questions.html">
+                            <h4 class="title" property="genre">Top 50 TCS Interview Questions &amp; Answers</h4>
+                        </a>
+                    </header>
+                    <div class="content" property="articleBody">
+                        <p>Tata Consultancy Services is an Indian multinational information technology company headquartered...</p>
+                    </div>
+                    <footer> <a class="rm" href="/tcs-interview-questions.html">Read more</a> </footer>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h6 class="cat" property="genre"> Review </h6>
+                    <div class="img-feat"> <a href="/best-keyboards.html"> </a><a href="/best-keyboards.html"><img src="assets/5faf02af7be2cfb97d40b230cb6b3cce.jpg" alt="" title=""></a>  </div>
+                    <header>
+                        <a href="/best-keyboards.html">
+                            <h4 class="title" property="genre">Best Keyboard for Programming &amp; Coding in 2021</h4>
+                        </a>
+                    </header>
+                    <div class="content" property="articleBody">
+                        <p>Programmers spend most of their days on a computer designing, writing, and testing code. This...</p>
+                    </div>
+                    <footer> <a class="rm" href="/best-keyboards.html">Read more</a> </footer>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h6 class="cat" property="genre"> Blog </h6>
+                    <div class="img-feat"> <a href="/best-email-apps-your-iphone.html"> </a><a href="/best-email-apps-your-iphone.html"><img src="assets/cb30f1640c2ac5b2febb8b3509c7533f.png" alt="" title=""></a>  </div>
+                    <header>
+                        <a href="/best-email-apps-your-iphone.html">
+                            <h4 class="title" property="genre">21 BEST Email Apps for iPhone in 2021</h4>
+                        </a>
+                    </header>
+                    <div class="content" property="articleBody">
+                        <p>An email app for iPhone enables you to configure email addresses to receive, read, compose, and...</p>
+                    </div>
+                    <footer> <a class="rm" href="/best-email-apps-your-iphone.html">Read more</a> </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div style="position:absolute;left:0;background-color:#262323;" class="w-100 h-50 p-3 bg-secondary text-white">
+    <div class="row col-md-12">
+        <div class="col-md-4">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+        </div>
+
+        <div class="col-md-8">
+            
+        </div>
+    </div>
+ </div> 
+        <script src="js/jquery.js"></script>
+        <script src="js/popper.js"></script> 
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+    </html>
