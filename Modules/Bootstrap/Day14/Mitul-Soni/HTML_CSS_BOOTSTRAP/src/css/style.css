@@ -1,0 +1,173 @@
+body {
+  background-color: lightblue; }
+
+#top-header {
+  background-color: lightblue;
+  background-image: url("background.jpg"); }
+
+.btn-outline {
+  border-top-right-radius: 10px;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+  border-left: 5px solid orange; }
+
+#brand-name {
+  font-size: 60px;
+  font-weight: bold;
+  color: navy; }
+
+#middle-header {
+  background-color: lightblue; }
+
+#estd {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: navy;
+  color: white; }
+
+#navbarNav {
+  font-size: 14px;
+  background-color: navy;
+  border-top: 5px solid orange; }
+  #navbarNav a {
+    color: white; }
+  #navbarNav .active {
+    color: orange; }
+  #navbarNav .dropdown-item {
+    color: black; }
+
+#news .fa-circle {
+  color: orange; }
+
+#news .rounded-circle {
+  height: 200px;
+  width: 200px; }
+
+#news .card-header {
+  background: navy; }
+
+#news #name {
+  color: black; }
+
+#news #image-section {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom: 5px solid navy; }
+
+#news #uni-info > h3, #news p, #news a {
+  color: black; }
+
+#news .fa-user-circle {
+  font-size: 50px;
+  color: orange; }
+
+#news #chairman-info {
+  border-bottom: 5px solid navy;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; }
+  #news #chairman-info .card-header {
+    background: navy; }
+  #news #chairman-info img {
+    height: 100px;
+    width: 100px;
+    border: 2px solid navy;
+    float: left; }
+  #news #chairman-info a {
+    float: right; }
+
+#news #event-info {
+  border-bottom: 5px solid navy;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; }
+  #news #event-info .card-header {
+    background: navy; }
+  #news #event-info .fa-calendar {
+    font-size: 50px;
+    color: orange; }
+  #news #event-info #event-calender {
+    font-size: 30px;
+    color: black; }
+  #news #event-info .fa-map-marker {
+    color: black; }
+  #news #event-info .btn-outline-primary {
+    float: right; }
+
+#news #scroll-text {
+  border-left: 5px solid orange;
+  border-right: 5px solid orange;
+  font-weight: bold; }
+
+#news #news-alerts .card-header {
+  background-color: #F2F3F4;
+  border-top: 5px solid navy; }
+
+#news #news-alerts #circulars {
+  background-color: navy;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px; }
+
+#study-section {
+  color: navy; }
+
+#study-image-section1 {
+  background: url("../img/desk.jpg") no-repeat;
+  height: 200px;
+  width: 100%;
+  border: 10px solid white; }
+
+#study-image-section2 {
+  background: url("../img/desk.jpg") no-repeat;
+  height: 200px;
+  width: 100%;
+  border: 10px solid white; }
+
+#study-image-section3 {
+  background: url("../img/exam-hall.jpg") no-repeat;
+  height: 200px;
+  width: 100%;
+  border: 10px solid white; }
+
+#study-image-section4 {
+  background: url("../img/desk2.jpg") no-repeat;
+  height: 200px;
+  width: 100%;
+  border: 10px solid white; }
+
+#video-gallery-btn {
+  float: right; }
+
+#photo-gallery img {
+  height: 115px;
+  width: 200px; }
+
+#imp-info-section {
+  background-color: red; }
+
+#project-section img {
+  height: 80px;
+  width: 100px; }
+
+#project-section #project-image {
+  background: silver;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
+
+.navbar-expand-sm {
+  background: navy; }
+
+#facebook-section {
+  border-right: 5px solid navy; }
+
+#social-section img {
+  height: 50px;
+  width: 50px; }
+
+#last-footer-section {
+  background: navy;
+  color: white; }
