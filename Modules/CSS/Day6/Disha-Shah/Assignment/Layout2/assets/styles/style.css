@@ -1,6 +1,22 @@
 *{
     font-family: Oxygen, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+a:link{
+    text-decoration: none;
+    color: inherit;
+}
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+a:active{
+    text-decoration: none;
+    color: inherit;
+}
 
 .socials{
     display: flex;
@@ -201,12 +217,13 @@ nav a h4{
 .cards-content{
     width: auto;
     height: 100px;
-    margin: 0 269px;
+    margin: 0 245px;
 }
 .cards-content .row{
     display:flex;
     justify-content: space-around;
     align-items: center;
+
 }
 .card1{
     height: 80px;
@@ -239,3 +256,255 @@ nav a h4{
     text-decoration: none;
     color: black;
 }
+.series-img{
+    background-image: url(../images/live_system_thank_you_02.jpg);
+    width: auto;
+    position: relative;
+    top: 150px;
+}
+.series-content{
+    margin: 0px 269px;
+    padding: 20px 0;
+
+}
+.series-names{
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+}
+.series-names li{
+    background-color: gray;
+    color: white;
+    margin: 2px;
+    padding: 10px;
+    text-align: center;
+}
+.series-names li:first-child{
+    background-color: yellow;
+    color: black;
+}
+.series-content .cart-arrow{
+    position: absolute;
+    left: 330px;
+    top: 80px;
+    transform: rotate(180deg);
+}
+.series-result{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.series{
+    width: 210px;
+    background-color: white;
+    color: black;
+    margin-right: 10px;
+    padding: 0px 10px;
+    
+}
+.price{
+    display: flex;
+    justify-content: space-around;
+}
+.add-to-basket{
+    margin-top: -5px;
+}
+.add-to-basket h5{
+    background-color: yellow;
+    padding: 10px;
+}
+.more{
+    width: auto;
+    margin-right:10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.more h5{
+    background-color: yellow;
+    padding: 10px;
+    width: 85px;
+}
+.latest{
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 269px;
+    position: relative;
+    top: 170px;
+}
+
+.news{
+    width: 48%;
+}
+.sale-content{
+    background-image: url(../images/on_sale_img_23.jpg);
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 5px 0;
+    background-color: rgb(153, 153, 153);
+    background-position: center;
+    background-size: 435px;
+    
+}
+.sale-content h1{
+    border: 2px solid yellow;
+    margin: 15px;
+    padding: 85px 0;
+    color: white;
+    font-weight: normal;
+    font-size: 40px;
+}
+.news h2{
+    font-size: xx-large;
+    font-weight: normal;
+    border-bottom: 2px dashed black;
+}
+.news-content{
+    background-color: rgb(230, 230, 230);
+    padding-bottom: 10px;
+}
+.news-img{
+    display: flex;
+    justify-content: space-around;
+    margin: 0px -40px;
+    padding: 15px 0 0;
+}
+.news-content p{
+    color: gray;
+    margin: 20px 15px;
+}
+.more h4{
+    background-color: black;
+    color: yellow;
+    padding: 10px;
+   
+}
+.shipping{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 269px;
+    position: relative;
+    top: 220px;
+}
+.shipping-content i{
+    font-size: 40px;
+    background-color: gray;
+    text-align: center;
+    padding: 10px;
+    float: left;
+    margin-right: 30px;
+
+    color: white;
+    line-height: 0;
+    vertical-align: middle;
+}
+.shipping-description{
+    width: 300px;
+}
+.shipping-description h4{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.shipping-description p{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: gray;
+}
+footer{
+    background-image: url(../images/footer_bg.jpg);
+    position: relative;
+    top: 240px;
+    
+}
+.footer-content{
+    margin: 0 269px;
+    display: flex;
+    justify-content: space-around;
+}
+.footer-links{
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+.footer-links li:first-child{
+    color: yellow;
+}
+.footer-links li{
+    color: gray;
+    line-height: 2;
+}
+.mailing{
+    background-color: rgb(228, 220, 220);
+    margin: 25px 20px;
+    padding: 10px 20px;
+    color: gray;
+
+}
+.mailing h2{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-weight: normal;
+    margin-bottom: 2px;
+}
+.mailing h5{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+input[type=text]{
+    margin-bottom: 10px;
+    border: none;
+    width: 205px;
+    padding: 5px;
+}
+input[type=email]{
+    margin-bottom: 10px;
+    border: none;
+    width: 205px;
+    padding: 5px;
+}
+input[type=submit]{
+    background-color: black;
+    color: yellow;
+    padding: 5px;
+    border: none;
+    margin-right: -10px;
+}
+.footer-socials{
+    position: relative;
+    top: 30px;
+    margin-right: -20px;
+}
+.footer-icons{
+    display: flex;
+    justify-content: right;
+    width: 200px;
+}
+.footer-icons a{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.footer-icons a i{
+    margin-left: 10px;
+    
+    font-size: 30px;
+    color: gray;
+}
+.privacy-policy{
+    background-color: yellow;
+    width: auto;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 240px;
+}
+.policy{
+    display: flex;
+
+}
+.policy h5{
+    border-right: 2px solid black;
+    text-align: center;
+    padding: 0 10px;
+}
+
