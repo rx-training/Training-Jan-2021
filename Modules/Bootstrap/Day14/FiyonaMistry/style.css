@@ -1,0 +1,45 @@
+nav ul li{
+    font-size: 14px;
+}
+nav .navbar-brand{
+    font-size: 20px;
+    font-weight: 500;
+}
+nav{
+    box-shadow:2px 2px 5px grey;
+}
+.overlay{
+    background: url('img/wp2532971.jpg');
+    background-color: rgba(0,0,0,0.5);
+    position: relative;
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    min-height: 800px;
+} 
+.newWorkspace{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
+}
+#componentLibrary{
+    background: linear-gradient(rgb(32, 0, 139),rgb(57, 84, 173));
+}
+#learnMore i{
+    background: lightblue;
+}
+footer a{
+    font-size: 10px;
+}
+@media (max-width:768px){
+    nav .navbar-brand{
+        display: none;
+    }
+    nav form .search{
+        display: none;
+    }
+    #componentLibrary{
+        display: none;
+    }
+}
