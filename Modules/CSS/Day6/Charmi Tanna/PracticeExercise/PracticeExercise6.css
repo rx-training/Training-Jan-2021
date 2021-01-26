@@ -1,0 +1,17 @@
+.container {
+    flex-direction: row-reverse;
+    width: 400px;
+    height: 200px;
+    background-color: lightblue;
+    border: 1px solid black;
+    display: flex;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    color: black;
+    background-color: red;
+    border: 1px solid black;
+    margin: 10px;
+}
