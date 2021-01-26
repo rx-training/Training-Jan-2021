@@ -1,0 +1,8 @@
+.location{
+    display: none;
+}
+@media(min-width:768px){
+    .location{
+        display: inline-flex;
+    }
+}
