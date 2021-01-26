@@ -4,14 +4,6 @@
 .login:hover{
     color: #fc8019;
     cursor: pointer;
-    text-decoration: none;
-}
-.signup:hover{
-    cursor: pointer;
-    text-decoration: none;
-}
-.login {
-    color: #343a40;
 }
 .loginbox{
     margin-top: 20px;
@@ -94,15 +86,10 @@
     font-size: 25px;
     margin-top:20px;
     text-align:left;
-    display: table;
 }
 } 
 @media (min-width: 768px) and (max-width:991px){
-.findfood{
-    background-color: #fc8019;
-    display: grid;
-    padding: 18px 5px;
-    font-size: smaller;
-    height: 58px;
+#sectionimg{
+    display:none;
 }
 } 
