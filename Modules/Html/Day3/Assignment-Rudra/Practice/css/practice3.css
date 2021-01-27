@@ -1,0 +1,66 @@
+﻿.list {
+    list-style-type: none;
+    text-align: center;
+    margin-right: 40px;
+}
+
+.login {
+    background-color: #a3c0f0;
+    width: 33.33%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #455e87;
+}
+
+.section {
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+input[type=text] {
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #EBECF0;
+    text-align: center;
+}
+
+input[type=password] {
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #EBECF0;
+    text-align: center;
+}
+
+input[type=Submit] {
+    background-color: blue;
+    color: white;
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    /*display: inline-block;*/
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+a {
+    color: black;
+}
