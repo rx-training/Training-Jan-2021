@@ -1,0 +1,454 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width:device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/bootstrap.min"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <title>Cards</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="display-3 text-center my-4">Cards</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            2: Utilities
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="2-1.html">2.1 Basic Typography</a>
+                            <a class="dropdown-item" href="2-2.html">2.2 Text Alignment & Display</a>
+                            <a class="dropdown-item" href="2-3.html">2.3 Floats and Fixed Positions</a>
+                            <a class="dropdown-item" href="2-4.html">2.4 Colors & Backgrounds</a>
+                            <a class="dropdown-item" href="2-5.html">2.5 Spacing</a>
+                            <a class="dropdown-item" href="2-6.html">2.6 Sizing and Borders</a>
+                            <a class="dropdown-item" href="2-7.html">2.7 Breakpoints</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            3: CSS Components
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="3-1.html">3.1 Navbar</a>
+                            <a class="dropdown-item" href="3-2.html">3.2 List Groups & Badges</a>
+                            <a class="dropdown-item" href="3-3.html">3.3 Forms</a>
+                            <a class="dropdown-item" href="3-4.html">3.4 Input Groups & Addons</a>
+                            <a class="dropdown-item" href="3-5.html">3.5 Alerts & Progress Bars</a>
+                            <a class="dropdown-item" href="3-6.html">3.6 Tables & Pagination</a>
+                            <a class="dropdown-item" href="3-7.html">3.7 Cards</a>
+                            <a class="dropdown-item" href="3-8.html">3.8 Media Objects</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-warning btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            4: Grid & Flexbox
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="4-1.html">4.1 Grid System</a>
+                            <a class="dropdown-item" href="4-2.html">4.2 Grid Alignment</a>
+                            <a class="dropdown-item" href="4-3.html">4.3 Flexbox</a>
+                            <a class="dropdown-item" href="4-4.html">4.4 Auto Margin & Padding</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            5: Grid & Flexbox
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="5-1.html">5.1</a>
+                            <a class="dropdown-item" href="5-2.html">5.2</a>
+                            <a class="dropdown-item" href="5-3.html">5.3</a>
+                            <a class="dropdown-item" href="5-4.html">5.4</a>
+                            <a class="dropdown-item" href="5-5.html">5.5</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </header>
+    <div class="container">
+        <!--Block-->
+        <div class="card">
+            <div class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Simple Card-->
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Card Title</h4>
+                <h6 class="card-subtitle">Card Subtitle</h6>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <a href="#" class="btn btn-outline-primary">Read more</a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Card With Image-->
+        <div class="card" style="width:20rem">
+            <img class="card-img-top" src="http://lorempixel.com/300/300/sports/" alt="Card image cap" />
+            <div class="card-body">
+                <h4 class="card-title">Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <a href="#" class="btn btn-success btn-block">Read more</a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Card With Header-->
+        <div class="card">
+            <div class="card-header">
+                My Card
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <a href="#" class="btn btn-danger">Read more</a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Header, Footer, Centered-->
+        <div class="card text-center">
+
+            <div class="card-header">
+                My Card
+            </div>
+
+            <div class="card-body">
+                <h4 class="card-title">Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <a href="#" class="btn btn-danger">Read more</a>
+            </div>
+
+        </div>
+
+        <div class="card-footer text-muted">
+            2 Days Ago
+        </div>
+
+        <br /><br />
+
+        <!--Card With Nav-->
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <a href="#" class="btn btn-primary"></a>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Image Overlays-->
+        <div class="card bg-dark text-white">
+            <img class="card-img" src="http://lorempixel.com/900/200/sports/" />
+            <div class="card-img-overlay">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to additional content.
+                    This content is a little bit longer.
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Background Color-->
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-secondary mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-light mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <!--Card Outline-->
+        <div class="card border-primary mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card border-success mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card border-info mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card border-danger mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card border-warning mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card border-light mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <div class="card border-dark mb-3">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Card Group-->
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Card Title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Card Title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Card Title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                </div>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!--Card Deck-->
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Card Title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Card Title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Card Title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Card Columns-->
+        <div class="card-columns">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="http://lorempixel.com/400/200/sports/" alt="Card image cap" />
+                <div class="card-body">
+                    <h4>Card title that wraps to a new line</h4>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-3">
+            <blockquote class="card-body card-bodyquote">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <footer>
+                    <small class="text-muted">Someone famous in <cite title="Source Title">Source Title</cite></small>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="card">
+            <img class="card-img-top img-fluid" src="http://lorempixel.com/400/200/sports/" alt="Card image cap" />
+            <div class="card-body">
+                <h4 class="card-title">Card Title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+            </div>
+        </div>
+        <div class="card card-inverse card-primary p-3 text-center">
+            <blockquote class="card-bodyquote">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <footer>
+                    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="card text-center">
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 minutes ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="http://lorempixel.com/400/200/sports/" alt="Card image" />
+        </div>
+        <div class="card p-3 text-right">
+
+            <blockquote class="card-bodyquote">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.</p>
+
+                <footer>
+                    <small class="text-muted">Someone famous in <cite title="Source Title">Source Title</cite></small>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">Card Title</h4>
+
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique erat.
+                </p>
+
+                <p class="card-text"><small class="text-muted">Last updated 3 minutes ago.</small></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
