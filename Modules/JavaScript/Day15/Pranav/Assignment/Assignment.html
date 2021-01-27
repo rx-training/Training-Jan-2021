@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Javascript assignment</title>
+		<script type="text/javascript">
+			function calculation()
+		    {
+			    var no1=parseInt(document.getElementById("value1").value);
+			    var no2=parseInt(document.getElementById("value2").value);
+			    var addition=document.getElementById("addition");
+			    var substraction=document.getElementById("substraction");
+			    var multiplication=document.getElementById("multiplication");
+			    var division=document.getElementById("division");
+
+			    if(addition.checked==true)
+			    {
+			    	var answer=no1+no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else if(substraction.checked==true)
+			    {
+			    	var answer=no1-no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else if(multiplication.checked==true)
+			    {
+			    	var answer=no1*no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else if(division.checked==true)
+			    {
+			    	var answer=no1/no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else
+			    {
+			    	alert("Wrong input");
+			    }	
+		    }
+		</script>
+	</head>
+	<body>
+	<form id="form1">
+		<label for="num1">Please enter first number:</label>
+        <input type="number" id="value1" required>
+        <br>
+        <br>
+		<label for="num2">Please enter second number:</label>
+		<input type="number" id="value2" required><br/>
+		<input type="radio" name="operation" id="addition">
+		<label>Addition</label>
+        <br>
+		<input type="radio" name="operation" id="substraction">
+		<label>Substraction</label>
+        <br>
+        <input type="radio" name="operation" id="multiplication">
+		<label>Multiplication</label>
+        <br>
+		<input type="radio" name="operation" id="division">
+		<label>Division</label>
+        <br>
+		<input type="button" value="Calculate" id="calculate" onclick="calculation()"/>
+		<input type="reset" value="Reset" id="reset">
+	</form>
+	</body>
+</html>
