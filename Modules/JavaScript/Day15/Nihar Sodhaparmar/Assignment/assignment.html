@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <script>
+        function calculateResult() {
+            var form1 = document.getElementById('form1');
+            var num1 = parseInt(document.getElementById('num1').value);
+            var num2 = parseInt(document.getElementById('num2').value);
+            var operation = form1.elements["operation"].value;
+            var ans;
+
+            if(isNaN(num1) || isNaN(num2))
+            {
+                alert("Please Enter Only Numeric Values.");
+                return false;
+            }
+
+            switch (operation) {
+                case "+": ans = num1 + num2;
+                    break;
+
+                case "-": ans = num1 - num2;
+                    break;
+
+                case "*": ans = num1 * num2;
+                    break;
+
+                case "/": ans = num1 / num2;
+                    break;
+
+            }
+            document.getElementById('result').innerText += " " + ans;
+            return false;
+        }
+
+        function resetForm(){
+            document.getElementById('result').innerText = "Result is :";
+        }
+    </script>
+</head>
+
+<body style="width: 25%; margin: auto;">
+
+    <h1>Assignment</h1>
+
+    <form id="form1" onsubmit="return calculateResult()">
+        <label for="num1">Please enter first number : </label>
+        <input id="num1" type="text" placeholder="Enter Number1"><br /><br />
+
+        <label for="num2">Please enter second number : </label>
+        <input id="num2" type="text" placeholder="Enter Number2"><br /><br />
+
+        <label for="operation">Please select operation you want to perform : </label>
+        <label style="display: block; margin-top: 5px;"></label><input type="radio" name="operation" value="+" checked> Addition
+        </label>
+        <label style="display: block;"></label><input type="radio" name="operation" value="-"> Substraction </label>
+        <label style="display: block;"></label><input type="radio" name="operation" value="*"> Multiplication </label>
+        <label style="display: block;"></label><input type="radio" name="operation" value="/"> Division </label>
+        <br /><br />
+
+        <input type="submit" value="Calculate">
+        <input type="reset" value="Reset" onclick="resetForm()"><br /><br />
+
+        <label id="result" style="font-size: larger;"> Result is : </label>
+    </form>
+</body>
+
+</html>
