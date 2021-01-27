@@ -1,0 +1,39 @@
+.nav-one a {
+  text-decoration: none;
+  color: white; }
+
+.nav-one a:hover {
+  color: black; }
+
+.nav-two a {
+  color: black;
+  text-decoration: none; }
+
+.nav-two a:hover {
+  color: #4285F4; }
+
+.nav-two {
+  margin-top: 100px; }
+
+.main-body {
+  background: lightgray; }
+
+img:hover {
+  transform: scale(1.01);
+  opacity: 0.7; }
+
+.card:hover {
+  border: 1px solid #4285F4; }
+
+.footer-section {
+  text-align: center; }
+
+.price {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray; }
+
+.footer-section {
+  border: 1px solid lightgray; }
+
+.social-media {
+  border-top: 1px solid lightgray; }
