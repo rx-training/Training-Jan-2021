@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>
+            prectice1
+        </title>
+    </head>
+    <body>
+        <h1>Grather then 40 Total & LargestNumber</h1>
+        <br>
+        <br>
+        <div style="text-align: center;">
+<button onclick="myFunction()">Total & LargestNumber</button>
+
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+        var txt ;
+        var result=0;
+        var a = prompt("Please enter first number:");
+        var b = prompt("Please enter sec number:");
+        var c = prompt("Please enter third number:");
+        if (a==b && a==c){
+        txt = a;
+        }
+        if (a>b && a>c){
+        txt = a;
+        } else if(b>a && b>c){
+        txt = b;  
+        }
+        else if(c>a && c>b){
+        txt= c;
+        }
+        var ar=[a,b,c];
+        for(i=0;i<ar.length;i++){
+            if(ar[i]>40){
+                result+=parseInt(ar[i]);    
+            }
+        }
+               
+        document.getElementById("demo").innerHTML = "Highest Number"+ txt +"<br>" +"sum grather then 40 is "+ result;
+    }
+</script>
+        </div>
+    </body>
+</html>

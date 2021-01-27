@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>
+            prectice1
+        </title>
+        <style>
+            .forms {
+                    padding: 10px;
+                    border: 2px solid #000;
+                    width: 50%;
+                    margin: 0 auto;
+                    background-color: teal;
+                    margin-top: 30px;
+                    }
+                    .number{
+                        margin: 10px 0px;
+                    }
+        </style>
+        <script>
+           function Calculate(){
+            var a = parseInt(document.getElementById("firstno").value);
+            var b = parseInt(document.getElementById("secno").value);
+            var radio = document.getElementsByName('calculate');
+            var radiochecks;
+            for(i = 0; i < radio.length; i++) { 
+                if(radio[i].checked){
+                    radiochecks=radio[i].value;   
+                }  
+            } 
+            if(radiochecks="sum"){
+                        document.getElementById("result").innerHTML = a + b;
+                    }
+                    if(radiochecks="sub"){
+                        document.getElementById("result").innerHTML = a - b;
+                    }
+                    if(radiochecks="mul"){
+                        document.getElementById("result").innerHTML = a * b;
+                    }
+                    if(radiochecks="div"){
+                        document.getElementById("result").innerHTML = a/b;
+                    }
+           } 
+        </script>
+    </head>
+    <body>
+        <div>
+            <form class="forms">
+                <div class=""><h1> Calculate</h1></div>
+                <div class="number">
+                    <label for="firstnumber">Enter Firstnumber :</label><br>
+                    <input type="number" id="firstno" class="">
+                </div>
+                <div class="number">
+                    <label for="secnumber">Enter Secnumber :</label><br>
+                    <input type="number" id="secno" class="">
+                </div>
+                <div class="number">
+                    <input type="radio" class="radio" id="sum" name="calculate" value="sum">
+                    <label for="addition">Addition</label><br>
+                    <input type="radio" class="radio" id="sub" name="calculate" value="sub">
+                    <label for="male">Subtraction</label><br>
+                    <input type="radio" class="radio" id="mul" name="calculate" value="mul">
+                    <label for="female">Multipication</label><br>
+                    <input type="radio" class="radio" id="div" name="calculate" value="div">
+                    <label for="Divison">Divison</label>
+                </div>
+                <div>
+                    <button onclick="Calculate()">Calculate</button>
+                    <button type="reset">Reset</button>
+                </div>
+                <br><br><hr>
+                <div>This result:</div><br>
+                <div id="result"></div>    
+            </form><br><br>
+        </div>
+    </body>
+</html>
