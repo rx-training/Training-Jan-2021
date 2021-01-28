@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <h1 class="display-3 text-center my-4">Modals</h1>
+            <h1 class="display-3 text-center my-4">Tooltips</h1>
             <br><br>
             <div class="container">
                 <div class="row">
@@ -25,7 +25,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic Typography</a>
                                 <a class="dropdown-item" href="2_3_text_alignment_and_display.html">2.3 Text Alignment Display</a>
-                                <a class="dropdown-item" href="2_4_floats_and_FixedPosition.html">2.4 Floats Position</a>
+                                <a class="dropdown-item" href="2_4_floats_andFixedPosition.html">2.4 Floats Position</a>
                                 <a class="dropdown-item" href="2_5_color_background.html">2.5 Colors background</a>
                                 <a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
                                 <a class="dropdown-item" href="2_7_sizing.html">2.7 Sizing</a>
@@ -82,63 +82,52 @@
         </header>
         <br><br>
         <div class="container">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Launch Modal</button>
-
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title"> Modal Title</h5>
-                            <button class="close" data-dismiss="modal"> &times; </button>
-                        </div>
-                        <div class="modal-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eligendi ea quas 
-                        id veniam ullam qui omnis, in architecto, nesciunt dolores autem ratione beatae dolorem deleniti nostrum repellendus enim aspernatur.
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" data-dismiss="modal" >
-                            Close
-                        </button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        
-        <br><br>
-
-        <button class="btn btn-info" data-toggle="modal" data-target="#loginModal">Login</button>
-
-        <div class="modal" id="loginModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"> Login</h5>
-                        <button class="close" data-dismiss="modal"> &times; </button>
-                    </div>
-                    <div class="modal-body">
-                   <form class="form-group">
-                       <div class="form-group">
-                       <label for="username">Username</label>
-                       <input class="form-control" type="text" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                       <label for="password">Password</label>
-                       <input class="form-control" type="password" placeholder="password">
-                    </div>
-                   </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal" >
-                        Close
-                    </button>
-                    <button class="btn btn-primary" data-dismiss="modal" >
-                        Login
-                    </button>
-                </div>
-                </div>
-            </div>
+            <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip On Top">Tooltip On Top</button>
+            <button class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Tooltip On Right">Tooltip On Right</button>
+            <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Tooltip On Bottom">Tooltip On Bottom</button>
+            <button class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Tooltip On Left">Tooltip On Left</button>
         </div>
-
-    </div>
+        <br><br>
+        <button id="hello" class="btn btn-primary" data-toggle="tooltip" data-placement="top" data-html="true" title="<h3>Hello World</h3> <p>Lorem ipsum dolor sit amet.</p>">Tooltip With HTML</button>
+        <hr>
+        <button class="btn btn-secondary" onClick="showtooltip()">
+            Show Tooltip
+        </button>
+        <button class="btn btn-secondary" onClick="hidetooltip()">
+            Hide Tooltip
+        </button>
+        <button class="btn btn-secondary" onClick="toggletooltip()">
+            toggle Tooltip
+        </button>
     </body>
+    <script>
+        $('[data-toggle="tooltip"]').tooltip();
+
+        function showtooltip()
+        {
+            $('#hello').tooltip('show');
+        }
+        function hidetooltip()
+        {
+            $('#hello').tooltip('hide');
+        }
+        function toggletooltip()
+        {
+            $('#hello').tooltip('toggle');
+        }
+
+        $('#hello').on('show.bs.tooltip',function(){
+            console.log("Tooltip Show");
+        });
+        $('#hello').on('shown.bs.tooltip',function(){
+            console.log("Tooltip Shown");
+        });
+        $('#hello').on('hide.bs.tooltip',function(){
+            console.log("Tooltip Hide");
+        });
+        $('#hello').on('hidden.bs.tooltip',function(){
+            console.log("Tooltip Hidden");
+        });
+
+    </script>
     </html>

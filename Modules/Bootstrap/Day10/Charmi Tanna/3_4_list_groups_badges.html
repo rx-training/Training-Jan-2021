@@ -2,28 +2,17 @@
 <html>
 <head>
 	<title></title>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-    .row-hl
-        {
-            background-color: #f4f4f4;
-            height: 250px;
-        }
-        .item-hl
-        {
-            border:1px solid #333;
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <h1 class="display-3 text-center my-4">Auto Margins & Wrapping Order</h1>
-        <br><br>
+	<header>
+		<h1 class="display-3 text-center my-4">Listgroups & Badges</h1>
+		<br><br>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
@@ -34,7 +23,7 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic Typography</a>
 							<a class="dropdown-item" href="2_3_text_alignment_and_display.html">2.3 Text Alignment Display</a>
-							<a class="dropdown-item" href="2_4_floats_and_FixedPosition.html">2.4 Floats Position</a>
+							<a class="dropdown-item" href="2_4_floats_andFixedPosition.html">2.4 Floats Position</a>
 							<a class="dropdown-item" href="2_5_color_background.html">2.5 Colors background</a>
 							<a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
 							<a class="dropdown-item" href="2_7_sizing.html">2.7 Sizing</a>
@@ -88,75 +77,71 @@
 				</div>
 			</div>
 		</div>
-    </header>
-    <br><br>
-    <div class="container">
-        <div class="d-flex row-hl">
-            <div class="mr-auto p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-        </div>
-        <br><br>
-        <div class="d-flex row-hl">
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="ml-auto p-2 item-hl">Flex Item</div>
-        </div>
-        <br><br>
-        <div class="d-flex flex-column row-hl">
-            <div class="mb-auto p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-        </div>
-        <br><br>
-        <div class="d-flex flex-column row-hl">
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="mt-auto p-2 item-hl">Flex Item</div>
-        </div>
-        <br><br>
-        <div class="d-flex flex-nowrap row-hl">
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-        </div>
-        <br><br>
-        <div class="d-flex flex-wrap row-hl">
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-            <div class="p-2 item-hl">Flex Item</div>
-        </div>
-        <br><br>
-        <div class="d-flex row-hl">
-            <div class="order-3 p-2 item-hl">First Flex Item</div>
-            <div class="order-2 p-2 item-hl">second Flex Item</div>
-            <div class="order-1 p-2 item-hl">Third Flex Item</div>
-        </div>
+	</header>
+	<br><br>
+	<div class="container">
 
-    </div>
+		<ul class="list-group mb-5">
+			<li class="list-group-item">List Item One</li>
+			<li class="list-group-item">List Item Two</li>
+			<li class="list-group-item">List Item Three</li>
+			<li class="list-group-item">List Item Four</li>
+			<li class="list-group-item">List Item Five</li>
+		</ul>
+
+		<ul class="list-group mb-5">
+			<a class="list-group-item list-group-item-action" href="#">List Item One</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Two</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Three</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Four</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Five</a>
+		</ul>
+
+		<ul class="list-group mb-5">
+			<li class="list-group-item">Regular List Item</li>
+			<li class="list-group-item list-group-item-primary">Primary List Item</li>
+			<li class="list-group-item list-group-item-secondary">Secondary List Item</li>
+			<li class="list-group-item list-group-item-success">Success List Item</li>
+			<li class="list-group-item list-group-item-info">Info List Item</li>
+			<li class="list-group-item list-group-item-warning">Warning List Item</li>
+			<li class="list-group-item list-group-item-danger">Danger List Item</li>
+			<li class="list-group-item list-group-item-light">Light List Item</li>
+			<li class="list-group-item list-group-item-dark">Dark List Item</li>
+		</ul>
+
+		<div class="row-mb-5">
+			<div class="col-4">
+			<div class="list-group mb-5" id="list-tab" role="tablist">
+			<a class="list-group-item list-group-item-action active" id="home-list-home" href="#list-home" data-toggle="list">Home</a>
+			<a class="list-group-item list-group-item-action" id="home-list-about" href="#list-about" data-toggle="list">About</a>
+			<a class="list-group-item list-group-item-action" id="home-list-services" href="#list-services" data-toggle="list">Services</a>
+			</div>
+			</div>
+		
+
+			<div class="col-8">
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fad show active" id="list-home" role="tabpanel">
+						Home Content...
+					</div>
+					<div class="tab-pane fad" id="list-about" role="tabpanel">
+						About Content...
+					</div>
+					<div class="tab-pane fad" id="list-services" role="tabpanel">
+						Services Content...
+					</div>
+				</div>
+			</div>
+
+
+		<ul class="list-group mb-5">
+			<li class="list-group-item">List Item One</li>
+			<li class="list-group-item">List Item Two  <span class="badge badge-primary"></span></li>
+			<li class="list-group-item">List Item Three</li>
+			<li class="list-group-item">List Item Four</li>
+			<li class="list-group-item">List Item Five</li>
+		</ul>
+
+	</div>
 </body>
 </html>

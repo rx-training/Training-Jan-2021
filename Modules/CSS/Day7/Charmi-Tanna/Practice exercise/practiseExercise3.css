@@ -1,6 +1,7 @@
 
 @media only screen and (max-width: 600px) {
-    .class2 {
-        display: none;
-    }
+  h1.hidden {
+  visibility: hidden;
 }
+}
+

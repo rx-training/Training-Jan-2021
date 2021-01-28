@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <h1 class="display-3 text-center my-4">Popovers</h1>
+            <h1 class="display-3 text-center my-4">Coolapse & Accordion</h1>
             <br><br>
             <div class="container">
                 <div class="row">
@@ -25,7 +25,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic Typography</a>
                                 <a class="dropdown-item" href="2_3_text_alignment_and_display.html">2.3 Text Alignment Display</a>
-                                <a class="dropdown-item" href="2_4_floats_and_FixedPosition.html">2.4 Floats Position</a>
+                                <a class="dropdown-item" href="2_4_floats_andFixedPosition.html">2.4 Floats Position</a>
                                 <a class="dropdown-item" href="2_5_color_background.html">2.5 Colors background</a>
                                 <a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
                                 <a class="dropdown-item" href="2_7_sizing.html">2.7 Sizing</a>
@@ -82,56 +82,61 @@
         </header>
         <br><br>
         <div class="container">
-            <button class="btn btn-danger" data-toggle="popover" data-placement="top" title="Popover Title" data-content="Lorem, ipsum dolor sit amet consectetur adipisicing elit.">
-                Toggle popover
-            </button>
-            <button class="btn btn-primary" data-toggle="popover" data-placement="right" title="Popover Title" data-content="Lorem, ipsum dolor sit amet consectetur adipisicing elit.">
-                Toggle popover
-            </button>
-            <button class="btn btn-warning" data-toggle="popover" data-placement="bottom" title="Popover Title" data-content="Lorem, ipsum dolor sit amet consectetur adipisicing elit.">
-                Toggle popover
-            </button>
-            <button class="btn btn-info" data-toggle="popover" data-placement="left" title="Popover Title" data-content="Lorem, ipsum dolor sit amet consectetur adipisicing elit.">
-                Toggle popover
-            </button>
-            <br><br>
+            <button class="btn btn-primary d-block mb-4" data-toggle="collapse" data-target="#collapse-btn-1">Read More</button>
+            <div class="collapse mb-5" id="collapse-btn-1">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores accusamus, 
+                        ea quod, harum voluptas repellat, laborum obcaecati inventore repudiandae excepturi 
+                        unde nam? Repudiandae illum illo vel odio rerum modi animi!</p>
+                    </div>
+                </div>
+            </div>
 
-            <button id="myPopover" class="btn btn-info" data-toggle="popover" data-placement="left" title="Popover Title" 
-            data-content="Lorem, ipsum dolor sit amet consectetur adipisicing elit." data-trigger="focus">
-                Toggle popover
-            </button>
-            <br><br>
-            <button class="btn btn-secondary" onclick="showPopover()">Show Popover</button>
-            <button class="btn btn-secondary" onclick="hidePopover()">Hide Popover</button>
-            <button class="btn btn-secondary" onclick="togglePopover()">Toggle Popover</button>
+            <div id="accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading">
+                        <h5 class="mb-0"><a href="#collapse1" data-parent="#accordion" data-toggle="collapse">Collapse One</a> </h5>
+                    </div>
+
+                    <div id="collapse1" class="collapse show">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non molestiae eius unde asperiores praes
+                            autem necessitatibus? Labore reprehenderit dolorum enim quo animi? Dolores magnam minus doloribus incidunt magni, facilis molestiae!
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading">
+                        <h5 class="mb-0"><a href="#collapse2" data-parent="#accordion" data-toggle="collapse">Collapse Two</a> </h5>
+                    </div>
+
+                    <div id="collapse2" class="collapse">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non molestiae eius unde asperiores praes
+                            autem necessitatibus? Labore reprehenderit dolorum enim quo animi? Dolores magnam minus doloribus incidunt magni, facilis molestiae!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" role="tab" id="heading">
+                        <h5 class="mb-0"><a href="#collapse3" data-parent="#accordion" data-toggle="collapse">Collapse Three</a> </h5>
+                    </div>
+
+                    <div id="collapse3" class="collapse">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non molestiae eius unde asperiores praes
+                            autem necessitatibus? Labore reprehenderit dolorum enim quo animi? Dolores magnam minus doloribus incidunt magni, facilis molestiae!
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
+
     </body>
-    <script>
-        $('[data-toggle="popover"]').popover();
-        function showPopover()
-        {
-            $('#myPopover').popover('show');
-        }
-        function hidePopover()
-        {
-            $('#myPopover').popover('hide');
-        }
-        function togglePopover()
-        {
-            $('#myPopover').popover('toggle');
-        }
-        $('#myPopover').on('show.bs.popover',function(){
-            console.log("Popover Show");
-        });
-        $('#myPopover').on('shown.bs.popover',function(){
-            console.log("Popover Shown");
-        });
-        $('#myPopover').on('hide.bs.popover',function(){
-            console.log("Popover Hide");
-        });
-        $('#myPopover').on('hidden.bs.popover',function(){
-            console.log("Popover Hidden");
-        });
-    </script>
     </html>
-    
