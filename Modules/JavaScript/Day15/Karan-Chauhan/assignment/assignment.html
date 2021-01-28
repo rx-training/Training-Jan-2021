@@ -16,12 +16,12 @@
                 var no2 = parseFloat(document.getElementById('no2').value);
 
                 for (var i = 0; i < document.getElementsByName('operation').length; i++)
-                 {
+                {
                      if (document.getElementsByName('operation')[i].checked)
-                     {
+                    {
                          var op = document.getElementsByName('operation')[i].value;
-                     }
-                 }
+                    }
+                }
 
                 if(op == "addition"){
                     ans = no1 + no2;
