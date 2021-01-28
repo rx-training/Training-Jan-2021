@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Bootstrap 4 Starter Pack</title>
+    </head>
+
+    <script>
+
+        function getCheck()
+        {
+            var str = document.getElementById("date").value;
+            var temp = str.split(/[-]/);
+            var yyyy = parseInt(temp[2]);
+            var mm = parseInt(temp[0]);
+            var dd = parseInt(temp[1]);
+            
+            if(yyyy < 1901 && yyyy > 2100)
+            {
+                alert("Please Valid Year Enter");
+            }
+            else if(mm < 1 && mm > 12)
+            {
+                alert("Please Valid Month Enter");
+            }   
+            else if(dd < 1 && dd > 31)
+            {
+                alert("Please Valid Date Enter");
+            }
+            else if((mm == 4 && mm == 6 && mm==9 && mm == 11) && dd == 31)
+            {
+                alert("Can not set 31 Date on this month");
+            }
+            else if(mm==2)
+            {
+                var leap = (yyyy % 4 == 0 && (yyyy % 100 != 0 || yyyy % 400 == 0));
+                if(dd > 29 || (dd==29 && !leap))
+                {
+                    alert("Please Enter Valid Date");
+                }
+            }
+            else
+            {
+                alert("welcome")
+            }
+            
+            
+        }
+    </script>
+
+    <body>
+        
+        <div class="container">
+            <div class="row mt-5">
+                <h2>Assignment Validation Date</h2>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter Date(MM-DD-YYYY)" id="date">
+                </div>
+                <div class="col">
+                    <input type="button" class="btn btn-success" onclick="getCheck()" value="Submit">
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
