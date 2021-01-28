@@ -1,4 +1,4 @@
-function submit()
+function getResult()
 {
     var num1 = document.getElementById("number1").value;
     var num2 = document.getElementById("number2").value;
@@ -42,4 +42,10 @@ function submit()
             
         }
     }
+}
+
+function reset()
+{
+    document.getElementById("number1").value = " ";
+    document.getElementById("number2").value = " ";
 }

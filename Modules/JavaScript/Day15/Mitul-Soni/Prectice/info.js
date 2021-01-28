@@ -1,100 +1,51 @@
-function submit()
+function getResult()
 {
-    var no1 = prompt("Please Enter Number");
-    var no2 = prompt("Please Enter Number");
-    var no3 = prompt("Please Enter Number");
-    var temp = 0;
-
-    if(no1 == "" && no2 == "" && no3 == "")
+    var num1 = document.getElementById("number1").value;
+    var num2 = document.getElementById("number2").value;
+    var temp;
+    if(num1 == "")
     {
-        alert("Please Enter the number");
+        alert("Please Enter First Number");
     }
-
-    if(no1 > no2)
+    else if(num2 == "")
     {
-        if(no1 > no3)
-        {
-            if(no1 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no1);
-            }
-            if(no2 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no2);
-            }
-            if(no3 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no3);
-            }
-            alert("Gretest Number is :- " + no1 + "Sum is : " + temp);
-        }
-        else
-        {
-            if(no1 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no1);
-            }
-            if(no2 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no2);
-            }
-            if(no3 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no3);
-            }
-            alert("Gretest Number is :- " + no3);
-        }
+        alert("Please Enter Second Number");
+    }
+    else if(isNaN(num1) && isNaN(num2))
+    {
+        alert("Enter only Numeric Value");
     }
     else
     {
-        if(no2 > no3)
+        if(document.getElementById("add").checked)
         {
-            if(no1 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no1);
-            }
-            if(no2 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no2);
-            }
-            if(no3 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no3);
-            }
-            alert("Gretest Number is :- " + no2);
+            temp = parseFloat(num1) + parseFloat(num2);
+            document.getElementById("result").innerHTML = "Result is : " + temp;
+            
         }
-        else
+        if(document.getElementById("sub").checked)
         {
-            if(no1 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no1);
-            }
-            if(no2 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no2);
-            }
-            if(no3 > 40)
-            {
-                temp = parseFloat(temp) + parseFloat(no3);
-            }
-            alert("Gretest Number is :- " + no3);
+            temp = num1 - num2;
+            document.getElementById("result").innerHTML = "Result is : " + temp;
+            
+        }
+        if(document.getElementById("mul").checked)
+        {
+            temp = num1 * num2;
+            document.getElementById("result").innerHTML = "Result is : " + temp;
+            
+        }
+        if(document.getElementById("div").checked)
+        {
+            temp = num1 / num2;
+            document.getElementById("result").innerHTML = "Result is : " + temp;
+            
         }
     }
-
-    
-    
-    
 }
 
-
-/* Task 2 */
-
-
-function check()
+function reset()
 {
-    var city = ["Ahmedabad","Surat","Vadodra","Rajkot","Vapi"];
-    for(x of city)
-    {
-        alert(x);
-    }
+    document.getElementById("number1").value = " ";
+    document.getElementById("number2").value = " ";
 }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task1</title>
+    <script src="info.js"></script>
+    
+</head>
+
+<script>
+    function getResult()
+    {
+        var no1 = prompt("Please Enter Number");
+        var no2 = prompt("Please Enter Number");
+        var no3 = prompt("Please Enter Number");
+        var temp = 0;
+
+        if(no1 == "" && no2 == "" && no3 == "")
+        {
+            alert("Please Enter the number");
+        }
+
+
+                if(no1 > 40)
+                {
+                    temp = parseFloat(temp) + parseFloat(no1);
+                }
+                if(no2 > 40)
+                {
+                    temp = parseFloat(temp) + parseFloat(no2);
+                }
+                if(no3 > 40)
+                {
+                    temp = parseFloat(temp) + parseFloat(no3);
+                }
+                else
+                {
+                    temp = "Enter Numbers Can not greter than 40";
+                }
+                
+        
+        if(no1 > no2)
+        {
+            if(no1 > no3)
+            {
+                alert("Gretest Number is :- " + no1 + "Sum is : " + temp);
+            }
+            else
+            {
+                alert("Gretest Number is :- " + no3 + "Sum is : " + temp);
+
+            }
+        }
+        else
+        {
+            if(no2 > no3)
+            {
+                alert("Gretest Number is :- " + no2 + "Sum is : " + temp);
+
+            }
+            else
+            {
+                alert("Gretest Number is :- " + no3 + "Sum is : " + temp);
+
+            }
+        }
+
+        
+        
+        
+    }
+
+
+    /* Task 2 */
+
+
+    function check()
+    {
+        var city = ["Ahmedabad","Surat","Vadodra","Rajkot","Vapi"];
+        for(x of city)
+        {
+            alert(x);
+        }
+    }
+
+</script>
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h2>Task 1</h2>
+                <input type="button" value="Click" onclick="getResult()" class="btn btn-success w-100">
+            </div>
+            <div class="col-md-6">
+                <h2>Task 2</h2>
+                <input type="button" value="Click" onclick="check()" class="btn btn-success w-100">
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
