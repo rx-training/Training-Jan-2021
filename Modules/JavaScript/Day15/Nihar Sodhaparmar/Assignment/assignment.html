@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Assignment</title>
     <script>
         function calculateResult() {
@@ -13,8 +15,7 @@
             var operation = form1.elements["operation"].value;
             var ans;
 
-            if(isNaN(num1) || isNaN(num2))
-            {
+            if (isNaN(num1) || isNaN(num2)) {
                 alert("Please Enter Only Numeric Values.");
                 return false;
             }
@@ -37,36 +38,84 @@
             return false;
         }
 
-        function resetForm(){
+        function resetForm() {
             document.getElementById('result').innerText = "Result is :";
         }
     </script>
 </head>
 
-<body style="width: 25%; margin: auto;">
+<body>
 
-    <h1>Assignment</h1>
+    
 
-    <form id="form1" onsubmit="return calculateResult()">
-        <label for="num1">Please enter first number : </label>
-        <input id="num1" type="text" placeholder="Enter Number1"><br /><br />
 
-        <label for="num2">Please enter second number : </label>
-        <input id="num2" type="text" placeholder="Enter Number2"><br /><br />
+    <div class="container w-25 bg-light border border-dark mt-5" style="border-radius: 5px;">
 
-        <label for="operation">Please select operation you want to perform : </label>
-        <label style="display: block; margin-top: 5px;"></label><input type="radio" name="operation" value="+" checked> Addition
-        </label>
-        <label style="display: block;"></label><input type="radio" name="operation" value="-"> Substraction </label>
-        <label style="display: block;"></label><input type="radio" name="operation" value="*"> Multiplication </label>
-        <label style="display: block;"></label><input type="radio" name="operation" value="/"> Division </label>
-        <br /><br />
+        <h1 class="display-4 text-center m-3" style="font-size: 40px;">Calculator</h1>
 
-        <input type="submit" value="Calculate">
-        <input type="reset" value="Reset" onclick="resetForm()"><br /><br />
+        <form id="form1" onsubmit="return calculateResult()">
 
-        <label id="result" style="font-size: larger;"> Result is : </label>
-    </form>
+            <div class="form-group">
+                <label for="num1">Please enter first number : </label>
+                <input class="form-control" id="num1" type="text" placeholder="Enter Number1">
+            </div>
+
+            <div class="form-group">
+                <label for="num2">Please enter second number : </label>
+                <input class="form-control" id="num2" type="text" placeholder="Enter Number2">
+            </div>
+
+            <div class="form-group">
+                <label for="operation">Please select operation you want to perform : </label>
+
+
+                <div class="form-check">
+                    <input type="radio" name="operation" value="+" checked> <label class="form-check-label"> Addition
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="operation" value="-"> <label class="form-check-label"> Substraction
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="operation" value="*"> <label class="form-check-label"> Multiplication
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="operation" value="/"> <label class="form-check-label"> Division </label>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col text-center">
+                    <input class="btn btn-primary" type="submit" value="Calculate">
+                </div>
+                <div class="col">
+                    <input class="btn btn-secondary" type="reset" value="Reset" onclick="resetForm()">
+                </div>
+            </div>
+            
+            
+            <div>
+                <label class="m-5" id="result" style="font-size: larger;"> Result is : </label>
+            </div>
+            
+
+
+        </form>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

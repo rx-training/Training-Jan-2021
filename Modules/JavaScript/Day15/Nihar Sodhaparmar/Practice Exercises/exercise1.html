@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Exercise1</title>
     <script>
         function findGreater() {
-            var num1 = parseInt(prompt("Enter Number1 : ",0));
-            var num2 = parseInt(prompt("Enter Number2 : ",0));
-            var num3 = parseInt(prompt("Enter Number3 : ",0));
+            var num1 = parseInt(prompt("Enter Number1 : ", 0));
+            var num2 = parseInt(prompt("Enter Number2 : ", 0));
+            var num3 = parseInt(prompt("Enter Number3 : ", 0));
             var total = 0;
 
             if (num1 > num2 && num1 > num3) {
@@ -39,23 +41,16 @@
     </script>
 </head>
 
-<body style="text-align: center; margin-top: 100px;">
-    <h1>Exercise1</h1>
+<body>
 
-    <p>Click below button to Enter Numbers </p>
-    <button onclick="findGreater()">Click Here</button>
-    <!-- <form>
-        <label for="num1"> Enter Number1 : </label>
-        <input id="num1" type="number" placeholder="Enter Number 1"><br /><br />
+    <div class="container w-50 text-center bg-light border border-dark mt-5 p-5">
+        <h1 class="display-4">Exercise1</h1>
 
-        <label for="num2"> Enter Number2 : </label>
-        <input id="num2" type="number" placeholder="Enter Number 2"><br /><br />
+        <p class="lead">Click below button to Enter Numbers </p>
 
-        <label for="num3"> Enter Number3 : </label>
-        <input id="num3" type="number" placeholder="Enter Number 3"><br /><br />
+        <button class="btn btn-primary" onclick="findGreater()">Click Here</button>
+    </div>
 
-        <input type="submit" value="Submit" onclick="findGreater()">
-    </form> -->
 </body>
 
 </html>
