@@ -4,7 +4,7 @@
             prectice1
         </title>
         <style>
-            .forms {
+            /* .forms {
                     padding: 10px;
                     border: 2px solid #000;
                     width: 50%;
@@ -14,8 +14,9 @@
                     }
                     .number{
                         margin: 10px 0px;
-                    }
+                    } */
         </style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <script>
            function Calculate(){
             var a = parseInt(document.getElementById("firstno").value);
@@ -39,13 +40,17 @@
                     if(radiochecks="div"){
                         document.getElementById("result").innerHTML = a/b;
                     }
+                    return 0;
            } 
+          function Reset(){
+            document.getElementById("result").innerHTML ="";
+          }
         </script>
     </head>
     <body>
         <div>
-            <form class="forms">
-                <div class=""><h1> Calculate</h1></div>
+            <form class="forms w-50 mt-5  bg-dark text-white pl-5 mx-auto">
+                <div class="my-4 text-center"><h1> Calculate</h1></div>
                 <div class="number">
                     <label for="firstnumber">Enter Firstnumber :</label><br>
                     <input type="number" id="firstno" class="">
@@ -63,14 +68,16 @@
                     <label for="female">Multipication</label><br>
                     <input type="radio" class="radio" id="div" name="calculate" value="div">
                     <label for="Divison">Divison</label>
+                    <br>
+                    <p id="result">This result:</p>
                 </div>
                 <div>
-                    <button onclick="Calculate()">Calculate</button>
-                    <button type="reset">Reset</button>
+                    <input type="button" onclick="return Calculate()" value="Click me">
+                    <button type="reset"  onclick="return Reset()">Reset</button>
+
                 </div>
                 <hr><br>
-                <div>This result:</div>
-                <div id="result"></div>    
+                    
             </form>
         </div>
     </body>

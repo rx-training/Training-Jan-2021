@@ -3,15 +3,16 @@
         <title>
             prectice1
         </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Grather then 40 Total & LargestNumber</h1>
+        <h1 class="my-5 text-center">Grather then 40 Total & LargestNumber</h1>
         <br>
         <br>
-        <div style="text-align: center;">
-<button onclick="myFunction()">Total & LargestNumber</button>
+        <div class="text-center">
+        <button onclick="myFunction()">Total & LargestNumber</button>
+        <p id="demo"></p>
 
-<p id="demo"></p>
 
 <script>
     function myFunction() {
@@ -36,11 +37,9 @@
             if(ar[i]>40){
                 result+=parseInt(ar[i]);    
             }
-        }
-               
+        }       
         document.getElementById("demo").innerHTML = "Highest Number"+ txt +"<br>" +"sum grather then 40 is "+ result;
     }
 </script>
-        </div>
     </body>
 </html>
