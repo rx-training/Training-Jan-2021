@@ -1,8 +1,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Javascript assignment</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<title>Javascript assignment</title>
 		<script type="text/javascript">
 			function calculation()
 		    {
@@ -40,28 +44,35 @@
 		    }
 		</script>
 	</head>
-	<body>
-	<form id="form1">
-		<label for="num1">Please enter first number:</label>
-        <input type="number" id="value1" required>
-        <br>
-        <br>
-		<label for="num2">Please enter second number:</label>
-		<input type="number" id="value2" required><br/>
-		<input type="radio" name="operation" id="addition">
-		<label>Addition</label>
-        <br>
-		<input type="radio" name="operation" id="substraction">
-		<label>Substraction</label>
-        <br>
-        <input type="radio" name="operation" id="multiplication">
-		<label>Multiplication</label>
-        <br>
-		<input type="radio" name="operation" id="division">
-		<label>Division</label>
-        <br>
-		<input type="button" value="Calculate" id="calculate" onclick="calculation()"/>
-		<input type="reset" value="Reset" id="reset">
-	</form>
+	<body class="bg-success">
+		<div class="container">
+			<form id="form1">
+				<div class="form-group"></div>
+				<label for="num1">Please enter first number:</label>
+    		    <input type="number" id="value1" class="form-control" required>
+    		    <br>
+    		    <br>
+				<label for="num2">Please enter second number:</label>
+				<input type="number" id="value2" class="form-control"  required>
+				<br>
+				<br>
+				<input type="radio" name="operation" id="addition" class="form-check-input mt-3">
+				<label class="text-warning mt-2">Addition</label>
+    		    <br>
+				<input type="radio" name="operation" id="substraction" class="form-check-input">
+				<label class="text-warning">Substraction</label>
+    		    <br>
+    		    <input type="radio" name="operation" id="multiplication" class="form-check-input">
+				<label class="text-warning">Multiplication</label>
+    		    <br>
+				<input type="radio" name="operation" id="division" class="form-check-input">
+				<label class="text-warning">Division</label>
+				<br>
+				<div class="text-center mt-5">
+					<input type="button" value="Calculate" id="calculate" onclick="calculation()" class="bg-primary text-light">
+					<input type="reset" value="Reset" id="reset" class="bg-primary text-light">
+				</div>
+			</form>
+		</div>
 	</body>
 </html>
