@@ -1,65 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title></title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-	<style>
-    	@media(min-width: 576px)
-    	{
-    		body
-    		{
-    			background:red;
-    		}
-    	}
-    	@media(min-width: 768px)
-    	{
-    		body
-    		{
-    			background:blue;
-  			}
-    	}
-    	@media(min-width: 992px)
-    	{
-    		body
-    		{
-    			background:green;
-    		} 		
-    	}
-    	@media(min-width: 1200px)
-    	{
-    		body
-    		{
-    			background:yellow;
-    		}  		
-    	}
-    	@media(max-width: 575px)
-    	{
-    		
-    	}
-    	@media(max-width: 767px)
-    	{
-    		
-    	}
-    	@media(max-width: 991px)
-    	{
-    				
-    	}
-    	@media(max-width: 1199px)
-    	{
-    				
-    	}
-
-    </style>
-	
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<header>
-		<h1 class="display-3 text-center my-4">Breakpoints</h1>
+		<h1 class="display-3 text-center my-4">Floats & Fixed Position</h1>
 		<br><br>
 		<div class="container">
 			<div class="row">
@@ -71,7 +23,7 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic Typography</a>
 							<a class="dropdown-item" href="2_3_text_alignment_and_display.html">2.3 Text Alignment Display</a>
-							<a class="dropdown-item" href="2_4_floats_and_FixedPosition.html">2.4 Floats Position</a>
+							<a class="dropdown-item" href="2_4_floats_andFixedPosition.html">2.4 Floats Position</a>
 							<a class="dropdown-item" href="2_5_color_background.html">2.5 Colors background</a>
 							<a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
 							<a class="dropdown-item" href="2_7_sizing.html">2.7 Sizing</a>
@@ -126,7 +78,59 @@
 			</div>
 		</div>
 	</header>
-	<title></title>
+	<br><br>
+	<div class="container">
 
+		<div class="float-left">Float Left</div><br>
+		<div class="float-right">Float Right</div><br>
+		<div class="float-none">Float None</div><br>
+
+		<div class="float-sm-right">Float Right for small or wider</div><br>
+		<div class="float-md-right">Float Right for medium or wider</div><br>
+		<div class="float-lg-right">Float Right for large or wider</div><br>
+		<div class="float-xl-right">Float Right for extra large or wider</div><br>
+
+		<div class="float-sm-left">Float left for small or wider</div><br>
+		<div class="float-md-left">Float left for medium or wider</div><br>
+		<div class="float-lg-left">Float left for large or wider</div><br>
+		<div class="float-xl-left">Float left for extra large or wider</div><br>
+
+		<div class="float-sm-none">Float none for small or wider</div><br>
+		<div class="float-md-none">Float none for medium or wider</div><br>
+		<div class="float-lg-none">Float none for large or wider</div><br>
+		<div class="float-xl-none">Float none for extra large or wider</div><br>
+
+		<br><br>
+
+		<div class="bg-success clearfix">
+			<button class="float-left">Float Left</button>
+			<button class="float-right">Float Right</button>
+		</div>
+
+		<br><br>
+
+		<h3 class="fixed-top">Fixed Top</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<br><br>
+
+		<h3 class="sticky-top">Sticky</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<br><br>
+
+		<h3 class="fixed-bottom">Fixed Bottom</h3>
+
+	</div>
 </body>
 </html>

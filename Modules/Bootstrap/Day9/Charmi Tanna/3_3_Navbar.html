@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header>
-		<h1 class="display-3 text-center my-4">Spacing</h1>
+		<h1 class="display-3 text-center my-4">Navbar</h1>
 		<br><br>
 		<div class="container">
 			<div class="row">
@@ -23,7 +23,7 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic Typography</a>
 							<a class="dropdown-item" href="2_3_text_alignment_and_display.html">2.3 Text Alignment Display</a>
-							<a class="dropdown-item" href="2_4_floats_and_FixedPosition.html">2.4 Floats Position</a>
+							<a class="dropdown-item" href="2_4_floats_andFixedPosition.html">2.4 Floats Position</a>
 							<a class="dropdown-item" href="2_5_color_background.html">2.5 Colors background</a>
 							<a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
 							<a class="dropdown-item" href="2_7_sizing.html">2.7 Sizing</a>
@@ -78,69 +78,37 @@
 			</div>
 		</div>
 	</header>
-	<br><br>
-	<div class="container">
-
-		<h1 class="bg-success mb-0">Margin bottom 0</h1>
-		<h1 class="bg-success mb-1">Margin bottom 1</h1>
-		<h1 class="bg-success mb-2">Margin bottom 2</h1>
-		<h1 class="bg-success mb-3">Margin bottom 3</h1>
-		<h1 class="bg-success mb-4">Margin bottom 4</h1>
-		<h1 class="bg-success mb-5">Margin bottom 5</h1>
-
-		<h1 class="bg-success mt-0">Margin top 0</h1>
-		<h1 class="bg-success mt-1">Margin top 1</h1>
-		<h1 class="bg-success mt-2">Margin top 2</h1>
-		<h1 class="bg-success mt-3">Margin top 3</h1>
-		<h1 class="bg-success mt-4">Margin top 4</h1>
-		<h1 class="bg-success mt-5">Margin top 5</h1>
-
-			<br><br>
-
-		<p><span class="mr-5 bg-success">Margin Left 5</span> dolor sit amet,<span class="ml-3 bg-success">Margin Left 3</span> elit. voluptatum, optio.</p>
-
-		<p><span class="mx-5 bg-success">Margin Left and right5</span> dolor sit amet.</p>
-
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<p class="my-5 bg-success">Margin top and bottom 5</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<p class="m-5 bg-success">Margin from all the sides5</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-		<br><br>
-		<h1 class="bg-warning pb-0">Padding bottom 0</h1>
-		<h1 class="bg-warning pb-1">Padding bottom 1</h1>
-		<h1 class="bg-warning pb-2">Padding bottom 2</h1>
-		<h1 class="bg-warning pb-3">Padding bottom 3</h1>
-		<h1 class="bg-warning pb-4">Padding bottom 4</h1>
-		<h1 class="bg-warning pb-5">Padding bottom 5</h1>
-
-			<br><br>
-
-		<h1 class="bg-warning pt-0">Padding top 0</h1>
-		<h1 class="bg-warning pt-1">Padding top 1</h1>
-		<h1 class="bg-warning pt-2">Padding top 2</h1>
-		<h1 class="bg-warning pt-3">Padding top 3</h1>
-		<h1 class="bg-warning pt-4">Padding top 4</h1>
-		<h1 class="bg-warning pt-5">Padding top 5</h1>
-
-		<p><span class="pr-5 bg-warning">Padding Left 5</span> dolor sit amet,<span class="pl-3 bg-warning">Padding Left 3</span> elit. voluptatum, optio.</p>
-
-		<p><span class="px-5 bg-warning">Padding Left and right5</span> dolor sit amet.</p>
-
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<p class="py-5 bg-warning">Padding top and bottom 5</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-		<p class="p-5 bg-warning">padding from all the sides 5</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-		<div class="bg-warning mx-auto" style="width:200px;">Center Align</div>
-
-
+	
+	<nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+		<div class="container">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">About</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+			</ul>
 	</div>
+
+	</nav>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark p-0">
+		<div class="container">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item px-2"><a href=""class=" nav-link text-white bg-danger">Home</a>
+					</li>
+					<li class="nav-item px-2"><a href="" class=" nav-link active text-white bg-danger">About</a></li>
+					<li class="nav-item px-2"><a href="" class=" nav-link text-white bg-danger">Contact</a></li>
+					<li class="nav-item px-2"><a href="" class=" nav-link text-white bg-danger">Services</a></li>
+						
+				</ul>
+				
+			</div>
+		</div>
+	</nav>
 </body>
 </html>

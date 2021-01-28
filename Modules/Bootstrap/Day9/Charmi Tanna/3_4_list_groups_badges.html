@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header>
-		<h1 class="display-3 text-center my-4">Basic Typography</h1>
+		<h1 class="display-3 text-center my-4">Listgroups & Badges</h1>
 		<br><br>
 		<div class="container">
 			<div class="row">
@@ -23,7 +23,7 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic Typography</a>
 							<a class="dropdown-item" href="2_3_text_alignment_and_display.html">2.3 Text Alignment Display</a>
-							<a class="dropdown-item" href="2_4_floats_and_FixedPosition.html">2.4 Floats Position</a>
+							<a class="dropdown-item" href="2_4_floats_andFixedPosition.html">2.4 Floats Position</a>
 							<a class="dropdown-item" href="2_5_color_background.html">2.5 Colors background</a>
 							<a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
 							<a class="dropdown-item" href="2_7_sizing.html">2.7 Sizing</a>
@@ -80,67 +80,68 @@
 	</header>
 	<br><br>
 	<div class="container">
-	<h1>Heading One <small class="text-muted">Sub Text</small></h1>
-	<h2>Heading Two</h2>
-	<h3>Heading Three</h3>
-	<h4 class="h2">Heading Four</h4>
-	<h5>Heading Five</h5>
-	<h6>Heading Six</h6>
+
+		<ul class="list-group mb-5">
+			<li class="list-group-item">List Item One</li>
+			<li class="list-group-item">List Item Two</li>
+			<li class="list-group-item">List Item Three</li>
+			<li class="list-group-item">List Item Four</li>
+			<li class="list-group-item">List Item Five</li>
+		</ul>
+
+		<ul class="list-group mb-5">
+			<a class="list-group-item list-group-item-action" href="#">List Item One</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Two</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Three</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Four</a>
+			<a class="list-group-item list-group-item-action" href="#">List Item Five</a>
+		</ul>
+
+		<ul class="list-group mb-5">
+			<li class="list-group-item">Regular List Item</li>
+			<li class="list-group-item list-group-item-primary">Primary List Item</li>
+			<li class="list-group-item list-group-item-secondary">Secondary List Item</li>
+			<li class="list-group-item list-group-item-success">Success List Item</li>
+			<li class="list-group-item list-group-item-info">Info List Item</li>
+			<li class="list-group-item list-group-item-warning">Warning List Item</li>
+			<li class="list-group-item list-group-item-danger">Danger List Item</li>
+			<li class="list-group-item list-group-item-light">Light List Item</li>
+			<li class="list-group-item list-group-item-dark">Dark List Item</li>
+		</ul>
+
+		<div class="row-mb-5">
+			<div class="col-4">
+			<div class="list-group mb-5" id="list-tab" role="tablist">
+			<a class="list-group-item list-group-item-action active" id="home-list-home" href="#list-home" data-toggle="list">Home</a>
+			<a class="list-group-item list-group-item-action" id="home-list-about" href="#list-about" data-toggle="list">About</a>
+			<a class="list-group-item list-group-item-action" id="home-list-services" href="#list-services" data-toggle="list">Services</a>
+			</div>
+			</div>
+		
+
+			<div class="col-8">
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fad show active" id="list-home" role="tabpanel">
+						Home Content...
+					</div>
+					<div class="tab-pane fad" id="list-about" role="tabpanel">
+						About Content...
+					</div>
+					<div class="tab-pane fad" id="list-services" role="tabpanel">
+						Services Content...
+					</div>
+				</div>
+			</div>
 
 
-	<h1 class="display-1">Display 1</h1>
-	<h1 class="display-2">Display 2</h1>
-	<h1 class="display-3">Display 3</h1>
-	<h1 class="display-4">Display 4</h1>
+		<ul class="list-group mb-5">
+			<li class="list-group-item">List Item One</li>
+			<li class="list-group-item">List Item Two  <span class="badge badge-primary"></span></li>
+			<li class="list-group-item">List Item Three</li>
+			<li class="list-group-item">List Item Four</li>
+			<li class="list-group-item">List Item Five</li>
+		</ul>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-	<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-	<p class="font-weight-bold">Bold text</p>
-	<p class="font-weight-normal">Normal text</p>
-	<p class="font-italic">Italic text</p>
-
-	<p class="text-lowercase">MAKE LOWECASE</p>
-	<p class="text-uppercase">make uppercase</p>
-	<p class="text-capitalize">make capitalize</p>
-
-	<blockquote class="blockquote">
-		<p>This is a blockquote </p>
-	</blockquote>
-
-	<blockquote class="blockquote text-right">
-		<p>This is a blockquote </p>
-	</blockquote>
-
-	<blockquote class="blockquote text-right">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua.</p>
-		<footer class="blockquote-footer">Someone famous in <cite title = "Source Title">Source Titile</cite></footer>
-	</blockquote>
-
-	<ul class="list-unstyled">
-		<li>Lorem ipsum dolor sit amet.</li>
-		<li>Lorem ipsum dolor sit amet.</li>
-		<li>Lorem ipsum dolor sit amet.</li>
-		<li>Lorem ipsum dolor sit amet.</li>
-	</ul>
-
-	<ul class="list-inline">
-		<li class="list-inline-item">Lorem ipsum</li>
-		<li class="list-inline-item">Lorem ipsum</li>
-		<li class="list-inline-item">Lorem ipsum</li>
-	</ul>
-</div>
+	</div>
 </body>
 </html>

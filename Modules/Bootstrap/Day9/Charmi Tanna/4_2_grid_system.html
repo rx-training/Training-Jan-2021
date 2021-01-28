@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<title></title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -10,8 +11,8 @@
 </head>
 <body>
 	<header>
-		<h1 class="display-3 text-center my-4">Alerts & Progressbar</h1>
-		<br><br>
+        <h1 class="display-3 text-center my-4">Grid System</h1>
+        <br><br>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
@@ -22,7 +23,7 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic Typography</a>
 							<a class="dropdown-item" href="2_3_text_alignment_and_display.html">2.3 Text Alignment Display</a>
-							<a class="dropdown-item" href="2_4_floats_and_FixedPosition.html">2.4 Floats Position</a>
+							<a class="dropdown-item" href="2_4_floats_andFixedPosition.html">2.4 Floats Position</a>
 							<a class="dropdown-item" href="2_5_color_background.html">2.5 Colors background</a>
 							<a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
 							<a class="dropdown-item" href="2_7_sizing.html">2.7 Sizing</a>
@@ -76,68 +77,87 @@
 				</div>
 			</div>
 		</div>
-	</header>
-	<br><br>
+    </header>
+    <br><br>
     <div class="container">
-        <div class="alert alert-primary">
-            <strong>Primary </strong>Blog post added <a href="" class="alert-link"> Read More</a>
-        </div>
-        <div class="alert alert-secondary">
-            <strong>Secondary </strong>Blog post added
-        </div>
-        <div class="alert alert-success">
-            <strong>Success </strong>Blog post added
-        </div>
-        <div class="alert alert-danger">
-            <strong>Danger </strong>Please check the log files <a href="" class="alert-link"> Read More</a>
-        </div>
-        <div class="alert alert-info">
-            <strong>Info </strong>You have anew message
-        </div>
-        <div class="alert alert-warning">
-            <strong>Warning </strong>Please check the log files
-        </div>
-        <div class="alert alert-light">
-            <strong>Light </strong>Please check the log files
-        </div>
-        <div class="alert alert-dark">
-            <strong>Dark </strong>Please check the log files
+
+        <div class="row">
+
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border: 1px solid #333;">
+                <ul>
+                    <li>6 column on small screen</li>
+                    <li>8 column on small screen</li>
+                    <li>9 column on small screen</li>
+                    <li>10 column on small screen</li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border: 1px solid #333;">
+                <ul>
+                    <li>6 column on small screen</li>
+                    <li>4 column on small screen</li>
+                    <li>3 column on small screen</li>
+                    <li>2 column on small screen</li>
+                </ul>
+            </div>
+
         </div>
 
-        <div class="alert alert-success alert-dismissible fade show">
-        <button  class="close" data-dismiss="alert" type="button">
-            <span>&times;</span>
-        </button>
-        <strong>Dismissable </strong>Blog post added
+        <div class="row">
+            <div class="col" style="border: 1px solid #333;">Equal Width</div>
+            <div class="col" style="border: 1px solid #333;">Equal Width</div>
+            <div class="col" style="border: 1px solid #333;">Equal Width</div>
+            <div class="col" style="border: 1px solid #333;">Equal Width</div>
         </div>
 
-        <br><br>
+        <div class="row">
+            <div class="col" style="border: 1px solid #333;">Equal Width Multi</div>
+            <div class="col" style="border: 1px solid #333;">Equal Width Multi</div>
+            <div class="w-100"></div>
+            <div class="col" style="border: 1px solid #333;">Equal Width Multi</div>
+            <div class="col" style="border: 1px solid #333;">Equal Width Multi</div>
+        </div>
 
-        <div class="progress">
-            <div class="progress-bar" style="width:35%;"></div>
+        <div class="row">
+            <div class="col" style="border: 1px solid #333;">Equal Width</div>
+            <div class="col-4" style="border: 1px solid #333;">Equal Width</div>
+            <div class="col-6" style="border: 1px solid #333;">Equal Width</div>
         </div>
-        <br>
-        <div class="progress">
-            <div class="progress-bar" style="width:35%;">35%</div>
-        </div>
-        <br>
-        <div class="progress">
-            <div class="progress-bar bg-success" style="width:55%;"></div>
-        </div>
-        <br>
-        <div class="progress">
-            <div class="progress-bar bg-info" style="width:75%;"></div>
-        </div>
-        <br>
-        <div class="progress">
-            <div class="progress-bar bg-warning" style="width:85%;"></div>
-        </div>
-        <br>
-        <div class="progress">
-            <div class="progress-bar bg-danger progress-bar-striped progress-bar-striped-animated" style="width:95%;"></div>
-        </div>
-        <br>
 
-    </div>
+        <div class="row">
+            <div class="col-sm" style="border: 1px solid #333;">Equal Width</div>
+            <div class="col-sm" style="border: 1px solid #333;">Equal Width</div>
+            <div class="col-sm" style="border: 1px solid #333;">Equal Width</div>
+        </div>
+
+        <div class="row">
+            <div class="col order-3" style="border: 1px solid #333;">Equal Width-1</div>
+            <div class="col order-2" style="border: 1px solid #333;">Equal Width-2</div>
+            <div class="col order-1" style="border: 1px solid #333;">Equal Width-3</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4" style="border:1px solid #333">4 col</div>
+            <div class="col-md-4 ml-auto" style="border:1px solid #333">4 col offset</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 ml-auto" style="border:1px solid #333">3col</div>
+            <div class="col-md-3 ml-auto" style="border:1px solid #333">3col</div>
+        </div>
+       
+        <div class="row">
+            <div class="col-md-6 m-auto"style="border: 1px solid #333">6 col offset3</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-9" style="border:1px solid #333">Level1: .col-sm-9
+            <div class="row">
+            <div class="col-sm-6" style="border:1px solid #333">Level2: .col-8 .col-sm-6</div>
+            <div class="col-sm-6" style="border:1px solid #333">Level2: .col-4 .col-sm-6</div>
+            </div>
+            </div>
+            </div>
+
 </body>
 </html>
