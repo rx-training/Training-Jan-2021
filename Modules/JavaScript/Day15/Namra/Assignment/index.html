@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body style="width: 25%; margin: auto;">
+    <h1 style="text-align: center;">Assignment</h1>
+
+    <form id="form1" style="border: 1px solid lightcoral; padding: 10px;">
+        <label for="number1">Number 1 : </label>
+        <input type="text" id="number1" placeholder="number1">
+        <br><br>
+        <label for="number2">Number 2 : </label>
+        <input type="text" id="number2" placeholder="number2">
+        <br><br>
+        <label for="operation">Choose operation by Radio Button</label>
+        <label style="display: block; margin-top: 5px;"></label>
+        <input type="radio" name="operation" value="add" checked> Addition</label>
+        <label style="display: block;"></label><input type="radio" name="operation" value="sub"> Substraction </label>
+        <label style="display: block;"></label><input type="radio" name="operation" value="mul"> Multiplication </label>
+        <label style="display: block;"></label><input type="radio" name="operation" value="div"> Division </label>
+        <br /><br />
+        <input type="button" value="calculateByRadio" onclick="calculateOperation()">
+        <br><br>
+        <label for="">Choose Operation by Dropdown : </label>
+        <select name="operation1" id="">
+            <option value="add">Addition</option>
+            <option value="sub">Substraction</option>
+            <option value="mul">Multiplication</option>
+            <option value="div">Division</option>
+        </select>
+        <br><br>
+        <input type="button" value="CalculateByDropdown"onclick="calculateOperation1()">
+        <input type="reset" value="reset" onclick="resetForm1()"> <br>
+        <br>
+        <label for="result" id="resultForm1" style="font-size: x-large;"> Result is :</label>
+    </form>
+</body>
+</html>
