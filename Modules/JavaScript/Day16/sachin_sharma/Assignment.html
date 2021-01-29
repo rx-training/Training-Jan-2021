@@ -18,7 +18,7 @@
             </div>
         </div>
     </form>
-    <div class="alert alert-danger text-center" id="demo">
+    <div class="alert alert-danger text-center" id="result">
             
     </div>
 
@@ -26,9 +26,42 @@
         function validate()
         {    
             var d=document.getElementById("inputDate").value; 
-            var pat= /[1-12]|[1-31]|[1950-2021]/g;
-            var res = d.match(pat);
-            alert(res);
+            var dateAray = d.split('-');
+            if(parseInt(dateAray[1])==1 || parseInt(dateAray[1])==3 || parseInt(dateAray[1])==5 || parseInt(dateAray[1])==7 || parseInt(dateAray[1])==8 || parseInt(dateAray[1])==10 || parseInt(dateAray[1])==12)
+                {
+                    if(parseInt(dateAray[0])<=31)
+                    {
+                        document.getElementById('result').innerHTML="Days should be within the range 1 to 31.";
+                    }
+                }
+                else if(parseInt(dateAray[1])==4 || parseInt(dateAray[1]) == 6 || parseInt(dateAray[1]) == 9 || parseInt(dateAray[1]) == 11)
+                {
+                    if(parseInt(dateAray[0])<=30)
+                    {
+                        document.getElementById('result').innerHTML="Days should be within the range 1 to 30.";
+                    }
+                }
+                else if(parseInt(dateAray[1])==2)
+                {
+                    if(parseInt(dateAray[2])%4 == 0)
+                    {
+                        if(parseInt(dateAray[0])>29)
+                        {
+                            document.getElementById('result').innerHTML="Days should be within the range 1 to 29 in February also leap year";
+                        }
+                    }
+                    else
+                    {
+                        if(parseInt(dateAray[0])>28)
+                        {
+                            document.getElementById('result').innerHTML="Days should be within the range 1 to 28 in February";
+                        }
+                    }
+                }
+                else
+                {
+                        document.getElementById('result').innerHTML="Month should be within the range 1 to 12.";
+                }    
         }
         
      </script>
