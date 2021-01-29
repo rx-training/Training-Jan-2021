@@ -18,9 +18,11 @@
     function myFunction() {
         var txt ;
         var result=0;
-        var a = prompt("Please enter first number:");
-        var b = prompt("Please enter sec number:");
-        var c = prompt("Please enter third number:");
+        var a = Number(prompt("Please enter first number:"));
+        var b = Number(prompt("Please enter sec number:"));
+        var c = Number(prompt("Please enter third number:"));
+        if(isNaN(a)=="false" && isNaN(b)=="false" && isNaN(c)=="false")
+        {  
         if (a==b && a==c){
         txt = a;
         }
@@ -39,6 +41,10 @@
             }
         }       
         document.getElementById("demo").innerHTML = "Highest Number"+ txt +"<br>" +"sum grather then 40 is "+ result;
+        }
+        else{
+            document.getElementById("demo").innerHTML = "Enter only number";
+        }
     }
 </script>
     </body>
