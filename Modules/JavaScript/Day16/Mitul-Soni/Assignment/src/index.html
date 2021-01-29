@@ -8,57 +8,88 @@
         <link rel="stylesheet" href="css/style.css">
         <title>Bootstrap 4 Starter Pack</title>
     </head>
-
     <script>
 
         function getCheck()
         {
-            var str = document.getElementById("date").value;
-            var temp = str.split(/[-]/);
-            var yyyy = parseInt(temp[2]);
-            var mm = parseInt(temp[0]);
-            var dd = parseInt(temp[1]);
+            var d = document.getElementById("dt").value;
+            var temp = d.split(/[-]/);
+            var mm = temp[0];
+            var dd = temp[1];
+            var yy = temp[2];
             
-            if(yyyy < 1901 && yyyy > 2100)
+            if(d != "")
             {
-                alert("Please Valid Year Enter");
-            }
-            else if(mm < 1 && mm > 12)
-            {
-                alert("Please Valid Month Enter");
-            }   
-            else if(dd < 1 && dd > 31)
-            {
-                alert("Please Valid Date Enter");
-            }
-            else if((mm == 4 && mm == 6 && mm==9 && mm == 11) && dd == 31)
-            {
-                alert("Can not set 31 Date on this month");
-            }
-            else if(mm==2)
-            {
-                var leap = (yyyy % 4 == 0 && (yyyy % 100 != 0 || yyyy % 400 == 0));
-                if(dd > 29 || (dd==29 && !leap))
+                
+                if(parseInt(mm)==1 || parseInt(mm)==3 || parseInt(mm)==5 || parseInt(mm)==7 || parseInt(mm)==8 || parseInt(mm)==10 || parseInt(mm)==12)
                 {
-                    alert("Please Enter Valid Date");
+                    if(parseInt(dd) > 31)
+                    {
+                        alert("Dater Should Be 1 to 31 Range");
+                    }
+                    else
+                    {
+                        alert("correct");
+                    }
+                }
+                else if(parseInt(mm)==4 || parseInt(mm)==6 || parseInt(mm)==9 || parseInt(mm)==11)
+                {
+                    if(parseInt(dd) > 30)
+                    {
+                        alert("Date Should Be 1 to 30 Range");
+                    }
+                    else    
+                    {
+                        alert("Correct");
+                    }
+                } 
+                else if(parseInt(mm) == 2)
+                {
+                    if(parseInt(yy) % 4 == 0)
+                    {
+                        if(parseInt(dd) > 29)
+                        {
+                            alert("Date Should Be 1 to 29 Range");
+                        }
+                        else
+                        {
+                            alert("Correct");
+                        }
+                    }
+                    else
+                    {
+                        if(parseInt(dd) > 28)
+                        {
+                            alert("Not Leap Year Date Should Be 1 to 28 Range");
+                        }
+                        else
+                        {
+                            alert("Correct");
+                        }
+                    }
+                }
+                else if(parseInt(mm) < 1 || parseInt(mm) > 12)
+                {
+                    alert("Month should Be 1 to 12");
                 }
             }
             else
             {
-                alert("welcome")
+                alert("Please Enter Date");
             }
             
-            
         }
+        
     </script>
 
+    
     <body>
         
         <div class="container">
             <div class="row mt-5">
                 <h2>Assignment Validation Date</h2>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Enter Date(MM-DD-YYYY)" id="date">
+                    <input type="text" class="form-control" placeholder="Enter Date(MM-DD-YYYY)" id="dt">
                 </div>
                 <div class="col">
                     <input type="button" class="btn btn-success" onclick="getCheck()" value="Submit">
@@ -69,5 +100,7 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        
+
     </body>
 </html>
