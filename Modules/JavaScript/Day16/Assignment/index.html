@@ -34,7 +34,8 @@
         function dateVal(){
                 var bdate = document.getElementById('bdate').value;
                 if(date==""){
-                    
+                    alert("Please enter valid Date 'DD-MM-YYYY' format");
+                    return;
                 }
                 var date = bdate.trim().split('-');
                 console.log(date.length);
