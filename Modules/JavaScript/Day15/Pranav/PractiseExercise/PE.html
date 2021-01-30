@@ -17,12 +17,15 @@
                 var value1=prompt("Enter first no:");
                 var value2=prompt("Enter second no:");
                 var value3=prompt("Enter third no:");
-                if(value1>value2 && value1>value3) 
-                    alert("First no: " + value1 + " is greatest.");
-                else if(value2>value3 && value2>value1) 
-                    alert("Second no: " + value2 + " is greatest.");
+                var no1=parseInt(value1);
+                var no2=parseInt(value2);
+                var no3=parseInt(value3);
+                if(no1>no2 && no1>no3) 
+                    alert("First no: " + no1 + " is greatest.");
+                else if(no2>no3 && no2>no1) 
+                    alert("Second no: " + no2 + " is greatest.");
                 else
-                    alert("Third no: " + value3 + " is greatest.");
+                    alert("Third no: " + no3 + " is greatest.");
             }
 
             function total() {
