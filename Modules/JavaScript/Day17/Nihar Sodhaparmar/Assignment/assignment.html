@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Employee Registration</title>
+    <script>
+        function isValid(element, e) {
+            switch (element.id) {
+
+                case "empId":
+                    var empIdValid = document.getElementById('empIdValid');
+                    var pattern = /^\d{5}$/g;
+                    if (element.value == "" || (pattern.test(element.value) == false)) {
+                        empIdValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+                    
+                    empIdValid.style.display = "none";
+                    break;
+
+
+                case "empName":
+                    var empNameValid = document.getElementById('empNameValid');
+                    var pattern = /^[ A-Za-z]+$/g;
+
+                    if(element.value == "" || pattern.test(element.value) == false)
+                    {
+                        empNameValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+
+                    empNameValid.style.display = "none";
+                    break;
+
+
+                case "age":
+                    var ageValid = document.getElementById("ageValid");
+
+                    if(element.value <= 18 || element.value >= 50 || element.value=="")
+                    {
+                        ageValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+
+                    ageValid.style.display = "none";
+                    break;
+
+
+                case "designation":
+                    var designationValid = document.getElementById('designationValid');
+                    var pattern = /^[ A-Za-z]+$/g;
+
+                    if(element.value=="" || pattern.test(element.value) == false)
+                    {
+                        designationValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+
+                    designationValid.style.display = "none";
+                    break;
+
+
+                case "salary":
+                    var salaryValid = document.getElementById('salaryValid');
+
+                    if(element.value == "")
+                    {
+                        salaryValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+
+                    salaryValid.style.display = "none";
+                    break;
+
+                
+                case "email":
+                    var emailValid = document.getElementById('emailValid');
+                    
+                    if(element.value == "")
+                    {
+                        emailValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+
+                    emailValid.style.display = "none";
+                    break;
+
+
+                case "dateOfJoin": 
+                    var dateOfJoinValid = document.getElementById("dateOfJoinValid");
+
+                    if(element.value == "")
+                    {
+                        dateOfJoinValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+
+                    dateOfJoinValid.style.display = "none";
+                    break;
+
+
+                case "number":
+                    var numberValid = document.getElementById('numberValid');
+                    var pattern = /^\d{10}$/g;
+
+                    if(element.value == "" || pattern.test(element.value) == false)
+                    {
+                        numberValid.style.display = "block";
+                        element.focus();
+                        return false;
+                    }
+
+                    numberValid.style.display = "none";
+                    document.getElementById('submitBtn').disabled = false;
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container mt-5 w-50">
+
+        <div class="card">
+
+            <div class="card-header display-4 text-center" style="font-size: 40px;">
+                Employee Registration
+            </div>
+
+            <div class="card-body mr-3">
+                <form>
+                    <div class="form-group row mt-3">
+                        <label class="col-lg-3 form-control-label col-form-label" for="empId">Employee ID </label>
+                        <input id="empId" class="form-control col-lg-9" type="text" onblur="return isValid(this, event)"
+                            autofocus placeholder="Employee Id must be of 5 digits">
+                        <label class="col-lg-3"></label>
+                        <label id="empIdValid" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter EmployeeID</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="empName">Employee Name </label>
+                        <input id="empName" class="form-control col-lg-9" type="text" onblur="return isValid(this, event)" placeholder="Enter Employee Name">
+                        <label class="col-lg-3"></label>
+                        <label id="empNameValid" class="text-danger col-lg-9 col-form-label pl-0" style="display: none;">Please enter valid Employee Name</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="age">Age</label>
+                        <input id="age" class="form-control col-lg-9" type="number" onblur="return isValid(this, event)" placeholder="Age must be between 18 to 50">
+                        <label class="col-lg-3"></label>
+                        <label id="ageValid" class="text-danger col-lg-9 col-form-label pl-0" style="display: none;">Please enter Valid Age</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="gender">Gender</label>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label"> <input class="form-check-input" type="radio" name="gender"
+                                    value="male" checked> Male</label>
+                            <label class="form-check-label ml-5"> <input class="form-check-input" type="radio"
+                                    name="gender" value="female"> Female</label>
+                            <label class="form-check-label ml-5"> <input class="form-check-input" type="radio"
+                                    name="gender" value="female"> Other</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="designation">Designation</label>
+                        <input id="designation" class="form-control col-lg-9" type="text" onblur="return isValid(this, event)" placeholder="Enter Designation">
+                        <label class="col-lg-3"></label>
+                        <label id="designationValid" class="text-danger col-lg-9 col-form-label pl-0" style="display: none;">Please enter Valid Designation</label>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-lg-3 form-control-label col-form-label" for="salary">Salary</label>
+                        <input id="salary" class="form-control col-lg-9" type="number" onblur="return isValid(this, event)" placeholder="Enter Salary">
+                        <label class="col-lg-3"></label>
+                        <label id="salaryValid" class="text-danger col-lg-9 col-form-label pl-0" style="display: none;">Please enter Salary</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="location">Location</label>
+                        <select class="form-control col-lg-9" name="location" id="location">
+                            <option value="nadiad" selected>Nadiad</option>
+                            <option value="ahmedabad">Ahmedabad</option>
+                            <option value="vadodara">Vadodara</option>
+                            <option value="gandhinagar">Gandhinagar</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="email">E-mail</label>
+                        <input id="email" class="form-control col-lg-9" type="email" onblur="return isValid(this, event)" placeholder="abc@xyz.com">
+                        <label class="col-lg-3"></label>
+                        <label id="emailValid" class="text-danger col-lg-9 col-form-label pl-0" style="display: none;">Please enter E-mail</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="dateOfJoin">Date Of Joining</label>
+                        <input id="dateOfJoin" class="form-control col-lg-9" type="date" onblur="return isValid(this, event)">
+                        <label class="col-lg-3"></label>
+                        <label id="dateOfJoinValid" class="text-danger col-lg-9 col-form-label pl-0" style="display: none;">Please enter Date</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label col-form-label" for="number">Contact Number</label>
+                        <input id="number" class="form-control col-lg-9" type="text" onblur="return isValid(this, event)" placeholder="Enter Contact Number">
+                        <label class="col-lg-3"></label>
+                        <label id="numberValid" class="text-danger col-lg-9 col-form-label pl-0" style="display: none;">Please enter valid Contact Number</label>
+                    </div>
+                    <div class="form-group row mx-5 mt-5">
+                        <button id="submitBtn" class="col-3 btn btn-primary mx-auto" type="submit" disabled> Submit</button>
+                        <input class="col-3 btn btn-secondary mx-auto" type="reset" value="Reset">
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mt-5"></div>
+</body>
+
+</html>
