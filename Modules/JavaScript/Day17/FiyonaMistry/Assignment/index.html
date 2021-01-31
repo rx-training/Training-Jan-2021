@@ -1,0 +1,90 @@
+<!-- Design a form for storing employee details. (EmployeeID, Employee name, age, Gender, designation, salary, location, Email ID, Date of Joining and contact number)
+Validation required
+EmployeeID should be at least 5 character long. use regular Expression
+Age should be a number
+Each field should contain value
+Email ID should be in proper format
+Date of joining should be in date format
+Location should be in the drop down list
+Use radio buttons for Gender -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Assignment</title>
+    <style>
+    </style>
+</head>
+<body class="m-5">
+    <div class="container">
+        <h2 class="text-center">Employee Details</h2>
+        <form>
+            <div class="form-group">
+                <input type="number" id="emp_id" class="form-control" placeholder="Employee ID" pattern="/[0-9]{5}/g" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Employee Name" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Employee Age" required>
+            </div>
+            <div class="form-group form-inline">
+                <div class="form-check">
+                <label for="gender">Gender : </label> &nbsp;
+                <input type="radio" name="gender" class="form-check-input"> &nbsp;
+                <label for="male" name="gender" class="form-check-label">Male</label> &nbsp;
+                <input type="radio" name="gender" class="form-check-input"> &nbsp;
+                <label for="female" name="gender" class="form-check-label">Female</label> &nbsp;
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Employee Destination" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Employee Salary" required>
+            </div>
+            <div class="form-group">
+                <label for="location" style="text-align: left;">Location : </label>
+                <select name="location" id="location" class="form-control">
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="baroda">Baroda</option>
+                    <option value="rajkot">Rajkot</option>
+                    <option value="gandhinagar">Gandhinagar</option>
+                    <option value="vapi">Vapi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Employee Email" required>
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" placeholder="Employee Date of 
+                Joining" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Employee Contact Number" required>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-primary" onclick="onSubmit()" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function onSubmit(){
+            var id = parseInt(document.getElementById("emp_id").value);
+            var id_regEx = /[0-9]{5}/g;
+            if(id.test(id_regEx) == true){
+                alert("Valid Employee Id");
+            }
+            else{
+                alert("Invalid Employee Id");
+            }
+        }
+    </script>
+</body>
+</html>

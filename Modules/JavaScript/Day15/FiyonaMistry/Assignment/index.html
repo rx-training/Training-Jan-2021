@@ -14,7 +14,6 @@ Two buttons,  “Calculate” and “Reset”
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="info.js"></script>
     <title>Assignment</title>
  </head>
  <body class="m-5">
@@ -54,5 +53,35 @@ Two buttons,  “Calculate” and “Reset”
         <p id="result"></p>
      </form>
     </div>
+
+    <script>
+        // Don't know why the result is vanishing
+        function cal() {
+            var first = parseInt(document.getElementById('first').value);
+            var second = parseInt(document.getElementById('second').value);
+            var add = document.getElementById('add');
+            var sub = document.getElementById('sub');
+            var multiply = document.getElementById('multiply');
+            var divide = document.getElementById('divide');
+            var result = 0;
+            if (add.checked) {
+                result = first + second;
+                document.getElementById('result').innerHTML = result;
+            }
+            else if (sub.checked) {
+                result = first - second;
+                document.getElementById('result').innerHTML = result;
+            }
+            else if (multiply.checked) {
+                result = first * second;
+                document.getElementById('result').innerHTML = result;
+            }
+            else if (divide.checked) {
+                result = first + second;
+                document.getElementById('result').innerHTML = result;
+            }
+        }
+    </script>
+    
  </body>
  </html>

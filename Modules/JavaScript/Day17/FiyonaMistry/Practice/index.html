@@ -1,0 +1,45 @@
+<!-- Use Window.location object to navigate on another page
+Use Window.history object to move to previous url in the history list
+Try to change windows height and width using Windows object -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Practice</title>
+</head>
+<body class="m-5">
+    <p id="location"></p>
+    <p id="hostname"></p>
+    <p id="pathname"></p>
+    <p id="protocol"></p>
+    <p id="port"></p>
+    <button class="btn btn-primary" type="button" onclick="backBTN()">Go Back</button>
+    <button class="btn btn-primary" type="button" onclick="assignBTN()">Window Assign</button>
+    <button class="btn btn-primary" type="button" onclick="forwardBTN()">Go Forward</button>
+    <p id="heightWidth"></p>
+    <script>
+        document.getElementById("location").innerHTML = "Site URL : " + window.location.href;
+        document.getElementById("hostname").innerHTML = "Hostname : " + window.location.hostname;
+        document.getElementById("pathname").innerHTML = "Pathname : " + window.location.pathname;
+        document.getElementById("protocol").innerHTML = "Protocol : " + window.location.protocol;
+        document.getElementById("port").innerHTML = "Port : " + window.location.port;
+        function assignBTN(){
+            window.location.assign("https://google.com")
+        }
+        function backBTN(){
+            window.history.back();
+        }
+        function forwardBTN(){
+            window.history.forward();
+        }
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var w = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        document.getElementById("heightWidth").innerHTML = "Browser inner width : " + w + " and height : " + h;  // not working
+    </script>
+</body>
+</html>
