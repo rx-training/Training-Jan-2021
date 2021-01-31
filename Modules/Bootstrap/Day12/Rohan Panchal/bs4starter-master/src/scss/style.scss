@@ -9,18 +9,19 @@ body{
     color: $font-color;
  }
  .navbar{
-     border-bottom: 3px solid $primary-color ;
+     border-bottom: $primary-color 3px solid;
      opacity: 0.8;
  }
+ 
  #home{
      background: url("../img/home.jpg");
      background-attachment: fixed;
      background-size: cover;
      min-height: 700px;
-     .home-inner{
+     #home .home-inner{
         padding-top: 120px;
      }
-     .dark-overlay{
+     #home .dark-overlay{
          background-color: $dark-overlay;
          position: absolute;
          top: 0;
@@ -28,10 +29,10 @@ body{
          width: 100%;
         min-height: 700px ;
      }
-     .card-form{
+     #home .card-form{
          opacity: 0.8;
      }
-     .fa{
+     #home .fa{
          color:$primary-color;
          background: #fff;
          padding: 4px;
