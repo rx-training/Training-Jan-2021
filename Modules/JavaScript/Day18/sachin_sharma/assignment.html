@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">        
+    <title>Exe1</title>
+</head>
+            <br> <br>
+            
+            <div class="container">
+                <div class="alert alert-danger" id="demo"></div>
+                <div class="alert alert-danger" id="msg"></div>
+            </div>
+            
+            
+<body>
+    <script>
+           document.getElementById('msg').style.display='none';
+           setInterval(countdownFun,1000);
+           function countdownFun()
+           {
+               let d = new Date();
+               document.getElementById("demo").innerHTML=
+               d.getHours() + ":" +
+               d.getMinutes() + ":" +
+               d.getSeconds();
+               
+           }
+           setTimeout(myfunction,60000);
+           function myfunction()
+           {
+               document.getElementById('msg').innerHTML="Exam is over";
+               document.getElementById('msg').style.display='block';
+               
+           }
+            
+        
+    </script>
+</body>
+</html>
