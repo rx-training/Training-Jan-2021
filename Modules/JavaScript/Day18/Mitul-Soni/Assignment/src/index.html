@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Bootstrap 4 Starter Pack</title>
+    </head>
+
+    <script>
+        function countDown(h,m,s) {
+            return promise = new Promise( (resolve, reject) => {
+
+                if (s != 0) 
+                {
+                    
+                    console.log(h + ":" + m + ":" + s--);
+                    setTimeout( () => {
+                        countDown(h,m,s).then(resolve);}
+                        , 1000);
+                } 
+                else if(m != 0 && s == 0)
+                {
+                    console.log(h + ":" + m-- + ":" + s--);
+                    s = 59;
+                    setTimeout( () => {
+                        countDown(h,m,s).then(resolve);}
+                        , 1000);
+                }
+                else if(h != 0 && m == 0)
+                {
+                    console.log(h-- + ":" + m-- + ":" + s--);
+                    m = 59;
+                    setTimeout( () => {
+                        countDown(h,m,s).then(resolve);}
+                        , 1000);
+                }
+                else 
+                {
+                     resolve('Times Up !!!:');
+                }
+
+            });
+
+            }
+
+            let counter = countDown(2,59,59);
+            counter.then( (msg) => {
+            console.log(msg);
+            });
+
+
+    </script>
+
+    <body>
+        
+        <h1 id="demo"></h1>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
