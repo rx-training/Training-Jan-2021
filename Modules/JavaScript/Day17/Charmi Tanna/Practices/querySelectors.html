@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <article id="article1" class='my-custom-class'>
+        <h3>Title goes over here</h3>
+        <p class="special">Paragraph 1</p>
+        <p class="special">Paragraph 2</p>
+        <p>Paragraph 3</p>
+    </article>
+
+    <script type="text/JavaScript">
+        var element = document.querySelector("article");
+        console.log(element);
+        var element = document.querySelector("#article1");
+        console.log(element);
+        var element = document.querySelector(".special");
+        console.log(element);
+        var element = document.querySelectorAll(".special");
+        console.log(element);
+    </script>
+</body>
+
+</html>

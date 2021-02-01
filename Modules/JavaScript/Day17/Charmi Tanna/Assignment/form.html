@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>JS Assignment</title>
+</head>
+
+<body>
+    <div class="container my-3">
+        <form action="" method="">
+            <div class="form-group">
+                <label for="employee_id">Employee ID:</label>
+                <input type="text" class="form-control form-field" id="employee_id" name="employee_id"
+                    placeholder="123456" onkeyup="checkEmployeeId()">
+            </div>
+            <div class="form-group">
+                <label for="employee_name">Employee Name:</label>
+                <input type="text" class="form-control form-field" id="employee_name" name="employee_name"
+                    placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label for="employee_email">Employee Email:</label>
+                <input type="email" class="form-control form-field" id="employee_email" name="employee_email"
+                    placeholder="Enter Email" onchange="checkEmail()">
+            </div>
+            <div class="form-group">
+                <label for="employee_contact">Contact number</label>
+                <input type="text" class="form-control form-field" id="employee_contact" name="employee_contact"
+                    pattern="[1-9]{1}[0-9]{9}" placeholder="Enter mobile number">
+            </div>
+  
+ 
+                    <div class="form-group">
+                        <label for="birthdate">Date of Joining</label>
+                        <input type="date" class="form-control form-field" id="joining-date" name="joining-date">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="text" class="form-control form-field" id="age" name="age" placeholder="e.g. 25"
+                            onkeyup="return checkAge()">
+                    </div>
+   
+
+            <div class="form-group">
+                <label for="gender">Gender</label><br>
+                <input type="radio" class="" name="gender" id="male" value="male">
+                <label for="male">Male</label>
+                <input type="radio" class="" name="gender" id="female" value="female">
+                <label for="circle">Female</label>
+            </div>
+                    <div class="form-group">
+                        <label for="designation">Designation</label><br>
+                        <select class="form-control form-field " id="designation" name="designation">
+                            <option value="">Select Designation</option>
+                            <option value="developer">Developer</option>
+                            <option value="designer">Designer</option>
+                            <option value="hr_manager">HR Manager</option>
+                        </select>
+                    </div>
+                 <div class="form-group">
+                        <label for="salary">Salary (CTC in Rs.):</label>
+                        <input type="number" class="form-control form-field" id="salary" name="salary" min="0"
+                            placeholder="Enter Salary">
+                   
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label><br>
+                <select class="form-control form-field" id="location" name="location">
+                    <option value="">Select City</option>
+                    <option value="rajkot">Rajkot</option>
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="baroda">Baroda</option>
+                </select>
+            </div>
+            <p id="error-div"></p>
+            <button class="btn btn-danger" onclick="return validateForm()">Create</button>
+            <br>
+        </form>
+  
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function checkEmployeeId() {
+            var id = document.getElementById("employee_id").value;
+            if (!id.match(/[0-9]{5}/g)) {
+                document.getElementById("employee_id").style.color = 'red';
+                return false;
+            }
+            else {
+                document.getElementById("employee_id").style.color = 'green';
+                return true;
+            }
+        }
+
+        function checkAge() {
+            var age = document.getElementById("age").value;
+            age = parseInt(age);
+
+            if (isNaN(age) || age < 18 || age > 80) {
+                document.getElementById("age").style.color = 'red';
+                return false;
+            }
+            else {
+                document.getElementById("age").style.color = 'green';
+                return true;
+            }
+        }
+
+        function checkEmail() {
+            var email = document.getElementById("employee_email").value;
+            // console.log(email.match());
+            if (!email.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-]+$/g) || email.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-]+$/g) != email) {
+                document.getElementById("employee_email").style.color = 'red';
+                return false;
+            }
+            else {
+                document.getElementById("employee_email").style.color = 'green';
+                return true;
+            }
+        }
+
+        function validateForm() {
+            var isValid = true;
+            document.getElementById("error-div").innerHTML = "";
+            if (document.getElementById("employee_id").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Employee ID is required.</div>';
+                isValid = false;
+            }
+
+            if (document.getElementById("employee_name").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Employee Name is required.</div>';
+                isValid = false;
+            }
+
+            if (document.getElementById("employee_email").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Employee email is required.</div>';
+                isValid = false;
+            }
+            else {
+                if (!checkEmail()) {
+                    document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Employee email is in invalid format.</div>';
+                    isValid = false;
+                }
+            }
+
+            if (document.getElementById("employee_contact").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Emplpoyee Contact is required.</div>';
+                isValid = false;
+            }
+
+            if (document.getElementById("joining-date").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Joining Date is required.</div>';
+                isValid = false;
+            }
+
+            if (document.getElementById("age").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Age is required.</div>';
+                isValid = false;
+            }
+            else {
+                if (!checkAge()) {
+                    document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Inserted age is not valid (should be between 18 to 80).</div>';
+                    isValid = false;
+                }
+            }
+
+            if (document.getElementById("designation").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Designation is required.</div>';
+                isValid = false;
+            }
+
+            if (document.getElementsByName("gender").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Gender is required.</div>';
+                isValid = false;
+            }
+
+            if (document.getElementById("salary").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Salary is required.</div>';
+                isValid = false;
+            }
+
+            if (document.getElementById("location").value == "") {
+                document.getElementById("error-div").innerHTML += '<div class="text-danger"> * Location is required.</div>';
+                isValid = false;
+            }
+            window.scrollTo(0, 0);
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
