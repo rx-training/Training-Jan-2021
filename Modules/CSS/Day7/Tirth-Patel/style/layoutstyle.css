@@ -75,7 +75,7 @@ body {
 }
 
 .banner-section {
-    background-image: url(/pictures/banner.jpg);
+    background-image: url('/Day5/Tirth-Patel/pictures/banner.jpg');
     height: 400px;
     width: auto;
     position: relative;

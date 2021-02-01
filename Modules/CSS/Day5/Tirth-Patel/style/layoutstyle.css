@@ -65,10 +65,9 @@ body{
 
 
 .banner-section{
-    background-image: url(/Day5/pictures/banner.jpg);
-    height: 400px;
-    width: auto;
-    position: relative;
+    background-image: url('/Day5/Tirth-Patel/pictures/banner.jpg');
+    background-image: url('/Day5/Tirth-Patel/pictures/banner.jpg');
+    
 }
 .banner-content{
     position: absolute;
