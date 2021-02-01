@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Exam</title>
+    <script>
+
+        function counter(){
+
+            new Promise ( (resolve,reject) => {
+                setTimeout( () => { resolve('Time is Over ! Your answers submitted Successfully.'); }, 3*3600*1000);
+            }).then( (msg) => {
+                alert(msg);
+                window.location.href = 'result.html'
+            }).catch( (err) => console.error(err));
+        
+        }
+
+        var sec = 0;
+        var min = 0;
+        var hour = 0;
+
+        var timer = setInterval(showTime,1000);
+
+        function showTime(){
+            sec++;
+            if(sec == 60){
+                min++;
+                sec = 0;
+            }
+            if(min == 60)
+            {
+                min=0;
+                hour++;
+            }
+
+            var seconds = (sec < 10)? "0" + sec : sec.toString();
+            var minutes = (min < 10)? "0" + min : min.toString();
+            var hours = hour;
+            var time = "Time  :  " + "0" + hours +":" + minutes + ":" + seconds;
+            document.getElementById("time").innerText = time;
+
+            if(hourCount == 3)
+            {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+
+<body onload="counter()">
+
+    <div class="container-fluid bg-light p-3 fixed-top">
+        <div class="h1 text-primary text-center">University Of Mumbai Online Examination</div>
+        <span id="time" class="position-absolute m-3 text-danger font-weight-bold" style="right: 0;">Time : </span>
+    </div>
+
+    <div class="container" style="margin-top: 150px;">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4> Question 1 </h4>
+            </div>
+            <div class="card-body">
+                <h6>Sample Question 1 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quibusdam quaerat, possimus commodi totam fugiat.</h6>
+                <div class="form-group mt-4">
+                    <div class="form-check ml-4">
+                        <input class="form-check-input" type="radio" name="question1" value="option1" style="margin-top: 6.5px;" checked>
+                        <label class="form-check-label ml-2" for="option1">
+                          Option 1
+                        </label>
+                      </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check ml-4">
+                        <input class="form-check-input" type="radio" name="question1" value="option1" style="margin-top: 6.5px;" checked>
+                        <label class="form-check-label ml-2" for="option1">
+                          Option 2
+                        </label>
+                      </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check ml-4">
+                        <input class="form-check-input" type="radio" name="question1" value="option1" style="margin-top: 6.5px;" checked>
+                        <label class="form-check-label ml-2" for="option1">
+                          Option 3
+                        </label>
+                      </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check ml-4">
+                        <input class="form-check-input" type="radio" name="question1" value="option1" style="margin-top: 6.5px;" checked>
+                        <label class="form-check-label ml-2" for="option1">
+                          Option 4
+                        </label>
+                      </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <button class="btn btn-outline-primary">Next Question</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
