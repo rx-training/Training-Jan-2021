@@ -1,0 +1,15 @@
+Fetch-
+fetch commnad telss local git to retrive latest data from orginal but dont copy 
+the changes in local
+
+pull-
+pull command copy the latest data to local from original and mkes changes in local 
+
+stash the change-
+It means moving your currnet changes into stack so later in same or other brnach you 
+be able to bring it back and see ytou modification
+
+stag the changes-
+It is the step before you make a commit,so you add modified files into stage
+to create a next commit.
+
