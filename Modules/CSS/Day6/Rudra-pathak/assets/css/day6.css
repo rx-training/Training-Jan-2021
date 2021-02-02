@@ -1,0 +1,275 @@
+﻿html {
+    background-color: darkgray;
+}
+
+body {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    border: 0.5px solid;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: white;
+}
+
+.top {
+    background-color: floralwhite;
+    color: rgb(49,173,227);
+    margin: 0;
+    height: 30px;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    margin: 0;
+    height: 80%;
+    padding: 0;
+}
+
+u {
+    text-decoration-style: dashed;
+}
+
+hr {
+    width: 70%;
+}
+
+b {
+    font-size: 25px;
+}
+
+input[type=text] {
+    margin: 15px;
+    width: 40%;
+    height: 35px;
+    display: inline-block;
+    float: left;
+    border: none;
+    border-radius: 3%;
+    padding: 5px 10px;
+}
+
+input[type=button] {
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 20%;
+    padding: 10px;
+    margin: 15px;
+    border: none;
+    align-self: flex-start;
+    border-radius: 3%;
+}
+
+textarea {
+    width: 85%;
+    margin: 15px;
+    padding: 10px;
+    display: block;
+    border-radius: 3%;
+}
+
+div.nav {
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 48px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    margin: auto;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: rgb(50,175,229);
+    color: black;
+    opacity: 0.5;
+}
+
+.topnav a.active {
+    background-color: rgb(50,175,229);
+    color: white;
+}
+
+.imgsec {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.iconsec {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    margin: auto;
+}
+
+.icondiv {
+    float: left;
+    margin: 15px;
+    width: 30%;
+}
+
+div.midsec {
+    background-color: lightgrey;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+div.middle {
+    height: 33%;
+    width: 100%;
+    padding: 0;
+    display: block;
+}
+
+div.horizontalblog {
+    height: 250px;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+div.singleblog {
+    float: left;
+    max-width: 48%;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.blgimg {
+    height: 100px;
+    width: 100px;
+    float: left;
+    display: inline-block;
+}
+
+.blgtext {
+    float: left;
+    text-align: left;
+    display: inline-block;
+}
+
+div.bluesec {
+    background-color: rgb(3,202,252);
+    height: 200px;
+    color: azure;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+div.bottom {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+}
+
+div.leftmenu {
+    width: 25%;
+    padding: 20px;
+    text-align: left;
+}
+
+div.form {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    text-align: left;
+}
+
+span#inserttext {
+    font-size: 30px;
+    margin: auto;
+}
+
+p#pointer {
+    cursor: pointer;
+    height: 100%;
+}
+
+button#insert {
+    background-color: azure;
+    color: black;
+    font-size: 20px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 3%;
+    width: 180px;
+    border: none;
+    margin: 20px;
+}
+
+#opacitytab {
+    opacity: 0.7;
+    height: 20%;
+    color: white;
+    background-color: black;
+    margin: 0;
+}
+
+img#icon {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+a#menu {
+    text-decoration: none;
+    font-style: unset;
+    color: black;
+    font-size: 20px;
+    text-decoration: underline dashed;
+}
+
+p#bottomtxt {
+    text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+    body{width:100%; height:auto; margin:0}
+    .top {width:100%; display:block; height:auto; overflow:scroll;}
+    .nav {width:100%; display:block; height:auto; overflow:scroll;}
+    .midsec {width:100%; display:block; height:auto; overflow:scroll;}
+    .iconsec {width:100%; display:block; height:auto; overflow:scroll;}
+    .icondiv {width:100%; display:block; height:auto; overflow:scroll;}
+    .singleblog {width:100%; display:block; height:auto; overflow:scroll;}
+    .horizontalblog {width:100%; display:block; height:auto; overflow:scroll;}
+    .bluesec {width:100%; display:block; height:auto; overflow:scroll;}
+    .bottom {width:100%; display:block; height:auto; overflow:scroll;}
+    .leftmenu {width:100%; display:block; height:auto; overflow:scroll;}
+    .form {width:100%; display:block; height:auto; overflow:scroll;}
+}
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+    body{width:100%; height:auto; margin:0}
+    .top {width:100%; display:block; height:auto; overflow:scroll;}
+    .nav {width:100%; display:block; height:auto; overflow:scroll;}
+    .midsec {width:100%; display:block; height:auto; overflow:scroll;}
+    .iconsec {width:100%; display:block; height:auto; overflow:scroll;}
+    .icondiv {width:100%; display:block; height:auto; overflow:scroll;}
+    .singleblog {width:100%; display:block; height:auto; overflow:scroll;}
+    .horizontalblog {width:100%; display:block; height:auto; overflow:scroll;}
+    .bluesec {width:100%; display:block; height:auto; overflow:scroll;}
+    .bottom {width:100%; display:block; height:auto; overflow:scroll;}
+    .leftmenu {width:100%; display:block; height:auto; overflow:scroll;}
+    .form {width:100%; display:block; height:auto; overflow:scroll;}
+}
