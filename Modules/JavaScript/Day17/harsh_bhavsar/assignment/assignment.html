@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+    <title>Employee Registration</title>
+
+    <script>
+        function check() {
+
+            var id_pat = /^([0-9]{5})$/;
+            var mob_pat = /^([0-9]{10})$/;
+            var res = id_pat.test(document.getElementById("empId").value);
+            var res1 = mob_pat.test(document.getElementById("cont").value);
+
+            if (res === false)
+            {
+                document.getElementById("res").innerHTML="Employee Id should be 5 digit <br>";
+            }
+            if (document.getElementById("empName").value==="")
+            {
+                document.getElementById("name").innerHTML="Please enter employee name <br>";
+            }
+            if (document.getElementById("empAge").value==="")
+            {
+                document.getElementById("age").innerHTML="Please enter employee age <br>";
+            }
+            if (document.getElementById("desg").value==="")
+            {
+                document.getElementById("desig").innerHTML="Please enter employee Designation <br>";
+            }
+            if (document.getElementById("salary").value==="")
+            {
+                document.getElementById("salaryy").innerHTML="Please enter employee salary <br>";
+            }
+            if (document.getElementById("email").value==="")
+            {
+                document.getElementById("emailid").innerHTML="Please enter employee email Id <br>";
+            }
+            if (res1===false)
+            {
+                document.getElementById("contact").innerHTML="Please enter 10 digit contact no. <br>"
+            }
+        }
+
+        function Reset() {
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container bg-light border border-danger w-50">
+        <div class="alert alert-danger text-center">Employee Form</div>
+        <form>
+            <div class="form mt-5 ">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <label for="empId">Employee Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="empId" id="empId" class="form-control" placeholder="Enter employee id" required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="empName">Employee Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="empName" id="empName" class="form-control" placeholder="Enter employee name" required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="empAge">Employee age</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" name="empAge" id="empAge" class="form-control" placeholder="Enter employee age" required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="gender">Gender</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="radio" name="gender" id="male"> <label for="male">Male</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="radio" name="gender" id="female"> <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="desg">Employee Designation</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="desg" id="desg" class="form-control" placeholder="Enter employee designation" required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="salary">Salary</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" name="salary" id="salary" class="form-control" placeholder="Enter employee salary" required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="location">Location</label>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="location" id="location" class="form-control">
+                            <option value="Gandhinagar">Gandhinagar</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Baroda">Baroda</option>
+                            <option value="Rajkot">Rajkot</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="email">Email Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email Id" required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="doj">Date Of Joining</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" name="doj" id="doj" class="form-control" placeholder="Enter employee joining date" required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center">
+                        <label for="cont">Contact No.</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="tel" name="cont" id="cont" class="form-control" placeholder="Enter employee contact no." required>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 text-center">
+                        <input type="button" class="btn btn-success" value="submit" onclick="check()">
+                    </div>
+                   
+                </div><br><br>
+
+            </div>
+        </form>
+    </div><br><br>
+    <div class="container  w-25 text-center" >
+        <div class="border border-primary text-warning bg light"> Error message
+            <div class="text-danger" id="res"></div>
+            <div class="text-danger" id="name"></div>
+            <div class="text-danger" id="age"></div>
+            <div class="text-danger" id="desig"></div>
+            <div class="text-danger" id="salaryy"></div>
+            <div class="text-danger" id="emailid"></div>
+            <div class="text-danger" id="contact"></div>
+        </div>
+    </div>
+</body>
+</html>
