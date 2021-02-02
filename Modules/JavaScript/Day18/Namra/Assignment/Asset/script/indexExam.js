@@ -1,7 +1,7 @@
 function startExamTimer(){
   
     new Promise ( (resolve,reject) => {
-        setTimeout( () => { resolve('Exam is Over ! Your answers submitted Successfully.'); }, 1000);
+        setTimeout( () => { resolve('Exam is Over ! Your answers submitted Successfully.'); }, 3*3600*1000);
     }).then( (msg) => {
         alert(msg);
         window.location.href = 'resultAssignment4.html'
