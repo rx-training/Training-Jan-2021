@@ -19,9 +19,20 @@ function dateCheck(){
     var y = arrayDate[2];
 
     var leapYear = false;
-    if(y%4==0){
-        leapYear=true;
-    }
+    if(y%4==0)
+            {
+                if(y%100==0)
+                {
+                    if(y%400==0)
+                    {
+                        leapYear = true;
+                    }
+                }
+                else
+                {
+                    leapYear = true;
+                }
+            }
 
     if(y <= 0 || y > date.getFullYear()){
         alert("Please Enter Valid Year");
