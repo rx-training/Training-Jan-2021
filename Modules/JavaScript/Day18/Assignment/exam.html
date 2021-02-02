@@ -272,18 +272,11 @@
             </div>
         </div>
     <script>
-        function isvalid(){
-            var user = document.getElementById("user").value();
-            var pwd = document.getElementById("pwd").value();
-            var err = document.getElementById("error");
-            console.log("ok");
-            if(user == "" || pwd == "")
-            {
-                err.style.display ="block";
-                return false;
-            }
-            err.style.display ="none";
-        }
+        function Returnpage() {
+        var time = 60*60*1000*3;
+        setInterval(function(){ window.history.back() }, time);
+    }
+    Returnpage();
     </script>   
     </body>
 </html>

@@ -16,23 +16,22 @@
                       <label for="pwd">Password:</label>
                       <input type="password" class="form-control" placeholder="Enter password" id="pwd">
                     </div>
-                    <div id="erorr" class="text-danger" style="display: none;">Enter valid username and password</div>
-                    <button   onclick="return isvalid()" class="btn btn-primary mt-3">Submit</button>
+                    <div id="empId" class="text-danger" style="display: none;">Enter valid username and password</div>
+                    <input type="button" value="submit"  onclick="return isvalid()" class="btn btn-primary mt-3">
                   </form>
             </div>
         </div>
     <script>
         function isvalid(){
-            var user = document.getElementById("user").value();
-            var pwd = document.getElementById("pwd").value();
-            var err = document.getElementById("error");
+            var user = document.getElementById("user").value;
+            var pwd = document.getElementById("pwd").value;
             console.log("ok");
-            if(user == "" || pwd == "")
-            {
-                err.style.display ="block";
-                return false;
+            var emperror = document.getElementById('empId');
+            if(user == "" || pwd == ""){
+                emperror.style.display = "block";
+                 return false;
             }
-            err.style.display ="none";
+            window.location.href="exam.html";
         }
     </script>   
     </body>
