@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clouser Function</title>
+</head>
+
+<script>
+    
+    //Closuer with single Call
+    var salaryUpdate  = function(salary){
+        var currentSalary = salary;
+        var genrator = function(){
+            currentSalary *= 2;
+            return currentSalary; 
+        };
+        return genrator;
+    };
+
+    var updateFn = salaryUpdate(90000);
+    console.log(updateFn());
+
+    //Closuer with multiple Call
+    var salaryUpdate  = function(salary){
+        var currentSalary = salary;
+        var genrator = function(){
+            currentSalary *= 2;
+            return currentSalary; 
+        };
+        return genrator;
+    };
+
+    var updateFn = salaryUpdate(90000);
+    updateFn();
+    console.log(updateFn());
+
+</script>
+
+<body>
+    
+</body>
+</html>

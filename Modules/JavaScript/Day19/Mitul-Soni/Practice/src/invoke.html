@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoke Function</title>
+</head>
+
+<script>
+    
+
+    // Invoke Function with default parameter
+    (function ()
+    {
+        console.log('Executed');
+    })();
+
+    // Invoke Function with parameter
+    var app = {};
+    (function (ns){
+        ns.name = 'Name';
+    })(app);
+    console.log(app.name);
+
+    
+
+</script>
+
+<body>
+    
+</body>
+</html>

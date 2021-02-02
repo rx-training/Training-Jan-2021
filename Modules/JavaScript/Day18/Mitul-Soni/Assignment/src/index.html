@@ -10,54 +10,76 @@
     </head>
 
     <script>
-        function countDown(h,m,s) {
-            return promise = new Promise( (resolve, reject) => {
+        let counter = countDown(2,59,60);
+           
+        function countDown(h,m,s) 
+        {
+            let mypromise = new Promise(function(myResolve, myReject)
+            {
 
                 if (s != 0) 
                 {
                     
-                    console.log(h + ":" + m + ":" + s--);
+                    myResolve(h + ":" + m + ":" + s--);
                     setTimeout( () => {
-                        countDown(h,m,s).then(resolve);}
+                        countDown(h,m,s)}
                         , 1000);
                 } 
                 else if(m != 0 && s == 0)
                 {
-                    console.log(h + ":" + m-- + ":" + s--);
+                    myResolve(h + ":" + m-- + ":" + s--);
                     s = 59;
                     setTimeout( () => {
-                        countDown(h,m,s).then(resolve);}
+                        countDown(h,m,s)}
                         , 1000);
                 }
                 else if(h != 0 && m == 0)
                 {
-                    console.log(h-- + ":" + m-- + ":" + s--);
+                    myResolve(h-- + ":" + m-- + ":" + s--);
                     m = 59;
                     setTimeout( () => {
-                        countDown(h,m,s).then(resolve);}
+                        countDown(h,m,s)}
                         , 1000);
                 }
                 else 
                 {
-                     resolve('Times Up !!!:');
+                     myReject('Times Up !!!:');
                 }
 
             });
-
-            }
-
-            let counter = countDown(2,59,59);
-            counter.then( (msg) => {
-            console.log(msg);
-            });
-
+            mypromise.then(
+                function(value){
+                    mydisplayer(value);
+                },
+                function(error){
+                    mydisplayer(error);
+                }
+            );
+        }
+    
+        function mydisplayer(value)
+        {
+            document.getElementById("demo").innerHTML = "Time : " + value;
+        }
 
     </script>
 
     <body>
         
-        <h1 id="demo"></h1>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id="demo" class="text-right"></h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Welcome To University of Mumbai</h3>
+                </div>
+            </div>
+        </div>
+        
 
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>
