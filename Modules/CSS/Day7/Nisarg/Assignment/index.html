@@ -1,170 +1,261 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Assignment Day 7 Layout</title>
-        <link rel="stylesheet" href="style.css">
-        <style type="text/css">
-            .logo {
-    color: green;
-    font-size: 25px;
-    margin-top: 40px;
-    margin-left: 20px;
-}
-@media only screen and (min-width: 1200px) {
-    .navbar {
-        padding-left: 900px;
-        overflow: hidden;
-        background-color: #333;
-    }
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    .dropdown {
-        float: left;
-        overflow: hidden;
-    }
-    .dropdown .pagesbtn {
-        font-size: 16px;  
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-    }
-    .navbar a:hover, .dropdown:hover .pagesbtn {
-        background-color: red;
-    }
-    .bgimg {
-        margin-top: 0px;
-        width: 100%;
-        height:400px;
-    }
-}
-@media only screen and (max-width: 600px) {
-    .navbar {
-        display: none;
-    }
-    .navbar a {
-        display: none;
-    }
-    .dropdown {
-        display: none;
-    }
-    .dropdown .pagesbtn {
-        display: none;
-    }
-    .navbar a:hover, .dropdown:hover .pagesbtn {
-        display: none;
-    }
-    .bgimg {
-        width: 100%;
-        height:400px;
-    }
-    .head2 {
-        font-size: 35px;
-        margin-top: 20px;
-        color:gray;
-        margin-left: 40px;
-    }
-    .text1 {
-        font-size: 20px;
-        margin-top: 20px;
-        color: gray;
-        margin-left: 40px;
-    }
-    .download {
-        margin-top: 20px;
-        margin-left: 40px;
-        height: 50px;
-        background-color: green;
-        color: white;
-    }
-    .head3 {
-        font-size: 30px;
-        margin-top: 30px;
-        color: gray;
-        margin-left: 40px;
-    }
-    .head4 {
-        font-size: 30px;
-        margin-top: 100px;
-        color: gray;
-        margin-left: 40px;
-    }
-    .rw {
-        margin-top: 20px;
-        margin-right: 10px;
-        margin-left: 150px;
-        width: 250px;
-        height: 150px;
-    }
-    .proj1 {
-        margin-top: 15px;
-        margin-right: 10px;
-        margin-left: 235px;
-        color: black;
-    }
-    .text2 {
-        font-size: 20px;
-        margin-top: 20px;
-        color: gray;
-        margin-left: 125px;       
-    }
-    .wts {
-        margin-top: 20px;
-        margin-right: 10px;
-        margin-left: 150px;
-        width: 300px;
-        height: 150px;
-    }
-    .text3 {
-        font-size: 20px;
-        margin-top: 20px;
-        color: gray;
-        margin-left: 40px;
-    }
-    .vl {
-        border-left: 6px solid gray;
-        margin-left: 30px;
-        height: 250px;
-    }
-    .text4 {
-        margin-top: 40px;
-        font-size: 20px;
-        color: gray;
-        margin-left: 40px;
-    }
-    .head5 {
-        font-size: 25px;
-        margin-top: 30px;
-        color: gray;
-        margin-left: 40px;
-    }
-    .head6 {
-        font-size: 30px;
-        margin-top: 70px;
-        color: gray;
-        margin-left: 40px;
-    }
-    .ls {
-        margin-top: 20px;
-        margin-right: 10px;
-        margin-left: 150px;
-        width: 275px;
-        height: 250px;
-    }
-    .sp1 {
-        width: 50px;
-        height: 50px;
-        margin-left: 50px;
-    }
-    .bottom {
+<head>
+	<title>Responsive web design</title>
+	<style type="text/css">
+		.container
+		{
+			display: inline-flex;
+		}
+		#logo
+		{
+			color: green;
+			margin-left: 15px;
+			margin-top: 10px;
+			font-style: bold;
+		}
+		.hh2
+		{
+			margin-top: 10px;
+			color: gray;
+			margin-left: 110px;
+		}
+		.container2
+		{
+			margin-left: 20px;
+		}
+		#img1
+		{
+			height: 500px;
+			width: 100%;
+		}
+		.container3
+		{
+			margin-left: 30px;
+			margin-right: 50px;
+			height: 150px;
+		}
+		#p1
+		{
+
+			font-size: 25px;
+			color: #808080;
+		}
+		#p2
+		{
+
+			font-size: 20px;
+			color: #A9A9A9;
+		}
+		#b1
+		{
+			height: 30px;
+			width: 100px;
+			margin-left: 900px;
+			margin-top:10px;	 
+			background-color: #2e8b57;
+			color: white;
+		}
+		.container4
+		{
+			margin-left: 60px;
+			margin-right: 50px;
+			height: 200px;
+			border: 2px solid blue;
+		}
+
+		.container4-1
+		{
+			height: 200px;
+			float: left;
+			width:610px;
+		}
+		.container4-2
+		{
+			height: 200px;
+			float: left;
+			width:610px;
+		}
+		
+		h2
+		{
+			color: gray;
+		}
+		h1
+		{
+			color: gray;
+			margin-left: 5px;: 
+		}
+		.container5
+		{
+			margin-left: 30px;
+			margin-right: 50px;
+			height: 400px;
+			border: 2px solid blue;
+		}
+		.container5S1
+		{
+			height: 270px;
+			width: 280px;
+			background-color: gray;
+			padding: 10px;
+			float: left;
+		}
+		.container5S2
+		{
+			height: 270px;
+			width: 280px;
+			background-color: gray;
+			padding: 10px;
+			margin-left: 125px;
+			float: left;
+		}
+		.container5S3
+		{
+			height: 270px;
+			width: 280px;
+			background-color: gray;
+			padding: 10px;
+			margin-left: 125px;
+			float: left;
+		}
+		.container5S4
+		{
+			height: 270px;
+			width: 280px;
+			background-color: gray;
+			padding: 10px;
+			margin-left: 125px;
+			float: left;
+		}
+		.container5h5
+		{
+			color: white;
+			margin-left: 100px;
+			margin-top: 100px;
+			font-size: 25px;
+
+		}
+		/*  Here start*/
+		
+		.container5h31
+		{
+			margin-top: 5px;
+			margin-left: 5px;
+			color: darkgray;
+			float: left;
+		}
+		.container5h32
+		{
+			margin-top: 5px;
+			margin-left: 325px;
+			color: darkgray;
+			float: left;
+		}
+		.container5h33
+		{
+			margin-top: 5px;
+			margin-left: 325px;
+			color: darkgray;
+			float: left;
+		}
+		.container5h34
+		{
+			margin-top: 5px;
+			margin-left: 330px;
+			color: darkgray;
+			float: left;
+		}
+		.container5P1
+		{
+			color: darkgray;	
+			font-size: 20px;
+			float: left;
+			margin-left: 1px;
+		}
+		.container5P2
+		{
+			
+			margin-left: 325px;
+			color: darkgray;
+			float: left;
+			font-size: 20px;
+		}
+		.container5P3
+		{
+			margin-left: 325px;
+			color: darkgray;
+			float: left;
+			font-size: 20px;
+		}
+		.container5P4
+		{
+		
+			margin-left: 325px;
+			color: darkgray;
+			float: left;
+			font-size: 20px;
+		}
+		.container6
+		{
+			margin-left: 30px;
+			margin-right: 50px;
+			height: 400px;
+			border: 2px solid blue;
+		}
+		.container6-1
+		{
+			height: 280px;
+			border: 2px solid blue;
+			width: 300px;
+			float: left;
+			padding: 1px;
+			background-color: gray;
+		}
+		.container6-2
+		{
+			height: 280px;
+			border: 2px solid blue;
+			width: 900px;
+			padding: 1px;
+			float: left;
+		}
+		#p1
+		{
+			padding-top: 5px;
+			padding-left: 5px;
+			color: gray;
+		}
+		#p2
+		{
+			font-size: 20px;
+			color: gray;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+		#p3
+		{
+			margin-right: 20px;
+			color: gray;
+			font-size: 20px;
+		}
+		.container6-3
+		{
+			height: 400px;
+			border: 2px solid blue;
+			width: 370px;
+			float: left;
+			background-color: gray;
+		}
+		.container7
+		{
+			margin-left: 60px;
+			margin-right: 50px;
+			height: 250px;
+			border: 2px solid blue;
+		}
+
+		 .bottom {
         margin-top: 50px;
         background-color: black;
     }
@@ -228,131 +319,135 @@
         margin-left: 205px;
         word-spacing: 10px;
     }
-}
-        </style>
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    </head>
-    <body>
-        <h3 class="logo">LOGO HERE</h3>
-        <div class="navbar">
-            <a href="#HOME">Home</a>
-            <div class="dropdown">
-                <button class="pagesbtn">Pages
-                    <i class="fa fa-caret-down"></i>
-                </button>
-            </div>
-            <a href="#BLOG">BLOG</a>
-                <a href="#PORTFOLIO">PORTFOLIO</a>
-                <a href="#FEATURES">FEATURES</a>
-                <a href="#SHORTCODES">SHORTCODES</a>
-        </div>
-        <img class="bgimg" src="./assets/bg.jpg">
-        <h2 class="head2">
-        Lorem ipsum dolor sit<br>
-        amet, consectetur<br>
-        adipiscing elit
-        </h2>
-        <p class="text1">
-            Nullam sed leo risus.Ut tellus leo faucibus<br>
-            vitae tortor sed, euismod disnissim ex. Cras<br>
-            non mi vitae enim faucibus dignissim.<br>
-            Praesent scelerisque condimentum elit,<br>
-            non congue metus lacinia malesuada.<br>
-            Vestibulum purus arcu, molestie in mattis<br>
-            sit amet, aliquet eget est.
-        </p>
-        <button class="download">Download Now</button>
-        <hr>
-        <h3 class="head3">Fully Responsive</h3>
-        <p class="text1">
-            Ut mollis enim est, eu fermentum nisi<br>
-            viverra hendrerit. Fusce sed est ac ante<br>
-            posuere convallis.Vivamus egestas<br>
-            mauris sit amet lobortis cursus.<br>
-            Vestibulum hendrerit molestie sagittis.
-        </p>
-        <h3 class="head3">HTML5 + CSS3</h3>
-        <p class="text1">
-            Ut mollis enim est, eu fermentum nisi<br>
-            viverra hendrerit. Fusce sed est ac ante<br>
-            posuere convallis.Vivamus egestas<br>
-            mauris sit amet lobortis cursus.<br>
-            Vestibulum hendrerit molestie sagittis.
-        </p>
-        <h3 class="head3">Launch Ready</h3>
-        <p class="text1">
-            Ut mollis enim est, eu fermentum nisi<br>
-            viverra hendrerit. Fusce sed est ac ante<br>
-            posuere convallis.Vivamus egestas<br>
-            mauris sit amet lobortis cursus.<br>
-            Vestibulum hendrerit molestie sagittis.
-        </p>
-        <h3 class="head4">Recent Works</h3>
-        <hr>
-        <img class="rw" src="./assets/logo1.png">
-        <h3 class="proj1">Project One</h3>
-        <p class="text2">
-            Donec a pellentesque turpis. Integer ligula<br>
-            odio, posuere egestas sapien in, ornare<br>
-            ornare odio, Maecenas sodales mauris eget<br>
-            neque pulvinar,ac gravida ante lacinia.
-        </p>
-        <img class="rw" src="./assets/logo2.png">
-        <h3 class="proj1">Project One</h3>
-        <p class="text2">
-            Donec a pellentesque turpis. Integer ligula<br>
-            odio, posuere egestas sapien in, ornare<br>
-            ornare odio, Maecenas sodales mauris eget<br>
-            neque pulvinar,ac gravida ante lacinia.
-        </p>
-        <img class="rw" src="./assets/logo3.png">
-        <h3 class="proj1">Project One</h3>
-        <p class="text2">
-            Donec a pellentesque turpis. Integer ligula<br>
-            odio, posuere egestas sapien in, ornare<br>
-            ornare odio, Maecenas sodales mauris eget<br>
-            neque pulvinar,ac gravida ante lacinia.
-        </p>
-        <h3 class="head4">Welcome to this site</h3>
-        <hr>
-        <img class="wts" src="./assets/logo4.png">
-        <p class="text1">
-            Lorem ipsum dolor sit amet, consectetur<br>
-            adipiscing elit. Cras eu magna diam.<br>
-            Phasellus ut porttitor urna. Donec lacus<br>
-            magna laoreet quis tempor ac,facilisis sed<br>
-            urna.
-        </p>
-       <p class="text3">
-            <i class="fas fa-check" style="color: green;"></i>&nbsp Donec aliquet vel massa ut venenatis<br>
-            <i class="fas fa-check" style="color: green;"></i>&nbsp Cras eu magna diam<br>
-            <i class="fas fa-check" style="color: green;"></i>&nbsp Aenean non tellus ligula<br>
-            <i class="fas fa-check" style="color: green;"></i>&nbsp Ut sed vulputate nulla<br>
-       </p>
-       <div class="vl">
-        <p class="text4">
-            Blue Fountain Media is a digital agency in<br>
-            NYC that is founded on the premise that <br>
-            clients results and stunning design go<br>
-            hand in hand.They provide 360 degree<br>
-            solutions from strategy and design to<br>
-            developement and digital marketing<br>
-            services with ROI as their factor for<br>
-            success.
-       </p>
-       <h3 class="head5">-CEO,Jack Bour</h3>
-       </div>
-       <h3 class="head6">Latest Shots</h3>
-       <hr style="border: 1px dotted #808080;">
-       <img class="ls" src="./assets/logo5.png">
-       <h3 class="head6">Our Clients</h3>
-       <hr style="border: 1px dotted #808080;">
-       <img class="sp1" src="./assets/logo9.png">
-       <img class="sp1" src="./assets/logo9.png">
-       <img class="sp1" src="./assets/logo9.png">
-       <img class="sp1" src="./assets/logo9.png">
-       <img class="sp1" src="./assets/logo9.png">
-       <div class="bottom">
+	</style>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+		
+	</script>
+</head>
+<body>
+
+<div class="container">
+	<h2 id="logo">LOGO HERE<h2>
+	<h2 class="hh2">HOME</h2>
+	<h2 class="hh2">PAGES</h2>
+	<h2 class="hh2">BLOG</h2>
+	<h2 class="hh2">PORTFOLIO</h2>
+	<h2 class="hh2">FEATURES</h2>
+	<h2 class="hh2">SHORTCODES</h2>
+</div>
+
+<div class="container2">
+	<img src="./assets/bg.jpg" id="img1">
+</div>
+
+<div class="container3">
+	<p id="p1">Lorem ipsum dolor sit amet,consectetur adispiscing edit</p1>
+		<button id="b1" value="DOWNLOAD" ><center>DOWNLOAD</center></button>
+	<p id="p2">Nulam sed leo resus.UT tellus leo,faucibus vitae tortor sed.euismod dignissm ex.Cras non mi vitaeenim faucibuus dignissm.Praesent scelerisque condimentum elit,<br/>non cogue metus lecinia.Vestibulum purus arcu,molestie in mattis sit amet.aliquet eget est.</p>
+</div>
+<hr/>
+
+<div class="container4"> 
+	<div class="container4-1">
+		<h2>Fully responsive</h2>
+		<p>ABCDEFGH</p>
+	</div>
+
+	<div class="container4-2">
+		<h2>HTML5 + CSS3</h2>
+		<p>ABCDEFGH</p>
+	</div>
+
+	<div class="container4-3">
+		<h2>Launch ready</h2>
+		<p>ABCDEFGH</p>
+	</div>
+</div>
+
+
+<h1>Recent Works</h1><hr/>
+
+<div class="container5"> 
+<div class="container5S1">
+		<h5 class="container5h5">350x220</h5>
+</div>
+<div class="container5S2">
+		<h5 class="container5h5">350x220</h5>
+</div>
+<div class="container5S3">
+		<h5 class="container5h5">350x220</h5>
+</div>
+<div class="container5S4">
+		<h5 class="container5h5">350x220</h5>
+</div>
+<br/>
+
+<div>
+<h3 class="container5h31">Project One</h3>
+</div>
+
+<div>
+<h3 class="container5h32">Project One</h3>
+</div>
+
+
+<div>
+<h3 class="container5h33">Project One</h3>
+</div>
+
+
+<div>
+<h3 class="container5h34">Project One</h3>
+</div>
+
+
+<div>
+<p class="container5P1">Successfully done!</p>
+<p class="container5P2">Successfully done!</p>
+<p class="container5P3">Successfully done!</p>
+<p class="container5P4">Successfully done!</p>
+</div>
+
+</div>
+
+<div>
+<h1>Welcome to this site!</h1><hr/>
+<div class="container6">
+	<div class="container6-1"> 
+		<h5 class="container5h5">315x200</h5>
+	</div> 
+
+	<div class="container6-2">
+		<p id="p1">Lorem ipsum dolor sit amet,consectetur adipiscing elit.Cras eu magna diarn .Phallesus ut portitutor urna.Donec lecus magna,laoreet quis tempor ac,facilis sad urna.</p> 
+
+		<p id="p2">
+			<i class="fas fa-check" style="color:green;"></i>&nbsp; Donec eliquet vel massa ut venenatis<br/><br/>
+			<i class="fas fa-check" style="color:green;"></i>&nbsp; Cras eu magna diarn!<br/><br/>
+			<i class="fas fa-check" style="color:green;"></i>&nbsp; Aeneam non tellus ligula<br/><br/>
+			<i class="fas fa-check" style="color:green;"></i>&nbsp; Utsed vulputate nulla<br/><br/>
+		</p>
+
+		<p id="p3">
+				Blue fountain media is a digital agency in NYC that is founded  on the premise that client results and stunning design go hand in hand.They provide 360 degree solutions from strategy and decisions to development and digital marketing services,with ROI as a factor of success.
+		</p>
+	</div> 
+
+	<div class="container6-3">
+		<h5 class="container5h5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;538x316</h5></div> 
+</div>
+
+
+<h1>Our clients!</h1><hr/>
+<div class="container7"> 
+	<img src=".\assets\logo9.png" height="250px" width="250px" />
+	<img src=".\assets\logo9.png" height="250px" width="250px" />
+	<img src=".\assets\logo9.png" height="250px" width="250px" />
+	<img src=".\assets\logo9.png" height="250px" width="250px" />
+	<img src=".\assets\logo9.png" height="250px" width="250px" />
+	<img src=".\assets\logo9.png" height="250px" width="250px" />
+</div>
+
+<div class="bottom">
             <h3 class="logobottom">LOGO HERE</h3>
             <p class="text5">
                 Etiam pharetra magna vitae fringilla posuere.<br>
@@ -410,5 +505,9 @@
                 <img src="./assets/twitter.jpg" width="20px" height="20px">
             </div>
         </div>
-    </body>
+
+
+
+
+</body>
 </html>

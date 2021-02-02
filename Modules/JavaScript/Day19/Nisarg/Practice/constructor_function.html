@@ -1,0 +1,67 @@
+<html>
+    <head><title>Constructor functions</title>
+    <script type="text/javascript">
+        /*  1st video */
+        var Employee=function(name)
+        {
+                this.name=name;
+                document.write("My name is:"+this.name+"<br/>");
+        };
+        var newEmployee=new Employee('JJ');
+        console.log(typeof newEmployee);
+        console.log(newEmployee.name);
+
+        /*  2nd  */
+
+        var Employee2=function(name,boss)
+        {
+            this.name=name;
+            this.boss=boss;
+            document.write("My name is:"+this.name+"<br/>");
+            document.write("My Boss name is:"+this.boss+"<br/>");
+        }
+        var newEmployee=new Employee2("JJ","DD Hardy");
+        console.log(newEmployee.name);
+        console.log(newEmployee.boss);
+
+        /* 3rd */
+        var Employee3=function(name)
+        {
+            this.name=name;
+        }
+        var newEmp=new Employee3("DD");
+        var newEmp2=new Employee3("DK");
+        console.log(newEmp===newEmp2);//false bcz they are not equal identically.
+        /* 4th */
+        var Add=function(a)
+        {
+            this.a=a;
+        };
+        var num1=new Add(10);
+        var num2=new Add(10);
+        console.log(num1===num2);
+        console.log(num1.__proto__===num2.__proto__);
+        
+        /* 5th Give raise */
+        var Employee=function(name)
+        {
+            this.name=name;
+            this.salary=50000;
+        };
+
+        Employee.prototype.giveRaise=function(raise)
+        {
+            this.salart+=raise;
+        }
+        var emp1=new Employee("JJ");
+        var emp2=new Employee("JV");
+        emp1.giveRaise(10000);
+        console.log(emp1.salary);
+        
+        console.log(emp2.salary);
+    </script>
+    </head>
+    <body>
+
+    </body>
+    </html>
