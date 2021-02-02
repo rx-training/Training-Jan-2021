@@ -16,23 +16,53 @@
                       <label for="pwd">Password:</label>
                       <input type="password" class="form-control" placeholder="Enter password" id="pwd">
                     </div>
-                    <div id="empId" class="text-danger" style="display: none;">Enter valid username and password</div>
+                    <!-- <div id="empId" class="text-danger" style="display: none;">Enter valid username and password</div> -->
+                    <div id="empId" class="text-danger h4" ></div>
                     <input type="button" value="submit"  onclick="return isvalid()" class="btn btn-primary mt-3">
                   </form>
             </div>
         </div>
     <script>
-        function isvalid(){
+        function isvalid(){        
+            StartExam().then(
+            (successMessage)=>{
+            //alert("Exam start");
+            //console.log(successMessage.status);
+            document.getElementById("empId").innerHTML=successMessage.message;
+            },
+            (errorMessage)=>{
+            //alert(errorMessage.message);
+            //console.log(errorMessage.status);
+            document.getElementById("empId").innerHTML=errorMessage.message;
+            });
+            return false;
+        }
+        function StartExam(){
             var user = document.getElementById("user").value;
             var pwd = document.getElementById("pwd").value;
-            console.log("ok");
             var emperror = document.getElementById('empId');
-            if(user == "" || pwd == ""){
-                emperror.style.display = "block";
-                return false;
-            }
-            window.location.href="exam.html";
+
+            return new Promise((resolve,reject)=>{
+        let successMessage={
+            status:'Success',
+            message : 'Enter Exam Best Of Luck<br>' 
+        };
+        let errorMessage = {
+            status : 'Error',
+            message : 'Please Enter Valid UserName and Password'
+        };
+        if(user == "" || pwd == ""){
+            setTimeout(()=>reject(errorMessage),500);
         }
+        else{
+        setTimeout(()=>resolve(successMessage),500);
+        redirectExam();
+        }
+    })
+    }
+    function redirectExam(){
+        window.location.href="exam.html";
+    }     
     </script>   
     </body>
 </html>
