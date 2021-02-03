@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Day 20 Assignment </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="my-5 card w-75 mx-auto">
+                <div class="card-header text-center">Product Detils</div>
+                <div class="card-body text-center my-2">
+                    <div class="my-1">
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                              <th scope="col">ProductID</th>
+                              <th scope="col">ProductName</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col"></th>
+                              <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr scope="row">
+                              <td>1</td>
+                              <td>Cheese</td>
+                              <td>100</td>
+                              <td>1</td>
+                              <td><input type="button" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                              <td><input type="button" class="btn btn-warning text-white p-1" value="Cart"></td>  
+                            </tr>
+                            <tr scope="row">
+                                <td>2</td>
+                                <td>Pen</td>
+                                <td>150</td>
+                                <td>2</td>
+                                <td><input type="button" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                                <td><input type="button" class="btn btn-warning text-white p-1" value="Cart"></td>
+                            </tr>
+                            <tr scope="row">
+                                <td>3</td>
+                                <td>Butter</td>
+                                <td>150</td>
+                                <td>1</td>
+                                <td><input type="button" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                                <td><input type="button" class="btn btn-warning text-white p-1" value="Cart"></td>
+                            </tr>
+                            <tr scope="row">
+                                <td>4</td>
+                                <td>Pencil</td>
+                                <td>100</td>
+                                <td>1</td>
+                                <td><input type="button" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                                <td><input type="button" class="btn btn-warning text-white p-1" value="Cart"></td>
+                            </tr>                            
+                        </tbody>        
+                        </table>
+                    </div>
+                <!--    <div class="my-1"><input type="button" onclick="return Area()" class="btn btn-primary my-2 p-2" value="Submit"></div> 
+                    <div id="answer"></div>-->
+                </div>
+            </div>
+            <div class="my-5 card w-75 mx-auto">
+                <div class="card-header text-center">Cart Summary</div>
+                <div class="card-body text-center my-2">
+                    <div class="my-1">
+                        <div id="answer"></div>    
+                    </div>
+                <!--    <div class="my-1"><input type="button" onclick="return Area()" class="btn btn-primary my-2 p-2" value="Submit"></div> 
+                    <div id="answer"></div>-->
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+       /*  fetch ("data.json")
+        .then(x => x.text())
+        .then(y => document.getElementById("answer").innerHTML = y)
+        .then(z => localStorage.setItem("dataofjson", z));
+
+        console.log(localStorage.getItem("dataofjson")); */
+    </script>
+</html>
