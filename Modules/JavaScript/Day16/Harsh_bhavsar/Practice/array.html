@@ -3,34 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arrays</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Arrays and Arrays method</title>
 </head>
 <body>
     <script>
-        var blog = {
-            name: 'harsh'
-        };
-        var updateBlog = blog;
-        console.log(updateBlog.name);
-
-        var blog = {
-            name: 'harsh'
-        };
-        var updateBlog = blog;
-        blog.name = 'bhavsar';
-        console.log(updateBlog.name);
-
-        var blog = {
-            name: 'harsh'
-        };
-        var updateBlog = blog;
-        blog.name = 'bhavsar';
-        console.log(blog.name);
-
-        var a1 = [1, 2, 3];
-        var a2 = a1;
-        a1[0] = 99;
-        console.log(a2[0]);
 
         var entries = new Array('Trains', 'Plains', 'Automobiles');
         console.log(entries instanceof Array);
@@ -162,47 +142,8 @@
         var ratings = [1, 2, 3, 4, 5, 4, 3, 2, 1];
         console.log(ratings.lastIndexOf(1));
 
-
-        var dt = new Date();
-        console.log(dt);
-
-        var dt = new Date('01/27/2021');
-        console.log(dt);
-
-        var dt = new Date('January 27, 2021');
-        console.log(dt);
-
-        var dt = Date(2020, 11, 12, 0 , 0, 0, 0);
-        console.log(dt);
-
-        var dt = new Date(' hi ');
-        console.log(dt);
-
-        var dt = new Date();
-        console.log(dt.toDateString());
-
-        var dt = new Date();
-        console.log(dt.toTimeString());
-
-        var dt = new Date();
-        console.log(dt.getFullYear());
-
-        var blogText = "Sam I Am";
-        var pattern = new RegExp('am', 'g');
-        console.log(pattern instanceof RegExp);
-
-        var blogText = 'Sam I Am';
-        var pattern = /m/g;
-        var result = pattern.exec(blogText);
-        console.log(result.input);
-
-        var blogText = 'Sam I Am';
-        var pattern = /m/g;
-        var result = pattern.exec(blogText);
-        console.log(result.index);
-        result = pattern.exec(blogText);
-        console.log(result.index);
-        
     </script>
 </body>
 </html>
+
+
