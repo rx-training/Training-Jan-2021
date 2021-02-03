@@ -2,33 +2,27 @@
     "products": [
         {
             "Name": "Cheese",
-            "Price": 2.50,
-            "Location": "Refrigerated foods"
+            "Price": 100
         },
         {
-            "Name": "Crisps",
-            "Price": 3,
-            "Location": "the Snack isle"
+            "Name": "Pen",
+            "Price": 150
         },
         {
-            "Name": "Pizza",
-            "Price": 4,
-            "Location": "Refrigerated foods"
+            "Name": "Butter",
+            "Price": 100
         },
         {
             "Name": "Chocolate",
-            "Price": 1.50,
-            "Location": "the Snack isle"
+            "Price": 50
         },
         {
-            "Name": "Self-raising flour",
-            "Price": 1.50,
-            "Location": "Home baking"
+            "Name": "Pencil",
+            "Price": 10
         },
         {
             "Name": "Ground almonds",
-            "Price": 3,
-            "Location": "Home baking"
+            "Price": 50
         }
     ]
 }
