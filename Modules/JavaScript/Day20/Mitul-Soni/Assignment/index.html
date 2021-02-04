@@ -28,27 +28,26 @@
         console.log(localStorage.getItem("key"));
     }
 
-    fetch("item.json").then
-    (
-        res=>{
-            res.json().then(
-                data=>{
-                    var temp = "";
-                    data.forEach((u)=>{
-                    temp += "<tr>";
-                    temp += "<td>"+ u.ProductID+"</td>";
-                    temp += "<td>"+ u.ProductName+"</td>";
-                    temp += "<td>"+ u.Price+"</td>";
-                    temp += "<td>"+ u.Quantity+"</td>";
-                    temp += '<td><button class="btn btn-success" onclick="getData('+"'"+u.ProductID+"'"+','+"'"+u.ProductName+"'"+','+"'"+u.Price+"'"+','+"'"+u.Quantity+"'"+')">Add Cart</button></td></tr>'    
-                    })
-                document.getElementById("data").innerHTML = temp;
-                    
-                }
-            )
-        }
-    )
     
+    getArrayData("item.json");
+    async function getArrayData(file)
+    {
+        let x = await fetch(file);
+        let y = await x.json();
+        var tmp = "";
+        for(var i=0;i<y.length;i++)
+        {
+            tmp += "<tr>";
+            tmp += "<td>"+ y[i].ProductID +"</td>";
+            tmp += "<td>"+ y[i].ProductName +"</td>";
+            tmp += "<td>"+ y[i].Price +"</td>";
+            tmp += "<td>"+ y[i].Quantity +"</td>";
+            tmp += '<td><button class="btn btn-success" onclick="getData('+"'"+y[i].ProductID+"'"+','+"'"+y[i].ProductName+"'"+','+"'"+y[i].Price+"'"+','+"'"+y[i].Quantity+"'"+')">Add Cart</button></td></tr>';
+            
+        }
+        document.getElementById("data").innerHTML = tmp;
+
+    }
 </script>
 
 <body>
