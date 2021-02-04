@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Princess+Sofia" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    
+    <title> Assignment</title>
+    <script>
+        var arr = [];
+
+        function getJsonData(id, name, price, quantity) 
+        {
+            var pro = { "Product_Id": id, "Product_Name": name, "Product_Price": price, "Product_Quantity": quantity }
+            arr.push(JSON.stringify(pro));
+            localStorage.setItem("key", arr);
+        }
+
+        function cartSummary()
+        {
+            console.log(localStorage.getItem("key"));
+        }
+
+        fetch("product.json").then
+    (
+        res=>{
+            res.json().then(
+                data=>{
+                    var temp = "";
+                    data.forEach((u)=>{
+                    temp += "<tr>";
+                    temp += "<td>"+ u.Product_Id+"</td>";
+                    temp += "<td>"+ u.Product_Name+"</td>";
+                    temp += "<td>"+ u.Product_Price+"</td>";
+                    temp += "<td>"+ u.Product_Quantity+"</td>";
+                    temp += '<td><button class="btn btn-success" onclick="getJsonData('+"'"+u.Product_Id+"'"+','+"'"+u.Product_Name+"'"+','+"'"+u.Product_Price+"'"+','+"'"+u.Product_Quantity+"'"+')">Add to Cart</button></td></tr>'    
+                    })
+                document.getElementById("demo").innerHTML = temp;
+                    
+                }
+            )
+        }
+    )
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <table id="productTable" class="table table-bordered table-striped text-center">
+            <thead>
+                <tr>
+                    <th>Product_Id</th>
+                    <th>Product_Name</th>
+                    <th>Product_Price</th>
+                    <th>Product_Quantity</th>
+                    <th>Add to cart</th> 
+
+                </tr>
+            </thead>
+            <tbody id="demo">
+
+            </tbody>
+        </table>
+        <button class="btn btn-primary" onclick="cartSummary()">Cart Summary</button>
+    </div>
+
+    
+</body>
+</html>
