@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Function Constructors</title>
+
+</head>
+<body>
+
+    <div class="container m-auto">
+        <label for="num1">Height of rectangle:</label>
+        <input type="number" id="num1" class="m-5 m-5" />
+        <label for="num1">Width of rectangle:</label>
+        <input type="number" id="num2" class="m-5 m-5" />
+        <button class="btn btn-success m-5 ml-0" onclick="return answer()">
+            Answer
+        </button>
+        <p class="m-5">The answer is: <span id="ans"></span></p>
+    </div>
+
+    <script>
+        var Area = function (h, w) {
+            this.result = h * w;
+            return this.result;
+        }
+        function answer() {
+            var height = document.getElementById('num1').value;
+            var width = document.getElementById('num2').value;
+            let area = new Area(height, width);
+            console.log(area);
+            return false;
+        }
+    </script>
+</body>
+</html>
