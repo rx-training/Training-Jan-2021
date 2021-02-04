@@ -29,6 +29,7 @@ function myFunction(){
         sum += third;
     }
     alert("Sum of the numbers greater than 40 is : " + sum);
+    return false;
 }
 
 
@@ -42,4 +43,5 @@ function mySecondFunction(){
         final += ", ";
     }
     alert(final);
+    return false;
 }

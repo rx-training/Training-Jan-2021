@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container m-5">
-        <button class="btn btn-primary" onclick="startTimer()">Start Timer</button>
+        <button class="btn btn-primary" type="button" onclick="startTimer()">Start Timer</button>
     </div>
     <script>
         async function startTimer(){
@@ -21,6 +21,7 @@
             });
             let result = await promise;
             alert(result);
+            return false;
         };
     </script>
 </body>

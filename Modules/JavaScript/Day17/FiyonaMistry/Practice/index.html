@@ -29,13 +29,16 @@ Try to change windows height and width using Windows object -->
         document.getElementById("protocol").innerHTML = "Protocol : " + window.location.protocol;
         document.getElementById("port").innerHTML = "Port : " + window.location.port;
         function assignBTN(){
-            window.location.assign("https://google.com")
+            window.location.assign("https://google.com");
+            return false;
         }
         function backBTN(){
             window.history.back();
+            return false;
         }
         function forwardBTN(){
             window.history.forward();
+            return false;
         }
         var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         var w = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
