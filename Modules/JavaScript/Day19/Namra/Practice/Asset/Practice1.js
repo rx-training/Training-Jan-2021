@@ -32,7 +32,6 @@ function hoistExample(){
     }
 } */
 
-
 function callFunction(){
    
     var name =document.getElementById("name").value;
@@ -88,3 +87,5 @@ var updateFn = salaryUpdater(50000);
 function closureFunction(){
     document.getElementById("closure").innerHTML="Your Salary is 50000<br>Your incremented salary : "+updateFn();
 }
+
+

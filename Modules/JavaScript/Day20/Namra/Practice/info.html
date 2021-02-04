@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script tyoe="text/javascript" src="./Asset/Script/info.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <div class="container text-center bg-secondary border border-white rounded my-5 py-4">
+        <h1 class="text-white display-4 pb-4">Practice 1</h1>
+        <p id="json" class="border border-dark rounded px-3 pt-3"></p>
+    </div>
+    <div class="container text-center bg-secondary border border-white rounded my-5 py-4">
+        <h1 class="text-white display-4 pb-4">Practice 2</h1>
+        
+        <button onclick="locationPractice2()" class="btn btn-outline-white bg-dark text-white mb-3">Find out your location</button>
+
+        <p class ="p-3"id="locationData"></p>
+    
+    </div>
+    <script>
+        var loc = document.getElementById("locationData");
+        
+        function locationPractice2() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position =>{
+              loc.innerHTML="Latitde : "+position.coords.latitude+"<br>Longitude : "+position.coords.longitude;
+            });
+          } else { 
+            loc.innerHTML = "Geolocation is not supported by this browser.";
+          }
+          document.getElementById("locationData").style.border = "2px solid black";
+        } 
+      </script>
+        
+</body>
+</html>
