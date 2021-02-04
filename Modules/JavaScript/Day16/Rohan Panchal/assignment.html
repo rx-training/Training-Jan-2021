@@ -71,13 +71,28 @@
                         {
                             if(parseInt(darray[2])%4 == 0)
                             {
-                                if(parseInt(darray[1])>29)
+                                if(parseInt(darray[2])%100 == 0)
                                 {
-                                    document.getElementById('result').innerHTML="Days should be within the range 1 to 29 in February also leap year";
+                                    if(parseInt(darray[2])%400 == 0)
+                                    {
+                                        if(parseInt(darray[1])>29)
+                                        {
+                                            document.getElementById('result').innerHTML="Days should be within the range 1 to 29 in February also leap year";
+                                        }
+                                        else
+                                        {
+                                            ocument.getElementById('result').innerHTML="";
+                                            alert("correct");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        document.getElementById('result').innerHTML="Days should be within the range 1 to 28 in February 400";
+                                    }
                                 }
                                 else
                                 {
-                                    alert("correct");
+                                    document.getElementById('result').innerHTML="Days should be within the range 1 to 28 in February 100";
                                 }
                             }
                             else
@@ -88,6 +103,7 @@
                                 }
                                 else
                                 {
+                                    ocument.getElementById('result').innerHTML="";
                                     alert("correct");
                                 }
                             }

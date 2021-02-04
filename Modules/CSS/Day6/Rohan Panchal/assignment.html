@@ -14,7 +14,7 @@
         }
         label{
             margin: 0px 30px 0px 0px;
-            font-size: 20px;
+            font-size: 30px;
             display: none;
             line-height: 100px;
             width: 26px;
@@ -26,15 +26,12 @@
             height: 100px;
             line-height: 100px;
         }
-        .menu{
-            /* margin: 0 30px 0 0; */
-
-        }
+        
         .menu a{
             clear: right;
             text-decoration: none;
             color: gray;
-            margin: 0 40px 0px 0px;
+            padding: 0px 30px;
             line-height: 100px;
         }
         @media screen and (max-width:576px){
@@ -42,20 +39,10 @@
                 display: block;
                 cursor: pointer;
             }
-            .menu{
-                text-align: left;
-                width: 100%;
-                display: none;
-            }
-            .menu a{
-                padding-left: 30px;
-                display: block;
-                border-bottom: 1px solid;
-                margin: 0;  
-
-            }
+            .menu{display: none;}
+            .menu a{display: flex;flex-direction: row-reverse ; border-bottom: 1px solid;}
             #toggle:checked + .menu {
-                display: block;
+                display: block;  
             }
         }
     </style>
@@ -69,7 +56,6 @@
                 <a href="">contact-us</a>
                 <a href="">About-us</a>
             </div>
-        
     </div>
 </body>
 </html>
