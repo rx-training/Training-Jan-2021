@@ -106,6 +106,28 @@
                             style="display: none;">Please enter valid Employee age</label>
                     </div>
                     <div class="my-4 form-group">
+                        <div class="col-lg-6 float-left">
+                            <label  for="gender">Gender :</label>
+                        </div>
+                        <div class="col-lg-6" style="display: flex;">
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="radio1">
+                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="Male" checked>Male
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="radio1">
+                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="FeMale" checked>FeMale
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="radio1">
+                              <input type="radio" class="form-check-input" id="radio3" name="optradio" value="Other" checked>Other
+                            </label>
+                          </div>
+                        </div>  
+                    </div>
+                    <div class="my-4 form-group">
                         <label class="col-lg-4" for="distination">Distination :</label>
                         <input class="col-lg-6" onblur="return IsValid(this.value,distination)" placeholder="Designation" id="distination" type="text" name="distination" value="">
                         <label id="empdistination" class="text-danger col-lg-9 col-form-label pl-0"

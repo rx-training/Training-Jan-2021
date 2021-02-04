@@ -12,18 +12,19 @@
         <div class="text-center">
         <button onclick="myFunction()">Total & LargestNumber</button>
         <p id="demo"></p>
+        <p id="demo1" class="text-danger"></p>
 
 
 <script>
     function myFunction() {
         var txt ;
         var result=0;
-        var a = Number(prompt("Please enter first number:"));
-        var b = Number(prompt("Please enter sec number:"));
-        var c = Number(prompt("Please enter third number:"));
-        if(isNaN(a)=="false" && isNaN(b)=="false" && isNaN(c)=="false")
-        {  
-        if (a==b && a==c){
+        var a = parseInt(prompt("Enter Number1 : ", 0));
+        var b = parseInt(prompt("Enter Number1 : ", 0));
+        var c = parseInt(prompt("Enter Number1 : ", 0));
+        
+        
+            if (a==b && a==c){
         txt = a;
         }
         if (a>b && a>c){
@@ -41,10 +42,8 @@
             }
         }       
         document.getElementById("demo").innerHTML = "Highest Number"+ txt +"<br>" +"sum grather then 40 is "+ result;
-        }
-        else{
-            document.getElementById("demo").innerHTML = "Enter only number";
-        }
+        
+               
     }
 </script>
     </body>

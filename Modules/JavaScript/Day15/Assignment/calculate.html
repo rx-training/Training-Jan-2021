@@ -3,19 +3,6 @@
         <title>
             prectice1
         </title>
-        <style>
-            /* .forms {
-                    padding: 10px;
-                    border: 2px solid #000;
-                    width: 50%;
-                    margin: 0 auto;
-                    background-color: teal;
-                    margin-top: 30px;
-                    }
-                    .number{
-                        margin: 10px 0px;
-                    } */
-        </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <script>
            function Calculate(){
@@ -28,22 +15,26 @@
                     radiochecks=radio[i].value;   
                 }  
             } 
-            if(radiochecks="sum"){
-                        document.getElementById("result").innerHTML = a + b;
+            if(radiochecks=="sum"){
+                        document.getElementById("result1").innerHTML = a + b;
                     }
-                    if(radiochecks="sub"){
-                        document.getElementById("result").innerHTML = a - b;
+                    else if(radiochecks=="sub"){
+                        document.getElementById("result1").innerHTML = a - b;
                     }
-                    if(radiochecks="mul"){
-                        document.getElementById("result").innerHTML = a * b;
+                    else if(radiochecks=="mul"){
+                        document.getElementById("result1").innerHTML = a * b;
                     }
-                    if(radiochecks="div"){
-                        document.getElementById("result").innerHTML = a/b;
+                    else if(radiochecks=="div"){
+                        document.getElementById("result1").innerHTML = a/b;
+                    }
+                    else{
+                        document.getElementById("result2").innerHTML = "Enter Valid Number";
                     }
                     return 0;
            } 
           function Reset(){
-            document.getElementById("result").innerHTML ="";
+            document.getElementById("result1").innerHTML ="";
+            document.getElementById("result2").innerHTML ="";
           }
         </script>
     </head>
@@ -70,6 +61,8 @@
                     <label for="Divison">Divison</label>
                     <br>
                     <p id="result">This result:</p>
+                    <p id="result1"></p>
+                    <p id="result2" class="text-danger"></p>
                 </div>
                 <div>
                     <input type="button" onclick="return Calculate()" value="Click me">
