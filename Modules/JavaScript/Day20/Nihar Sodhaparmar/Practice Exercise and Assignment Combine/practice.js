@@ -77,6 +77,11 @@ function viewCart(){
     var products = JSON.parse(localStorage.getItem('cart'));
     var total = 0;
     var cartSummary = document.getElementById("cartSummary");
+
+    if(products === null){
+        cartSummary.innerHTML = "<li class='list-group-item h4 px-5 text-center'>Cart is Empty</li>";
+        return;
+    }
     cartSummary.innerHTML = "<li class='list-group-item h4 px-5 text-center'>Cart</li>";
 
     for(var i = 0; i < products.length; i++)
