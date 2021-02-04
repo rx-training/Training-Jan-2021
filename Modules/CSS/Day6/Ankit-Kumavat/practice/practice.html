@@ -15,7 +15,7 @@
 				padding:20px;
 				margin:20px;
 				font-size:30px;
-				width:100px;
+				width:80px;
 				text-align: center;
 			}
 			h3{
@@ -37,7 +37,8 @@
 			}
 			.class1{
 				display: flex;
-				width: fit-content;
+				flex-wrap: nowrap;
+				flex-direction: row;
 			}
 			.class2 img{
 				padding:10px;
@@ -55,6 +56,15 @@
 				height:200px;
 				width:200px;
 				padding:10px;
+			}
+			@media (max-width: 600px)
+			{
+				.class1{
+					flex-direction: column;
+				}		
+				.class2{order: 2;}
+				.class3{order: 3;}
+				.class4{order: 1;}
 			}
 		</style>
 	</head>
