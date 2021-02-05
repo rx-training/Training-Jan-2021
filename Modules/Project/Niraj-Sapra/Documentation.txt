@@ -1,0 +1,39 @@
+
+
+1)Admin -functionality :
+
+->Login as Admin 
+
+-> Signup Admin
+
+->block user account
+
+->delete  perment account  
+
+
+2)User -functionality:
+
+->Login/Signup as User 
+
+->Login/Signup as restorent owner
+
+->delete own account request
+
+->user Edit own data.
+
+
+3)Ui changes :
+
+->location to send this city page(Example:- bhavnagar,ahemdabad)
+
+->user login send directley restorent page
+
+->use json data use add new img and cart heading and some about.
+
+->enter cart enter product
+
+->try best hover effect 
+
+-> dyanamic restorent card,
+    
+-> Login/Signup try to jqury to hide and show
