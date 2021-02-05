@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+    <title>Grid BOotstrap</title>
+</head>
+
+<body>
+    <h1 class="display-1 text-center">Grid alignment</h1>
+    <div class="container">
+
+        <div class="row">
+
+            <div style="border:2px solid black" class=" col-sm-6 col-md-8 col-lg-9 col-xl-10">
+                <ul>
+                    <li>6 column on small</li>
+                    <li>8 column on mediuml</li>
+                    <li>9 column on Large</li>
+                    <li>10 column on XLarge</li>
+                </ul>
+            </div>
+            <div style="border:2px solid black" class=" col-sm-6 col-md-4 col-lg-3 col-xl-2">
+
+                <ul>
+                    <li>6 column on small</li>
+                    <li>4 column on medium</li>
+                    <li>3 column on large</li>
+                    <li>2 column on Xlarge</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht</h3>
+            </div>
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht</h3>
+            </div>
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht</h3>
+            </div>
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht</h3>
+            </div>
+
+
+        </div>
+        <!-- equal width multi row -->
+        <div class="row">
+
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht multi row</h3>
+            </div>
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht multi row</h3>
+            </div>
+            <div class="w-100"></div>
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht multi row</h3>
+            </div>
+            <div style="border:2px solid black" class="col">
+                <h3>equal widht multi row</h3>
+            </div>
+
+
+        </div>
+        <!-- Auto layout -->
+        <div class="row">
+            <div style="border:2px solid black" class="col">
+                Auto layout
+            </div>
+            <div style="border:2px solid black" class="col-6">
+                Auto layout
+            </div>
+            <div style="border:2px solid black" class="col-4">
+                Auto layout
+            </div>
+
+
+        </div>
+        <!-- auto layout stack -->
+        <div class="row">
+            <div style="border:2px solid black" class="col-sm">
+                Auto layout with stack
+            </div>
+            <div style="border:2px solid black" class="col-sm-6">
+                Auto layout with stack
+            </div>
+            <div style="border:2px solid black" class="col-sm-4">
+                Auto layout with stack
+            </div>
+
+
+        </div>
+        <!-- ordering -->
+        <div class="row">
+
+            <div style="border:2px solid black" class="col order-3">
+                First
+
+            </div>
+            <div style="border:2px solid black" class="col order-2">
+                Second
+
+            </div>
+            <div style="border:2px solid black" class="col order-1">
+                third
+
+            </div>
+
+        </div>
+        <!-- marginf Auto -->
+        <div class="row">
+
+            <div style="border:2px solid black" class="col-md-4  ">
+                4 column
+
+            </div> 
+            <!-- <div class="col-md-4"></div>  -->
+            <!-- somehow auto margin not working -->
+            <div style="border:2px solid black" class="col-md-4 ms-auto">
+                4 column
+
+            </div>
+            
+
+
+        </div>
+        <div class="row">
+            <div style="border:2px solid black" class="col-md-4 ms-auto ">
+                column offset
+            </div>
+            <div style="border:2px solid black" class="col-md-4 m-auto">
+                column offset
+            </div>
+        </div>
+        <div class="row">
+            <div style="border:2px solid black" class="col-md-4 m-auto">
+                column offset width both auto margin
+            </div>
+    </div>
+    <!-- nested rows  -->
+    <div class="row">
+
+        <div style="border:2px solid black" class="col-sm-9 ">
+            level-1 col:sm-9
+            <div class="row" style="border:2px solid red">
+                
+                <div class="col-sm-6">
+                    Level:2 6 column inner row
+                </div>
+                <div class="col-sm-6" style="border:2px solid red">
+                    level 2 6 column inner row
+                </div>
+            </div>
+            
+            
+            
+            
+            
+        </div>
+
+            </div>
+        </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</html>
