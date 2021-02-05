@@ -1,0 +1,49 @@
+.dp {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+h4,p {
+	font-family: sans-serif; !important
+}
+.name {
+	font-family: monospace;
+	color: orange;
+}
+.subname {
+	font-family: cursive;
+	color: #c7f;
+}
+.main {
+	text-align: center;
+	margin: 3% 3% 0 3%;
+	padding: 0 20% 0 20%;
+}
+.container {
+	border: 2px solid;
+	width: 54%;
+	margin: auto;
+}
+.main-content {
+	margin: 2px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.fill {
+	grid-column: 1/3;
+}
+.content {
+	margin: 5%;
+}
+#contact {
+	margin: 0 3% 0 3%;
+	padding: 0;
+}
+#kd {
+	display: grid; 
+	grid-template-columns: 1fr 1fr;
+	padding: 0 5% 2% 5%;
+}
+.cont {
+	margin: 0 7% 3% 7%;
+}
