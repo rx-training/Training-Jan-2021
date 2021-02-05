@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 class="display-3 text-center my-3">Grid Alignment</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown">Utilities</button>
+                    <div class="dropdown-menu">
+                        <a href="basic_typography.html" class="dropdown-item">basic typography</a>
+                        <a href="text_alignment_display.html" class="dropdown-item">Text alignment & display</a>
+                        <a href="float_position.html" class="dropdown-item">Float position</a>
+                        <a href="colours_background.html" class="dropdown-item">colours & background</a>
+                        <a href="spacing.html" class="dropdown-item">Spacing</a>
+                        <a href="sizing.html" class="dropdown-item">Sizing</a>
+                        <a href="breakpoint.html" class="dropdown-item">Breakpoint</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-success btn-block dropdown-toggle" data-toggle="dropdown">CSS component</button>
+                    <div class="dropdown-menu">
+                        <a href="buttons.html" class="dropdown-item">Buttons</a>
+                        <a href="navbar.html" class="dropdown-item">Navbar</a>
+                        <a href="list_group_badge.html" class="dropdown-item">List group & badge</a>
+                        <a href="forms.html" class="dropdown-item">Forms</a>
+                        <a href="input_group.html" class="dropdown-item">Input group</a>
+                        <a href="alert_progress.html" class="dropdown-item">Alet & progress</a>
+                        <a href="table_pagination.html" class="dropdown-item">Table pagination</a>
+                        <a href="cards.html" class="dropdown-item">Cards</a>
+                        <a href="meida_object.html" class="dropdown-item">Media object</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-warning btn-block dropdown-toggle" data-toggle="dropdown">Grid & flexbox</button>
+                    <div class="dropdown-menu">
+                        <a href="grid_system.html" class="dropdown-item">Grid system</a>
+                        <a href="grid_alignment.html" class="dropdown-item">Grid alignment</a>
+                        <a href="flexbox.html" class="dropdown-item">Flexbox</a>
+                        <a href="auto_margin_wrapping.html" class="dropdown-item">Auto margins & wrap</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-danger btn-block dropdown-toggle" data-toggle="dropdown">Javascript Widget</button>
+                    <div class="dropdown-menu">
+                        <a href="carousel.html" class="dropdown-item">Carousel</a>
+                        <a href="collapse.html" class="dropdown-item">Collapse</a>
+                        <a href="tooltip.html" class="dropdown-item">Tooltip</a>
+                        <a href="propovers.html" class="dropdown-item">Propovers</a>
+                        <a href="models.html" class="dropdown-item">Models</a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <hr>
+    </header>
+    <div class="container">
+        <div class="container">
+            <div class="row align-items-start" style="height: 200px; border: 1px solid black;">
+                <div class="col">Top align text</div>
+                <div class="col">Top align text</div>
+                <div class="col">Top align text</div>
+            </div>
+            <div class="row align-items-center" style="height: 200px; border: 1px solid black;">
+                <div class="col">Middle align text</div>
+                <div class="col">Middle align text</div>
+                <div class="col">Middle align text</div>
+            </div>
+            <div class="row align-items-end" style="height: 200px; border: 1px solid black;">
+                <div class="col">Bottom align text</div>
+                <div class="col">Bottom align text</div>
+                <div class="col">Bottom align text</div>
+            </div>
+        </div>
+        <br><br>
+        <div class="container">
+            <div class="row" style="height: 200px; border: 1px solid black;">
+                <div class="col align-self-start">Top align text</div>
+                <div class="col align-self-center">Middle align text</div>
+                <div class="col align-self-end">Bottom align text</div>
+            </div>
+        </div>
+        <br><br>
+        <div class="container">
+            <div class="row justify-content-start" style="height: 200px; border: 1px solid black;">
+                <div class="col-4">left align text</div>
+                <div class="col-4">left align text</div>
+            </div>
+            <div class="row justify-content-center" style="height: 200px; border: 1px solid black;">
+                <div class="col-4">center align text</div>
+                <div class="col-4">center align text</div>
+            </div>
+            <div class="row justify-content-end" style="height: 200px; border: 1px solid black;">
+                <div class="col-4">right align text</div>
+                <div class="col-4">right align text</div>
+            </div>
+            <div class="row justify-content-around" style="height: 200px; border: 1px solid black;">
+                <div class="col-4">around align text</div>
+                <div class="col-4">around align text</div>
+            </div>
+            <div class="row justify-content-between" style="height: 200px; border: 1px solid black;">
+                <div class="col-4">around align text</div>
+                <div class="col-4">around align text</div>
+            </div>
+        </div>
+        <br>
+        <div class="row no-gutters">
+            <div class="col-9">
+                <div class="card">
+                    <div class="card-body">
+                        With HTML, you cannot change the display by adding extra spaces or extra lines in your HTML code.
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        With HTML, you cannot change the display by adding extra spaces or extra lines in your HTML code.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        With HTML, you cannot change the display by adding extra spaces or extra lines in your HTML code.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

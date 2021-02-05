@@ -47,7 +47,7 @@ a:hover{
 .home{
     height: 600px;
     padding: 130px 30px 0px 30px;
-    background-image: url("D:/day-4/assignment/img/home.jpg");
+    background-image: url(home.jpg);
    
 }
 .intro1{
@@ -71,7 +71,7 @@ a:hover{
 .about{
     height: 600px;
     padding: 130px 30px 0px 30px;
-    background-image: url("D:/day-4/assignment/img/about.jpg");
+    background-image: url(about.jpg);
    
 }
 .objective{
@@ -105,7 +105,7 @@ a:hover{
 .knowledge{
     height: 600px;
     padding: 130px 30px 0px 30px;
-    background-image: url("D:/day-4/assignment/img/knowledge.jpg");   
+    background-image: url(knowledge.jpg);   
 }
 .table{
     width: 70%;
@@ -121,7 +121,7 @@ a:hover{
 .project{
     height: 600px;
     padding: 130px 30px 0px 30px;
-    background-image: url("D:/day-4/assignment/img/project.jpg");   
+    background-image: url(project.jpg);   
 }
 .title{
     text-align: center;
