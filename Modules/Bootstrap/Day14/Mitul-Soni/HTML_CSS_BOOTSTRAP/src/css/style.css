@@ -5,6 +5,9 @@ body {
   background-color: lightblue;
   background-image: url("background.jpg"); }
 
+.dropdown-menu {
+  background-color: #191970; }
+
 .btn-outline {
   border-top-right-radius: 10px;
   background-color: white;
