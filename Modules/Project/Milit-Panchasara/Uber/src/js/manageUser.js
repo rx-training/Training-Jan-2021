@@ -68,6 +68,7 @@ function verifyPasswordAndRedirect() {
     if(storedPassword != null) {
         if(storedPassword == password) {
             localStorage.setItem('logged_in_user', localStorage.getItem('user_id_temp'));
+            localStorage.setItem('logged_in_user_data', JSON.stringify(getUserDataFromId(localStorage.getItem('user_id_temp'))));
             localStorage.removeItem('user_id_temp');
             window.open('home.html','_top');
             return;
@@ -117,7 +118,7 @@ function verifyPasswordAndRedirect() {
                 users = JSON.stringify(users);
                 localStorage.setItem('users', users);
             }
-            localStorage.setItem('var isNew = localStorage.getItem('newUserData');', newUsersCount);
+            localStorage.setItem('logged_in_user', newUsersCount);
             localStorage.setItem('totalUsersCount', newUsersCount);
             window.open('completeProfile.html','_top');
             return;
@@ -155,7 +156,27 @@ function saveProfileAndRedirect(email, name) {
 
             localStorage.setItem('users', JSON.stringify(users));
             localStorage.removeItem('newUserData');
+            localStorage.setItem('logged_in_user_data', JSON.stringify(getUserDataFromId(localStorage.getItem('logged_in_user'))));
             window.location.href = 'home.html';
         }
     }
+}
+
+function getUserDataFromId(id) {
+    let users = localStorage.getItem('users');
+    let userData = null;
+    if(users != null) {
+        users = JSON.parse(users);
+        users.forEach(user => {
+            if(user.id == id) {
+                if(user.is_blocked == 1) {
+                    console.log("user is blocked")
+                    return userData;
+                }
+                userData = user;
+                return userData;
+            }
+        });
+    }
+    return userData;
 }
