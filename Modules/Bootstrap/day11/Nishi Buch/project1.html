@@ -12,6 +12,30 @@
      <title>La Galerie d'art de Rembrandt</title>
 </head>
 <body id="top" class="bg-dark">
+    <!--navbar-->
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand text-danger" href="#top">La Galerie d'art de Rembrandt</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-items"><a href="#s2_trio" class="nav-link">Works</a></li>
+                    <li class="nav-items"><a href="#s3_painting_of_the_week" class="nav-link">Highlighted Paintings</a></li>
+                    <li class="nav-items"><a href="#s4_about" class="nav-link">About</a></li>
+                    <li class="nav-items"><a href="#s5_prints" class="nav-link">Prints</a></li>
+                    <li class="nav-items"><a href="#s6_paintings" class="nav-link">Paintings</a></li>
+                    <li class="nav-items"><a href="#s7_drawings" class="nav-link">Drawings</a></li>
+                    <li class="nav-items"><a href="#s8_contact" class="nav-link">Contact</a></li>
+                    <li class="nav-items"><a href="#s9_footer" class="nav-link">Info</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
    <!--s1_header-->
           <section id="s1_header">
 
@@ -21,12 +45,31 @@
                   </aside>
               
           </section>
+
+          <style>
+            #s1_header{
+                display:grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+            }
+            #s1_header aside{
+                text-align: center;
+                grid-column: 2 / 4;
+                grid-row: 4 / 5;
+            }
+            @media (max-width: 992px) {
+                #s1_header{height: 50vh;}
+                #s1_header .display-4{font-size: 28px;}
+                #s1_header h5{font-size: 12px;}
+            }
+        </style>
+    
      
    <!--s2_trio-->
           <section id="s2_trio">
-              <div class="container py-5">   
+              <div class="container py-5 myGrid">   
                   <div class="card mx-2"> 
-                      <div class="card-body">     
+                      <div class="card-body mySubGrid">     
             <img  class="img-fluid border border-dark"src="images/interface-imgs/s2-prints.png" alt="prints">
               <aside>
                   <h2 class="text-danger my-2">prints</h2>
@@ -36,7 +79,7 @@
               </div>
               </div>
               <div class="card mx-2">
-                  <div class="card-body">
+                  <div class="card-body mySubGrid">
               <img class="img-fluid border border-dark" src="images/interface-imgs/s2-paintings.png" alt="paintings">
               <aside>
                   <h2 class="text-danger my-2">paintings</h2>
@@ -46,7 +89,7 @@
               </div>
               </div>
               <div class="card mx-2">
-                  <div class="card-body">
+                  <div class="card-body mySubGrid">
               <img class="img-fluid border border-dark" src="images/interface-imgs/s2-drawings.png" alt="drawings">
               <aside>
                   <h2 class="text-danger my-2">drawings</h2>
@@ -62,17 +105,21 @@
           <section class="text-center py-5" id="s3_painting">
               <div class="container p-4">
               <h1 class="text-danger">Highlighted Painting</h1>
-              <img class="img-fluid my-3 border border-light" src="images/s3-painting-of-the-week-Rembrandt_castello_sulla_riva_1640-1650.png" alt="Painting of the week">
-              <p class="text-white">Castle Overlooking a River (circa 1645)</p>
+              <img class="img-fluid my-3 border border-light" style="border-width: 3px! important;" src="images/s3-painting-of-the-week-Rembrandt_castello_sulla_riva_1640-1650.png" alt="Painting of the week">
+              <p class="text-white">Castle Overlooking a Ri ver (circa 1645)</p>
               </div>
           </section> 
      
    <!--s4_about-->
           <section class="py-5" id="s4_about">
-              <div class="container">
+              <div class="container py-5">
+                  <div class="self-potrait">
               <img class="img-fluid" src="images/interface-imgs/s4-about-Rembrandt_Self-Portrait_(1637).png" alt="Rembrandt">
+              </div>
+              <div class="hd-about">
               <h3 class="text-danger">About</h3>
-              <p>
+              </div>
+              <div class="txt-about">              <p>
                 <strong> Rembrandt van Rijn </strong> was a Dutch painter and etcher. He is generally considered one of the
                 greatest painters
                 and printmakers in European art and the most important in Dutch history. His contributions to art came in a
@@ -81,12 +128,14 @@
                 prolific and innovative, and gave rise to important new genres in painting.
               </p>
               </div>
+              </div>
           </section>
      
    <!--s5_prints-->
           <section class="py-5" id="s5_prints">
               <div class="container">
               <h1 class="text-danger">prints</h1>
+              <div class="my-thumb">
               <img class="img-fluid" src="images/prints-img/prints-thumbs/A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg" alt="">
               <img class="img-fluid" src="images/prints-img/prints-thumbs/Bald-headed-Old-Man_1630-thumb.jpg" alt="">
               <img class="img-fluid"src="images/prints-img/prints-thumbs/Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg" alt="">
@@ -105,29 +154,40 @@
               <img class="img-fluid" src="images/prints-img/prints-thumbs/The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg" alt="">
               <img class="img-fluid" src="images/interface-imgs/s5-prints.png" alt="">
               </div>
-          </section>
-     
-   <!--s6_paintings-->
-          <section class="py-5" id="s6_paintings">
-              <div class="container py-5">
-              <h1 class="text-danger">paintings</h1>
-              <div class="painting-1"></div>
-              <div class="painting-2"></div>
-              <div class="painting-3"></div>
-              <div class="painting-4"></div>
-              <div class="painting-5"></div>
-              <div class="painting-6"></div>
-              <div class="painting-7"></div>
-              <div class="painting-8"></div>
-              <div class="painting-9"></div>
-              <div class="painting-10"></div>
               </div>
           </section>
      
+   <!--s6_paintings-->
+
+   <section class="py-5" id="s6_paintings">
+    <div class="container py-5">
+        <h1 class="text-danger">Paintings</h1>
+        <aside>
+            <div class="my-paintings-container my-paintings-area my-cursor">
+
+
+                <div class="painting-1" data-toggle="modal" data-target="#painting1"></div>
+                <div class="painting-2"></div>
+                <div class="painting-3"></div>
+                <div class="painting-4"></div>
+                <div class="painting-5"></div>
+                <div class="painting-6"></div>
+                <div class="painting-7"></div>
+                <div class="painting-8"></div>
+                <div class="painting-9"></div>
+                <div class="painting-10"></div>
+            </div>
+
+            <img class="img-fluid windmill" src="images/interface-imgs/s6-painting-200.png" alt="Windmill" />
+        </aside>
+    </div>
+</section>
+
    <!--s7_drawings-->
           <section class="py-5" id="s7_drawings">
           <div class="container py-5">
           <h1 class="text-danger">drawings</h1>
+          <div class="my-thumbs">
           <img class="img-fluid"src="images/drawings-img/drawings-thumbs/a-young-woman-having-her-hair-braided_circa-1637-thumb.jpg" alt="">
           <img class="img-fluid"src="images/drawings-img/drawings-thumbs/an-elephant-thumb.jpg" alt="">
           <img class="img-fluid"src="images/drawings-img/drawings-thumbs/blind-man-walking-with-a-stick-thumb.jpg" alt="">
@@ -145,13 +205,13 @@
                 <img  class="img-fluid"src="images/drawings-img/drawings-thumbs/the-entombment_1630-thumb.jpg" alt="">
                 <img  class="img-fluid"src="images/drawings-img/drawings-thumbs/woman-carrying-a-child-downstairs_circa-1636-thumb.jpg" alt="" />
                 <img class="img-fluid my-bk-image" src="images/interface-imgs/s7-drawing.png" alt="">
-          
+          </div> 
      </div>
      </section>
    <!--s8_contact-->
           <section class="py-5"id="s8_contact">
-              <div class="container py-5">
-              <aside>
+              <div class="container container_grid py-5">
+              <aside class="content-copy">
                   <h1 class="text-danger">contact</h1>
                   <p>
                     La Galerie d'art de Rembrandt<br>
@@ -160,20 +220,42 @@
                     555-1234<br>
                     loremipsum@email.com<br>
                 </p>
-                <p>
+                </aside>
+                <p class="contact-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12092399.719946038!2d-108.9313613973186!3d42.273271331500304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752fee11014e82f%3A0x1c5e3fda11f60198!2sPluralsight!5e0!3m2!1sen!2sus!4v1537034361031"
                             width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </p>
     
                 <img class="img-fluid contact-picture" src="images/interface-imgs/s8-contact.png" alt="">
            
-              </aside>
+
               </div>
           </section>
      
    <!--s9_footer-->
           <section class="text-white" id="s9_footer">
-            <aside >
+
+            <div class="container s9_footer_grid py-5">
+
+                <aside class="footer_hours py-5" style="grid-area: footer_hours" >
+                    <h1 class="text-danger h5">La Galerie d'art de Rembrandt</h1>
+                    <p>
+                        Tuesday - Friday: 10:00 am - 5:00 pm <br>
+                        Saturday: 10:00 am - 3:00 pm <br>
+                        Closed Sundays and Mondays
+                    </p>
+    
+                    <div class="btn-toolbar" role="toolbar" aria-label="Social Media Button">
+                        <div class="btn-group m-2 btn-group-sm">
+                            <button type="button" class="btn btn-info"> <i class="fab fa-facebook-square"></i></button>
+                            <button type="button" class="btn btn-info"> <i class="fab fa-twitter"></i></button>
+                            <button type="button" class="btn btn-info"> <i class="fab fa-linkedin-in"></i></button>
+                            <button type="button" class="btn btn-info"> <i class="fab fa-instagram"></i></button>
+                        </div>
+    
+                    </div>
+             
+            <aside class="footer_hours py-5" style="grid-area: footer_hours" >
                 <h1 class="text-danger h3">Menu</h1>
                 <ul class="list-unstyled" >
                     <li>Home</li>
@@ -187,7 +269,7 @@
                 </ul>
             </aside>
 
-            <aside >
+            <aside class="footer_hours py-5" style="grid-area: footer_hours" >
                 <h1 class="text-danger h3">Some Museums Showing Rembrandts</h1>
                 <ul class="list-unstyled" >
                     <li>Hermitage Museum</li>
@@ -203,7 +285,7 @@
                 </ul>
             </aside>
 
-            <aside >
+            <aside class="footer_hours py-5" style="grid-area: footer_hours">
                 <h1 class="text-danger h3">Paintings Name</h1>
                 <ul class="list-unstyled">
                     <li>Self Portrait As A Young Man</li>
@@ -219,7 +301,7 @@
                 </ul>
             </aside>
 
-            <aside class>
+            <aside class="footer_hours py-5" style="grid-area: footer_hours">
                 <h1 class="text-danger h3">Other Links</h1>
                 <ul class="list-unstyled" >
                     <li>Complete Self Portraits</li>
@@ -231,7 +313,7 @@
                     <li>Selected Etchings</li>
                     <li>About the Etchings</li>
                 </ul>
-            </aside>
+            </aside class="footer_img py-5" style="grid-area: footer_hours">
 
             
             <img  src="images/interface-imgs/s9-footer-drawing.jpg" alt="">
@@ -246,11 +328,7 @@
                 <script>document.write(new Date().getFullYear());</script> Whatever. All rights reserved.
             </p>
       
-            <i class="fab fa-facebook-square"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-linkedin-in"></i>
-            <i class="fab fa-linkedin-in"></i>
-       
+
           </section>
      
 
@@ -271,6 +349,24 @@
             });
         });
     </script>
+
+<div class="modal fade" id="painting1" tabindex="1" role="dialog" aria-labelledby="Rembrandt Painting 1" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="model-content">
+            <div class="model-header">
+                <button class="close" type="button" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="images/paintings-img/1920px-P1150002_Cognacq-Jay_Rembrandt_anesse_de_Balaam_rwk.jpg" class="img-fluid" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
     <script src="images/https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="images/https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
