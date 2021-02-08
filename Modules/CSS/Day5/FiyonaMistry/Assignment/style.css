@@ -1,0 +1,108 @@
+* {
+    margin:0px;
+}
+header {
+    position:sticky;
+    height:30px;
+    background-color:white;
+    text-align:center;
+    line-height:30px;
+    color:lightskyblue;
+}
+nav{
+    background-color: black;
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
+nav a {
+    padding: 10px;
+    color: gray;
+    font-size: 20px;
+    text-decoration: none;
+}
+a:hover {
+    color: white;
+}
+.banner {
+    height:100%;
+    width:100%;
+}
+.learnMore{
+    margin-top:0px;
+    text-align:center;
+    background-color:black;
+    line-height:100px;
+    height:100px;
+    color:white;
+    font-family:Calibri;
+}
+.button{
+    background-color:dodgerblue;
+    padding:10px;
+    color:white;
+    border-radius:6px;
+    font-size:16px;
+}
+.imp{
+    text-align:center;
+    margin-left:200px;
+    margin-right:200px;
+    margin-top:50px;
+}
+img{
+    width:100px;
+    height:100px;
+}
+.giganticHeading{
+    margin-top:100px;
+    text-align:center;
+    line-height:150px;
+    height:150px;
+    background-color:floralwhite;
+}
+.subtitle {
+    text-align: center;
+    line-height:0px;
+    height: 50px;
+    background-color: floralwhite;
+    color:gray;
+}
+.everything {
+    text-align: center;
+    margin:150px;
+    justify-content:center;
+}
+.insertCoin{
+    height:100px;
+    line-height:100px;
+    background-color:cadetblue;
+    color:white;
+    text-align:center;
+    font-size:20px;
+}
+.insertCoinButton{
+    background-color:white;
+    color:black;
+    border-radius:6px;
+    padding:10px;
+}
+.links{
+    text-align:left;
+    float:left;
+    margin-top:50px;
+    margin-left:200px;
+}
+.links td a{
+    color:gray; 
+}
+.getInTouch {
+    text-align: left;
+    float:right;
+    margin-top:65px;
+    margin-right:220px;
+}
+.footer {
+    background-color: lightgray;
+    text-align: center;
+}

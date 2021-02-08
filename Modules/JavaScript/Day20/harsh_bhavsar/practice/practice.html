@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Exercise</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <button class="btn btn-primary" type="button" onclick="fnc()">click</button>
+            <div id="demo"></div>
+        </div>
+    </div>
+    <script>
+       /* var p = {"products" : [ { "Name": "Cheese", "Price" : 2.50, "Location": "Refrigerated foods"},
+                              { "Name": "Crisps", "Price" : 3, "Location": "the Snack isle"}, 
+                               { "Name": "Pizza", "Price" : 4, "Location": "Refrigerated foods"},
+                              { "Name": "Chocolate", "Price" : 1.50, "Location": "the Snack isle"}, 
+                              { "Name": "Self-raising flour", "Price" : 1.50, "Location": "Home baking"},
+                             { "Name": "Ground almonds", "Price" : 3, "Location": "Home baking"} ] } ;*/
+
+        function fnc() {
+            fetch('products.json')
+                .then((res) => {
+                    return res.text();
+                   
+                })
+                .then((data) => {
+                   document.getElementById('demo').innerHTML = "JSON file data: <br>" + data;
+                   console.log(data);
+                })
+        }
+                /*let product = JSON.stringify(p);
+                    localStorage.setItem('p', product);
+                    let pr = JSON.parse(localStorage.getItem('p'));
+                    console.log(pr);*/
+
+    </script>
+
+
+</body>
+
+</html>

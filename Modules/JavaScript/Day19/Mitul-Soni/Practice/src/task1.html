@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 1</title>
+</head>
+
+<script>
+    function getRadius()
+    {
+        const PI = 3.14;
+        var r = document.getElementById("radius").value;
+
+        //Function expression 
+        var result = function(r){
+            return PI * r * r;
+        };
+
+        document.getElementById("result").innerHTML = "Area of Circle is : " + result(r);
+    }
+
+
+    function getArea()
+    {
+        var h = document.getElementById("height").value;
+        var w = document.getElementById("width").value;
+        var r = function (h,w)
+        {
+            this.w = w;
+            this.h = h;
+            return w * h;
+        };
+        document.getElementById("result2").innerHTML = "Area of rectangle is : " + r(h,w);
+    }
+
+
+    function getFacto()
+    {
+        var a  = document.getElementById("num").value;
+        var ans = getfact(a);
+        function getfact(a)
+        {   
+            var sum = 1;
+            for(let i=1;i<=a;i++)
+            {
+                sum=sum * i;
+            }
+            return sum;
+        }
+        document.getElementById("ans").innerHTML = "Factorial is : " + ans;
+    }
+
+
+    function getEmp()
+    {
+        var empname = document.getElementById("empname").value;
+        var add = document.getElementById("empadd").value;
+        var des = document.getElementById("empdes").value;
+        
+        var emp = {
+            empnme:empname,
+            empadd:add,
+            empdes:des,
+            fullname:function(){
+                return this.empnme + " " + this.empadd + " " + this.empdes;
+            }
+        }
+        document.getElementById("empResult").innerHTML = emp.fullname();
+    }
+
+
+    function getEmpDetails()
+    {
+        var name = document.getElementById("name").value;
+        var add = document.getElementById("add").value;
+        var des = document.getElementById("des").value;
+        
+        var person = {
+            fullName: function() {
+            return this.firstName + " " + this.address + " " + this.designation;
+                    }
+            }
+        var person1 = {
+            firstName:name,
+            address:add,
+            designation:des
+        }
+        
+        var x = person.fullName.apply(person1); 
+        document.getElementById("applyResult").innerHTML = x; 
+
+    }
+
+
+    function getClosure()
+    {
+        function OuterFunction() 
+        {
+            var outerVariable = 100;
+            function InnerFunction() 
+            {
+                alert(outerVariable);
+            }
+            return InnerFunction;
+        }
+        var innerFunc = OuterFunction();
+        innerFunc();
+    }
+
+</script>
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h5> Find Area of Circle</h5>
+        
+                <form class="form-inline">
+                    <label for="radius" class="form-group">Enter Radius</label>
+                    <input type="text" class="form-control" id="radius">
+                    <input type="button" class="btn btn-success" value="Result" onclick="getRadius()">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <span id="result"></span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h5> Find Area of Rectangle</h5>
+        
+                <form class="form-inline">
+                    <label for="height" class="form-group">Enter Height</label>
+                    <input type="text" class="form-control" id="height">
+                    <label for="width" class="form-group">Enter Width</label>
+                    <input type="text" class="form-control" id="width">
+                    <input type="button" class="btn btn-success" value="Result" onclick="getArea()">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <span id="result2"></span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h5>function Hosting</h5>
+                <p>Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope.</p>
+                <p>In function Hosting is a predfind call to function that declare in the scop</p>
+                <p>Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope.</p>
+                <p>Because of this, JavaScript functions can be called before they are declared:</p>
+
+                <form action="" class="form-inline">
+                    <label for="" class="form-group">Enter Number</label>
+                    <input type="text" id="num" class="form-control">
+                    <input type="button" class="btn btn-success" onclick="getFacto()" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <span id="ans"></span>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h5>Using Function call create employee object with field Name, Address and Designation and pass it to function.
+                </h5>
+                
+                <label for="" class="form-group">Employee Name</label>
+                <input type="text" class="form-control" id="empname">
+                <label for="" class="form-geoup">Employee Address</label>
+                <input type="text" class="form-control" id="empadd">
+                <label for="" class="form-geoup">Enter Designation</label>
+                <input type="text" class="form-control" id="empdes">
+                <input type="button" class="btn btn-success" value="submit" onclick="getEmp()">
+                
+            </div>
+        </div>
+        <div class="row">
+            <span id="empResult"></span>
+        </div>
+        
+        <hr>
+        
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h5>Using Function Apply pass employee object to a function defined in the function.</h5>
+                
+                <label for="" class="form-group">Employee Name</label>
+                <input type="text" class="form-control" id="name">
+                <label for="" class="form-geoup">Employee Address</label>
+                <input type="text" class="form-control" id="add">
+                <label for="" class="form-geoup">Enter Designation</label>
+                <input type="text" class="form-control" id="des">
+                <input type="button" class="btn btn-success" value="submit" onclick="getEmpDetails()">
+                
+            </div>
+        </div>
+        <div class="row">
+            <span id="applyResult"></span>
+        </div>
+
+        <hr>
+
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h5>Explain Function closure with practical</h5>
+                <p>A closure is the combination of a function bundled together(enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.</p>                
+                <p>Closure means that an inner function always has access to the vars and parameters of its outer function, even after the outer function has returned.</p>
+                <p>Closure work it's look like nested function in simple meaning function about function</p>
+                <p>Click the button and see output</p>
+                <input type="button" class="btn btn-success" onclick="getClosure()" value="Click">
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

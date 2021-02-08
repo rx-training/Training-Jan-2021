@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-day6</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+        }
+        #toggle{
+            display: none;
+        }
+        label{
+            margin: 0px 30px 0px 0px;
+            font-size: 20px;
+            display: none;
+            line-height: 100px;
+            width: 26px;
+            float: right;
+        }
+        .nav{
+            border-bottom: 1px solid black;
+            text-align: right;
+            height: 100px;
+            line-height: 100px;
+        }
+        .menu{
+            /* margin: 0 30px 0 0; */
+
+        }
+        .menu a{
+            clear: right;
+            text-decoration: none;
+            color: gray;
+            margin: 0 40px 0px 0px;
+            line-height: 100px;
+        }
+        @media screen and (max-width:576px){
+            label{
+                display: block;
+                cursor: pointer;
+            }
+            .menu{
+                text-align: left;
+                width: 100%;
+                display: none;
+            }
+            .menu a{
+                padding-left: 30px;
+                display: block;
+                border-bottom: 1px solid;
+                margin: 0;  
+
+            }
+            #toggle:checked + .menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <label for="toggle">&copysr;</label>
+            <input type="checkbox" id="toggle">
+            <div class="menu">
+                <a href="">Home</a>
+                <a href="">contact-us</a>
+                <a href="">About-us</a>
+            </div>
+        
+    </div>
+</body>
+</html>

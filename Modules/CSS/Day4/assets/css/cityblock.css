@@ -1,0 +1,25 @@
+﻿body{
+    width: auto
+}
+div.a {
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid black;
+    height:auto;
+    align-items: start; 
+}
+div.b {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border-right: 3px solid black;
+    margin: 0px;
+    align-content: center;
+}
+.img{
+    border-radius: 50%;
+}
+h5{
+    margin: 0px;
+    margin-top: 10px;
+}
