@@ -40,9 +40,7 @@
         fetch("info.json")
             .then(response => {
                 response.json().then(
-                    
                     products => {
-                        console.log(products);
                         var i = "";
                         for(var j = 0; j<products.length; j++){
                             i += "<tr>";

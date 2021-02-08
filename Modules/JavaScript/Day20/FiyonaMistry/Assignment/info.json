@@ -1,5 +1,4 @@
-{
-    "products":[
+[
         {
             "ProductID": 1,
             "ProductName": "Cheese",
@@ -25,4 +24,3 @@
             "Quantity": 1
         }
     ]
-}
