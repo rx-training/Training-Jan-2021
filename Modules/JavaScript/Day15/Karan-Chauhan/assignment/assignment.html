@@ -15,6 +15,8 @@
                 var no1 = parseFloat(document.getElementById('no1').value);
                 var no2 = parseFloat(document.getElementById('no2').value);
 
+                
+
                 for (var i = 0; i < document.getElementsByName('operation').length; i++)
                 {
                      if (document.getElementsByName('operation')[i].checked)
@@ -36,10 +38,13 @@
                     ans = no1 / no2;
                 }
 
-                res = "Result is :" + ans;
-                document.getElementById('result').innerText = res; 
-                
-
+                if(isNaN(no1) || isNaN(no2)){
+                    alert('Invalid Input!');
+                }
+                else{
+                    res = "Result is :" + ans;
+                    document.getElementById('result').innerText = res; 
+                }           
             }
 
            

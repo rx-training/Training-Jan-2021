@@ -10,29 +10,45 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <title>JavaScript</title>
-    <script type="text/JavaScript">
-           setInterval(countdownFun,1000);
-           function countdownFun()
-           {
-               let d = new Date();
-               document.getElementById("demo").innerHTML= "Time : "+
-               d.getHours() + ":" +
-               d.getMinutes() + ":" +
-               d.getSeconds();
-               
-           }
-           setTimeout(myfunction,60000);
-           function myfunction()
-           {
-               alert('Time Up');           
-               
-               
-           }
-    </script>
+   
 </head>
 
 <body>
+    <br> <br>
+            
     <div class="container">
-        <div class="alert alert-danger" id="demo"></div>        
+        <div class="alert alert-danger" id="demo"></div>
+        <div class="alert alert-danger" id="msg"></div>
+        <button type="button" class="btn btn-warning" onclick="play()">Start Exam</button>
     </div>
+    
+    
+<body>
+<script>
+document.getElementById('demo').style.display='none';
+  function  display(value) {
+    document.getElementById('demo').style.display='block';
+    document.getElementById('msg').style.display='none';
+      document.getElementById('demo').innerHTML=value;
+  }
+  function play() {
+    document.getElementById('msg').innerHTML="Exam already started and will end after 3 hours! Good luck!";   
+    promise();
+  }
+  function promise() {
+      let mypromise = new Promise(function(resolve,reject) {
+          var time=3*1000*60*60;             
+          setTimeout(function() {resolve("Exam over! Time up!");},time);
+      });
+
+    mypromise.then(function(value) {
+          display(value);
+    },
+    function(error) {
+        display(error);
+    }
+    );
+} 
+</script>
+</body>
 </html>
