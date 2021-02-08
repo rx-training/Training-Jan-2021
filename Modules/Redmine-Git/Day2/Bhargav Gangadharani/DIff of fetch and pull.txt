@@ -1,6 +1,0 @@
-Pull: 
-Pull copies the changes from the remote repository to our local repository.
-
-Fetch:
-Fetch gives info of the changes from the remote repository.
-It is basically used to know if there is any changes or not, if yes then what are thet changes, without pulling.
