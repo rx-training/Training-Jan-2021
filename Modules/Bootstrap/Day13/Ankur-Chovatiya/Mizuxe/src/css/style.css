@@ -19,3 +19,8 @@ body {
     left: 0;
     width: 100%;
     min-height: 600px; }
+
+.info-header {
+  width: 50%;
+  margin: auto;
+  border-bottom: 2px solid #ddd; }
