@@ -45,12 +45,12 @@ Make a function that takes in a single parameter and returns a new promise. usin
         varLet();
 
         function makePromise(str){
-            var str = document.getElementById("txtpromise");
+            var str = document.getElementById("txtpromise").value;
             return new Promise((resolve,reject) =>{
                 function revstr(str) {
                     var revString = "";
                     for (var i = str.length - 1; i >= 0; i--) {
-                        revString += str[i];
+                        revString += str[i]; 
                     }
                     console.log("Reversed String : " + revString);
                     return revString;

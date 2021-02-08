@@ -20,7 +20,7 @@
                         <th>Price</th>
                         <th>Quantity</th>
                     </thead>
-                    <tbody id="products"></tbody>
+                    <tbody id="productDetails"></tbody>
                 </table>
                 <button onclick="display()" class="btn btn-primary">Cart Summary</button>
             </div>
@@ -40,17 +40,19 @@
         fetch("info.json")
             .then(response => {
                 response.json().then(
+                    
                     products => {
+                        console.log(products);
                         var i = "";
-                        for(var j = 0; i<products.length; i++){
+                        for(var j = 0; j<products.length; j++){
                             i += "<tr>";
-                            i += "<td>" + products[i].ProductID + "</td>";
-                            i += "<td>" + products[i].ProductName + "</td>";
-                            i += "<td>" + products[i].Price + "</td>";
-                            i += "<td>" + products[i].Quantity + "</td>";
-                            i += '<td><button class="btn btn-danger" onclick="retrieve('+"'"+products[i].ProductID+"'"+','+"'"+products[i].ProductName+"'"+','+"'"+products[i].Price+"'"+','+"'"+products[i].Quantity+"'"+')">Add Cart</button></td></tr>'
+                            i += "<td>" + products[j].ProductID + "</td>";
+                            i += "<td>" + products[j].ProductName + "</td>";
+                            i += "<td>" + products[j].Price + "</td>";
+                            i += "<td>" + products[j].Quantity + "</td>";
+                            i += '<td><button class="btn btn-danger" onclick="retrieve('+"'"+products[j].ProductID+"'"+','+"'"+products[j].ProductName+"'"+','+"'"+products[j].Price+"'"+','+"'"+products[j].Quantity+"'"+')">Add Cart</button></td></tr>'
                         }
-                        document.getElementById("products").innerHTML = i;
+                        document.getElementById("productDetails").innerHTML = i;
                     }
                 )
             })

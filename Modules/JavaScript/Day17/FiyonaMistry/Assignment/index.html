@@ -25,7 +25,7 @@ Use radio buttons for Gender -->
         <h2 class="text-center">Employee Details</h2>
         <form>
             <div class="form-group">
-                <input type="number" id="emp_id" class="form-control" placeholder="Employee ID" pattern="/[0-9]{5}/g" required>
+                <input type="number" id="emp_id" class="form-control" placeholder="Employee ID" required>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Employee Name" required>
@@ -69,16 +69,17 @@ Use radio buttons for Gender -->
                 <input type="number" class="form-control" placeholder="Employee Contact Number" required>
             </div>
             <div class="form-group text-center">
-                <button class="btn btn-primary" onclick="onSubmit()" type="button">Submit</button>
+                <button class="btn btn-primary" onclick="return onSubmit()" type="submit">Submit</button>
             </div>
         </form>
     </div>
 
     <script>
         function onSubmit(){
-            var id = parseInt(document.getElementById("emp_id").value);
-            var id_regEx = /[0-9]{5}/g;
-            if(id.test(id_regEx) == true){
+            console.log("a");
+            var id = document.getElementById("emp_id").value;
+            const id_regEx = /[0-9]{5}/g;
+            if((id.match(id_regEx) == id)){
                 alert("Valid Employee Id");
             }
             else{

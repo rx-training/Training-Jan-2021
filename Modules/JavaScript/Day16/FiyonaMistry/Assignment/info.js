@@ -1,6 +1,8 @@
 function validateDate(inputText)
 {
     var dateformat = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
+    const max_year = 9999;
+    const min_year = 1800;
 
     if(inputText.value.match(dateformat))
     {
@@ -47,6 +49,11 @@ function validateDate(inputText)
                 alert('Invalid date format!');
                 return false;
             }
+        }
+        if ((yy > max_year) || (yy < min_year))
+        {
+            alert('Invalid date format!');
+            return false;
         }
     }
     else

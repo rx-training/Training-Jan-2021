@@ -21,7 +21,9 @@ Try to change windows height and width using Windows object -->
     <button class="btn btn-primary" type="button" onclick="backBTN()">Go Back</button>
     <button class="btn btn-primary" type="button" onclick="assignBTN()">Window Assign</button>
     <button class="btn btn-primary" type="button" onclick="forwardBTN()">Go Forward</button>
-    <p id="heightWidth"></p>
+    <!-- <p id="heightWidth"></p> -->
+    <button class="btn btn-primary" onclick="openWin()">Open Window</button>
+    <button class="btn btn-primary" onclick="resizeWin()">Resize Window</button>
     <script>
         document.getElementById("location").innerHTML = "Site URL : " + window.location.href;
         document.getElementById("hostname").innerHTML = "Hostname : " + window.location.hostname;
@@ -40,9 +42,14 @@ Try to change windows height and width using Windows object -->
             window.history.forward();
             return false;
         }
-        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        var w = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        document.getElementById("heightWidth").innerHTML = "Browser inner width : " + w + " and height : " + h;  // not working
+        var myWindow;
+        function openWin(){
+            myWindow = window.open("", "", "width=200, height=200");
+        }
+        function resizeWin(){
+            myWindow.resizeTo(500, 500);
+            myWindow.focus();
+        }
     </script>
 </body>
 </html>
