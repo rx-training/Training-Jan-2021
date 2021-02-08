@@ -22,6 +22,16 @@ $icon-size:30px;
     .home-inner{
         padding-top: 150px;
     } 
+    .card-form{
+        opacity: 0.8;
+    }
+    .fa{
+        color:$primary-color;
+        background: #fff;
+        padding:4px;
+        border-radius:5px;
+        font-size: $icon-size;
+    }
 
 }
 body{
@@ -32,3 +42,19 @@ body{
     border-bottom: $primary-color 3px solid;
     opacity: 0.8;
 }
+#explore-section .fa, #share-section .fa {
+    color: #fff;
+    background: #333;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 30px; }
+  
+    #create-section{
+        .fa{
+            color:$primary-color;
+            background: #fff;
+            padding:4px;
+            border-radius:5px;
+            font-size: $icon-size;
+        }
+    }
