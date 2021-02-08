@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Uber</title>
+        <style>
+            #map {
+                height: 90vh;
+                /* The height is 400 pixels */
+                width: 100%;
+                /* The width is the width of the web page */
+                }
+        </style>
+        <script>
+            if(localStorage.getItem('tripStatus') != 1) {
+                window.location.href = 'home.html';
+            }
+        </script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+            <div class="container-lg container-nav">
+                <a class="navbar-brand mr-5" style="font-size:25px" href="">Uber</a>
+                <div class="nav-item ml-auto mr-3 d-inline-block d-lg-none"><a href="" class=" text-white" data-toggle="modal" data-target="#login-modal"><i
+                    class="fa fa-user"></i></a></div>
+                <div class="nav-item bg-white rounded mr-3  d-inline-block d-lg-none signup-div" style="border-radius: 20px!important ;">
+                    <a href="" class="text-dark" data-toggle="modal" data-target="#signup-modal">Sign
+                        Up</a>
+                    </div>
+                
+                <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class=" navbar-collapse collapse" id="navbarnav1" tabindex="2">
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item order-lg-2"><a href="" class="nav-link">Ride</a></li>
+                        <li class="nav-item order-lg-3"><a href="" class="nav-link">Drive</a></li>
+                        <li class="nav-item order-lg-4"><a href="" class="nav-link">More</a></li>
+                        <li class="nav-item ml-lg-auto d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal">Help</a></li>
+                        <li class="nav-item  d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal" ><span id="user-name"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class=" mx-5 my-4 card position-absolute h-75" style="z-index: 1;border-radius: 0;width: 400px;">
+            <div class="card-header bg-primary" style="border-radius: 0;">
+                <h1 class=" text-white">Ongoing Trip</h1>
+            </div>
+            <div class="card-body">
+                <h3 id="pickup-txt" class="m-3 mt-5">From </h3>
+                <h3 id="destination-txt" class="m-3">To </h3>
+                <h4 id="trip-start-time" class="m-3">Started at </h4>
+                <h5 class="m-3">Your ride will reach at pickup location soon.</h5>
+                <hr> 
+                <h4 class="m-3">Payment Amount: 100</h4>
+                <p class="mx-3">Payment Type: <i class="fa fa-money text-success" style="background-color: greenyellow;"></i> Cash<i class="fa fa-angle-down float-right font-weight-bold"></i></p>
+                
+                <div class="pb-3 px-3" >
+                    <button class="btn btn-dark btn-black w-100" id="bookRide-btn" onclick="bookRide()"><h4>Cancel Trip</h4></button>
+                </div>
+
+                
+                    
+            </div>
+        </div>
+
+        <div id="map"></div>
+
+        
+        
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKYGwoxYBxote1_uo8ktqadMfpT5FhDm8&callback=initMap">
+        </script>
+
+        <script>
+            let userDataStored = localStorage.getItem("logged_in_user_data");
+            userDataStored = JSON.parse(userDataStored);
+            document.getElementById('user-name').innerHTML = userDataStored.name.split(" ")[0];
+
+            var rideData = null;
+            
+            var pickupData = localStorage.getItem('pickup');
+            pickupData = JSON.parse(pickupData);
+            document.getElementById('pickup-txt').innerHTML += pickupData.name.split(",")[0];
+            var pickupMapLat = pickupData.latitude;
+            var pickupMapLon = pickupData.longitude;
+
+            var destinationData = localStorage.getItem('destination');
+            destinationData = JSON.parse(destinationData);
+            document.getElementById('destination-txt').innerHTML += destinationData.name.split(",")[0];
+            var DestMapLat = destinationData.latitude;
+            var DestMapLon = destinationData.longitude;
+
+            var currentTripData = localStorage.getItem('currentTripData');
+            currentTripData = JSON.parse(currentTripData);
+            document.getElementById('trip-start-time').innerHTML += currentTripData.start_time.split("T")[1].slice(0,8);
+
+
+            function countTripTime()
+            {
+                new Promise((resolve,reject) => {
+                    setTimeout(() => {resolve("trip over");}, 10000); // 30*60*1000 = 30 minutes
+                })
+                .then((message) => {
+                    var currentTripData = localStorage.getItem('currentTripData');
+                    currentTripData = JSON.parse(currentTripData);
+                    currentTripData.end_time = (new Date());
+                    localStorage.removeItem('currentTripData');
+                    localStorage.removeItem('pickup');
+                    localStorage.removeItem('destination');
+                    localStorage.setItem('tripStatus',0);
+                    alert(message);
+                    window.location.href = 'home.html';
+                    
+                }, (error)=> alert(error)); 
+                
+            }
+
+            countTripTime();
+
+            function completeCurrentTrip() {
+               
+            }
+
+            function setRideType(rideId) {
+                for(var i=1; i <= rideData.rides.length; i++)
+                {
+                    if(rideData.rides[i-1].id == rideId) {
+                        document.getElementById('ride_' + rideData.rides[i-1].id).style.background = 'rgb(224, 235, 255)';
+                        document.getElementById('ride_' + rideData.rides[i-1].id).classList.add("active");
+                        document.getElementById('bookRide-btn').disabled = false;
+
+                    }
+                    else {
+                        document.getElementById('ride_' + rideData.rides[i-1].id).style.background = 'white';
+                        document.getElementById('ride_' + rideData.rides[i-1].id).classList.remove("active");
+                    }
+                }
+            }
+
+            function bookRide() {
+                console.log($('#rides-list > .active')[0].id);
+                let rideId = $('#rides-list > .active')[0].id.split("_")[1];
+                let ride = rideData.rides[rideId-1];
+
+                var totalRidesCount = localStorage.getItem('totalRidesCount');
+                if(totalRidesCount == null) {
+                    totalRidesCount = 0;
+                }
+
+                totalRidesCount = parseInt(totalRidesCount);
+
+                let currentRide = {
+                    "id" : totalRidesCount+1,
+                    "rider_id" : parseInt(localStorage.getItem('logged_in_user')),
+                    "driver_id" : 1,
+                    "pickup_id" : parseInt(JSON.parse(localStorage.getItem('pickup')).id),
+                    "pickup_coords" : JSON.parse(localStorage.getItem('pickup')).latitude + "," + JSON.parse(localStorage.getItem('pickup')).longitude,
+                    "destination_id" : parseInt(JSON.parse(localStorage.getItem('destination')).id),
+                    "destination_coords" : JSON.parse(localStorage.getItem('destination'))  .latitude + "," + JSON.parse(localStorage.getItem('destination')).longitude,
+                    "ride_type_id" : ride.id,
+                    "start_time" : new Date(),
+                    "end_time" : null,
+                    "is_canceled_by_rider" : 0,
+                    "is_canceled_by_driver" : 0
+                };
+
+                let allStoredTrips = localStorage.getItem('userTrips');
+                
+                if(allStoredTrips == null) {
+                    let newTripList = Array(currentRide);
+                    localStorage.setItem('userTrips',JSON.stringify(newTripList));
+                }
+                else {
+                    let newTripList = JSON.parse(allStoredTrips);
+                    newTripList.push(currentRide)
+                    localStorage.setItem('userTrips',JSON.stringify(newTripList));
+                }
+                localStorage.setItem('totalRidesCount',++totalRidesCount);
+                localStorage.setItem('tripStatus',1);
+                localStorage.setItem('currentTripData',JSON.stringify(currentRide));
+                window.open('currentTrip.html','_self');
+            }
+
+            function initMap() {
+
+                const pickup = { lat: parseFloat(pickupMapLat), lng: parseFloat(pickupMapLon) };
+                const destination = { lat: parseFloat(DestMapLat), lng: parseFloat(DestMapLon) };
+                // The map, centered at pickup
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 15,
+                    center: pickup,
+                });
+                const marker1 = new google.maps.Marker({
+                    position: pickup,
+                    map: map,
+                });
+                const marker2 = new google.maps.Marker({
+                    position: destination,
+                    map: map,
+                });
+            }
+
+            async function setDestinationAndRedirect(locationId) {
+                var file = await fetch('locations.json');
+                data = await file.text();
+                data = JSON.parse(data);
+
+                data.locations.forEach(loc => {
+                    if(loc.id == locationId) {
+                        localStorage.setItem('destination',loc);
+                        window.open('chooseRide.html','_self');
+                    }
+                });
+
+
+
+            }
+        </script>
+    </body>
+</html>

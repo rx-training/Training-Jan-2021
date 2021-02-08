@@ -50,11 +50,12 @@
 
         <div class=" mx-5 my-4 card position-absolute h-75" style="z-index: 1;border-radius: 0;width: 400px;">
             <div class="card-header bg-primary" style="border-radius: 0;">
-                <h1 class="text-white">Where can we pick you up?</h1>
+                <h3 id="pickup-txt" class="text-white mt-5">From </h3>
+                <h1 class="text-white">Where to?</h1>
             </div>
             <div class=" card-body">
-                <select class="form-control" name="pickuplocation" id="pickuplocation" onclick="if (this.selectedIndex != 0) setPickupLocationAndRedirect(parseInt(this.value))">
-                    <option value="">Add a pickup location</option>
+                <select class="form-control" name="pickuplocation" id="pickuplocation" onclick="if (this.selectedIndex != 0) setDestinationAndRedirect(parseInt(this.value))">
+                    <option value="">Enter your destination</option>
                 </select>
             </div>
         </div>
@@ -78,8 +79,12 @@
 
             var locationData = null;
             
-            var mapLat = 23.0225;
-            var mapLon = 72.5714;
+            
+            var pickupData = localStorage.getItem('pickup');
+            pickupData = JSON.parse(pickupData);
+            document.getElementById('pickup-txt').innerHTML += pickupData.name.split(",")[0];
+            var mapLat = parseFloat(pickupData.latitude);
+            var mapLon = parseFloat(pickupData.longitude);
 
             async function getItemsFromFile() {
                 var file = await fetch('locations.json');
@@ -91,34 +96,41 @@
 
                 for(var i=1; i <= data.locations.length; i++)
                 {
-                    selectMenu.innerHTML += '<option class="locations" value="'+data.locations[i-1].id+'">'+ data.locations[i-1].name +'</option>'
+                    if(data.locations[i-1].id != pickupData.id)
+                        selectMenu.innerHTML += '<option value="'+data.locations[i-1].id+'">'+ data.locations[i-1].name +'</option>'
                 }
             }
 
             getItemsFromFile();
 
-
             function initMap() {
-                // The location of pickup
-                const pickup = { lat: mapLat, lng: mapLon };
-                // The map, centered at pickup
+                // The location of destination
+                const destination = { lat: mapLat, lng: mapLon };
+                // The map, centered at destination
                 const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 12,
-                    center: pickup,
+                zoom: 17,
+                center: destination,
+                });
+                const marker = new google.maps.Marker({
+                position: destination,
+                map: map,
                 });
             }
 
-            async function setPickupLocationAndRedirect(locationId) {
+            async function setDestinationAndRedirect(locationId) {
                 var file = await fetch('locations.json');
                 data = await file.text();
                 data = JSON.parse(data);
 
                 data.locations.forEach(loc => {
                     if(loc.id == locationId) {
-                        localStorage.setItem('pickup',JSON.stringify(loc));
-                        window.open('destination.html','_self');
+                        localStorage.setItem('destination',JSON.stringify(loc));
+                        window.open('chooseRide.html','_self');
                     }
                 });
+
+
+
             }
         </script>
     </body>
