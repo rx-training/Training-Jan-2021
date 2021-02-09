@@ -24,3 +24,15 @@ body {
   width: 50%;
   margin: auto;
   border-bottom: 2px solid #ddd; }
+
+#authors img {
+  margin-top: -50px; }
+
+#authors .fa {
+  font-size: 25px; }
+
+#authors .card:hover {
+  background: #3292a6;
+  color: #fff; }
+  #authors .card:hover .fa {
+    color: #fff; }
