@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="intro.html" rel="import">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,18 +14,16 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top py-2 mx-0 p-0">
+    <nav class="navbar navbar-expand-lg fixed-top py-2 mx-0 p-0">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> &nbsp;
             <i class="fas fa-bolt text-primary pr-3"></i>   
-            <a href="#" class="navbar-brand text-dark"> StackBlitz</a>
+            <a href="#" class="navbar-brand"> StackBlitz |</a>
+            <a href="#" class="font-weight-bold text-primary">DEVELOPER</a>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item px-3">  
-                    <a href="#" class="nav-link font-weight-bold text-primary">DEVELOPER</a>
-                </li>
                 <li class="nav-item px-3">
                     <a href="#" class="nav-link">Platform API</a>
                 </li>
@@ -35,8 +32,14 @@
                 </li>
             </ul>
             </div>
-            <form class="form-inline">
-                <i class="fab fa-github fa-lg text-muted"></i>
+            <form class="form-inline ml-auto">
+                <i class="fab fa-github fa-2x text-muted"></i> &nbsp; &nbsp;
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                  </label>
+                </div>
                 <div class="input-group px-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
@@ -48,7 +51,7 @@
     </nav>
 
     <!-- LEFT NAVBAR -->
-    <div class="sidenav border border-bottom-0 border-top-0 mt-5 pt-3">
+    <div class="leftnav border border-top-0 border-bottom-0 border-left-0 mt-5">
         <button class="btn dropdown-btn text-secondary d-block text-left active">Platform API
             <i class="fa fa-caret-down"></i>
         </button>
@@ -81,7 +84,7 @@
     </div>
 
     <!-- RIGHT NAVBAR -->
-    <div class="sidenav2 border border-bottom-0 border-top-0 sticky-top mt-5 pt-3">
+    <div class="rightnav border border-bottom-0 border-top-0 border-right-0 sticky-top mt-5 pt-3">
         <button class="btn text-secondary d-block">Just learning about StackBlitz?
         </button>
         <button class="btn text-secondary d-block">Curious how our technology works?
@@ -90,11 +93,11 @@
 
     <!-- MAIN CONTENT -->
     <div id="mainContent">
-        <div class="container">
+        <!-- <div class="container">
             <h2 id="contentHeading"></h2>
             <p id="mainContentPara"></p>
             <h4 id="subHeading"></h4>
-        </div>
+        </div> -->
     </div>
 
     <!-- FOOTER -->
@@ -135,21 +138,42 @@
             });
         }
 
-        function intro(){
-            var extern = document.getElementsByTagName("link")[0].import;
-            var absatz = extern.getElementsByTagName("h2")[0];
-            window.addEventListener("load", function() {
-                document.getElementsByTagName("html")[0].replaceChild(extern.getElementsByTagName("body")[0], document.getElementsByTagName("body")[0]);
-            }, false);
-
-            // fetch("/intro.html")
-            // .then(response => {
-            //     return response.text()
-            // })
-            // .then(data => {
-            //     document.getElementById("mainContent").innerHTML = data;
-            // });
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
         }
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }       
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+
+        fetch("intro.json")
+        .then(response => response.json())
+        .then(data => {
+            // var str = JSON.stringify("intro.json");
+            // document.getElementById("mainContent").innerHTML = data;
+
+            var mainContainer = document.getElementById("mainContent");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = data[i].value;
+                mainContainer.appendChild(div);
+                console.log(data[i]);
+            }
+            console.log(data);
+        });
 
     </script>
 </body>
