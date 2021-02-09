@@ -13,7 +13,7 @@
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
             <div class="container">
-                <a href="index.html" class="navbar-brand">Blogen</a>
+                <a href="index.html" class="navbar-brand">Admin</a>
                 <button class="navbar-toggler" data-toggle="collaspe" data-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -23,16 +23,16 @@
                             <a href="index.html" class="nav-link">Dashboard</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="country.html" class="nav-link active">Add Country</a>
+                            <a href="country.html" class="nav-link">Add Country</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="State.html" class="nav-link">Add State</a>
-                        </li>   
+                            <a href="State.html" class="nav-link active">Add State</a>
+                        </li>
                         <li class="nav-item px-2">
                             <a href="city.html" class="nav-link">Add City</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="users.html" class="nav-link active">Customers</a>
+                            <a href="users.html" class="nav-link">Users</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -54,11 +54,11 @@
                 </div>
             </div>
         </nav>
-        <header id="main-header" class="py-2 bg-warning text-white">
+        <header id="main-header" class="py-2 bg-info text-white">
             <div class="container">
                 <div class="row">
                     <div class="md-6">
-                        <h1><i class="fa fa-user"></i>Customers</h1>
+                        <h1><i class="fa fa-globe"></i>State</h1>
                     </div>
                 </div>
             </div>
@@ -67,14 +67,13 @@
         <section id="action" class="py-4 mb-4 bg-light">
             <div class="container">
             <div class="row">
-                <div class="col-md-6 ml-auto">
-                    <div class="input-group">
-                    </div>
+                <div class="col-md-2 ml-auto">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addStateModal">Add State</button>
                 </div>
             </div>
            </div>
         </section>
-            <div class="users">
+            <div class="posts">
                 <div class="container">
                     <div class="row">
                         <div class="col">
@@ -83,21 +82,21 @@
                                 <h4 class="card-title">
                                 </h4>
                             </div>
-                            <table id="my_table" class="display">
-                                <thead>
+                            <table id="my_table">
+                                <thead class="bg-dark text-white">
                                     <tr>
                                         
-                                        
-                                        <th>Mobile No</th>
-                                        <th>Name</th>
-                                        <th>Password</th>
+                                        <th>State</th>
+                                        <th>Country</th>
                                         <th>Action</th>
+                                        
+                                        
                                     </tr>
                                 </thead>
                                 <tbody id="tblbody">
-                                    
                                 </tbody>
                             </table>
+                            
 
 
                             </div>    
@@ -110,15 +109,39 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <p class="lead text-center">copyright &copy; 2021 ,Zomato Admin</p>
+                            <p class="lead text-center">copyright &copy; 2021 ,Zomato</p>
                         </div>
                     </div>
                 </div>
             </footer>
 
-       
-        
-       
+        <!--add country modal-->
+        <div class="modal fade" id="addStateModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-info text-white">
+                        <h5 class="modal-title">Add State</h5>
+                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="myForm">
+                            <div class="form-group">
+                                <label for="title">State Name</label>
+                                <input type="text" class="form-control" id="stateName">
+                                <label for="country">Select Country</label>
+                                <select  id="country" class="form-control">
+                                    
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-info" data-dismiss="modal" type="button" onclick="addState()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
 
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>
@@ -126,20 +149,18 @@
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
         <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
         <script>
-            document.getElementById('user').innerHTML=sessionStorage.getItem('user');
+            var countryM;
             $(document).ready( function () {
                 $('#my_table').DataTable();
             } );
-            function  logout() {
-                sessionStorage.clear();
-                location.href='login.htnl';
-            }
+            document.getElementById('user').innerHTML=sessionStorage.getItem('user');
+            // data load
 
-            var customerM=JSON.parse(localStorage.getItem('customerM'));
-            for (row in customerM)
+            var stateM=JSON.parse(localStorage.getItem('stateM'));
+            for (row in stateM)
             {
                 console.log(row);
-                rowdata=customerM[row];
+                rowdata=stateM[row];
                 
                 var tr=document.createElement('tr');
                 for(obj in rowdata)
@@ -155,25 +176,56 @@
 
               document.getElementById('tblbody').append(tr); 
             }
-             /* for(var i=0;i<customerM.length;i++) 
-             {
-              
-              var row=customerM[i];
-              console.log(row);
-              
-          } */
 
-          function itemremove(rowobj) {
+            // coutry drop down  data get
+            var countryM=JSON.parse(localStorage.getItem('countryM'));
+            var sel=document.getElementById('country');
+            for (row in countryM)
+            {
+                console.log(row);
+                rowdata=countryM[row];
+                for(obj in rowdata)
+              { 
+                  var option=document.createElement('option');
+                  option.innerHTML=rowdata[obj]; 
+                  sel.appendChild(option);
+
+              }
+            }
+            
+            
+            
+            // functionality
+            function  logout() {
+              sessionStorage.clear();
+              location.href='login.htnl';
+            }
+            function addState()
+            {
+                var stateName=document.getElementById('stateName').value;
+                var countryname=document.getElementById('country').value;
+                var object= {
+                    'stateName':stateName,
+                    'countryName':countryname,
+                }
+                stateM=JSON.parse(localStorage.getItem('stateM')) || [];
+                stateM.push(object);
+                object=JSON.stringify(stateM);
+                localStorage.setItem('stateM',object); 
+                alert("add successfully");
+                document.getElementById("myForm").reset();
+                location.reload();
+
+            } 
+
+            function itemremove(rowobj) {
               //alert(rowobj);
-              customerM=JSON.parse(localStorage.getItem('customerM'));
-              customerM.splice(rowobj,1);
-              localStorage.setItem('customerM',JSON.stringify(customerM));
+              stateM=JSON.parse(localStorage.getItem('stateM'));
+              stateM.splice(rowobj,1);
+              localStorage.setItem('stateM',JSON.stringify(stateM));
               location.reload(); 
 
           }
-
-
-
-          </script>
+        </script>
     </body>
 </html>

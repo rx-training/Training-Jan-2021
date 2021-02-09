@@ -23,13 +23,13 @@
                             <a href="index.html" class="nav-link">Dashboard</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="country.html" class="nav-link active">Add Country</a>
+                            <a href="country.html" class="nav-link">Add Country</a>
                         </li>
                         <li class="nav-item px-2">
                             <a href="State.html" class="nav-link">Add State</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="city.html" class="nav-link">Add City</a>
+                            <a href="city.html" class="nav-link active">Add City</a>
                         </li>
                         <li class="nav-item px-2">
                             <a href="users.html" class="nav-link">Users</a>
@@ -54,11 +54,11 @@
                 </div>
             </div>
         </nav>
-        <header id="main-header" class="py-2 bg-primary text-white">
+        <header id="main-header" class="py-2 bg-info text-white">
             <div class="container">
                 <div class="row">
                     <div class="md-6">
-                        <h1><i class="fa fa-globe"></i>country</h1>
+                        <h1><i class="fa fa-globe"></i>City</h1>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div class="container">
             <div class="row">
                 <div class="col-md-2 ml-auto">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCountryModal">Add Country</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCityModal">Add City</button>
                 </div>
             </div>
            </div>
@@ -85,7 +85,8 @@
                             <table id="my_table">
                                 <thead class="bg-dark text-white">
                                     <tr>
-                                        
+                                        <th>City</th>
+                                        <th>State</th>
                                         <th>Country</th>
                                         <th>Action</th>
                                         
@@ -114,25 +115,32 @@
                 </div>
             </footer>
 
-        <!--add country modal-->
-        <div class="modal fade" id="addCountryModal">
+        <!--add City modal-->
+        <div class="modal fade" id="addCityModal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-info text-white">
-                        <h5 class="modal-title">Add Country</h5>
+                        <h5 class="modal-title">Add City</h5>
                         <button class="close" data-dismiss="modal"><span>&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <form id="myForm">
                             <div class="form-group">
-                                <label for="title">Country Name</label>
-                                <input type="text" class="form-control" id="countryName">
+                                <label for="title">City Name</label>
+                                <input type="text" class="form-control" id="cityName">
+                                <label for="country">Select Country</label>
+                                <select  id="country" class="form-control" onchange="change()">
+                                </select>
+
+                                <label for="state">Select State</label>
+                                <select  id="state" class="form-control">
+                                </select>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-info" data-dismiss="modal" type="button" onclick="addCountry()">Submit</button>
+                        <button class="btn btn-info" data-dismiss="modal" type="button" onclick="addState()">Submit</button>
                     </div>
                 </div>
             </div>
@@ -151,11 +159,11 @@
             document.getElementById('user').innerHTML=sessionStorage.getItem('user');
             // data load
 
-            var countryM=JSON.parse(localStorage.getItem('countryM'));
-            for (row in countryM)
+            var cityM=JSON.parse(localStorage.getItem('cityM'));
+            for (row in cityM)
             {
                 console.log(row);
-                rowdata=countryM[row];
+                rowdata=cityM[row];
                 
                 var tr=document.createElement('tr');
                 for(obj in rowdata)
@@ -172,25 +180,57 @@
               document.getElementById('tblbody').append(tr); 
             }
 
+            // coutry drop down  data get
+             var countryM=JSON.parse(localStorage.getItem('countryM'));
+            var sel=document.getElementById('country');
+            for (row in countryM)
+            {
+                console.log(row);
+                rowdata=countryM[row];
+                for(obj in rowdata)
+              { 
+                  var option=document.createElement('option');
+                  option.innerHTML=rowdata[obj]; 
+                  sel.appendChild(option);
 
-            
-            
+              }
+            } 
+            // state drop down data load
+            function change(){
+                var stateM=JSON.parse(localStorage.getItem('stateM'));
+                var sel=document.getElementById('state');
+                var sel1=document.getElementById('country');
+                 for (row in stateM)
+                  {
+                    console.log(row);
+                    rowdata=stateM[row];
+                    for(obj in rowdata)
+                    { 
+                       /* var option=document.createElement('option');
+                       option.innerHTML=rowdata[obj]; 
+                       sel.appendChild(option); */
+                       alert(obj);
+                   }
+                 }
+            }
             
             // functionality
             function  logout() {
               sessionStorage.clear();
               location.href='login.htnl';
             }
-            function addCountry()
+            function addCity()
             {
-                var countryName=document.getElementById('countryName').value;
+                var cityName=document.getElementById('cityName').value;
+                var countryname=document.getElementById('country').value;
                 var object= {
-                    'countryName':countryName,
+                    'stateName':stateName,
+                    'countryName':countryname,
                 }
-                countryM=JSON.parse(localStorage.getItem('countryM')) || [];
-                countryM.push(object);
-                object=JSON.stringify(countryM);
-                localStorage.setItem('countryM',object); 
+                stateM=JSON.parse(localStorage.getItem('stateM')) || [];
+                stateM.push(object);
+                object=JSON.stringify(stateM);
+                localStorage.setItem('stateM',object); 
                 alert("add successfully");
                 document.getElementById("myForm").reset();
                 location.reload();
@@ -199,9 +239,9 @@
 
             function itemremove(rowobj) {
               //alert(rowobj);
-              countryM=JSON.parse(localStorage.getItem('countryM'));
-              countryM.splice(rowobj,1);
-              localStorage.setItem('countryM',JSON.stringify(countryM));
+              stateM=JSON.parse(localStorage.getItem('stateM'));
+              stateM.splice(rowobj,1);
+              localStorage.setItem('stateM',JSON.stringify(stateM));
               location.reload(); 
 
           }
