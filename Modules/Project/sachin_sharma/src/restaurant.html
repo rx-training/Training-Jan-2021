@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://use.fontawesome.com/f7a0012d5c.js"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
         <title>Zomato Admin</title>
     </head>
@@ -29,13 +30,13 @@
                             <a href="State.html" class="nav-link">Add State</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="city.html" class="nav-link active">Add City</a>
+                            <a href="city.html" class="nav-link">Add City</a>
                         </li>
                         <li class="nav-item px-2">
                             <a href="users.html" class="nav-link">Customers</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="restaurant.html" class="nav-link">Add Restaurant</a>
+                            <a href="restaurant.html" class="nav-link active">Add Restaurant</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -61,7 +62,7 @@
             <div class="container">
                 <div class="row">
                     <div class="md-6">
-                        <h1><i class="fa fa-building"></i> City</h1>
+                        <h1><i class="fa fa-cutlery"></i> Add Restaurant</h1>
                     </div>
                 </div>
             </div>
@@ -71,7 +72,7 @@
             <div class="container">
             <div class="row">
                 <div class="col-md-2 ml-auto">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCityModal">Add City</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCityModal">Add Restaurant</button>
                 </div>
             </div>
            </div>
@@ -118,27 +119,29 @@
                 </div>
             </footer>
 
-        <!--add City modal-->
+        <!--add Restaurant modal-->
         <div class="modal fade" id="addCityModal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-info text-white">
-                        <h5 class="modal-title">Add City</h5>
+                        <h5 class="modal-title">Add Restaurant</h5>
                         <button class="close" data-dismiss="modal"><span>&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <form id="myForm">
                             <div class="form-group">
-                                <label for="title">City Name</label>
-                                <input type="text" class="form-control" id="cityName">
                                 <label for="country">Select Country</label>
                                 <select  id="country" class="form-control" onchange="change()">
-                                    
                                 </select>
-
                                 <label for="state">Select State</label>
-                                <select  id="state" class="form-control">
+                                <select  id="state" class="form-control" onchange="changeCity()">
                                 </select>
+                                <label for="state">Select City</label>
+                                <select  id="city" class="form-control">
+                                </select>
+                                
+                                
+
                             </div>
                         </form>
                     </div>
@@ -224,7 +227,31 @@
                    }
                  }
             }
-            
+            function changeCity()
+            {
+                var cityM=JSON.parse(localStorage.getItem('cityM'));
+                var sel=document.getElementById('state');
+                var sel1=document.getElementById('country').value;
+                console.log(sel1);
+                 for (row in stateM)
+                  {
+                    console.log(row);
+                    rowdata=stateM[row];
+                    for(obj in rowdata)
+                    { 
+                        
+                        if(rowdata[obj]==sel1)
+                        {
+                                
+                            var option=document.createElement('option');
+                            option.innerHTML=rowdata['stateName']; 
+                            sel.appendChild(option); 
+                        }
+                       
+                       
+                   }
+                 }
+            }
             // functionality
             function  logout() {
               sessionStorage.clear();
