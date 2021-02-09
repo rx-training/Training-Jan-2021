@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/swiggi.css">
+        <title>Swiggi Project</title>
+        <script  src="Js/index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+          $("#linklogin").click(function(){
+            $("#login").show();
+            $("#signup").hide();
+          });
+          $("#linksignup").click(function(){
+            $("#login").hide();
+            $("#signup").show();
+          });
+        });
+        </script>
+        <style>
+            .loginborder{
+                border: white;
+                padding-left: 0px;
+            }
+            .loginborder:focus{
+                box-shadow: none;
+            }
+        </style>
+        <script type="text/javascript" src="../Js/login.js" type=""></script>
+    </head>
+    <body>
+        <section>
+            <div class="container" id="firstsection">
+                <div class="row ">
+                    <div class="card my-5 mx-auto w-50" id="login">
+                        <div class="card-header">
+                            <span class="h3 text-dark">Login</span><br>
+                            <span class="h3 text-dark">or </span>
+                            <span class="h3 text-yellow" id="linksignup">create new adminuser</span>
+                        </div>
+                        <div class="card-body">
+                            <form action="">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <label for="Username">Enter Username:</label>
+                                        <input type="text" class="form-control loginborder" id="useridlogin">
+                                    </li>
+                                    <li class="list-group-item">
+                                        <label for="pwd">Password:</label>
+                                  <input type="password" class="form-control loginborder" id="pwdlogin">
+                                    </li>
+                                </ul>
+                                <div class="form-group my-3">
+                                    <button onclick="return Adminlogin()" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div style="display: none;" class="card my-5 mx-auto w-50" id="signup">
+                        <div class="card-header">
+                            <span class="h3 text-dark">Signup</span><br>
+                            <span class="h3 text-dark">or </span>
+                            <span class="h3 text-yellow" id="linklogin">Login admin user</span>
+                        </div>
+                        <div class="card-body">
+                            <form action="#">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <label for="Username">Enter Username:</label>
+                                        <input type="text" class="form-control loginborder"  id="useridsignup">
+                                    </li>
+                                    <li class="list-group-item">
+                                        <label for="pwd">Password:</label>
+                                    <input type="password" class="form-control loginborder"  id="pwdsignup">
+                                    </li>
+                                    <li class="list-group-item">
+                                        <label for="phone">Phone no:</label>
+                                    <input type="tel" class="form-control loginborder"  id="phoneno">
+                                    </li>
+                                    <li class="list-group-item">
+                                        <label for="email">Email Id:</label>
+                                  <input type="" class="form-control loginborder"  id="emilid">
+                                    </li>
+                                </ul>
+                                <div class="form-group my-3">
+                                    <button onclick="return AdminSignup()" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
