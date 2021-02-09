@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #contact-input:focus {
+            border: none !important;
+            box-shadow: none !important;
+            border-bottom: black solid 2px !important;
+            border-radius: 0;
+        }
+
+        .btn-black {
+                background-color: black !important;
+                border: none;
+                font-size: 18px;
+                border-radius: 0;
+                padding: 10px 15px;
+        }
+    </style>
+    <title>Uber</title>
+</head>
+
+<body>
+    
+    <div class="container my-3">
+        <div class="card" data-aos="fade-up">
+            <div class="card-header bg-dark text-white"><h3>Rate a driver</h3></div>
+            <div class="card-body">
+                <div>
+                    <i id="star-1" onclick="setRating(1)" onmouseover="highlistStars(1)"  class="fa fa-star-o"></i>
+                    <i id="star-2" onclick="setRating(2)" onmouseover="highlistStars(2)"  class="fa fa-star-o"></i>
+                    <i id="star-3" onclick="setRating(3)" onmouseover="highlistStars(3)"  class="fa fa-star-o"></i>
+                    <i id="star-4" onclick="setRating(4)" onmouseover="highlistStars(4)"  class="fa fa-star-o"></i>
+                    <i id="star-5" onclick="setRating(5)" onmouseover="highlistStars(5)"  class="fa fa-star-o"></i>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-danger" onclick="submitRating()">Submit</button>
+                    <button type="button" class="btn btn-dark" onclick="window.location.href = 'home.html'">Skip</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/manageUser.js"></script>
+
+    <script>
+        var isLoggedIn = localStorage.getItem('logged_in_user');
+        if(isLoggedIn == null) {
+            window.location.href = "index.html";
+        }
+
+        var rating = 0;
+
+        function setRating(starNo) {
+            rating = starNo;
+        }
+
+        function highlistStars(starNo) {
+            for(var i = 1; i <= starNo; i++) {
+                document.getElementById('star-'+i).classList.add('fa-star');
+                document.getElementById('star-'+i).classList.add('text-warning');
+                document.getElementById('star-'+i).classList.remove('fa-star-o');
+            }
+            for(var i = starNo+1; i <= 5; i++) {
+                document.getElementById('star-'+i).classList.remove('fa-star');
+                document.getElementById('star-'+i).classList.remove('text-warning');
+                document.getElementById('star-'+i).classList.add('fa-star-o');
+            }
+        }
+
+        function submitRating() {
+            localStorage.removeItem('currentTripData');
+            localStorage.removeItem('pickup');
+            localStorage.removeItem('destination');
+            console.log(rating);
+            window.location.href = 'home.html';
+        }
+
+    </script>
+
+</body>
+
+</html>
+

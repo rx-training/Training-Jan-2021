@@ -17,6 +17,9 @@
                 }
         </style>
         <script>
+            if(localStorage.getItem('logged_in_user') == null) {
+                window.location.href = 'index.html';
+            }
             if(localStorage.getItem('tripStatus') == 1) {
                 window.location.href = 'currentTrip.html';
             }

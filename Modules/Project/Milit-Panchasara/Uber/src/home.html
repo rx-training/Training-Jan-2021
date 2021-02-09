@@ -14,9 +14,22 @@
                 /* The height is 400 pixels */
                 width: 100%;
                 /* The width is the width of the web page */
-                }
+            }
+
+            .dropdown-menu {
+                border-radius: 0;
+                box-shadow: 5px 5px 25px;
+                border-top: 15px solid black;
+            }
+
+            .dropdown-menu a{
+                margin: 15px auto !important;;
+            }
         </style>
         <script>
+            if(localStorage.getItem('logged_in_user') == null) {
+                window.location.href = 'index.html';
+            }
             if(localStorage.getItem('tripStatus') == 1) {
                 window.location.href = 'currentTrip.html';
             }
@@ -42,7 +55,17 @@
                         <li class="nav-item order-lg-3"><a href="" class="nav-link">Drive</a></li>
                         <li class="nav-item order-lg-4"><a href="" class="nav-link">More</a></li>
                         <li class="nav-item ml-lg-auto d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal">Help</a></li>
-                        <li class="nav-item  d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal" ><span id="user-name"></span></a></li>
+                        <li class="nav-item  d-none d-lg-inline-block  order-lg-7 dropdown">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><span id="user-name"></span></a>
+                            <div class="dropdown-menu">
+                                <a href="" class="dropdown-item">Request A Ride</a>
+                                <a href="" class="dropdown-item">My Trips</a>
+                                    <a href="" class="dropdown-item">Wallet</a>
+                                <a href="" class="dropdown-item">Promos</a>
+                                <a href="" class="dropdown-item">Support Messages</a>
+                                <a href="profileSettings.html" class="dropdown-item">Profile Settings</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -72,6 +95,10 @@
         </script>
 
         <script>
+            $('.dropdown').hover(function(){ 
+                $('.dropdown-toggle', this).trigger('click'); 
+            });
+
             let userDataStored = localStorage.getItem("logged_in_user_data");
             userDataStored = JSON.parse(userDataStored);
             document.getElementById('user-name').innerHTML = userDataStored.name.split(" ")[0];

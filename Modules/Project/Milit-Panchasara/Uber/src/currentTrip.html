@@ -17,6 +17,9 @@
                 }
         </style>
         <script>
+            if(localStorage.getItem('logged_in_user') == null) {
+                window.location.href = 'index.html';
+            }
             if(localStorage.getItem('tripStatus') != 1) {
                 window.location.href = 'home.html';
             }
@@ -62,7 +65,7 @@
                 <p class="mx-3">Payment Type: <i class="fa fa-money text-success" style="background-color: greenyellow;"></i> Cash<i class="fa fa-angle-down float-right font-weight-bold"></i></p>
                 
                 <div class="pb-3 px-3" >
-                    <button class="btn btn-dark btn-black w-100" id="bookRide-btn" onclick="bookRide()"><h4>Cancel Trip</h4></button>
+                    <button class="btn btn-dark btn-black w-100" id="bookRide-btn" onclick="cancelRide()"><h4>Cancel Trip</h4></button>
                 </div>
 
                 
@@ -115,12 +118,21 @@
                     var currentTripData = localStorage.getItem('currentTripData');
                     currentTripData = JSON.parse(currentTripData);
                     currentTripData.end_time = (new Date());
-                    localStorage.removeItem('currentTripData');
-                    localStorage.removeItem('pickup');
-                    localStorage.removeItem('destination');
+
+                    let allStoredTrips = localStorage.getItem('userTrips');
+                    let newTripList = JSON.parse(allStoredTrips);
+                    let index = -1;
+                    for(var i=0;i<newTripList.length;i++) {
+                        if(newTripList[i].id == currentTripData.id) {
+                            index = i;
+                            break;
+                        }
+                    }
+                    newTripList[index] = currentTripData;
+                    localStorage.setItem('userTrips',JSON.stringify(newTripList));
                     localStorage.setItem('tripStatus',0);
-                    alert(message);
-                    window.location.href = 'home.html';
+                    console.log(message);
+                    window.location.href = 'giveRating.html';
                     
                 }, (error)=> alert(error)); 
                 
@@ -128,68 +140,31 @@
 
             countTripTime();
 
-            function completeCurrentTrip() {
-               
-            }
+            function cancelRide() {
 
-            function setRideType(rideId) {
-                for(var i=1; i <= rideData.rides.length; i++)
-                {
-                    if(rideData.rides[i-1].id == rideId) {
-                        document.getElementById('ride_' + rideData.rides[i-1].id).style.background = 'rgb(224, 235, 255)';
-                        document.getElementById('ride_' + rideData.rides[i-1].id).classList.add("active");
-                        document.getElementById('bookRide-btn').disabled = false;
-
-                    }
-                    else {
-                        document.getElementById('ride_' + rideData.rides[i-1].id).style.background = 'white';
-                        document.getElementById('ride_' + rideData.rides[i-1].id).classList.remove("active");
-                    }
-                }
-            }
-
-            function bookRide() {
-                console.log($('#rides-list > .active')[0].id);
-                let rideId = $('#rides-list > .active')[0].id.split("_")[1];
-                let ride = rideData.rides[rideId-1];
-
-                var totalRidesCount = localStorage.getItem('totalRidesCount');
-                if(totalRidesCount == null) {
-                    totalRidesCount = 0;
-                }
-
-                totalRidesCount = parseInt(totalRidesCount);
-
-                let currentRide = {
-                    "id" : totalRidesCount+1,
-                    "rider_id" : parseInt(localStorage.getItem('logged_in_user')),
-                    "driver_id" : 1,
-                    "pickup_id" : parseInt(JSON.parse(localStorage.getItem('pickup')).id),
-                    "pickup_coords" : JSON.parse(localStorage.getItem('pickup')).latitude + "," + JSON.parse(localStorage.getItem('pickup')).longitude,
-                    "destination_id" : parseInt(JSON.parse(localStorage.getItem('destination')).id),
-                    "destination_coords" : JSON.parse(localStorage.getItem('destination'))  .latitude + "," + JSON.parse(localStorage.getItem('destination')).longitude,
-                    "ride_type_id" : ride.id,
-                    "start_time" : new Date(),
-                    "end_time" : null,
-                    "is_canceled_by_rider" : 0,
-                    "is_canceled_by_driver" : 0
-                };
-
+                let isConfirmed = confirm("Are you sure ?");
+                if(!isConfirmed) return;
                 let allStoredTrips = localStorage.getItem('userTrips');
                 
-                if(allStoredTrips == null) {
-                    let newTripList = Array(currentRide);
-                    localStorage.setItem('userTrips',JSON.stringify(newTripList));
+                currentTripData.is_canceled_by_rider = 1;
+                currentTripData.end_time = (new Date());
+
+                let newTripList = JSON.parse(allStoredTrips);
+                let index = -1;
+                for(var i=0;i<newTripList.length;i++) {
+                    if(newTripList[i].id == currentTripData.id) {
+                        index = i;
+                        break;
+                    }
                 }
-                else {
-                    let newTripList = JSON.parse(allStoredTrips);
-                    newTripList.push(currentRide)
-                    localStorage.setItem('userTrips',JSON.stringify(newTripList));
-                }
-                localStorage.setItem('totalRidesCount',++totalRidesCount);
-                localStorage.setItem('tripStatus',1);
-                localStorage.setItem('currentTripData',JSON.stringify(currentRide));
-                window.open('currentTrip.html','_self');
+                newTripList[index] = currentTripData;
+                localStorage.setItem('userTrips',JSON.stringify(newTripList));
+                
+                localStorage.setItem('tripStatus',0);
+                localStorage.removeItem('currentTripData');
+                localStorage.removeItem('pickup');
+                localStorage.removeItem('destination');
+                window.open('home.html','_self');
             }
 
             function initMap() {
@@ -209,22 +184,6 @@
                     position: destination,
                     map: map,
                 });
-            }
-
-            async function setDestinationAndRedirect(locationId) {
-                var file = await fetch('locations.json');
-                data = await file.text();
-                data = JSON.parse(data);
-
-                data.locations.forEach(loc => {
-                    if(loc.id == locationId) {
-                        localStorage.setItem('destination',loc);
-                        window.open('chooseRide.html','_self');
-                    }
-                });
-
-
-
             }
         </script>
     </body>

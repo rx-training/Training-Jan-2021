@@ -70,6 +70,8 @@ function verifyPasswordAndRedirect() {
             localStorage.setItem('logged_in_user', localStorage.getItem('user_id_temp'));
             localStorage.setItem('logged_in_user_data', JSON.stringify(getUserDataFromId(localStorage.getItem('user_id_temp'))));
             localStorage.removeItem('user_id_temp');
+            localStorage.removeItem('stored_password');
+            localStorage.removeItem('contact_number_temp');
             window.open('home.html','_top');
             return;
         }
@@ -156,6 +158,7 @@ function saveProfileAndRedirect(email, name) {
 
             localStorage.setItem('users', JSON.stringify(users));
             localStorage.removeItem('newUserData');
+            localStorage.removeItem('contact_number_temp');
             localStorage.setItem('logged_in_user_data', JSON.stringify(getUserDataFromId(localStorage.getItem('logged_in_user'))));
             window.location.href = 'home.html';
         }
