@@ -36,6 +36,9 @@
                         <li class="nav-item px-2">
                             <a href="restaurant.html" class="nav-link">Add Restaurant</a>
                         </li>
+                        <li class="nav-item px-2">
+                            <a href="product.html" class="nav-link">Add Product</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown mr-3">
@@ -184,7 +187,7 @@
                                 <div class="card-body">
                                     <h4>Restaurant</h4>
                                     <h1>
-                                        <i class="fa fa-cutlery"></i>6
+                                        <i class="fa fa-cutlery"></i><span id="resauarentCnt"></span>
                                     </h1>
                                     <a href="restaurant.html" class="btn btn-outline-light btn-small" >View</a>
                                 </div>
@@ -232,6 +235,7 @@
           var stateM=JSON.parse(localStorage.getItem('stateM'));
           var cityM=JSON.parse(localStorage.getItem('cityM'));
           var customerM=JSON.parse(localStorage.getItem('customerM'));
+          var RestaurantM=JSON.parse(localStorage.getItem('RestaurantM'));
           function  logout() {
               sessionStorage.clear();
               location.href='login.htnl';
@@ -239,7 +243,8 @@
           document.getElementById('countryCnt').innerHTML=countryM.length;            
           document.getElementById('stateCnt').innerHTML=stateM.length;            
           document.getElementById('cityCnt').innerHTML=cityM.length;
-          document.getElementById('userCnt').innerHTML=customerM.length;            
+          document.getElementById('userCnt').innerHTML=customerM.length;  
+          document.getElementById('resauarentCnt').innerHTML=RestaurantM.length;          
         </script>
     </body>
 </html>

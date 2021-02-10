@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
-        <script src="https://use.fontawesome.com/f7a0012d5c.js"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
         <title>Zomato Admin</title>
     </head>
@@ -24,7 +23,7 @@
                             <a href="index.html" class="nav-link">Dashboard</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="country.html" class="nav-link">Add Country</a>
+                            <a href="country.html" class="nav-link active">Add Country</a>
                         </li>
                         <li class="nav-item px-2">
                             <a href="State.html" class="nav-link">Add State</a>
@@ -36,10 +35,10 @@
                             <a href="users.html" class="nav-link">Customers</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="restaurant.html" class="nav-link active">Add Restaurant</a>
+                            <a href="restaurant.html" class="nav-link">Add Restaurant</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="product.html" class="nav-link">Add Product</a>
+                            <a href="product.html" class="nav-link active">Add Product</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -61,11 +60,11 @@
                 </div>
             </div>
         </nav>
-        <header id="main-header" class="py-2 bg-info text-white">
+        <header id="main-header" class="py-2 bg-secondary text-white">
             <div class="container">
                 <div class="row">
                     <div class="md-6">
-                        <h1><i class="fa fa-cutlery"></i> Add Restaurant</h1>
+                        <h1><i class="fa fa-globe"></i> Add Food Products</h1>
                     </div>
                 </div>
             </div>
@@ -75,7 +74,7 @@
             <div class="container">
             <div class="row">
                 <div class="col-md-2 ml-auto">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCityModal">Add Restaurant</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addProductModal">Add Food Products</button>
                 </div>
             </div>
            </div>
@@ -89,23 +88,20 @@
                                 <h4 class="card-title">
                                 </h4>
                             </div>
-                            <table id="my_table">
+                            <table id="my_table" class="table">
                                 <thead class="bg-dark text-white">
                                     <tr>
-                                        <th>Restaurant Name</th>
-                                        <th>Restaurant Address</th>
-                                        <th>Area</th>
-                                        <th>Image</th>
-                                        <th>City</th>
-                                        <th>State</th>
-                                        <th>Country</th>
-                                        <th>Action</th>
                                         
+                                        <th>Food Product Name</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
+                                        <th>Restaurant Name</th>
+                                        <th>Action</th>
                                         
                                     </tr>
                                 </thead>
                                 <tbody id="tblbody">
-
                                 </tbody>
                             </table>
                             
@@ -127,40 +123,34 @@
                 </div>
             </footer>
 
-        <!--add Restaurant modal-->
-        <div class="modal fade" id="addCityModal">
+        <!--add Product modal-->
+        <div class="modal fade" id="addProductModal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-info text-white">
-                        <h5 class="modal-title">Add Restaurant</h5>
+                        <h5 class="modal-title">Add Food Products</h5>
                         <button class="close" data-dismiss="modal"><span>&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <form id="myForm">
                             <div class="form-group">
-                                <label for="country">Select Country</label>
-                                <select  id="country" class="form-control" onchange="change()">
+                                <label for="title">Selact Restaurant</label>
+                                <select  id="Restaurant" class="form-control">
                                 </select>
-                                <label for="state">Select State</label>
-                                <select  id="state" class="form-control" onchange="changeCity()">
-                                </select>
-                                <label for="state">Select City</label>
-                                <select  id="city" class="form-control">
-                                </select>
-                                <label for="restaurantName">Restaurant Name</label>
-                                <input type="text" class="form-control" placeholder="Restaurant Name" id="restaurantName">
-                                <label for="restaurantAddress">Restaurant Address</label>
-                                <textarea name="address" id="address" class="form-control" ></textarea>
-                                <label for="restaurantArea">Restaurant Area</label>
-                                <input type="text" class="form-control" placeholder="Restaurant Area" id="area">
-                                <label for="restaurantImg">Restaurant Image</label>
-                                <input type="file" class="form-control" id="img">    
+                                <label for="title">Product Name</label>
+                                <input type="text" class="form-control" id="productName">
+                                <label for="title">Product Description</label>
+                                <textarea name="productDesc" id="productDesc" class="form-control"></textarea>
+                                <label for="price">Price</label>
+                                <input type="number" id="price" class="form-control">
+                                <label for="img">Image</label>
+                                <input type="file" name="img" id="img" class="form-control" id="img">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-info" data-dismiss="modal" type="button" onclick="return addRestuarant()">Submit</button>
+                        <button class="btn btn-info" data-dismiss="modal" type="button" onclick="addProduct()">Submit</button>
                     </div>
                 </div>
             </div>
@@ -177,32 +167,31 @@
                 $('#my_table').DataTable();
             } );
             document.getElementById('user').innerHTML=sessionStorage.getItem('user');
-            // data load table
+            // data load
 
-            var RestaurantM=JSON.parse(localStorage.getItem('RestaurantM'));
-            for (row1 in RestaurantM)
+            var productM=JSON.parse(localStorage.getItem('productM'));
+            for (row1 in productM)
             {
                 console.log(row1);
-                rowdata=RestaurantM[row1];
-                
+                rowdata=productM[row1];
                 var tr=document.createElement('tr');
+
                 for(obj in rowdata)
-              { 
+                { 
+                   var td=document.createElement('td');
                 
-                var td=document.createElement('td');
-                if(obj=='img')
-                {
+               if(obj=='prodImg')
+                 {
                     var imgtag=document.createElement('img');
                     imgtag.setAttribute('src',rowdata[obj]);
                     imgtag.setAttribute('height',"100px");
                     imgtag.setAttribute('width',"100px");
                     td.appendChild(imgtag);
-
-                }
-                else{
+                 }
+                else
+                {
                     td.innerHTML=rowdata[obj];
                 }
-                
                 tr.appendChild(td);
               }
               var td=document.createElement('td');
@@ -211,120 +200,68 @@
 
               document.getElementById('tblbody').append(tr); 
             }
+            // data load in restaurant dropdown
 
-            // coutry drop down  data get
-             var countryM=JSON.parse(localStorage.getItem('countryM'));
-            var sel=document.getElementById('country');
-            for (row in countryM)
+            loadrestaurant();
+            function loadrestaurant()
             {
-                console.log(row);
-                rowdata=countryM[row];
-                for(obj in rowdata)
-              { 
-                  var option=document.createElement('option');
-                  option.innerHTML=rowdata[obj]; 
-                  sel.appendChild(option);
-
-              }
-            } 
-            change();
-            // state drop down data load
-            function change(){
-                var stateM=JSON.parse(localStorage.getItem('stateM'));
-                var sel=document.getElementById('state');
+                var RestaurantM=JSON.parse(localStorage.getItem('RestaurantM'));
+                var sel=document.getElementById('Restaurant');
                 sel.innerHTML=null;
-                var sel1=document.getElementById('country').value;
-                console.log(sel1);
-                 for (row in stateM)
+                
+                
+                 for (row in RestaurantM)
                   {
                     console.log(row);
-                    rowdata=stateM[row];
-                    for(obj in rowdata)
-                    { 
-                        
-                        if(rowdata[obj]==sel1)
-                        {
-                                
-                            var option=document.createElement('option');
-                            option.innerHTML=rowdata['stateName']; 
-                            sel.appendChild(option); 
-                        }
-                       
-                       
-                   }
+                    rowdata=RestaurantM[row];
+                        var option=document.createElement('option');
+                        option.innerHTML=rowdata['restaurantName']; 
+                        sel.appendChild(option); 
                  }
             }
-            // city data load in dropdown
-            changeCity();
-            function changeCity()
-            {
-                var cityM=JSON.parse(localStorage.getItem('cityM'));
-                var sel=document.getElementById('city');
-                sel.innerHTML=null;
-                var sel1=document.getElementById('state').value;
-                console.log(sel1);
-                 for (row in cityM)
-                  {
-                    console.log(row);
-                    rowdata=cityM[row];
-                    for(obj in rowdata)
-                    { 
-                        
-                        if(rowdata[obj]==sel1)
-                        {
-                                
-                            var option=document.createElement('option');
-                            option.innerHTML=rowdata['cityName']; 
-                            sel.appendChild(option); 
-                        }
-                       
-                       
-                   }
-                 }
-            }
+
+            
+            
+            
             // functionality
             function  logout() {
               sessionStorage.clear();
-              location.href='login.htnl';
+              location.href='login.html';
             }
-                        
-            function addRestuarant()
+
+            function addProduct()
             {
-                var restaurantName=document.getElementById('restaurantName').value;
-                var restaurantAddress=document.getElementById('address').value;
-                var area=document.getElementById('area').value;
-                var img=document.getElementById('img').files; 
-                var cityName=document.getElementById('city').value;
-                var stateName=document.getElementById('state').value;
-                var countryName=document.getElementById('country').value;
+                var productName=document.getElementById('productName').value;
+                var productDesc=document.getElementById('productDesc').value;
+                var price=document.getElementById('price').value;
+                var img=document.getElementById('img').files;
                 img="img/" + img[0].name;
                 
-                var object= {
-                    'restaurantName':restaurantName,
-                    'address':restaurantAddress,
-                    'area':area,
-                    'img':img,
-                    'cityName':cityName,
-                    'stateName':stateName,
-                    'countryName':countryName,
-                }
-                RestaurantM=JSON.parse(localStorage.getItem('RestaurantM')) || [];
-                RestaurantM.push(object);
-                object=JSON.stringify(RestaurantM);
-                localStorage.setItem('RestaurantM',object); 
-                alert("add successfully");
-                document.getElementById("myForm").reset();
-                location.reload();
-                return false;
+                var restaurantName=document.getElementById('Restaurant').value;
                 
+                var object= {
+                    'productName':productName,
+                    'productDesc':productDesc,
+                    'price':price,
+                    'prodImg':img,
+                    'restaurantName':restaurantName,
+
+                }
+                productM=JSON.parse(localStorage.getItem('productM')) || [];
+                productM.push(object);
+                object=JSON.stringify(productM);
+                localStorage.setItem('productM',object); 
+                alert("add successfully");
+                document.getElementById("myForm").reset(); 
+                location.reload();
 
             } 
 
             function itemremove(rowobj) {
               //alert(rowobj);
-              RestaurantM=JSON.parse(localStorage.getItem('RestaurantM'));
-              RestaurantM.splice(rowobj,1);
-              localStorage.setItem('RestaurantM',JSON.stringify(RestaurantM));
+              productM=JSON.parse(localStorage.getItem('productM'));
+              productM.splice(rowobj,1);
+              localStorage.setItem('productM',JSON.stringify(productM));
               location.reload(); 
 
           }
