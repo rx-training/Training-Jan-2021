@@ -1,9 +1,21 @@
+.main-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 0.7fr 2fr 0.7fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "leftnav main rightnav" 
+        "leftnav main rightnav"  
+        "footer footer footer";
+    grid-gap: 0.2rem;
+}
 :root {
     --primary-color: #302AE6;
     --secondary-color: #ffffff;
-    --font-color: #424242;
+    --font-color: #070707;
     --bg-color: #fff;
     --heading-color: #292922;
+    --nav-color: #e4e0e0;
 }
 [data-theme="dark"] {
     --primary-color: #9A97F3;
@@ -11,6 +23,7 @@
     --font-color: #ffffff;
     --bg-color: #141418;
     --heading-color: #818cab;
+    --nav-color: #3a3c41;
 }
 .theme-switch {
     display: inline-block;
@@ -55,24 +68,33 @@ body {
     color: var(--font-color);
 }
 nav{
+    grid-area: nav;
     background: var(--secondary-color);
-    /* box-shadow:2px 2px 2px rgb(231, 229, 229); */
+    box-shadow: 2px 2px 2px var(--nav-color);
 }
-nav a{
-    color : var(--font-color);
+nav .navbar-nav li a, .leftnav button, .leftnav a{
+    font-size: 16px;
+    color: grey;
+}
+nav .navbar-nav li a.active{
+    color: rgb(115, 176, 214);
+}
+nav .navbar-nav li a:hover{
+    color: rgb(115, 176, 214);
 }
 nav .navbar-brand{
     color: var(--font-color);
 }
 .leftnav{
-    height: 100%;
-    width: 250px;
-    float: left;
+    grid-area: leftnav;
     overflow: auto;
 }
 .leftnav a, .dropdown-btn{
     text-decoration: none;
     width: 100%;
+}
+.leftnav a.active{
+    color: rgb(115, 176, 214);
 }
 .dropdown-container{
     display: none;
@@ -81,20 +103,36 @@ nav .navbar-brand{
     float: right;
 }
 .leftnav a:hover, .dropdown-btn:hover{
-    background: lightgrey;
+    background: var(--nav-color);
 }
 .rightnav{
-    height: 100%;
+    grid-area: rightnav;
     width: 250px;
-    float: right;
 }
-.rightnav button{
-    font-size: 14px;
+.rightnav a{
+    font-size: 13px;
+    text-align: left;
+    color: var(--font-color);
 }
-.rightnav button:hover{
-    color: blue;
+.rightnav a.active{
+    color: rgb(115, 176, 214);
+}
+.rightnav a:hover{
+    color: rgb(115, 176, 214);
+    text-decoration: none;
+}
+#mainContent{
+    grid-area: main;
+}
+#mainContent nav{
+    background: var(--bg-color);
+    box-shadow: none;
+}
+#mainContent nav li a{
+    background: var(--bg-color);
 }
 footer{
+    grid-area: footer;
     background:rgb(52, 52, 68);
 }
 @media (max-width:768px){
