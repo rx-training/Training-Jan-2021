@@ -81,7 +81,7 @@
                                         }
                                         else
                                         {
-                                            ocument.getElementById('result').innerHTML="";
+                                            document.getElementById('result').innerHTML="";
                                             alert("correct");
                                         }
                                     }
@@ -92,8 +92,15 @@
                                 }
                                 else
                                 {
-                                    document.getElementById('result').innerHTML="";
-                                    alert("correct");
+                                    if(parseInt(darray[1])>29)
+                                    {
+                                        document.getElementById('result').innerHTML="Days should be within the range 1 to 29 in February also leap year";
+                                    }
+                                    else
+                                    {
+                                        document.getElementById('result').innerHTML="";
+                                        alert("correct");
+                                    }
                                 }
                             }
                             else
