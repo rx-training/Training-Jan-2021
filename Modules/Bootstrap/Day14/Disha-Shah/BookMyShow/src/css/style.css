@@ -1,0 +1,151 @@
+.nav-activities {
+  background: #262731;
+  margin-top: 70px; }
+
+.navbar-nav .badge {
+  position: relative;
+  bottom: 12px;
+  right: 10px;
+  font-size: 8px;
+  font-weight: 500; }
+
+.menulines {
+  font-size: 30px;
+  color: white; }
+
+.sidenav {
+  padding-top: 100px;
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background-color: white;
+  overflow-x: hidden;
+  transition: all 0.5s; }
+  .sidenav a {
+    text-decoration: none;
+    color: black;
+    margin: 10px 0;
+    padding: 0 10px;
+    display: block; }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    font-size: 35px; }
+  .sidenav .sidebar-icons {
+    position: absolute;
+    right: 20px; }
+
+.slick-dots li.slick-active button:before {
+  color: black !important; }
+
+.slick-prev:before {
+  color: black !important; }
+
+.slick-next:before {
+  color: black !important; }
+
+.search-item {
+  color: #fd627c; }
+
+#heading-img {
+  margin-top: -20px;
+  margin-right: -10px; }
+
+@media only screen and (max-width: 575px) {
+  #main-content {
+    margin-left: 20px; }
+  .slick-recommended-movies img {
+    width: 40px; }
+  .nav-activities {
+    display: none; }
+  .h3 {
+    font-size: large; }
+  .slick-recommended-movies .slick-prev:before, .slick-entertainment .slick-prev:before {
+    display: none; }
+  .slick-recommended-movies .slick-next:before, .slick-entertainment .slick-next:before {
+    display: none; }
+  .below-navbar {
+    width: 104%; } }
+
+.col-2 img {
+  margin-top: 100px;
+  width: 70px; }
+
+@media (max-width: 768px) and (min-width: 576px) {
+  #main-content {
+    margin-left: 20px; }
+  .col-2 img {
+    width: 150px;
+    margin-top: 20px; }
+  .slick-recommended-movies .slick-prev:before, .slick-entertainment .slick-prev:before {
+    display: none; }
+  .slick-recommended-movies .slick-next:before, .slick-entertainment .slick-next:before {
+    display: none; }
+  .below-navbar {
+    width: 104%; } }
+
+#outdoor-events .badge {
+  font-size: medium; }
+
+#services a {
+  color: gray;
+  text-decoration: none; }
+
+#services a:hover {
+  color: white; }
+
+#links h6 {
+  text-transform: uppercase;
+  font-size: small; }
+
+#links li a {
+  text-decoration: none;
+  color: gray;
+  border-right: 2px solid gray;
+  padding: 0 5px;
+  font-size: x-small; }
+
+#links li a:hover {
+  color: white; }
+
+#citiesModal .modal-content {
+  width: 1200px;
+  margin-left: -350px;
+  margin-top: 100px; }
+
+.tooltip-inner {
+  background-color: #f3dbf0 !important;
+  /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
+  color: gray;
+  max-width: 700px !important;
+  margin-left: 200px !important; }
+
+.tooltip.top .tooltip-arrow {
+  border-top-color: #f3dbf0; }
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #f3dbf0; }
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #f3dbf0; }
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #f3dbf0; }
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: #f3dbf0; }
+
+.footer-logo span {
+  border: 1px solid gray;
+  width: 600px; }
+
+.socials i {
+  color: gray; }
+
+.socials i:hover {
+  color: white; }
