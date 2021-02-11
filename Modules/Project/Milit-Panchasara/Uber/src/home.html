@@ -25,6 +25,30 @@
             .dropdown-menu a{
                 margin: 15px auto !important;;
             }
+
+            @media only screen and (max-width: 991px) {
+                #map {
+                    height: 40vh !important;
+                    position: absolute !important;
+                    top: 0;
+                    z-index: -1;
+                }
+
+                .navbar {
+                    background-color: rgba(0, 0, 0, 0) !important;
+                }
+
+                .gm-control-active {
+                    display: none;
+                }
+
+                .card {
+                    width: 100% !important;
+                    height: 60vh;
+                    position:absolute;
+                    top: 40vh;
+                }
+            }
         </style>
         <script>
             if(localStorage.getItem('logged_in_user') == null) {
@@ -39,28 +63,27 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
             <div class="container-lg container-nav">
-                <a class="navbar-brand mr-5" style="font-size:25px" href="">Uber</a>
-                <div class="nav-item ml-auto mr-3 d-inline-block d-lg-none"><a href="" class=" text-white" data-toggle="modal" data-target="#login-modal"><i
-                    class="fa fa-user"></i></a></div>
-                <div class="nav-item bg-white rounded mr-3  d-inline-block d-lg-none signup-div" style="border-radius: 20px!important ;">
-                    <a href="" class="text-dark" data-toggle="modal" data-target="#signup-modal">Sign
-                        Up</a>
-                    </div>
+                <a class="navbar-brand mr-5 text-dark" style="font-size:30px" href="">Uber</a>
                 
-                <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
-                        class="navbar-toggler-icon"></span></button>
+                <button class=" navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarnav1"><i class=" fa fa-user text-dark"></i></button>
                 <div class=" navbar-collapse collapse" id="navbarnav1" tabindex="2">
                     <ul class="navbar-nav w-100">
-                        <li class="nav-item order-lg-2"><a href="" class="nav-link">Ride</a></li>
-                        <li class="nav-item order-lg-3"><a href="" class="nav-link">Drive</a></li>
-                        <li class="nav-item order-lg-4"><a href="" class="nav-link">More</a></li>
+                        <li class="nav-item order-lg-2 d-none d-lg-inline-block"><a href="" class="nav-link">Ride</a></li>
+                        <li class="nav-item order-lg-3 d-none d-lg-inline-block"><a href="" class="nav-link">Drive</a></li>
+                        <li class="nav-item order-lg-4 d-none d-lg-inline-block"><a href="" class="nav-link">More</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Request A Ride</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">My Trips</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Wallet</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Promos</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Support Messages</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="profileSettings.html" class="nav-link">Profile Settings</a></li>
                         <li class="nav-item ml-lg-auto d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal">Help</a></li>
                         <li class="nav-item  d-none d-lg-inline-block  order-lg-7 dropdown">
                             <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><span id="user-name"></span></a>
                             <div class="dropdown-menu">
                                 <a href="" class="dropdown-item">Request A Ride</a>
                                 <a href="" class="dropdown-item">My Trips</a>
-                                    <a href="" class="dropdown-item">Wallet</a>
+                                <a href="" class="dropdown-item">Wallet</a>
                                 <a href="" class="dropdown-item">Promos</a>
                                 <a href="" class="dropdown-item">Support Messages</a>
                                 <a href="profileSettings.html" class="dropdown-item">Profile Settings</a>
@@ -71,17 +94,29 @@
             </div>
         </nav>
 
-        <div class=" mx-5 my-4 card position-absolute h-75" style="z-index: 1;border-radius: 0;width: 400px;">
-            <div class="card-header bg-primary" style="border-radius: 0;">
+        <div class=" mx-lg-5 my-lg-4 m-0 card" style="z-index: 1;border-radius: 0;width: 400px; height: 75%;position: absolute;">
+            <div class="card-header bg-primary d-none d-lg-block" style="border-radius: 0;">
                 <h1 class="text-white">Where can we pick you up?</h1>
             </div>
             <div class=" card-body">
                 <select class="form-control" name="pickuplocation" id="pickuplocation" onclick="if (this.selectedIndex != 0) setPickupLocationAndRedirect(parseInt(this.value))">
                     <option value="">Add a pickup location</option>
                 </select>
+                <a href="#" class=" text-decoration-none text-dark">
+                    <div class="my-2">
+                        <span class="d-inline-block btn btn-primary mb-4" style="border-radius: 50%; height: 39px;">
+                            <i class="fa fa-crosshairs"></i>
+                        </span>
+                        <div class="d-inline-block p-3">
+                            <h5 class="mb-0">Allow location access</h5>
+                            <p class="text-primary">For perfect pickup experience</p>
+                        </div>
+                        <hr>
+                    </div>
+                </a>
             </div>
         </div>
-
+        
         <div id="map"></div>
 
         

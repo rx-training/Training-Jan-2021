@@ -15,6 +15,30 @@
                 width: 100%;
                 /* The width is the width of the web page */
                 }
+
+            @media only screen and (max-width: 991px) {
+                #map {
+                    height: 40vh !important;
+                    position: absolute !important;
+                    top: 0;
+                    z-index: -1;
+                }
+
+                .navbar {
+                    background-color: rgba(0, 0, 0, 0) !important;
+                }
+
+                .gm-control-active {
+                    display: none;
+                }
+
+                .card {
+                    width: 100% !important;
+                    height: 60vh;
+                    position:absolute;
+                    top: 40vh;
+                }
+            }
         </style>
         <script>
             if(localStorage.getItem('logged_in_user') == null) {
@@ -29,35 +53,44 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
             <div class="container-lg container-nav">
-                <a class="navbar-brand mr-5" style="font-size:25px" href="">Uber</a>
-                <div class="nav-item ml-auto mr-3 d-inline-block d-lg-none"><a href="" class=" text-white" data-toggle="modal" data-target="#login-modal"><i
-                    class="fa fa-user"></i></a></div>
-                <div class="nav-item bg-white rounded mr-3  d-inline-block d-lg-none signup-div" style="border-radius: 20px!important ;">
-                    <a href="" class="text-dark" data-toggle="modal" data-target="#signup-modal">Sign
-                        Up</a>
-                    </div>
+                <a class="navbar-brand mr-5 text-dark" style="font-size:30px" href="">Uber</a>
                 
-                <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
-                        class="navbar-toggler-icon"></span></button>
+                <button class=" navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarnav1"><i class=" fa fa-user text-dark"></i></button>
                 <div class=" navbar-collapse collapse" id="navbarnav1" tabindex="2">
                     <ul class="navbar-nav w-100">
-                        <li class="nav-item order-lg-2"><a href="" class="nav-link">Ride</a></li>
-                        <li class="nav-item order-lg-3"><a href="" class="nav-link">Drive</a></li>
-                        <li class="nav-item order-lg-4"><a href="" class="nav-link">More</a></li>
+                        <li class="nav-item order-lg-2 d-none d-lg-inline-block"><a href="" class="nav-link">Ride</a></li>
+                        <li class="nav-item order-lg-3 d-none d-lg-inline-block"><a href="" class="nav-link">Drive</a></li>
+                        <li class="nav-item order-lg-4 d-none d-lg-inline-block"><a href="" class="nav-link">More</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Request A Ride</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">My Trips</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Wallet</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Promos</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Support Messages</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="profileSettings.html" class="nav-link">Profile Settings</a></li>
                         <li class="nav-item ml-lg-auto d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal">Help</a></li>
-                        <li class="nav-item  d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal" ><span id="user-name"></span></a></li>
+                        <li class="nav-item  d-none d-lg-inline-block  order-lg-7 dropdown">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><span id="user-name"></span></a>
+                            <div class="dropdown-menu">
+                                <a href="" class="dropdown-item">Request A Ride</a>
+                                <a href="" class="dropdown-item">My Trips</a>
+                                <a href="" class="dropdown-item">Wallet</a>
+                                <a href="" class="dropdown-item">Promos</a>
+                                <a href="" class="dropdown-item">Support Messages</a>
+                                <a href="profileSettings.html" class="dropdown-item">Profile Settings</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <div class=" mx-5 my-4 card position-absolute h-75" style="z-index: 1;border-radius: 0;width: 400px;">
-            <div class="card-header bg-primary" style="border-radius: 0;">
+        <div class=" mx-lg-5 my-lg-4 m-0 card" style="z-index: 1;border-radius: 0;width: 400px; height: 75%;position: absolute;">
+            <div class="card-header bg-primary d-none d-lg-block" style="border-radius: 0;">
                 <h3 id="pickup-txt" class="text-white mt-5">From </h3>
                 <h3 id="destination-txt" class="text-white">To </h3>
             </div>
             <div class=" card-body px-0">
-                <ul class="w-100 m-0 mt-4 p-0" id="rides-list" style="height: 50%;overflow-y: scroll;">
+                <ul class="w-100 m-0 p-0" id="rides-list" style="height: 50%;overflow-y: scroll;">
 
                 </ul>
                 <hr> 
@@ -65,10 +98,7 @@
                 
                 <div class="pb-3 px-3" >
                     <button class="btn btn-dark btn-black w-100" id="bookRide-btn" disabled onclick="bookRide()"><h4>Request</h4></button>
-                </div>
-
-                
-                    
+                </div>    
             </div>
         </div>
 
@@ -103,6 +133,8 @@
             var DestMapLat = destinationData.latitude;
             var DestMapLon = destinationData.longitude;
 
+            var distance = getDistanceFromLatLonInKm(pickupMapLat,pickupMapLon,DestMapLat,DestMapLon)
+
             async function getItemsFromFile() {
                 var file = await fetch('rideTypes.json');
                 let data = await file.text();
@@ -113,11 +145,42 @@
 
                 for(var i=1; i <= rideData.rides.length; i++)
                 {
-                    list.innerHTML += '<li class="px-3" id="ride_'+rideData.rides[i-1].id+'" onclick="setRideType('+rideData.rides[i-1].id+')">'+ rideData.rides[i-1].name +'</li><hr>'
+                    let image;
+                    if(rideData.rides[i-1].name == 'UberAuto') {
+                        image='auto-icon.png';
+                    }
+                    else if(rideData.rides[i-1].name == 'Moto') {
+                        image='bike-icon.png';
+                    }
+                    else {
+                        image='car-icon.png';
+                    }
+                    var price = (distance*rideData.rides[i-1].pricePerKm).toFixed(2);
+                    list.innerHTML += '<li class="px-3" id="ride_'+rideData.rides[i-1].id+'" onclick="setRideType('+rideData.rides[i-1].id+')">\
+                        <img src="img/'+image+'" class="img-fluid" height="75px" width="75px"><h5 class="d-inline">'
+                        + rideData.rides[i-1].name +' </h5><i class="fa fa-users"></i> '+rideData.rides[i-1].capacity+'<span class="float-right mt-4">'+price+'</span></li><hr class="m-0">'
                 }
             }
 
             getItemsFromFile();
+
+            function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+                var R = 6371; // Radius of the earth in km
+                var dLat = deg2rad(lat2-lat1);  // deg2rad below
+                var dLon = deg2rad(lon2-lon1); 
+                var a = 
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                 
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                var d = R * c; // Distance in km
+                return d;
+                }
+
+                function deg2rad(deg) {
+                return deg * (Math.PI/180)
+            }
 
             function setRideType(rideId) {
                 for(var i=1; i <= rideData.rides.length; i++)
@@ -159,7 +222,8 @@
                     "start_time" : (new Date()),
                     "end_time" : null,
                     "is_canceled_by_rider" : 0,
-                    "is_canceled_by_driver" : 0
+                    "is_canceled_by_driver" : 0,
+                    "trip_cost": (distance * ride.pricePerKm).toFixed(2)
                 };
 
                 let allStoredTrips = localStorage.getItem('userTrips');

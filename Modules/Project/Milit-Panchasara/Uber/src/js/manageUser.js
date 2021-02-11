@@ -3,7 +3,7 @@ var totalUsers = 0;
 function verifyNumberAndRedirect() {
     var mobile = document.getElementById("contact-input").value;
     if(mobile.match(/[1-9]{1}[0-9]{9}/g) == null || mobile != mobile.match(/[1-9]{1}[0-9]{9}/g)) {
-        console.log("show error message");
+        document.getElementById('error-message').classList.remove('d-none');
         return;
     }
     let users = localStorage.getItem('users');
@@ -17,9 +17,11 @@ function verifyNumberAndRedirect() {
             if(user.mobile_number == mobile) {
                 isExist = true;
                 if(user.is_blocked == 1) {
-                    console.log("user is blocked")
+                    document.getElementById('error-message').classList.remove('d-none');
+                    document.getElementById('error-message').innerHTML = "This number has been blocked by UBER.";
                     return;
                 }
+                document.getElementById('error-message').classList.add('d-none');
                 localStorage.setItem('user_id_temp', user.id);
                 localStorage.setItem('stored_password', user.password);
                 localStorage.setItem('contact_number_temp', mobile);
@@ -29,6 +31,7 @@ function verifyNumberAndRedirect() {
         });
         if(isExist == false) {
             localStorage.setItem('contact_number_temp', mobile);
+            document.getElementById('error-message').classList.add('d-none');
             window.open('loginOTP.html','_self'); //otp page
             return;
         }
@@ -67,6 +70,7 @@ function verifyPasswordAndRedirect() {
     
     if(storedPassword != null) {
         if(storedPassword == password) {
+            document.getElementById('error-message').classList.add('d-none');
             localStorage.setItem('logged_in_user', localStorage.getItem('user_id_temp'));
             localStorage.setItem('logged_in_user_data', JSON.stringify(getUserDataFromId(localStorage.getItem('user_id_temp'))));
             localStorage.removeItem('user_id_temp');
@@ -76,13 +80,14 @@ function verifyPasswordAndRedirect() {
             return;
         }
         else {
+            document.getElementById('error-message').classList.remove('d-none');
             passwordFailure++;
             console.log("show error message");
             if(passwordFailure == 3){
                 localStorage.removeItem('user_id_temp');
                 localStorage.removeItem('contact_number_temp');
                 localStorage.removeItem('stored_password');
-                alert("Entered wrong OTP 3 times.please try again later");
+                alert("Entered wrong password 3 times.please try again later");
                 window.location.href = 'login.html';
             }
             return;
@@ -126,7 +131,8 @@ function verifyPasswordAndRedirect() {
             return;
         }
         else {
-            console.log("show error");
+            document.getElementById('error-message').classList.remove('d-none');
+            document.getElementById('error-message').innerHTML = "Password should include at least 1 Uppercase letter, 1 lowercase letter & 1 number.";
             return;
         }
     }
