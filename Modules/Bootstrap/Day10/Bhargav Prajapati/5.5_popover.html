@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+  <title>Bootstrap popover</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light mb-5">
+        <div  class="container">
+            <a class="navbar-brand" href="#">Radixweb</a>
+            <ul class="navbar-nav">
+                
+                <li class="nav-iteam dropdown">
+                    <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        Utilities </a>
+                        <div class="dropdown-menu">
+                            <a href="2.Utilities/2.2_basic_typography.html" class="dropdown-item">2.2 basic typography</a>
+                            <a href="2.Utilities/2.3_text_alingment_display.html" class="dropdown-item">2.3 text alingment and display</a>
+                            <a href="2.Utilities/2.4_foat_fixed_position.html" class="dropdown-item"> 2.4 float and fixed position</a>
+                            <a href="2.Utilities/2.5_colors_and_backround.html" class="dropdown-item">2.5colors and background</a>
+                            <a href="2.Utilities/2.6_spacing.html" class="dropdown-item"> 2.6 spacing</a>
+                            <a href="2.Utilities/2.7_sizing_and_border.html" class="dropdown-item"> sizing and border</a>
+                            <a href="2.Utilities/2.8_mediaquary.html" class="dropdown-item"> media quary</a>
+                        </div>
+                 </li>
+
+                 <li class="nav-iteam dropdown">
+                    <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        Css Componant </a>
+                        <div class="dropdown-menu">
+                            <a href="3.css_componant/3.3_avbar_and_nav.html" class="dropdown-item">3.3 navbar and nav</a>
+                            <a href="3.css_componant/3.4_list_group_and_badges.html" class="dropdown-item">3.4 list group and badges</a>
+                            <a href="3.css_componant/3.5_formgroup.html" class="dropdown-item"> 3.5 form group</a>
+                            <a href="3.css_componant/3.6_input_group_and_addons.html" class="dropdown-item">3.6 input group and addons</a>
+                            <a href="3.css_componant/3.7_alert_and_progressbar.html" class="dropdown-item">3.7 alert and progressbar</a>
+                            <a href="3.css_componant/3.8_table_and_pagination.html" class="dropdown-item">3.8 table and pagination</a>
+                            <a href="3.css_componant/3.9_card.html" class="dropdown-item"> 3.9 card</a>
+                            <a href="3.css_componant/3.10_media_object.html" class="dropdown-item"> 3.10 media object</a>
+                        </div>
+                 </li>
+
+                 <li class="nav-iteam dropdown">
+                    <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        grid and flexbox </a>
+                        <div class="dropdown-menu">
+                            <a href="4.2_gried_system.html" class="dropdown-item">4.2 grid system</a>
+                            <a href="4.3_grid_alingment.html" class="dropdown-item">4.3 grid aligment</a>
+                            <a href="4.4.flexbox.html" class="dropdown-item">4.4 flex box</a>
+                            <a href="4.5_auto_margine_wrapping.html" class="dropdown-item">4.5 auto margin and wraping</a>
+                       
+                        </div>
+                 </li>
+
+                 <li class="nav-iteam dropdown">
+                    <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        JavaScript wadges </a>
+                        <div class="dropdown-menu">
+                            <a href="5.2_carousel_sidebar.html" class="dropdown-item">5.2 carosel sidebar</a>
+                            <a href="5.3_accordian.html" class="dropdown-item">5.3 accordian</a>
+                            <a href="5.4_tooltip.html" class="dropdown-item">4.4 tooltip</a>
+                            <a href="5.5_popover.html" class="dropdown-item">4.5 popover</a>
+                            <a href="5.6_modals.html" class="dropdown-item">4.6 models</a>
+                       
+                        </div>
+                 </li>
+               
+            </ul>
+        </div>
+    </nav>
+</header>
+    
+  <div class="container">
+  
+
+    <!-- POPOVER -->
+    <button 
+    class="btn btn-danger"
+    data-toggle="popover"
+    data-placement="top"
+    title="Poopover titile"
+    data-content="Lorem ipsum dolor sit amet"
+    >
+      Toggle popover
+    </button>
+
+    <button class="btn btn-primary"
+    data-toggle="popover"
+    data-placement="left"
+    title="Poopover titile"
+    data-content="Lorem ipsum dolor sit amet">
+      Toggle popover
+    </button>
+
+    <button class="btn btn-warning"
+    data-toggle="popover"
+    data-placement="bottom"
+    title="Poopover titile"
+    data-content="Lorem ipsum dolor sit amet">
+      Toggle popover
+    </button>
+
+    <button class="btn btn-info"
+    data-toggle="popover"
+    data-placement="right"
+    title="Poopover titile"
+    data-content="Lorem ipsum dolor sit amet">
+      Toggle popover
+    </button>
+
+    <br>
+    <br>
+
+    <!-- DISMISSIBLE POPOVER -->
+    <button class="btn btn-primary"
+    id="MyPopover"
+    data-trigger="focus"
+    data-toggle="popover"
+    data-placement="top"
+    title="Poopover titile"
+    data-content="Lorem ipsum dolor sit amet">
+      Toggle popover
+    </button>
+
+    <hr>
+
+    <!-- CONTROL WITH JS -->
+    <button class="btn btn-secondary"
+    onclick="showPopover()">Show Popover</button>
+    <button class="btn btn-secondary"
+    onclick="hidePopover()">Hide Popover</button>
+    <button class="btn btn-secondary"
+    onclick="togglePopover()">Toggle Popover</button>
+  </div>
+
+  <div style="margin-top:500px;"></div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script>
+    $('[data-toggle="popover"]').popover();
+    function showPopover(){
+      $('#MyPopover').popover('show');
+    }
+    function hidePopover(){
+      $('#MyPopover').popover('hide');
+    }
+    function togglePopover(){
+      $('#MyPopover').popover('toggle');
+    }
+
+    //popover advance
+    $('#myPopover').on('show.bs.popover',function(){
+      console.log('Popover show');
+    });
+    $('#myPopover').on('shown.bs.popover',function(){
+      console.log('Popover shown');
+    });
+    $('#myPopover').on('hide.bs.popover',function(){
+      console.log('Popover hide');
+    });
+    $('#myPopover').on('hidden.bs.popover',function(){
+      console.log('Popover hidden');
+    });
+  </script>
+</body>
+
+</html>
