@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width-device-width, initial scale=1.0">
+		<style>
+			*{
+				background-color: #333;
+				color:white;
+			}
+			.class1{
+				display: flex;
+				justify-content: space-evenly;
+				font-size: 18px;
+			}
+			.flexcontainer{
+				display:flex;
+				justify-content: space-evenly;
+				margin-left: 60px;
+			}
+			nav a{
+				text-decoration: none;
+				display: inline;
+				padding: 14px 16px;
+			}
+			a:hover{
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flexcontainer">
+		<header style="border:1px solid;"><h1>Ordered List:</h1></header>
+		<header style="border:1px solid;"><h1>Unordered List:</h1></header>
+		</div>
+		<div class="class1">
+		
+		<div>
+		<ol type="1">
+			<li>buildings
+				<ol type="i">
+				<li>flat</li>
+				<li>society</li>
+				<li>company</li>
+				</ol>
+			</li>
+			<li>animals
+				<ol type="I">
+					<li>dog
+						<ol type="a"><li>german shephered</li>
+						<li>bulldog</li>
+					<li>poodle</li></ol>
+					</li>
+					<li>lion</li>
+					<li>horse</li>
+				</ol>
+			</li>
+		</ol>
+	</div>
+		<div class="class2"> 
+			<ul>
+				<li >1</li>
+				<li>2
+					<ul style="list-style-type:circle">
+					<li>II</li>
+					<li>ii</li>
+					</li></ul>
+				</li>
+				<li>3</li>
+					<ul style="list-style-type:square;">
+					<li>III</li>
+					<li>iii</li>
+				    </ul>
+
+				
+			</ul>
+		</div>
+	</div>
+	<h1 style="border: 2px solid ;">Username and password practice task:</h1>
+	<div>
+		<form style="font-size: 18px;">
+			<label for="usrname">Username:</label>
+			<input type="text" name="usrname" required>
+			<br>
+			<label for="psw">Password:</label>
+			<input type="password" name="psw" required>
+		</form>
+	</div>
+	<br>
+	<h1 style="border: 2px solid;">Article tag and latest statement of england captain:</h1>
+	<article style="font-size: 19px ">
+		India vs England: Joe Root said he keeps a track 
+		of what Virat Kohli, 
+		Steve Smith and Kane Williamson are doing in order to learn and improve.
+	</article>
+	<br>
+	<h1 style="border:2px solid">Horizontal menu using nav and anchor tag:</h1>
+	<nav>
+		<a href="#">Home</a>
+		<a href="#">AboutUs</a>
+		<a href="#">Contact.Us</a>
+	</nav>
+	</body>
+</html>
