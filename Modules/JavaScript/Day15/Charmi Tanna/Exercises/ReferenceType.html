@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+       var blog =
+       {
+            name: "Ski Utah"
+       };
+       var updatedBlog = blog;
+       document.write(updatedBlog.name);
+       blog.name="Rocky Skiing";
+       document.write("<br>"+updatedBlog.name);
+       function changeBlogName(localBlog)
+       {
+            localBlog.name ="no name";
+       }
+       changeBlogName(blog);
+       document.write("<br>"+blog.name);
+       var a1 = [1, 2, 3];
+       var a2 = a1;
+       a1[0] = 99;
+       document.write("<br>"+a2[0]);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

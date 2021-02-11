@@ -1,0 +1,166 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+
+
+<body>
+    <h1 class="text-center text-white bg-dark">Registration Form</h1>
+    <div class="container">
+        <form onsubmit="return validation()" action="#">
+            <br>
+            <div class="form-group">
+                <label>Employee ID:</label>
+                <input type="text" name="" id="userid" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Employee Name:</label>
+                <input type="text" name="" id="username" class="form-control">
+
+            </div>
+            <div class="form-group">
+                <label>Age:</label>
+                <input type="number" name="" id="age" class="form-control">
+
+            </div>
+            <div class="form-group">
+                <label>Gender</label><br>
+                <input type="radio" name="gender" id="male" value="male">Male
+                <input type="radio" name="gender" id="female" value="female">Female
+
+            </div>
+            <div class="form-group">
+                <label>Designation:</label>
+                <input type="text" name="" class="form-control" id="designation">
+
+            </div>
+            <div class="form-group">
+                <label>Salary:</label>
+                <input type="number" name="" class="form-control" id="salary">
+
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label><br>
+                <select class="form-control form-field" id="location" name="location">
+                    <option value="">Select City</option>
+                    <option value="rajkot">Rajkot</option>
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="baroda">Baroda</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label>Email ID:</label>
+                <input type="text" name="" id="email" class="form-control">
+
+            </div>
+            <div class="form-group">
+                <label>Date Of Joining:</label>
+                <input type="date" name="" class="form-control" id="date">
+
+            </div>
+            <div class="form-group">
+                <label>Contact Number:</label>
+                <input type="number" name="" id="mobile" class="form-control">
+
+            </div>
+            <input type="submit" name="" class="btn btn-primary">
+            <br>
+            <span id="iderror" class="text-danger font-weight-bold"></span><br>
+            <span id="usererror" class="text-danger font-weight-bold"></span><br>
+            <span id="ageerror" class="text-danger font-weight-bold"></span><br>
+            <span id="designationerror" class="text-danger font-weight-bold"></span><br>
+            <span id="salaryerror" class="text-danger font-weight-bold"></span><br>
+            <span id="locationerror" class="text-danger font-weight-bold"></span><br>
+            <span id="emailerror" class="text-danger font-weight-bold"></span><br>
+            <span id="dateerror" class="text-danger font-weight-bold"></span><br>
+            <span id="mobileerror" class="text-danger font-weight-bold"></span><br>
+            <span id="gendererror" class="text-danger font-weight-bold"></span><br>
+        </form>
+
+        <script type="text/javascript">
+
+            function validation() {
+                var userid = document.getElementById("userid").value;
+                var username = document.getElementById("username").value;
+                var email = document.getElementById("email").value;
+                var mobile = document.getElementById("mobile").value;
+                var age = document.getElementById("age").value;
+                var salary = document.getElementById("salary").value;
+                var designation = document.getElementById("designation").value;
+                var date = document.getElementById("date").value;
+                var valid = true;
+                var idCheck = /^[0-9]{5,30}$/;
+                var userCheck = /^[A-Za-z. ]{3,30}$/;
+                var emailCheck = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1,}[A-Za-z.]{2,6}$/;
+                var mobileCheck = /^[6789][0-9]{9}$/;
+
+                if (idCheck.test(userid)) {
+                    document.getElementById("iderror").innerHTML = " ";
+                }
+                else {
+                    document.getElementById("iderror").innerHTML = "** Employee id is invalid";
+                    valid = false;
+                }
+                if (userCheck.test(username)) {
+                    document.getElementById("usererror").innerHTML = " ";
+                }
+                else {
+                    document.getElementById("usererror").innerHTML = "** Employeename is invalid";
+                    valid = false;
+                }
+                if (emailCheck.test(email)) {
+                    document.getElementById("emailerror").innerHTML = " ";
+                }
+                else {
+                    document.getElementById("emailerror").innerHTML = "** Email is invalid";
+                    valid = false;
+                }
+                if (mobileCheck.test(mobile)) {
+                    document.getElementById("mobileerror").innerHTML = " ";
+                }
+                else {
+                    document.getElementById("mobileerror").innerHTML = "** Mobile is invalid";
+                    valid = false;
+                }
+                if (age == "") {
+                    document.getElementById("ageerror").innerHTML = "** Age should be in number";
+                    valid = false;
+                }
+                if (document.getElementsByName("gender").value == " ") {
+                    document.getElementById("gendererror").innerHTML = "Gender is required.";
+                    Valid = false;
+                }
+                if (document.getElementById("location").value == "") {
+                    document.getElementById("locationerror").innerHTML += "**Location is required.";
+                    Valid = false;
+                }
+                if (salary == "") {
+                    document.getElementById("salaryerror").innerHTML = "** Salary is required";
+                    valid = false;
+                }
+                if (designation == "") {
+                    document.getElementById("designationerror").innerHTML = "** Designation is required";
+                    valid = false;
+                }
+                if (date == "") {
+                    document.getElementById("dateerror").innerHTML = "** Date is required";
+                    valid = false;
+                }
+                return valid;
+            }
+
+        </script>
+
+</body>
+</html>
