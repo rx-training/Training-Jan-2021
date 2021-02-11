@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <article id="article1" class='my-custom-class'>
+        <h3>Title goes over here</h3>
+        <p class="special">Paragraph 1</p>
+        <p class="special">Paragraph 2</p>
+        <p>Paragraph 3</p>
+    </article>
+
+    
+
+    <script type="text/JavaScript">
+        var element = document.getElementById("article1");
+        console.log(element);
+        var elements1 = document.getElementsByTagName('p');
+        console.log(elements1);
+        var elements2 = document.getElementsByClassName('special');
+        console.log(elements2);
+        var a = document.getElementById('article1');
+        console.log(a.getAttribute('class'));
+        var a = document.getElementById('article1');
+        a.setAttribute('class', 'dynamic-style');
+        console.log(a.getAttribute('class'));
+        var a = document.getElementById('article1');
+        console.log(a.childNodes);
+    </script>
+</body>
+
+</html>
