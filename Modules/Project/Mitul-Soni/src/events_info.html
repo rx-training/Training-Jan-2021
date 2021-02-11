@@ -12,7 +12,7 @@
         <title>Gujarat University</title>
     </head>
 
-    <body onload="getPostInfoData()">
+    <body>
         <!--Top Header-->
         <nav class="navbar navbar-expand-sm navbar-dark p-0" id="top-header">
             <div class="container">
@@ -180,8 +180,8 @@
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <table id="mytable">
-                                <thead class="thead-dark bg-white">
+                            <table id="mytable" class="table">
+                                <thead class="thead-dark">
                                     <tr>
                                         <th>#</th>
                                         <th>Title</th>
@@ -319,6 +319,7 @@
             } );
         </script>
         <script>
+            window.getPostInfoData();
             function getPostInfoData()
             {
                 var str = "";

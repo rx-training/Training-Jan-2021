@@ -2,8 +2,8 @@ body {
   background-color: lightblue; }
 
 #top-header {
-  background-color: lightblue;
-  background-image: url("background.jpg"); }
+  
+  background: url("https://gujaratuniversity.ac.in/files/images/header-01.jpg"); }
 
 .dropdown-menu {
   background-color: #191970; }
@@ -20,7 +20,8 @@ body {
   color: navy; }
 
 #middle-header {
-  background-color: lightblue; }
+
+}
 
 #estd {
   border-top-left-radius: 20px;
@@ -193,4 +194,20 @@ body {
 #read-more:hover
 {
   background-color: NavajoWhite;
+}
+
+.fa-arrow-circle-right
+{
+  color: orange;
+}
+
+#department-heading
+{
+  background-color: navy;
+  border-top-left-radius: 20px;
+}
+
+.fa-book
+{
+  color: navy;
 }

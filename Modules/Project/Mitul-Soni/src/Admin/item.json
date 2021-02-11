@@ -1,5 +1,6 @@
 {
     "user":[{"email":"admin123@gmail.com","password":"12345"}],
-    "course":[{"coursename":"BCA Semester-1","courses":["C","C++","JAVA","HTML"]}]
+    "course":[{"coursename":"BCA Semester-1","courses":["C","C++","JAVA","HTML"]}],
+    "video":[{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"}]
     
 }
