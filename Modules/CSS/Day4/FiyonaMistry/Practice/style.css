@@ -1,8 +1,20 @@
+*{
+    background-color: blue;
+}
 table {
     text-align:center;
     margin-left:auto;
     margin-right:auto;
 }
+p{
+    border:dotted;
+}
 hgroup {
     color:blue;
+}
+ul{
+    display: flex;  
+}
+ul li{
+    flex-direction: row;
 }
