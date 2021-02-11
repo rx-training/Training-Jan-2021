@@ -4,7 +4,7 @@
     background-image:url("../img/eSuper-Saver-Banner-for-website-on-home-page-610-x-305-1approved.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 442px;
+    height: 700px;
     width: 567;
 }
 }
@@ -33,12 +33,23 @@
     }
 }
 
+@media (min-width:768px){
+#form{
+    width: 350px;
+    top:100px;
+    left: 150px;
+}
+}
 #crousel{
     img{
         padding: 15px;
     }
 }
 
+
+#headLine a{
+    color: black;
+}
 #photos{
     img{
         width: 100%;
