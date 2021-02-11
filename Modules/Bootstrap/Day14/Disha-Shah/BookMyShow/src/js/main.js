@@ -1,41 +1,8 @@
-/*$('.slider').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: '.slider'
-  });
-  $('.slider').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: '.slider',
-    dots: true,
-    centerMode: true,
-    focusOnSelect: true
-  });*/
-
-/*$(document).ready(function() {
-    $('.slider').slick({
-        dots:true,
-        arrows:false,
-        autoplay:true,
-        autoplaySpeed: 1000,
-    })
-})*/
-
-/*$('.slider').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        
-});*/
-
-/*$('.slider').slick();*/
-
-
 $().ready(function(){
     $('.slick-carousel').slick({
         dots:true,
+        autoplay:true,
+        autoplaySpeed:2000,
         centerMode: true,
         centerPadding: '40px',
         slidesToShow: 1.65,
@@ -78,9 +45,7 @@ $().ready(function(){
                 }
                },
               
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
+            
         ]
     });
 });
@@ -114,9 +79,7 @@ $().ready(function(){
                   slidesToScroll: 1.75
                 }
               }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
+            
         ]
     });
 });
