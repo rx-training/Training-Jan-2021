@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="display-3 text-center my-4">Navbar</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">Utilities</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Basic-typography.html">Basic Typography</a>
+                            <a class="dropdown-item" href="text_alignment_and_display.html">Text alignment and display</a>
+                            <a class="dropdown-item" href="floats_and_position.html">Floats and Positon</a>
+                            <a class="dropdown-item" href="colors_and_backgrounds.html">Colors and Backgrounds</a>
+                            <a class="dropdown-item" href="Spacing.html">Spacing</a>
+                            <a class="dropdown-item" href="sizing_borders.html">Sizing and Borders</a>
+                            <a class="dropdown-item" href="breakpoints.html">Breakpoints</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            CSS Components
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="buttons.html"> Buttons</a>
+                            <a class="dropdown-item" href="navbar.html"> Navbar</a>
+                            <a class="dropdown-item" href="list_groups_badges.html"> List Groups & Badges</a>
+                            <a class="dropdown-item" href="forms.html"> Forms</a>
+                            <a class="dropdown-item" href="input_groups.html"> Input Groups</a>
+                            <a class="dropdown-item" href="alerts_progress.html"> Alerts & Progress</a>
+                            <a class="dropdown-item" href="tables_pagination.html"> Tables & Pagination</a>
+                            <a class="dropdown-item" href="cards.html"> Cards</a>
+                            <a class="dropdown-item" href="media_object.html"> Media Objects</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-warning btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                             Grid & Flexbox
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="grid_system.html">Grid System</a>
+                            <a class="dropdown-item" href="grid_alignment.html">Grid Alignment</a>
+                            <a class="dropdown-item" href="flexbox.html">Flexbox</a>
+                            <a class="dropdown-item" href="auto_margins_wrapping_order.html">Auto Margins & Wrap</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            JavaScript Widgets
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="carousel.html">Carousel</a>
+                            <a class="dropdown-item" href="collapse.html">Collapse</a>
+                            <a class="dropdown-item" href="tooltips.html">Tooltips</a>
+                            <a class="dropdown-item" href="popovers.html">Popovers</a>
+                            <a class="dropdown-item" href="modals.html">Modals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr />
+    <div class="container">
+
+        <ul class="list-group mb-5">
+            <li class="list-group-item">My List Item One</li>
+            <li class="list-group-item">My List Item Two</li>
+            <li class="list-group-item">My List Item Three</li>
+            <li class="list-group-item">My List Item Four</li>
+            <li class="list-group-item">My List Item Five</li>
+        </ul>
+
+        <br><br>
+
+
+        <ul class="list-group mb-5">
+
+            <a class="list-group-item list-group-item-action" href="#">My List Item One</a>
+            <a class="list-group-item list-group-item-action active" href="#">My List Item Two</a>
+            <a class="list-group-item list-group-item-action" href="#">My List Item Three</a>
+            <a class="list-group-item list-group-item-action" href="#">My List Item Four</a>
+            <a class="list-group-item list-group-item-action" href="#">My List Item Five</a>
+        </ul>
+
+        <br><br>
+
+        <ul class="list-group">
+
+            <li class="list-group-item">My List Item One</li>
+            <li class="list-group-item list-group-item-success">My List Item Two</li>
+            <li class="list-group-item list-group-item-info">My List Item Three</li>
+            <li class="list-group-item list-group-item-warning">My List Item Four</li>
+            <li class="list-group-item list-group-item-danger">My List Item Five</li>
+        </ul>
+        <br /><br />
+
+        <div class="row mb-5">
+            <div class="col-4">
+                <div class="list-group mb-5" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action" id="list-home-list" href="#list-home" data-toggle="list">Home</a>
+                    <a class="list-group-item list-group-item-action" id="list-about-list" href="#list-about" data-toggle="list">About</a>
+                    <a class="list-group-item list-group-item-action" id="list-services-list" href="#list-services" data-toggle="list">Services</a>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-home" role="tabpanel">
+                        Home Content..
+                    </div>
+                    <div class="tab-pane fade " id="list-about" role="tabpanel">
+                        About Content..
+                    </div>
+                    <div class="tab-pane fade " id="list-services" role="tabpanel">
+                        Services Content..
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="list-group mb-5">
+            <li class="list-group-item">My List Item One</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">My List Item Two<span class="badge badge-primary">30</span></li>
+            <li class="list-group-item">My List Item Three</li>
+            <li class="list-group-item">My List Item Four</li>
+            <li class="list-group-item">My List Item Five</li>
+        </ul>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Home</li>
+        </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Users</li>
+        </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Users</a></li>
+            <li class="breadcrumb-item active">Harsh</li>
+        </ol>
+    </div>
+
+</body>
+</html>

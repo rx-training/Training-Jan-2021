@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Booking</title>
+  </head>
+  <body>
+    <header>
+    <h1>Movie Booking</h1>
+    </header>
+    <label>Search</label
+    ><input
+      type="search"
+      name="search"
+      placeholder="Enter Movie Name"
+    /><br /><br />
+    <form>
+      <label>Name</label>
+      <input type="text" name="name" list="my datalist">
+      <datalist id="my datalist">
+        <option>Mr.</option>
+        <option>Mrs.</option>
+      </datalist><br/><br/>
+      <label>Booking Date</label>
+      <input type="date" required name="date" /></br></br>
+      <label for="Time">Time</label>
+      <input type="time" name="time" required/><br/><br/>
+      <label for="price">Price Range:</label>
+      <label>100</label><input type="range" max="1000" min="100" /><label>1000</label><br/><br/>
+      <label for="rating">Movie Rating</label>
+      <meter min="0" max='5' low="2" high="4" value="4"></meter><br/><br/>
+      <label>Booking Progress</label>
+      <progress value="80" max="100"></progress><br/></br>
+      <button type="submit">Submit</button>
+    </form>
+    <footer>
+      <p>Welcome To Movie Booking</p>
+    </footer>
+  </body>
+</html>

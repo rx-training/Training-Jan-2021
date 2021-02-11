@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <form id="myform">
+     <label for= "date-input">Please choose a date: </label>
+     <input type="date" id="date-input">
+
+     <label for= "time-input">Please enter a time:</label>
+     <input type="time" id="time-input">
+
+     <label for="month-input">Please choose month:</label>
+     <input type="month" id="month-input">
+
+     <label for="week-input">Please choose week:</label>
+     <input type="week" id="week-input">
+
+     <br>
+
+     <label for="range-data">Range:</label>
+     <input type="range" id="range-data" min="1" max="10">
+
+
+     <label for="search-data">Search:</label>
+     <input type="search" id="search-data" placeholder="Enter search item" > 
+
+     <label for="tel-data">Telephone:</label>
+     <input type="tel" id="tel-data" required>
+     <input type="submit" value="submit">
+
+     <label for="email-data">Email:</label>
+     <input type="email" id="email-data" required multiple  >
+
+     <label for="cololr-data">Color:</label>
+     <input type="color" id="color-data">
+
+     <label for="data-list">Data list:</label>
+     <input type="text" list="myDatalist">
+    <datalist  id="myDatalist">
+        <option label="Mr." value="Mr."></option>
+        <option label="Mrs." value="Mrs."></option>
+        <option label="Ms." value="Ms."></option>
+    </datalist>
+
+    <label for="progress-bar">Progressbar:</label>
+    <progress value="5" max="15">   </progress>
+
+    <label for="meter-data">meter:  </label>
+    <meter id="meter-data" min="10" max="100" value="65" low="20" high="70" optimum="50"> </meter>  
+
+
+</form>
+
+ <label for="outsidetext-data">Other text:</label>
+ <input type="text" id="outsidetext-data" form="myform" >
+</body>  
+</html>

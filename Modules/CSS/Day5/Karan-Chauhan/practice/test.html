@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OVERFLOW & POSITION</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            text-align: center;
+            box-sizing: border-box;
+            
+        }     
+
+    .column{
+            float: left;
+            padding: 10px;
+            padding-top: 10px;
+            text-align: center;
+            height: auto;
+    }
+
+    .column.left {
+        width: 25%;
+        background-color: orange;
+        height: 80px;
+        overflow: visible;
+        position:static;
+    }
+
+        .column.middle {            
+            width: 40%;
+            background-color: yellow;
+            height: 80px;
+            overflow: hidden;
+            position: relative;
+            left:50px;
+            
+        }
+
+        .column.right {
+            width: 25%;
+            background-color: rebeccapurple;
+            height: 80px;
+            overflow: auto;
+            float: right;
+            position: static;
+        }
+
+    .row:after {
+            content: "";
+            display: table;
+            clear: both;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>OVERFLOW & POSITION PRACTICE</h1>
+        <div class="row">
+            <div class="column left">
+                <b>OVERFLOW VISIBLE</b><br />
+                It consists of a number of allied modern advancements such as, computer,
+                Internet, websites, surfing, E-mail, E-commerce. E-governance, Video- conference,
+                cellular phones, paging, fax machines, smart cards, credit cards, ATM cards etc.
+                All these have been possible due to the advancement in information gathering technique or
+                system which is known as �Information Superhighway� which, like a highway, opens us to a
+                world of technology and information full of immense possibilities.
+            </div>
+            <br /><br />
+
+            <div class="column middle">
+                <b>OVERFLOW HIDDEN</b><br />
+                It consists of a number of allied modern advancements such as, computer,
+                Internet, websites, surfing, E-mail, E-commerce. E-governance, Video- conference,
+                cellular phones, paging, fax machines, smart cards, credit cards, ATM cards etc.
+                All these have been possible due to the advancement in information gathering technique or
+                system which is known as �Information Superhighway� which, like a highway, opens us to a
+                world of technology and information full of immense possibilities.
+            </div>
+
+            <div class="column right">
+                <b>OVERFLOW AUTO</b><br />
+                It consists of a number of allied modern advancements such as, computer,
+                Internet, websites, surfing, E-mail, E-commerce. E-governance, Video- conference,
+                cellular phones, paging, fax machines, smart cards, credit cards, ATM cards etc.
+                All these have been possible due to the advancement in information gathering technique or
+                system which is known as �Information Superhighway� which, like a highway, opens us to a
+                world of technology and information full of immense possibilities.
+            </div>
+        </div>
+    </section>    
+</body>
+</html>

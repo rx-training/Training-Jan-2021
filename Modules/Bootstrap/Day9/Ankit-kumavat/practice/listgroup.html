@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+			<ul class="list-group">
+				<li class="list-group-item">my list item one</li>
+				<li class="list-group-item">my list item two</li>
+				<li class="list-group-item">my list item three</li>
+				<li class="list-group-item">my list item four</li>
+				<li class="list-group-item">my list item five</li>
+			</ul>
+			<br>
+			<ul class="list-group">
+				<a class="list-group-item list-group-item-action" href="#">my list item one</a>
+				<a class="list-group-item list-group-item-action" href="#">my list item two</a>
+				<a class="list-group-item list-group-item-action" href="#">my list item three</a>
+				<a class="list-group-item list-group-item-action" href="#">my list item four</a>
+				<a class="list-group-item list-group-item-action" href="#">my list item five</a>
+			</ul>
+			<br>
+			<ul class="list-group">
+				<li class="list-group-item">regular list item</li>
+				<li class="list-group-item list-group-item-primary">primary list item</li>
+				<li class="list-group-item list-group-item-secondary">secondary list item</li>
+				<li class="list-group-item list-group-item-success">success list item</li>
+				<li class="list-group-item list-group-item-info">info list item</li>
+				<li class="list-group-item list-group-item-light">light list item</li>
+				<li class="list-group-item list-group-item-dark">dark list item</li>
+			</ul>
+			<br>
+			<div class="row mb-5">
+				<div class="col-4">
+					<div class="list-group" id="list-tab" role="tablist">
+					<a href="#list-home" class="list-group-item list-group-item-action active" id="list-home-list"
+					data-toggle="list">Home</a>
+					<a href="#list-about" class="list-group-item list-group-item-action" id="list-about-list"
+					data-toggle="list">About</a>
+					<a href="#list-services" class="list-group-item list-group-item-action" id="list-services-list"
+					data-toggle="list">Services</a>
+				</div>
+			</div>
+				<div class="col-8">
+					<div class="tab-content" id="nav-tabcontent">
+						<div class="tab-pane fade show active" id="list-home" role="tabpanel">
+							Home content....
+						</div>
+						<div class="tab-pane fade" id="list-about" role="tabpanel">
+							About content....
+						</div>
+						<div class="tab-pane fade" id="list-services" role="tabpanel">
+							Services content....
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br><br>
+		<ul class="list-group">
+			<li class="list-group-item">my list item one</li>
+			<li class="list-group-item d-flex justify-content-between align-items-center">my list item two <span class="badge badge-primary">2nd</span></li>
+			<li class="list-group-item">my list item three</li>
+			<li class="list-group-item">my list item four</li>
+			<li class="list-group-item">my list item five</li>
+		</ul>
+		<br><br>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item active">Home</li>
+		</ol>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#Home">Home</a></li>
+			<li class="breadcrumb-item active">User</li>
+		</ol>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#Home">Home</a></li>
+			<li class="breadcrumb-item"><a href="#User">User</a></li>
+			<li class="breadcrumb-item active">Brad</li>
+		</ol>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+	</body>
+</html>

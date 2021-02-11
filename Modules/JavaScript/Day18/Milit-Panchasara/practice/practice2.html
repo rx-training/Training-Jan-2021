@@ -1,0 +1,11 @@
+Let defines the variable locally and if we have global variable with the same name, it won't be affected if we change local variable defined using 'let'.
+
+For example:
+
+var num = 100;
+
+function demo(){
+    let num = 50; // it's scope is only local
+}
+
+console.log(num); // it will print 100 as we have defined globally, let keyword won't affect outside it's scope.
