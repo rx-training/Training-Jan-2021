@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>java script</title>
+    <script src="/js/javascript.js"></script>
+</head>
+
+<body>
+  
+
+
+
+    <!-- practice exercise  -->
+    <div class="container">
+        <div class="text-center">
+            <div class="h2">Ready to go? click below button</div>
+            <button onclick="greater()" class="btn btn-primary ">Click to get max number</button>
+            <p id="max"></p>
+            <h2>name of the 5 cities?!!!!</h2>
+            <button onclick="city()" class="btn btn-warning ">click here to have lsit of 5 citties</button>
+            <p id="city"></p>
+        </div>
+    </div>
+    <!-- asignment  -->
+    <div class="container">
+        <div class="row">
+            <form id=form class="form col-6">
+
+                <div class=" form-group">
+                    <label for="n1">Please enter first number: </label>
+                    <input type="number" class="form-control m-2 " placeholder="number 1" id="number1" required>
+                </div>
+                <div class=" form-group">
+                    <label for="n2">Please enter second number: </label>
+                    <input type="n2" class="form-control  " placeholder="number 2" id="number2" required>
+                </div>
+                <div class="form-group">
+                    <label for="operation" class=" text-right">Please select operation you want to perform:</label>
+
+                    <div class="form-check">
+                        <label><input type="radio" value="addition" id="add" name="op" > Addition</label>
+                    </div>
+                    <div class="form-check">
+                        <label><input type="radio" value="Subtraction" id="sub" name="op"> Subtraction</label>
+                    </div>
+                    <div class="form-check">
+                        <label><input type="radio" value="multiplication" id="mul" name="op"> Multiplication </label>
+                    </div>
+                    <div class="form-check">
+                        <label><input type="radio" value="divison" id="div" name="op"> Divison </label>
+                    </div>
+
+                </div>
+                <div class="form-check form-check-input">
+                    <button onclick="calculate()" class="btn btn-warning ">calulate</button>
+                    <button type="reset" onclick="reset()" class="btn btn-danger ">reset</button>
+
+                </div>
+
+            </form>
+
+
+            <div  class="col-6">
+                <h3 >resutls are: <span id="ans"></span></h3>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
