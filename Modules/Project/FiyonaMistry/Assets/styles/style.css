@@ -9,7 +9,7 @@ nav{
     box-shadow:2px 2px 5px grey;
 }
 .overlay{
-    background: url('img/wp2532971.jpg');
+    background: url('../img/wp2532971.jpg');
     background-color: rgba(0,0,0,0.5);
     position: relative;
     width: 100%; 
