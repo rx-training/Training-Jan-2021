@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">      
+
+    <title>Assignment</title>
+</head>
+<body>
+        <div class="container">
+            <h1 class="bg-success text-center">Assignment</h1>
+            <div id="tbl">
+
+            </div>
+            <div id="summary">
+
+            </div>
+
+            <button type="button" class="btn btn-success" onclick="getData()">Get Summary</button>
+        </div>     
+            
+            <script>
+                
+                  getText("product.json");
+                  async function getText(file) {
+                  let x = await fetch(file);
+                  let y = await x.json();
+                  buildTable(y);
+                  }
+                  
+                 function buildTable(data) {
+                     var div = document.createElement('table');
+                     div.setAttribute('class','table table-stripped text-center');
+                     for(let i=0;i<data.products.length;i++)
+                     {
+                         var tr=document.createElement('tr');
+                         var cols=data.products[i];
+                         for(colsdata in cols)
+                         {
+                             var td = document.createElement('td');
+                             td.innerHTML=cols[colsdata];
+                             tr.appendChild(td);
+                         }
+                         var td=document.createElement('td');
+                         td.innerHTML='<a class="btn btn-link">Add Cart</a>';
+                         td.setAttribute('onclick','addCart('+"'"+JSON.stringify(cols)+"'"+')');
+                         tr.appendChild(td);
+                         div.appendChild(tr);
+                     }
+                    document.getElementById('tbl').append(div);
+                     
+                 } 
+                 let array=[];
+                 function  addCart(row) {
+                     row=JSON.parse(row);
+                     
+                     alert("added successfully");
+                     array.push(row);
+                     addLocalStorage(array);
+
+                 }
+                 function addLocalStorage(array) {
+                    localStorage.setItem('name',JSON.stringify(array)); 
+                 }  
+                 function  getData() {
+                     document.getElementById("summary").innerHTML="";
+                   var dataarray=JSON.parse(localStorage.getItem('name')); 
+                   var all = JSON.stringify(dataarray);
+                   all=JSON.parse(all);
+                    
+                    for(let i=0;i<all.length;i++)
+                         {
+                            var tr = document.createElement('tr');
+                            rowdatastr = JSON.stringify(dataarray[i]);
+            
+                            rowdataobj = JSON.parse(rowdatastr);
+
+                            for(obj in rowdataobj)
+                                {
+                                var td = document.createElement('td');
+                                td.innerHTML = rowdataobj[obj];
+                                tr.appendChild(td);
+                
+                                }
+                
+                                         document.getElementById('summary').append(tr);
+                                 }
+                        }
+                 
+            </script>
+
+       
+        
+</body>
+</html>
