@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function Calculate( radio ){
+            var a = parseInt(document.getElementById('value1').value);
+            var b = parseInt(document.getElementById('value2').value);
+            var c = radio;
+            if( c === 'Addition'){
+                var g =a+b;
+                document.getElementById('result').innerHTML = "<h1 class='text-center display-4'>Result is: "+g+"</h1>";
+            }
+            if( c === 'Subtraction'){
+                var g = a-b;
+                document.getElementById('result').innerHTML = "<h1 class='text-center display-4'>Result is: "+g+"</h1>";
+
+            }
+            if( c === 'Multiplication'){
+                var g = a*b;
+                document.getElementById('result').innerHTML = "<h1 class='text-center display-4'>Result is: "+g+"</h1>";
+            }
+            if( c === 'Division'){
+                var g = a/b;
+                document.getElementById('result').innerHTML = "<h1 class='text-center display-4'>Result is: "+g+"</h1>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 class="text-center">Basic Math Operation</h1>
+    <form class="form-group">
+        <input type="text" name="value1" class="form-control-lg mx-5 mt-5 d-block" placeholder="Enter Value One" id="value1">
+        <input type="text" name="value2" class="form-control-lg mx-5 mt-5 d-block" placeholder="Enter Value Two" id="value2">
+        <div id="Radio">
+            <div class="form-check mx-5 mt-5 d-block">
+                <input class="form-check-input" type="radio" name="Addition" id="Radio1"  value="Addition" onclick="Calculate(this.value)">
+                Addition
+            </div>
+            <div class="form-check mx-5 mt-5 d-block">
+                <input class="form-check-input" type="radio" name="Subtraction" id="Radio2" value="Subtraction" onclick="Calculate(this.value)">
+                Subtraction
+            </div>
+            <div class="form-check mx-5 mt-5 d-block">
+                <input class="form-check-input" type="radio" name="Multiplication" id="Radio3" value="Multiplication" onclick="Calculate(this.value)">
+                Multiplication
+            </div>
+            <div class="form-check mx-5 mt-5 d-block">
+                <input class="form-check-input" type="radio" name="Division" id="Radio4" value="Division" onclick="Calculate(this.value)">
+                Division
+            </div>
+        </div>
+        <button class="btn btn-danger mx-5 mt-5 d-block">Reset</button>
+    </form>
+
+    <div id="result"></div>
+</body>
+</html>
