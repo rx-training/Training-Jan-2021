@@ -35,7 +35,7 @@ function showData(element) {
         td = tr.insertCell(3);
         var ele = document.createElement('input');
         ele.setAttribute('id', 'quantity' + i);
-        ele.setAttribute('type', 'text');
+        ele.setAttribute('type', 'number');
         ele.setAttribute('value', '');
         ele.setAttribute('class', 'form-control w-50 mx-auto');
         td.appendChild(ele);
@@ -69,6 +69,8 @@ function addToCart(x) {
     cartArray.push(products[x]);
     //localStorage.setItem('cart', JSON.stringify(products[i]));
     localStorage.setItem('cart', JSON.stringify(cartArray));
+
+    document.getElementById("product" + x).disabled = true;
     viewCart();
 }
 
