@@ -87,6 +87,7 @@
   text-decoration: none; }
 
 #products {
+  transition: all 0.5s ease;
   background-image: url("../img/Product-Masthead-Desktop.jpg");
   background-size: cover;
   background-repeat: no-repeat;
