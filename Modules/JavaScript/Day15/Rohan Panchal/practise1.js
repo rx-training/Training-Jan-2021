@@ -22,11 +22,11 @@ function greater()
     {
         sum=sum+num1;
     }
-    else if(num2>40)
+    if(num2>40)
     {
         sum=sum+num2;
     }
-    else if(num3>40){
+    if(num3>40){
         sum=sum+num3;
     }
     else{
