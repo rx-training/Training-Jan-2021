@@ -58,7 +58,7 @@ function addToCart(x) {
 
     var quantity = document.getElementById('quantity' + x).value;
 
-    if(quantity == "")
+    if(quantity == "" && quantity > 0)
     {
         alert("Please Enter Valid Quantity");
         return false;
