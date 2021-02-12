@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Bootstrap 4 Starter Pack</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand bg-light navbar-light fixed-top">
+            <a href="/" class="navbar-brand mx-3">
+                        <svg width="48px" height="48px" viewBox="0 0 1024 1024" data-aut-id="icon" class="" fill-rule="evenodd">
+                            <path class="rui-77aaa" d="M661.333 256v512h-128v-512h128zM277.333 298.667c117.824 0 213.333 95.531 213.333 213.333s-95.509 213.333-213.333 213.333c-117.824 0-213.333-95.531-213.333-213.333s95.509-213.333 213.333-213.333zM794.496 384l37.504 37.504 37.504-37.504h90.496v90.496l-37.504 37.504 37.504 37.504v90.496h-90.496l-37.504-37.504-37.504 37.504h-90.496v-90.496l37.504-37.504-37.504-37.504v-90.496h90.496zM277.333 426.667c-47.061 0-85.333 38.293-85.333 85.333s38.272 85.333 85.333 85.333c47.061 0 85.333-38.293 85.333-85.333s-38.272-85.333-85.333-85.333z">
+                            </path>
+                        </svg>
+            </a>
+            <div class="dropdown d-none d-md-block nav-item">
+                <button class="btn btn-outline-dark bg-white text-dark dropdown-toggle" data-toggle="dropdown" >
+                    <span class="pr-5"><i class="fa fa-search pl-0 pr-3"></i>India</span>
+                </button>
+                <div class="dropdown-menu" id="location">
+                    <a class="dropdown-item"><span><i class="fa fa-globe pr-2"></i>Use Current Location</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a href="" class="dropdown-item"><span><i class="fa fa-map-marker pr-2"></i>Kerala</span></a>
+                    <a href="" class="dropdown-item"><span><i class="fa fa-map-marker pr-2"></i>Tamil Nadu</span></a>
+                    <a href="" class="dropdown-item"><span><i class="fa fa-map-marker pr-2"></i>Punjab</span></a>
+                    <a href="" class="dropdown-item"><span><i class="fa fa-map-marker pr-2"></i>Maharashtra</span></a>
+                </div>
+            </div>
+            <form class="form-group input-group w-50 ml-3 my-auto nav-item" id="search">
+                <input type="text" class="form-control border-dark" placeholder="Find Cars, Mobile Phones and more...">
+                <button type="submit" class="input-group-text bg-dark border-dark"><i class="fa fa-search bg-dark text-white"></i></button>
+            </form>
+            <div class="dropdown ml-3 mr-4 nav-item">
+                <button class="btn btn-light btn-lg dropdown-toggle" data-toggle="dropdown" >
+                    <span >English</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="" class="dropdown-item"><span>English<i class="fa fa-check pl-5"></i></span></a>
+                    <a href="" class="dropdown-item"><span>हिन्दी</span></a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button class="btn btn-link" style="text-decoration: underline; font-size: 28px;" data-toggle="modal" data-target="#loginModal">
+                    Login
+                </button>
+            </div>
+            <div class="nav-item">
+                <button class="btn btn-outline-dark" style="font-size: 28px; border-radius: 10px; border: 3px solid black;">+SELL</button>
+            </div>
+        </nav>
+
+        <div class="pt-5 pb-4"></div>
+
+        <nav class="navbar navbar-expand navbar-light pt-3">
+            <div class="dropdown nav-item">
+                <div class="dropdown-toggle" data-toggle="collapse" data-target="#categories">
+                    <span><b>ALL CATEGORIES</b></span>
+                </div>
+                <div class="collapse" id="categories">
+                    <div class="card">
+                        <div class="card-body container w-100">
+                            <div class="rows d-flex flex-row">
+                                <div class="cols-md-3 mr-4 pr-4">
+                                <div>
+                                    <p class="mb-2"><b>OLX Autos(Cars)</b></p>
+                                    <p>Cars</p>
+                                </div>
+                                <div class="pt-3">
+                                    <p class="mb-2"><b>Properties</b></p>
+                                    <p class="mb-0 pb-0">For Sale: Houses & Apartments</p>
+                                    <p class="mb-0 pb-0">For Rent: Houses & Apartments</p>
+                                    <p class="mb-0 pb-0">Lands & Plots</p>
+                                    <p class="mb-0 pb-0">For Rent: Shops & Offices</p>
+                                    <p class="mb-0 pb-0">For Sale: Shops & Offices</p>
+                                    <p>PG & Guest Houses</p>
+                                </div>
+                                <div class="pt-3">
+                                    <p class="mb-2"><b>Mobiles</b></p>
+                                    <p class="mb-0 pb-0">Mobile Phones</p>
+                                    <p class="mb-0 pb-0">Accessories</p>
+                                    <p>Tablets</p>
+                                </div>
+                                </div>
+                                <div class="cols-md-3 mx-4 px-4">
+                                    <div>
+                                        <p class="mb-2"><b>Jobs</b></p>
+                                        <p class="mb-0 pb-0">Data entry & Back office</p>
+                                        <p class="mb-0 pb-0">Sales & Marketing</p>
+                                        <p class="mb-0 pb-0">BPO & Telecaller</p>
+                                        <p class="mb-0 pb-0">Driver</p>
+                                        <p class="mb-0 pb-0">Office Assistant</p>
+                                        <p class="mb-0 pb-0">Delivery & Collection</p>
+                                        <p class="mb-0 pb-0">Teacher</p>
+                                        <p class="mb-0 pb-0">Cook</p>
+                                        <p class="mb-0 pb-0">Receptionist & Front office</p>
+                                        <p class="mb-0 pb-0">Operator & Technician</p>
+                                        <p class="mb-0 pb-0">IT Engineer & Developer</p>
+                                        <p class="mb-0 pb-0">Hotel & Travel Executive</p>
+                                        <p class="mb-0 pb-0">Accountant</p>
+                                        <p class="mb-0 pb-0">Designer</p>
+                                        <p>Other Jobs</p>
+                                    </div>
+                                    <div class="pt-3">
+                                        <p class="mb-2"><b>Bikes</b></p>
+                                        <p class="mb-0 pb-0">Motorcycles</p>
+                                        <p class="mb-0 pb-0">Scooters</p>
+                                        <p class="mb-0 pb-0">Spare Parts</p>
+                                        <p>Bicycles</p>
+                                    </div>
+                                </div>
+                                <div class="cols-md-3 mx-4 px-4">
+                                    <div>
+                                        <p class="mb-2"><b>Electronics & Appliances</b></p>
+                                        <p class="mb-0 pb-0">TVs, Video - Audio</p>
+                                        <p class="mb-0 pb-0">Kitchen & Other Appliances</p>
+                                        <p class="mb-0 pb-0">Computers & Laptops</p>
+                                        <p class="mb-0 pb-0">Cameras & Lenses</p>
+                                        <p class="mb-0 pb-0">Games & Entertainment</p>
+                                        <p class="mb-0 pb-0">Fridges</p>
+                                        <p class="mb-0 pb-0">Computer Accessories</p>
+                                        <p class="mb-0 pb-0">Hard Disks, Printers & Monitors</p>
+                                        <p class="mb-0 pb-0">ACs</p>
+                                        <p>Washing Machines</p>
+                                    </div>
+                                    <div class="pt-3">
+                                        <p class="mb-2"><b>Commercial Vehicles & Spares</b></p>
+                                        <p class="mb-0 pb-0">Commercial & Other Vehicles</p>
+                                        <p>Spare Parts</p>
+                                    </div>
+                                    <div class="pt-3">
+                                        <p class="mb-2"><b>Furniture</b></p>
+                                        <p class="mb-0 pb-0">Sofa & Dining</p>
+                                        <p class="mb-0 pb-0">Beds & Wardrobes</p>
+                                        <p class="mb-0 pb-0">Home Decor & Garden</p>
+                                        <p class="mb-0 pb-0">Kids Furniture</p>
+                                        <p>Other Household Items</p>
+                                    </div>
+                                </div>
+                                <div class="cols-md-3 ml-4 pl-4">
+                                    <div>
+                                        <p class="mb-2"><b>Fashion</b></p>
+                                        <p class="mb-0 pb-0">Men</p>
+                                        <p class="mb-0 pb-0">Women</p>
+                                        <p>Kids</p>
+                                    </div>
+                                    <div class="pt-3">
+                                        <p class="mb-2"><b>Books, Sports & Hobbies</b></p>
+                                        <p class="mb-0 pb-0">Books</p>
+                                        <p class="mb-0 pb-0">Gym & Fitness</p>
+                                        <p class="mb-0 pb-0">Musical Instruments</p>
+                                        <p class="mb-0 pb-0">Sports Equipment</p>
+                                        <p>Other Hobbies</p>
+                                    </div>
+                                    <div class="pt-3">
+                                        <p class="mb-2"><b>Pets</b></p>
+                                        <p class="mb-0 pb-0">Fishes & Aquarium</p>
+                                        <p class="mb-0 pb-0">Pet Food & Accessories</p>
+                                        <p class="mb-0 pb-0">Dogs</p>
+                                        <p>Other Pets</p>
+                                    </div>
+                                    <div class="pt-3">
+                                        <p class="mb-2"><b>Services</b></p>
+                                        <p class="mb-0 pb-0">Electronics & Computer</p>
+                                        <p class="mb-0 pb-0">Education & Classes</p>
+                                        <p class="mb-0 pb-0">Drivers & Taxi</p>
+                                        <p class="mb-0 pb-0">Health & Beauty</p>
+                                        <p>Other Services</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
