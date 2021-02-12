@@ -1,0 +1,175 @@
+$primary: rgb(2, 2, 128);
+@media (max-width: 768px) {
+  #nav1 {
+    display: none;
+  }
+  #nav-btn {
+    display: none;
+  }
+  #nav2 {
+    div {
+      //margin-left: 10px;
+    }
+  }
+  nav {
+    img {
+      display: none;
+    }
+    button {
+      margin-left: auto;
+      margin-top: 10px;
+    }
+  }
+  #navbarNav {
+    .fa-home {
+      display: none;
+    }
+  }
+  #banner-img {
+    display: none;
+  }
+  #heading-container {
+    display: none;
+  }
+  #overlay {
+    position: static;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    .btn-warning {
+      width: 100%;
+    }
+  }
+  #sub-overlay {
+    margin-top: 10px;
+  }
+  #section1 {
+    display: none;
+  }
+  #section2 {
+    display: none;
+  }
+  #footer {
+    display: none;
+  }
+
+  // register Page
+
+  #register-form {
+    button {
+      width: 100%;
+      margin-left: 0 !important;
+      margin-top: 10px;
+    }
+  }
+}
+
+#nav-btn {
+  background-color: $primary;
+  border-radius: 0;
+  border: none;
+  font-weight: bold;
+}
+#nav-btn-2 {
+  width: 30%;
+  background-color: $primary;
+  font-weight: bold;
+}
+#active-link {
+  color: orange;
+  text-decoration: underline;
+  font-weight: 600;
+}
+#showcase {
+  position: relative;
+}
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 64px;
+  width: 100%;
+  height: 100%;
+}
+
+#overlay-btn {
+  background-color: $primary;
+  border-radius: 0;
+  border: none;
+  font-weight: bold;
+
+  left: 0;
+}
+#sub-overlay3 {
+  height: 23%;
+}
+h3 {
+  color: $primary;
+}
+
+#main-heading {
+  margin-top: 150px;
+  font-weight: bold;
+}
+
+#section1 {
+  i {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 80px;
+  }
+  span {
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 20px;
+    p {
+      font-weight: bold;
+    }
+  }
+}
+
+#footer {
+  background-color: $primary;
+  a {
+    color: white;
+    font-weight: bold;
+  }
+  .dropdown-menu {
+    background-color: rgb(18, 18, 240);
+  }
+}
+
+#footer a:hover {
+  background-color: rgb(109, 109, 245);
+}
+
+.modal-header {
+  background-color: $primary;
+}
+
+#loginModal {
+  .btn-info {
+    background-color: $primary !important;
+  }
+}
+
+#signupModal {
+  .btn-info {
+    background-color: $primary !important;
+  }
+}
+
+#contactModal {
+  span {
+    color: blue;
+  }
+}
+// register page
+
+#register-container {
+  background-color: rgb(223, 243, 250);
+  .container {
+    background-color: white;
+    border-radius: 50px;
+  }
+}
