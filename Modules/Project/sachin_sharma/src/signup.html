@@ -37,7 +37,7 @@
                                     <h3>Admin Signup</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#" method="POST">
+                                    <form name="signup-form">
                                         <div class="from-group">
                                             <label for="name">Email</label>
                                             <input type="email" class="form-control" id="email" name="email" required placeholder="abc@gail.com">
@@ -50,7 +50,7 @@
                                             <label for="name">Confirm password</label>
                                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required placeholder="Please Re Enter Password..">
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-block mt-2" onclick="return signup()">
+                                        <input type="button" class="btn btn-primary btn-block mt-2" onclick="return signup()">
                                     </form>
                                 </div>
                             </div>
@@ -104,9 +104,9 @@
                    localStorage.setItem('adminM',object); 
                    //adminM.push(object);
                    //console.log(object[0].email);
-                   
+                   window.location.href="login.html";
                    alert("Register successfully");
-                   location.href='login.html';
+                   
                    
                 
                 }
