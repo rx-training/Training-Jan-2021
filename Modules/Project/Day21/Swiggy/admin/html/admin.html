@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <title>admin penel</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script type="text/javascript" src="../Js/admin.js"></script>
+        <link rel="stylesheet" href="../css/admin.css"></link>
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-sm " style="background-color: #fff;">
+        <div class="row w-100">
+                <div class="col-lg-4">
+                    <a class="navbar-brand" href="#">
+                     <img src="../../img/swiggy-logo.png" alt="logo" style="width:40px;">
+                    </a>
+                </div>
+                <div class="col-lg-8">
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link mx-5 py-3 active" href="admin.html" id="dashborad" style="color: #3d4152;
+                            font-size: 16px;
+                            font-weight: 500;"><i class="fas fa-gair"></i>Deshborad</a>
+                          </li>
+                        <li class="nav-item">
+                          <a class="nav-link mx-5 py-3" href="city.html" id="citylink" style="color: #3d4152;
+                          font-size: 16px;
+                          font-weight: 500;"><i class="fas fa-archway"></i>City</a>
+                        </li>
+                        <li class="nav-item">
+                          <a id="restorentlink" class="nav-link mx-5 py-3" href="restaurants.html" style="color: #3d4152;
+                          font-size: 16px;
+                          font-weight: 500;"><i class="fas fa-utensils"></i>restorent</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logout" onclick="logout()" class="nav-link mx-5 py-3" href="../../index.html" style="color: #3d4152;
+                            font-size: 16px;
+                            font-weight: 500;"><i class="fas fa-user-times"></i>logout</a>
+                          </li>
+                      </ul>
+                </div>
+            </div>    
+        </nav>              
+        <header>
+            <div class="bg-primary text-white py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1><i class="far fa-cog"></i>Deshborad</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="container mx-auto my-3"> 
+                <div class="col-lg-3">
+                    <a href="" class="btn btn-warning btn-block" id="adduser" onclick="return Adduser()">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add User
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div class="users">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="modal" id="AddModal">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h4 class="modal-title">New user Data</h4>
+                                  <button type="button" id ="closes" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="hidden" id="id" value="">
+                                          </div>
+                                        <div class="form-group">
+                                          <input type="text" class="form-control" placeholder="Enter name" id="name" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" placeholder="Enter mobile no" id="mobileno" value="">
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Enter email" id="email" value="">
+                                          </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter password" id="password" value="">
+                                          </div>
+                                          <button onclick="return setupdatedata()" class="btn btn-primary">Submit</button>
+                                      </form>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="modal" id="Adduser">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h4 class="modal-title">New user Data</h4>
+                                  <button type="button" onclick="Close('#Adduser')" id ="closes" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="hidden" id="newid" value="">
+                                          </div>
+                                        <div class="form-group">
+                                            <select name="" class="form-control w-100" id="newtypeuser">
+                                                <option value="admin">admin</option>
+                                                <option value="user">user</option>
+                                            </select>
+                                        </div>  
+                                        <div class="form-group">
+                                          <input type="text" class="form-control" placeholder="Enter name" id="newname" value="">
+                                          <label id="name" class="text-denger valdefault">Enter Valid name</label> 
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" placeholder="Enter mobile no" id="newmobileno" value="">
+                                            <label id="phpneno" class="text-denger valdefault">Enter Valid mobileno</label>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Enter email" id="newemail" value="">
+                                            <label id="valemail" class="text-denger valdefault">Enter Valid Email</label>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter password" id="newpassword" value="">
+                                            <label id="valpass" class="text-denger valdefault">Enter Valid Password</label>
+                                        </div>
+                                          <button onclick="return Addnewuser()" class="btn btn-primary">Submit</button>
+                                      </form>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">
+                                </h4>
+                            </div>
+                            <table id="my_table" class="display">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>  
+                                        <th>User Type</th>
+                                        <th>User Name</th>
+                                        <th>User Email</th>
+                                        <th>User Mobile No</th>
+                                        <th>User Password</th>
+                                        <th>Action</th>
+                                        <th>Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tblbody">                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>
