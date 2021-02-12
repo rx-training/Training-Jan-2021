@@ -1,0 +1,12 @@
+{
+    "firstCard":[
+        {"title": "Interactive Docs: The new norm for Remote Work"},
+        {"sub-title": "Nov. 20, 2020"},
+        {"content": "Documentation used to be extremely important in every engineering project, but now, when so many teams work remotely, it's critical."}
+    ],
+    "secondCard":[
+        {"title": "Why we chose Eleventy for the StackBlitz blog"},
+        {"sub-title": "Nov. 02, 2020"},
+        {"content": "We're back with a fresh new blog, some tips, and lots to say! Let's talk the why's and how's of staring your own digital journal."}
+    ]
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Assets/styles/blogstyle.css">
+    <title>Blog</title>
+</head>
+<body>
+    <!-- BACK BUTTON -->
+    <section id="back" class="d-block px-5 py-1 bg-dark">
+        <a href="../../index.html" target="_blank" class="text-white">Back to StackBlitz.com</a>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <i class="fas fa-bolt text-primary fa-3x"></i>
+                    <a href="blog.html" class="text-dark">StackBlitz <span class="text-primary">blog</span></a>
+                </div>
+                <div class="col text-right">
+                    <p>Stay in touch! Get notified of new posts:</p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email Address">
+                            <button class="btn btn-dark">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- firstCard -->
+    <section id="firstCard">
+        <div class="card mx-5">
+            <div class="card-body"></div>
+        </div>
+    </section>
+
+    <!-- secondCard -->
+    <section id="secondCard" class="mt-4 mb-5">
+        <div class="row">
+            <div class="col">
+                <div class="card mx-5">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark py-2">
+            <div class="row">
+                <div class="col-lg-2 col-sm-12 text-secondary">
+                    <p>Code the future</p>
+                </div>
+                <div class="col-lg col-sm-12 text-center">
+                    <a href="#" class="pr-4 text-white">Follow @StackBlitz</a>
+                    <a href="../../index.html" target="_blank" class="pr-4 text-white">StackBlitz.com</a>
+                    <a href="#" class="pr-4 text-white">Documentation</a>
+                    <a href="#" class="pr-4 text-white">Privacy</a>
+                    <a href="#" class="pr-4 text-white">Terms of Service</a>
+                </div>
+                <div class="col-lg-2 col-sm-12">
+                    <p class="text-secondary">@2021 StackBlitz</p>
+                </div>
+            </div>
+    </footer>
+
+    <script>
+        fetch("../json/blog.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+    </script>
+</body>
+</html>
