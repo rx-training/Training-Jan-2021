@@ -24,6 +24,11 @@
         }
     </style>
     <title>Uber</title>
+    <script>
+        if(localStorage.getItem('currentTripData') == null) {
+            window.location.href = 'home.html';
+        }
+    </script>
 </head>
 
 <body>
@@ -78,9 +83,42 @@
         }
 
         function submitRating() {
+            let ratingsTable = localStorage.getItem('ratings');
+            let currentTripData = JSON.parse(localStorage.getItem('currentTripData'));
+            let ratingCount;
+            if(localStorage.getItem('ratingCount') == null) {
+                ratingCount = 1;
+                localStorage.setItem('ratingCount',ratingCount);
+            }
+            else {
+                ratingCount = parseInt(localStorage.getItem('ratingCount'));
+                ratingCount += 1;
+                localStorage.setItem('ratingCount',ratingCount);
+            }
+            let ratingData = {
+                "id":ratingCount,
+                "trip_id":currentTripData.id,
+                "rating_receiver":currentTripData.driver_id,
+                "rating_provider":currentTripData.rider_id,
+                "rating": rating,
+                "comment":""
+            };
+        
+            if(ratingsTable == null) {
+                localStorage.setItem('ratings',JSON.stringify(Array(ratingData)));
+            }
+            else {
+                ratingsTable = JSON.parse(ratingsTable);
+                ratingsTable.push(ratingData);
+                localStorage.setItem('ratings',JSON.stringify(ratingsTable));
+            }
+
+
+
             localStorage.removeItem('currentTripData');
             localStorage.removeItem('pickup');
             localStorage.removeItem('destination');
+            
             console.log(rating);
             window.location.href = 'home.html';
         }

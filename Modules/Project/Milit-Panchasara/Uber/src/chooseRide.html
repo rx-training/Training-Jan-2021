@@ -158,7 +158,7 @@
                     var price = (distance*rideData.rides[i-1].pricePerKm).toFixed(2);
                     list.innerHTML += '<li class="px-3" id="ride_'+rideData.rides[i-1].id+'" onclick="setRideType('+rideData.rides[i-1].id+')">\
                         <img src="img/'+image+'" class="img-fluid" height="75px" width="75px"><h5 class="d-inline">'
-                        + rideData.rides[i-1].name +' </h5><i class="fa fa-users"></i> '+rideData.rides[i-1].capacity+'<span class="float-right mt-4">'+price+'</span></li><hr class="m-0">'
+                        + rideData.rides[i-1].name +' </h5><i class="fa fa-users"></i> '+rideData.rides[i-1].capacity+'<span class="float-right mt-4">'+price+' &#8377;</span></li><hr class="m-0">'
                 }
             }
 
@@ -219,13 +219,13 @@
                     "destination_id" : parseInt(JSON.parse(localStorage.getItem('destination')).id),
                     "destination_coords" : JSON.parse(localStorage.getItem('destination'))  .latitude + "," + JSON.parse(localStorage.getItem('destination')).longitude,
                     "ride_type_id" : ride.id,
-                    "start_time" : (new Date()),
+                    "start_time" : Date(),
                     "end_time" : null,
                     "is_canceled_by_rider" : 0,
                     "is_canceled_by_driver" : 0,
                     "trip_cost": (distance * ride.pricePerKm).toFixed(2)
                 };
-
+                alert(Date());
                 let allStoredTrips = localStorage.getItem('userTrips');
                 
                 if(allStoredTrips == null) {

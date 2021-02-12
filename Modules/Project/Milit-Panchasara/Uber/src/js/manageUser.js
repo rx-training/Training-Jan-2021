@@ -95,14 +95,14 @@ function verifyPasswordAndRedirect() {
     }
     else {
         var password = document.getElementById("password-input").value;
-        if(password.match(/[A-Z]+/g) != null && password.match(/[a-z]+/g) != null && password.match(/[0-9]+/g) != null) {
+        if(password.match(/[A-Z]+/g) != null && password.match(/[a-z]+/g) != null && password.match(/[0-9]+/g) != null && password.length > 5) {
             let newUsersCount = (parseInt(localStorage.getItem('totalUsersCount')) +1);
             var userData = {
                 "id": newUsersCount,
                 "name": "",
                 "email": "",
                 "mobile_number": localStorage.getItem('contact_number_temp'),
-                "date_created": new Date,
+                "date_created": Date(),
                 "user_type" : "rider",
                 "is_blocked" : 0,
                 "ratings" : 0,
@@ -132,7 +132,7 @@ function verifyPasswordAndRedirect() {
         }
         else {
             document.getElementById('error-message').classList.remove('d-none');
-            document.getElementById('error-message').innerHTML = "Password should include at least 1 Uppercase letter, 1 lowercase letter & 1 number.";
+            document.getElementById('error-message').innerHTML = "Password should include at least 1 Uppercase letter, 1 lowercase letter, 1 number & minimum length of 6 characters.";
             return;
         }
     }
@@ -188,4 +188,16 @@ function getUserDataFromId(id) {
         });
     }
     return userData;
+}
+
+function isBlocked(id) {
+    let userData = JSON.parse(localStorage.getItem('users'));
+    let isBlocked = false;
+    userData.forEach(user => {
+        if(user.id == id && user.is_blocked == 1) {
+            isBlocked = true;
+            return
+        }
+    });
+    return isBlocked;
 }

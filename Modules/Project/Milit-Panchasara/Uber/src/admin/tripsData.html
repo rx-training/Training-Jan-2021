@@ -15,7 +15,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="mx-2">
         <h1 class=" display-1">Uber Admin</h1>
         <hr style="background-color: black; height: 3px;">
         <h1 class=" display-4">Trips:</h1>
@@ -23,7 +23,7 @@
         <table class=" table table-bordered table-hover" id="trips-table">
             <thead class="bg-dark text-light">
                 <tr>
-                    <th>ID</th>
+                    <th>Trip ID</th>
                     <th>Rider ID</th>
                     <th>Driver ID</th>
                     <th>Ride Type</th>
@@ -33,6 +33,8 @@
                     <th>End Time</th>
                     <th>Cancelled by Rider</th>
                     <th>Cancelled by Driver</th>
+                    <th>Trip Rating</th>
+                    <th>Trip cost</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -83,6 +85,8 @@
             allTripsData.forEach(trip => {
                 let user = getUserDataFromId(trip.rider_id);
                 let rideType = getRideTypeName(trip.ride_type_id);
+
+                let rating = getTripRating(trip.id);
                 
                 if(trip.is_canceled_by_driver == 0 && trip.is_canceled_by_rider == 0) {
                     document.getElementById('tripdata-table-body').innerHTML += '<tr>\
@@ -96,6 +100,8 @@
                         <td>'+ trip.end_time +'</td>\
                         <td>'+ trip.is_canceled_by_rider +'</td>\
                         <td>'+ trip.is_canceled_by_driver +'</td>\
+                        <td>' + rating + '</td>\
+                        <td>' + trip.trip_cost + ' &#8377;</td>\
                         <td >\
                             <button type="button" class="btn btn-sm btn-outline-primary" onclick="viewUser('+trip.id+')">View</button>\
                         </td>\
@@ -113,6 +119,8 @@
                         <td>'+ trip.end_time +'</td>\
                         <td>'+ trip.is_canceled_by_rider +'</td>\
                         <td>'+ trip.is_canceled_by_driver +'</td>\
+                        <td>-</td>\
+                        <td>-</td>\
                         <td >\
                             <button type="button" class="btn btn-sm btn-outline-primary" onclick="viewUser('+trip.id+')">View</button>\
                         </td>\

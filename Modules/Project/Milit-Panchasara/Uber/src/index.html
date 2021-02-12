@@ -94,19 +94,19 @@
             <div class="">
                 <!-- List group -->
                 <div class="list-group list-group-horizontal text-center" id="myList" role="tablist">
-                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#earn"
+                    <a class="list-group-item list-group-item-action active" onclick="changeBGImage('earn')" data-toggle="list" href="#earn"
                         role="tab"><i class="fa fa-home"></i><br>Earn</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#ride"
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('ride')" data-toggle="list" href="#ride"
                         role="tab"><i class="fa fa-car"></i><br>Ride</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#eat"
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('eat')" data-toggle="list" href="#eat"
                         role="tab"><i class="fa fa-spoon"></i><br>Eat</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#freight"
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('freight')" data-toggle="list" href="#freight"
                         role="tab"><i class="fa fa-truck"></i><br>Freight</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#business"
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('business')" data-toggle="list" href="#business"
                         role="tab"><i class="fa fa-suitcase"></i><br>Business</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#transit"
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('transit')" data-toggle="list" href="#transit"
                         role="tab"><i class="fa fa-bus"></i><br>Transit</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#bikenscoot"
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('bike')" data-toggle="list" href="#bikenscoot"
                         role="tab"><i class="fa fa-bicycle"></i><br>Bike &amp; scoot</a>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="img/Product-Masthead-Tablet.jpg" class="img-fluid d-block d-lg-none "alt="">
+                <img src="img/Product-Masthead-Tablet.jpg" class="img-fluid d-block d-lg-none "alt="" id="tab-list-image">
         </div>
 
 
@@ -353,6 +353,50 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        function changeBGImage(type) {
+            switch (type) {
+                case "earn":
+                    document.getElementById('products').style.backgroundImage = 'url("../img/Product-Masthead-Desktop.jpg")';
+                    document.getElementById('tab-list-image').src = 'img/Product-Masthead-Desktop.jpg';
+                    break;
+
+                case "ride":
+                    document.getElementById('products').style.backgroundImage = 'url("../img/ride_2x.jpg")';
+                    document.getElementById('tab-list-image').src = 'img/ride_2x.jpg';
+                    break;
+
+                case "eat":
+                    document.getElementById('products').style.backgroundImage = 'url("../img/eats-hero-desktop-6.jpg")';
+                    document.getElementById('tab-list-image').src = 'img/eats-hero-desktop-6.jpg';
+                    break;
+
+                case "freight":
+                    document.getElementById('products').style.backgroundImage = 'url("../img/Freight_2x.jpg")';
+                    document.getElementById('tab-list-image').src = 'img/Freight_2x.jpg';
+                    break;
+
+                case "business":
+                    document.getElementById('products').style.backgroundImage = 'url("../img/Business_2x.jpg")';
+                    document.getElementById('tab-list-image').src = 'img/Business_2x.jpg';
+                    break;
+
+                case "transit":
+                    document.getElementById('products').style.backgroundImage = 'url("../img/Transit_2x.jpg")';
+                    document.getElementById('tab-list-image').src = 'img/Transit_2x.jpg';
+                    break;
+
+                case "bike":
+                    document.getElementById('products').style.backgroundImage = 'url("../img/bikes_2x.jpg")';
+                    document.getElementById('tab-list-image').src = 'img/bikes_2x.jpg';
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    </script>
 
     <!-- ----- language modal ----- -->
     <div class=" modal fade w-100 mt-5" id="language-modal" tabindex="1">

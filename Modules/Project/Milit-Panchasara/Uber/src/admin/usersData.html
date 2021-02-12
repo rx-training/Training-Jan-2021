@@ -15,7 +15,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="mx-2">
         <h1 class=" display-1">Uber Admin</h1>
         <hr style="background-color: black; height: 3px;">
         <h1 class=" display-4">Riders:</h1>
@@ -30,6 +30,9 @@
                     <th>Average Rating</th>
                     <th>No. of Ratings</th>
                     <th>Date joined</th>
+                    <th>Total money spent</th>
+                    <th>Total Trips</th>
+                    <th>Trips Cancelled</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -55,6 +58,9 @@
             allUsersData.forEach(user => {
                 
                 if(user.user_type == 'rider') {
+                    let moneySpent = calculateTotalSpentMoney(user.id);
+                    let tripsCancelled = countCancelledTrips(user.id);
+                    let tripsTotal = countTotalTrips(user.id);
                     if(user.is_blocked == 0) {
                         document.getElementById('userdata-table-body').innerHTML += '<tr>\
                             <td>'+ user.id +'</td>\
@@ -64,6 +70,9 @@
                             <td>'+ user.average_rating +'</td>\
                             <td>'+ user.ratings +'</td>\
                             <td>'+ user.date_created +'</td>\
+                            <td>' + moneySpent + '</td>\
+                            <td>' + tripsTotal + '</td>\
+                            <td>' + tripsCancelled + '</td>\
                             <td style="width:150px">\
                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="viewUser('+user.id+')">View</button>\
                                 <button type="button" class="btn btn-sm btn-outline-danger" onclick="blockUser('+user.id+')">Block</button>\
@@ -79,6 +88,9 @@
                             <td>'+ user.average_rating +'</td>\
                             <td>'+ user.ratings +'</td>\
                             <td>'+ user.date_created +'</td>\
+                            <td>' + moneySpent + '</td>\
+                            <td>' + tripsTotal + '</td>\
+                            <td>' + tripsCancelled + '</td>\
                             <td style="width:150px">\
                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="viewUser('+user.id+')">View</button>\
                                 <button type="button" class="btn btn-sm btn-outline-success" onclick="unblockUser('+user.id+')">Unblock</button>\

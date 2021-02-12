@@ -78,16 +78,33 @@
         isNew = JSON.parse(isNew);
         document.getElementById('contact').value = isNew.mobile_number;
         
-        function checkEmail() {
+        function checkEmailFormat() {
             var email = document.getElementById("email").value;
             // console.log(email.match());
             if(!email.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-]+$/g) || email.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-]+$/g) != email) {
-                document.getElementById("email").style.color = 'red';
                 return false;
             }
             else {
-                document.getElementById("email").style.color = 'green';
                 return true;
+            }
+        }
+
+        function checkEmailExist() {
+            let userData = localStorage.getItem('users');
+            if(userData == null) {
+                return false;
+            }
+            else {
+                let isExist = false;
+                userData = JSON.parse(userData);
+                let email = document.getElementById("email").value;
+                userData.forEach(user => {
+                    if(user.email == email) {
+                        isExist = true;
+                        return;
+                    }
+                });
+                return isExist;
             }
         }
 
@@ -105,8 +122,12 @@
                 isValid = false;
             }
             else{
-                if(!checkEmail()){
+                if(!checkEmailFormat()){
                     document.getElementById("error-div").innerHTML += '<div class="alert alert-danger" id="error-div">Email is in invalid format.</div>';
+                    isValid = false;
+                }
+                if(checkEmailExist()){
+                    document.getElementById("error-div").innerHTML += '<div class="alert alert-danger" id="error-div">Email is already used.</div>';
                     isValid = false;
                 }
             }

@@ -55,3 +55,74 @@ function unblockUser(id) {
     document.getElementById('userdata-table-body').innerHTML = "";
     populateData();
 }
+
+function getTripRating(id) {
+    
+    let ratingData = localStorage.getItem('ratings');
+    if(ratingData == null){
+        return "0";
+    }
+    else {
+        let rating= 0;
+        ratingData = JSON.parse(ratingData);
+        
+        ratingData.forEach(tripRate => {
+            if(tripRate.trip_id == id) {
+                rating = tripRate.rating;
+                return; 
+            }
+        });
+        return rating;
+    }
+}
+
+function calculateTotalSpentMoney(id) {
+    let cost = 0;
+    let tripData = localStorage.getItem('userTrips');
+    if(tripData == null) {
+        return cost;
+    }
+    else {
+        tripData = JSON.parse(tripData);
+        tripData.forEach(trip => {
+            if(trip.rider_id == id) {
+                cost += parseFloat(trip.trip_cost);
+            }
+        });
+        return cost.toFixed(2);
+    }
+}
+
+function countCancelledTrips(id) {
+    let count = 0;
+    let tripData = localStorage.getItem('userTrips');
+    if(tripData == null) {
+        return count;
+    }
+    else {
+        tripData = JSON.parse(tripData);
+        tripData.forEach(trip => {
+            if(trip.rider_id == id && trip.is_canceled_by_rider == 1) {
+                count += 1;
+            }
+        });
+        return count;
+    }
+}
+
+function countTotalTrips(id) {
+    let count = 0;
+    let tripData = localStorage.getItem('userTrips');
+    if(tripData == null) {
+        return count;
+    }
+    else {
+        tripData = JSON.parse(tripData);
+        tripData.forEach(trip => {
+            if(trip.rider_id == id) {
+                count += 1;
+            }
+        });
+        return count;
+    }
+}

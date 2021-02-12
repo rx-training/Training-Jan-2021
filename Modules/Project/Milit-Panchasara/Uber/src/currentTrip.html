@@ -139,18 +139,18 @@
 
             var currentTripData = localStorage.getItem('currentTripData');
             currentTripData = JSON.parse(currentTripData);
-            document.getElementById('trip-start-time').innerHTML += currentTripData.start_time.split("T")[1].slice(0,8);
-            document.getElementById('payment-amount').innerHTML += currentTripData.trip_cost;
+            document.getElementById('trip-start-time').innerHTML += currentTripData.start_time.split(" ")[4].slice(0,5);
+            document.getElementById('payment-amount').innerHTML += currentTripData.trip_cost + " &#8377;";
 
             function countTripTime()
             {
                 new Promise((resolve,reject) => {
-                    setTimeout(() => {resolve("trip over");}, 1000); // 30*60*1000 = 30 minutes
+                    setTimeout(() => {resolve("trip over");}, 10000); // currently set to 10 seconds
                 })
                 .then((message) => {
                     var currentTripData = localStorage.getItem('currentTripData');
                     currentTripData = JSON.parse(currentTripData);
-                    currentTripData.end_time = (new Date());
+                    currentTripData.end_time = Date();
 
                     let allStoredTrips = localStorage.getItem('userTrips');
                     let newTripList = JSON.parse(allStoredTrips);
@@ -180,7 +180,8 @@
                 let allStoredTrips = localStorage.getItem('userTrips');
                 
                 currentTripData.is_canceled_by_rider = 1;
-                currentTripData.end_time = (new Date());
+                currentTripData.end_time = Date();
+                currentTripData.trip_cost = 0;
 
                 let newTripList = JSON.parse(allStoredTrips);
                 let index = -1;
