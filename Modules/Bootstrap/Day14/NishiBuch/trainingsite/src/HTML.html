@@ -16,7 +16,12 @@
         background-size: 1400px 700px;
     }
 </style>
-
+<script>
+    function load_home()
+    {
+        document.getElementById("content").innerHTML='<object type="type/html" data="html/one.html" style="width:100%;height:500px;opacity:0.8;"></object>';
+    }
+</script>
 <body>
     <!-- navbar-->
     <nav class="navbar navbar-expand-sm navbar-light bg-success">
@@ -77,8 +82,8 @@
                         <ol data-toggle="collapse" data-target="#pe"><i class="fa fa-folder">practise exercise</i>
 
                             <div id="pe" class="collpase">
-                                <li> <a href="../../../../../Html/Day3/NishiBuch/practise exersize/one.html"
-                                        class="text-success">student report card</a></li>
+                                <li>    <a href="#" class="text-success" onclick="load_home()">student report card</a></li>
+
                                 <li> <a href="../../../../../Html/Day3/NishiBuch/practise exersize/two.html"
                                         class="text-success">latest news</a></li>
                                 <li> <a href="../../../../../Html/Day3/NishiBuch/practise exersize/three.html"
