@@ -126,3 +126,9 @@ function countTotalTrips(id) {
         return count;
     }
 }
+
+function logout() {
+    localStorage.removeItem('logged_in_admin_data');
+    localStorage.removeItem('logged_in_admin');
+    window.location.href = 'login.html';
+}

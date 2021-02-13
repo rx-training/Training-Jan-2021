@@ -199,7 +199,7 @@
             }
 
             function bookRide() {
-                console.log($('#rides-list > .active')[0].id);
+
                 let rideId = $('#rides-list > .active')[0].id.split("_")[1];
                 let ride = rideData.rides[rideId-1];
 
@@ -225,7 +225,7 @@
                     "is_canceled_by_driver" : 0,
                     "trip_cost": (distance * ride.pricePerKm).toFixed(2)
                 };
-                alert(Date());
+
                 let allStoredTrips = localStorage.getItem('userTrips');
                 
                 if(allStoredTrips == null) {
