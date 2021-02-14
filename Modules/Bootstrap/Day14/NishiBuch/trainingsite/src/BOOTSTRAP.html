@@ -13,10 +13,21 @@
     body {
         background-image: url('./img/bootstlogo.jpg');
         background-repeat: no-repeat;
-        background-size: 1400px 700px;
+        background-size: 1540px 720px;
     }
 </style>
+<script>
+    function load_basic() {
+    document.getElementById("content").innerHTML = '<object type="type/html"  data="../../../../day9/Nishi Buch/practise exersize/2_2_basic_typography.html" style="width:100%;height:500px;opacity:0.8;"></object>';
 
+    }
+    function load_position() {
+    document.getElementById("content").innerHTML = '<object type="type/html"  data="../../../../day9/Nishi Buch/practise exersize/2_3_text_alignment_and_display.html" style="width:100%;height:500px;opacity:0.8;"></object>';
+
+    }
+
+
+</script>
 <body>
     <!-- navbar-->
     <nav class="navbar navbar-expand-sm navbar-light bg-success">
@@ -73,12 +84,11 @@
         <div class="row">
             <div class="col-md-3  bg-white text-success">
                 <div class="new1">
-                    <ul>Day9
-                        <ol>practise exercise
-                            <li> <a href="../../../../day9/Nishi Buch/practise exersize/2_2_basic_typography.html"
-                                    class="text-success">Basic Typography</a></li>
-                            <li> <a href="../../../../day9/Nishi Buch/practise exersize/2_3_text_alignment_and_display.html"
-                                    class="text-success">textalignment and display</a></li>
+                    <ul><i class="fa fa-folder">Day9</i>
+                        <ol data-toggle="collapse" data-target="#d9"> <i class="fa fa-folder">practise exercise</i>
+                            <div id="d9" class="collapse">
+                            <li> <a href="#" onclick="load_basic()" class="text-success">Basic Typography</a></li>
+                            <li> <a href="#" onclick="load_position()"class="text-success">textalignment and display</a></li>
                             <li> <a href="../../../../day9/Nishi Buch/practise exersize/2_4_floats_andFixedPosition.html"
                                     class="text-success">floats and fixed position </a></li>
                             <li> <a href="../../../../day9/Nishi Buch/practise exersize/2_5_color_background.html"
@@ -106,15 +116,16 @@
                                     class="text-success">cards</a></li>
                             <li> <a href="../../../../day9/Nishi Buch/practise exersize/3_10_media_object.html"
                                     class="text-success">media object</a></li>
-
+                                </div>    
 
 
 
                         </ol>
 
                     </ul>
-                    <ul>Day10
-                        <ol>practise exercise
+                    <ul> <i class="fa fa-folder">Day10</i>
+                        <ol data-toggle="collapse" data-target="#d10"> <i class="fa fa-folder">practise exercise</i>
+                            <div class="collapse" id="d10">
                             <li> <a href="../../../../day10/Nishi Buch/practise exercise/4_2_grid_system.html"
                                     class="text-success">grid system</a></li>
                             <li> <a href="../../../../day10/Nishi Buch/practise exercise/4_3_grid_alignment.html"
@@ -133,43 +144,50 @@
                                     class="text-success">popovers</a></li>
                             <li> <a href="../../../../day10/Nishi Buch/practise exercise/5_6_modals.html"
                                     class="text-success">modals</a></li>
-
+                                </div>
 
                         </ol>
 
                     </ul>
-                    <ul>Day11
-                        <ol>project
+                    <ul><i class="fa fa-folder">Day11</i>
+                        <ol data-toggle="collapse" data-target="#d11"> <i class="fa fa-folder">project</i>
+                            <div id="d11" class="collapse">
                             <li> <a href="../../../../day11/Nishi Buch/project1.html"
                                     class="text-success">day11-project</a>
                             </li>
-
+                            </div>
                         </ol>
 
                     </ul>
-                    <ul>Day12
-                        <ol> project
+                    <ul> <i class="fa fa-folder">Day12</i>
+                        <ol data-toggle="collapse" data-target="#d12"><i class="fa fa-folder"> project</i>
+                            <div id="d12" class="collapse">
                             <li> <a href="../../../../day12/NishiBuch/src/index.html" class="text-success">Looplab</a>
                             </li>
-
+                            </div>
                         </ol>
 
                     </ul>
-                    <ul>Day13
-                        <ol> project
+                    <ul><i class="fa fa-folder">Day13</i>
+                        <ol data-toggle="collapse" data-target="#d13"> <i class="fa fa-folder">project</i>
+                            <div id="d13" class="collapse">
                             <li> <a href="../../../../day13/NishiBuch/Blogen/src/index.html"
                                     class="text-success">Blogen</a>
                             </li>
                             <li> <a href="../../../../day13/NishiBuch/portfolio/src/index.html"
                                     class="text-success">Portfolio</a>
                             </li>
-
+                            </div>
                         </ol>
 
                     </ul>
 
                 </div>
             </div>
+            <div class="col-md-9 ">
+                
+                <div id="content"></div>
+           
         </div>
     </div>
 
