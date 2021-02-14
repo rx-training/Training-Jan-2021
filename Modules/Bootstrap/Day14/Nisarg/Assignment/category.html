@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Categories</title>
+
+    
+  </head>
+  <body>
+    <h2 class="text-center mt-3">Categories</h2>
+    <form id="frmCadastre">
+        <div class="container-fluid w-50 form-group mt-5">
+        <ul>
+           <label for="techID">Technology ID</label> 
+            <div class="form-group" >
+                <select id="techID" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <label for="techName">Technology Name</label>
+            <input type="text" class="form-control" id="techName" required/>
+            <input type="button" class="btn btn-success mt-3 " value="Save" id="btnSave" onclick="add()" />
+        </ul>
+        </div>
+     </form>
+     <table id="tblList"> </table>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        //document.querySelector(function(){
+    function add()
+     {
+      var data;
+      var tech_id=document.getElementById("techID").value;
+      var tech_name=document.getElementById("techName").value;
+        if(tech_id==="" || tech_name==="")
+        {
+          alert("Cant enter values");
+        }
+        else
+        {
+            data=JSON.parse(localStorage.getItem("data")) || [];
+            var obj={"TechID":tech_id,"TechName":tech_name};
+                   
+                    data.push(obj);
+                    obj=JSON.stringify(data);
+                    localStorage.setItem("data",obj);
+                    
+                    var i=0;
+                    var flg="";
+                    var ftch_tech_name,create_rows;//fetch and create variables
+                    ftch_tech_name=localStorage.getItem("data");
+                    create_rows=JSON.parse(ftch_tech_name);
+                    create_rows.forEach(data=>
+                    {
+                        flg+="<tr>";
+                        flg+="<td>"+data.TechID+"</td>";
+                        flg+="<td>"+data.TechName+"</td>";
+                        flg+='<td><button class="btn btn-primary" onclick="updteTname('+"'"+i+"'"+')"> Update </button> </td>';
+                        flg+='<td><button class="btn btn-warning" onclick="del('+"'"+data.TechName+"'"+')"> Delete </button> </td></tr>';
+                        i=i+1;
+                    });
+                    document.getElementById("tbl").innerHTML=flg;  
+            }  
+         }
+            function updteTname(i)
+            {
+                var update=document.getElementById("updatemodalcontainer");
+                var arr1=JSON.parse(localStorage.getItem("data"));
+                update.innerHTML='\
+                    <div class="modal fade" id="updatePostModal" role="dialog"> \
+                        <div class="modal-dialog modal-lg"> \
+                            <div class="modal-content"> \
+                                <div class="modal-header bg-primary text-white"> \
+                                    <h5 class="modal-title">Update Technology Name</h5> \
+                                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button> \
+                                </div> \
+                                <div class="modal-body"> \
+                                    <form> \
+                                        <div class="form-group"> \
+                                            <label class="form-control-label" for="oldtechname">Old Tech Name</label> \
+                                            <input type="text" class="form-control" id="oldtechname' + i +'" value ="' + arr1[i].TechName +' " readonly> \
+                                        </div> \
+                                        <div class="form-group"> \
+                                            <label class="form-control-label" for="newtechname">New Tech Name</label> \
+                                            <input type="text" class="form-control" id="newtechname' + i + '"> \
+                                        </div> \
+                                     </form> \
+                                </div> \
+                                <div class="modal-footer"> \
+                                    <button class="btn btn-secondary" data-dismiss="modal">Close</button> \
+                                    <button class="btn btn-pink" onclick="return updateTechname(' + i +')">Save Changes</button> \
+                                </div> \
+                            </div> \
+                        </div> \
+                    </div> \
+                ';
+                $("#updatePostModal").modal('show');
+            }
+            function updateTechname(i)
+            {
+                var arr1=JSON.parse(localStorage.getItem("data"));
+                var t1=document.getElementById("newtechname"+i).value;
+                arr1[i].TechName=t1;
+                localStorage.setItem("data",JSON.stringify(arr1));
+                $("#updatePostModal").modal('hide');
+                var i=0;
+                var flg="";
+                
+                    var ftch_tech_name,create_rows;
+                    ftch_tech_name=localStorage.getItem("data");
+                    create_rows=JSON.parse(ftch_tech_name);
+                    create_rows.forEach(data=>
+                    {
+                        flg+="<tr>";
+                        flg+="<td>"+data.TechID+"</td>";
+                        flg+="<td>"+data.TechName+"</td>";
+                        flg+='<td><button class="btn btn-primary" onclick="updteTname('+"'"+i+"'"+')"> Update </button> </td>';
+                        flg+='<td><button class="btn btn-warning" onclick="del('+"'"+data.TechName+"'"+')"> Delete </button> </td></tr>';
+                        i=i+1;
+                    });
+                    document.getElementById("tbl").innerHTML=flg;
+            },
+
+            
+            function del(i)
+            {
+                var fetchrows,deleterows,i;
+                fetchrows=localStorage.getItem("data");
+                deleterows=JSON.parse(fetchrows);
+                var deleteindex=0;
+                deleterows.forEach(data=>
+                {
+                    if(data.TechName==i)
+                    {
+                        deleterows.splice(deleteindex,1);
+                        var object=JSON.stringify(deleterows);
+                        localStorage.setItem("data",object);
+                        var newtechnamearray=document.getElementById("tbl");
+                        newtechnamearray.removeChild(newtechnamearray.childNodes[deleteindex]);
+                    }
+                    deleteindex=deleteindex+=1;
+                });
+            }
+        //});            
+        </script>
+         <div class="container mt-5">
+            <table class="table table-stripped">
+                <thead>
+                    <th>Technology ID</th>
+                    <th>Technology Name</th>
+                </thead>
+                <tbody id="tbl"></tbody>
+            </table>
+        </div>
+        <div id="updatemodalcontainer"></div>
+  </body>
+</html>
