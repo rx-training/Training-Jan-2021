@@ -106,6 +106,9 @@ function addToBag(index){
 
     var productArray = JSON.parse(localStorage.getItem("products"));
     productArray.Products[index].isInBag = true;
+    productArray.Products[index].quantity = 1;
+    var sizes = productArray.Products[index].sizes.split(",");
+    productArray.Products[index].size =  sizes[0];
 
     var bagArray = JSON.parse(localStorage.getItem("bag")) || {"Product" : []};
     
