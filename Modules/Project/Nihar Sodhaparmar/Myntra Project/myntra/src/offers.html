@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style-for-login.css">
+    <link rel="stylesheet" href="css/style-for-products.css">
+    <script src="js/offers.js"></script>
+    <title>Offers</title>
+    <link rel="shortcut icon" href="./img/myntra-logo.png" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand"> <img src="./img/myntra-logo.png" alt="Logo" height="50" width="50"> </a>
+
+            <button class="navbar-toggler navbar-toggler-right p-0" type="button" data-toggle="collapse"
+                data-target="#navResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                <ul class="navbar-nav px-3 navbar-left-link-container">
+                    <li class="nav-item px-2"><a href="products.html" class="nav-link">PRODUCTS</a></li>
+                    <li class="nav-item px-2"><a href="category.html" class="nav-link">CATEGORIES</a></li>
+                    <li class="nav-item px-2"><a href="offers.html" class="nav-link">OFFERS</a></li>
+                </ul>
+
+                <div class="search_container ml-auto">
+                    <ul class="navbar-nav" style="font-size: 13px;">
+                        <li class="nav-item mr-3">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-search"></i> </span>
+                                </div>
+                                <input class="form-control d-block form-control" type="search" style="height: 30px;">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-5">
+        <div class="input-group mx-auto search-input-group-container">
+            <input id="search-input" type="search" class="form-control" />
+            <div class="input-group-append">
+                <button id="search-button" type="button" class="btn btn-secondary" onclick="return search()" >
+                    <i class="fa fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div id="availableProducts" class="mt-5"></div>
+    </div>    
+
+
+    <div class="py-5"></div>
+
+    <div id="applyOfferModalContainer">
+
+    </div>
+
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>
