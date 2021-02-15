@@ -39,7 +39,7 @@ function showBagItems() {
                                 <div class='col-sm col-md-8 col-lg-8 mx-auto wishlist-and-bag-content'>\
                                     <div class='h5 font-weight-bold'>" + bagArray.Product[i].brand + "</div>\
                                     <div class='h5 font-weight-bold'>" + bagArray.Product[i].name + "</div>\
-                                    <div class='h5 font-weight-bold text-muted'> Size : " + bagArray.Product[i].sizes + "</div> \
+                                    <div class='h5 font-weight-bold text-muted'> Size : " + bagArray.Product[i].size + "</div> \
                                     <div class='h5 font-weight-bold text-muted'> Quantity : " + bagArray.Product[i].quantity + "</div> \
                                     <div class='h5 font-weight-bold text-muted'> Rs. " + bagArray.Product[i].price + offerStr + "</div>\
                                     <div>\

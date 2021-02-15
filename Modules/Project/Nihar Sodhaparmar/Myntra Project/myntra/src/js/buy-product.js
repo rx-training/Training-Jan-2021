@@ -125,7 +125,6 @@ function addToBag(index){
 
 function addToWishlist(index){
 
-    checkLogin();
     
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -135,6 +134,9 @@ function addToWishlist(index){
 
     var productArray = JSON.parse(localStorage.getItem("products"));
     productArray.Products[index].isInWishlist = true;
+    productArray.Products[index].quantity = 1;
+    var sizes = productArray.Products[index].sizes.split(",");
+    productArray.Products[index].size =  sizes[0];
 
     var wishlistArray = JSON.parse(localStorage.getItem("wishlist")) || {"Product" : []};
 
