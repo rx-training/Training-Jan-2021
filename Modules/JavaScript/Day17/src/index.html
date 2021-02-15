@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Day 14</title>
+    </head>
+
+    <body class="m-5">
+
+        <div class="container">
+            <h3 class="mt-3">Practice 07 : Use Window.location object to navigate on another page</h3>
+            <button class="btn btn-warning" onclick="navigate()"> navigate to radixweb.com</button>
+    
+            <h3 class="mt-3">Practice 08 :  Use Window.history object to move to previous url in the history list</h3>
+            <button class="btn btn-secondary" onclick="goback()">Go gack</button>
+    
+            <h3 class="mt-3">Practice 08 :  Try to change windows height and width using Windows object</h3>
+            <button class="btn btn-info" onclick="resize()">Resize screen</button>
+            <br><br>
+    
+            
+            <h2 class="text-center">Assignment</h2>
+            <h3 class="text-center text-primary">Employee Details</h3>
+    
+            <form class="mt-3" action="#lastdiv" id="myForm">
+                <div class="form-group">
+                    <label for="id">EmployeeID</label>
+                    <input type="text" required class="form-control" placeholder="Employee ID" id="employeeId">
+                </div>
+                <div class="form-group">
+                    <label for="name">Employee name</label>
+                    <input type="text" required class="form-control" placeholder="Employee name" id="employeeName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" required class="form-control" placeholder="Email ID" id="emailId">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" required class="form-control" placeholder="Age" id="age">
+                </div>
+                <div class="form-group">
+                    <label for="">Gender</label>
+                    <div class="radio" >
+                        <div>
+                            <input type="radio" required name="gender" id="gender" > Male
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" id="gender"> Female
+                        </div>
+                    </div>
+                </div>
+               
+               
+                <div class="form-group">
+                    <label for="">Location</label>
+                    <select id="location" required class="custom-select-sm">
+                        <option value="Ahmedabad">Ahmedabad</option>
+                        <option value="Vadodara">Vadodara</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Rajkot">Rajkot</option>
+                        <option value="Bhavnagar">Bhavnagar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">date of joining</label>
+                    <input type="date" required >
+                </div>
+
+                <div class="form-group">
+                    <label for="">Designation</label>
+                    <input type="text" required class="form-control" placeholder="Designation">
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="">Salary</label>
+                    <input type="number" required class="form-control" placeholder="Salary">
+                </div>
+                <div class="form-group">
+                    <label for="">Contact Number</label>
+                    <input type="number" required class="form-control" placeholder="Contact Number">
+                </div>
+                <div class="text-center">
+                    <input type="button" value="Submit" class="btn-primary btn" onclick="check(employeeId.value, age.value, )">
+                </div>
+            </form>
+        </div>
+        <div id="lastdiv">
+            
+        </div>
+        
+
+
+        <script type="text/javascript">
+            function navigate(){
+                window.location.assign("https://radixweb.com/");
+            }
+            function goback(){
+                window.history.back();
+            }
+            function resize(){
+                window.resizeBy(screen.width-300,screen.height-500);
+            }
+            function check(eid, age){
+                var age = parseInt(age);
+                
+                if(eid.trim().length < 5){
+                    console.log(eid);
+                    alert("Minimum length of EmployeeID 5");
+                    return false;
+                } else if(isNaN(age)) {
+                    console.log(age);
+                    alert("invalid Age");
+                    return false;
+                } else {
+                    alert("Form submited");
+                    $('form').submit();
+                }
+                
+            }
+            
+        </script>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
