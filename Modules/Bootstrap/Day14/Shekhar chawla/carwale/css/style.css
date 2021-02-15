@@ -1,0 +1,45 @@
+#x               :hover {
+	border-bottom: solid;
+}
+#x {
+	border-bottom: solid #ffffff;
+}
+#searchBar {
+	width : 350px;
+	height: 45px;
+    color : dsfk;
+}
+.form-group .form-control-icon {
+    position      : absolute;
+    z-index       : 2;
+    display       : block;
+    width         : 21rem;
+    height        : 21rem;
+    line-height   : 21rem;
+    text-align    : right;
+    pointer-events: none;
+    color         : grey;
+    font-size     : 23px;
+}
+.banner {
+	width           : 100%;
+    height          : 400px;	  
+    background      : url('../images/home-page-banner-400.webp') no-repeat center top scroll;
+    background-size : cover;
+}
+#navFeature {
+    border-radius   : 0px;
+    border-bottom   : 3px white solid;
+    background-color: white;
+    color           : #6c757d;;
+    font-weight     : bold;
+}
+#navFeature         :active {
+    color           : teal;
+    border-bottom   : 3px solid teal;
+}
+#navFeature         :focus {
+    color           : teal;
+    border-bottom   : 3px solid teal;
+}
+/*color             : #6c757d;*/

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>New Cars,Used Cars,Buy a Car</title>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<script src="https://kit.fontawesome.com/de0a212e17.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="position:fixed; ">
+	<!-- Logo -->
+	<a class="navbar-brand ml-2" href="#">
+		<img src="images/logo.svg" class="d-inline-block align-top" width="136" alt="carwale" title="carwale">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!-- Navbar Items -->
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav d-flex justify-content-center w-50">
+			<div id="x" class="mx-4 mb-1">
+				<a class="nav-item nav-link font-weight-bold" href="#">New Cars <span class="sr-only">(current)</span></a>
+			</div>
+			<div id="x" class="mx-4 mb-1">
+				<a class="nav-item nav-link font-weight-bold" href="#">Used Cars</a>
+			</div>
+			<div id="x" class="mx-4 mb-1">
+				<a class="nav-item nav-link font-weight-bold" href="#">REVIEWS & NEWS</a>
+			</div>
+		</div>
+		<!-- Search and other -->
+		<form id="navRight" class="form-inline w-50 d-flex justify-content-end m-lg-0">
+			<div  class="form-group">
+				<input id="searchBar" class="form-control" type="text" placeholder="Search" aria-label="Search" />
+				<span class="fa fa-search form-control-icon"></span>
+			</div>
+			<!-- icons -->
+			<a href="#" class="mr-3" title="location"></a>
+			<a href="#" class="mx-3" title="translate"><i class="fa fa-lg fa-map-marker"></i></a>
+			<a href="#" class="mx-3" title="account"><i class="fa fa-lg fa-language"></i></a>
+			<a href="#" class="mx-3" title="account"><i class="fa fa-lg fa-user"></i></a>	
+		</form>
+	</div>
+</nav>
+<div class="banner">
+	<div class="container">
+		<!-- Header -->
+		<div class="page-header">
+			<div class="d-flex flex-column flex-grow-1" style="height: 200px;"></div>
+			<!-- Search Bar -->
+			<div class="d-flex flex-column">
+				<p class="mb-2 h3 text-white text-center font-weight-bold">FIND THE RIGHT CAR</p>
+				<div>
+					<div class="input-group d-flex justify-content-center">
+						<div class="input-group-prepend">
+							<a class="input-group-text dropdown-toggle btn px-4" data-toggle="dropdown" id="used" aria-haspopup="true" aria-expanded="false">New</a>
+							<div class="dropdown-menu pr-0" aria-labelledby="used">
+								<a class="dropdown-item" href="#">Used</a>
+							</div>
+						</div>
+						<div style="width:28rem;height: 3rem;">
+							<input style="height: 3rem;border-radius: 0px;" type="text" class="form-control" placeholder="Type to select Car name eg. MG ZS EV">
+						</div>
+						<div class="input-group-append">
+							<span style="background-color:#e53012;border:3px solid white;" class="input-group-text px-5 text-white">Search</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="d-flex flex-column flex-grow-1" style="height: 150px;"></div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<!-- Featured Cars -->
+	<div class="my-4">
+		<p class="h4">Featured Cars</p>
+		<nav class="nav nav-pills">
+			<a id="navFeature" class="nav-item mr-3 nav-link active" href="#">Active</a>
+			<a id="navFeature" class="nav-item mr-3 nav-link" href="#">Much longer nav link</a>
+			<a id="navFeature" class="nav-item mr-3 nav-link" href="#">Link</a>
+		</nav>
+	</div>
+	<!-- Cars Card -->
+	<div class="row">
+		<div class="card mx-3 bg-info">
+			<img src="images/citroen-c5-aircross.webp" class="card-img-top"  alt="...">
+			<div class="card-body">
+				<h5 class="card-title">Citroen C5 Aircross</h5>
+				<h6 class="card-text font-weight-bold">25.00 - 32.00 Lakh <small>Estimated Price</small></h6>
+				<small class="card-text">When to expect - March 2021(Tentative)</small>
+				<a class="card-link">Links</a>
+			</div>
+		</div>
+
+		<div class="card mx-3 bg-info">
+			<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+			<div class="card-body">
+				<h5 class="card-title">Kia Sonet</h5>
+				<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+				<small class="card-text">Avg. Ex Showroom Price</small>
+			</div>
+		</div>
+
+		<div class="card mx-3 bg-info">
+			<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+			<div class="card-body">
+				<h5 class="card-title">Hyundai Creta</h5>
+				<h6 class="card-text font-weight-bold">10.00 Lakh <small>onwards</small></h6>
+				<small class="card-text">Avg. Ex Showroom Price</small>
+			</div>
+		</div>
+	</div>
+<!-- end -->
+</div>
+			
+		
+	
+
+
+	
+
+
+
+
+<!-- 84 active does not work -->
+
+
+
+		<!-- Blogen  -->
+		
+		<!-- <div class="container-fluid">
+			<nav class="navbar navbar-expand-sm p-0 navbar-light bg-light">
+				<a class="navbar-brand"><img src="" class="d-inline-block align-top" width="30" height="30">Brand</a>
+
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navCollapse"><span class="navbar-toggler-icon"></span></button>
+
+				<div class="collapse navbar-collapse" id="navCollapse">
+					<ul class="navbar-nav">
+						<li class="nav-item px-4">
+							<a class="nav-link">Dashboard</a>
+						</li>
+						<li class="nav-item px-4">
+							<a class="nav-link">Posts</a>
+						</li>
+						<li class="nav-item px-4">
+							<a class="nav-link">Categories</a>
+						</li>
+						<li class="nav-item px-4">
+							<a class="nav-link">Users</a>
+						</li>						
+					</ul>
+				</div>
+			</nav>
+		</div>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
