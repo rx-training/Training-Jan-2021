@@ -8,6 +8,15 @@ form{
 /* #firstCard .card{
     height: 100px;
 } */
+#firstCard{
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 2px 2px 5px rgb(180, 179, 179);
+}
+#secondCard{
+    margin-left: 100px;
+    margin-right: 650px;
+}
 footer{
     font-size: 20px;
 }
