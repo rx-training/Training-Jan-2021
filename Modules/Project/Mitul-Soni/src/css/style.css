@@ -1,9 +1,15 @@
 body {
-  background-color: lightblue; }
+  background: url("https://gujaratuniversity.ac.in/files/images/header-01.jpg"); 
+  background-repeat: no-repeat;
+}
+
+
 
 #top-header {
   
-  background: url("https://gujaratuniversity.ac.in/files/images/header-01.jpg"); }
+  background: url("https://gujaratuniversity.ac.in/files/images/header-01.jpg"); 
+  background-repeat: no-repeat;
+}
 
 .dropdown-menu {
   background-color: #191970; }
@@ -210,4 +216,8 @@ body {
 .fa-book
 {
   color: navy;
+}
+.fa-file
+{
+  color: orange;
 }

@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-2">
                 <a href="https://fees.gujaratuniversity.ac.in/download/OnlineServicesDetail.pdf" class="btn btn-success mt-4"><i class="fa fa-stop"></i> HELP</a><br>
-                <a href="#" class="btn btn-primary mt-1"><i class="fa fa-sign-in"></i> Student Login</a>
+                <a href="student_login.html" class="btn btn-primary mt-1"><i class="fa fa-sign-in"></i> Student Login</a>
             </div>
         </div>
     </section>
@@ -36,6 +36,13 @@
             var str;    
             get = localStorage.getItem("result");
             create = JSON.parse(get);
+
+            if(course == "" || seatno == "")
+            {
+                alert("Please all feilds required");
+                return;
+            }
+
             create.forEach(result => {
                     if(result.course == course && result.seatno == seatno)
                     {
@@ -49,8 +56,8 @@
                         str += '<tr><td class="text-center">'+result.subject[1]+'</td><td colspan="3" class="text-center">'+result.marks[1]+"</td></tr>";
                         str += '<tr><td class="text-center">'+result.subject[2]+'</td><td colspan="3" class="text-center">'+result.marks[2]+"</td></tr>";
                         str += '<tr><td class="text-center">'+result.subject[3]+'</td><td colspan="3" class="text-center">'+result.marks[3]+"</td></tr>";
-                        str += '<tr><td colspan="2" class="bg-dark text-white text-center">Total</td><td colspan="2" class="bg-dark text-white">Percentage</td></tr>';
-                        str += '<tr><td class="text-center">'+result.total+"/400"+'</td><td class="text-center">'+result.percentage+'</td></tr></tbody></table>';
+                        str += '<tr><td colspan="3" class="bg-dark text-white text-center">Total</td><td colspan="2" class="bg-dark text-white">Percentage</td></tr>';
+                        str += '<tr><td colspan="3" class="text-center">'+result.total+"/400"+'</td><td>'+result.percentage+'</td></tr></tbody></table>';
                            
                     }
             

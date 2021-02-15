@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Project2</title>
+    </head>
+
+    <style>
+        .navbar-nav li:hover > ul.dropdown-menu 
+        {
+            display: block;
+        }
+        .dropdown-submenu 
+        {
+            position:relative;
+        }
+        .dropdown-submenu>.dropdown-menu 
+        {
+            top: 0;
+            left: 100%;
+            margin-top:-6px;
+        }
+
+/* rotate caret on hover */
+        .dropdown-menu > li > a:hover:after 
+        {
+            text-decoration: underline;
+            transform: rotate(-90deg);
+        } 
+		.sidebar
+		{
+			width: 600px;
+			border: 2px solid black;
+			padding: 10px;
+			margin: 20px;
+			color: white;
+			background-color: #00004d;
+		}
+		h2
+		{
+			text-align: left;
+		}
+		.sidebar2
+		{
+			width: 95%;
+			height: 50px;
+			border: 2px solid black;
+			padding: -10px;
+			margin: 2px;
+			border-color: white;
+			top-padding: 50%;
+		}
+		.sidebar3
+		{
+			width: 500px;
+			border: 2px solid black;
+			padding-right: 20px;
+		}
+
+    </style>
+
+    <body>
+        <!---Navbar Section Start-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container">
+                <img src="logo.png" alt="" height="80px" width="80px">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-5">
+                        <li class="nav-item">
+                            <a href="/Htmldemo/index.html" class="nav-link">HTML</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Cssdemo/index.html" class="nav-link">CSS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Bootstrapdemo/index.html" class="nav-link">BOOTSTRAP</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Navbar Section End-->
+
+          <!--Left sidebar Section--> 
+          <div class="container">
+          <div class="row mt-2">
+            <div class="col-md-3 bg-warning" style="border:1px black solid">
+                <h5 class="text-center">HTML Section</h5>
+                <ul>
+					<li>Day4</li>
+					<ul>
+						<li>Assignment</li>
+							<ul>
+								<li><a href="resume.html">Resume</a></li>
+							</ul>
+							<li>Practice</li>
+							<ul>
+								<li><a href="../Practice Exercise/reportcard.html">Reportcard</a></li>
+								<li><a href="../Practice Exercise/task2.html">Task2</a></li>
+								<li><a href="../Practice Exercise/task5.html">Task5</a></li>
+							</ul>
+					</ul>
+				</ul>
+            </div>
+			<div class="col-md-9">
+				<div class="sidebar">
+					<img src="assets/image/background.jpg" border="2"  height="100" width="100"><h2>Mitul Soni</h2>
+					<div class="sidebar2">
+						<h3 align="center">Contact Details</h3>
+					</div>
+					<div class="sidebar3">
+						
+					</div>
+					<h3>
+						<p>Email :- mitulsoni753@gmail.com</p>
+						<p>Phone :- +91 8128493452</p> 
+						<p>Address :- Ahmedabad</p>
+					</h3>
+					<div class="sidebar2">
+						<h3 align="center">Technical Skill</h3>
+					</div>
+					<h4>
+						<ul>
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>Java</li>
+							<li>C</li>
+							<li>C++</li>
+							<li>PHP</li>
+							<li>MySQL</li>
+							<li>Android</li>
+							<li>Python</li>
+						</ul>
+					</h4>
+					<div class="sidebar2">
+						<h3 align="center">Education Details
+					</div>
+					<h4>
+						<ul>
+							<li style="list-style:square;">SSC</li>
+								<ul>
+									<li>Gujarat Higher & Secondary Board</li>
+									<li>Percentage :- 69.70%</li>
+								</ul>
+						</ul>
+						<ul>
+							<li style="list-style:square;">HSC</li>
+								<ul>
+									<li>Gujarat Higher & Secondary Board</li>
+									<li>Percentage :- 74.80%</li>
+								</ul>
+						</ul>
+						<ul>
+							<li style="list-style:square;">Bachelor of Computer Application</li>
+								<ul>
+									<li>L.J. College of Computer Application</li>
+									<li>CGPA :- 7.62</li>
+								</ul>
+						</ul>
+						<ul>
+							<li style="list-style:square;">Master of Science in Infromation Technology</li>
+								<ul>
+									<li>GLS University</li>
+									<li>CGPA :- 8.44</li>
+								</ul>
+						</ul>
+					</h4>
+					<div class="sidebar2">
+						<h3 align="center">Acadamic Project
+					</div>
+					<h4>
+						<ul>
+							<li style="list-style: square;">
+								<ul>
+									<li>
+										Bachelor of Computer Application
+									</li>
+									<li>
+										Evnet Management System
+									</li>
+									<li>HTML , CSS, PHP , MYSQL</li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li style="list-style: square;">
+								<ul>
+									<li>
+										Master of Science in Information Technology
+									</li>
+									<li>
+										Poolup Cab Service
+									</li>
+									<li>HTML , CSS, PHP , MYSQL , Bootstrap , Google map API</li>
+								</ul>
+							</li>
+						</ul>
+						<ul>
+							<li style="list-style: square;">
+								<ul>
+									<li>
+										Master of Science in Information Technology
+									</li>
+									<li>
+										Covid-19 Tracker For India
+									</li>
+									<li>HTML , CSS, Python , Django , API</li>
+								</ul>
+							</li>
+						</ul>
+					</h4>	
+					<div class="sidebar2">
+						<h3 align="center">Language</h3>
+					</div>
+					<h4>
+						<ol>
+							<li>English</li>
+							<li>Hindi</li>
+							<li>Gujarati</li>
+						</ol>
+					</h4>
+					<div class="sidebar2">
+						<h3 align="center">Project Overview</h3>
+					</div>
+						<video width="580" height="250" controls autoplay> 
+							  <source src="assets/video/demo.webm" type="video/mp4">
+						  </video>
+				</div>
+			</div>
+        </div>
+    </div>
+        <!--Left sidebar Section End-->
+
+
+
+        
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+    </body>
+</html>
