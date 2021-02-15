@@ -46,65 +46,21 @@
           });
       });
         </script>
-        <style>
-            @media screen and (max-width: 767px){
-                #sectionimg {
-                display: none;
-                }
-                .swiggyicon {
-                height: 45px !important;
-                }
-                .lastimg{
-                    display: none;
-                }
-                .restorents{
-                    font-size: 26px;
-                }
-            }
-           @media screen and (min-width: 768px) and (max-width: 992px)  {
-            .swiggyicon{
-                height: 40px !important;
-            }
-            .locate{
-                font-size: 14px;
-            }
-            .locationclass {
-                outline: black; 
-            }
-            .textcity {
-                margin: 10px 0 5px;
-                font-size: 20px;
-            }
-            .lastofftext{
-                font-size: 30px;
-            }
-            .fontstate{    
-            font-size: 15px !important;
-            }
-           }
-           .swiggyicon{
-                width: auto;
-                height: 70px;
-            }
-            .fontstate{    
-                font-size: 20px;
-            }
-        </style>
     </head>
     <body>
         <section>
             <div class="container-fluid" id="firstsection">
                 <div class="row">
                     <div class="ml-4  col colforuse">
-                            <div class="mt-4 mb-5 mb-md-2">
+                            <div class="mt-4 mb-5 ">
                                 <div>
                                     <div class="colforuse w-50 float-left">
-                                        <img class="swiggyicon" src="img/swi.jpg" alt="Swiggi-logo">
+                                        <img style="width: auto; height: 70px;" src="img/swi.jpg" alt="Swiggi-logo">
                                     </div>
-                                    <div class="colforuse text-right pt-2 pt-sm-2 pt-lg-4 pt-md-2 loginbox">
+                                    <div class="colforuse text-right pt-4 loginbox">
                                         <div>
-                                            <a class="login font-weight-bold px-lg-4 px-md-2 px-2"  data-toggle="modal" data-target="#myModal">Login</a>
-                                            <a href="" class="text-light bg-dark py-2 mr-2 mr-sm-2 px-2 signup" data-toggle="modal" data-target="#secModal">Sign up</a>
+                                            <a class="login font-weight-bold  px-4"  data-toggle="modal" data-target="#myModal">Login</a>
+                                            <a href="" class="text-light bg-dark py-2 px-4 signup" data-toggle="modal" data-target="#secModal">Sign up</a>
                                         </div>                                       
                                         <!--model First Model-->
                                         <div class="modal firstmodel" id="myModal" style="padding-right: 0px;
@@ -228,18 +184,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="py-lg-4">
-                                <h1 class="lastofftext"><div>Late night at office?</div></h1>
+                            <div class="py-4">
+                                <h1 class=""><div>Late night at office?</div></h1>
                                 <h2 class="h4  simpletext mb-3">Order food from favourite restaurants near you.</h2>
                             </div>
-                            <div class="mr-sm-2 mr-2 mr-lg-0 mr-md-0">
-                                <div class="float-left border border-1 py-3 py-md-0 w-75">
+                            <div>
+                                <div class="float-left border border-1 py-3 w-75">
                                     <div class="float-left w-75 borderlocation" >
-                                        <input type="text" class="w-100 border border-0 locationclass py-md-3" value="" id="location" autocomplete="off" tabindex="1" placeholder="Enter your delivery location" maxlength="30">
+                                        <input type="text" class="w-100 border border-0 " value="" id="location" autocomplete="off" tabindex="1" placeholder="Enter your delivery location" maxlength="30">
                                         <label class="" for="location"></label>
                                     </div>
-                                    <div class="float-left pr-3 pr-md-0 py-md-3 w-25 ">
-                                        <span class="locate">Locate Me</span>
+                                    <div class="float-left pr-3  w-25 ">
+                                        <span class="">Locate Me</span>
                                     </div>
                                 </div>
                                 <div class="findfood text-center">
@@ -247,7 +203,7 @@
                                 </div>
                             </div>
                             <h3 class="textcolor text-uppercase textcity">Popular cities in India</h3>
-                            <div class="mr-3 fontstate">
+                            <div class="mr-3">
                                 <ul class="nav">
                                     <li class="nav-item">
                                         <a href="/ahmedabad" class="nav-link textforcity">Ahmedabad</a>
@@ -271,6 +227,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
         <section>
             <div class="container-fluid orderstep">
@@ -319,8 +276,8 @@
             <div> 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="ml-4 col-4 col-lg-4 col-md-4 colforuse float-left">
-                            <div class="h1 mt-5 pt-5 restorents w-75">Restaurants in your pocket</div>
+                        <div class="ml-4 col-4 colforuse float-left">
+                            <div class="h1 mt-5 pt-5 w-75">Restaurants in your pocket</div>
                             <div class="pt-3 pb-5 text-secondary h5">Order from your favorite restaurants &amp; track on the go, with the all-new Swiggy app.</div>
                             <div>
                                 <a href="https://play.google.com/store/apps/details?id=in.swiggy.android" target="_blank" rel="noopener noreferrer">
@@ -331,12 +288,12 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col  colforuse float-left">
+                        <div class="col colforuse float-left">
                             <div>
                                 <img class="" width="100%" height="489px" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_768,h_978/pixel_wbdy4n">
                             </div>
                         </div>
-                        <div class="col  lastimg colforuse ">
+                        <div class="col colforuse ">
                             <div>
                                 <img class="" width="100%" height="489px" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_768,h_978/iPhone_wgconp_j0d1fn">
                             </div>
@@ -346,9 +303,9 @@
             </div>
         </article>
         <footer>
-            <div class="container-fluid footercolor  text-white">
+            <div class="container-fluid footercolor text-white">
                 <div class="row footercolor ">
-                    <div class="col-6 col-sm-6 col-md-3  col-lg-3 col-xl-3  colforuse mt-4 px-5">
+                    <div class="col-3 float-left colforuse mt-4 px-5">
                         <div class="text-secondary  my-3">COMPANY</div>
                         <ul class="footercolfirstul">
                             <li><a class="linkfor" href="" alt="" target="_blank">About us</a></li>
@@ -360,7 +317,7 @@
                             <li><a class="linkfor" href="" alt="" target="_blank">Swiggy Corporate</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-3  col-lg-3 col-xl-3  colforuse mt-4 px-5">
+                    <div class="col-3 float-left colforuse mt-4 px-5">
                         <div class="text-secondary  my-3">CONTACT</div>
                         <ul class="footercolfirstul">
                             <li><a class="linkfor" href="" alt="" target="_blank">Help & Support</a></li>
@@ -368,7 +325,7 @@
                             <li><a class="linkfor" href="" alt="" target="_blank">Ride with us</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-3  col-lg-3 col-xl-3  colforuse mt-4 px-5">
+                    <div class="col-3 float-left colforuse mt-4 px-5">
                         <div class="text-secondary  my-3">LEGAL</div>
                         <ul class="footercolfirstul">
                             <li><a class="linkfor" href="" alt="" target="_blank">Terms & Conditions</a></li>
@@ -380,7 +337,7 @@
                             <li><a class="linkfor" href="" alt="" target="_blank">Swiggy Corporate</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-3  col-lg-3 col-xl-3  colforuse mt-5 px-5 pt-5">
+                    <div class="col-3 float-left colforuse mt-4 px-5 mt-md-5">
                         <div class="mb-3">
                             <a href="" rel="nofollow noopener" alt="" target="_blank" class="" data-testid="ios-appstore">
                                 <img class="imgicons" alt="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-AppStore_lg30tv"></a> 
@@ -391,27 +348,33 @@
                             </a>
                         </div>
                     </div>
+                    
                 </div>
                 <hr style="border: 1px solid;">
+                <div class="my-3 ">
+                    <div class="row" id="citydynamic">
+                    </div>
+                    <!-- <div class="col-md-3 col-lg-3 float-left colforuse mt-4 px-5">niraj</div> -->
+                </div>
                 <div class="mt-3 pb-3">
                     <div class="row">
-                        <div class="col-4 col-sm-4 col-md-4  col-lg-4 col-xl-4">
+                        <div class="col">
                             <a href="/">
                                 <img class="" width="142" alt="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_284/Logo_f5xzza">
                             </a>
                         </div>
-                        <div class="col-4 col-sm-4 col-md-4  col-lg-4 col-xl-4 text-center">© 2021 Swiggy</div>
-                        <div class="col-4 col-sm-4 col-md-4 px-0  col-lg-4 col-xl-4 text-right">
-                            <a class="mx-0 mx-md-1" href="https://www.facebook.com/swiggy.in" rel="nofollow noopener" alt="facebook" target="_blank">
+                        <div class="col-6 text-center">© 2021 Swiggy</div>
+                        <div class="col">
+                            <a class="mx-2 mx-md-1" href="https://www.facebook.com/swiggy.in" rel="nofollow noopener" alt="facebook" target="_blank">
                                 <img class="" width="24" height="24" alt="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-facebook_tfqsuc">
                             </a>
-                            <a class="mx-0 mx-md-1" href="https://pinterest.com/swiggyindia" rel="nofollow noopener" alt="pintrest" target="_blank">
+                            <a class="mx-2 mx-md-1" href="https://pinterest.com/swiggyindia" rel="nofollow noopener" alt="pintrest" target="_blank">
                                 <img class="" width="24" height="24" alt="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-pinterest_kmz2wd">
                             </a>
-                            <a class="mx-0 mx-md-1" href="https://instagram.com/swiggyindia/" rel="nofollow noopener" alt="instagram" target="_blank">
+                            <a class="mx-2 mx-md-1" href="https://instagram.com/swiggyindia/" rel="nofollow noopener" alt="instagram" target="_blank">
                                 <img class="" width="24" height="24" alt="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-instagram_b7nubh">
                             </a>
-                            <a class="mx-0 mx-mx-1" href="https://twitter.com/swiggy_in" rel="nofollow noopener" alt="twitter" target="_blank">
+                            <a class="mx-2 mx-mx-1" href="https://twitter.com/swiggy_in" rel="nofollow noopener" alt="twitter" target="_blank">
                                 <img class="" width="24" height="24" alt="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-twitter_gtq8dv">
                             </a>
                         </div>
