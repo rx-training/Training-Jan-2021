@@ -35,7 +35,7 @@
 
 @media (min-width:768px){
 #form{
-    width: 350px;
+    width: 450px;
     top:100px;
     left: 150px;
 }
@@ -46,7 +46,16 @@
     }
 }
 
-
+#loginTab{
+    // background-color: aqua;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    a{
+        color: black;
+        
+    }
+}
 #headLine a{
     color: black;
 }
