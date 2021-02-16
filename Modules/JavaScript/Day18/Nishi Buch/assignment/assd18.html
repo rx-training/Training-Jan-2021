@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col ">
+                <button class="btn btn-primary "  onclick="start()"> To start Exam</button>
+        
+                <div id="id1" class="m-auto"></div>
+                <div id="id2" class="m-auto"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+                function display(value)
+        {
+            document.getElementById('id2').innerHTML=value;
+        }
+        function start()
+        {
+            document.getElementById('id1').innerHTML="Your exam has been started.After 3 Hours Exam will be completed.";
+            promises();
+        }
+        function promises()
+        {
+            var mypromi = new Promise(function(myresolve,myreject){
+                var tim = 3*1000*60*60;
+                let i = 1;
+               
+                        setTimeout(function(){ myresolve("Exam is Over"); },3000);
+               
+            });
+            mypromi.then(
+                function(param){
+                    display(param);
+                },
+                function (error){
+                    display(error);
+                }
+            );
+        }
+       
+
+
+    </script>
+</body>
+
+</html>
