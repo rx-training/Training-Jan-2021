@@ -62,7 +62,7 @@
 
             var msg = "Time Over"; 
             let promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(msg),5000)
+            setTimeout(() => resolve(msg),180*60000);
             });
             let result = await promise; // wait until the promise resolves 
             console.log(result);
