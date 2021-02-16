@@ -1,88 +1,232 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Border Demo</title>
-</head>
-<style type="text/css">
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Project2</title>
+    </head>
 
-	*
-	{
-		color: blue;
-		background-image: url(assets/image/background.jpg);
-		background-repeat: no-repeat;
-	}
-	p
-	{
-		text-align: center;
-		border-style: groove;
-		border-width: 5px;
-		border-color: blue;
-		border-top-color: red;
-		border-bottom-color: red;
-		font-size: 20px;
-		font-family: monospace;
-		color: blue;
+    <style>
+        .navbar-nav li:hover > ul.dropdown-menu 
+        {
+            display: block;
+        }
+        .dropdown-submenu 
+        {
+            position:relative;
+        }
+        .dropdown-submenu>.dropdown-menu 
+        {
+            top: 0;
+            left: 100%;
+            margin-top:-6px;
+        }
 
-	}	
-	h1
-	{
-		text-align: center;
-		background-color:DodgerBlue;
-		color: white;
-		font-family: sans-serif;
-	}
-	#para2
-	{
-		font-size: 50px;
-		color: red;
-	}
-	#menu
-	{
-		height: 84px;
-		background-color: powderblue;
-	}
-	.table
-	{
-		display: table;
-		margin: 0 auto;
-	}
-	ul#horisontal
-	{
-		min-width: 696px;
-		list-style: none;
-		padding-top: 20px;
-		
-	}
-	ul#horisontal li
-	{
-		display: inline;
-		font-size: 30px;
-		padding: 10px;
-		margin: 10px;
-		font-family: cursive;
-	}
-	
-	
-</style>
-<body>
-	<h1>Border Task</h1>
-	<p>
-		The first developer preview build of Android 11 was released on February 19, 2020, as a factory image for supported Google Pixel smartphones (excluding the first-generation Pixel and Pixel XL). Developer Preview 2 was then released on March 18,followed by Developer Preview 3 on April 23.On May 6, Google released an unexpected Developer Preview 4, as they pushed the whole roadmap for Android 11 forward a month, setting the date for the first beta for June 3.
-	</p>
+/* rotate caret on hover */
+        .dropdown-menu > li > a:hover:after 
+        {
+            text-decoration: underline;
+            transform: rotate(-90deg);
+        } 
+		p
+		{
+			text-align: center;
+			border-style: groove;
+			border-width: 5px;
+			border-color: blue;
+			border-top-color: red;
+			border-bottom-color: red;
+			font-size: 20px;
+			font-family: monospace;
+			color: blue;
 
-	<h1>City List</h1>
-	<div id="menu">
-		<div class="table">
-			<ul id="horisontal">
-				<li>Ahmedabad</li>
-				<li>Vadodra</li>
-				<li>Rajkot</li>
-				<li>Bhuj</li>
-			</ul>
-		</div>
-	</div>
+		}	
+		h1
+		{
+			text-align: center;
+			background-color:DodgerBlue;
+			color: white;
+			font-family: sans-serif;
+		}
+		#para2
+		{
+			font-size: 50px;
+			color: red;
+		}
+		#menu
+		{
+			height: 84px;
+			background-color: powderblue;
+		}
+		.table
+		{
+			display: table;
+			margin: 0 auto;
+		}
+		ul#horisontal
+		{
+			min-width: 696px;
+			list-style: none;
+			padding-top: 20px;
+			
+		}
+		ul#horisontal li
+		{
+			display: inline;
+			font-size: 30px;
+			padding: 10px;
+			margin: 10px;
+			font-family: cursive;
+		}
 
-	<h1>Universal Selector</h1>
-	<p id="para2">This is universal selector example</p>
-</body>
+    </style>
+
+    <body>
+        <!---Navbar Section Start-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container">
+                <img src="/Cssdemo/logo.png" alt="" height="80px" width="80px">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-5">
+                        <li class="nav-item">
+                            <a href="/Htmldemo/index.html" class="nav-link">HTML</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Cssdemo/index.html" class="nav-link">CSS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Bootstrapdemo/index.html" class="nav-link">BOOTSTRAP</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Navbar Section End-->
+
+          <!--Left sidebar Section--> 
+          <div class="container">
+			<div class="row mt-2">
+				<div class="col-md-3 bg-warning" style="border:1px black solid">
+					<h5 class="text-center">CSS Section</h5>
+                        <ul>
+                            <li>Day4</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day4/Mitul-Soni/Assignment/resume.html">Resume</a></li>
+                                    </ul>
+                                    <li>Practice</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day4/Mitul-Soni/Practice Exercise/reportcard.html">Reportcard</a></li>
+                                        <li><a href="/Cssdemo/Day4/Mitul-Soni/Practice Exercise/task2.html">Task2</a></li>
+                                        <li><a href="/Cssdemo/Day4/Mitul-Soni/Practice Exercise/task5.html">Task5</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day5</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day5/Mitul-Soni/Assignment/Layout1.html" target="_blank">Layout</a></li>
+                                    </ul>
+                                    <li>Practice</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day5/Mitul-Soni/Practice/task1.html">Task1</a></li>
+                                        <li><a href="/Cssdemo/Day5/Mitul-Soni/Practice/task2.html">Task2</a></li>
+                                        <li><a href="/Cssdemo/Day5/Mitul-Soni/Practice/task3.html">Task3</a></li>
+                                        <li><a href="/Cssdemo/Day5/Mitul-Soni/Practice/task4.html" target="_blank">Task4</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day6</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day6/Mitul-Soni/Assignment/layout2.html" target="_blank">Layout2</a></li>
+                                        <li><a href="/Cssdemo/Day6/Mitul-Soni/Assignment/task1.html" target="_blank">Task1</a></li>
+                                    </ul>
+                                    <li>Practice</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day6/Mitul-Soni/Practice/task1.html">Task1</a></li>
+                                        <li><a href="/Cssdemo/Day6/Mitul-Soni/Practice/task3.html">Task2</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day7</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day7/Mitul-Soni/Assignment/layout.html" target="_blank">Layout3</a></li>
+                                    </ul>
+                                    <li>Practice</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day7/Mitul-Soni/Practice/img-gallery.html" target="_blank">Image Gallery</a></li>
+                                        <li><a href="/Cssdemo/Day7/Mitul-Soni/Practice/task1.html">Task1</a></li>
+                                        <li><a href="/Cssdemo/Day7/Mitul-Soni/Practice/task2.html">Task2</a></li>
+                                        <li><a href="/Cssdemo/Day7/Mitul-Soni/Practice/task3.html">Task3</a></li>
+                                        <li><a href="/Cssdemo/Day7/Mitul-Soni/Practice/task4.html">Task4</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day8</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day8/Mitul-Soni/Assignment/layout4.html" target="_blank">Layout4</a></li>
+                                    </ul>
+                                    <li>Practice</li>
+                                    <ul>
+                                        <li><a href="/Cssdemo/Day8/Mitul-Soni/gridlayout.html" target="_blank">Grid Layout</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+				</div>
+				<div class="col-md-9">
+					<h1>Border Task</h1>
+					<p>
+						The first developer preview build of Android 11 was released on February 19, 2020, as a factory image for supported Google Pixel smartphones (excluding the first-generation Pixel and Pixel XL). Developer Preview 2 was then released on March 18,followed by Developer Preview 3 on April 23.On May 6, Google released an unexpected Developer Preview 4, as they pushed the whole roadmap for Android 11 forward a month, setting the date for the first beta for June 3.
+					</p>
+
+					<h1>City List</h1>
+					<div id="menu">
+						<div class="table">
+							<ul id="horisontal">
+								<li>Ahmedabad</li>
+								<li>Vadodra</li>
+								<li>Rajkot</li>
+								<li>Bhuj</li>
+							</ul>
+						</div>
+					</div>
+
+					<h1>Universal Selector</h1>
+					<p id="para2">This is universal selector example</p>
+					
+				</div>
+        	</div>
+    	</div>
+        <!--Left sidebar Section End-->
+
+
+
+        
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+    </body>
 </html>
