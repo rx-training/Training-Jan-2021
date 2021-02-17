@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+
+        </style>
+        <script>
+            function validateDate(inputText) {
+                var datepattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
+                if(inputText.value.match(datepattern)) {
+                    var datesplit = inputText.value.split('/');
+                    var month=parseInt(datesplit[0]);
+                    var days=parseInt(datesplit[1]);
+                    var years=parseInt(datesplit[2]);
+                    
+                    if(month<1 || month>12) {
+                        document.getElementById("errmsg").innerHTML="Please enter valid month";
+                        return false;
+                    }
+                    else if (days<1 || days>31) {
+                        document.getElementById("errmsg").innerHTML="Please enter valid day";
+                        return false;
+                    }
+                    else if ((month==4 || month==6 || month==9 || month==11) && days==31) {
+                        document.getElementById("errmsg").innerHTML="Please enter valid day according to entered month";
+                        return false;
+                    }
+                    else if (month==2) { 
+                        var leap=(years%4==0 && (years%100!=0 || years%400==0));
+                        if (days>29 || (days==29 && !leap)) {
+                            document.getElementById("errmsg").innerHTML="Please enter valid month & day according to year";
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                else {
+                    alert("Invalid date format!");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="/HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/CSS/cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Functions</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP OOPS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Upload</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Handling</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP AJAX</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Cookie Session</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Extra</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Database</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>JavaScript</li>
+                            <ul>
+                                <li>Day 16</li>
+                                <ul>
+                                    <a href="Assignment.html" class="text-dark"><li>Assignment</li></a>
+                                    <a href="../PractiseExercise/PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="container text-center">
+                        <form name="form1" class="form-group mt-5">
+                            <label class="text-primary mb-3" for="date">Please enter the date in MM-DD-YYYY format:</label>
+                            <input type="text" class="form-control" id="validDate" name="text1" required>
+                            <button class="btn btn-primary mt-5" id="checkValidity" onclick="return validateDate(document.form1.text1)" type="submit">Check Validity</button>
+                        </form>
+                        <p id="errmsg" class="text-danger"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

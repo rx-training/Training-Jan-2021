@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+
+        </style>
+        <script type="text/javascript">
+			function calculation()
+		    {
+			    var no1=parseInt(document.getElementById("value1").value);
+			    var no2=parseInt(document.getElementById("value2").value);
+			    var addition=document.getElementById("addition");
+			    var substraction=document.getElementById("substraction");
+			    var multiplication=document.getElementById("multiplication");
+			    var division=document.getElementById("division");
+
+			    if(addition.checked==true)
+			    {
+			    	var answer=no1+no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else if(substraction.checked==true)
+			    {
+			    	var answer=no1-no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else if(multiplication.checked==true)
+			    {
+			    	var answer=no1*no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else if(division.checked==true)
+			    {
+			    	var answer=no1/no2;
+			    	alert("Result is: "+answer);
+			    }
+			    else
+			    {
+			    	alert("Wrong input");
+			    }	
+		    }
+		</script>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="/HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/CSS/cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Functions</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP OOPS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Upload</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Handling</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP AJAX</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Cookie Session</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Extra</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Database</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>JavaScript</li>
+                            <ul>
+                                <li>Day 15</li>
+                                <ul>
+                                    <a href="Assignment.html" class="text-dark"><li>Assignment</li></a>
+                                    <a href="../PractiseExercise/PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10 bg-success">
+                    <form id="form1">
+                        <div class="form-group"></div>
+                        <label for="num1">Please enter first number:</label>
+                        <input type="number" id="value1" class="form-control" required>
+                        <br>
+                        <br>
+                        <label for="num2">Please enter second number:</label>
+                        <input type="number" id="value2" class="form-control"  required>
+                        <br>
+                        <br>
+                        <input type="radio" name="operation" id="addition" class="form-check-input mt-3 ml-2">
+                        <label class="text-warning mt-2 ml-4">Addition</label>
+                        <br>
+                        <input type="radio" name="operation" id="substraction" class="form-check-input ml-2">
+                        <label class="text-warning ml-4">Substraction</label>
+                        <br>
+                        <input type="radio" name="operation" id="multiplication" class="form-check-input ml-2">
+                        <label class="text-warning ml-4">Multiplication</label>
+                        <br>
+                        <input type="radio" name="operation" id="division" class="form-check-input ml-2">
+                        <label class="text-warning ml-4">Division</label>
+                        <br>
+                        <div class="text-center mt-5">
+                            <input type="button" value="Calculate" id="calculate" onclick="calculation()" class="bg-primary text-light">
+                            <input type="reset" value="Reset" id="reset" class="bg-primary text-light">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

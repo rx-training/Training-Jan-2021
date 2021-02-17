@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+        </style>
+        <script>
+            //Kept JSON Data into a file, used Web Fetch API read that data.
+            async function getText(file) {
+                let Object = await fetch(file);
+                let text = await Object.text();
+                document.getElementById("demo").innerHTML="File Content: " + "<br>" + text;
+            }
+
+            //Stored JSON data into localstorage,reading that data and print it into console.
+            function getdata() {
+                if(typeof(Storage)!=="undefined") {
+                    localStorage.setItem("Name", "Cheese");
+                    localStorage.setItem("Price",2.50);
+                    var a=new Array(2);
+                    a[0]=localStorage.getItem("Name");
+                    a[1]=localStorage.getItem("Price");
+                    console.log("Name: " + a[0]);
+                    console.log("Price: " + a[1]);
+                }
+                else {
+                    document.getElementById("demo").innerHTML = "Sorry, your browser does not support Web Storage";
+                }
+            }
+
+            //Web Geolocation API
+            function showLocation() {
+                if (navigator.geolocation)
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function showPosition(position) {
+                var x = document.getElementById("msg");
+                var y = document.getElementById("msg1");
+                x.innerHTML = "Latitude: " + position.coords.latitude;
+                y.innerHTML = "Longitude: " + position.coords.longitude;
+            }
+        </script>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="/HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/CSS/cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Functions</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP OOPS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Upload</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Handling</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP AJAX</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Cookie Session</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Extra</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Database</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>JavaScript</li>
+                            <ul>
+                                <li>Day 17</li>
+                                <ul>
+                                    <a href="../Assignment/Assignment.html" class="text-dark"><li>Assignment</li></a>
+                                    <a href="PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="text-center">
+                        <!--Kept JSON Data into a file, used Web Fetch API read that data.-->
+                        <button class="btn-danger mt-5" onclick="getText('data.json')">Show file Content</button>
+            
+                        <!--Store following JSON data into localstorage,read that data and print it into console.-->
+                        <button class="btn-success mt-5" onclick="getdata()">Show Local Storage Content</button>
+            
+                        <!--Web Geolocation API-->
+                        <button class="btn-primary mt-5" onclick="showLocation()">Show My Location</button>
+                        
+                        <p class="mt-5" id="demo"></p>
+                        <p class="mt-5" id="msg"></p>
+                        <p class="mt-1" id="msg1"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

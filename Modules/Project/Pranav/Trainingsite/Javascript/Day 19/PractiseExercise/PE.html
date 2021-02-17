@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+        </style>
+        <script>
+            alert("Open console to see the Output");
+            //Using Function Expression, find the area of circle
+            var areacircle=function() {
+                var radius=10;
+                var area=(22*radius*radius)/7;
+                console.log("Area of circle with radius " + radius + " : "+ area);
+            };
+            areacircle(10);
+
+            //Using Function Constructor, find the area of rectangle
+            var arearectangle=function(length,breadth) {
+                var area=length*breadth;
+                console.log("Area of Rectangle: " + area);
+            };
+            arearectangle(10,20);
+
+            //Using Function call create employee object with field Name, Address and Designation and pass it to function
+            var employee=function(name,address,designation) {
+                console.log("Employee Name: " + name);
+                console.log("Employee Address: " + address);
+                console.log("Employee Designation: " + designation);
+            }
+            employee("Pranav","Ahmedabad","Manager");
+
+            //Using Function Apply pass employee object to a function defined in the function.
+            employee.apply(employee,["Parth","Mumbai","Developer"]);
+
+            //Explain Function closure with practical
+            var increment=function(no) {
+                var currentno=no;
+                var squareno=function() {
+                    currentno=currentno*2;
+                    return currentno;
+                };
+                return squareno;
+            };
+            var multiply=increment(2);
+            console.log(multiply());
+
+            //Explain usage of Function Hosing using example
+            // var amount=rate*qty;
+            // rate=90;
+            // qty=4;
+            // console.log(amount);
+            var rate=90;
+            var qty=4;
+            var amount=rate*qty;
+            console.log(amount);
+        </script>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="/HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/CSS/cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="/Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Functions</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP OOPS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Upload</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP File Handling</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP AJAX</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Cookie Session</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Extra</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link">PHP Database</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>JavaScript</li>
+                            <ul>
+                                <li>Day 19</li>
+                                <ul>
+                                    <a href="PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
