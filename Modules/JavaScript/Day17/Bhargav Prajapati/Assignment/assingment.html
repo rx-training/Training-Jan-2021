@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label for="salary">Salary</label>
-                    <input type="number" class="form-control" placeholder="Salary should be number" required max="100" min="0" >
+                    <input type="number" class="form-control" placeholder="Salary should be number" required  min="0" >
                 </div>
                 <div class="form-group">
                     <label for="Location">Location</label>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label for="date of joining">Date Of Joining</label>
-                    <input type="text" name="" id="date_of_joining" placeholder="DD-MM-YYYY" class="form-control" required>
+                    <input type="date" name="" id="date_of_joining" placeholder="DD-MM-YYYY" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="Contect Number">Contect Number</label>
@@ -101,9 +101,13 @@
                 document.getElementById("invalid_mobile_number").innerHTML="Invalid Moblie Number"
                 temp=1; 
             }
+            else
+            {
+                document.getElementById("invalid_mobile_number").innerHTML=""
+            }
             //Employee Number validate
             var emp_text=document.getElementById("employee_id").value;
-            var emp_pattern= /^[0-9a-zA-z]{5,30}$/;
+            var emp_pattern= /^[0-9a-zA-z]+$/;
             var check_emp=emp_pattern.test(emp_text);
             len=emp_text.length;
             if(len>=5)
@@ -113,12 +117,17 @@
                     document.getElementById("invalid_employee_id").innerHTML="Employee_id Is not valid";
                     temp=1;
                 }
+                else
+            {
+                document.getElementById("invalid_employee_id").innerHTML=" ";
             }
-            else
+            }
+            else if(len<5)
             {
             document.getElementById("invalid_employee_id").innerHTML="Employee_id Is atleast five character ";
             temp=1;
             }
+            
             
             //mail id validation
             var email_text=document.getElementById("email_id").value;
@@ -130,6 +139,10 @@
                 temp=1;
 
             }
+            else
+            {
+                document.getElementById("invalid_email_id").innerHTML="";
+            }
             var emp_name=document.getElementById("employee_name");
             var emp_age=document.getElementById("employee_age");
             var emp_designation=document.getElementById("designation")
@@ -140,6 +153,7 @@
                 {
                     alert(" Some String is empty Plese fill the String before Submit")
                 }
+               
                
             }
 
