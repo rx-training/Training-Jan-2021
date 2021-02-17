@@ -1,5 +1,5 @@
-grandTotal = 0;
-document.getElementById("modal-body").innerHTML = "";
+var grandTotal = 0;
+
 getJSON("practice.json");
 
 async function getJSON(file) {
@@ -19,8 +19,8 @@ async function getJSON(file) {
 
 
 function myCart(pid) {
-    qty = document.getElementById("qty-"+pid).value;
-    cart = {
+    var qty = document.getElementById("qty-"+pid).value;
+    var cart = {
             "cId": pid,
             "cQty": qty
             };
@@ -38,7 +38,7 @@ function myCart(pid) {
                 if(i==pid) {
                     
                     if(localStorage.cartItems) {
-                        localStorage.cartItems += "|" + JSON.stringify(cart);
+                        localStorage.cartItems += JSON.stringify(cart);
                     }
                     else {
                         localStorage.cartItems = JSON.stringify(cart);
@@ -76,9 +76,9 @@ function reset(){
     for(var i=0; i<y.products.length; i++) {
         document.getElementById('qty-'+i).value="";
         document.getElementById("cart-"+i).disabled=false;
-        document.getElementById("modal-body").innerHTML = "";
-        document.getElementById("modalTotal").innerHTML = "";
     }
+    document.getElementById("modal-body").innerHTML = "";
+    document.getElementById("modalTotal").innerHTML = "";
     localStorage.removeItem("cartItems");
     return false;
 }
