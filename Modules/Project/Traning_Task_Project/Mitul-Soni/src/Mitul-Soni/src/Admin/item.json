@@ -1,0 +1,6 @@
+{
+    "user":[{"email":"admin123@gmail.com","password":"12345"}],
+    "course":[{"coursename":"BCA Semester-1","courses":["C","C++","JAVA","HTML"]}],
+    "video":[{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"},{"name":"Gujarat University","vlink":"https://www.youtube.com/embed/tgbNymZ7vqY"}],
+    "photo":[{"id":1,"image":"https://www.gujaratuniversity.ac.in/file/uploads/event/Image_20190903100512.jpg"},{"id":2,"image":"https://www.gujaratuniversity.ac.in/file/uploads/event/Image_20190903100512.jpg"},{"id":1,"image":"https://www.gujaratuniversity.ac.in/file/uploads/event/Image_20190903100512.jpg"},{"id":1,"image":"https://www.gujaratuniversity.ac.in/file/uploads/event/Image_20190903100512.jpg"}]
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <title>Project2</title>
+    </head>
+
+    <style>
+        .navbar-nav li:hover > ul.dropdown-menu 
+        {
+            display: block;
+        }
+        .dropdown-submenu 
+        {
+            position:relative;
+        }
+        .dropdown-submenu>.dropdown-menu 
+        {
+            top: 0;
+            left: 100%;
+            margin-top:-6px;
+        }
+
+/* rotate caret on hover */
+        .dropdown-menu > li > a:hover:after 
+        {
+            text-decoration: underline;
+            transform: rotate(-90deg);
+        } 
+
+    </style>
+
+    <body>
+        <!---Navbar Section Start-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container">
+                <img src="/Bootstrap/img/logo.png" alt="" height="80px" width="80px">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-5">
+                        <li class="nav-item">
+                            <a href="/Htmldemo/index.html" class="nav-link">HTML</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Cssdemo/index.html" class="nav-link">CSS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Bootstrap/index.html" class="nav-link">BOOTSTRAP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Javascript/index.html" class="nav-link">JAVASCRIPT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Mitul-Soni/src/index.html" class="nav-link" target="_blank">Mini Project</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Mitul-Soni/src/Admin/index.html" class="nav-link" target="_blank">Admin Panel</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Navbar Section End-->
+
+          <!--Left sidebar Section--> 
+          <div class="container">
+          <div class="row mt-2">
+            <div class="col-md-3 bg-warning" style="border:1px black solid">
+                <h5 class="text-center">Bootstrap Section</h5>
+                        <ul>
+                            <li>Day9</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Bootstrap/Day9/Mitul-Soni/index.html">Bootstrap Task</a></li>
+                                    </ul>
+                                    
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day10</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Bootstrap/Day10/Mitul-Soni/index.html">Bootstrap Task</a></li>
+                                    </ul>
+                                    
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day11</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Bootstrap/Day11/Mitul-Soni/index.html" target="_blank">Painting Layout</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day12</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Bootstrap/Day12/Mitul-Soni/src/index.html" target="_blank">Looplab Template</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day13</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Bootstrap/Day13/Mitul-Soni/src/index.html" target="_blank">Blogen Admin Panel</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Day14</li>
+                            <ul>
+                                <li>Assignment</li>
+                                    <ul>
+                                        <li><a href="/Bootstrap/Day14/Mitul-Soni/HTML_CSS_BOOTSTRAP/src/index.html" target="_blank">Gujarat University</a></li>
+                                    </ul>
+                            </ul>
+                        </ul>
+            </div>
+			<div class="col-md-9">
+				<h1 class="display-3 text-center my4">Basic Typography</h1>	
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">2: Utilities
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="text-alignment.html">2.1 Text Alignment & Display</a></li>
+							<li><a href="float.html">2.2 Float & Fixed Position</a></li>
+							<li><a href="color.html">2.3 Colors & Background</a></li>
+							<li><a href="margin.html">2.4 Margin & Spacing</a></li>
+							<li><a href="sizing.html">2.5 Sizing & Borders</a></li>
+							<li><a href="breakpoint.html">2.6 CSS Breakpoint</a></li>				
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">3: CSS Components
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="button.html">Buttons & Buttons Group</a></li>
+							<li><a href="navbar.html">Navbar & Nav</a></li>
+							<li><a href="listgroup.html">Listgroup & Badges</a></li>
+							<li><a href="forms.html">Forms & Input</a></li>
+							<li><a href="input.html">Input Groups</a></li>
+							<li><a href="alert.html">Alerts & Progressbar</a></li>
+							<li><a href="table.html">Tables & Pagination</a></li>
+							<li><a href="card.html">Working With Cards</a></li>
+							<li><a href="media.html">Media Objects</a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+                    <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">4: Grid & Flexbox
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="grid-alignment.html">Grid Alignment</a></li>
+                      <li><a href="flexbox.html">Flexbox Classes</a></li>
+                      <li><a href="auto-margin.html">Auto Margin wrap & Ordering</a></li>
+                  </ul>
+		  		</div>
+		  	</div>
+		  	<div class="col">
+				<div class="dropdown mt-4">
+                    <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">5: JavaScript Widgets
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="carousel.html">Carousel Slider</a></li>
+                      <li><a href="collapse.html">Collpse & Accordion</a></li>
+                      <li><a href="tooltip.html">Tooltips</a></li>
+                      <li><a href="popover.html">Popover</a></li>
+                      <li><a href="modal.html">Modal</a></li>	
+                  </ul>
+				</div>
+			</div>
+		</div>	
+		<br><br>
+		<hr>
+		<br>		
+		<button class="btn btn-primary" data-toggle="collapse" data-target="#collapse-btn-1">
+            Read More
+        </button>
+
+        <div class="collapse mb-5" id="collapse-btn-1">
+            <div class="card">
+                <div class="card-body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+        </div>  
+
+        <br><br>
+        <!--Accordion-->
+        <div id="accordion" role="tablist" class="col-lg-5">
+            <div class="card">
+                <div class="card-header" role="tab" id="heading">
+                    <h5>
+                        <a href="#collapse1" data-parent="#accordion" data-toggle="collapse">Collapse One</a>
+                    </h5>
+                </div>
+
+                <div class="collapse show" id="collapse1">
+                    <div class="card-body">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+			</div>
+        </div>
+    </div>
+        <!--Left sidebar Section End-->
+
+
+
+        
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+    </body>
+</html>
