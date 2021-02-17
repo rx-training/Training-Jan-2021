@@ -23,7 +23,7 @@
                 <form class="w-50 h-100" onsubmit="myFun()">
                     <div class="form-group">
                         <label for="id">EmployeeID</label>
-                        <input type="text" class="form-control"> 
+                        <input type="text" id="empId" class="form-control"> 
                     </div> 
                     <div class="form-group">
                         <label for="id">Employee Name</label>
@@ -86,8 +86,22 @@
   </body>
   <script>
 
-      function myFun(){
+    let empId = document.getElementById("empId");
+    console.log(empId);
+    console.log(form.values);
+    function myFun(empId){
+
+        console.log(empId.value);
         
+        //minimum 5 character input 
+        let rx = /^.{5,}$/;
+        if(empId.match(rx)){
+            console.log("are bhai kam ho gaya");
+        }
+        else{
+            console.log("are nai hua yarr")
+        }
       }
+      
   </script>
 </html>
