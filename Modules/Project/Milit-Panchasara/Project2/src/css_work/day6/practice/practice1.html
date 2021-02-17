@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice1 - Day5</title>
+    <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <style>
+        .flex-box {
+            display: flex;
+            align-items: stretch;
+            background-color: blueviolet;
+        }
+
+        .flex-box div{
+            margin: 5px;
+            height: 100px;
+            width: 100px;
+            padding: 20px;
+            font-size: 30px;
+            background-color: burlywood;
+        }
+
+        .flex-box:nth-child(3) {
+            flex-grow: 3;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="" class="navbar-brand">
+                <img src="../../../img/logo.jpg" alt="" class="img-fluid" height="100px" width="100px" style="box-shadow: 0 0 20px #fff;">
+            </a>
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class=" navbar-collapse collapse" id="navbarnav1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../../../html_work/index.html" class="nav-link">HTML</a></li>
+                    <li class="nav-item"><a href="../../index.html" class="nav-link">CSS</a></li>
+                    <li class="nav-item"><a href="../../../bootstrap_work/index.html" class="nav-link">Bootstrap</a></li>
+                    <li class="nav-item"><a href="../../../javascript_work/index.html" class="nav-link">JavaScript</a></li>
+                    <li class="nav-item"><a href="../../../mini_project/index.html" class="nav-link">Mini Project</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row" style="margin-top: 89px !important;">
+        <div id="side-nav" class="col-12 col-lg-3 bg-secondary m-3 p-3" >
+            <ul>
+                <li>
+                    Day 4
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="day4/assignment/assignment1.html">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Practice
+                            <ul>
+                                <li><a href="day4/practice/practice1.html">Practice 1</a></li>
+                                <li><a href="day4/practice/practice2-4.html">Practice 2-4</a></li>
+                                <li><a href="day4/practice/practice_extra.html">Practice Extra</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 5
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="day5/assignment/assignment1.html" target="_blank">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Practice
+                            <ul>
+                                <li><a href="day5/practice/practice1.html">Practice 1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 6
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="day6/assignment/assignment1.html" target="_blank">Assignment 1 + <br> Practice 7</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Practice
+                            <ul>
+                                <li><a href="day6/practice/practice1.html">Practice 5-6</a></li>
+                                <li><a href="day6/practice/practice_extra.html">Practice Extra</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 7
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="day7/assignment/assignment1.html">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 8
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="day8/assignment/assignment1.html">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            Practice
+                            <ul>
+                                <li><a href="day8/practice/practice1.html">Practice 1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="body-content" class="offset-lg-3 col-12 col-lg-9 my-5">
+        <!-- grow, shrink, basis property -->
+        <div class="flex-box">
+            <div><h1>1</h1></div>
+            <div style="flex-grow: 1;flex-basis: 200px;"><h1>2</h1></div>
+            <div style="flex-shrink: 2;"><h1>3</h1></div>
+            <div><h1>4</h1></div>
+        </div>
+        <br>
+        <!-- wraping property -->
+        <div class="flex-box" style="background-color: cadetblue;flex-wrap:wrap-reverse;">
+            <div><h1>1</h1></div>
+            <div style="flex-grow: 1;flex-basis: 200px;"><h1>2</h1></div>
+            <div style="flex-shrink: 2;"><h1>3</h1></div>
+            <div><h1>4</h1></div>
+            <div><h1>5</h1></div>
+            <div><h1>6</h1></div>
+            <div><h1>7</h1></div>
+            <div><h1>8</h1></div>
+            <div><h1>9</h1></div>
+            <div><h1>10</h1></div>
+            <div><h1>11</h1></div>
+            <div><h1>12</h1></div>
+            <div><h1>13</h1></div>
+            <div><h1>14</h1></div>
+            <div><h1>15</h1></div>
+            <div><h1>16</h1></div>
+            <div><h1>17</h1></div>
+            <div><h1>18</h1></div>
+            <div><h1>19</h1></div>
+            <div><h1>20</h1></div>
+            <div><h1>21</h1></div>
+            <div><h1>22</h1></div>
+        </div>
+        <br>
+
+        <!-- column flex with wrap and alignment properties -->
+        <div class="flex-box" style="height: 300px;flex-flow: column wrap;">
+            <div style="align-self: center;"><h1>1</h1></div>
+            <div style="align-self: baseline;"><h1>2</h1></div>
+            <div style="align-self:flex-start"><h1>3</h1></div>
+            <div style="align-self:flex-end"><h1>4</h1></div>
+        </div>
+        <br>
+
+        <!-- right to left order -->
+        <div class="flex-box" style="height: 300px;flex-direction: row-reverse;background-color: lightgreen;">
+            <div style="align-self: center;"><h1>1</h1></div>
+            <div style="align-self: baseline;"><h1>2</h1></div>
+            <div style="align-self:flex-start"><h1>3</h1></div>
+            <div style="align-self:flex-end"><h1>4</h1></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
