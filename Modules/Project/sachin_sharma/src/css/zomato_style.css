@@ -116,3 +116,12 @@
     padding-top: 200px;   
     
 }
+#collection a:link{
+   color: white;
+}
+#collection a:visited{
+    color: white;
+ }
+ #collection a:active{
+    color: white;
+ }
