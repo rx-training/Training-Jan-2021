@@ -1,0 +1,184 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="../../assets/css/dashboard.scss">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="height: 100px;">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> -->
+           <img class="px-4" style="position: fixed; height: 5rem;top: 1%;" src="../../assets/images/logo_radix.png" alt="">
+          <!-- </a> -->
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       <ul class="navbar-nav px-3 mx-auto">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link h1 text-light" href="#" style="font-family: 'Edwardian Script ITC';">Rohan Panchal</a>
+          </li>
+        </ul>
+      </header>
+      <style>
+         
+      </style>
+      <div class="nav-scroller bg-body w-100 shadow-sm">
+          <nav class="nav nav-underline bg-dark" aria-label="Secondary navigation">
+            <a class="nav-link text-light" aria-current="page" href="../../htmlindex.html">HTML</a>
+            <a class="nav-link text-light" href="../../cssindex.html">CSS</a>
+            <a class="nav-link text-light" href="../../bootstrapindex.html">Bootstrap</a>
+            <a class="nav-link text-light active" href="../../javascriptindex.html">JAVASCRIPT</a>
+          </nav>
+      </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4 mt-5">      
+      
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4 class="h1">Output in the console</h4>
+            </div>
+        </div>
+    </div>
+<script>
+    var emp = function myfunc(name) {
+            this.name=name;
+    };
+    var func2 = new emp('rohan');
+    //func2('rohan');
+    console.log(typeof func2);
+    console.log(func2.name);
+
+    var e1 = new emp('employee1');
+    var e2 = new emp('employee2');
+    console.log(e1.__proto__ === e2.__proto__);
+
+
+    var employee = function (name){
+        this.name=name;
+        this.salary = 5000;
+    };
+    employee.prototype.increseSalary = function (increse){
+        this.salary+=increse;
+    }
+    var e1 = new employee('rohan');
+    var e2 = new employee('jiger');
+    e1.increseSalary(10000);
+    console.log(e1.salary);
+    console.log(e2.salary);
+
+    var emp2 = {
+        name:'rohan',
+        salary: function (){
+            console.log(this);
+        }
+    }
+    emp2.salary();
+
+    var address=function(line1,line2){
+        //this.line1=line1;
+        console.log(this);
+        console.log(line1+" "+line2);
+    }
+    var add = new address('ahmedabad    ');
+    address.call({});
+
+    // apply function
+    var xip = {code:123};
+    address(xip,['sdf','sdf']);
+
+    function salary(price)
+    {
+        var currents = price;
+        var generate = function(){
+            currents*=2;
+            return currents;
+        }
+        return generate;
+    }
+    var updatedsalary = salary(200);
+    updatedsalary();
+    console.log(updatedsalary());
+
+
+    //IIFES;
+    (function(){
+        console.log("Executed");
+    })();
+
+    (function(){
+        console.log("Executed");
+    }());
+
+    var orgchart= {
+        name:'Michael',
+        subordinates:[
+            {
+                name:'Andy',
+                subordinates:[
+                    {
+                        name:'Dwilight',subordinates:[]
+                    },
+                    {
+                        name:'Kevin',subordinates:[]
+                    }
+                ]
+            }
+        ]
+    }
+    var fn = function (emp){
+        console.log(emp.name);
+        for(var i=0;i<emp.subordinates.length;i++)
+        {
+            fn(emp.subordinates[i]);
+        }
+    }
+    fn(orgchart);
+</script>
+
+    </main>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
