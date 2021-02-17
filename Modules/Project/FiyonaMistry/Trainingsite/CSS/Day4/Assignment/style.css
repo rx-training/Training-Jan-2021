@@ -1,0 +1,25 @@
+nav{
+    background:lightgreen;
+}
+nav img{
+    width: 80px;
+    height: 80px;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+/* body {
+    border: groove;
+    margin: 50px;
+    padding: 25px 50px;
+} */
+img {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float:right;
+}
+h3{
+    color:darkblue;
+}
