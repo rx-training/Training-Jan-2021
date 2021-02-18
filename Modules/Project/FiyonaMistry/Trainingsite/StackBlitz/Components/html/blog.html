@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../Assets/styles/blogstyle.css">
+    <title>Blog</title>
+</head>
+<body>
+    <!-- BACK BUTTON -->
+    <section id="back" class="d-block px-5 py-1 bg-dark">
+        <a href="../../index.html" target="_blank" class="text-white">Back to StackBlitz.com</a>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <i class="fas fa-bolt text-primary fa-3x"></i>
+                    <a href="blog.html" class="text-dark">StackBlitz <span class="text-primary">blog</span></a>
+                </div>
+                <div class="col text-right">
+                    <p>Stay in touch! Get notified of new posts:</p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email Address">
+                            <button class="btn btn-dark">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- firstCard -->
+    <div id="firstCard" class="p-5 border">
+    </div>
+
+    <!-- secondCard -->
+    <section id="secondCard" class="mt-4 mb-5 p-5 border">
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark py-2">
+            <div class="row">
+                <div class="col-lg-2 col-sm-12 text-secondary">
+                    <p>Code the future</p>
+                </div>
+                <div class="col-lg col-sm-12 text-center">
+                    <a href="#" class="pr-4 text-white">Follow @StackBlitz</a>
+                    <a href="../../index.html" target="_blank" class="pr-4 text-white">StackBlitz.com</a>
+                    <a href="#" class="pr-4 text-white">Documentation</a>
+                    <a href="#" class="pr-4 text-white">Privacy</a>
+                    <a href="#" class="pr-4 text-white">Terms of Service</a>
+                </div>
+                <div class="col-lg-2 col-sm-12">
+                    <p class="text-secondary">@2021 StackBlitz</p>
+                </div>
+            </div>
+    </footer>
+
+    <script>
+        fetch("../json/blog.json")
+        .then(response => response.text())
+        .then(data => {
+            var firstC = document.getElementById("firstCard");
+            var secondC = document.getElementById("secondCard");
+            var card = document.createElement("card");
+            var title = document.createElement("h3");
+            var subtitle = document.createElement("h6");
+            var p = document.createElement("p");
+            var str = JSON.parse(data, function(key, value){
+                if(key == "ftitle"){
+                    var title = document.createElement("h2");
+                    title.innerHTML = value;
+                    firstC.appendChild(title);
+                    console.log(value);
+                }
+                else if(key == "fsub-title"){
+                    var subtitle = document.createElement("h6");
+                    subtitle.innerHTML = value;
+                    firstC.appendChild(subtitle);
+                    console.log(value);
+                }
+                else if(key == "fcontent"){
+                    var p = document.createElement("p");
+                    p.innerHTML = value;
+                    firstC.appendChild(p);
+                    console.log(value);
+                }
+                else if(key == "stitle"){
+                    var title = document.createElement("h2");
+                    title.innerHTML = value;
+                    secondC.appendChild(title);
+                    console.log(value);
+                }
+                else if(key == "ssub-title"){
+                    var subtitle = document.createElement("h6");
+                    subtitle.innerHTML = value;
+                    secondC.appendChild(subtitle);
+                    console.log(value);
+                }
+                else if(key == "scontent"){
+                    var p = document.createElement("p");
+                    p.innerHTML = value;
+                    secondC.appendChild(p);
+                    console.log(value);
+                }
+            });
+        // import card from "../json/blog.json";
+        //     const build = firstCard =>{
+        //        // const card = document.createElement("card");
+        //        const div = document.createElement("div");
+        //         const cardBody = document.createElement("card-body");
+        //         const cardTitle = document.createElement("card-title");
+        //         const cardSubTitle = document.createElement("card-subtitle");
+        //         const cardText = document.createElement("card-text");
+        //         const body = document.querySelector("body");
+        //         cardSubTitle.append(cardText);
+        //         cardTitle.append(cardSubTitle);
+        //         cardBody.append(cardTitle);
+        //         body.append(cardBody);
+        //        // card.append(cardBody);
+        //         firstCard.append(card);
+        //         cardTitle.innerText = firstCard.ftitle;
+        //         div.setAttribute("class", "card");
+        //     };
+        //     card.forEach(firstCard => build(firstCard));
+
+            console.log(data);
+        });
+    </script>
+</body>
+</html>
