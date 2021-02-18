@@ -24,15 +24,15 @@ div > .headings {
     color: darkgoldenrod;
 }
 
-a {
+#body-content a {
     color: orange;
 }
 
-a[target=_blank] {
+#body-content a[target=_blank] {
     color:red;
 }
 
-a[target=_blank]:hover {
+#body-content a[target=_blank]:hover {
     background-color:yellow  ;
     color: darkred;
 }

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Document</title>
+    <style>
+        .row-hl {
+            background: cadetblue;
+            height: 300px;
+        }
+
+        .item-hl {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="" class="navbar-brand">
+                <img src="../../img/logo.jpg" alt="" class="img-fluid" height="100px" width="100px" style="box-shadow: 0 0 20px #fff;">
+            </a>
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class=" navbar-collapse collapse" id="navbarnav1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="../../html_work/index.html" class="nav-link">HTML</a></li>
+                    <li class="nav-item"><a href="../../css_work/" class="nav-link">CSS</a></li>
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Bootstrap</a></li>
+                    <li class="nav-item"><a href="../../javascript_work/index.html" class="nav-link">JavaScript</a></li>
+                    <li class="nav-item"><a href="../../mini_project_work/index.html" class="nav-link">Mini Project</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row" style="margin-top: 89px !important;">
+        <div id="side-nav" class="col-12 col-lg-3 bg-secondary m-3 p-3" >
+            <ul>
+                <li>
+                    Day 9 & 10
+                    <ul>
+                        <li>
+                            <a href="alerts_and_progress.html">Alerts and Progress</a>
+                        </li>
+                        <li>
+                            <a href="alignment_and_display.html">Alignment and Display</a>
+                        </li>
+                        <li>
+                            <a href="breakpoints.html">Breakpoints</a>
+                        </li>
+                        <li>
+                            <a href="cards.html">Cards</a>
+                        </li>
+                        <li>
+                            <a href="carousel.html">Carousel</a>
+                        </li>
+                        <li>
+                            <a href="collapse_and_accordion.html">Collapse and Accordion</a>
+                        </li>
+                        <li>
+                            <a href="colors_and_bg.html">Colors and Background</a>
+                        </li>
+                        <li>
+                            <a href="flexbox.html">Flexbox</a>
+                        </li>
+                        <li>
+                            <a href="float_and_fixed.html">Float and Fixed</a>
+                        </li>
+                        <li>
+                            <a href="forms.html">Forms</a>
+                        </li>
+                        <li>
+                            <a href="grid_alignments.html">Grid Alignments</a>
+                        </li>
+                        <li>
+                            <a href="grids.html">Grids</a>
+                        </li>
+                        <li>
+                            <a href="input_groups.html">Input Groups</a>
+                        </li>
+                        <li>
+                            <a href="listgroup_and_badges.html">Listgroups and Badges</a>
+                        </li>
+                        <li>
+                            <a href="media.html">Media</a>
+                        </li>
+                        <li>
+                            <a href="navigation.html">Navigations</a>
+                        </li>
+                        <li>
+                            <a href="sizing_and_borders.html">Sizing and Borders</a>
+                        </li>
+                        <li>
+                            <a href="spacings.html">Spacings</a>
+                        </li>
+                        <li>
+                            <a href="tables_pagination.html">Table Paginations</a>
+                        </li>
+                        <li>
+                            <a href="tooltips.html">Tooltips</a>
+                        </li>
+                        <li>
+                            <a href="typography.html">Typography</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 11
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="../day11/assignment.html" target="_blank">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 12
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="../day12/index.html" target="_blank">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 13
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="../day13/index.html" target="_blank">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Day 14
+                    <ul>
+                        <li>
+                            Assignment
+                            <ul>
+                                <li><a href="../day14/index.html" target="_blank">Assignment 1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="body-content" class="offset-lg-3 col-12 col-lg-9 my-5">
+    <header>
+        <h1 class="display-3 text-center">Spacings</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 my-3 my-lg-0">
+                    <div class="dropdown">
+                        <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            Utilities
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="typography.html">Basic Typography</a>
+                            <a class="dropdown-item" href="alignment_and_display.html">Text Alignment & Display</a>
+                            <a class="dropdown-item" href="float_and_fixed.html">Floats & Position</a>
+                            <a class="dropdown-item" href="colors_and_bg.html">Colors & Background</a>
+                            <a class="dropdown-item" href="spacings.html">Spacing</a>
+                            <a class="dropdown-item" href="sizing_and_borders.html">Sizing</a>
+                            <a class="dropdown-item" href="breakpoints.html">Breakpoints</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 my-3 my-lg-0">
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            CSS Components
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="navigation.html">Navbar</a>
+                            <a class="dropdown-item" href="listgroup_and_badges.html">List Groups & Badges</a>
+                            <a class="dropdown-item" href="forms.html">Forms</a>
+                            <a class="dropdown-item" href="input_groups.html">Input Groups</a>
+                            <a class="dropdown-item" href="alerts_and_progress.html">Alerts & Progress</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 my-3 my-lg-0">
+                    <div class="dropdown">
+                        <button class="btn btn-warning btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            Grid & Flexbox
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="grids.html">Grid System</a>
+                            <a class="dropdown-item" href="grid_alignments.html">Grid Alignment</a>
+                            <a class="dropdown-item" href="flexbox.html">Flexbox</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 my-3 my-lg-0">
+                    <div class="dropdown">
+                        <button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            JavaScript Widgets
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="carousel.html">Carousel</a>
+                            <a class="dropdown-item" href="collapse_and_accordion.html">Collapse</a>
+                            <a class="dropdown-item" href="tooltips.html">Tooltips</a>
+                            <a class="dropdown-item" href="popover.html">Popovers</a>
+                            <a class="dropdown-item" href="modals.html">Modals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </header>
+    <!-- container class -->
+    <div class=" container">
+        <div class="row">
+            <div class="col-sm-8 m-auto">
+                <div id="slider1" class="carousel slide m-4" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class=" carousel-item active">
+                            <img class="d-block" src="https://picsum.photos/id/237/200/300" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/seed/picsum/200/300" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/200/300/?blur" alt="" width="100%"
+                                height="300px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-8 m-auto">
+                <div class=" carousel slide m-5" data-ride="carousel" id="slider2">
+                    <div class="carousel-inner" role="listbox">
+                        <div class=" carousel-item active">
+                            <img class="d-block" src="https://picsum.photos/id/237/200/300" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/seed/picsum/200/300" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/200/300/?blur" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <a class="carousel-control-prev" href="#slider2" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a href="#slider2" class="carousel-control-next" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-8 m-auto">
+                <div class=" carousel slide m-5" data-ride="carousel" id="slider3">
+                    <ol class=" carousel-indicators">
+                        <li class=" active" data-target="#slider3" data-slide-to="0"></li>
+                        <li class="" data-target="#slider3" data-slide-to="1"></li>
+                        <li class="" data-target="#slider3" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class=" carousel-item active">
+                            <img class="d-block" src="https://picsum.photos/id/237/200/300" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/seed/picsum/200/300" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/200/300/?blur" alt="" width="100%"
+                                height="300px">
+                        </div>
+                        <a class="carousel-control-prev" href="#slider3" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a href="#slider3" class="carousel-control-next" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-8 m-auto">
+                <div class=" carousel slide m-5" data-ride="carousel" id="slider4">
+                    <ol class=" carousel-indicators">
+                        <li class=" active" data-target="#slider4" data-slide-to="0"></li>
+                        <li class="" data-target="#slider4" data-slide-to="1"></li>
+                        <li class="" data-target="#slider4" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class=" carousel-item active">
+                            <img class="d-block" src="https://picsum.photos/id/237/200/300" alt="" width="100%"
+                                height="300px">
+                            <div class=" carousel-caption">
+                                <h1>Pic 1</h1>
+                            </div>
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/seed/picsum/200/300" alt="" width="100%"
+                                height="300px">
+                            <div class=" carousel-caption">
+                                <h1>Pic 2</h1>
+                            </div>
+                        </div>
+                        <div class=" carousel-item">
+                            <img class="d-block" src="https://picsum.photos/200/300/?blur" alt="" width="100%"
+                                height="300px">
+                            <div class=" carousel-caption">
+                                <h1>Pic 3</h1>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#slider4" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a href="#slider4" class="carousel-control-next" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+    <script>
+        $('#slider4').on('slide.bs.carousel', function(){
+            console.log('sliding');
+        });
+
+        $('#slider4').on('slid.bs.carousel', function(){
+            console.log('slid');
+        });
+
+        $('.carousel').carousel({
+            interval:2000,
+            keyboard:true,
+            pause:'hover',
+            wrap:true
+        });
+
+        
+    </script>
+
+
+</body>
+
+</html>
