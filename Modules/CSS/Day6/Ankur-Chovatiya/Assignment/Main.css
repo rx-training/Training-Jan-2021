@@ -10,9 +10,10 @@
 }
 #header{
     /* background-color: aqua; */
-    /* margin: 0 15px; */
+    margin: 0 15px;
     /* width: 1300px; */
     /* text-align: center; */
+    
 }
 .social{
     text-align: right;

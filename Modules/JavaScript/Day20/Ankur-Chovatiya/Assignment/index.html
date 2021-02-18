@@ -56,7 +56,7 @@
         </tbody>
     </table>
 
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">View Cart Summary</button>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="MainBtn"  >View Cart Summary</button>
 </div>
 
 
@@ -99,28 +99,33 @@
 
     
 
+
         document.getElementById("btn1").onclick = function(){
             // console.log("btn1 clicked");
+            // window.location.reload();
             let item1 = document.getElementById("cheese").value;
             localStorage.setItem("cheese", item1);
         }
         document.getElementById("btn2").onclick = function(){
             // console.log("btn2 clicked");
+            // window.location.reload();
             let item1 = document.getElementById("pen").value;
             localStorage.setItem("pen", item1);
         }
         document.getElementById("btn3").onclick = function(){
             // console.log("btn3 clicked");
+            // window.location.reload();
             let item1 = document.getElementById("butter").value;
             localStorage.setItem("butter", item1);
         }
         document.getElementById("btn4").onclick = function(){
             // console.log("btn4 clicked");
+            window.location.reload();
             let item1 = document.getElementById("pencil").value;
             localStorage.setItem("pencil", item1);
         }
 
-
+        // document.getElementById("MainBtn").reload();
         let list = ["cheese","pen","butter","pencil"]
         
         let totalPrice = 0;
@@ -144,12 +149,12 @@
             else{
                 totalPrice += 10*items
             }
-            
+            localStorage.removeItem(list[i]);
         }
         // console.log(totalPrice);
         document.getElementById("total").innerHTML = ` Cart total is : ${totalPrice}`;
 
-
+      
   </script>
 
 
