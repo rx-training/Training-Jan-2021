@@ -119,11 +119,13 @@ html {
 @media (max-width: 991px) { 
     #side-nav {
         height: 30vh !important;
+        z-index: 1;
+        opacity: 0.95;
     }
 
     #body-content {
         margin-top: 280px !important;
-        z-index: -1;
+        z-index: 0;
     }
 }
 
