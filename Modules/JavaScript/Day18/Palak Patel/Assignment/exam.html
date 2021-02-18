@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Python</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script>
+        var sec = 0;
+        var min = 0;
+        var hr = 0;
+        var timer = setInterval(setTimer, 1000);
+
+        function startTime(){
+            new Promise((resolve,reject) => {
+                setTimeout(() =>{resolve("Time's Up. The answers are automatically sumbmited.");}, 3*3600*1000);
+            }).then((message) =>{
+                alert(message);
+                window.location.href = 'end.html';
+            },(error) => alert(erroe));
+        }
+
+        function setTimer(){
+            sec++
+            if(sec == 60){
+                sec=0;
+                min++;
+            }
+            if(min == 60){
+                min=0;
+                hr++;
+            }
+            var second = (sec < 10)? '0' + sec : sec.toString();
+            var minute = (min < 10)? '0' + min : min.toString();
+            var hour = hr;
+            var t = '0' +hour+ ':' +minute+ ':' +second;
+            document.getElementById('timer').innerHTML = t;
+
+            if(hr == 3){
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body onload="startTime()">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-9">
+                <h1 class="">Winter Examination 2021</h3>
+                    <h2 class="mb-4">University of Mumbai</h3>
+            </div>
+            <div class="col-sm-3 text-right">
+                <div class="mr-4" style="font-size: 30px;" id="timer">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="card border-dark rounded">
+            <div class="card-header bg-dark text-white">
+                <h3 class="my-3">Question N</h3>
+            </div>
+            <div class="card-body">
+                <div class="question">
+                    <h4>This is the nth Question for Multiple Choice Question</h4>
+                </div>
+                <div class="options mx-5 mt-3">
+                    <form>
+                        <input type="radio" class="form-check-input" name="option">
+                        <label for="optionA" class="form-check-label">Option A</label><br>
+                        <input type="radio" class="form-check-input" name="option">
+                        <label for="optionB" class="form-check-label">Option B</label><br>
+                        <input type="radio" class="form-check-input" name="option">
+                        <label for="optionC" class="form-check-label">Option C</label><br>
+                        <input type="radio" class="form-check-input" name="option">
+                        <label for="optionD" class="form-check-label">Option D</label><br>
+                    </form>
+                </div>
+                <div class="mx-2 mt-3">
+                    <a href="exam.html" class="btn btn-secondary w-15">Next Question</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+</html>
