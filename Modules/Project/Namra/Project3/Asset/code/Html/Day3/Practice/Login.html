@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+    integrity="sha512-UwcC/iaz5ziHX7V6LjSKaXgCuRRqbTp1QHpbOJ4l1nw2/boCfZ2KlFIqBUA/uRVF0onbREnY9do8rM/uT/ilqw=="
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../../../../style.css">
+  <link rel="stylesheet" href="./style/LoginCSS.css">
+
+  <title>HTML</title>
+</head>
+
+<body>
+
+  <div id="mainNavbar">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark p-0" style="background: #269450d2">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand font-weight-bold p-3" style="letter-spacing: 3px;"> <img src="../../../../background.jpg" class="rounded-circle" height="50px" width="50px" alt=""> </a>
+
+        <button class="navbar-toggler navbar-toggler-right p-4" type="button" data-toggle="collapse"
+          data-target="#navResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+          <ul class="navbar-nav px-3 ml-auto">
+            <li class="nav-item p-3"><a href="../../../../../indexHTML.html" class="nav-link">HTML</a></li>
+            <li class="nav-item p-3"><a href="../../../../../indexCSS.html" class="nav-link">CSS</a></li>
+            <li class="nav-item p-3"><a href="../../../../../indexBootstrap.html" class="nav-link">BOOTSTRAP</a></li>
+            <li class="nav-item p-3"><a href="../../../../../indexJavaScript.html" class="nav-link">JAVASCRIPT</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrapper">
+
+
+    <nav id="sidebar" class="active">
+
+      <ul class="list-unstyled components">
+        <li>
+          <a href="#day3SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 3</a>
+
+          <ul class="collapse list-unstyled" id="day3SubMenu">
+            <li>
+              <a href="#day3ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+
+              <ul class="list-unstyled" id="day3ExerciseseSubMenu">
+                <li> <a href="department.html"> 1. Department </a></li>
+                <li> <a href="Login.html"> 2. Article Tag </a></li>
+                <li> <a href="Student.html"> 3. Student Marksheet </a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#day3AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+
+              <ul class="list-unstyled" id="day3AssignmentSubMenu">
+                <li> <a href="../Assignment/index.html"> 1. Employee Form </a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </nav>
+
+    <div id="content">
+      <div class="container-fluid pl-0">
+        <button type="button" id="sidebarCollapse" class="btn btn-blue">
+          <i class="fas fa-align-left"></i>
+        </button>
+      </div>
+      <div class="mx-auto" style="width: 80%;">
+
+        <ul class="navPage">
+          <li><a class="active" href="https://radixweb.com/">Home</a></li>
+          <li style="float : right"><a href="https://radixweb.com/contact-us">Contact</a></li>
+          <li style="float : right"><a href="https://radixweb.com/insights/life-at-radix">About</a></li>
+        </ul>
+        <h1>Log In</h1>
+        <table border="0" align="center" cellpadding="10px" style="color: white;">
+          <tr>
+            <td>Username</td>
+            <td><input type="text"></input></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><input type="password"></input></td>
+          </tr>
+        </table>
+
+        <article class="all-places">
+          <h1>Most Popular Cities</h1>
+          <article class="Ahmedabad">
+            <h2>Ahmedabad</h2>
+            <p>Ahmedabad is main city of gujarat.</p>
+            <p>It is on the top in population from gujarat</p>
+          </article>
+          <article class="Gandhinagar">
+            <h2>Gandhinagar</h2>
+            <p>Gandhinagar is the capital of gujarat</p>
+          </article>
+        </article>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      $("#sidebarCollapse").on('click', function () {
+        $("#sidebar").toggleClass('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

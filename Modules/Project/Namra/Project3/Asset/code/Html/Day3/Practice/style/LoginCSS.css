@@ -1,0 +1,42 @@
+.navPage {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(122, 196, 26, 0.39);}
+    
+  
+  .navPage li {
+    float: left;
+  }
+  
+  .navPage li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .navPage li a:hover:not(.active) {
+    background-color: rgb(156, 209, 32);
+  }
+  
+  .active {
+    background-color: #6c9b20;
+  }
+  h1{
+      text-align: center;
+  }
+
+  .all-places
+  {
+      padding: 5px;
+      background-color: lightblue;
+  }
+.Gandhinagar{
+      background: rgb(51, 116, 146);
+  }
+  .Ahmedabad{
+    background: rgb(51, 116, 146);
+}
