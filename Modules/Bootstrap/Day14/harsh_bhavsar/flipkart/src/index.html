@@ -97,13 +97,13 @@
                      <div id="slider" class="carousel slide"  data-ride="carousel" width="100%">
 
                     <ol class="carousel-indicators">
-                        <li class="active" data-target="#slider" data-slide-to="0"></li>
-                        <li class="active" data-target="#slider" data-slide-to="1"></li>
-                        <li class="active" data-target="#slider" data-slide-to="2"></li>
+                        <li class="item1 active" data-target="#slider" data-slide-to="0"></li>
+                        <li class="item2" data-target="#slider" data-slide-to="1"></li>
+                        <li class="item3" data-target="#slider" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img  src="./img/banner1.jpg" alt="First Slide" class="d-block img-fluid">
+                            <img  src="./img/banner1.jpg" alt="First Slide" class="d-block  img-fluid">
                         </div>
                         <div class="carousel-item">
                             <img src="./img/banner4.jpg" width="100%"  alt="Second Slide" class="d-block img-fluid">
@@ -127,25 +127,25 @@
             <script>
                 $(document).ready(function(){
                 // Activate Carousel
-                $("#myCarousel").carousel();
+                $("#slider").carousel();
                     
                 // Enable Carousel Indicators
                 $(".item1").click(function(){
-                    $("#myCarousel").carousel(0);
+                    $("#slider").carousel(0);
                 });
                 $(".item2").click(function(){
-                    $("#myCarousel").carousel(1);
+                    $("#slider").carousel(1);
                 });
                 $(".item3").click(function(){
-                    $("#myCarousel").carousel(2);
+                    $("#slider").carousel(2);
                 });
                     
                 // Enable Carousel Controls
                 $(".carousel-control-prev").click(function(){
-                    $("#myCarousel").carousel("prev");
+                    $("#slider").carousel("prev");
                 });
                 $(".carousel-control-next").click(function(){
-                    $("#myCarousel").carousel("next");
+                    $("#slider").carousel("next");
                 });
                 });
             </script>
@@ -380,10 +380,10 @@
 
                  <section>
              <footer id="main-footer" class="py-5 bg-secondary text-white">
-                    <div class="container d-flex  mx-auto">
+                    <div class=" row text-center ">
 
 
-                        <div class="footer_links mx-5">
+                        <div class="col-md-2 footer_links ml-5">
                             <div class="font-weight-bold">
                                 About
                             </div>
@@ -429,7 +429,7 @@
                             </div>
                         </div>
 
-                        <div class="footer_links mx-5">
+                        <div class="col-md-2 footer_links ">
                             <div class="font-weight-bold">
                                 Help
                             </div>
@@ -469,7 +469,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="footer_links mx-5">
+                        <div class="col-md-2 footer_links ">
                             <div class="font-weight-bold">
                                 Policy
                             </div>
@@ -514,7 +514,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="footer_links mx-5">
+                        <div class="col-md-2 footer_links ">
                             <div class="font-weight-bold">
                                 Social
                             </div>
@@ -542,7 +542,7 @@
                             </div>
                           
                         </div>
-                        <div class="contact_container">
+                        <div class="col-md-2 contact_container">
                             <div class="font-weight-bold">
                                Registered Office Address:
                             </div>
@@ -563,9 +563,9 @@
 
                     
                     <div class="container">
-                    <div class="row d-flex align-self-center">
-                        <div class="col-md-3 ml-auto">
-                            <p class="text-align-center">  &copy; 2007-2021 Flipkart.com</p>
+                    <div class="row d-flex text-center">
+                        <div class="col">
+                            <p >  &copy; 2007-2021 Flipkart.com</p>
                         </div>
                     </div>
                 </footer>
