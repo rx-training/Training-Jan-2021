@@ -29,8 +29,9 @@
                    
                 })
                 .then((data) => {
-                   document.getElementById('demo').innerHTML = "JSON file data: <br>" + data;
-                   console.log(data);
+                 //  document.getElementById('demo').innerHTML = "JSON file data: <br>" + data;
+                   //console.log(data);
+                   localStorage.setItem("data",JSON.stringify(product));
                 })
         }
                 /*let product = JSON.stringify(p);

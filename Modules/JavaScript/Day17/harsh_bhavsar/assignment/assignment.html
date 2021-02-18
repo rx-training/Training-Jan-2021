@@ -15,8 +15,10 @@
 
             var id_pat = /^([0-9]{5})$/;
             var mob_pat = /^([0-9]{10})$/;
+            var email_pat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             var res = id_pat.test(document.getElementById("empId").value);
             var res1 = mob_pat.test(document.getElementById("cont").value);
+            var res2= email_pat.test(document.getElementById("email").value);
 
             if (res === false)
             {
@@ -38,7 +40,7 @@
             {
                 document.getElementById("salaryy").innerHTML="Please enter employee salary <br>";
             }
-            if (document.getElementById("email").value==="")
+            if (res2 === false )
             {
                 document.getElementById("emailid").innerHTML="Please enter employee email Id <br>";
             }
