@@ -34,16 +34,13 @@ body {
         display: none;
         width: 100%;
     }
-    #multiCollapseExample1{
-      width: 50%;
-    }
-    
   }
   #multiCollapseExample1 a:hover
   {
       background-color: #e0e2e4;
       padding-left: 30px;
   }
+
   .nav li a:hover{
     padding-left: 30px;
     background-color: #e0e2e4;
