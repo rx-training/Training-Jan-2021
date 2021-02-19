@@ -1,0 +1,20 @@
+#Nav li {
+  margin-right: 30px;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+#Nav li a:hover {
+  border-bottom: 3px red solid;
+  font-size: 18px; }
+
+#sideBar {
+  background-color: #b1f1f3;
+  width: 200px;
+  height: 100vh; }
+  #sideBar ul {
+    list-style: disc; }
+  #sideBar li a {
+    text-decoration: none;
+    color: black; }
+  #sideBar li a:hover {
+    color: white; }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Practice 3</title>
+</head>
+<body>
+    
+    <label for="tech">Please select your technology :</label>
+    <input type="radio" name="" id="php">PHP<span id="phpText"></span>
+    <input type="radio" name="" id="net">ASP.NET<span id="netText"></span>
+    <input type="radio" name="" id="asp">ASP<span id="aspText"></span>
+    <input type="radio" name="" id="jsp">JSP<span id="jspText"></span>
+    <input type="radio" name="" id="perl">PERL<span id="perlText"></span>
+    <input type="radio" name="" id="cold">Cold Fusion<span id="coldText"></span>
+    <input type="radio" name="" id="other">Other<span id="otherText"></span>
+    <br>
+    <br>
+    <label for="your" id="sel">You have  selected : </label>
+
+</body>
+<script>
+
+    $(document).ready(function(){
+
+
+        $("#php").click(function(){
+            $("#sel").append("<li>PHP</li>");
+        });
+        $("#net").click(function(){
+            $("#sel").append("<li>ASP.NET</li>");
+        });
+        $("#asp").click(function(){
+            $("#sel").append("<li>ASP</li>");
+        });
+        $("#jsp").click(function(){
+            $("#sel").append("<li>JSP</li>");
+        });
+        $("#perl").click(function(){
+            $("#sel").append("<li>PERL</li>");
+        });
+        $("#cold").click(function(){
+            $("#sel").append("<li>COLD FUSION</li>");
+        });
+        $("#other").click(function(){
+            $("#sel").append("<li> OTHER</li>");
+        });
+    });
+
+</script>
+</html>

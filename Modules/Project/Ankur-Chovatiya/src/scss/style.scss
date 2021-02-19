@@ -1,0 +1,33 @@
+// Main Sass File
+
+#Nav{
+    li{
+        margin-right: 30px;
+        font-weight: 700;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    li a:hover{
+        border-bottom: 3px red solid;
+        font-size: 18px;
+    }
+}
+
+#sideBar{
+    background-color:rgb(177, 241, 243);
+    width: 200px;
+    height: 100vh;
+    
+
+    ul{
+        list-style: disc;
+    }
+    li a {
+        text-decoration:none;
+        color: black;
+    }
+    li a:hover{
+        color:white;
+        // border-bottom: 2px red solid;
+
+    }
+}
