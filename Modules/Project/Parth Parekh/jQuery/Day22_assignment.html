@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Day 22 Assignment</title>
+    <style>
+        .col-md-4 a:hover {
+            color: blue !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container ">
+            <a href="#" class="navbar-brand"> <img src="../src/img/logo.jpg" alt="Logo" height="90px" width="90px"> </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarnav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../src/index.html">Home</a>
+                    </li>
+                    <li class="navbar-nav">
+                        <a class="nav-link" href="../Html/Day3/PracticeExercise/Article&Nav.html">HTML</a>
+                    </li>
+                    <li class="navbar-nav">
+                        <a class="nav-link" href="../CSS/Day4_practiceExercise.html">CSS</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link" href="../Bootstrap/index.html">Bootstrap</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link " href="../Javascript/Day15_practiceExercise.html">Javascript</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link active" href="Day22_practiceExercise.html"> jQuery</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link"
+                            href="../../../../Modules/Bootstrap/Day14/Parth Parekh/Paytm/src/index.html">Mini Project</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="nav d-flex flex-column justify-content-start">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted text-capitalize" href="Day22_practiceExercise.html">Day 22 Practice
+                            Exercise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize active" href="Day22_assignment.html">Day 22 assignment</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8 mt-5 mb-4">
+                <div class="container mt-2">
+                
+                    <div class="form-group">
+                    <label for="">Please Select Country</label>
+                    <select class="form-control" name="" id="dropdown">
+
+                    </select>
+                    </div>
+                    
+                    <h4 class="text-success">Your Selected Country :</h4>
+                    <ul id="print">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $(function () {
+            $("#dropdown").append("<option  selected value='1'>Please Select</option>");
+            $("#dropdown").append("<option  value='2'>India</option>");
+            $("#dropdown").append("<option   value='3'>Australia</option>");
+            $("#dropdown").append("<option  value='4'>England</option>");
+            $("#dropdown").append("<option  value='5'>Pakistan</option>");
+            $("#dropdown").append("<option  value='6'>South Africa</option>");
+            
+            var optionText = $("#dropdown option:selected").val();
+            console.log(optionText);
+            if (optionText == 1) {
+
+                $('#print').html("<li>India </li><li>Australia </li><li> England </li><li> Pakistan </li><li> South Africa </li>");
+            }
+            
+            $('#dropdown').on('click', function () {
+                var optionText = $("#dropdown option:selected").val();
+                console.log(optionText);
+                if(optionText == 1)
+                {
+                     $('#print').html("<li>India </li><li>Australia </li><li> England </li><li> Pakistan </li><li> South Africa </li>");
+                }
+                if (optionText == 2) {
+                   
+                    $('#print').html("<li>India </li>");
+                }
+                if (optionText == 3) {
+                    
+                    $('#print').html("<li>Australia </li>");
+                }
+                if(optionText == 4)
+                {
+                    
+                    $('#print').html("<li> England </li>");
+                }
+                if (optionText == 5) {
+
+                    $('#print').html("<li> Pakistan </li>");
+                }
+                if (optionText == 6) {
+
+                    $('#print').html("<li> South Africa </li>");
+                }
+            });
+        })
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

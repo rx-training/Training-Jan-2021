@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .bg{
+            box-shadow: 17px 25px 20px rgba(500 ,0,10,0.4);
+            border-radius: 170px;
+        }
+        .col-md-4 a:hover {
+            color: blue !important;
+        }
+    </style>
+    <title>Day16 Assignment</title>
+</head>
+<body id="bgcolor">
+
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container">
+            <a href="#" class="navbar-brand"> <img src="../src/img/logo.jpg" alt="Logo" height="90px" width="90px"> </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarnav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../src/index.html">Home</a>
+                    </li>
+                    <li class="navbar-nav">
+                        <a class="nav-link" href="../Html/Day3/PracticeExercise/Article&Nav.html">HTML</a>
+                    </li>
+                    <li class="navbar-nav">
+                        <a class="nav-link" href="../CSS/Day4_practiceExercise.html">CSS</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link" href="../Bootstrap/index.html">Bootstrap</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link active" href="../Javascript/Day15_practiceExercise.html">Javascript</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link " href="../jQuery/Day22_practiceExercise.html">jQuery</a>
+                    </li>
+                    <li class="navabar-nav">
+                        <a class="nav-link"
+                            href="../../../../Modules/Bootstrap/Day14/Parth Parekh/Paytm/src/index.html">Mini Project</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="nav d-flex flex-column justify-content-start">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted text-capitalize" href="Day15_practiceExercise.html">Day 15 Practice
+                            Exercise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day15_assignment.html">Day 15 assignment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day16_practiceExercise.html">Day 16 Practice
+                            Exercise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize active" href="Day16_assignment.html">Day 16 assignment </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day17_practiceExercise.html">Day 17 Practice
+                            Exercise </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day17_assignment.html">Day 17 assignment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day18_practiceExercise.html">Day 18 Practice
+                            Exercise </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day18_assignment.html">Day 18 assignment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day19_practiceExercise.html">Day 19 Practice
+                            Exercise 1 </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day19_practiceExercise2.html">Day 19 Practice
+                            Exercise 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day20_practiceExercise.html">Day 20 Practice
+                            Exercise </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize text-muted" href="Day20_assignment.html">Day 20 assignment</a>
+                    </li>
+    
+                </ul>
+            </div>
+            <div class="col-md-8 mt-5">
+
+
+                <div  class="container bg my-5 p-5 text-white" style="background-color: #012b72;">
+                    <form >
+                    <div class="form-group m-3">
+                    <label for="" class="h3 ">Choose Your B'day Date :</label>
+                    <input type="text"  id="date" class="form-control"  placeholder="MM-DD-YYYY">
+                    <small id="result"></small>
+                    <p id="ans"></p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success ms-3 my-3 btn-lg" 
+                    type="button" onclick="checkDate(date.value ,result,ans)" >Check Date </button>
+                </form>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function checkDate(data ,result,ans)
+        {
+            var date = data.split("-");
+            console.log(date);
+
+            var m = date[0];
+            var d = date[1];
+            var y = date[2];
+            
+            if(m > 0 && m < 13)
+            {
+                if(d >=1 && d <=31)
+                {
+                    if(m==2)
+                    {
+                        if(d==29 && y%4 != 0)
+                        {
+                            alert("Enter Valid Day");
+                            return false;
+                        }
+                        if(d == 30 || d==31)
+                        {
+                            alert("Enter Valid Day");
+                            return false;
+                        }
+                    }
+                    if(  m==4 || m==6 || m==9 || m==11 )
+                    {
+                        alert("Enter Valid Day");
+                        return false;
+                    }
+                    
+                    if(y.length <=4)
+                    {
+                        ans.innerHTML = "Wishing U Advance Happy B'day " + data;
+                    }
+                    else
+                    {   
+                        result.innerHTML = "Enter Valid Year";   
+                    }
+                }
+                else{
+                    result.innerHTML = "Enter Valid Day"; 
+                }
+            }
+            else
+            {
+                result.innerHTML = "Enter Valid Month";
+            }   
+        }
+
+
+        
+        
+    </script>
+</body>
+</html>

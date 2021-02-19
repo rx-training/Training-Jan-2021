@@ -25,7 +25,7 @@
             <textarea type="text" class="form-control" name="string" rows="3"  id="string"></textarea>
             <small id="result_blank"></small>
             <button class="btn btn-primary  p-2 mt-2" type="button"
-                onclick="checkString(string.value,result_blank ,demo)">CheckString</button>
+                onclick="checkString(string.value,result_blank)">CheckString</button>
             <button class="btn btn-success  p-2 mt-2 ms-3" type="button"
                 onclick="stringToArray(string.value,result_blank ,array)">Convert String To Array</button>
             <button class="btn btn-info  text-white p-2 mt-2 ms-3" type="button"
@@ -44,13 +44,14 @@
     <script>
        
 
-        function checkString (a , result_blank ,demo) {
+        function checkString (a , result_blank) {
             console.log(a);
             result_blank.style.fontSize = "24px";
             result_blank.style.color = "red";
             if(a == 0)
             result_blank.innerHTML = "String Is Blank";
-            
+            else
+                result_blank.innerHTML = a;
             
         }
         function stringToArray (a, result_blank, array) {
