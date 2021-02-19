@@ -8,133 +8,91 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>assignment day15</title>
-    <script>
-        function plus()
-        {
-            var x=document.getElementById('num1').value;
-            var y=document.getElementById('num2').value;
-            document.getElementById('result').value=parseInt(x)+parseInt(y);
-        }
-        function minus()
-        {
-            var x=document.getElementById('num1').value;
-            var y=document.getElementById('num2').value;
-            document.getElementById('result').value=parseInt(x)-parseInt(y);
- 
-        }
-        function mul()
-        {
-            var x=document.getElementById('num1').value;
-            var y=document.getElementById('num2').value;
-            document.getElementById('result').value=parseInt(x)*parseInt(y);
-
-        }
-        function division()
-        {
-            var x=document.getElementById('num1').value;
-            var y=document.getElementById('num2').value;
-            document.getElementById('result').value=parseInt(x)/parseInt(y);
-
-        }
-        function calculate()
-        {
-            var x=document.getElementById('num1').value;
-            var y=document.getElementById('num2').value;
-            if(document.getElementById('plus').checked == true)
-            {
-                document.getElementById('result').value=parseInt(x)+parseInt(y);
-
-            }
-            else if(document.getElementById('minus').checked == true)
-            {
-                document.getElementById('result').value=parseInt(x)-parseInt(y);
-
-            }
-            else if(document.getElementById('mul').checked == true)
-            {
-                document.getElementById('result').value=parseInt(x)*parseInt(y);
-
-            }
-            else(document.getElementById('division').checked == true)
-            {
-                document.getElementById('result').value=parseInt(x)/parseInt(y);
-
-            }
-        }
-    </script>
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="container bg-secondary m-auto">
-        <h2 class="display-3">calculator</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="result">please Enter first number</label>
-                <input class="form-control" type="number" name="result" id="num1" />
+    <script>
 
-            </div>
-            <div class="col-md-6"> <label for="result">please enter second number</label>
-                <input class="form-control" type="number" name="result" id="num2" />
+function calculate() {
+                var num1 = parseInt(document.getElementById("num1").value);
+                var num2 = parseInt(document.getElementById("num2").value);
+                var result = 0;
+                if (num1 == "" || num2 == "") {
+                    alert("Please Enter values");
+                    return false;
+                }
+                var add1 = document.getElementById("add1");
+                var sub = document.getElementById("sub1");
+                var mul = document.getElementById("mul1");
+                var div = document.getElementById("div1");
+                if (add1.checked == true) {
+                    result = num1 + num2;
+                }
+                if (sub.checked == true) {
+                    result = num1 - num2;
+                }
+                if (mul.checked == true) {
+                    result = num1 * num2;
+                }
+                if (div.checked == true) {
+                    result = num1 / num2;
+                }
+                document.getElementById('result').innerHTML += " " + result;
 
-            </div>
+            }
+            function reset() {
+                document.getElementById("demo").reset();
+                document.getElementById('result').innerHTML = " ";
+            }
+    </script>
 
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-6 m-auto">
-                <div class="form-check">
 
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="plus"checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        <button class="btn btn-primary" type="button" onclick="plus()">Addition</button>
-                    </label>
-                </div>
-                <div class="form-check mt-2">
+    </head>
 
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="minus"checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        <button class="btn btn-primary" type="button" onclick="minus()">Subtraction</button>
-                    </label>
-                </div>
-                <div class="form-check mt-2">
+    <body>
+    
 
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="mul"checked>
-                    <label class="form-check-label" for="flexRadioDefault3">
-                        <button class="btn btn-primary" type="button" onclick="mul()">Multiplication</button>
-                    </label>
-                </div>
-                <div class="form-check mt-2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="division"checked>
-                    <label class="form-check-label" for="flexRadioDefault4">
-                        <button class="btn btn-primary" type="button" onclick="division()">Division</button>
-                    </label>
-                   
-                </div>
+        <div class="container">       
+             <form id="demo">
+            <div class="form-group ">
                 <div class="row">
-                    <div class="col-md-6 m-auto ">
-                        <button class="btn btn-primary btn-block" type="button" onclick="calculate()">Calculate</button>
-                    </div>
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="result">Result is:</label>
-                        <input type="text" class="class-control" id="result">
-                    </div>
-                </div>
-
+                <input id="num1" class="form-control" type="text" placeholder="Enter 1st number">
             </div>
-        </div>
+            </div>
+            <div class=" form-group ">
+                <div class="row">
+                <input id="num2" class="form-control" type="text" placeholder="Enter 2nd number">
+            </div>
+            </div>
+            <div>
+        
+               <div class="row"> <input type="radio" value="addition" name="calculate" id="add1">addition</div>
+               <div class="row"><input type="radio" value="subtraction" name="calculate" id="sub1"> subtraction</div> 
+                <div class="row"><input type="radio" value="multiplication" name="calculate" id="mul1">multiplication</div>
+                <div class="row"><input type="radio" value="division" name="calculate" id="div1">division</div>
+            </div>
+            </div>
+
+        </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-        crossorigin="anonymous"></script>
 
-</body>
+        <button class="bg-primary m-5" onclick="calculate()">Calculate</button>
+        <button class="bg-primary m-5" onclick="reset()">Reset</button>
+        <label> Result is : </label>
+        <label id="result"></label>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+
+    </body>
 
 </html>

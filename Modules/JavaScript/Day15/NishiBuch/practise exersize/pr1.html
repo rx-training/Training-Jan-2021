@@ -24,21 +24,20 @@
             }
             else {
                 document.getElementById('great').innerHTML = "wrong Input.";
+
             }
             var sum = 0;
             if (x > 40) {
                 sum = sum + x;
             }
-            else if (y > 40) {
+            if (y > 40) {
                 sum = sum + y;
             }
-            else if (z > 40) {
+         if (z > 40) {
                 sum = sum + z;
             }
-            else {
-
-            }
-            if (sum == 0) {
+        
+     if (sum == 0) {
                 document.getElementById('sums').innerHTML = "No numbers are greater than 40";
             }
             else {

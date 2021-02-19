@@ -1,142 +1,62 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script>
-        function validate()
-        {
-
-            var idCheck = /^[0-9]{5,30}$/;
-            if (idCheck.test()) {
-                return true;
-            }
-            else
-            {
-                alert("you have entered wrong input")
-                return false;
-            }
-            var userCheck = /^[A-Za-z. ]{3,30}$/;
-            if(userCheck.test())
-            {
-                return true;
-            }
-            else{
-                alert("you have entered wrong username");
-                return false;
-            }
-            var emailCheck = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1,}[A-Za-z.]{2,6}$/;
-            if(emailCheck.test())
-            {
-                return true;
-            }
-            else
-            {
-                alert("you have entered wrong emailid");
-                return false;
-            }
-            var numbercheck = /^[6789][0-9]{9}$/;
-            if(numbercheck.test())
-            {
-                return true;
-            }
-            else
-            {
-                alert("you have entered wrong contact number");
-                return false;
-            }
-                
-            var x=document.getElementById("empid").value;
-            if(x == "")
-            alert("ID must be filled out");
-            return false;
-
-            var y=document.getElementById("empname").value;
-            if(y == "")
-            alert("name must be filled out");
-            return false;
-
-            var z=document.getElementById("empage").value;
-            if(z == "")
-            alert("age must be filled out");
-            return false;
-
-            var p=document.getElementById("des").value;
-            if(z == "")
-            alert("designation must be filled out");
-            return false;
-
-            var q=document.getElementById("salary").value;
-            if(q == "")
-            alert("salary must be filled out");
-            return false;
-
-            var r=document.getElementById("date").value;
-            if(z == "")
-            alert("age must be filled out");
-            return false;
-
-
-
-        }
-    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">     
+    <title>Assignment</title>
 </head>
-
 <body>
-    <h3 class="text-dark display-4 text-center">Employee  Registration Form</h3>
-    <div class="container bg-secondary mb-3">
-        <form onsubmit="return validate()" action="#">
+    <h1 class="text-center text-center ">Registration Form</h1>
+    <div class="container bg-secondary mb-2">
+        <form onsubmit="return validation()" action="#">
+            <br>
             <div class="form-group">
-                <label for="">Employee ID</label>
-                <input type="text" class="form-control" id="empid">
+                <label>Employee ID:</label>
+                <input type="number" name="" id="empid" class="form-control">
             </div>
             <div class="form-group">
-                <label for="">Employee Name</label>
-                <input type="text" class="form-control" id="empname">
-            </div>
-            <div class="form-group">
-                <label for="">Age</label>
-                <input type="number" class="form-control" id="empage">
-            </div>
-            <div class="form-group">
-                <label for="">Gender:</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="male">
-                    <label class="form-check-label" for="male">
-                        Male
-
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" id="female">
-                    <label class="form-check-label" for="female">
-                        Female
-                </div>
+                <label>Employee Name:</label>
+                <input type="text" name="" id="username" class="form-control">
 
             </div>
             <div class="form-group">
-                <label for="">Designation</label>
-                <input type="text" class="form-control" id="des">
+                <label>Age:</label>
+                <input type="number" name="" id="age" class="form-control">
+
             </div>
             <div class="form-group">
-                <label for="">Loacation</label>
-                <select name="" id="location" class="form-control form-field">
-                    <option selected>Select City</option>
-                    <option value="">Ahemdabad</option>
-                    <option value="">Mumbai</option>
-                    <option value="">kalkatta</option>
-                    <option value="">Delhi</option>
-                    <option value="">Bangluru</option>
-                </select>
-            </div>
+                <label>Gender</label><br>
+                <input type="radio" name="gender" id="male" value="male">Male
+                <input type="radio" name="gender" id="female" value="female">Female
 
+            </div>
+            <div class="form-group">
+                <label>Designation:</label>
+                <input type="text" name="" class="form-control" id="designation">
+
+            </div>
             <div class="form-group">
                 <label>Salary:</label>
                 <input type="number" name="" class="form-control" id="salary">
+
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label><br>
+                <select class="form-control form-field" id="location" name="location">
+                    <option value="">Select City</option>
+                    <option value="">Delhi</option>
+                    <option value="">Ahmedabad</option>
+                    <option value="">Baroda</option>
+                    <option value="">mumbai</option>
+                    <option value="">kolkatta</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label>Email ID:</label>
+                <input type="text" name="" id="email" class="form-control">
 
             </div>
             <div class="form-group">
@@ -144,28 +64,67 @@
                 <input type="date" name="" class="form-control" id="date">
 
             </div>
-
             <div class="form-group">
                 <label>Contact Number:</label>
-                <input type="number" name="" id="no" class="form-control">
+                <input type="number" name="" id="contact" class="form-control">
+
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-    
-        </div>
-    </form>
- 
+            <input type="submit" name="" class="btn btn-primary" onclick="validation()">
+        </form>
+    </div> <br> <br>
+    <div class="container">
+        <div class="alert alert-warning" id="iderr"></div>
+        <div class="alert alert-info" id="nameerr"></div>
+        <div class="alert alert-info" id="ageerr"></div>
+        <div class="alert alert-info" id="deserr"></div>
+        <div class="alert alert-info" id="salerr"></div>
+        <div class="alert alert-info" id="emailerr"></div>
+        <div class="alert alert-info" id="contacterr"></div>
+        
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 
+    <script>
+       function validation()
+       {
+           var empid = document.getElementById('empid').value;
+           
+            var pattern= /^([0-9]{5})$/;
+            var mob_pat = /^([0-9]{10})$/;
+            var iderr = pattern.test(empid);
+            var res1=mob_pat.test(document.getElementById('contact').value);
+            if(iderr ===  false)
+            {
+                document.getElementById("iderr").innerHTML="Employee id should be only 4 digit <br/>"
+            }
+            if(document.getElementById('username').value==="")
+            {
+                document.getElementById("nameerr").innerHTML=" Employee Name field is required  <br/>"
+            } 
+            if(document.getElementById('age').value==="")
+            {
+                document.getElementById("ageerr").innerHTML="age field is required <br/>"
+            }
+            if(document.getElementById('designation').value==="")
+            {
+                document.getElementById("deserr").innerHTML="designation field is required  <br/>"
+            }
+            if(document.getElementById('salary').value==="")
+            {
+                document.getElementById("salerr").innerHTML="salary field is required  <br/>"
+            } 
+            if(document.getElementById('email').value==="")
+            {
+                document.getElementById("emailerr").innerHTML=" Employee email is reqiired <br/>"
+            }
+            if(res1 === false)
+            {
+                document.getElementById("contacterr").innerHTML="Please Employee contact number must 10 digit <br/>"
+            }
+            
+
+            
+       } 
+    </script>
 </body>
-
 </html>
