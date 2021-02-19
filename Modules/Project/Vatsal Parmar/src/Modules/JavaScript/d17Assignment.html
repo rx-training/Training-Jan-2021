@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Day 17 Assignment</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">JavaScript</a>
+            </li>
+            <li class="nav-item">
+              <a href="../jQuery/d22PracticeExercise.html" class="nav-link"
+                >jQuery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d15PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Practice Exercise</a
+          >
+          <a
+            href="d15Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Assignment</a
+          >
+          <a
+            href="d16PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Practice Exercise</a
+          >
+          <a
+            href="d16Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Assignment</a
+          >
+          <a
+            href="d17PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Practice Exercise</a
+          >
+          <a
+            href="d17Assignment.html"
+            class="list-group-item list-group-item-action active"
+            >Day 17 Assignment</a
+          >
+          <a
+            href="d18PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Practice Exercise</a
+          >
+          <a
+            href="d18Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Assignment</a
+          >
+          <a
+            href="d19PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Practice Exercise</a
+          >
+          <a
+            href="d19Extras.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Extras</a
+          >
+          <a
+            href="d20Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 20 Assignment</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <div class="container">
+          <h1 class="text-center">Assignment Day 17</h1>
+          <strong class="text-secondary">
+            Design a form for storing employee details. (EmployeeID, Employee
+            name, age, Gender, designation, salary, location, Email ID, Date of
+            Joining and contact number)
+          </strong>
+        </div>
+        <div
+          class="container my-5 p-5"
+          style="background-color: rgb(250, 238, 223); border-radius: 50px"
+        >
+          <h1 class="text-primary text-center mb-5">
+            Employee Registration Form
+          </h1>
+          <form onsubmit="return checkData()">
+            <div class="form-group my-1">
+              <label class="form-label">Employee ID:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="EID"
+                placeholder="enter id"
+              />
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Employee Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="eName"
+                placeholder="enter name"
+              />
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Employee Age:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="age"
+                placeholder="enter age"
+              />
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Gender :</label>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="male"
+                  name="gender"
+                />
+                <label class="form-check-label" for="Male"> Male </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                />
+                <label class="form-check-label" for="Female"> Female </label>
+              </div>
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Designation :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="designation"
+                placeholder="designation"
+              />
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Salary :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="salary"
+                placeholder="Salary"
+              />
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Location :</label>
+              <select class="form-select" id="location">
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="vadodra">Vadodra</option>
+                <option value="surat">Surat</option>
+                <option value="rajkot">Rajkot</option>
+              </select>
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Email ID :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                placeholder="enter email"
+              />
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Date Of Joining:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="date"
+                placeholder="MM-DD-YYYY"
+              />
+            </div>
+            <div class="form-group my-1">
+              <label class="form-label">Contact Number :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="contactNo"
+                placeholder="enter number"
+              />
+            </div>
+
+            <button class="btn btn-success btn-lg my-2" type="submit">
+              Submit
+            </button>
+          </form>
+          <h2 class="text-success"><strong> Summary :</strong></h2>
+          <ul class="text-danger" id="ans1"></ul>
+          <h3 class="text-success"><strong id="ans2"></strong></h3>
+          <ul class="text-success" id="ans3"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+      function checkData() {
+        var eId = document.getElementById("EID").value;
+        var name = document.getElementById("eName").value;
+        var age = document.getElementById("age").value;
+        var male = document.getElementById("male").checked;
+        var female = document.getElementById("female").checked;
+        var designation = document.getElementById("designation").value;
+        var salary = document.getElementById("salary").value;
+        var location = document.getElementById("location").value;
+        var email = document.getElementById("email").value;
+        var date = document.getElementById("date").value;
+        var contactNo = document.getElementById("contactNo").value;
+
+        var patt = /^\d{5,}$/g;
+        var emailPatt = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        var contactPatt = /^\d{10}$/g;
+        var Err = [];
+
+        // To Show Error Message
+        var Message = [
+          "Enter Valid Employee ID",
+          "Enter Valid Name",
+          "Enter Valid Age",
+          "Select Gender",
+          "Enter Designation",
+          "Enter Valid Salary",
+          "Enter Valid Email",
+          "Enter Valid Date",
+          "Enter Valid Contact Number",
+        ];
+
+        // To Show Valid Data
+        if (male) {
+          var Data = [
+            eId,
+            name,
+            age,
+            "Male",
+            designation,
+            salary,
+            location,
+            email,
+            date,
+            contactNo,
+          ];
+        } else {
+          var Data = [
+            eId,
+            name,
+            age,
+            "Female",
+            designation,
+            salary,
+            location,
+            email,
+            date,
+            contactNo,
+          ];
+        }
+
+        if (patt.test(eId) && eId != "") {
+          Err[0] = true;
+        } else {
+          Err[0] = false;
+        }
+        if (name != "") {
+          Err[1] = true;
+        } else {
+          Err[1] = false;
+        }
+        if (!isNaN(age) && age != "") {
+          Err[2] = true;
+        } else {
+          Err[2] = false;
+        }
+        if (male || female) {
+          Err[3] = true;
+        } else {
+          Err[3] = false;
+        }
+        if (designation != "") {
+          Err[4] = true;
+        } else {
+          Err[4] = false;
+        }
+        if (!isNaN(salary) && salary != "") {
+          Err[5] = true;
+        } else {
+          Err[5] = false;
+        }
+        if (emailPatt.test(email) && email != "") {
+          Err[6] = true;
+        } else {
+          Err[6] = false;
+        }
+        if (date != "") {
+          Err[7] = true;
+        } else {
+          Err[7] = false;
+        }
+        if (contactPatt.test(contactNo) && contactNo != "") {
+          Err[8] = true;
+        } else {
+          Err[8] = false;
+        }
+        if (
+          Err[0] == true &&
+          Err[1] == true &&
+          Err[2] == true &&
+          Err[3] == true &&
+          Err[4] == true &&
+          Err[5] == true &&
+          Err[6] == true &&
+          Err[7] == true &&
+          Err[8] == true
+        ) {
+          document.getElementById("ans1").innerHTML = "";
+          document.getElementById("ans2").innerHTML = "Submission Successfull";
+          document.getElementById("ans3").innerHTML = "";
+          for (var j = 0; j < Data.length; j++) {
+            document.getElementById("ans3").innerHTML +=
+              "<li><strong>" + Data[j] + "</strong></li>";
+          }
+        } else {
+          document.getElementById("ans1").innerHTML = "";
+          document.getElementById("ans2").innerHTML = "";
+          document.getElementById("ans3").innerHTML = "";
+          for (var i = 0; i < Err.length; i++) {
+            if (Err[i] == false) {
+              document.getElementById("ans1").innerHTML +=
+                "<li><strong>" + Message[i] + "</strong></li>";
+            }
+          }
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Day 15 Assignment</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">JavaScript</a>
+            </li>
+            <li class="nav-item">
+              <a href="../jQuery/d22PracticeExercise.html" class="nav-link"
+                >jQuery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d15PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Practice Exercise</a
+          >
+          <a
+            href="d15Assignment.html"
+            class="list-group-item list-group-item-action active"
+            >Day 15 Assignment</a
+          >
+          <a
+            href="d16PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Practice Exercise</a
+          >
+          <a
+            href="d16Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Assignment</a
+          >
+          <a
+            href="d17PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Practice Exercise</a
+          >
+          <a
+            href="d17Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Assignment</a
+          >
+          <a
+            href="d18PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Practice Exercise</a
+          >
+          <a
+            href="d18Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Assignment</a
+          >
+          <a
+            href="d19PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Practice Exercise</a
+          >
+          <a
+            href="d19Extras.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Extras</a
+          >
+          <a
+            href="d20Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 20 Assignment</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <div class="container">
+          <h1 class="text-center">Assignment</h1>
+          <strong class="text-secondary">
+            Create an application for performing basic math operations like
+            Addition, Subtraction, Multiplication and Division.
+          </strong>
+        </div>
+        <div class="card m-5">
+          <div class="card-header text-center">
+            <h1 class="card-title text-primary">Calculator</h1>
+          </div>
+          <div class="container">
+            <form>
+              <div class="form-group my-1">
+                <label class="form-label">Please enter first number :</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="num1"
+                  placeholder="Enter first number"
+                  required
+                />
+              </div>
+
+              <!-- to show validation err-->
+              <p class="text-danger" id="wrang-num-1"></p>
+
+              <div class="form-group my-1">
+                <label class="form-label">Please second second number :</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="num2"
+                  placeholder="Enter second number"
+                  required
+                />
+              </div>
+
+              <!-- to show validation err -->
+              <p class="text-danger" id="wrang-num-2"></p>
+
+              <div class="form-group my-1">
+                <label class="form-label" id="selection"
+                  >Please select operation you want to perform :</label
+                >
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="add"
+                    name="Calculate"
+                    required
+                  />
+                  <label class="form-check-label" for="Addition">
+                    Addition
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Calculate"
+                    id="subtract"
+                    required
+                  />
+                  <label class="form-check-label" for="Subtraction">
+                    Subtraction
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Calculate"
+                    id="mul"
+                    required
+                  />
+                  <label class="form-check-label" for="Multiplication">
+                    Multiplication
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Calculate"
+                    id="div"
+                    required
+                  />
+                  <label class="form-check-label" for="Division">
+                    Division
+                  </label>
+                </div>
+
+                <!-- to show validation err -->
+                <p class="text-danger" id="wrang-selection"></p>
+
+                <div class="mt-3">
+                  <button class="btn btn-secondary" type="reset">Reset</button>
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    onclick="calculate()"
+                  >
+                    Calculate
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer mt-3 text-center">
+            <h3 class="text-primary">
+              The Result Is : <span id="answer"></span>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+      function calculate() {
+        var a = parseInt(document.getElementById("num1").value);
+        var b = parseInt(document.getElementById("num2").value);
+        var aad = document.getElementById("add").checked;
+        var sub = document.getElementById("subtract").checked;
+        var mul = document.getElementById("mul").checked;
+        var div = document.getElementById("div").checked;
+
+        if (isNaN(a)) {
+          document.getElementById("wrang-num-1").innerHTML =
+            "Please enter first number";
+          document.getElementById("answer").innerHTML = "";
+        } else if (isNaN(b)) {
+          document.getElementById("wrang-num-1").innerHTML = "";
+          document.getElementById("wrang-num-2").innerHTML =
+            "Please enter second number";
+          document.getElementById("answer").innerHTML = "";
+        } else {
+          switch (true) {
+            case aad:
+              document.getElementById("answer").innerHTML = a + b;
+              document.getElementById("wrang-selection").innerHTML = "";
+              break;
+            case sub:
+              document.getElementById("answer").innerHTML = a - b;
+              document.getElementById("wrang-selection").innerHTML = "";
+              break;
+            case mul:
+              document.getElementById("answer").innerHTML = a * b;
+              document.getElementById("wrang-selection").innerHTML = "";
+              break;
+            case div:
+              document.getElementById("answer").innerHTML = a / b;
+              document.getElementById("wrang-selection").innerHTML = "";
+              break;
+            default:
+              document.getElementById("wrang-num-1").innerHTML = "";
+              document.getElementById("wrang-num-2").innerHTML = "";
+              document.getElementById("wrang-selection").innerHTML =
+                "Please select an operation";
+              document.getElementById("answer").innerHTML = "";
+              break;
+          }
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>
