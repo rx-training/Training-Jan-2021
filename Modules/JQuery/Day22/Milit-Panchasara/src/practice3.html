@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>JQuery</title>
+</head>
+
+<body>
+    <div class="container m-5">
+        <form action="" class="form">
+            <div class="form-group row">
+                <label for="lang" class="col-12">Please select your technology:</label>
+                <p class="small ml-3">These are the radio buttons.</p>
+                <div class="col-12">
+                    <div class="row" id="lang-options">                    
+                        <div class="form-check">
+                            <label for="php" class=" btn btn-primary"><input type="radio" class="d-none" value="php" id="php" name="lang"> PHP</label>
+                        </div>
+                        <div class="form-check">
+                            <label for="jsp" class=" btn btn-primary"><input type="radio" class="d-none" value="jsp" id="jsp" name="lang"> JSP</label>
+                        </div>
+                        <div class="form-check">
+                            <label for="asp-net" class=" btn btn-primary"><input type="radio" class="d-none" value="asp-net" id="asp-net" name="lang"> ASP.Net</label>
+                        </div>
+                        <div class="form-check">
+                            <label for="perl" class=" btn btn-primary"><input type="radio" class="d-none" value="perl" id="perl" name="lang"> PERL</label>
+                        </div>
+                        <div class="form-check">
+                            <label for="other" class=" btn btn-primary"><input type="radio" class="d-none" value="other" id="other" name="lang"> Other</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row bg-light border border-warning d-none px-4" id="detail-row">
+        <span id="php-details" class="m-3"></span>
+        <span id="jsp-details" class="m-3"></span>
+        <span id="asp-net-details" class="m-3"></span>
+        <span id="perl-details" class="m-3"></span>
+        <span id="other-details" class="m-3"></span>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#lang-options label input").click(function() {
+                $("#detail-row").removeClass('d-none');
+                $('#php-details').addClass('d-none');
+                $('#jsp-details').addClass('d-none');
+                $('#asp-net-details').addClass('d-none');
+                $('#perl-details').addClass('d-none');
+                $('#other-details').addClass('d-none');
+                switch (this.value) {
+                    case 'php':
+                        $('#php-details').html('<ul><h3 id="rt-heading">Related technologies</h3><li>Laravel</li><li>Vue.js</li><li>MySQL</li></ul>');
+                        $('#php-details').removeClass('d-none');
+                        break;
+
+                    case 'jsp':
+                        $('#jsp-details').html('<ul><h3>Related technologies</h3><li>Java</li><li>MySQL</li><li>JDBS</li></ul>');
+                        $('#jsp-details').removeClass('d-none');
+                        break;
+
+                    case 'asp-net':
+                        $('#asp-net-details').html('<ul><h3>Related technologies</h3><li>C#</li><li>MSSQL</li><li>NodeJS</li></ul>');
+                        $('#asp-net-details').removeClass('d-none');
+                        break;
+
+                    case 'perl':
+                        $('#perl-details').html('<ul><h3>Related technologies</h3><li>Catalist</li><li>Mason</li><li>MySQL</li></ul>');
+                        $('#perl-details').removeClass('d-none');
+                        break;
+
+                    case 'other':
+                        $('#other-details').html('<ul><h3>Related technologies</h3><li>AngularJS</li><li>VueJS</li><li>ReactJS</li></ul>');
+                        $('#other-details').removeClass('d-none');
+                        break;
+                
+                    default:
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
