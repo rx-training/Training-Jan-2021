@@ -13,3 +13,6 @@
       text-decoration: none; }
   .sidebar1 ul li:hover {
     background-color: grey; }
+
+.row {
+  width: 100% !important; }

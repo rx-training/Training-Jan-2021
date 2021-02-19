@@ -1,6 +1,7 @@
 // Main Sass File
 
-.sidebar1 {
+.sidebar1 
+{
     ul {
         text-decoration: none;
         .bg-warning {
@@ -21,4 +22,10 @@
             background-color:grey;
         }
     }
+}
+
+
+.row
+{
+    width: 100% !important;
 }
