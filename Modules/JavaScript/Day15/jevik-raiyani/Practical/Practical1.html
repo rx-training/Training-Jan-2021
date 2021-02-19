@@ -21,37 +21,39 @@
             var a = prompt("Enter 1st value");
             var b = prompt("Enter 2nd value");
             var c = prompt("Enter 3rd value");
-            var d = a+b+c;
+            var d= parseInt(a)+parseInt(b)+parseInt(c);
+            var max;
+            
 
+
+            
             if(a > b)
             {
                 if(a>c)
                 {
-                    document.getElementById("demo").innerHTML = "greatest no is" + a;
+                    max = a;
                 }
                 else
                 {
-                    document.getElementById("demo").innerHTML = "greatest no is" + c;
+                    max = c;
                 }
             }
             else
             {
                 if(b>c)
                 {
-                    document.getElementById("demo").innerHTML = "greatest no is" + b;
+                    max = b;
                 }
                 else
                 {
-                    document.getElementById("demo").innerHTML = "greatest no is" + c;
+                    max = c;
                 }
             }
-
-            if(d>40)
-                {
-                    document.getElementById("demo").innerHTML = "sum" + d;
-                }
-            
-
+            if(d<=40)
+            {
+                d=0;
+            }
+            document.getElementById("demo").innerHTML = "max no is"+max+"sum is" + d;
         }
         
 
