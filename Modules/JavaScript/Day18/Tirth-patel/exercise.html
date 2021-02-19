@@ -6,18 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
+    <div class="container mt-5 p-5">
     <h2>enter two numbers</h2>
-    <input type="number" id="number1">
+    <input type="number" id="number1" placeholder="Enter number">
     
-    <button class="btn-primary" onclick="square()"> click here</button>
+    <button class="btn-primary" onclick="square()"> squareof number</button>
     <P id="res"></P>
     <br>
     <label for="text">is it text or string?</label>
     <input type="text" id="number">
-    <button onclick="prom()" >check it</button>
+    <button onclick="prom()" class="btn-success" >check it</button></div>
     <script>
         var n1 = document.getElementById('number1');
         
