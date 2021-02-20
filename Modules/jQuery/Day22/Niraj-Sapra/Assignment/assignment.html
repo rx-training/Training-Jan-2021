@@ -25,8 +25,7 @@
                 listnew=JSON.parse(localStorage.getItem('listnew')) || [];
                 listnew.push(obcity);
                 obcity =JSON.stringify(listnew);
-                localStorage.setItem("listnew",obcity); 
-                
+                localStorage.setItem("listnew",obcity);        
                 return true;
         }
         function dropbt(){
