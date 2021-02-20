@@ -10,40 +10,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Sub-Category</title>
     <script>
-    function add()
-    {
 
-      
-        var data;
-        var tech_id=document.getElementById("tech_id").value;
-        var sub_tech_id=document.getElementById("sub_tech_id").value;
+
+    var technology=JSON.parse(localstorage.getItem('technology'));
+    alert(technology);
+    function add()
+    {     
+        var sub_technology;
         var sub_tech_name=document.getElementById("sub_tech_name").value;
-        if(sub_tech_id==="" || sub_tech_name==="")
+        var tech=document.getElementById("technology").value;
+        if(sub_tech_name==="")
         {
           alert("Cant enter values");
         }
         else
         {
-            data=JSON.parse(localStorage.getItem("data")) || [];
-            var obj={"TechID":tech_id,"SubtechID":sub_tech_id,"SubtechName":sub_tech_name};
+            sub_technology=JSON.parse(localStorage.getItem("sub_technology")) || [];
+            var obj={"SubtechName":sub_tech_name,"Technology":tech};
                    
-                    data.push(obj);
-                    obj=JSON.stringify(data);
-                    localStorage.setItem("data",obj);
+                    sub_technology.push(obj);
+                    obj=JSON.stringify(sub_technology);
+                    localStorage.setItem("sub_technology",obj);
                     
                     var i=0;
                     var flg="";
                     var ftch_tech_name,create_rows;//fetch and create variables
-                    ftch_tech_name=localStorage.getItem("data");
+                    ftch_tech_name=localStorage.getItem("sub_technology");
                     create_rows=JSON.parse(ftch_tech_name);
-                    create_rows.forEach(data=>
+                    create_rows.forEach(sub_technology=>
                     {
                         flg+="<tr>";
-                        flg+="<td>"+data.TechID+"</td>";
-                        flg+="<td>"+data.SubtechID+"</td>";
-                        flg+="<td>"+data.SubtechName+"</td>";
+                        flg+="<td>"+sub_technology.SubtechName+"</td>";
+                        flg+="<td>"+sub_technology.Technology+"</td>";
                         flg+='<td><button class="btn btn-primary" onclick="updteTname('+"'"+i+"'"+')"> Update </button> </td>';
-                        flg+='<td><button class="btn btn-warning" onclick="del('+"'"+data.SubtechName+"'"+')"> Delete </button> </td></tr>';
+                        flg+='<td><button class="btn btn-warning" onclick="del('+"'"+sub_technology.Technology+"'"+')"> Delete </button> </td></tr>';
                         i=i+1;
                     });
                     document.getElementById("tbl").innerHTML=flg;  
@@ -52,14 +52,14 @@
     function updteTname(i)
             {
                 var update=document.getElementById("updatemodalcontainer");
-                var arr1=JSON.parse(localStorage.getItem("data"));
+                var arr1=JSON.parse(localStorage.getItem("sub_technology"));
                 update.innerHTML='\
                     <div class="modal fade" id="updatePostModal" role="dialog"> \
                         <div class="modal-dialog modal-lg"> \
                             <div class="modal-content"> \
                                 <div class="modal-header bg-primary text-white"> \
                                     <h5 class="modal-title">Update Technology Name</h5> \
-                                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button> \
+                                    <button class="close" sub_technology-dismiss="modal"> <span>&times;</span> </button> \
                                 </div> \
                                 <div class="modal-body"> \
                                     <form> \
@@ -74,7 +74,7 @@
                                      </form> \
                                 </div> \
                                 <div class="modal-footer"> \
-                                    <button class="btn btn-secondary" data-dismiss="modal">Close</button> \
+                                    <button class="btn btn-secondary" sub_technology-dismiss="modal">Close</button> \
                                     <button class="btn btn-pink" onclick="return updateTechname(' + i +')">Save Changes</button> \
                                 </div> \
                             </div> \
@@ -86,25 +86,25 @@
 
             function updateTechname(i)
             {
-                var arr1=JSON.parse(localStorage.getItem("data"));
+                var arr1=JSON.parse(localStorage.getItem("sub_technology"));
                 var t1=document.getElementById("newsubtechname"+i).value;
                 arr1[i].SubtechName=t1;
-                localStorage.setItem("data",JSON.stringify(arr1));
+                localStorage.setItem("sub_technology",JSON.stringify(arr1));
                 $("#updatePostModal").modal('hide');
                 var i=0;
                 var flg="";
                 
                     var ftch_tech_name,create_rows;
-                    ftch_tech_name=localStorage.getItem("data");
+                    ftch_tech_name=localStorage.getItem("sub_technology");
                     create_rows=JSON.parse(ftch_tech_name);
-                    create_rows.forEach(data=>
+                    create_rows.forEach(sub_technology=>
                     {
                         flg+="<tr>";
-                        flg+="<td>"+data.TechID+"</td>";
-                        flg+="<td>"+data.SubtechID+"</td>";
-                        flg+="<td>"+data.SubtechName+"</td>";
+                        flg+="<td>"+sub_technology.TechID+"</td>";
+                        flg+="<td>"+sub_technology.SubtechID+"</td>";
+                        flg+="<td>"+sub_technology.SubtechName+"</td>";
                         flg+='<td><button class="btn btn-primary" onclick="updteTname('+"'"+i+"'"+')"> Update </button> </td>';
-                        flg+='<td><button class="btn btn-warning" onclick="del('+"'"+data.SubtechName+"'"+')"> Delete </button> </td></tr>';
+                        flg+='<td><button class="btn btn-warning" onclick="del('+"'"+sub_technology.SubtechName+"'"+')"> Delete </button> </td></tr>';
                         i=i+1;
                     });
                     document.getElementById("tbl").innerHTML=flg;
@@ -113,16 +113,16 @@
             function del(i)
             {
                 var fetchrows,deleterows,i;
-                fetchrows=localStorage.getItem("data");
+                fetchrows=localStorage.getItem("sub_technology");
                 deleterows=JSON.parse(fetchrows);
                 var deleteindex=0;
-                deleterows.forEach(data=>
+                deleterows.forEach(sub_technology=>
                 {
-                    if(data.TechName==i)
+                    if(sub_technology.TechName==i)
                     {
                         deleterows.splice(deleteindex,1);
                         var object=JSON.stringify(deleterows);
-                        localStorage.setItem("data",object);
+                        localStorage.setItem("sub_technology",object);
                         var newsubtechnamearray=document.getElementById("tbl");
                         newtechnamearray.removeChild(newsubtechnamearray.childNodes[deleteindex]);
                     }
@@ -139,23 +139,18 @@
     <form id="frmCadastre">
         <div class="container-fluid w-50 form-group mt-5">
         <ul>
-           <label for="tech_id">Technology ID</label> 
-            <div class="form-group">
-                <select id="tech_id" class="form-control">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
 
-            <label for="sub_tech_id">Sub Technology ID</label>
-            <input type="text" class="form-control" id="sub_tech_id" required/>
 
             
             <label for="sub_tech_name">Sub Technology Name</label>
             <input type="text" class="form-control" id="sub_tech_name" required/>
+            
+           <label for="tech_id">Select Technology</label> 
+           <div class="form-group">
+               
+            <select id=tech_sel class="form-control">
+            </select>
+        </div>
 
             <input type="button" class="btn btn-primary mt-3 " value="Save" id="btnSave" onclick="add()" />
         </ul>
