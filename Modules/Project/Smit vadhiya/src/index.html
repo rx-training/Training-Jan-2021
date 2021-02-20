@@ -10,30 +10,52 @@
     </head>
 
     <body>
+        
         <!----------------- navbar ------------------>
-        <din class="container-fluid">
-            <div class="navbar navbar-expand-sm  bg-theme px-4 navbar-light">
+        <din class="container-fluid nav-bar p-0">
+            <div class="navbar navbar-expand-md fixed-top bg-theme px-4 navbar-light">
                 <!-- NAVBARBRAND -->
-                <a href="" class="navbar-brand">
+                <a href="index.html" class="navbar-brand">
                     <img src="img/radix.png" height="100px" width="100px" alt="RaidWeb">
                 </a>
-
                 <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
                     <span class="navbar-toggler-icon text-primary"></span>
                 </div>
-
                 <div class="collapse navbar-collapse" id="navbarnav">
-                    <ul class="navbar-nav homeNav">
-                        <li class="nav-item"><a href="" class="nav-link">Html</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Css</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Bootstrap</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Javascript</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Project</a></li>
+                    <ul class="navbar-nav ">
+                        <li class="nav-item"><a href="work/html/index.html" class="nav-link">Html</a></li>
+                        <li class="nav-item"><a href="work/css/index.html" class="nav-link">Css</a></li>
+                        <li class="nav-item"><a href="work/bootstrap/index.html" class="nav-link">Bootstrap</a></li>
+                        <li class="nav-item"><a href="work/javascript/index.html" class="nav-link">Javascript</a></li>    
+                        <li class="nav-item"><a href="work/jquery/index.html" class="nav-link">jQuery</a></li>    
                     </ul>
-                </div>
+                </div>  
             </div>
         </din>
 
+       
+        <div class="container mt-3">
+            <div class="row justify-content-around">
+                <div class="col-12 d-none d-lg-block col-sm-3">
+                    <img src="img/radix.png" width="100%" class="card-img-top img-fluid" alt="">
+                </div>
+                <div class="col-12 col-lg-5 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="img/me.jpg" class="card-img-top img-fluid" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h3>Smit vadhiya</h3>
+                            <h5>Trainee Software Engineer at Radixweb</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            includeHTML();
+        </script>
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

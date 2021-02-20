@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Blogen</title>
+    </head>
+
+    <body id="index">
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">Blogen</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarnav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ml-1">
+                            <a href="index.html" class="nav-link">Dashboard</a>
+                        </li>
+                        <li class="nav-item ml-1">
+                            <a href="posts.html" class="nav-link">Posts</a>
+                        </li>
+                        <li class="nav-item ml-1">
+                            <a href="categories.html" class="nav-link active">Categorias</a>
+                        </li>
+                        <li class="nav-item ml-1">
+                            <a href="users.html" class="nav-link">Users</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item  dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> welcome Brad</a>
+                            <div class="dropdown-menu mt-2">
+                                <a href="profile.html" class="dropdown-item"><i class="fa fa-user-circle-o"></i> profile</a>
+                                <a href="settings.html" class="dropdown-item"><i class="fa fa-gear"></i> settings</a>
+                            </div>
+                        </li>
+
+                        <li class="ml-1 nav-item">
+                            <a href="login.html" class="nav-link"><i class="fa fa-user-times"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DASHBOARD HEADING -->
+
+        <div id="category-header" class="bg-success text-white py-2">
+            <div class="container">
+                <h2><i class="fa fa-folder"> Dashboard</i></h2>
+            </div>
+        </div>
+
+        <!-- MID-LINE -->
+
+        <div id="category-mid-line" class="bg-light py-2">
+            <div class="container">
+                    <div class="input-group my-2 ml-auto">
+                        <input class="form-control" type="text" placeholder="Name">
+                        <button class="btn btn-success input-group-append">Search</span>
+                    </div>
+            </div>
+        </div>
+
+        <!-- MAIN-SECTION -->
+
+        <div id="category_main-section" class="mt-3">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Latest Post</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped">
+                        <thead class="bg-dark text-white">
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Data posted</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Web development</td>
+                                <td>July 11,2017</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Tech Gadgets</td>
+                                <td>July 12,2017</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Web development</td>
+                                <td>July 13,2017</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Business</td>
+                                <td>July 14,2017</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pagination mx-4">
+                        <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
+                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link ">2</a></li>
+                        <li class="page-item"><a href="#" class="page-link ">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link ">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- FOOTER -->
+
+        <footer id="footer" class="bg-dark mt-5 py-5 text-center text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead">
+                            Copyrights &copy; 2021 Blogen
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
