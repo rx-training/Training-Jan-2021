@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>jQuery practice</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, inventore, perspiciatis velit perferendis commodi voluptatem distinctio ut odit ipsum sed <span> vero praesentium saepe dolor quisquam soluta ea nihil totam a eaque! Asperiores</span>            quam quia, labore tenetur iusto odit vitae vel! Temporibus dignissimos ea sunt debitis, unde laudantium amet deserunt magni.</p>
+
+        <br><br>
+
+        <label for="tech">Plesase select your technology:</label>
+        <div class="form-check">
+            <div class="horizontal">
+                <input class="form-check-input" type="radio" name="tech" id="php" value="PHP"><label class="form-text" for="php">PHP</label>
+            </div>
+            <div class="horizontal">
+                <input class="form-check-input" type="radio" name="tech" id="asp_net" value="ASP.NET"><label class="form-text" for="asp_net">ASP.NET</label>
+            </div>
+            <div class="horizontal">
+                <input class="form-check-input" type="radio" name="tech" id="asp" value="ASP"><label class="form-text" for="asp">ASP</label>
+            </div>
+            <div class="horizontal">
+                <input class="form-check-input" type="radio" name="tech" id="jsp" value="JSP"><label class="form-text" for="jsp">JSP</label>
+            </div>
+            <div class="horizontal">
+                <input class="form-check-input" type="radio" name="tech" id="pearl" value="PEARL"><label class="form-text" for="pearl">PEARL</label>
+            </div>
+            <div class="horizontal">
+                <input class="form-check-input" type="radio" name="tech" id="cold_fusion" value="COLD FUSION"><label class="form-text" for="cold_fusion">COLD FUSION</label>
+            </div>
+            <div class="horizontal">
+                <input class="form-check-input" type="radio" name="tech" id="other" value="OTHER"><label class="form-text" for="other">OTHER</label>
+            </div>
+        </div>
+        <br><br>
+        <label for="ans">You have selected : </label> <span id="ans"></span>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('p').css({
+                'background-color': 'blue',
+                'padding': '15px',
+                'color': 'white'
+            });
+
+            $('p').on({
+                mouseenter: function() {
+                    $('span').hide();
+                },
+
+                mouseleave: function() {
+                    $('span').show();
+                }
+            });
+        });
+
+        $('[type="radio"]').click(function() {
+            var value = $(this).val();
+            $('#ans').text(function() {
+                return value;
+            }).css({
+                'border': '2px red solid',
+                'font-size': '20px',
+                'padding': '5px'
+            });
+        });
+    </script>
+</body>
+
+</html>
