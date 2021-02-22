@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Javascript examples Arrays,Strings,Date</title>
+        <script>
+            //Window Object & timers
+                console.log(window.screenLeft + ',' + window.screenTop);
+                
+                console.log(window.innerWidth + ',' +outerWidth);
+                
+                //window.open("https://drive.google.com","_blank");
+                
+                console.log(new Date().getSeconds());
+                setTimeout(function () {
+                    console.log(new Date().getSeconds());
+                },1000);
+
+                console.log(new Date().getSeconds());
+                var id=setTimeout(function () {
+                    console.log(new Date().getSeconds());
+                },1000);
+                clearTimeout(id);
+
+            /*console.log(new Date().getSeconds());
+                var id=setInterval(function () {
+                    var secs=new Date().getSeconds();
+                    console.log(secs);
+                    if(secs===10)
+                    clearInterval(id);
+                },1000);*/
+
+            //System Dialogs
+                if(confirm("Delete Everthing?"))
+                    console.log("Your said yes");
+                else
+                    console.log("You said no");
+
+
+
+            //The Location Object
+                console.log(location.href);
+                console.log(location.port);
+                console.log(location.host);
+                console.log(location.hostname);
+                console.log(location.protocol);
+                //location.assign("https://drive.google.com","_blank");
+
+
+
+
+
+            //Document Basics
+                var elements=document.getElementsByTagName("p");
+                console.log(elements);
+
+                var elements=document.getElementsByClassName("special");
+                console.log(elements);
+
+            //Handling Events
+            function submitform() {
+                console.log("in submitform");
+            }
+
+            function submitform2(element) {
+                console.log(element.id);
+                console.log(element.value);
+            }
+            
+            function submitform3(element,event) {
+                console.log(event.type);
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <article id="article1" class="my-custom-class text-success">
+                <h3>Information</h3>
+                <p>Paragraph 1</p>
+                <p class="special">Paragraph 2</p>
+                <p class="special">Paragraph 3</p>
+            </article>
+    
+            <input type="button" class="btn btn-primary ml-5" value="Submit" onclick="alert('Hii')" />
+    
+            <input id="submit1" class="btn btn-success ml-5" type="button" value="Submit Form" onclick="submitform()" />
+    
+            <input id="submit2" class="btn btn-success ml-5" type="button" value="Submit Form2" onclick="submitform2(this)" />
+    
+            <input type="button" id="submit3" class="btn btn-primary ml-5" value="Submit3" onclick="submitform3(this,event)"/><br/>
+        </div>
+    </body>
+</html>

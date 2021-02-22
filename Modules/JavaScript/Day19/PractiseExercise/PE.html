@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Practise Exercise Day 19</title>
+        <script>
+            //Using Function Expression, find the area of circle
+            var areacircle=function() {
+                var radius=10;
+                var area=(22*radius*radius)/7;
+                console.log("Area of circle with radius " + radius + " : "+ area);
+            };
+            areacircle(10);
+
+            //Using Function Constructor, find the area of rectangle
+            var arearectangle=function(length,breadth) {
+                var area=length*breadth;
+                console.log("Area of Rectangle: " + area);
+            };
+            arearectangle(10,20);
+
+            //Using Function call create employee object with field Name, Address and Designation and pass it to function
+            var employee=function(name,address,designation) {
+                console.log("Employee Name: " + name);
+                console.log("Employee Address: " + address);
+                console.log("Employee Designation: " + designation);
+            }
+            employee("Pranav","Ahmedabad","Manager");
+
+            //Using Function Apply pass employee object to a function defined in the function.
+            employee.apply(employee,["Parth","Mumbai","Developer"]);
+
+            //Explain Function closure with practical
+            var increment=function(no) {
+                var currentno=no;
+                var squareno=function() {
+                    currentno=currentno*2;
+                    return currentno;
+                };
+                return squareno;
+            };
+            var multiply=increment(2);
+            console.log(multiply());
+
+            //Explain usage of Function Hosing using example
+            // var amount=rate*qty;
+            // rate=90;
+            // qty=4;
+            // console.log(amount);
+            var rate=90;
+            var qty=4;
+            var amount=rate*qty;
+            console.log(amount);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

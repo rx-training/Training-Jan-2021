@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Popovers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 class="display-3">Popovers</h1>
+    </center>
+    <div class="container">
+        <!--POPOVERS-->
+
+        <button class="btn btn-danger"
+        data-toggle="popover"
+        data-placement="top"
+        title="Popover Title"
+        data-content="This is the data content"> 
+        Toggle Popover
+        </button>
+
+        <button class="btn btn-dark"
+        data-toggle="popover"
+        data-placement="right"
+        title="Popover Title"
+        data-content="This is the data content"> 
+        Toggle Popover
+        </button>
+
+        <button class="btn btn-warning"
+        data-toggle="popover"
+        data-placement="bottom"
+        title="Popover Title"
+        data-content="This is the data content"> 
+        Toggle Popover
+        </button>
+
+        <br><br><hr>
+
+        <!--DISMISSIBLE POPOVERS-->
+
+        <button class="btn btn-danger"
+        id="mypopover"
+        data-toggle="popover"
+        data-placement="top"
+        title="Popover Title"
+        data-content="This is the data content"
+        data-trigger="focus"> 
+        Toggle Popover
+        </button>
+
+        <br><br><hr>
+
+
+        <!--CONTROL WITH JS-->
+
+        <button class="btn btn-secondary"
+        onclick="showPopover()">Popover</button>
+
+        <button class="btn btn-secondary"
+        onclick="hidePopover()">Hide Popover</button>
+
+        <button class="btn btn-secondary"
+        onclick="togglePopover()">Toggle Popover</button>
+
+    </div>
+
+    <script>
+        $('[data-toggle="popover"]').popover();
+
+
+        function showPopover(){
+            $('#mypopover').popover('show');
+        }
+
+        function hidePopover(){
+            $('#mypopover').popover('hide');
+        }
+
+        function togglePopover(){
+            $('#mypopover').popover('toggle');
+        }
+
+        //Popover Events
+
+        $('#mypopover').on('show.bs.popover', function(){
+            console.log('Popover Show');
+        });
+
+        $('#mypopover').on('shown.bs.popover', function(){
+            console.log('Popover Shown');
+        });
+
+        $('#mypopover').on('hide.bs.popover', function(){
+            console.log('Popover Hide');
+        });
+
+        $('#mypopover').on('hidden.bs.popover', function(){
+            console.log('Popover Hidden');
+        });
+    </script>
+</body>
+</html>

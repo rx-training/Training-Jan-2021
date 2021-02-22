@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascriptp videos</title>
+</head>
+<body>
+    <h1>Every Output you can watch in Console</h1>
+    <script>
+        // datatypes
+        var id=678;
+        console.log(typeof id);
+        var name="rohan";
+        console.log(typeof name);
+        var booleantype = true;
+        console.log(typeof booleantype);
+        var isactive;
+        console.log(typeof isactive);
+        var object = {id:788,name:true};
+        console.log(typeof object);
+        var object2= [100,1002,39,"rohan"];
+        console.log(typeof object2);
+        function myFunction()
+        {}
+        console.log("function =",typeof myFunction);
+
+        // function without argument
+        function zeroArgs()
+        {
+            console.log("Zero Argument Function");
+        }
+        oneArgs("rohan");
+        function oneArgs(name)
+        {
+            console.log("Before My name is="+name);
+        }
+       
+        function oneArgs(name)
+        {
+            console.log("AFter My name is="+name);
+        }
+        function calTotal(quantity,price)
+        {
+            console.log("Total Price is = "+(quantity*price));
+        }
+        calTotal(5,10);
+        function calTotal2(quantity,rate)
+        {
+            return quantity*rate;
+        }
+        console.log("total Price = "+calTotal2(10,20));
+
+        // if conditions
+        var total=100;
+        var result;
+        if(total>50)
+        {
+            result=true;
+        }
+        else{
+            result = false;
+        }
+        console.log(result);
+
+        // switch statement
+        var num=4;
+        console.log("=======switch statements=====");
+        switch(num)
+        {
+            case 1:console.log("one");break;
+            case 4:console.log("four");break;
+            case 2:console.log("two");break;
+            default:console.log("nothing");break;
+        }
+         // while Statements
+        console.log("=======While statements=====");
+        var i=1;no=3;
+        while(i<=no)
+        {
+            console.log("item = "+i++);
+        }
+        console.log("=======Do While statements=====");
+        var i=1;no=3;
+        do{
+            console.log("item = "+i++);
+        }
+        while(i<=no);
+
+          // for loop Statements
+          console.log("=======for loop statements=====");
+          no=3;
+          for(var i=1;i<=no;i++)
+          {
+            console.log("item = "+i);
+          }
+          i=1;
+          for(;i<=no;i++)
+          {
+            console.log("item = "+i);
+          }
+          i=1;
+          for(;i<=no;)
+          {
+            console.log("item = "+i++);
+          }
+
+          // break statement
+          console.log("=======break statements=====");
+          no=3;
+          for(var i=1;i<=no;i++)
+          {
+              if(i==2)
+              {
+                  break;
+              }
+            console.log("item = "+i);
+          }
+          // Continue statement
+          console.log("=======Continue statements=====");
+          no=3;
+          for(var i=1;i<=no;i++)
+          {
+              if(i==2)
+              {
+                  continue;
+              }
+            console.log("item = "+i);
+          }
+          // For in statement
+          console.log("=======For in statements=====");
+         var aray = {id:90,name:"rohan"};
+          for(var object in aray)
+          {
+              console.log(object,":",aray[object]);
+          }
+          var id=89;
+          //console.log(Id);
+          Id=88;
+
+          //strings
+          console.log("my name is \"rohan\"");
+          console.log('rohan\'s order is completed');
+          var name="      rohan     ";
+          console.log(name.trim());
+          console.log(name.toUpperCase());
+          value=99.99;
+          console.log("value = "+!!value);
+          console.log(this == window);
+          console.log("============Additon=============");
+          total = 3.4+7.8;
+          console.log("fixed with ="+total.toFixed(4));
+          total = 3.8-2.1;
+          console.log("total = "+total.toFixed(2));
+          total = "800"-"300";
+          console.log("subtraction = "+total);
+          total = "rohan"*5;
+          console.log("dsk = "+total);
+
+          // reference types:
+          console.log("=========Reference types===========");
+          var ary = {name:"rohan"};
+          console.log("Your name is = "+ary.name);
+          function myfunc(localary)
+          {
+              localary.name="rohan panchal";
+          }
+          myfunc(ary);
+          console.log(ary.name);
+
+        //   Arrays:
+        var entries = new Array("rohan","jiger",'Manish','Krunal','Aakash');
+        console.log(entries instanceof Array);
+        console.log(entries.toString());
+        console.log(entries.join("-"));
+
+        // array methods
+        console.log("======Array Methods==========");
+        var rating =[];
+        rating.push(4,5,6);
+        console.log(rating);
+        rating.pop();
+        console.log("After pop rating="+rating);
+        rating.shift();
+        console.log("After Shift rating ="+rating);
+        rating.unshift(3);
+        console.log("after unshift raing ="+rating);
+        var rating2 = [10,11,12];
+        var rating3 = rating.concat(rating2);
+        console.log("concate 2 array = "+rating3);
+        var sliced = rating3.slice(2);
+        console.log("after slice ="+sliced);
+        rating3.splice(3,0,100,101,102)
+        console.log("after splice ="+rating3);
+        rating3.sort()
+        console.log("sort order = "+rating3);
+        rating3.reverse();
+        console.log("reverse order ="+rating3);
+
+        console.log("======Date=====");
+        var d= new Date();
+        console.log("current date and time is = "+d);
+        console.log(new Date(0));
+        console.log(new Date('2/12/2015'));
+        console.log(new Date('March 1,2001'));
+        console.log(d.toTimeString());
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿img {
+    border-radius: 50px;
+}
+h1 {
+    color: black;
+}
+h3 {
+    color: darkblue; 
+}
+body {
+    background-color: #E3E4FA;
+    font-family: 'Times New Roman';  
+}
+
+#r1 {
+    border-radius: 25px;
+    background-color: lightgreen ;
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+}
+
+#r2 {
+    border-radius: 25px;
+    background-color: lightblue;
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+}
+
+#r3 {
+    border-radius: 25px;
+    background-color: plum;
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+}
+
+

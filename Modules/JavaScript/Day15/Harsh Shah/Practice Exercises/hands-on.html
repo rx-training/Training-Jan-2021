@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands On Exercises</title>
+
+    <script>
+        var lineItemCount = 3;
+        for(var i= 0; i < lineItemCount; i++)
+        {
+            console.log(i);
+        }
+
+
+        var lineItem = {
+            product: 'widget 1',
+            quantity: 4,
+            price: 9.50
+        }
+
+        for(var field in lineItem){
+            console.log(field + " : " + lineItem[field]);
+        }
+
+
+        var quantity = 2;
+        var price = "0.99";
+        console.log(quantity * price);
+
+
+        var productType = "Hardware";
+        console.log(productType.length); //property
+        console.log(productType.toLowerCase());
+        console.log(productType.toUpperCase());
+
+
+        productType = "          Hardware          ";
+        console.log( "["+ productType.trim() + "]");
+
+
+        console.log(Boolean(""));
+        console.log(Boolean(" "));
+        console.log(Boolean("Hello"));
+
+
+        var value = 99;
+        console.log(typeof !!value);
+
+
+        var productId = "PRD-2000";
+        console.log(productId);
+        console.log(window.productId);
+
+
+        var description = "hardware product";
+
+        function updateProduct() {
+            description = "updated product";
+        }
+
+        updateProduct();
+        console.log(description);
+
+
+        var total = 3.3 + 5.1;
+        console.log(total);
+        console.log(total.toFixed(2));
+
+
+        var c = 200 + 500 + "abc";
+        console.log(c);
+        var d = "abc" + 200 + 500;
+        console.log(d); 
+
+
+        var num1 = parseInt('1010',2);
+        var num2 = parseInt('0110',2);
+        total = num1 & num2;
+        console.log(total.toString(2));
+        total = num1 | num2;
+        console.log(total.toString(2));
+        total = num1 ^ num2;
+        console.log(total.toString(2));
+        total = num1 << 2;
+        console.log(total.toString(2));
+        total = num1 >> 2;
+        console.log(total.toString(2));
+        num1 = -parseInt('1000',2);
+        total = num1 >> 3 ;
+        console.log(total.toString(2));
+        total = num1 >>> 1 ;
+        console.log(total.toString(2));
+
+
+        value = !new Object();
+        console.log(value);
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

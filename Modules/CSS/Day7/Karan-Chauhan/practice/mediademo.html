@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MEDIA QUERY DEMO</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <style type="text/css">
+        body{
+            border: 2px solid blue;
+            text-align:center;
+            font-size: 32px;
+        }
+
+        @media only screen and (max-width: 500px) {
+            body {
+                border: 2px solid red;
+                text-align: left;
+                font-size: 12px;
+            }
+            h3 {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            body {
+                background-color: yellow;
+            }
+        }
+
+        @media only screen and (min-width: 968px) {
+            body {
+                background-color: cadetblue;
+            }
+        }
+        
+    </style>
+    <body>
+        <h1>IT</h1>
+        <p>
+            Our age is known as the age of Information Technology.
+            Information Technology with its superhighway has not only
+            revolutionised man�s way of working but also his very existence.
+            IT (Information Technology) revolution is sweeping our civilization
+            bringing about unfathomable changes in our present-day civilization.
+            Twenty first century belongs to the IT world.
+        </p>
+        <h3>THIS LINE WILL HIDE</h3>
+    </body>
+</html>

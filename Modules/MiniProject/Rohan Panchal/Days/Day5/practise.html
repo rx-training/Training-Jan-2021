@@ -1,0 +1,296 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="../../assets/css/dashboard.scss">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+       <style>
+        body{
+            margin: 0px;
+        }
+        .whole-bar{
+            width: 100%;
+        }
+        .logo-bar{
+            width: 100%;
+            height: 10%;
+            background-color: rgb(240, 230, 230);
+            padding: 15px;
+            color: rgb(53, 230, 243);
+            text-align: center;
+        }
+        .menu-bar{
+            margin: 0%;
+            background-color: black;
+            text-align: center;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            scroll-behavior: auto;
+        }
+        .menu-bar ul li{
+            list-style-type: none;
+            display: inline;
+        }
+        .menu-bar ul li a{
+            text-decoration: none;
+            padding: 15px;
+            color: white;
+        }
+        hr{
+            border: 10px solid rgb(19, 218, 253);
+            border-radius: 1px;
+            margin: 0px;
+        }
+        .footer-bar{
+            background-color: black;
+            color: whitesmoke;
+            text-align: center;
+            padding: 50px;
+            margin: -4px;
+        }
+        .imp-bar{
+            
+          position: absolute;
+           
+        }
+        .inside-bar{
+           float: left;
+           margin: 10px;
+           padding: 10px;
+           background-color: white;
+           text-align: center;
+            position: relative;
+           width: 30%;
+        }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="height: 100px;">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> -->
+           <img class="px-4" style="position: fixed; height: 5rem;top: 1%;" src="../../assets/images/logo_radix.png" alt="">
+          <!-- </a> -->
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       <ul class="navbar-nav px-3 mx-auto">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link h1 text-light" href="#" style="font-family: 'Edwardian Script ITC';">Rohan Panchal</a>
+          </li>
+        </ul>
+      </header>
+      <style>
+         
+      </style>
+      <div class="nav-scroller bg-body w-100 shadow-sm">
+          <nav class="nav nav-underline bg-dark" aria-label="Secondary navigation">
+            <a class="nav-link text-light" aria-current="page" href="../../htmlindex.html">HTML</a>
+            <a class="nav-link text-light active" href="../../cssindex.html">CSS</a>
+            <a class="nav-link text-light" href="../../bootstrapindex.html">Bootstrap</a>
+            <a class="nav-link text-light" href="../../javascriptindex.html">JAVASCRIPT</a>
+          </nav>
+      </div>
+  
+  <div class="container-fluid">
+    <div class="row">
+  
+        <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4 mt-5">  <!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Assignment</h1>
+      </div> -->
+      <div class="whole-bar">
+        <div class="logo-bar">
+            logo
+        </div>
+        <div class="menu-bar">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Dropdown</a></li>
+                <li><a href="">Left sidebar</a></li>
+                <li><a href="">Right sidebar</a></li>
+                <li><a href="">Two sidebar</a></li>
+                <li><a href="">No sidebar</a></li>
+            </ul>
+        </div>
+        <hr>
+        <div class="img-bar">
+            <img src="images/banner.jpg" alt="" style="width: 100%;margin: 0%;" >
+        </div>
+        <div class="footer-bar">
+            <b>Arena:</b><span style="color: gray;"> A Responsive site Template freebie by <u>HMTL5 UP</u></span> <button style="color: white; background-color: rgb(53, 201, 201);">Learn More</button>  
+        </div>
+        <div class="imp-bar">
+            <div class="inside-bar">
+                <img src="images/icon1.png" alt="">
+                <h2>This is important</h2>
+                <p>A website (also written as web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Notable examples are wikipedia.org, google.com, and amazon.com.
+
+                   </p>
+            </div>
+            <div class="inside-bar">
+                <img src="images/icon2.png" alt="">
+                <h2>Also important</h2>
+                <p>A website (also written as web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Notable examples are wikipedia.org, google.com, and amazon.com.
+                </p>
+            </div>
+            <div class="inside-bar">
+                <img src="images/icon4.png" alt="">
+                <h2>Probably important</h2>
+                <p>A website (also written as web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Notable examples are wikipedia.org, google.com, and amazon.com.
+                   </p>
+            </div>
+        </div>
+        <div style="background-color:lightgray;color: black ; margin-top: 30%; text-align: center; padding: 15px 30px;">
+            <h1>A Gigantic heading you can use for whatever </h1>
+            <p style="color: rgb(97, 95, 95);">With a much smaller subtitle hanging out just below it</p>
+        </div>
+        <style>
+            .image-bar{
+                width: 100%;
+                background-color: red;
+            }
+        </style>
+        <div class="image-bar">
+            <div style="width: 40%;background-color: rgb(254, 255, 255);float: left;padding: 30px;">
+                <p> <img style="float: left;;margin: 20px;" src="images/pic01.jpg" alt="">
+                    <h5>First element</h5>
+                A website (also written as web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Notable examples are wikipedia.org, google.com, and amazon.com.
+            </p>
+                
+            </div>
+            <div style="width: 40%;background-color: rgb(254, 255, 255);padding: 30px;float: left;">
+                <p> <img style="float: left;;margin: 20px;" src="images/pic01.jpg" alt="">
+                    <h5>second element</h5>
+                A website (also written as web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Notable examples are wikipedia.org, google.com, and amazon.com.
+            </p>
+                
+            </div>
+            <div style="width: 40%;background-color: rgb(254, 255, 255);float: left;padding: 30px;">
+                <p> <img style="float: left;margin: 20px;" src="images/pic01.jpg" alt="">
+                    <h5>Third element</h5>
+                A website (also written as web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Notable examples are wikipedia.org, google.com, and amazon.com.
+            </p>
+                
+            </div>
+            <div style="width: 40%;background-color: rgb(254, 255, 255);padding: 30px;float: left;">
+                <p> <img style="float: left;;margin: 20px;" src="images/pic01.jpg" alt="">
+                    <h5>Fourth element</h5>
+                A website (also written as web site) is a collection of web pages and related content that is identified by a common domain name and published on at least one web server. Notable examples are wikipedia.org, google.com, and amazon.com.
+            </p>
+                
+            </div>
+        </div>
+        <style>
+            .request-bar{
+                margin-top: 45%;
+                width: 100%;
+                padding: 50px;
+                text-align: center;
+                background-color: lightskyblue;
+                color: white;
+            }
+            .request-bar button{
+                padding: 10px;
+                background-color: white;
+                color: black;
+            }
+        </style>
+        <div class="request-bar">
+            Are You ready to continue to your request? <button>Insert coin</button>
+        </div>
+        <style>
+            .main{
+                width: 100%;
+                background-color: rgb(100, 94, 94);
+            }
+            .first-div{
+                background-color: rgb(187, 185, 185);
+                width:25%;
+                padding: 88px 0px;
+                font-size: 20px;
+                float:left;
+            }
+            .first-div ul li{
+                list-style-type: none;
+            }
+            .second-div{
+                background-color: rgb(187, 185, 185);
+                float: left;
+                width:50%;
+            }
+            .second-div ul li{
+                list-style-type: none;
+            }
+            .inputs{
+                padding: 7px;
+                margin: 10px;
+            }
+        </style>
+        <div class="main">
+            <div class="first-div">   
+                <ul>
+                    <li> <h3>Links to stuff</h3> </li><br>
+                    <li>matteles es rurtum</li>
+                    <li>fabouliiys</li>
+                    <li>hygnics  gardening</li>
+                    <li>attrics rutum accusman</li>
+                    <li>sed et dapibus mattis</li>
+                </ul>
+            </div>
+            <div class="first-div">
+                <ul>
+                    <li><h3>Links to stuff</h3></li><br>
+                    <li>matteles es rurtum</li>
+                    <li>fabouliiys</li>
+                    <li>hygnics  gardening</li>
+                    <li>attrics rutum accusman</li>
+                    <li>sed et dapibus mattis</li>
+                </ul>
+            </div>
+            <div class="second-div">
+                <ul>
+                    <li><h3>Get in Touch</h3></li><br>
+                    <li><input class="inputs" type="text" placeholder="Name"><input class="inputs" type="email" placeholder="Email"></li>
+                    <li> <textarea rows="10" cols="50" style="padding: 10px;margin: 10px;" placeholder="Message"></textarea> </li>
+                    <li><button type="Submit" style="background-color: rgb(66, 62, 62);color: white;padding: 10px;margin: 10px;"> Send Message</button></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+    </main>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Bootstrap 4 Starter Pack</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-0">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">Blogen</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    
+                </div>
+            </div>
+        </nav>
+
+        <header class=" py-2 bg-primary text-white" id="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1> <i class="fa fa-user"></i>Blogen Admin</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--Actions-->
+        <section id="action" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>
+        </section>
+
+        <!--Login-->
+        <section id="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Account Login</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="index.html">
+                                    <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="text" class="form-control">
+                                        </div>
+                                </form>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-block"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead text-center">Copyright &copy; Blogen</p>
+                    </div>
+                </div>
+            </div>
+        </footer>     
+
+        <!--Password Modal-->
+
+        <div class="modal fade" id="passwordModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title">Change Password</h5>
+                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Confirm Password</label>
+                                <input type="password" class="form-control">
+                            </div>              
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary" data-dismiss="modal">Update Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor1' );
+        </script>
+    </body>
+</html>
