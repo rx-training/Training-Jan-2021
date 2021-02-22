@@ -19,11 +19,7 @@
 
         <p>Your Selected Country :
             <ul>
-                <li>India</li>
-                <li>UK</li>
-                <li>Rasia</li>
-                <li>CHINA</li>
-                <li>USA</li>
+                
             </ul>
         </p>
 </body>
@@ -34,11 +30,11 @@
 
         $("#country").change(function(){
             if($("#country").val() == "blank"){
-            
-        }
+            $("ul").html("<li>India</li><li>UK</li><li>Rasia</li><li>CHINA</li><li>USA</li>")
+        }   
         else{
             $("li").hide();
-            $("ul").append($("#country").val());
+            $("ul").html($("#country").val());
         }
         });
 
