@@ -1,0 +1,52 @@
+* {
+    background-color: aquamarine;
+}
+
+#div2 .headings {
+    color: crimson;
+}
+
+div > .headings {
+    color: blueviolet;
+}
+
+.headings.headings-h3 {
+    color: darkblue;
+}
+
+#div3 + p {
+    font-size: 20px;
+}
+
+#div4 ~ p
+{
+    color: darkgoldenrod;
+}
+
+a {
+    color: orange;
+    font-size: 20px;
+}
+
+a[target=_blank] {
+    color:red;
+}
+
+a[target=_blank]:hover {
+    background-color:yellow  ;
+    color: darkred;
+}
+
+#prefix::before {
+    content: "THIS IS PREFIX - ";
+    font-size: 20px;
+    color: orchid;
+}
+
+#city_list li {
+    display: inline-block;
+    padding-top: 22px;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+}
