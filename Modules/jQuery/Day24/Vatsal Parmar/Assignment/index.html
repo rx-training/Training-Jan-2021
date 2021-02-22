@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Assignment Day-24</h1>
+      <p>
+        <strong class="text-secondary">
+          Use getJSON method access this web api
+          https://gorest.co.in/public-api/users and display the result in one
+          table.
+        </strong>
+      </p>
+      <div class="container">
+        <input
+          id="myInput"
+          type="text"
+          class="form-control my-3"
+          placeholder="Search.."
+        />
+        <table class="table table-secondary table-hover table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $.getJSON(
+          "https://gorest.co.in/public-api/users",
+          function (data, status) {
+            let Data = data.data;
+            var rowData = "";
+            for (let i = 0; i < Data.length; i++) {
+              rowData +=
+                "<tr>" +
+                "<td>" +
+                Data[i].id +
+                "</td>" +
+                "<td>" +
+                Data[i].name +
+                "</td>" +
+                "<td>" +
+                Data[i].email +
+                "</td>" +
+                "<td>" +
+                Data[i].gender +
+                "</td>" +
+                "<td>" +
+                Data[i].status +
+                "</td>" +
+                "</tr>";
+            }
+            $("#tableBody").append(rowData);
+          }
+        );
+
+        $("#myInput").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#tableBody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
