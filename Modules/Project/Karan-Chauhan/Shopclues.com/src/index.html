@@ -9,27 +9,56 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <style type="text/css">
+        table {
+            border: 1px solid #FF0000;
 
+        }
+
+        /*th {
+            padding: 40px 60px 40px 60px;
+        }*/
+    </style>
     <script type="text/javascript">
+        var email = "";
+        var username = "";
+        var userlocation = "";
+        var logincounter = 0;
+        
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                userlocation = "Not Available";
+            }
+            displayItem();
+        }
+
+        function showPosition(position) {
+            userlocation = "Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
+        }
+
         function register() {
             var name = document.getElementById('name').value;
             var cno = document.getElementById('contactno').value;
-            var email = document.getElementById('email').value;
+            email = document.getElementById('email').value;
             var pass = document.getElementById('pwd').value;
             var cpass = document.getElementById('cpwd').value;
             var list;
+            var counter = 0;
             var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             var result = email.match(mailformat);
+            var browser = navigator.appCodeName;
 
             var cnopattern = /^[0-9]{10}$/;
             var validno = cno.match(cnopattern);
-            
-            if (cpass != pass) {                
+
+            if (cpass != pass) {
                 alert('Password did not match! Registration Unsuccessful!');
             }
             else if (name == "" || cno == "" && email == "" && pass == "" && cpass == "") {
                 alert('Please enter all details! Registration Unsuccessful!');
-            }            
+            }
             else if (result == null) {
                 alert("Enter Valid Email!");
             }
@@ -37,34 +66,208 @@
                 alert("Enter Valid Contact Number!");
             }
             else {
-                var userdata = {"Name":name,"ContactNumber":cno,
-                "Email":email,"Password":pass};
-             
-                list = JSON.parse(localStorage.getItem('user')) || [] ;
-                if(list != []){
-                    alert(list);
-                    console.log(list[0]);
+                var userdata = {
+                    "Name": name, "ContactNumber": cno,
+                    "Email": email, "Password": pass, "Geolocation": userlocation, "Browser": browser
+                };
+
+                list = JSON.parse(localStorage.getItem('user')) || [];
+                if (list != []) {
+                    for (i = 0; i < list.length; i++) {
+                        if (email == list[i].Email) {
+                            alert("Email address already registered! Please try another one!");
+                            counter = 1;
+                            break;
+                        }
+                    }
+                    if (counter == 0) {
+                        list.push(userdata);
+                        var myJSON = JSON.stringify(list);
+                        localStorage.setItem('user', myJSON);
+                        console.log(userdata);
+                        alert('Registration Successful!');
+                    }
                 }
-                list.push(userdata);
-                var myJSON = JSON.stringify(list);
-                localStorage.setItem('user',myJSON);
-                console.log(userdata);
-                alert('Login Successful!')
+                else {
+                    list.push(userdata);
+                    var myJSON = JSON.stringify(list);
+                    localStorage.setItem('user', myJSON);
+                    console.log(userdata);
+                    alert('Registration Successful!');
+                }
+
+            }
+            document.getElementById('pwd').value = "";
+            document.getElementById('cpwd').value = "";
+        }
+
+        function mainlogin() {
+            var userid = document.getElementById('loginemail').value;
+            var password = document.getElementById('loginpwd').value;
+            var list = [];
+            var name = "";
+            var temp = 0;
+            email = userid;
+            list = JSON.parse(localStorage.getItem('user'));
+            for (i = 0; i < list.length; i++) {
+                if (list[i].Email == userid && list[i].Password == password) {
+                    temp = 0;
+                    name = list[i].Name;
+                    break;
+                }
+                else {
+                    temp = 1;
+                }
+            }
+            if (temp == 0) {
+                var blockcounter = 0;
+                blocklist = JSON.parse(localStorage.getItem('blockeduser')) || [];
+                for (i = 0; i < blocklist.length; i++) {
+                    if (blocklist[i].Email == userid) {
+                        blockcounter = 1;
+                    }
+                }
+                if (blockcounter == 0 || blocklist == []) {
+                    alert('Login Successful!');
+                    document.getElementById('namebar').innerHTML = "Welcome " + name + ", have a great time ahead! <b class='pt-2 pl-3'><a href='#myordersmodal' data-toggle='modal'>My Orders</a></b>";
+
+                    document.getElementById('item1').innerHTML = "<button class='btn btn-primary' id='item1' href='#product1modal' data-toggle='modal'>Buy now</button>";
+                    logincounter = 1;
+                }
+                else {
+                    alert('Your access is blocked! Please contact at admin@shopclues.com ')
+                }
+            }
+            else {
+                alert('Invalid Username or Password!');
+            }
+            document.getElementById('loginemail').value = "";
+            document.getElementById('loginpwd').value = "";
+        }
+
+        /*    function profile() {
+                    alert(email);
+                    var list = [];
+                    var name = document.getElementById('pname').value;
+                    var password = document.getElementById('ppwd').value;
+                    var confirmpass = document.getElementById('ppwd').value;
+                    var cno = document.getElementById('pcno').value;
+                    if (confirmpass != password) {
+                        alert('Password and Confirm Password did not match!');
+                    }
+                    if (name == "" || password == "" || confirmpass == "" || cno == "") {
+                        alert('Please enter all details!')
+                    }
+    
+                    var userdata = {
+                        "Name": name, "ContactNumber": cno,
+                        "Email": email, "Password": password
+                    };
+    
+                    list = JSON.parse(localStorage.getItem('user'));
+                    list.push(userdata);
+                    var myJSON = JSON.stringify(list);
+                    localStorage.setItem('user', myJSON);
+                    console.log(userdata);
+                    alert('User Details Updated Successfully!');  
+    
+                } */
+
+        function buyProduct() {
+            var cname = document.getElementById('pr1_customername').value;
+            var cno = document.getElementById('pr1_contactno').value;
+            var caddress = document.getElementById('pr1_address').value;
+            var product = document.getElementById('pr1_product').value;
+            var itemsold = JSON.parse(localStorage.getItem('itemsoldrecord')) || [];
+
+            var solddata = {
+                "Email": email, "ProductName": product, "CustomerName": cname, "ContactNumber": cno,
+                "Address": caddress
+            };
+
+
+            itemsold.push(solddata);
+            var myJSON = JSON.stringify(itemsold);
+            localStorage.setItem('itemsoldrecord', myJSON);
+            console.log(itemsold);
+            alert('Thanks for purchasing!');
+        }
+
+        function loginToBuy() {
+            if (logincounter == 0) {
+                alert('Please login to buy product!');
+            }
+
+        }
+
+        function myorders() {
+            var table = document.getElementById("myordertable");
+            var tc = 0;
+            var orderdata = [];
+            orderdata = JSON.parse(localStorage.getItem('itemsoldrecord'));
+
+            for (i = 0; i < orderdata.length; i++) {
+                if (orderdata[i].Email == email) {
+                    var row = table.insertRow(tc + 1);
+                    var no = row.insertCell(0);
+                    var productname = row.insertCell(1);
+                    var custemail = row.insertCell(2);
+                    var contactno = row.insertCell(3);
+                    var customer = row.insertCell(4);
+                    var address = row.insertCell(5);
+                    no.innerHTML = tc + 1;
+                    productname.innerHTML = orderdata[tc].ProductName;
+                    custemail.innerHTML = orderdata[tc].Email;
+                    contactno.innerHTML = orderdata[tc].ContactNumber;
+                    customer.innerHTML = orderdata[tc].CustomerName;
+                    address.innerHTML = orderdata[tc].Address;
+                    tc += 1;
+                }
+
             }
         }
 
-        function userlogin() {
-            alert('Login Successful!');
+        function displayItem() {
+            var table = document.getElementById("recentitems");
+            var item = JSON.parse(localStorage.getItem('items')) || [];
+            if (item.length == null) {
+                alert('No new items!')
+            }
+            else {
+                for (var i = 0; i < item.length; i++) {
+                    var row = table.insertRow(i + 1);
+                    var no = row.insertCell(0);
+                    var productname = row.insertCell(1);
+                    var productprice = row.insertCell(2);
+                    var productDescription = row.insertCell(3);
+                    var productImage = row.insertCell(4);
+                    var buybtn = row.insertCell(5);
+                    var imagepath = item[i].ProductImage
+                    no.innerHTML = i + 1;
+                    productname.innerHTML = item[i].ProductName;
+                    productprice.innerHTML = item[i].Price;
+                    productDescription.innerHTML = item[i].ProductDescription;
+                    var imgtag = document.createElement("img");
+                    imgtag.setAttribute('height', '100px');
+                    imgtag.setAttribute('width', '100px');
+                    imgtag.setAttribute('src', imagepath);
+                    productImage.appendChild(imgtag);
+                    buybtn.innerHTML = "<button class='btn btn-outline-primary'>Buy now</button>"
+                }
+            }
+
+
+
         }
 
     </script>
     <title>Online Shopping Site India - Shopclues.com</title>
 </head>
 
-<body class="main-body">
+<body class="main-body" onload="getLocation()">
     <div class="fixed-top">
         <div class="text-muted bg-light">
-            <p class="mb-0 text-md-right small mr-3">Sell With Us | Call Us | Download App:
+            <p class="mb-0 text-md-right small mr-3" id="namebar">Sell With Us | Call Us | Download App:
                 <i class="fab fa-android"></i>
                 <i class="fab fa-apple"></i>
                 <i class="fab fa-windows"></i>
@@ -73,6 +276,7 @@
         <div class="searchbar bg-light">
             <div class="container-l">
                 <div class="input-group">
+
                     <img src="img/logo.jpg" width="12%" class="img img-fluid mr-5">
                     <input type="search" class="form-control rounded" placeholder="Stay Home & Explore More"
                         aria-label="Search" aria-describedby="search-addon" />
@@ -86,6 +290,7 @@
                     <i class="fa fa-shopping-cart pt-3 pl-4"></i>
                     <b class="pt-2 pl-3"><a href="#loginmodal" data-toggle="modal">Log In</a></b>
                     <b class="pt-2 pl-3"><a href="#register" data-toggle="modal">Register</a></b>
+                    <a href="login.html" class="pt-2 pl-3">Admin</a>
                 </div>
             </div>
             <nav class="navbar justify-content-center bg-info text-white navbar-expand-sm nav-one">
@@ -134,7 +339,7 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/body-content/adv1.png">
+                            <img src="img/body-content/adv1.png" alt="">
                         </div>
 
                         <div class="carousel-item">
@@ -204,67 +409,112 @@
     <div class="recent-item m-3 container-l bg-light">
         <div class="d-flex flex-row row-hl">
             <div class="item-hl">
-                <div class="card" style="width: 230px; height: 300px;">
+                <div class="card" style="width: 230px; height: 350px;">
                     <div class="card-body">
                         <img src="img/gadgets-store/1.JPG" width="200px" height="150px" alt="">
                         <p class="text-muted mb-0">USB Optical Wired Mouse Black..</p>
                         <p class="mb-0"><strike class="text-muted pl-2">Rs 429</strike><strike
                                 class="text-muted pl-2 pr-2">Rs 1299</strike><b>Rs 351</b></p>
                         <p style="color: #4285F4;"><b>72% off</b></p>
+                        <button class="btn btn-primary" id="item1" onclick="loginToBuy()">Buy now</button>
                     </div>
                 </div>
             </div>
 
             <div class="item-hl">
-                <div class="card" style="width: 230px; height: 300px;">
+                <div class="card" style="width: 250px; height: 350px;">
                     <div class="card-body">
                         <img src="img/gadgets-store/2.JPG" width="200px" height="150px" alt="">
                         <p class="text-muted mb-0">Refurbished Nokia 2220 Mobile..</p>
                         <p class="mb-0"><strike class="text-muted pl-2">Rs 1459</strike><strike
                                 class="text-muted pl-2 pr-2">Rs 2599</strike><b>Rs 1228</b></p>
                         <p style="color: #4285F4;"><b>77% off</b></p>
+                        <button class="btn btn-primary">Buy now</button>
                     </div>
                 </div>
             </div>
 
             <div class="item-hl">
-                <div class="card" style="width: 230px; height: 300px;">
+                <div class="card" style="width: 230px; height: 350px;">
                     <div class="card-body">
                         <img src="img/gadgets-store/3.JPG" width="200px" height="150px" alt="">
                         <p class="text-muted mb-0">Refurbished Nokia 1110 Mobile..</p>
                         <p class="mb-0"><strike class="text-muted pl-2">Rs 409</strike><strike
                                 class="text-muted pl-2 pr-2">Rs 999</strike><b>Rs 335</b></p>
                         <p style="color: #4285F4;"><b>66% off</b></p>
+                        <button class="btn btn-primary">Buy now</button>
                     </div>
                 </div>
             </div>
 
             <div class="item-hl">
-                <div class="card" style="width: 230px; height: 300px;">
+                <div class="card" style="width: 230px; height: 350px;">
                     <div class="card-body">
                         <img src="img/gadgets-store/4.JPG" width="200px" height="150px" alt="">
                         <p class="text-muted mb-0">I Kall IK 404 60 W Bluetooth Ho..</p>
                         <p class="mb-0"><strike class="text-muted pl-2">Rs 359</strike><strike
                                 class="text-muted pl-2 pr-2">Rs 1299</strike><b>Rs 295</b></p>
                         <p style="color: #4285F4;"><b>45% off</b></p>
+                        <button class="btn btn-primary">Buy now</button>
                     </div>
                 </div>
             </div>
 
             <div class="item-hl">
-                <div class="card" style="width: 230px; height: 300px;">
+                <div class="card" style="width: 230px; height: 350px;">
                     <div class="card-body">
                         <img src="img/gadgets-store/5.JPG" width="200px" height="150px" alt="">
                         <p class="text-muted mb-0">I Kall K500 Smartphone (4Gb Ra)..</p>
                         <p class="mb-0"><strike class="text-muted pl-2">Rs 359</strike><strike
                                 class="text-muted pl-2 pr-2">Rs 1299</strike><b>Rs 295</b></p>
                         <p style="color: #4285F4;"><b>77% off</b></p>
+                        <button class="btn btn-primary">Buy now</button>
                     </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <!--RECENTLY ADDED PRODUCTS-->
+
+    <div class="px-3">
+        <br>
+        <h5>Recently Added Products</h5>
+    </div>
+
+    <div class="recent-item m-3 container-l bg-light">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <table id="recentitems" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    #Product ID
+                                </th>
+                                <th scope="col">
+                                    Product Name
+                                </th>
+                                <th scope="col">
+                                    Price
+                                </th>
+                                <th scope="col">
+                                    Product Description
+                                </th>
+                                <th scope="col">
+                                    Product Image
+                                </th>
+                                <th scope="col">
+                                    Buy Now
+                                </th>
+                            </tr>
+                        </thead>
+
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!--TRENDING FASHION ZONE-->
 
@@ -633,7 +883,7 @@
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="loginemail" placeholder="Enter email"
-                                name="email"> 
+                                name="email">
                         </div>
 
                         <div class="form-group">
@@ -649,7 +899,7 @@
                         </div>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" data-dismiss="modal"
-                            onclick="userlogin()">Submit</button>
+                            onclick="mainlogin()">Submit</button>
 
                     </form>
                 </div>
@@ -657,6 +907,119 @@
         </div>
     </div>
 
+    <!-- My Orders - Profile Modal -->
+    <div class="modal" id="myordersmodal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">My Orders</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <form id="myordersform">
+
+                        <div class="form-group">
+                            <p>Thanks for shopping! Have a nice day!</p>
+                        </div>
+
+                        <div class="card">
+                            <table class="table-striped text-dark bg-white border border-dark" id="myordertable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>
+                                            Product Name
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Contact Number
+                                        </th>
+                                        <th>
+                                            Customer Name
+                                        </th>
+                                        <th>
+                                            Delivery Address
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="myorders()">View</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--PRODUCT MODALS-->
+
+    <!-- Product 1 Modal -->
+    <div class="modal fade" id="product1modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">GADGETS</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form id="product1form">
+                        <img src="img/gadgets-store/1.JPG" width=auto height=auto alt="">
+                        <p class="text-muted mb-0">USB Optical Wired Mouse Black..</p>
+                        <p class="mb-0"><strike class="text-muted pl-2">Rs 429</strike><strike
+                                class="text-muted pl-2 pr-2">Rs 1299</strike><b>Rs 351</b></p>
+                        <p style="color: #4285F4;"><b>72% off</b></p>
+
+                        <div class="form-group">
+                            <label for="name">Customer Name:</label>
+                            <input type="text" class="form-control" id="pr1_customername" placeholder="Enter name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">Contact Number:</label>
+                            <input type="tel" class="form-control" id="pr1_contactno"
+                                placeholder="Enter contact number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Delivery Address:</label>
+                            <input type="text" class="form-control" id="pr1_address" placeholder="Enter name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productname">Product:</label>
+                            <input type="tel" class="form-control" id="pr1_product"
+                                value="USB Optical Wired Mouse Black" disabled>
+                        </div>
+
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                            onclick="buyProduct()">Buy</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
