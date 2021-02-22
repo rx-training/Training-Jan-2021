@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+    <title>Assignment</title>
+</head>
+<body>
+         <div class="container">
+             <br>
+             <h1 class="bg-info border border-dark text-center"> Assignment Day24</h1>
+             <br>
+             <button class="btn btn-info"> Click to fetch Data</button>    <br>               
+             <br>
+             <div class="table-responsive">
+                 <table class="table table-stripped" id="tbldata">
+                    
+                 </table>
+
+             </div> 
+           
+              
+        </div>
+
+</body>
+      <script>
+          $(document).ready(function(){
+                $("button").click(function(){
+                    $.getJSON(" https://gorest.co.in/public-api/users",function(data,status1){
+                        //$("#tbldata").append('<table class="table table-dark">');
+                        $("#tbldata").append("<thead class='bg-info'><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>GENDER</th><th>STATUS</th><th>CREATED AT</th><th>UPDATED AT</th></tr></thead>");
+                        $.each(data.data,function(index,value){
+                            $('#tbldata').append('<tbody><tr><td>' + value.id + '</td><td>' + value.name + '</td><td>' + value.email + '</td><td>' + value.gender + '</td><td>' + value.status +'</td><td>' + value.created_at + '</td><td>' + value.updated_at + '</td></tbody>');
+                        });    
+                       // $('#tbldata').append('</table>');
+                        
+                    });
+                });
+          });
+      </script>
+
+</html>
