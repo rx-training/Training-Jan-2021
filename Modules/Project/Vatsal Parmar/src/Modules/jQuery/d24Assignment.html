@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../css/font-awesome.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.css" />
     <link rel="stylesheet" href="../../css/style.css" />
-    <title>Day 22 Assignment</title>
+    <title>Day 24 Assignment</title>
   </head>
 
   <body>
@@ -80,12 +80,12 @@
           >
           <a
             href="d22Assignment.html"
-            class="list-group-item list-group-item-action active"
+            class="list-group-item list-group-item-action"
             >Day 22 Assignment</a
           >
           <a
             href="d24Assignment.html"
-            class="list-group-item list-group-item-action"
+            class="list-group-item list-group-item-action active"
             >Day 24 Assignment</a
           >
         </ul>
@@ -95,26 +95,34 @@
 
       <div class="col-md-9 mb-5">
         <div class="container">
-          <h1 class="text-center">Assignment Day-22</h1>
+          <h1 class="text-center">Assignment Day-24</h1>
           <p>
             <strong class="text-secondary">
-              – Put a droplist with 5 country name from list object using jquery
-              (Eg. India, United Kingdom..). Default value should “Please
-              select”. – Bellow droplist all country name which are in the
-              dropdown that should display with Label : “Your Selected Country :
-              “. – By default all country name should display. – Only that
-              country name should appear which are you select from dropdown. All
-              other label should be disappear. – When i select ‘Please select’,
-              all countries name should get displayed.
+              Use getJSON method access this web api
+              https://gorest.co.in/public-api/users and display the result in
+              one table.
             </strong>
           </p>
-          <div class="form-group my-1">
-            <label class="form-label">Please Select Country :</label>
-            <select class="form-select" id="countryList"></select>
+          <div class="container">
+            <input
+              id="myInput"
+              type="text"
+              class="form-control my-3"
+              placeholder="Search.."
+            />
+            <table class="table table-secondary table-hover table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
           </div>
-
-          <h5 class="text-success my-2">Your Selected Country :</h5>
-          <ul id="ans" class="list-group"></ul>
         </div>
       </div>
     </div>
@@ -124,53 +132,40 @@
     <script src="../../js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#countryList").append(
-          "<option id='none' value='none' selected> Please Select </option>"
-        );
-        $("#countryList").append(
-          "<option id='india' value='India'> India </option>"
-        );
-        $("#countryList").append(
-          "<option id='Uk' value='United Kingdom'> United Kingdom </option>"
-        );
-        $("#countryList").append(
-          "<option id='Us' value='United States'> United States </option>"
-        );
-        $("#countryList").append(
-          "<option id='Canada' value='Canada'> Canada </option>"
-        );
-        $("#countryList").append(
-          "<option id='Sweden' value='Sweden'> Sweden </option>"
-        );
-
-        var a = $("#countryList option:selected").val();
-        $("#ans").html(
-          "<li class='list-group-item'>India</li><li class='list-group-item'>United Kingdom</li><li class='list-group-item'>United States</li><li class='list-group-item'>Canada</li><li class='list-group-item'>Sweden</li>"
-        );
-
-        $("#countryList").on("click", function () {
-          a = $("#countryList option:selected").val();
-          switch (a) {
-            case "India":
-              $("#ans").html("<li class='list-group-item'>India</li>");
-              break;
-            case "United Kingdom":
-              $("#ans").html("<li class='list-group-item'>United Kingdom</li>");
-              break;
-            case "United States":
-              $("#ans").html("<li class='list-group-item'>United States</li>");
-              break;
-            case "Canada":
-              $("#ans").html("<li class='list-group-item'>Canada</li>");
-              break;
-            case "Sweden":
-              $("#ans").html("<li class='list-group-item'>Sweden</li>");
-              break;
-            default:
-              $("#ans").html(
-                "<li class='list-group-item'>India</li><li class='list-group-item'>United Kingdom</li><li class='list-group-item'>United States</li><li class='list-group-item'>Canada</li><li class='list-group-item'>Sweden</li>"
-              );
+        $.getJSON(
+          "https://gorest.co.in/public-api/users",
+          function (data, status) {
+            let Data = data.data;
+            var rowData = "";
+            for (let i = 0; i < Data.length; i++) {
+              rowData +=
+                "<tr>" +
+                "<td>" +
+                Data[i].id +
+                "</td>" +
+                "<td>" +
+                Data[i].name +
+                "</td>" +
+                "<td>" +
+                Data[i].email +
+                "</td>" +
+                "<td>" +
+                Data[i].gender +
+                "</td>" +
+                "<td>" +
+                Data[i].status +
+                "</td>" +
+                "</tr>";
+            }
+            $("#tableBody").append(rowData);
           }
+        );
+
+        $("#myInput").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#tableBody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
         });
       });
     </script>
