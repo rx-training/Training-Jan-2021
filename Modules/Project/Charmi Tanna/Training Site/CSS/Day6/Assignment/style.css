@@ -1,0 +1,76 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+}
+
+    .navbar a {
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 14px 28px;
+    }
+
+        .navbar a:hover {
+            background-color: white;
+            color: black;
+        }
+
+#toggle {
+    display: none;
+}
+
+.togglearea {
+    background-color: pink;
+    border-bottom: 2px solid white;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .togglearea label {
+        background-color: white;
+        height: 45px;
+        width: 50px;
+        color: black;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+        .togglearea label span {
+            background-color: black;
+            height: 4px;
+            width: 70%;
+            margin: 2px 0px;
+        }
+
+.togglearea {
+    display: none;
+}
+@media screen and (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        display: none;
+    }
+
+    #toggle:checked + .navbar {
+        display: flex;
+    }
+
+    .togglearea {
+        display: flex;
+    }
+}
