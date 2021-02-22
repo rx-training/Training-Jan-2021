@@ -9,7 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <title>PHP Training Site Layout</title>
+        <title>PHP Training Site</title>
         <style>
             #img1 {
                 margin-left: 40px;
@@ -19,7 +19,7 @@
                 background-color: #86B404;
             }
             .sidenav {
-                width: 230px;
+                width: 330px;
                 position: fixed;
                 z-index: 1;
                 top: 100px;
@@ -38,9 +38,13 @@
                 background-size: 100% 100%;
             }
         </style>
+        <script>
+            $(document).ready(function(){
+              $(".content1").css("background-color", "red");
+            });
+        </script>
     </head>
     <body>
-        <!--NavBar-->
         <div class="row">
             <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
             <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
@@ -83,68 +87,41 @@
                         <ul class="list-unstyled">
                             <li>jQuery</li>
                             <ul>
-                                <li>Day 22</li>
+                                <li>Day 24</li>
                                 <ul>
                                     <a href="../Assignment/Assignment.html" class="text-dark"><li>Assignment</li></a>
-                                    <a href="PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                                <ul>
+                                    <li>Practise Exercises</li>
+                                    <ol>
+                                        <a href="./PE1.html" class="text-dark"><li>Parent Property Demo</li></a>
+                                        <a href="./PE2.html" class="text-dark"><li>Parents Property Demo</li></a>
+                                        <a href="./PE3.html" class="text-dark"><li>Parents Until Property Demo</li></a>
+                                        <a href="./PE4.html" class="text-dark"><li>Children Property Demo</li></a>
+                                        <a href="./PE5.html" class="text-dark"><li>Find Property Demo</li></a>
+                                        <a href="./PE6.html" class="text-dark"><li>First Property Demo</li></a>
+                                        <a href="./PE7.html" class="text-dark"><li>Last Property Demo</li></a>
+                                        <a href="PE8.html"><li>Eq Property Demo</li></a>
+                                        <a href="./PE9.html" class="text-dark"><li>Filter Property Demo</li></a>
+                                        <a href="./PE10.html" class="text-dark"><li>Not Property Demo</li></a>
+                                        <a href="./PE11.html" class="text-dark"><li>Load Property Demo</li></a>
+                                        <a href="./PE12.html" class="text-dark"><li>Get Property Demo</li></a>
+                                    </ol>
                                 </ul>
                             </ul>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-10">
-                    <strong>Practise Exercise 1</strong>
-                    <p id="dummytext1" class="mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam sed leo risus.Ut tellus leo faucibus vitae tortor sed, euismod disnissim ex.Cras non mi vitae enim faucibus dignissim. Praesent scelerisque condimentum elit, non congue metus lacinia malesuada. Vestibulum purus arcu, molestie in mattis sit amet, aliquet eget est.Ut mollis enim est, eu fermentum nisi viverra hendrerit. Fusce sed est ac ante posuere convallis.Vivamus egestas mauris sit amet lobortis cursus. Vestibulum hendrerit molestie sagittis.</p>
-                    <hr class="bg-dark mt-5 mb-5">
-                    <strong>Practise Exercise 2</strong>
-                    <p id="helpText" class="mt-5 mb-5">Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare odio, Maecenas sodales mauris eget neque pulvinar,ac gravida ante lacinia.Etiam pharetra magna vitae fringilla posuere. Integer lacinia, nisi nec semper faucibus, elit neque imperdietsem, ut molestie felis nisi sit amet leo.</p>
-                    <hr class="bg-dark mt-5 mb-5">
-                    <br>
-                    <br>
-                    <strong>Practise Exercise 3</strong>
-                    <form>
-                        <label class="text-primary radio-inline">
-                            <input type="radio" name="technologies" id="php" value="PHP">PHP
-                        </label>
-                        <label class="text-primary radio-inline">
-                            <input type="radio" name="technologies" id="asp.net" value="ASP.net">ASP.net
-                        </label>
-                        <label class="text-primary radio-inline">
-                            <input type="radio" name="technologies" id="asp" value="ASP">ASP
-                        </label>
-                        <label class="text-primary radio-inline">
-                            <input type="radio" name="technologies" id="jsp" value="JSP">JSP
-                        </label>
-                        <label class="text-primary radio-inline">
-                            <input type="radio" name="technologies" id="perl" value="Perl">Perl
-                        </label>
-                        <label class="text-primary radio-inline">
-                            <input type="radio" name="technologies" id="coldfusion" value="Cold Fusion">Cold Fusion
-                        </label>
-                        <label class="text-primary radio-inline">
-                            <input type="radio" name="technologies" id="other" value="Other">Other
-                        </label>
-                    </form>
-                    <div class="text-center">
-                        <span id="selectedtech"></span>
+                <div class="col-md-10 mt-4">
+                    <strong>Eq Property Demo</strong>
+                    <div class="container">
+                        <ul>
+                            <li>First</li>
+                            <li class="content1">Second</li>
+                            <li>Third</li>
+                        </ul>
                     </div>
                 </div>
-                <script>
-                    $(document).ready(function(){
-                        // Practise Exercise 1
-                        $("#dummytext1").css({"background-color":"blue","color":"pink","font-size":"20px"});
-
-                        // Practise Exercise 2
-                        $("#helpText").hover(function(){
-                            $("#helpText").toggle()
-                        })
-                    
-                        // Practise Exercise 3
-                        $("input[name='technologies']").click(function() {
-                            $("#selectedtech").html($(this).val());
-                        })
-                    });
-                </script>
             </div>
         </div>
     </body>
