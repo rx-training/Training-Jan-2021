@@ -1,107 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Assignment</title>
+    <style>
+    </style>
+</head>
+<body >
+    <div class="container my-5 w-25">
+        <h2 class="text-center mb-3">Employee Form</h2>
+        <form>
+            <div class="form-group">
+                <input type="number" id="emp_id" class="form-control" placeholder="Employee ID" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Employee Name" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Employee Age" required>
+            </div>
+            <div class="form-group form-inline">
+                <div class="form-check">
+                <label for="gender">Gender : </label> &nbsp;
+                <input type="radio" name="gender" class="form-check-input"> &nbsp;
+                <label for="male" name="gender" class="form-check-label">Male</label> &nbsp;
+                <input type="radio" name="gender" class="form-check-input"> &nbsp;
+                <label for="female" name="gender" class="form-check-label">Female</label> &nbsp;
+                <input type="radio" name="gender" class="form-check-input"> &nbsp;
+                <label for="other" name="gender" class="form-check-label">other</label> &nbsp;
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Employee Destination" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Employee Salary" required>
+            </div>
+            <div class="form-group">
+                <label for="location" style="text-align: left;">Location : </label>
+                <select name="location" id="location" class="form-control">
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="baroda">Baroda</option>
+                    <option value="rajkot">Rajkot</option>
+                    <option value="gandhinagar">Gandhinagar</option>
+                    <option value="vapi">Vapi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Employee Email" required>
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" placeholder="Employee Date of 
+                Joining" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Employee Contact Number" required>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-primary" onclick="return onSubmit()" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Employee Form</title>
-  </head>
-  <body>
-    <!-- <h1>Hello, world!</h1> -->
-
-        <div class="container py-5">
-            <!-- <div class="card h-50"> -->
-                <summary id="msj">
-
-                </summary>
-
-
-                <form class="w-50 h-100" onsubmit="myFun()">
-                    <div class="form-group">
-                        <label for="id">EmployeeID</label>
-                        <input type="text" id="empId" class="form-control"> 
-                    </div> 
-                    <div class="form-group">
-                        <label for="id">Employee Name</label>
-                        <input type="text" class="form-control"> 
-                    </div>    
-                    <div class="form-group">
-                        <label for="id">Age</label>
-                        <input type="number" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <label for="id"> Gender : </label>
-                        <input type="radio" > Male
-                        <input type="radio" > Female
-                        <input type="radio" > Other
-                    </div>
-                    <div class="form-group">
-                        <label for="id">Designation</label>
-                        <input type="text" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <label for="id">Salary</label>
-                        <input type="number" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Designation</label>
-                        <select name="location" class="form-control">
-                            <option value="">Ahmedabad</option>
-                            <option value="">Baroda</option>
-                            <option value="">Gandhinagar</option>
-                            <option value="">Rajkot</option>
-                            <option value="">Surat</option>
-                        </select> 
-                    </div>
-                    <div class="form-group">
-                        <label for="id">Email ID</label>
-                        <input type="email" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <label for="id">Date of Joining </label>
-                        <input type="date" class="form-control"> 
-                    </div>
-                    <div class="form-group">
-                        <label for="id">Contact Number </label>
-                        <input type="number" class="form-control"> 
-                    </div>
-                    <button type="submit" class="btn btn-block bg-primary text-white">Submit</button>
-                    
-                </form>
-            <!-- </div>     -->
-        </div>
-
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-  <script>
-
-    let empId = document.getElementById("empId");
-    console.log(empId);
-    console.log(form.values);
-    function myFun(empId){
-
-        console.log(empId.value);
-        
-        //minimum 5 character input 
-        let rx = /^.{5,}$/;
-        if(empId.match(rx)){
-            console.log("are bhai kam ho gaya");
+    <script>
+        function onSubmit(){
+            var id = document.getElementById("emp_id").value;
+            const id_rx = /[0-9]{5}/g;
+            if((id.match(id_rx) == id)){
+                alert("Valid Employee Id");
+            }
+            else{
+                alert("Invalid Employee Id");
+            }
+            return false;
         }
-        else{
-            console.log("are nai hua yarr")
-        }
-      }
-      
-  </script>
+    </script>
+</body>
 </html>
