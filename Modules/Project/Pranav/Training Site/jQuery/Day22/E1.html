@@ -19,7 +19,7 @@
                 background-color: #86B404;
             }
             .sidenav {
-                width: 330px;
+                width: 230px;
                 position: fixed;
                 z-index: 1;
                 top: 100px;
@@ -38,11 +38,6 @@
                 background-size: 100% 100%;
             }
         </style>
-        <script>
-            $(document).ready(function(){
-              $(".content1").last().css("background-color", "red");
-            });
-        </script>
     </head>
     <body>
         <div class="row">
@@ -67,7 +62,7 @@
                                 <a href="../../../Javascript/javascriptindex.html" class="nav-link">Javascript</a>
                             </li>
                             <li class="nav-items">
-                                <a href="../../jQueryindex.html" class="nav-link">jQuery</a>
+                                <a href="../jQueryindex.html" class="nav-link">jQuery</a>
                             </li>
                             <li>
                                 <a href="../../../getPocket/Assignment/Assignment.html" target="_blank" class="nav-link">getPocket</a>
@@ -87,42 +82,36 @@
                         <ul class="list-unstyled">
                             <li>jQuery</li>
                             <ul>
-                                <li>Day 24</li>
+                                <li>Day 22</li>
                                 <ul>
-                                    <a href="../Assignment/Assignment.html" class="text-dark"><li>Assignment</li></a>
-                                </ul>
-                                <ul>
-                                    <li>Practise Exercises</li>
-                                    <ol>
-                                        <a href="./PE1.html" class="text-dark"><li>Parent Property Demo</li></a>
-                                        <a href="./PE2.html" class="text-dark"><li>Parents Property Demo</li></a>
-                                        <a href="./PE3.html" class="text-dark"><li>Parents Until Property Demo</li></a>
-                                        <a href="./PE4.html" class="text-dark"><li>Children Property Demo</li></a>
-                                        <a href="./PE5.html" class="text-dark"><li>Find Property Demo</li></a>
-                                        <a href="./PE6.html" class="text-dark"><li>First Property Demo</li></a>
-                                        <a href="PE7.html"><li>Last Property Demo</li></a>
-                                        <a href="./PE8.html" class="text-dark"><li>Eq Propoerty Demo</li></a>
-                                        <a href="./PE9.html" class="text-dark"><li>Filter Property Demo</li></a>
-                                        <a href="./PE10.html" class="text-dark"><li>Not Property Demo</li></a>
-                                        <a href="./PE11.html" class="text-dark"><li>Load Property Demo</li></a>
-                                        <a href="./PE12.html" class="text-dark"><li>Get Property Demo</li></a>
-                                    </ol>
+                                    <a href="E1.html"><li>Exercise</li></a>
                                 </ul>
                             </ul>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-10 mt-4">
-                    <strong>Last Property Demo</strong>
-                    <div class="container">
-                        <ul>
-                            <li class="content1">First</li>
-                            <li>Second</li>
-                            <li class="content1">Third</li>
-                        </ul>
-                    </div>
+                    <strong>Demo of .on() instead of .bind</strong>
+                    <ul id="members">
+                        <li><a href="detail.html?id=1">Detail 1</a></li>
+                        <li><a href="detail.html?id=2">Detail 2</a></li>
+                        <li><a href="detail.html?id=3">Detail 3</a></li>
+                        <li><a href="detail.html?id=4">Detail 4</a></li>
+                        <li><a href="detail.html?id=5">Detail 5</a></li>
+                    </ul>
+                    <button class="mb-5 itemadd">Add Item</button>
                 </div>
             </div>
         </div>
+        <script>
+            $("#members").find("li a").bind("click",function (e) {
+                e.preventDefault();
+                toastr.success($(this).text(),"Clicked");
+            });
+            $(".itemadd").on("click",function () {
+                $("<li><a href='#'>Detail 6</a></li>").appendTo("#members");
+            });
+        </script>
     </body>
 </html>
+
