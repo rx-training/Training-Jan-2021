@@ -3,336 +3,103 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practice Day 23</title>
+    <title>Practice Day 22</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-        .borderData * {
-            display: block;
-            border: 2px solid rgba(110, 110, 110, 0.616);
-            color: rgb(110, 110, 110);
-            padding: 5px;
-            margin: 15px;
-        }
-    </style>
-    <script>
-        $(document).ready(function () {
-            
-            // parent function
-            $(".spanParent").parent().css({ "color": "red", "border": "2px solid red" });
-            
-            // parents function 
-            $(".spanParents").parents(".parentsDiv").css({ "color": "red", "border": "2px solid red" });
-           
-            //parentsUntil function
-            $(".spanParentsUntil").parentsUntil("#spanParentsUntil").css({ "color": "red", "border": "2px solid red" });
-            
-            //Children function
-            $(".childFunc").children().css({ "color": "red", "border": "2px solid red" });
-            
-            // children function with argument
-            $("div").children("p.first").css({ "color": "red", "border": "2px solid red" });
-            
-            // find function
-            $("div").find(".spanFind").css({ "color": "red", "border": "2px solid red" });
-            
-            //find * function
-            $(".findall").find("*").css({ "color": "red", "border": "2px solid red" });
-            
-            // First function
-            $(".firstParagraph p").first().css({ "background-color": "yellow", "border": "2px solid orange" });
-            
-            //last function
-            $(".firstParagraph p").last().css({ "background-color": "green", "color": "white", "border": "2px solid orange" });
-            
-            //eq function
-            $(".eqParagraph p").eq(2).css({ "background-color": "green", "color": "white", "border": "2px solid orange" });
-
-            //filter function
-            $(".filterParagraph p").filter(".filterOut").css({ "background-color": "green", "color": "white", "border": "2px solid orange" });
-            
-            //not function
-            $(".filterParagraph p").not(".filterOut").css({ "background-color": "yellow", "color": "green", "border": "2px solid orange" });
-
-            // Load method
-
-            $("#loadButton").click(function () {
-                $("#loadData").load("demo.txt");
-            });
-
-            // get method
-
-            $("#getButton").click(function () {
-                $.get("demo.txt", (data, status) => {
-                    $("#getData").html("<super class='text-success'>Successfully got data...</super><br>" + data);
-                });
-            });
-
-            // post method
-
-            $("#postButton").click(function () {
-                $.post("demo.asp",
-                    {
-                        name: "Donald Duck",
-                        city: "Duckburg"
-                    },
-                    function (data, status) {
-                        alert("Data: " + data + "\nStatus: " + status);
-                        if(status != "success"){
-                            alert("Hello");
-                        }
-                    });
-            });
-
-            // JSON Method
-
-            $("#jsonButton").click(()=>{
-                $.getJSON("demo.json",(result)=>{
-                    $.each(result,(i,field)=>{
-                        $("#jsonData").append(field + " ");
-                    });
-                });
-            });
-        });
-    </script>
+   
+    <script src="./Script/Practice.js"></script>
 </head>
 
-<body class="bg-dark">
-    <div class="container bg-light text-center mt-5 p-5">
-        <div class="display-4">
-            Ancestors
+<body class="text-center bg-dark">
+    
+    <!-- Excercise 1 -->
+
+    <div class=" mt-5 container bg-light border border-dark rounded p-5">
+        <div class="display-4 ">
+            Excercise 1
         </div>
-
-        <hr class="mt-3 mb-5">
-        <span class="h4">Parent Function</span>
         <hr class="bg-dark">
-
-        <div class="borderData my-4">
-            <div class="mt-3" style="width : 97%;">div (great-grandparent)
-                <ul>ul (grandparent)
-                    <li class="">li (direct parent)
-                        <span class="spanParent">span</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="mt-5" style="width : 97%;">div (grandparent)
-                <p>p (direct parent)
-                    <span class="spanParent">span</span>
-                </p>
-            </div>
+        <div class="lead mt-4">
+            Create one paragraph, add some dummy text and apply blue background color using jquery
         </div>
-        <hr>
-        <span class="h4">Parents Function</span>
-        <hr class="bg-dark">
+        <div id="excercise1Out" class="mt-3">
 
-        <div class="borderData my-4">
-            <div class="mt-3 parentsDiv" style="width : 97%;">div (great-grandparent)
-                <ul>ul (grandparent)
-                    <li class="">li (direct parent)
-                        <span class="spanParents">span</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="mt-5 parentsDiv" style="width : 97%;">div (grandparent)
-                <p>p (direct parent)
-                    <span class="spanParents">span</span>
-                </p>
-            </div>
         </div>
-        <hr>
-        <span class="h4">Parents Until Function</span>
+        <button id="excercise1BTN" class="btn btn-primary mt-3">Click to get dummy Paragraph</button>
+    </div>
+
+    <!-- Excercise 2 -->
+
+    <div class=" mt-5 container bg-light border border-dark rounded p-5">
+        <div class="display-4 ">
+            Excercise 2
+        </div>
         <hr class="bg-dark">
-        <div class="borderData my-4">
-            <div class="mt-3" id="spanParentsUntil" style="width : 97%;">div (great-grandparent)
-                <ul>ul (grandparent)
-                    <li class="">li (direct parent)
-                        <span class="spanParentsUntil">span</span>
-                    </li>
-                </ul>
-            </div>
+        <div class="lead mt-4">
+            There is one Hide/show the text inside the #helpText span element when the user’s mouse passes over the text
+        </div>
+        <div id="helpText" class="mt-5">
+            Hover here to toggle between hide & show
         </div>
     </div>
 
-    <div class="container bg-light text-center mt-5 p-5">
-        <div class="display-4">
-            Descendants
+    <!-- Excercise 3 -->
+
+    <div class=" my-5 container bg-light border border-dark rounded p-5">
+        <div class="display-4 ">
+            Excercise 3
         </div>
-        <hr>
-        <span class="h4">Children Function</span>
         <hr class="bg-dark">
-
-        <div class="borderData my-4">
-            <div class="mt-5 childFunc" style="width : 97%;">div (grandparent)
-                <p>p (direct parent)
-                    <span>span</span>
-                </p>
+        <div class="mt-5">
+            <div class="form-control-label my-3">Please select your technology :</div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="technology" value="PHP">
+                <label class="form-check-label">PHP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="technology" value="ASP.NET">
+                <label class="form-check-label">ASP.NET</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="technology" value="ASP">
+                <label class="form-check-label">ASP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="technology" value="JSP">
+                <label class="form-check-label">JSP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="technology" value="PERL">
+                <label class="form-check-label">PERL</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="technology" value="Cold Fusion">
+                <label class="form-check-label">Cold Fusion</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="technology" value="Other">
+                <label class="form-check-label">Other</label>
             </div>
 
-            <div class="mt-5 childFunc" style="width : 97%;">div (grandparent)
-                <p>p (direct parent)
-                    <span>span</span>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <span class="h4">Children[first element] Function</span>
-        <hr class="bg-dark">
-
-        <div class="borderData my-4">
-            <div class="mt-5 " style="width : 97%;">div (grandparent)
-                <p class="first">p (direct parent)
-                    <span>span</span>
-                </p>
-            </div>
-
-            <div class="mt-5 " style="width : 97%;">div (grandparent)
-                <p class="second">p (direct parent)
-                    <span>span</span>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <span class="h4">Find Function</span>
-        <hr class="bg-dark">
-
-        <div class="borderData my-4 findClass">
-            <div class="mt-5" style="width : 97%;">div (grandparent)
-                <p>p (direct parent)
-                    <span class="spanFind">span</span>
-                </p>
-            </div>
-
-            <div class="mt-5" style="width : 97%;">div (grandparent)
-                <p class="second">p (direct parent)
-                    <span class="spanFind">span</span>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <span class="h4">Find All Function</span>
-        <hr class="bg-dark">
-
-        <div class="borderData my-4 ">
-            <div class="mt-5 findall" style="width : 97%;">div (grandparent)
-                <p>p (direct parent)
-                    <span>span</span>
-                </p>
-                <p>p (direct parent)
-                    <span>span</span>
-                </p>
-            </div>
+            <p id="technologySelected" class="mt-3"></p>
         </div>
     </div>
 
-    <div class="container bg-light text-center mt-5 p-5">
-        <div class="display-4">
-            Filtering
-        </div>
-        <hr>
-        <span class="h4">First & Last Function</span>
-        <hr class="bg-dark">
 
-        <div class="borderData my-4 ">
-            <div class="mt-5 firstParagraph" style="width : 97%;">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-            </div>
-        </div>
-        <hr>
-        <span class="h4">Eq Function</span>
-        <hr class="bg-dark">
 
-        <div class="borderData my-4 ">
-            <div class="mt-5 eqParagraph" style="width : 97%;">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-            </div>
-        </div>
-        <hr>
-        <span class="h4">Filter & Not Function</span>
-        <hr class="bg-dark">
-
-        <div class="borderData my-4 ">
-            <div class="mt-5 filterParagraph" style="width : 97%;">
-                <p class="filterOut">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur
-                    consectetur repellat qui saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel
-                    ad exercitationem unde dolor possimus. Optio, distinctio.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur consectetur repellat qui
-                    saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel ad exercitationem unde
-                    dolor possimus. Optio, distinctio.
-                </p>
-                <p class="filterOut">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aspernatur
-                    consectetur repellat qui saepe voluptas numquam iste accusamus adipisci, distinctio quos alias vel
-                    ad exercitationem unde dolor possimus. Optio, distinctio.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container bg-light text-center mt-5 p-5">
-        <div class="display-4">
-            jQuery Ajax
-        </div>
-        <hr>
-        <span class="h4">Load Method</span>
-        <hr class="bg-dark">
-        <span id="loadData"></span><br>
-        <button id="loadButton" class="btn btn-outline-success text-dark mt-3">Load External Data</button>
-        <hr>
-        <span class="h4">Get Method</span>
-        <hr class="bg-dark">
-        <span id="getData"></span><br>
-        <button id="getButton" class="btn btn-outline-success text-dark mt-3">Get External Data</button>
-        <hr>
-        <span class="h4">Post Method</span>
-        <hr class="bg-dark">
-        <span id="postData"></span><br>
-        <button id="postButton" class="btn btn-outline-success text-dark mt-3">Post Data</button>
-        <hr>
-        <span class="h4">GetJson Method</span>
-        <hr class="bg-dark">
-        <span id="jsonData"></span><br>
-        <button id="jsonButton" class="btn btn-outline-success text-dark mt-3">GetJSON Data</button>
-
-    </div>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
