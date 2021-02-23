@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 5 </title>
+</head>
+<body>
+    <h1>Hello developer!</h1>
+
+</body>
+
+<script>
+
+    let arr = [18 , 15 , 45 , 12 , 48 , 56 , 15 , 10];
+
+    let fun = function(arr){
+
+        console.log(arr);
+
+        let ans1 = arr.push(6);
+        console.log(ans1); // it's return the length of the Array - 9
+
+        let ans2 = arr.pop();
+        console.log(ans2);     // 10
+
+        let ans3 = arr.shift(); 
+        console.log(ans3); // 18
+
+        let ans4 = arr.unshift(6);
+        console.log(ans4); // add 6 into array  
+
+        delete arr[2]; // it make string empty at place of 2 
+        console.log(arr);
+
+        let ans5 = arr.splice(4 , 1 , 100 , 1000); //first paramete starting point secon how many element want to remove and last two parameter is new array element
+        console.log(ans5); 
+        console.log(arr);
+        
+    
+        let ans6 = arr.splice(0 ,2); // remove first two element and no one add element
+        console.log(ans6); // 6 , 15
+
+        let arr2 = ["anks" , "ankur"];
+
+        let ans7 = arr.concat(arr2); // we can gave any number of parameter
+        console.log(ans7);
+
+        
+
+
+
+
+    }
+
+    fun(arr);
+
+
+
+</script>
+</html>

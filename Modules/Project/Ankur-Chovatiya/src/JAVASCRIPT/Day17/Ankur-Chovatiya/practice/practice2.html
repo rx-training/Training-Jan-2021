@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice 7</title>
+</head>
+<body>
+    <h1>hello developers!</h1>
+    <p>page location is :- <span id="url"></span></p>
+    Search on Google <button id="btn">Click me </button>
+
+</body>
+<script>
+    
+    document.getElementById("url").innerHTML = window.location.href;
+
+    document.getElementById("btn").onclick = function(){
+        window.location.assign("http://127.0.0.1:5500/JavaScript/Day17/Ankur-Chovatiya/practice/practice3.html")
+    }
+
+</script>
+</html>
