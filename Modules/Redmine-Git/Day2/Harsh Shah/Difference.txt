@@ -1,5 +1,0 @@
-Difference between Fetch and Pull :
-Git Fetch is used to get updated changes from the remote repository and Git Pull is used to copy those changes from the remote repository to the local repository. Git Fetch is the command that tells your local repository to retrieve the latest data info from the remote repository, It's more like just checking to see if there are any changes available). Git Pull on the other hand does that copy those changes from the remote repository.
-
-Difference between Stage and Stash :
-Stash is used to move modified files into a stack, so later in the same of another branch, You can able to bring them back and see those modifications in the project. The Stage is the step before making a commit, We can add modified files to the staging area to create the next commit.

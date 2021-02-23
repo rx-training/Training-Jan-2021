@@ -1,6 +1,0 @@
-Difference between pull and fetch :
-In fetch, it pulls the file from remote but doesn't merge with the local system while in pull it takes file from remote and directly merges with local.
-
-Difference between stash and stage :
-In stage, we keep files before commit after doing modifications so that we can see the changes done easily while in stash, we keep files which are modified but we still don't want to commit them finally.
-
