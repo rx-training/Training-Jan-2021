@@ -30,7 +30,7 @@
 
         #bodycontent {
             background: white;
-            height: 100vh;
+            height: 300vh;
 
         }
 
@@ -38,7 +38,61 @@
             list-style-type: none;
         }
     </style>
+    <script type="text/JavaScript">
 
+        var x = function (r) {return 3.14 * r * r}; 
+        function fnCircle(){
+            rad = document.getElementById('radius').value;
+            var ans = x (rad);
+            alert("Area of Circle: "+ans);
+        }
+        
+        var areaRectangle = new Function("l", "b", "return l * b");
+        function fnRectangle(){
+            len = document.getElementById('length').value;
+            bre = document.getElementById('breadth').value;
+            var x = areaRectangle(len, bre);
+            alert("Area of Rectangle: "+x);
+        }
+       
+        fnHoisting(5);
+    
+        function fnHoisting(y) {
+            
+            alert('Example of Function Hoisting - '+y);
+        }
+    
+        //  Function call
+    
+        var employee = {
+            empDetails: function() {
+            return this.name+" "+ this.address + " " + this.designation;
+            }
+        }
+        var employeeobj = {
+            name:"Michael",
+            address: "Ahmedabad",
+            designation: "Manager"
+        }
+        
+        function fnCall() {
+            temp = employee.empDetails.call(employeeobj);  
+        alert("Function Call Example : " +temp);
+        }
+       
+        function fnApply() {
+            temp = employee.empDetails.apply(employeeobj);  
+        alert("Function Apply Example : " +temp);
+        }
+    
+    
+        var a = 4;
+        function exClosure() {
+            a*=a;
+            alert("Closure Example: "+ a);
+        }
+    
+        </script>
 </head>
 
 <body>
@@ -164,7 +218,53 @@
                 </ul>
             </div>
         
-        <div class="col-lg-9" id="bodycontent">JS</div>
+        <div class="col-lg-9" id="bodycontent">
+            <div class="container mt-3">
+                <div class="bg-light p-3">
+                    <form id="form1">
+                        <h3>Area of circle:</h3>    
+                         <label for="rad">Enter the radius of circle:</label>  
+                         <input type="text" class="form-control" id="radius" required>             
+                        <input type="button" value="AREA" class="btn btn-danger m-3" onclick="fnCircle()">
+                    </form>
+                </div>
+            </div>
+            <br><br><hr><br><br>
+        
+            <div class="container">
+                <div class="bg-warning p-3">
+                    <form id="form2">
+                        <h3>Area of Rectangle:</h3>    
+                         <label for="len">Enter the length of Rectangle:</label>  
+                         <input type="text" class="form-control" id="length" required> 
+                         <label for="breadth">Enter the breadth of Rectangle:</label>  
+                         <input type="text" class="form-control" id="breadth" required>              
+                        <input type="button" value="AREA" class="btn btn-dark m-3" onclick="fnRectangle()">
+                    </form>
+                </div>
+            </div>
+            <br><br><hr><br><br>
+            
+            <div class="container">
+                <div class="bg-secondary p-3">
+                    <form id="form3">
+                        <h3>Function Call Example:</h3>                         
+                        <input type="button" value="CALL" class="btn btn-danger m-3" onclick="fnCall()">
+                    </form>
+                </div>
+            </div>
+            <br><br><hr><br><br>
+        
+            <div class="container">
+                <div class="bg-dark text-white p-3">
+                    <form id="form4">
+                        <h3>Function Apply & Closure Example:</h3>                         
+                        <input type="button" value="APPLY" class="btn btn-light m-3" onclick="fnApply()">
+                        <input type="button" value="CLOSURE" class="btn btn-light m-3" onclick="exClosure()">
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </div>
 

@@ -164,7 +164,37 @@
                 </ul>
             </div>
         
-        <div class="col-lg-9" id="bodycontent">JS</div>
+        <div class="col-lg-9" id="bodycontent">
+            <p>Accept three numbers from the user using prompt, find the greater of these the numbers and do the sum of that numbers which are greater than 40.</p>
+            <script type="text/JavaScript">
+
+                var1 = parseFloat(prompt('Enter first number'));
+                var2 = parseFloat(prompt('Enter second number'));
+                var3 = parseFloat(prompt('Enter third number'));
+                sum=0;
+                if(var1 >= var2 && var1 >= var3) {
+                    largest = var1;
+                }
+                else if (var2 >= var1 && var2 >= var3) {
+                    largest = var2;
+                }
+                else {
+                    largest = var3; 
+                }
+    
+                if(var1>40) {
+                    sum+=var1;
+                }
+                if(var2>40) {
+                    sum+=var2;
+                }
+                if(var3>40) {
+                    sum+=var3;
+                }
+                
+                document.write("Largest Number is - " + largest +" Sum - "+sum );
+            </script>
+        </div>
 
     </div>
 

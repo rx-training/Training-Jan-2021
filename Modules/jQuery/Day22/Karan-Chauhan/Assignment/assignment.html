@@ -13,6 +13,19 @@
 
     <title>jQuery</title>
     <script>
+        function listData() {
+            var list = ["India", "South Africa", "Chile", "France", "Canada"];
+            var select = document.getElementById("dropdn");
+            for (var i = 0; i < list.length; i++) {                
+                var el = document.createElement("option");
+                el.textContent = list[i];
+                el.value = list[i];
+                el.id = "option"+(i+1);             
+                select.appendChild(el);
+            }
+        }
+
+
         $(document).ready(function () {
 
 
@@ -71,17 +84,13 @@
     </script>
 </head>
 
-<body>
+<body onload="listData()">
     <div class="container mt-3 pt-3 mb-3  bg-info text-white">
         <div class="form-group">
             <label class="h1">Country:</label>
-            <select class="form-control mt-3">
+            <select class="form-control mt-3" id="dropdn">
                 <option value="select" id="all" selected>Please Select</option>
-                <option value="india" id="option1">India</option>
-                <option value="sa" id="option2">South Africa</option>
-                <option value="chile" id="option3">Chile</option>
-                <option value="france" id="option4">France</option>
-                <option value="canada" id="option5">Canada</option>
+
             </select><br>
             <label class="h4">Your Selected Country :</label>
             <span id="country1" class="h4 m-3">India</span>

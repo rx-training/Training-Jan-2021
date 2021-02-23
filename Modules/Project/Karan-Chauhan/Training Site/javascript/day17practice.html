@@ -38,7 +38,26 @@
             list-style-type: none;
         }
     </style>
+    <script type="text/JavaScript">
 
+        function fnNavigate() {
+            window.location.assign("https://www.w3schools.com");
+        }
+    
+        function goBack() {
+            window.history.back();
+        }
+           
+        function createWin() {
+            myWindow = window.open("", "", "width=100, height=100");
+        }
+    
+        function reSize() {
+            myWindow.resizeTo(250, 250);
+            myWindow.focus();
+        }
+    
+        </script>
 </head>
 
 <body>
@@ -164,7 +183,35 @@
                 </ul>
             </div>
         
-        <div class="col-lg-9" id="bodycontent">JS</div>
+        <div class="col-lg-9" id="bodycontent">
+            <div class="container mt-3">
+                <div class="bg-light p-3">
+                    <form id="form1">
+                        <h3>Window.location object to navigate on another page:</h3>                
+                        <input type="button" value="NAVIGATE" class="btn btn-warning m-3" onclick="fnNavigate()">
+                    </form>
+                </div>
+            </div>
+            <br><br><hr><br><br>
+            <div class="container">
+                <div class="bg-info p-3">
+                    <form id="form2">
+                        <h3>Window.history object to move to previous url in the history list:</h3>                
+                        <input type="button" value="BACK" class="btn btn-success m-3" onclick="goBack()">
+                    </form>
+                </div>
+            </div>
+            <br><br><hr><br><br>    
+            <div class="container">
+                <div class="bg-dark  text-white p-3">
+                    <form id="form2">
+                        <h3>Change windows height and width using Windows object:</h3>   
+                        <input type="button" value="CREATE WINDOW" class="btn btn-light m-3" onclick="createWin()">             
+                        <input type="button" value="RESIZE" class="btn btn-light m-3" onclick="reSize()">
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </div>
 
