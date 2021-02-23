@@ -19,6 +19,8 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Gender</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +50,10 @@
 
                     employee += '<td>' +
                         value.email + '</td>';
-
+                    employee += '<td>' +
+                        value.gender + '</td>';
+                    employee += '<td>' +
+                        value.status + '</td>';
 
                     employee += '</tr>';
                 });
