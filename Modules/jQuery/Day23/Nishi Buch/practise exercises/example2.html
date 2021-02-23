@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+span{
+    color: black;
+    text-transform: uppercase;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#one").children().css({ "color": "blue" });
+        });
+        $(document).ready(function () {
+            $("#one").children("p.parag").css({ "color": "red"});
+        });
+        $(document).ready(function () {
+            $("#find1").find("#span1").css({ "color": "red"});
+        });
+    </script>
+</head>
+
+<body>
+    <div id="one" style="width:500px;">
+        <p>this is paragraph one.
+          <span>span one</span>  
+        </p>
+        <p class="parag">this is paragraph two
+          <span>span two</span>  
+        </p>
+    </div>
+</body>
+
+<div id="find1">
+    <p>paragraph one
+        <span id="span1">span </span>
+    </p>
+</div>
+</html>
