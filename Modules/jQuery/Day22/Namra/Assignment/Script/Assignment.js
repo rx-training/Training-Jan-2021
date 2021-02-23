@@ -2,11 +2,11 @@ $(document).ready(function(){
     
     var countryArr = [];
     
-    $("#Country option").each(function(index,element){
-        if(element.value != "default"){
-            countryArr.push(element.value);
-        }
-    });
+    $("#Country option").each((index, element) => {
+            if (element.value != "default") {
+                countryArr.push(element.value);
+            }
+        });
     //alert(countryArr);
 
     $("#selectedCountry").text("Your Selected Country : "+countryArr.toString());
