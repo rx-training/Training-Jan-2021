@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">        
+    <title>Exe5</title>
+</head>
+<body>
+    <h1 class="bg-secondary text-center"> Exe 5 Array method</h1>
+    
+
+        <div class="container">
+          
+          <div class="alert alert-danger text-center" id="push"> </div>
+          <div class="alert alert-success text-center" id="pop"> </div>
+          <div class="alert alert-warning text-center" id="shift"> </div>
+          <div class="alert alert-danger text-center" id="unshift"> </div>
+          <div class="alert alert-info text-center" id="del"> </div>     
+        </div>
+
+    <script>
+                
+            var car = ['bmw','volvo','kia'];
+            car.push('Rolls Royle');
+            document.getElementById("push").innerHTML="after push rolls royle element  " + car;
+            car.pop();
+            document.getElementById("pop").innerHTML="after pop element  " + car;
+            car.shift();
+            document.getElementById("shift").innerHTML="after shift method  " + car;
+            car.unshift('scorpio');
+            document.getElementById("unshift").innerHTML="after unshift method  " + car;
+            delete car[0];
+            document.getElementById("del").innerHTML="after delete method ->>>  " + car;
+
+            
+        
+        
+     </script>
+</body>
+</html>

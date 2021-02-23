@@ -1,0 +1,52 @@
+*{
+    margin : 0px;
+    padding : 0px;
+}
+
+.heading{
+    margin-left:20px;
+    margin-top: 10px;
+}
+
+hr{
+    margin-left : 30px;
+    margin-top : 20px;
+    margin-bottom : 20px;
+}
+
+section , article{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.list-section{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+table ,tr , th , td {
+    border : 1px solid black;
+    border-collapse: collapse;
+    padding : 7px
+}
+
+nav{
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-around;
+    background-color: darkgray;
+    height : 100px;
+    align-items: center;
+}
+
+a{
+    font-style:normal;
+    color:crimson;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+td:hover{
+    background-color: lightgray;
+}

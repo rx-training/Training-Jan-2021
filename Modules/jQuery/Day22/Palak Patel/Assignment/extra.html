@@ -1,0 +1,31 @@
+<html>
+
+   <head>
+      <title>jQuery Selector</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+      <script>
+         $(document).ready(function() {
+           $("#button1").click(function(){
+              //$("#myselection").val('2');
+                 console.log( $("#myselection option:selected").text() );
+            });
+         });
+   </script>
+   </head>
+	
+   <body>
+
+      <div>
+        <p>The selected value:</p>
+        <select id="myselection">
+          <option value="1">First</option>
+          <option value="2">Second</option>
+          <option value="3">Third</option>
+        </select>
+      </div>
+     <button id="button1">Click</button>
+
+   </body>
+	
+</html>

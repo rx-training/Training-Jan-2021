@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Hands On</title>
+    <script>
+        'use strict';
+
+        var project = {
+            securityLevel : 2,
+        };
+        var secretProject = Object.create(project);
+        console.log(typeof secretProject.toString);
+        console.log(secretProject.__proto__.__proto__ === Object.prototype);
+
+
+
+        var task = {};
+        Object.defineProperty(task, 'text', { 
+            value : 'Get this job done!',
+            writable : true,
+            enumerable : true,
+            configurable : false,
+        });
+        task.text = task.text += ' ... NOW!';
+        console.log(task.text);
+
+        for(var f in task)
+        {
+            console.log(f);
+        }
+
+
+
+        var task1 = {
+            _dueDate : '5/21/2000',
+        };
+        Object.defineProperty(task1, 'dueDate', {
+            get : function() {
+                return this._dueDate;
+            },
+            set : function(newValue) {
+                this._dueDate = newValue;
+            }
+        });
+        task1.dueDate = '9/17/1999'
+        console.log(task1.dueDate);
+
+
+
+        var task2 = {};
+        Object.defineProperties(task2,{
+            'text' : {
+                value : 'New Task'
+            },
+            'dueDate' : {
+                value : '2/2/2021'
+            }
+        });
+        console.log(task2.text + " Due : " + task2.dueDate);
+        var descriptior = Object.getOwnPropertyDescriptor(task2,'text');
+        console.log(descriptior);
+
+
+        
+        //Miscellaneous Object Functions
+        var project = {
+            name : 'Top Secret Project',
+            dueDate : '2/2/2021'
+        };
+        console.log(project.hasOwnProperty('name'));
+        console.log(project.__proto__.hasOwnProperty('toString'));
+        console.log(Object.prototype.isPrototypeOf(project));
+
+        var secretProject = Object.create(project);
+        console.log(Object.prototype.isPrototypeOf(secretProject));
+        console.log(project.__proto__.isPrototypeOf(secretProject));
+        console.log("name" in secretProject);
+        console.log("toString" in secretProject);
+        console.log("name" in Object.prototype);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

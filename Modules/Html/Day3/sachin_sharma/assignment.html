@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Employee Detail Form</title>
+</head>
+<body>
+    <div class="emp_form"><h1>Employee Form</h1></div>
+    <div class="main">
+        <form action="#">
+       
+            <div>
+                <label class='label' for="name">Name   </label>
+                <input class="name" type="text" id="name" name="name" required>    
+            </div></br>
+            <div>
+                <label class='label' for="age">Age   </label>
+                <input class="age" type="number" id="age" name="age" required>    
+            </div></br>
+            <div>
+                <label class='label' for="age">Gender   </label>
+                <input class="gender" type="radio" id="male" name="gender" value="male"><label for="Male">Male</label>
+                <input class="gender" type="radio" id="female" name="gender" value="female"><label for="Female">Female</label></br>    
+            </div></br>
+            <div>
+                <label class='label' for="designation">Designation   </label>
+                <input class="designation" type="text" id="designation" name="designation" required>    
+            </div></br> 
+            <div>
+                <label class='label' for="salary">Salary   </label>
+                <input class="salary" type="number" id="salary" name="salary" required>    
+            </div></br>
+            <div>
+                <label class='label' for="location">Location   </label>
+                <select class="location" name="location" id="location">
+                    <option value="Ahmedabad">Ahmedabad</option> 
+                    <option value="Surat">Surat</option> 
+                    <option value="Rajkot">Rajkot</option>
+                    <option value="Vatva">Vatva</option>
+                </select>
+                    <!--
+                        <input type="text" list="location">
+                        <datalist id="location">
+                        <option value="Ahmedabad"></option> 
+                        <option value="Surat"></option> 
+                        <option value="Rajkot"></option>
+                        <option value="Vatva"></option>  
+                    </datalist>-->    
+                </div></br>
+                <div>
+                    <label class='label' for="email">Enter Email Id   </label>
+                    <input class="email" type="email" id="email" name="email" required>    
+                </div></br>
+                <div>
+                    <label class='label' for="join_date">Joining Date  </label>
+                    <input class="join_date" type="date" id="join_date" name="join_date" required>    
+                </div></br>
+                <input class="button" type="submit" value="submit">
+          
+        </form>
+    </div>
+</body>
+</html>

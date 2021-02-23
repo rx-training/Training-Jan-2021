@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="p111111reconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">        
+    <title>exe5</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="bg-info text-center">exe5</h1>
+        
+        <div class="alert alert-success" id="ans">
+
+        </div>
+    </div>
+
+    <script>
+        var employee ={
+            all_data:function(country){
+                return this.name + " " + this.address + " " + this.designation + " " + country;
+            }
+        }
+        var emp1 ={
+              name:"sachin",
+              address:"ahmedabad",
+              designation:"trainee"
+        }
+       // apply method is same like call method just difference is passing argument in array 
+        document.getElementById('ans').innerHTML="Apply method e.g its same like call method value is employee object -> "+  employee.all_data.apply(emp1,["India"]); 
+    </script>
+</body>
+</html>

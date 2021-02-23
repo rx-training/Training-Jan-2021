@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			*{
+				background-color: #333;
+				color:white;
+			}
+			.absolute{
+				position:absolute;
+				width:280px;
+				border:1px solid;
+				top:100px;
+				right:20px;
+			}
+			.relative{
+				position:relative;
+				width:280px;
+				border:1px solid;
+				top:180px;
+				left:330px;
+			}
+			.static{
+				position:static;
+				width:280px;
+				border:1px solid;
+				top:20px;
+			}
+			.fixed{
+				position:fixed;
+				width:280px;
+				border:1px solid;
+				bottom:150px;
+				left:10px;
+				
+			}
+			.absolute,.fixed,.relative,.static{
+				background-color: darkgray;
+			}
+			h1{
+				border: 1px solid;
+				background-color: darkmagenta;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 style="text-align:center">Position Property</h1>
+		<div class="absolute">
+			1.absolute four position property is there absolute
+			relative, fixed,static.
+			four position property is there absolute
+			relative, fixed,static.
+		</div>
+		<div class="relative">
+			2.relative four position property is there absolute
+			relative, fixed,static.
+			four position property is there absolute
+			relative, fixed,static.
+		</div>
+		<div class="static">
+			3.static four position property is there absolute
+			relative, fixed,static.
+			four position property is there absolute
+			relative, fixed,static.
+		</div>
+		<div class="fixed">
+			4.fixed four position property is there absolute
+			relative, fixed,static.
+			four position property is there absolute
+			relative, fixed,static.
+		</div>
+	</body>
+</html>

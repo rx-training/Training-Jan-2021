@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogen admion area</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">blogen</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span
+                    class="navar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="navbar-item" px-2>
+                        <a href="index.html" class="nav-link active">Dashboard</a>
+                    </li>
+                    <li class="navbar-item" px-2>
+                        <a href="posts.html" class="nav-link">Post</a>
+                    </li>
+                    <li class="navbar-item" px-2>
+                        <a href="categories.html" class="nav-link">Categories</a>
+                    </li>
+                    <li class="navbar-item" px-2>
+                        <a href="users.html" class="nav-link">Users</a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown mr-3">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>Welcome
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fa fa-user-circle"></i>profile</a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fa fa-gear"></i>settings</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link">
+                            <i class="fa fa-user-times"></i> LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <header class="oy-2 bg-primary text-white" id="main-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1><i class="fa fa-gear">Dashboard</i></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- actions -->
+    <section id="action" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+                        <i class="fa fa-plus"></i> Add Post
+                    </a>
+
+
+                </div>
+                <div class="col-md-3">
+                    <a href="" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
+                        <i class="fa fa-plus"></i> Add Category
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
+                        <i class="fa fa-plus"></i> Add User
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- post  -->
+        <section id="posts">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Latest post</h4>
+                            </div>
+                            <table class="table table-striped">
+                                <thead class="thead-inverse thead-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Titile</th>
+                                        <th>Category</th>
+                                        <th>Date posted</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">1</td>                                          
+                                        <td>Post One</td>
+                                        <td>Web Devlopement</td>
+                                        <td>Decemebr 12,1992</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">2</td>                                          
+                                        <td>Post Two </td>
+                                        <td>Tech gadgets</td>
+                                        <td>september 12,1992</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">3</td>                                          
+                                        <td>Post Three</td>
+                                        <td>Web Devlopement</td>
+                                        <td>july 12,1992</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">4</td>                                          
+                                        <td>Post Four</td>
+                                        <td>business</td>
+                                        <td>Jan 15,1992</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">5</td>                                          
+                                        <td>Post Five</td>
+                                        <td>Web Devlopement</td>
+                                        <td>june 5th,1992</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">6</td>                                          
+                                        <td>Post sixth</td>
+                                        <td>health & welness</td>
+                                        <td>Decemebr 12,1992</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-3">
+                            <div class="card text-center bg-primary text-white mb-3">
+                                <div class="card-body">
+                                    <h3>Posts</h3>
+                                    <h1 class="display-4">
+                                        <i class="fa fa-pencil"></i> 6
+                                     </h1>
+                                     <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
+                                </div>
+                            </div>
+                            <div class="card text-center bg-success text-white mb-3">
+                                <div class="card-body">
+                                    <h3>Categories</h3>
+                                    <h1 class="display-4">
+                                        <i class="fa fa-folder-open-o"></i> 4
+                                     </h1>
+                                     <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+                                </div>
+                            </div>
+                            <div class="card text-center bg-warning text-white mb-3">
+                                <div class="card-body">
+                                    <h3>users</h3>
+                                    <h1 class="display-4">
+                                        <i class="fa fa-users"></i> 2
+                                     </h1>
+                                     <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                                </div>
+                            </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="lead text-center">Copyright &copy; Blogen 2021
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Post modal -->
+
+    <div class="modal fade" id="addPostModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Add Post</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="title">Titile</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">category</label>
+                            <select name="category" id="category" class="form-control">
+                                <option value="WebDev">Web devlopement</option>
+                                <option value="Tech Gadgets">Tech Gadgets</option>
+                                <option value="busineess">busineess</option>
+                                <option value="Health & welness">Health & welness"</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Image upload</label>
+                            <input type="file" class="form-control-file">
+                            <small class="form-text text-muted">max size 3MB</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="body">body</label>
+                            <textarea name="editor1" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- category modal
+     -->
+    <div class="modal fade" id="addCategoryModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Add cateogry</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="title">Titile</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- user modal  -->
+    <div class="modal fade" id="addUserModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title">Add user</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">passoword</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Confirm Password</label>
+                            <input type="password" class="form-control">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-warning" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+
+</body>
+
+</html>

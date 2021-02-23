@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <title>
+            Employ Detils Form
+        </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script>
+       function IsValid(empdetils,id){
+           switch(id){
+            case employid:   
+            var pattern =  /^\d{5}$/g;
+            var emperror = document.getElementById('empId');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case employname:   
+            var pattern =  /^[a-zA-Z]+$/;
+            var emperror = document.getElementById('empname');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case age:  
+            var emperror = document.getElementById('empage');
+            if(empdetils == "" || empdetils < 18 || empdetils > 60 ){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case distination:   
+            var pattern = /^[a-zA-Z]+$/;
+            var emperror = document.getElementById('empdistination');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case salary:   
+            var emperror = document.getElementById('empsalary');
+            if(empdetils == ""){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case datejoin:   
+            var emperror = document.getElementById('empdatejoin');
+            if(empdetils == ""){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case email:   
+            var emperror = document.getElementById('empemail');
+            if(empdetils == ""){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case contact:   
+            var pattern =  /^\d{10}$/g;
+            var emperror = document.getElementById('empcontact');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            }
+       }
+    </script>
+    </head>
+    <body>
+    <div class="container">
+        <div class="card w-75 text-center mx-auto my-3">
+            <div class="card-header"> 
+                <h1 class="h1 py-2">Employ Details</h1>
+            </div>
+            <div class="card-body">
+                <form class="">
+                    <div class="form-group my-4">
+                        <label class="col-lg-4" for="employid">Employ Id :</label>
+                        <input class="col-lg-6" id="employid" type="text" onblur="return IsValid(this.value,employid)" placeholder="12345"  name="employid">
+                        <label id="empId" class="text-danger col-lg-9 "
+                            style="display: none;">Please enter valid Employee ID</label>
+                    </div>
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="employname">Employ Name :</label>
+                        <input class="col-lg-6" onblur="return IsValid(this.value,employname)" id="employname" type="text" placeholder="Name" name="employname">
+                        <label id="empname" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter valid Employee Name</label>
+                    </div>
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="age">Age :</label>
+                        <input class="col-lg-6" onblur="return IsValid(this.value,age)" id="age" type="number" placeholder="18-60" name="age">
+                        <label id="empage" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter valid Employee age</label>
+                    </div>
+                    <div class="my-4 form-group">
+                        <div class="col-lg-6 float-left">
+                            <label  for="gender">Gender :</label>
+                        </div>
+                        <div class="col-lg-6" style="display: flex;">
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="radio1">
+                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="Male" checked>Male
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="radio1">
+                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="FeMale" checked>FeMale
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="radio1">
+                              <input type="radio" class="form-check-input" id="radio3" name="optradio" value="Other" checked>Other
+                            </label>
+                          </div>
+                        </div>  
+                    </div>
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="distination">Distination :</label>
+                        <input class="col-lg-6" onblur="return IsValid(this.value,distination)" placeholder="Designation" id="distination" type="text" name="distination" value="">
+                        <label id="empdistination" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter valid distonation</label>
+                    </div>
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="salary">Salary :</label>
+                        <input class="col-lg-6" onblur="return IsValid(this.value,salary)" id="salary" type="number" placeholder="20000" name="salary" value="">
+                        <label id="empsalary" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter valid Employee Salary</label>
+                    </div>
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="location">Location :</label>
+                        <select class="col-lg-6"  name="location" id="location">
+                            <option value="ahemdabad">Ahemdabad</option>
+                            <option value="surat">Surat</option>
+                            <option value="rajkot">Rajkot</option>
+                            <option value="bhavnager">Bhavnager</option>
+                        </select>
+                    </div>
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="email">Email ID :</label>
+                        <input class="col-lg-6" onblur="return IsValid(this.value,email)" placeholder="abc@gmail.com" type="email" id="email" name="emailid">
+                        <label id="empemail" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter valid Email Id</label>
+                    </div>
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="datejoin">Date of Joining  :</label>
+                        <input class="col-lg-6" onblur="return IsValid(this.value,datejoin)" id="datejoin" type="date" name="datejoin" value="">
+                        <label id="empdatejoin" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter valid Date of join</label>
+                    </div>    
+                    <div class="my-4 form-group">
+                        <label class="col-lg-4" for="contactno">Contact Number :</label>
+                        <input class="col-lg-6" onblur="return IsValid(this.value,contact)" placeholder="1234567890" id="contact" type="tel" name="contactno" value="">
+                        <label id="empcontact" class="text-danger col-lg-9 col-form-label pl-0"
+                            style="display: none;">Please enter valid Employee contact no</label>
+                    </div>
+                    <div class="my-4 form-group">
+                        <button class="col-lg-4" onclick="return isvalid()" id="submit"  value="">Submit</button>
+                        <button class="col-lg-4" onclick="return isvalid()" type="reset" id="reset"  value="">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        console.log(typeof Object);
+        var Employee = function(name)
+        {
+            this.name = name;
+        }
+        var newEmployee = new Employee("jj");
+        console.log(typeof newEmployee);
+        console.log(newEmployee.name);
+        var Employee = function(name , boss)
+        {
+            this.name = name;
+            this.boss = boss;
+        }
+        var newEmployee = new Employee("jj" , "jjBoss");
+        console.log(newEmployee.name , newEmployee.boss);
+        var Employee = function(name)
+        {
+            this.name = name;
+            this.giveraise = function()
+            {
+
+            };
+        }
+        var e1 = new Employee("jj");
+        var e2 = new Employee("jv");
+        console.log(e1 === e2);
+        console.log(e1._proto_ === e2._proto_ );
+        console.log(e1.giveraise === e2.giveraise );
+        var Employee = function(name)
+        {
+            this.name = name;
+            this.giveraise = function()
+            {
+
+            };
+        }
+        console.log(typeof Employee.prototype);
+        console.log(Employee.prototype === Object.prototype);
+        var Employee = function(name)
+        {
+            this.name = name;
+        };
+        Employee.prototype.giveraise = function()
+        {
+
+        };
+        var e1 = new Employee("jj");
+        var e2 = new Employee("jv");
+        console.log(e1.giveraise === e2.giveraise );
+        var Employee = function(name )
+        {
+            this.name = name;
+            this.salary = 5000;
+        };
+        Employee.prototype.giveraise = function(raise)
+        {
+            this.salary += raise;
+        };
+        var e1 = new Employee("jj");
+        var e2 = new Employee("jv");
+        e1.giveraise(100000);
+        console.log(e1.salary);
+        console.log(e2.salary);
+    </script>
+</body>
+
+</html>

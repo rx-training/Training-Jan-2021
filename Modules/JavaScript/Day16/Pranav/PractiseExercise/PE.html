@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Javascript Exercise</title>
+        <script>
+            
+            //Function to check whether String is blank or not
+            function strcheck() {
+                var str1=prompt("Enter a string:");
+                if(str1==="") 
+                    document.getElementById("output").innerHTML = "String blank:true";
+                else
+                    document.getElementById("output").innerHTML = "String blank:false";
+            }
+            
+            //Function to split the string to array of words.
+            function strsplit() {
+                var str1=prompt("Please enter a string:");
+                var arr1=str1.split(" ");
+                document.getElementById("output").innerHTML = "String converted to array: " + arr1;
+            }
+            
+            //Funtion to extract specified no. of characters from string
+            function strextract(){
+                var str1=prompt("Please enter string:");
+                var pos=prompt("Please enter the positiion you want to extract the characters:")
+                if(str1.length>=pos) {
+                    var str2=str1.slice(0,pos);
+                    document.getElementById("output").innerHTML = "Extracted " + pos + " characters from string: " + str2;
+                }
+                else
+                    document.getElementById("output").innerHTML = "Please enter valid string & position";
+            }
+            
+            //Function to get current date.
+            function currentdate() {
+                var dt=new Date();
+                document.getElementById("output").innerHTML = "Current Date: " + dt;
+            }
+            
+            //Examples of push,pop,shifting,delete
+            function arraymthds() {
+                var arr1=["Pranav","Ravi","Parth","Dhaval"];
+                alert("Initial Array: " + arr1);
+                arr1.push("Jay","Krupal");
+                alert("Pushed 2 items to Array: " + arr1);
+                arr1.pop();
+                alert("Pop from Array: " + arr1);
+                arr1.shift();
+                alert("Shifting Array: " + arr1);
+                arr1.unshift("Pranav","Krupal");
+                alert("Unshifting Array: " + arr1);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container text-center mt-5 mb-5">
+            <button class="btn-danger btn-lg" onclick="strcheck()">Check String</button>
+            <button class="btn-success btn-lg" onclick="strsplit()">Split String</button>
+            <button class="btn-warning btn-lg" onclick="strextract()">Extract Characters</button>
+            <button class="btn-info btn-lg" onclick="currentdate()">Get me Current Date</button>
+            <button class="btn-dark btn-lg" onclick="arraymthds()">Array Methods</button>
+        </div>
+        <p class="container text-center mt-5 text-primary" id="output"></p>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+div {
+    background-color: cornflowerblue;
+}
+
+.checkFloat {
+    margin: auto;
+    width: 500px;
+    height: 115px;
+    border: 1px solid black;
+}
+
+.leftFloat {
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding: 1px;
+    width: 30%;
+    margin: 1%;
+    border: 1px solid black;
+}
+
+.center {
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding: 1px;
+    width: 30%;
+    margin: 1%;
+    border: 1px solid black;
+}
+
+.rightFloat {
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding: 1px;
+    width: 30%;
+    margin: 1%;
+    border: 1px solid black;
+}
