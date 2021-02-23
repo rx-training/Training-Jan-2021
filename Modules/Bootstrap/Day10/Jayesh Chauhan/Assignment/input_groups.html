@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <header class="display-1">
-            <p class="text-dark text-center">Input Groups & Addons</p>
+            <p class="text-dark text-center">Input Groups</p>
         </header>
         <hr>
         <ul class="nav nav-justified sticky-top">
@@ -67,49 +67,69 @@
         <section class="mt-3">
             <div class="container">
                 <div class="input-group">
-                    <span class="input-group-addon">@</span>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
                 </div>
                 <br>
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Email address">
-                    <span class="input-group-addon">@something.com</span>
+                    <div class="input-group-append">
+                        <span class="input-group-text">@something.com</span>
+                    </div>
                 </div>
                 <br>
                 <label for="profile">Chooose profile URL</label>
                 <div class="input-group">
-                    <span class="input-group-addon">https://something.com/member/</span>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">https://something.com/member/</span>
+                    </div>
                     <input type="text" class="form-control">
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon">@</span>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
                     <input type="text" class="form-control" placeholder="Username">
-                    <span class="input-group-addon">.00</span>
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
                 </div>
                 <br>
                 <div class="input-group input-group-lg">
-                    <span class="input-group-addon">@</span>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
                     <input type="text" class="form-control" placeholder="Username">
-                    <span class="input-group-addon">.00</span>
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon"><input type="checkbox" ></span>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><input type="checkbox" ></span>
+                    </div>
                     <input type="text" class="form-control">
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon"><input type="radio"></span>
-                    <span class="input-group-addon">$4.00</span>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><input type="radio"></span>
+                        <span class="input-group-text">$4.00</span>
+                    </div>
                     <input type="text" class="form-control">
                 </div>
                 <br>
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
+                    <div class="input-group-append">
+                        <span class="input-group-btn">
                         <button class="btn btn-primary">Search</button>
                     </span>
+                    </div>
                 </div>
             </div>
         </section>

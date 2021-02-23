@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form</title>
+    </head>
+
+    <body>
+        <h1>Registration Form</h1>
+
+        <form name="registration">
+        
+            <label for="ename">Employee Name:</label>
+            <input type="text" name="ename" required/><br>
+            <label for="age">Age:</label>
+            <input type="number" name="age" required/><br>
+            <label id="gender">Gender:</label>
+            <input type="radio" name="gender" value="Male"/><span>Male</span>
+            <input type="radio" name="gender" value="Female"/><span>Female</span><br>
+            <label for="designation">Designation:</label>
+            <input type="text" name="designation" required/><br>
+            <label for="salary">Salary:</label>
+            <input type="number" name="salary" required/><br>
+            <label for="location">Location:</label>
+            <select name="location">
+                <option selected="" value="Default">Please select a Location</option>
+                <option value="Ind">India</option>
+                <option value="Can">Canada</option>
+                <option value="Usa">USA</option>
+                <option value="Aus">Australia</option>
+            </select><br>
+            <label for="email">Email ID:</label>
+            <input type="email" name="email" required/><br>
+            <label for="date">Date Of Joining:</label>
+            <input type="date" name="date" required/><br>
+            <label for="contact">Contact Number:</label>
+            <input type="number" name="contact" required/><br>
+            <input type="submit" value="Submit">
+
+        </form>
+    </body>
+</html>

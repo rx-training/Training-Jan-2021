@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogen admion area</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">blogen</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span
+                    class="navar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="#navbarNav">
+                <ul class="navbar-nav">
+                    <li class="navbar-item" px-2>
+                        <a href="index.html" class="nav-link ">Dashboard</a>
+                    </li>
+                    <li class="navbar-item" px-2>
+                        <a href="posts.html" class="nav-link">Post</a>
+                    </li>
+                    <li class="navbar-item" px-2>
+                        <a href="categories.html" class="nav-link">Categories</a>
+                    </li>
+                    <li class="navbar-item" px-2>
+                        <a href="users.html" class="nav-link">Users</a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown mr-3">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>Welcome
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fa fa-user-circle"></i>profile</a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fa fa-gear"></i>settings</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link">
+                            <i class="fa fa-user-times"></i> LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <header class="py-2 bg-primary text-white" id="main-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1> <i class="fa fa-user"></i> Edit Profile</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- actions -->
+    <section id="action" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mr-auto">
+                    <a href="index.html" class="btn btn-light btn-block">
+                        <i class="fa fa-arrow-left"></i> backToDashboard
+                    </a>
+
+
+                </div>
+                <div class="col-md-3">
+                    <a href="" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordmodal">
+                        <i class="fa fa-lock"></i> change password
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="" class="btn btn-danger btn-block" >
+                        <i class="fa fa-remove"></i> Delete Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+       <!-- Profile Editr  -->
+        <section id="profile">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Edit Profile</h4>
+                            </div>
+                            <div class="card-body">
+                                <form >
+                                    <div class="form-group">
+                                        <label for="Name">Name</label>
+                                        <input type="text" class="form-control" value="Tirth-Patel"> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Email">Email</label>
+                                        <input type="text" class="form-control" value="email@email.com"> 
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <label for="body">Bio</label>
+                                        <textarea name="editor1" cols="30" rows="10" class="form-control">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, aspernatur tenetur nemo nulla debitis laudantium aliquam fugiat eveniet aut unde hic perferendis totam quia possimus velit ipsum exercitationem repudiandae explicabo.
+                                        </textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Your Avatar</h3>
+                        <img src="img/download.jfif" class="d-block img-fluid mb-3">
+                        <button class="btn btn-primary btn-block">Edit Image</button>
+                        <button class="btn btn-danger btn-block">Delete Image</button>
+                      
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="lead text-center">Copyright &copy; Blogen 2021
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- passowrd modal -->
+    <div class="modal fade" id="passwordmodal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title">Change password</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        
+                        <div class="form-group">
+                            <label for="Password">passoword</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Confirm Password</label>
+                            <input type="password" class="form-control">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-warning" data-dismiss="modal">Upadate passowrd</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+
+</body>
+
+</html>
