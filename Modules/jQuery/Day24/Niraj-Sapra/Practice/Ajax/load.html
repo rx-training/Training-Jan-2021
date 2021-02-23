@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script>
+        function showget(){
+            $(document).ready(function(){
+                $.get("loadfile.txt", function(data, status){
+                  alert("Data: " + data + "\nStatus: " + status);
+                });
+                $(".main").load("loadfile.txt");       
+            return false;
+            });
+        }
+        function loadbt(){
+            $(document).ready(function(){
+                $("#loadshowfor").load("loadfile.txt");       
+            return false;
+            });
+        }
+        // function showpost(){
+        //     $(document).ready(function(){              
+        //         $.post("loadfile.txt",
+        //         {
+        //             name: "Niraj Sapra",
+        //             city: "Bhavnagar"
+        //         },
+        //         function(data, status){
+        //           alert("Data: " + data + "\nStatus: " + status);
+        //         });
+        //         return false;
+        //     });
+        // }
+    </script>
+    <style>
+        .simplewidth{
+            border: 1px solid black;
+            padding-top: 10px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="text-center  my-5">Load file</h2>
+            <div class="simplewidth mx-auto my-5" style="width:500px;"> 
+                <div>
+                    <button id="mainbutton" onclick="return showget()">show files</button>
+                </div>     
+                <p class=" my-5 main">
+                </p>
+                <div class=" my-5">
+                    <button onclick="return loadbt()">load click</button>
+                    <p id="loadshowfor"></p>
+                </div> 
+                <div class=" my-5">
+                    <button onclick="return showpost()">Post click</button>
+                    <p id="postshowfor"></p>
+                </div>
+            </div>
+            
+        </div>   
+    </body>
+</html>
