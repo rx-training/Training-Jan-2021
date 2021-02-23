@@ -1,0 +1,3 @@
+Difference between fetch and pull
+Fetch-	git fetch fetches the required information only to local repository
+Pull-	git pull fetches the required information not only to local repository but also to the workspace that you are currently working in

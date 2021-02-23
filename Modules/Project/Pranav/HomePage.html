@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,700&display=swap" rel="stylesheet"> 
+        <title>Pocket</title>
+        <script>
+            function pranav1() {
+                var flag="";
+                const queryString=window.location.search;
+                const urlparameters=new URLSearchParams(queryString);
+                const articleID=urlparameters.get('articleid');
+                var p1=localStorage.getItem("posts");
+                var p2=JSON.parse(p1);
+                for(var i=0;i<p2.length;i++) {
+                    if(p2[i].articleid==articleID) {
+                        flag += "<tr>";
+                        var p3=document.getElementById("homeimg");
+                        p3.setAttribute('src',p2[i].categoryimage);
+                        flag += "</tr>";
+                        flag += "<tr>"+p2[i].categorylink+"</tr>";
+                        flag += "<tr>";
+                        flag += '<a href="" class="text-dark"><i class="far fa-star"></i></a>&nbsp;&nbsp;&nbsp;';
+                        flag += '<a href="" class="text-dark"><i class="fas fa-archive"></i></a>&nbsp;&nbsp;&nbsp;';
+                        flag += '<a href="" class="text-dark"><i class="fas fa-tags"></i></a>&nbsp;&nbsp;&nbsp;';
+                        flag += '<a href="" class="text-dark"><i class="far fa-trash-alt"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                        flag += '<i class="fas fa-ellipsis-h"></i>';
+                        flag += "</tr>";
+                    }
+                }
+                document.getElementById("homeposts").innerHTML=flag;
+            }
+        </script>
+        <style>
+            #navdiv {
+                margin-left: 175px;
+                margin-right: 200px;
+            }
+            #ul1 {
+                margin-right: 500px;
+            }
+            a:hover {
+                background-color: green;
+            }
+            #navleft2 {
+                margin-top: 50px;
+            }
+            #p1 {
+                font-family: 'Noto Sans', sans-serif;
+            }
+        </style>
+    </head>
+    <body onload="pranav1()">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container" id="navdiv">
+                <a href="Assignment.html" class="navbar-brand text-danger">pocket</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggeler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto" id="ul1">
+                        <li class="nav-items">
+                            <a href="Discover.html" class="nav-link text-dark">Discover</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="HomePage.html" class="nav-link text-dark">MyList</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <a href=""><i class="fa fa-search text-dark" style="font-size: 22px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-plus text-dark" style="font-size: 22px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-pencil-alt text-dark" style="font-size: 22px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li>
+                            <a href="" class="text-dark"><i class="far fa-gem" style="font-size: 22px;"></i>&nbsp;Upgrade&nbsp;&nbsp;&nbsp;</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-user-tie" style="font-size: 22px;"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <hr class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3" id="navleft2">
+                    <div class="sidenav">
+                        <a href=""></a>
+                        <div id="p1">
+                            <a href="" class="text-dark"><i class="fas fa-home"></i>&nbsp;&nbsp;My List</a><br><br>
+                            <a href="" class="text-dark"><i class="fas fa-archive"></i>&nbsp;&nbsp;Archive</a><br><br><br>
+                            <p>Filters</p>
+                            <a href="" class="text-dark"><i class="far fa-star"></i>&nbsp;&nbsp;Favourites</a><br><br>
+                            <a href="" class="text-dark"><i class="fas fa-highlighter"></i>&nbsp;&nbsp;Highlights</a><br><br>
+                            <a href="" class="text-dark"><i class="far fa-clipboard"></i>&nbsp;&nbsp;Articles</a><br><br>
+                            <a href="" class="text-dark"><i class="fab fa-youtube"></i>&nbsp;&nbsp;Videos</a><br><br><br>
+                            <p>Tags</p>
+                            <a href="" class="text-dark"><i class="fas fa-tags"></i>&nbsp;&nbsp;All Tags</a><br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="card">
+                        <img id="homeimg" class="img-fluid" alt="">
+                        <table id="homeposts"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <p class="mt-5"><Strong>Products</Strong></p>
+                    <a href="" class="text-dark">Must Read Articles</a><br><br>
+                    <a href="" class="text-dark">Daily News Letters</a><br><br>
+                    <a href="" class="text-dark">Pocket Premium</a><br><br>
+                    <a href="" class="text-dark">Save to Pocket Extensions</a>
+                </div>
+                <div class="col-md-3">
+                    <p class="mt-5"><Strong>Company</Strong></p>
+                    <a href="" class="text-dark">About</a><br><br>
+                    <a href="" class="text-dark">Careers</a><br><br>
+                    <a href="" class="text-dark">Blog</a>
+                </div>
+                <div class="col-md-3">
+                    <p class="mt-5"><Strong>Resources</Strong></p>
+                    <a href="" class="text-dark">Get Help</a><br><br>
+                    <a href="" class="text-dark">Developer API</a><br><br>
+                    <a href="" class="text-dark">Pocket for Publishers</a><br><br>
+                    <a href="" class="text-dark">Advertise</a>
+                </div>
+                <div class="col-md-3">
+                    <p class="mt-5 ml-5"><Strong>Get the App</Strong></p><br>
+                    <img class="img-fluid ml-5 mb-5" src="download.jpg" width="200px" height="200px">
+                </div>
+            </div>
+        </div>
+        <hr class="bg-dark mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <p>Pocket is part of the <a href="" class="text-dark" style="text-decoration: underline;">Mozilla</a> family of products.</p>
+                    <p>2021 Read It Later, Inc.  <a href="" class="text-dark" style="text-decoration: underline;">Privacy policy</a>&nbsp;&nbsp;<a href="" class="text-dark" style="text-decoration: underline;">Terms of service</a></p>
+                </div>
+                <div class="col-md-2">
+                    <img class="img-fluid" src="twitter.jpg" width="30px" height="30px">
+                    <img class="img-fluid" src="fb.jpg" width="30px" height="30px">
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>

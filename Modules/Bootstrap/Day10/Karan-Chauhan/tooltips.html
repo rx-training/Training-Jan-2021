@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tooltips</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 class="display-3">Tooltips</h1>
+    </center>
+    <div class="container">
+        <!--TOOLTIPS-->
+        <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on
+            Top</button>
+        <button class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on
+            Right</button>
+        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip
+            on Bottom</button>
+        <button class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on
+            Left</button>
+
+        <br><br>
+        <hr>
+        <!--TOOLTIP WITH HTML-->
+        <button class="btn btn-primary" id="hello" data-toggle="tooltip" data-placement="top" data-html="true"
+            title="<h3>Hello World!</h3><p>This is the data demo!</p>">Tooltip with HTML</button>
+
+        <br><br>
+        <hr>
+        <!--TRIGGER WITH JS-->
+
+        <button class="btn btn-secondary" onclick="showTooltip()">
+            Show Tooltip
+        </button>
+
+        <button class="btn btn-secondary" onclick="hideTooltip()">
+            Hide Tooltip
+        </button>
+
+        <button class="btn btn-secondary" onclick="toggleTooltip()">
+            Toggle Tooltip
+        </button>
+
+        <script>
+            //Init tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+
+
+            function showTooltip() {
+                $('#hello').tooltip('show');
+            }
+
+            function hideTooltip() {
+                $('#hello').tooltip('hide');
+            }
+
+            function toggleTooltip() {
+                $('#hello').tooltip('toggle');
+            }
+
+            //Tooltip Events
+
+            $('#hello').on('show.bs.tooltip', function(){
+                console.log('Tooltip Show');
+            });
+
+            $('#hello').on('shown.bs.tooltip', function(){
+                console.log('Tooltip Shown');
+            });
+
+            $('#hello').on('hide.bs.tooltip', function(){
+                console.log('Tooltip Hide');
+            });
+
+            $('#hello').on('hidden.bs.tooltip', function(){
+                console.log('Tooltip Hidden');
+            });
+        </script>
+    </div>
+</body>
+
+</html>

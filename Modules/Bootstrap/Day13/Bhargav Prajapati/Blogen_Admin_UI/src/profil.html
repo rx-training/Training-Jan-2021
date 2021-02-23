@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/3b15c7ca15.js" crossorigin="anonymous"></script>
+        <title>Blogen Admin UI</title>
+    </head>
+
+    <body>
+
+        <!--nav bar-->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">Blogen</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navid">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navid">
+                    <ul class="navbar-nav" >
+                        <li class="nav-item active px-3"><a href="index.html" class="nav-link">Dashbord</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav" id="navid">
+                        <li class="nav-item  px-3"><a href="post.html" class="nav-link">Post</a></li>
+                    </ul>
+                    <ul class="navbar-nav" id="navid">
+                        <li class="nav-item  px-3"><a href="categories.html" class="nav-link">Categories</a></li>
+                    </ul>
+                    <ul class="navbar-nav" id="navid">
+                        <li class="nav-item  px-3"><a href="users.html" class="nav-link">Users</a></li>
+                    </ul>
+                    <ul class="ml-auto  navbar-nav">
+                        <li class="nav-item dropdown ">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i> Welecome Brad
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="profil.html" class="dropdown-item">
+                                   <i class="fa fa-user-circle"></i> Profile
+                                </a>
+                                <a href="setting.html" class="dropdown-item">
+                                    <i class="fa fa-gear"></i> Setting
+                                 </a>
+                            </div>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link">
+                                <i class="fa fa-sign-out-alt"></i>   Log In
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Header-->
+        <header id="" class="bg-primary py-2">
+            <div class="container">
+                <h1 class="text-white"> <i class="fas fa-user-alt"></i> Edit Profile
+                </h1>
+            </div>
+        </header>
+
+
+         <!--button with back to home-->
+         <section class="bg-light">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back TO Home</a>
+            </div>
+            <div class="col-sm-8 ml-auto px-5   ">
+                <a href="" class="btn btn-success mx-5 text-center" id=""  data-toggle="modal"  data-target="#modal1"> <i class="fas fa-lock"></i> Change Password</a>
+                <a href="" class="btn btn-danger mx-5 text-center"><i class="fas fa-times"></i> Delete Account</a>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <!--card section-->
+        <section class="pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        Edit Profile
+                    </div>
+                    <div class="card-body">
+                        <form >
+                            <div class="form-group">
+                                <label for="Title">Name</label>
+                                <input type="text" class="form-control" placeholder="Full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                <input type="email"  class="form-control" placeholder="abc@gmail.com">
+                            </div>
+
+
+                                 <div class="form-group">
+                                    <label for="body">Bio</label>
+                                    <textarea class="form-control" name="editor1" id="" cols="30" rows="10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, laboriosam.</textarea>
+                                     </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <h2>Your Avtar</h2>
+                <img src="img/avatar.png" alt="" style="height: 200px; width: 200px;">
+                <a href="#" class="btn btn-primary mt-3  d-block">Edit Image</a>
+                <a href="#" class="btn btn-danger mt-3  d-block">Delete Image</a>
+            </div>
+
+            </div>
+        </div>
+        </section>
+       
+       
+
+
+        <!--footer section-->
+        <footer class="bg-dark">
+            <div class="container py-3 m-3">
+            <p class="text-muted text-center"> Copywrite &copy; 2021 Blogen</p>
+        </div>
+        </footer>
+
+       
+        <!--modal for password-->
+
+
+        
+        <div class="modal fade" id="modal1" aria-labelledby="categorymodal" aria-hidden="true"> 
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="categorymodal">Change Password</h5>
+                        <button type="button" class="btn-Close bg-primary" data-dismiss="modal" aria-label="close"> <span>&times; </span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                            <label for="Title">Password</label>
+                            <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="Title">Confirm Password</label>
+                                <input type="password" class="form-control">
+                                </div> 
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Update Password</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor1' );
+    </script>
+    </body>
+</html>

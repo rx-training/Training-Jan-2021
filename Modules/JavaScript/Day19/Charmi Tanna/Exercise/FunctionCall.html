@@ -1,0 +1,34 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script type="text/javascript">
+            var updateZipCode = function()
+            {
+                console.log(this);
+            }
+            updateZipCode();
+            updateZipCode({});
+            var zipcode = 
+            {
+                zip: "100000"
+            };
+            updateZipCode.call(zipcode);
+            var Employees = function()
+            {
+                console.log(this);
+            };
+            Employees.call({Address:"Ahmedabad",zip:"344444"});
+            var updateZipCode = function(newZip , country)
+            {
+                console.log(newZip+ "   " +country);
+            }
+            var zipcode = 
+            {
+                zip: "100000"
+            };
+            updateZipCode.call(zipcode ,"100000","USA");
+        </script>
+    </body>
+</html>

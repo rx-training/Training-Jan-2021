@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Popovers</title>
+</head>
+<body style="margin: 50px;">
+    <button class="btn btn-secondary" data-toggle="popover" data-placement="top" title="Popover Title" data-content="lorem ipsum dolor sit amet.">
+        Popover
+    </button>
+
+    <button id="myPop" class="btn btn-secondary" data-trigger="focus" data-toggle="popover" data-placement="top" title="Popover Title" data-content="lorem ipsum dolor sit amet.">
+        Dismissible Popover
+    </button>
+
+    <button class="btn btn-danger" onclick="showPopover()">
+        Show Popover
+    </button>
+    <button class="btn btn-danger" onclick="hidePopover()">
+        Hide Popover
+    </button>
+    <button class="btn btn-danger" onclick="togglePopover()">
+        Toggle Popover
+    </button>
+
+    <script>
+
+        $('[data-toggle="popover"]').popover();
+
+        function showPopover(){
+            $('#myPop').popover('show');
+        }
+        function hidePopover(){
+            $('#myPop').popover('hide');
+        }
+        function togglePopover(){
+            $('#myPop').popover('toggle');
+        }
+        //Popover events same as tooltip
+    </script>
+</body>
+</html>

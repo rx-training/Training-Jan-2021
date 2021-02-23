@@ -1,0 +1,12 @@
+#dashboard-head-section {
+  margin-top: 40px; }
+
+a:hover {
+  text-decoration: none; }
+
+.ds-labels {
+  min-width: 200px;
+  min-height: 200px; }
+
+#details-nav-section {
+  background: rgba(0, 0, 0, 0.05); }

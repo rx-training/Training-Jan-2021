@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+    var i = 3;
+    var j=0;
+    for(j=0;j<i;j++)
+    {
+        document.write("<br>"+j);
+    }
+
+    i = 3;
+    j=0;
+    for(;j<i;j++)
+    {
+        document.write("<br>"+j);
+    }
+
+    i = 3;
+    j=0;
+    for(;j<i;)
+    {
+        document.write("<br>"+j++);
+    }
+
+    i = 3;
+    j=0;
+    for(j=0;j<i;j++)
+    {
+        document.write("<br>"+j);
+        if(j==1)
+        {
+            break;
+        }
+    }
+
+    i = 5;
+    j=0;
+    for(j=0;j<i;j++)
+    {
+        if(j==1)
+        {
+            continue;
+        }
+        document.write("<br>"+j);
+    }
+
+    var LineItem = { 
+        product : "pen",
+        quantity : 2,
+        price : 900
+    };
+
+    for(var item in LineItem)
+    document.write("<br>"+item);
+
+    for(var item in LineItem)
+    document.write("<br>"+item +":"+ LineItem[item]);
+
+    var $product = "PRD-4000";
+    $product += 50;
+    document.write("<br>"+$product)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

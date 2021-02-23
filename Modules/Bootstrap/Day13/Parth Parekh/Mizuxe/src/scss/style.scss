@@ -1,0 +1,50 @@
+// Main Sass File
+body{
+    margin-top: 100px;
+    overflow-x: hidden;
+}
+.navbar{    
+    font-size: 20px;
+    box-shadow: 2px 2px 5px rgb(71, 182, 226);
+    
+    opacity: 0.8;
+}
+li {
+    padding:8px;
+}
+#section-1{
+    background: url(../img/mountains.jpg);
+    min-height: 500px;
+    .primary-overlay{   
+        background-color: rgb(71, 182, 226);
+        min-height: 500px;
+        width: 100%;
+        opacity: 0.9;
+
+    }
+}
+#author{
+    .fa{
+        padding: 5px;
+        font-size: 22px;
+    }
+    .card:hover{
+    background-color: rgb(71, 182, 226);
+    cursor: pointer;
+}
+}
+.bg-footer{
+    background:  rgb(71, 182, 226);
+}
+
+@media (max-width:576px)
+{
+    #author{
+        .card-body img{
+            margin-top: -50px;
+        }
+        .fa{
+            display: none;
+        }
+    }
+}

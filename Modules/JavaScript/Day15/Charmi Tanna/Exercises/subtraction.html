@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        var id = 30-20;
+        document.write("<br>"+id);
+        var id2 = 3.8-2.1;
+        document.write("<br>"+id2);
+        document.write("<br>"+id2.toFixed(3));
+        var id3 = "300"-"200";
+        document.write("<br>"+id3);
+        var id4 = "PDR300"-"ITEM200";
+        document.write("<br>"+id4);
+        var id5 = 300-undefined;
+        document.write("<br>"+id5);
+        var id6 = 300-null;
+        document.write("<br>"+id6);
+        var obj=
+        {
+            valueOf : function(){return 100;}
+        };
+        var total=300-obj;
+        document.write("<br>"+total);
+        var total1=300-NaN;
+        document.write("<br>"+total1);
+        var total2=300-"";
+        document.write("<br>"+total2);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

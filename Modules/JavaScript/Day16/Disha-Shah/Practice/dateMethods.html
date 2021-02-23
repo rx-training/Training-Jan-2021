@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date methods</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="h3 text-center">Date Methods Practice</h1>
+        <p id="demo"></p>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    
+    <script>
+        var d = new Date(2018, 11, 24, 10, 33, 30, 0);
+        document.getElementById("demo").innerHTML = "Date with given specified values: " + d;
+
+        var d = new Date(2018);
+        document.getElementById("demo1").innerHTML = "Considers one input as milliseconds: " + d;
+
+        var d = new Date("October 13, 2014 11:13:00");
+        document.getElementById("demo2").innerHTML = "Date with given specified values: " + d.toDateString();
+
+        var d = new Date("2015-03-25T12:00:00Z");
+        document.getElementById("demo3").innerHTML = d;
+
+        document.getElementById("demo4").innerHTML = new Date("2015-03-25T12:00:00-06:00");
+
+        var msec = Date.parse("March 21, 2012");
+        document.getElementById("demo5").innerHTML = "No. of milliseconds from Jan 1, 1970 till March 21, 2012: " + msec;
+
+        var d = new Date();
+        console.log("Today's date " + d.getDate());
+        console.log("Today's day " + d.getDay());
+        console.log("Today's year " + d.getFullYear());
+        console.log("current hours " + d.getHours());
+        console.log("current milliseconds " + d.getMilliseconds());
+        console.log("current mins " + d.getMinutes());
+        console.log("Today's month " + d.getMonth());
+        console.log("current seconds " + d.getSeconds());
+        console.log("milliseconds since then " + d.getTime());
+        console.log("Set date " + d.setDate(1) + d);
+        console.log("Set year " + d.setFullYear(2012) + d);
+        console.log("Set hours " + d.setHours(13) + d);
+        console.log("Set milliseconds " + d.setMilliseconds(560) + d);
+        console.log("Set minutes " + d.setMinutes(55) + d);
+        console.log("Set month " + d.setMonth(10) + d);
+        console.log("Set seconds " + d.setSeconds(30) + d);
+    </script>
+</body>
+</html>

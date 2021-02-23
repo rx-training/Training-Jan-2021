@@ -1,0 +1,18 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <p id="pid">Area of Circle is:</p>
+        <script type="text/javascript">
+            function areaOfCircle()
+            {
+                const PI = 3.14;
+                var radius = parseFloat(prompt("Enter value of radius:")); 
+                var area = PI * radius ;
+                document.getElementById("pid").innerHTML+=" " + area;
+            }
+            areaOfCircle();
+        </script>
+    </body>
+</html>

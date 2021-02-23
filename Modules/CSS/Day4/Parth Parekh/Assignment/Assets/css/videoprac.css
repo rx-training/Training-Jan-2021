@@ -1,0 +1,31 @@
+p:nth-child(odd)
+{
+    background-color: cyan;
+}
+p{
+    background-color: brown;
+}
+h1:hover{
+    background-color: royalblue;
+}
+p:hover{
+    background-color: green;
+}
+ul li{
+    background-color: yellowgreen;
+}
+ol li:nth-child(odd)
+{
+    background-color: rgba(12, 174, 185, 0.185);
+}
+
+div p::after{
+    content: "Parekh";
+}
+:root{
+    background-color: springgreen;
+}
+::selection{
+    background-color: yellow;
+    color: red;
+}
