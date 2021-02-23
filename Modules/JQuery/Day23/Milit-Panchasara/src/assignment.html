@@ -12,20 +12,22 @@
 
 <body>
     <div class="container p-5">
-        <div>
-            <h4>Users:</h4>
-            <table class=" table table-bordered">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
-                    <th>Status</th>
-                </tr>
-                <tbody id="table-body">
+        <label for="countries">Countries:</label>
 
-                </tbody>
-            </table>
+        <select name="countries" id="countries" class="form-control w-25">
+            <option value="none">Select a Country</option>
+            <option value="india">India</option>
+            <option value="china">China</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+        </select>
+        <hr>
+        <div>
+            <h4>Selected Country:</h4>
+            <ul id="country-list">
+
+            </ul>
         </div>
     </div>
 
@@ -34,27 +36,27 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function(){
-            $.getJSON("https://gorest.co.in/public-api/users", function(data, status) {
-                if(data.code == 200) {
-                    var list = data.data;
-                    list.forEach(user => {
-                        $("#table-body").append('\
-                            <tr>\
-                                <td>' + user.id + '</td>\
-                                <td>' + user.name + '</td>\
-                                <td>' + user.email + '</td>\
-                                <td>' + user.gender + '</td>\
-                                <td>' + user.status + '</td>\
-                            </tr>\
-                        ');
+            if($("#countries").val() == "none") {
+                $("#countries option").each(function(index, value){
+                    if (index > 0) {
+                        $("#country-list").append("<li>" + value.innerHTML + "</li>");
+                    }
+                });  
+            }
+
+            $("#countries").change(function () {
+                if(this.value == "none") {
+                    $("#country-list").empty();
+                    $("#countries option").each(function(index, value){
+                        if (index > 0) {
+                            $("#country-list").append("<li>" + value.innerHTML + "</li>");
+                        }
                     });
                 }
                 else {
-                    $("#table-body").append('\
-                        <tr>\
-                            <td class="text-center" colspan="5">No data received from API</td>\
-                        </tr>\
-                    ');
+                    $("#country-list").empty();
+                    var value = $("#countries option:selected").text();
+                    $("#country-list").append("<li>" + value + "</li>");
                 }
             });
         });
