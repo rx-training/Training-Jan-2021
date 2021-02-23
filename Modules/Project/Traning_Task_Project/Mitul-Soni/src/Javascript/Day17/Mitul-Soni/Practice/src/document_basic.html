@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document basic</title>
+</head>
+<script>
+    var elements = document.getElementById('article1');
+    console.log(elements); 
+
+
+    /// ByTagName
+
+    var elements = document.getElementsByTagName('p');
+    console.log(elements);
+
+
+    /// ByClassName
+
+    var elements = document.getElementsByClassName('special');
+    console.log(elements);
+
+    //getAttribute
+
+    var a = document.getElementById('article1');
+    console.log(a.getAttribute('class'));
+
+
+    /// setAttribute
+
+    var a = document.getElementById('article1');
+    a.setAttribute("class","dynamic-style");
+    console.log(a.getAttribute("class"));
+
+
+    /// ChildNode
+
+    var a = document.getElementById('article1');
+    console.log(a.childNodes);
+
+</script>
+<body>
+    <article id="article1" class="my-custom-class">
+        <h3>Title goes Here</h3>
+        <p>Pragraph 1</p>
+        <p>Pragraph 2</p>
+        <p class="special">Pragraph 3</p>
+    </article>
+</body>
+</html>
