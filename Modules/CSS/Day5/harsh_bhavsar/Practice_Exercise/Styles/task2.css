@@ -1,0 +1,31 @@
+﻿.static{
+    position: static;
+    border:solid brown;
+
+}
+
+.relative {
+    position: relative;
+    left: 30px;
+    border:  solid green;
+}
+
+.fixed{
+    position:fixed;
+   width:300px;
+    top:250;
+    left:20px;
+    border:solid blue;
+}
+
+.parent{
+    position:relative;
+    top:100px;
+    
+}
+
+.absolute{
+    position:absolute;
+    border:solid black;
+    
+}
