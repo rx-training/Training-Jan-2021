@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to cart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+   
+</head>
+
+<body>
+    <div class="container mt-5">
+        <table class="table table-striped table-border" id="table data">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ProductID</th>
+                    <th>ProductName</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="shop-item">
+                    <td>2</td>
+                    <td class="item-name">Pen</td>
+                    <td class="item-price">150</td>
+                    <td c>2</td>
+                    <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+                </tr>
+                <tr class="shop-item">
+                    <td>3</td>
+                    <td class="item-name">butter</td>
+                    <td class="item-price">100</td>
+                    <td>1</td>
+                    <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+                </tr class="shop-item">
+                <tr>
+                    <td>4</td>
+                    <td class="item-name">Pencil</td>
+                    <td class="item-price">10</td>
+                    <td>1</td>
+                    <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+                </tr>
+                <tr class="shop-item">
+                    <td>1</td>
+                    <td class="item-name">Cheese</td>
+                    <td class="item-price">100</td>
+                    <td>1</td>
+                    <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+        <div class="container">
+            <button id="my-cart" class="btn-primary added-to-cart"  type="button" onclick="mycart()">Cart summary</button>
+           <h2>Items list of your cart is as below</h2>
+            <p id="cart"></p>
+            <h2>cart total: <span id="grand-total"></span></h2>
+        </div>
+    </div>
+    <script src="/assignment.js"></script>
+</body>
+
+</html>
