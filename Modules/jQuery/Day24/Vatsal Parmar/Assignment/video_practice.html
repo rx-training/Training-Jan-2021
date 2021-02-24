@@ -24,6 +24,18 @@
         <h4 class="text-secondary">$.grep Method</h4>
 
         <p><strong id="ans2"></strong></p>
+
+        <h4 class="text-secondary">$.type Method</h4>
+
+        <p><strong id="ans3">This is </strong></p>
+
+        <h4 class="text-secondary">$.callBacks</h4>
+
+        <p><strong id="ans4"></strong></p>
+
+        <h4 class="text-secondary">$.extend</h4>
+
+        <p><strong id="ans5"></strong></p>
       </div>
     </div>
     <script
@@ -41,6 +53,43 @@
           return n > 0;
         });
         $("#ans2").append($ans2);
+
+        let t = $.type(2);
+        $("#ans3").append(t);
+
+        function fn1(val) {
+          $("#ans4").append(val);
+        }
+        function fn2(val) {
+          return val;
+        }
+
+        var call = $.Callbacks();
+        call.add(fn1);
+
+        call.fire("Hello");
+
+        call.add(fn2);
+
+        call.fire(" World");
+
+        var obj1 = {
+          apple: 0,
+          banana: {
+            weight: 52,
+            price: 100,
+          },
+          cherry: 97,
+        };
+
+        var obj2 = {
+          banana: { price: 200 },
+          mango: 100,
+        };
+
+        var obj3 = $.extend(obj1, obj2);
+
+        $("#ans5").append(JSON.stringify(obj3));
       });
     </script>
   </body>
