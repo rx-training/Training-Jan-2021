@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+            #bgimg1 {
+                width: 100%;
+                height: 500px;
+                background-image: url("jQuery1.jpg"); 
+                background-size: 100% 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="../../../HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../CSS/cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../jQueryindex.html" class="nav-link">jQuery</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Assignment.html" target="_blank" class="nav-link">getPocket</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Admin.html" target="_blank" class="nav-link">getPocket Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>jQuery</li>
+                            <ul>
+                                <li>Day 22</li>
+                                <ul>
+                                    <a href="../Assignment/Assignment.html" class="text-dark"><li>Assignment</li></a>
+                                    <a href="PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <strong>Practise Exercise 1</strong>
+                    <p id="dummytext1" class="mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam sed leo risus.Ut tellus leo faucibus vitae tortor sed, euismod disnissim ex.Cras non mi vitae enim faucibus dignissim. Praesent scelerisque condimentum elit, non congue metus lacinia malesuada. Vestibulum purus arcu, molestie in mattis sit amet, aliquet eget est.Ut mollis enim est, eu fermentum nisi viverra hendrerit. Fusce sed est ac ante posuere convallis.Vivamus egestas mauris sit amet lobortis cursus. Vestibulum hendrerit molestie sagittis.</p>
+                    <hr class="bg-dark mt-5 mb-5">
+                    <strong>Practise Exercise 2</strong>
+                    <p id="helpText" class="mt-5 mb-5">Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare odio, Maecenas sodales mauris eget neque pulvinar,ac gravida ante lacinia.Etiam pharetra magna vitae fringilla posuere. Integer lacinia, nisi nec semper faucibus, elit neque imperdietsem, ut molestie felis nisi sit amet leo.</p>
+                    <hr class="bg-dark mt-5 mb-5">
+                    <br>
+                    <br>
+                    <strong>Practise Exercise 3</strong>
+                    <form>
+                        <label class="text-primary radio-inline">
+                            <input type="radio" name="technologies" id="php" value="PHP">PHP
+                        </label>
+                        <label class="text-primary radio-inline">
+                            <input type="radio" name="technologies" id="asp.net" value="ASP.net">ASP.net
+                        </label>
+                        <label class="text-primary radio-inline">
+                            <input type="radio" name="technologies" id="asp" value="ASP">ASP
+                        </label>
+                        <label class="text-primary radio-inline">
+                            <input type="radio" name="technologies" id="jsp" value="JSP">JSP
+                        </label>
+                        <label class="text-primary radio-inline">
+                            <input type="radio" name="technologies" id="perl" value="Perl">Perl
+                        </label>
+                        <label class="text-primary radio-inline">
+                            <input type="radio" name="technologies" id="coldfusion" value="Cold Fusion">Cold Fusion
+                        </label>
+                        <label class="text-primary radio-inline">
+                            <input type="radio" name="technologies" id="other" value="Other">Other
+                        </label>
+                    </form>
+                    <div class="text-center">
+                        <span id="selectedtech"></span>
+                    </div>
+                </div>
+                <script>
+                    $(document).ready(function(){
+                        // Practise Exercise 1
+                        $("#dummytext1").css({"background-color":"blue","color":"pink","font-size":"20px"});
+
+                        // Practise Exercise 2
+                        $("#helpText").hover(function(){
+                            $("#helpText").toggle()
+                        })
+                    
+                        // Practise Exercise 3
+                        $("input[name='technologies']").click(function() {
+                            $("#selectedtech").html($(this).val());
+                        })
+                    });
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
