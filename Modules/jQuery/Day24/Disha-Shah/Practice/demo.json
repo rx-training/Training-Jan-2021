@@ -1,4 +1,4 @@
-[   { "Id": 1, "firstName": "Rachel", "lastName": "Green" },
-    { "Id": 2, "firstName": "Monica", "lastName": "Geller" },
-    { "Id": 3, "firstName": "Phoebe", "lastName": "Buffay" }
+[   { "Id": 1, "firstName": "Rachel", "lastName": "Green", "Orders":[{"Id":100, "product":"Pizza","total":"500"}, {"Id":101, "product":"Noodles","total":"600"},{"Id":102, "product":"Burger","total":"500"} ] },
+    { "Id": 2, "firstName": "Monica", "lastName": "Geller", "Orders":[{"Id":107, "product":"Dosa","total":"500"}, {"Id":110, "product":"Continental","total":"600"},{"Id":107, "product":"Pizza","total":"500"} ] },
+    { "Id": 3, "firstName": "Phoebe", "lastName": "Buffay", "Orders":[{"Id":105, "product":"Punjabi","total":"500"}, {"Id":103, "product":"Thai","total":"600"},{"Id":109, "product":"Noodles","total":"500"} ] }
 ]
