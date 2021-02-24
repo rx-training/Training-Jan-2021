@@ -1,0 +1,44 @@
+body {
+    width: 100%;
+    background-color: powderblue;
+}
+
+table {
+    margin: auto;
+    border: 2px groove brown;
+    width: 800px;
+}
+
+td,
+th {
+    padding: 5px;
+    border-bottom: 2px groove greenyellow;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: orange;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: darkgrey;
+}
+
+thead tr {
+    height: 40px;
+    background-color: chocolate;
+    font-family: "Lucida Console";
+}
+
+.heading {
+    width: 300px;
+}
+
+tfoot tr td a {
+    text-decoration: none;
+    color: bisque;
+}
+
+tfoot {
+    background-color: crimson;
+}
