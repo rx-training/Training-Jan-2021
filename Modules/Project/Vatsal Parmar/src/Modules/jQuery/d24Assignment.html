@@ -142,7 +142,8 @@
           function (data, status) {
             let Data = data.data;
             var rowData = "";
-            for (let i = 0; i < Data.length; i++) {
+
+            $.each(Data, function (i, value) {
               rowData +=
                 "<tr>" +
                 "<td>" +
@@ -161,7 +162,7 @@
                 Data[i].status +
                 "</td>" +
                 "</tr>";
-            }
+            });
             $("#tableBody").append(rowData);
           }
         );
