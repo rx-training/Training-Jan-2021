@@ -29,18 +29,15 @@ body {
     color: rgb(255, 255, 255);
   }
   .sidebar .nav-link:hover{
-    background-color: rgb(255, 255, 255);
-    color: black;
-  }
-  .dropdown-toggle
-  {
-    background-color: rgb(92, 87, 87);
+    background-color: rgb(47, 49, 49);
+    color: rgb(255, 255, 255);
+    padding-left: 30px;
   }
 }
 
 .multi-collapse .nav-link
   {
-    background-color: rgb(163, 159, 159);
+    background-color: rgb(83, 71, 71);
   }
 
   /* on md and lg */

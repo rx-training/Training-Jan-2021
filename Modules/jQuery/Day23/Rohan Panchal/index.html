@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Day21</title>
+  </head>
+  <body>
+    
+    <div class="container" id="cont">
+        <tr>
+            <td>1</td>
+            <td>Rohan</td>
+        </tr>
+        <button class="btn btn-primary" type="button" onclick="abc()">append</button>
+    <button class="btn btn-secondary" type="button" onclick="before()">Before</button>
+    <button class="btn btn-success" type="button" onclick="after()">After</button>
+
+
+
+    
+
+
+    </div>
+  
+    <div class="container">
+      
+
+
+      <ul id="lis">
+        <li>Text1</li>
+        <li>Text2</li>
+        <li>Text3</li>
+        <li>Text4
+          <ul>
+            <li>Text41</li>
+            <li>Text42
+              <ul>
+                <li>Text421</li>
+                <li>Text422</li>
+                <li>Text423</li>
+              </ul>
+            </li>
+            <li>Text43</li>
+            <li>Text44</li>
+          </ul>
+        </li>
+        <li>Text5</li>
+        <li>Text6
+          <ul>
+            <li>Text61</li>
+            <li>Text62</li>
+            <li>Text63</li>
+            <li>Text64</li>
+          </ul>
+        </li>
+      </ul>
+
+      
+
+
+    </div>
+    <div class="container" id="second">
+      <p></p>
+      <p id="third"></p>
+      <p class="four"></p>
+      <p class="four"></p>
+      <button class="btn btn-primary" type="button">Text</button>
+      <button class="btn btn-primary" type="button">Text</button>
+      <button class="btn btn-primary" type="button">Text</button>
+  </div>
+   
+    <script>
+      $('#lis :first').css('color','gray');
+      $('#lis :last').css('color','blue');
+      //$('#lis :nth-child(2)').css('color','red');
+      $('#lis>li:odd').css('color','red');
+        function abc()
+        {
+            $('#cont').append("<tr><td>2</td><td>kajal</td><tr>");
+        }
+        function before()
+        {
+            $('#cont').before("<tr><td>10</td><td>Drashti</td><tr>");
+        }
+        function after()
+        {
+            $('#cont').after("<tr><td>20</td><td>jiger</td><tr>");
+        }
+         // element selector
+         $('p').text('This line using element selector');
+         $('#third').text('Using id selector');
+         $('.four').text('using class selector');
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  </body>
+</html>
