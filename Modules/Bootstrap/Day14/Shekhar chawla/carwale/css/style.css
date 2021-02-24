@@ -1,15 +1,13 @@
-#x               :hover {
-	border-bottom: solid;
-}
 #x {
-	border-bottom: solid #ffffff;
+    border-bottom: solid #ffffff;
+}
+#x:hover {
+	border-bottom: solid;
 }
 #searchBar {
 	width : 350px;
 	height: 45px;
-    color : dsfk;
-}
-.form-group .form-control-icon {
+}.form-group .form-control-icon {
     position      : absolute;
     z-index       : 2;
     display       : block;
@@ -27,19 +25,83 @@
     background      : url('../images/home-page-banner-400.webp') no-repeat center top scroll;
     background-size : cover;
 }
-#navFeature {
-    border-radius   : 0px;
-    border-bottom   : 3px white solid;
+#fcar {
+    border-bottom: 2px solid white;
+    margin-right: 24px;
+    font-size: 13.8px;
+}
+
+
+.list-group-item {
+    border: 0px;
+    border-bottom: 3px solid white;
+    color: #aba;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 4%;
     background-color: white;
-    color           : #6c757d;;
-    font-weight     : bold;
+    font-weight: bolder;
 }
-#navFeature         :active {
-    color           : teal;
-    border-bottom   : 3px solid teal;
+.list-group-item:hover, .list-group-item:focus {
+    border: 0px;
+    border-bottom: 3px solid teal;
+    color: teal;
+    background-color: white;
 }
-#navFeature         :focus {
-    color           : teal;
-    border-bottom   : 3px solid teal;
+.list-group-item-action:active, .list-group-item-action:hover, .list-group-item-action:focus {
+    color: teal;
+    background-color: white;
 }
-/*color             : #6c757d;*/
+
+
+
+.carousel-control-prev, .carousel-control-next {
+  width:5%;
+}
+
+
+.brands {  
+    width: 16.6667%;
+}
+.brands>img {
+    width: 50%;
+    display: block;
+    margin:5% auto;
+}
+.brands>p {
+    display: block;
+    margin:5%;
+}
+
+
+.rounded-pill {
+    color: #aaa;
+    font-weight: bold;
+    font-size: 95%;
+    border: 1px solid #aaa;
+}
+.rounded-pill:active, .rounded-pill:hover, .rounded-pill:focus {
+    border-color: teal;
+    color: teal;
+}
+
+.priceBanner {
+    background-image: url("../images/get-final-price-banner.jpg");
+    background-color: #161209;
+    background-position: center top;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 430px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+

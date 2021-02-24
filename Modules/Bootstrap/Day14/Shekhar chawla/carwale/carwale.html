@@ -5,14 +5,20 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>New Cars,Used Cars,Buy a Car</title>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-	<script src="https://kit.fontawesome.com/de0a212e17.js" crossorigin="anonymous"></script>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script src="https://kit.fontawesome.com/cc2ed2d7de.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+    </style>
 </head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-light" style="position:fixed; ">
+<body class="" style="font-family: Roboto, sans-serif;">
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
 	<!-- Logo -->
 	<a class="navbar-brand ml-2" href="#">
 		<img src="images/logo.svg" class="d-inline-block align-top" width="136" alt="carwale" title="carwale">
@@ -23,14 +29,14 @@
 	<!-- Navbar Items -->
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav d-flex justify-content-center w-50">
-			<div id="x" class="mx-4 mb-1">
-				<a class="nav-item nav-link font-weight-bold" href="#">New Cars <span class="sr-only">(current)</span></a>
+			<div id="x" class="mx-4">
+				<strong><a class="nav-item nav-link text-dark" href="#">NEW CARS<span class="sr-only">(current)</span></a></strong>
 			</div>
-			<div id="x" class="mx-4 mb-1">
-				<a class="nav-item nav-link font-weight-bold" href="#">Used Cars</a>
+			<div id="x" class="mx-4">
+				<strong><a class="nav-item nav-link text-dark" href="#">USED CARS</a></strong>
 			</div>
-			<div id="x" class="mx-4 mb-1">
-				<a class="nav-item nav-link font-weight-bold" href="#">REVIEWS & NEWS</a>
+			<div id="x" class="mx-4">
+				<strong><a class="nav-item nav-link text-dark" href="#">REVIEWS & NEWS</a></strong>
 			</div>
 		</div>
 		<!-- Search and other -->
@@ -40,23 +46,26 @@
 				<span class="fa fa-search form-control-icon"></span>
 			</div>
 			<!-- icons -->
-			<a href="#" class="mr-3" title="location"></a>
-			<a href="#" class="mx-3" title="translate"><i class="fa fa-lg fa-map-marker"></i></a>
-			<a href="#" class="mx-3" title="account"><i class="fa fa-lg fa-language"></i></a>
-			<a href="#" class="mx-3" title="account"><i class="fa fa-lg fa-user"></i></a>	
+			<span class="">
+				<a href="#" class="mr-3" title="location"></a>
+				<a href="#" class="mx-3" title="map"><i class="fa fa-lg fa-map-marker text-dark"></i></a>
+				<a href="#" class="mx-3" title="translate"><i class="fa fa-lg fa-language text-dark"></i></a>
+				<a href="#" class="mx-3" title="account"><i class="fa fa-lg fa-user text-dark"></i></a>
+			</span>
 		</form>
 	</div>
 </nav>
+<!-- banner -->
 <div class="banner">
 	<div class="container">
 		<!-- Header -->
 		<div class="page-header">
 			<div class="d-flex flex-column flex-grow-1" style="height: 200px;"></div>
 			<!-- Search Bar -->
-			<div class="d-flex flex-column">
-				<p class="mb-2 h3 text-white text-center font-weight-bold">FIND THE RIGHT CAR</p>
-				<div>
-					<div class="input-group d-flex justify-content-center">
+			<div class="d-flex flex-column mx-auto">
+				<p class="mb-4 h3 text-white text-center">FIND THE RIGHT CAR</p>
+				
+					<div class="input-group d-flex mx-auto" style="width:68.5%;">
 						<div class="input-group-prepend">
 							<a class="input-group-text dropdown-toggle btn px-4" data-toggle="dropdown" id="used" aria-haspopup="true" aria-expanded="false">New</a>
 							<div class="dropdown-menu pr-0" aria-labelledby="used">
@@ -69,117 +78,843 @@
 						<div class="input-group-append">
 							<span style="background-color:#e53012;border:3px solid white;" class="input-group-text px-5 text-white">Search</span>
 						</div>
+						<div class="d-flex w-100 my-2 text-white">
+							<div class="mr-auto">
+								<small>e.g. Citroen C5 Aircross</small>
+							</div>
+							<div class="">
+								<small>New Car Discounts | Help Me Find A Car | Sell My Car</small>
+							</div>
+							
+						</div>
 					</div>
-				</div>
+
+				
 			</div>
 			<div class="d-flex flex-column flex-grow-1" style="height: 150px;"></div>
 		</div>
 	</div>
 </div>
+<!-- body -->
 <div class="container">
-	<!-- Featured Cars -->
-	<div class="my-4">
-		<p class="h4">Featured Cars</p>
-		<nav class="nav nav-pills">
-			<a id="navFeature" class="nav-item mr-3 nav-link active" href="#">Active</a>
-			<a id="navFeature" class="nav-item mr-3 nav-link" href="#">Much longer nav link</a>
-			<a id="navFeature" class="nav-item mr-3 nav-link" href="#">Link</a>
-		</nav>
-	</div>
-	<!-- Cars Card -->
-	<div class="row">
-		<div class="card mx-3 bg-info">
-			<img src="images/citroen-c5-aircross.webp" class="card-img-top"  alt="...">
-			<div class="card-body">
-				<h5 class="card-title">Citroen C5 Aircross</h5>
-				<h6 class="card-text font-weight-bold">25.00 - 32.00 Lakh <small>Estimated Price</small></h6>
-				<small class="card-text">When to expect - March 2021(Tentative)</small>
-				<a class="card-link">Links</a>
+	<!-- Cars -->
+	<div class="d-flex flex-column mx-5">
+		<div class="h4 text-capitalize my-4">featured Cars</div>
+			<ul class="list-group list-group-horizontal-sm">
+				<li class="list-group-item">
+					<a class="list-group-item-action" data-toggle="list" href="#carouselExampleCars" role="tab">Home</a>
+				</li>
+				<li class="list-group-item">
+					<a class="list-group-item-action" data-toggle="list" href="#carouselExampleCars2" role="tab">Profile</a>
+				</li>
+				<li class="list-group-item">
+					<a class="list-group-item-action" data-toggle="list" href="#carouselExampleCars3" role="tab">Messages</a>
+				</li>
+			</ul>
+		<hr class="mt-0">
+		<div class="tab-content">
+		<!-- CAROUSEL -->
+		<div id="carouselExampleCars" class="carousel slide tab-pane fade show active" data-ride="carousel" role="tabpanel">
+			<div class="carousel-inner">
+
+				<div class="carousel-item active">
+					<div class="d-flex justify-content-center">
+						<div class="card mr-2">
+							<img src="images/citroen-c5-aircross.webp" class=""  alt="...">
+							<div class="card-body bg-danger text-white">
+								<h5 class="card-title">Citroen C5 Aircross</h5>
+								<h6 class="card-text font-weight-bold"><span><i class="fa fa-rupee"></i></span> 25.00 - 30.00 Lakh <small>Estimated Price</small></h6>
+								<small class="card-text">When to expect - March 2021(Tentative)</small>
+								<hr class="my-2">
+								<p class="card-text my-0"><span><i class="fa fa-bell"></i></span> Alert Me When Launched</p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/kiger.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Renault kiger</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 5.45 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 6.79 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="carousel-item">
+					<div class="d-flex justify-content-center">
+						<div class="card mr-2">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 10.00 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/hyundia-venue.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Venue</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 6.87 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/kia-seltos.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Seltos</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 9.90 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				
 			</div>
+
+			<a class="carousel-control-prev text-dark" href="#carouselExampleCars" role="button" data-slide="prev">
+				<span><i class="fas fa-chevron-circle-left fa-3x"></i></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next text-dark" href="#carouselExampleCars" role="button" data-slide="next">
+				<span><i class="fas fa-chevron-circle-right fa-3x"></i></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!-- /CAROUSEL -->
+		<div id="carouselExampleCars2" class="carousel slide tab-pane fade" data-ride="carousel" role="tabpanel">
+			<div class="carousel-inner">
+
+				<div class="carousel-item active">
+					<div class="d-flex justify-content-center">
+						
+						<div class="card mr-2">
+							<img src="images/kiger.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Renault kiger</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 5.45 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 6.79 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/citroen-c5-aircross.webp" class=""  alt="...">
+							<div class="card-body bg-danger text-white">
+								<h5 class="card-title">Citroen C5 Aircross</h5>
+								<h6 class="card-text font-weight-bold"><span><i class="fa fa-rupee"></i></span> 25.00 - 30.00 Lakh <small>Estimated Price</small></h6>
+								<small class="card-text">When to expect - March 2021(Tentative)</small>
+								<hr class="my-2">
+								<p class="card-text my-0"><span><i class="fa fa-bell"></i></span> Alert Me When Launched</p>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="carousel-item">
+					<div class="d-flex justify-content-center">
+						<div class="card mr-2">
+							<img src="images/kia-seltos.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Seltos</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 9.90 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 10.00 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/hyundia-venue.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Venue</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 6.87 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				
+			</div>
+
+			<a class="carousel-control-prev text-dark" href="#carouselExampleCars2" role="button" data-slide="prev">
+				<span><i class="fas fa-chevron-circle-left fa-3x"></i></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next text-dark" href="#carouselExampleCars2" role="button" data-slide="next">
+				<span><i class="fas fa-chevron-circle-right fa-3x"></i></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<div id="carouselExampleCars3" class="carousel slide tab-pane fade" data-ride="carousel" role="tabpanel">
+			<div class="carousel-inner">
+
+				<div class="carousel-item active">
+					<div class="d-flex justify-content-center">
+						
+						<div class="card mr-2">
+							<img src="images/kiger.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Renault kiger</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 5.45 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 6.79 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/citroen-c5-aircross.webp" class=""  alt="...">
+							<div class="card-body bg-danger text-white">
+								<h5 class="card-title">Citroen C5 Aircross</h5>
+								<h6 class="card-text font-weight-bold"><span><i class="fa fa-rupee"></i></span> 25.00 - 30.00 Lakh <small>Estimated Price</small></h6>
+								<small class="card-text">When to expect - March 2021(Tentative)</small>
+								<hr class="my-2">
+								<p class="card-text my-0"><span><i class="fa fa-bell"></i></span> Alert Me When Launched</p>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="carousel-item">
+					<div class="d-flex justify-content-center">
+						<div class="card mr-2">
+							<img src="images/kia-seltos.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Seltos</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 9.90 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 10.00 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/hyundia-venue.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Venue</h5>
+								<h6 class="card-text font-weight-bold">
+									<span><i class="fa fa-rupee"></i></span> 6.87 Lakh <small>onwards</small><br>
+								</h6>
+								<p><small class="card-text">Avg. Ex-Showroom Price</small></p>
+								<p class="card-text"><small class="text-muted"><a href="#" class="card-link">Show price in my ciy</a></small></p>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				
+			</div>
+
+			<a class="carousel-control-prev text-dark" href="#carouselExampleCars3" role="button" data-slide="prev">
+				<span><i class="fas fa-chevron-circle-left fa-3x"></i></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next text-dark" href="#carouselExampleCars3" role="button" data-slide="next">
+				<span><i class="fas fa-chevron-circle-right fa-3x"></i></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 
-		<div class="card mx-3 bg-info">
-			<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
-			<div class="card-body">
-				<h5 class="card-title">Kia Sonet</h5>
-				<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
-				<small class="card-text">Avg. Ex Showroom Price</small>
-			</div>
-		</div>
 
-		<div class="card mx-3 bg-info">
-			<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
-			<div class="card-body">
-				<h5 class="card-title">Hyundai Creta</h5>
-				<h6 class="card-text font-weight-bold">10.00 Lakh <small>onwards</small></h6>
-				<small class="card-text">Avg. Ex Showroom Price</small>
+
+
+		</div>
+		<!-- /TAB -->
+		<br><br>
+
+		<!-- BRANDS -->
+		<h4 class="mb-4">All Brands</h4>
+		<div class="d-flex flex-wrap" id="brandBox">
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skjf</p>
+			</div>
+			<div class="brands btn border">
+				<img src="images/tata.png">
+				<p class="text-center">skasfjf</p>
+			</div>
+
+			<div class="collapse" id="more">
+				<div class="d-flex flex-wrap">
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+					<div class="brands btn border dsd">
+						<img src="images/tata.png">
+						<p class="text-center m-0">skjf</p>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-<!-- end -->
-</div>
-			
+		<a class="btn btn-block text-primary border py-2" data-toggle="collapse" data-target="#more" aria-expanded="true" aria-controls="more">View more Brands</a>
+		<!-- /BRANDS -->
+
+		<br><br>
+
+		<!-- Choice -->
+		<p class="h4 text-capitalize">Find the car of your choice</p>
 		
+		<ul class="list-group list-group-horizontal-sm">
+			<li class="list-group-item">
+				<a class="list-group-item-action" >BUDGET</a>
+			</li>
+			<li class="list-group-item">
+				<a class="list-group-item-action" >BODY TYPE</a>
+			</li>
+			<li class="list-group-item">
+				<a class="list-group-item-action" >FUEL TYPE</a>
+			</li>
+			<li class="list-group-item">
+				<a class="list-group-item-action" >TRANSMISSION</a>
+			</li>
+			<li class="list-group-item">
+				<a class="list-group-item-action" >SEATING CAPACITY</a>
+			</li>
+		</ul>
+		
+		<div class="d-flex flex-wrap bg-light p-4 feature bg-dark">
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+			<div>
+				<a class="btn rounded-pill m-2 px-4">Under 4 lakh</a>
+			</div>
+		</div>
+		<!-- /CHOICE -->
+
+		<br>
+
+		<!-- TOP CARS -->
+		<div class="h4 text-capitalize my-4">top Cars</div>
+		<div id="carouselExample" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+
+				<div class="carousel-item active">
+					<div class="d-flex justify-content-center">
+						<div class="card mr-2">
+							<img src="images/citroen-c5-aircross.webp" class="card-img-top"  alt="...">
+							<div class="card-body bg-ligh">
+								<h6 class="card-title">Top SUVs in India</h6>
+								<small class="card-text">Hyundai,Creta,Kia Seltos</small>
+
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/citroen-c5-aircross.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Citroen C5 Aircross</h5>
+								<h6 class="card-text font-weight-bold">25.00 - 32.00 Lakh <small>Estimated Price</small></h6>
+								<small class="card-text">When to expect - March 2021(Tentative)</small>
+
+							</div>
+						</div>
+						<div class="card">
+							<img src="images/citroen-c5-aircross.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Citroen C5 Aircross</h5>
+								<h6 class="card-text font-weight-bold">25.00 - 32.00 Lakh <small>Estimated Price</small></h6>
+								<small class="card-text">When to expect - March 2021(Tentative)</small>
+
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="carousel-item">
+					<div class="d-flex justify-content-center">
+						<div class="card mr-2">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+								<small class="card-text">Avg. Ex Showroom Price</small>
+							</div>
+						</div>
+						<div class="card mr-2">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+						<div class="card">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+			<!-- /inner -->
+			<a class="carousel-control-prev text-dark" href="#carouselExample" role="button" data-slide="prev">
+				<span><i class="fas fa-chevron-circle-left fa-3x right"></i></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next text-dark" href="#carouselExample" role="button" data-slide="next">
+				<span><i class="fas fa-chevron-circle-right fa-3x"></i></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!-- /TOP CARS -->
+
+
+	</div>
+	<!-- /MAIN DIV -->
+
 	
+</div>
+<!-- /container -->
 
+<!-- search by city -->
+<div class="my-5 priceBanner">
+	<div class="container d-flex flex-row-reverse m-5 h-100">
+		<div class="d-flex flex-column p-4 bg-dark align-self-center " style="width:38%;opacity: 0.9;">
+			<div class="h4 text-white mb-4">
+				Check On-Road Price
+			</div>
+			<div>
+				<div class="input-group mb-4">
+					<a class="input-group-prepend text-decoration-none bg-white" href="#">
+						<span class="input-group-text"><i class="fa fa-search fa-lg"></i></span>
+					</a>
+					<input type="text" class="form-control" placeholder="Type to select a car name eg. Tata Tiago" style="height:45px;">
+				</div>
+			</div>
+			<div>
+				<div class="input-group mb-4">
+					<input type="text" class="form-control" placeholder="Select City" style="height:45px;">
+					<a class="input-group-append text-decoration-none" href="#" >
+						<span class="input-group-text"><i class="fas fa-arrow-right fa-lg"></i></span>
+					</a>
+				</div>
+			</div>
+			<div>
+				<small class="text-white">Its private, no need to share your number and email</small>
+			</div>
+		</div>
+	</div>
+</div>
 
+<!-- COMPARE CARS -->
+<div class="container">
+	<div id="carouselExampleComp" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+
+				<div class="carousel-item active">
+
+					<div class="d-flex">
+					<div class="row justify-content-center">
+						<div class="card col-5">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Cret</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+						<div class="card col-5">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="card col-5">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+						<div class="card col-5">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="card col-5">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+						<div class="card col-5">
+							<img src="images/hyundai-creta.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Hyundai Creta</h5>
+								<small class="card-text"></small>
+							</div>
+						</div>
+					</div>
+					</div>
+
+				</div>
+
+				<div class="carousel-item">
+
+					<div class="d-flex">
+					<div class="row justify-content-center">
+						<div class="card col-5">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+								<small class="card-text">Avg. Ex Showroom Price</small>
+							</div>
+						</div>
+						<div class="card col-5">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+								<small class="card-text">Avg. Ex Showroom Price</small>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="card col-5">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+								<small class="card-text">Avg. Ex Showroom Price</small>
+							</div>
+						</div>
+						<div class="card col-5">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+								<small class="card-text">Avg. Ex Showroom Price</small>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="card col-5">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+								<small class="card-text">Avg. Ex Showroom Price</small>
+							</div>
+						</div>
+						<div class="card col-5">
+							<img src="images/kia-sonet.webp" class="card-img-top"  alt="...">
+							<div class="card-body">
+								<h5 class="card-title">Kia Sonet</h5>
+								<h6 class="card-text font-weight-bold">6.79 Lakh <small>onwards</small></h6>
+								<small class="card-text">Avg. Ex Showroom Price</small>
+							</div>
+						</div>
+					</div>
+					</div>
+
+				</div>
+			</div>
+
+			<a class="carousel-control-prev text-dark" href="#carouselExampleComp" role="button" data-slide="prev">
+				<span><i class="fas fa-chevron-circle-left fa-3x"></i></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next text-dark" href="#carouselExampleComp" role="button" data-slide="next">
+				<span><i class="fas fa-chevron-circle-right fa-3x"></i></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		
+</div>
+<!-- COMPARE CARS -->
 	
+<!-- FOOTER -->
+<div class="container-fluid" style="background-color: #0e3a50;color:white;font-size:14px;">
+	<div class="container mx-auto px-5">
+		<div class="row">
+			<div class="col">
+				<img src="images/logo.svg" height="33px;" class="mx-5 my-4">
+			</div>
+			<div class="col">
+				<img src="images/cartrade_logo_238-48.png" height="33px;" class="mx-5 my-4">
+			</div>
+			<div class="col">
+				<img src="images/bikewale.png" height="33px;" class="mx-5 my-4">
+			</div>
+		</div>
+	</div>
+	<div style="border-top:0.1px solid grey;"></div>
+	<div class="container my-5">
+		<div class="row">
 
+			<div class="col px-4" style="border-right:0.8px grey solid;">
+				<div class="row mb-2">
+					<div class="col-3">Language:</div>
+					<div class="col-3">&nbsp;English</div>
+					<div class="col-3">Hindi</div>
+				</div>
+				<div class="row">
+					<div class="col-6 mb-2">About Us</div>
+					<div class="col-6 mb-2">Terms & Condition</div>
+					<div class="col-6 mb-2">Careers</div>
+					<div class="col-6 mb-2">Contact Us</div>
+					<div class="col-6 mb-2">Advertise</div>
+				</div>
+			</div>
+
+			<div class="col px-5" style="border-right:0.8px grey solid;">
+				<p><strong>CarWale</strong>: 12th Floor, Vishwaroop IT Park, Sector 30A, Vashi, Navi Mumbai - 400705. Maharashtra, India.</p>
+				<p>Phone: +91 (22) 612 91700</p>
+			</div>
+
+			<div class="col px-5">
+				<div class="row mb-2">
+					<div class="col-12 mb-2">Download Mobile App</div>
+					<div class="col-4"><img src="images/app-store.svg"></div>
+					<div class="col-4"><img src="images/play-store.svg"></div>
+				</div>
+				<div class="row">
+					<div class="col-12 mb-2">Connect with us</div>
+					<div class="col-2">
+						<a href="#" class="text-decoration-none text-light"><i class="fa fa-facebook"></i></a>
+					</div>
+					<div class="col-2">
+						<a href="#" class="text-decoration-none text-light"><i class="fa fa-twitter"></i></a>
+					</div>
+					<div class="col-2">
+						<a href="#" class="text-decoration-none text-light"><i class="fa fa-youtube"></i></a>
+					</div>
+					<div class="col-2">
+						<a href="#" class="text-decoration-none text-light"><i class="fa fa-linkedin"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div style="border-bottom:0.1px solid grey;"></div>
+	<div class="container mx-auto py-2">
+		<div class="d-flex justify-content-center">
+			<div class="px-4" style="border-right:0.2px solid grey;">
+				2006 - 2021. www.carwale.com
+			</div>
+			<div class="px-4">
+				Visitor Agreement & Privacy Policy
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
 <!-- 84 active does not work -->
+<!-- 155 border-collapse doesnt work -->
+
+<!-- 
+<div class="row">
+  <div class="col-4">
+    <div class="list-group list-group-horizontal-sm" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">a</div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">b</div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+    </div>
+  </div>
+</div> -->
 
 
 
-		<!-- Blogen  -->
-		
-		<!-- <div class="container-fluid">
-			<nav class="navbar navbar-expand-sm p-0 navbar-light bg-light">
-				<a class="navbar-brand"><img src="" class="d-inline-block align-top" width="30" height="30">Brand</a>
-
-				<button class="navbar-toggler" data-toggle="collapse" data-target="#navCollapse"><span class="navbar-toggler-icon"></span></button>
-
-				<div class="collapse navbar-collapse" id="navCollapse">
-					<ul class="navbar-nav">
-						<li class="nav-item px-4">
-							<a class="nav-link">Dashboard</a>
-						</li>
-						<li class="nav-item px-4">
-							<a class="nav-link">Posts</a>
-						</li>
-						<li class="nav-item px-4">
-							<a class="nav-link">Categories</a>
-						</li>
-						<li class="nav-item px-4">
-							<a class="nav-link">Users</a>
-						</li>						
-					</ul>
-				</div>
-			</nav>
-		</div>
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</div>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
