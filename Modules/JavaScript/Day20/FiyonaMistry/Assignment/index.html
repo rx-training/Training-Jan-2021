@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Assignment</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <th>ProductID</th>
+                        <th>ProductName</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </thead>
+                    <tbody id="productDetails"></tbody>
+                </table>
+                <button onclick="display()" class="btn btn-primary">Cart Summary</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var val = [];
+        function retrieve(id,name,price,qty){
+            var obj = {"ProductID" : id, "ProductName" : name, "Price" : price, "Quantity" : qty};
+            val.push(JSON.stringify(obj));
+            localStorage.setItem("productKey", val);
+        }
+        function display(){
+            console.log(localStorage.getItem("productKey"));
+        }
+        fetch("info.json")
+            .then(response => {
+                response.json().then(
+                    products => {
+                        var i = "";
+                        for(var j = 0; j<products.length; j++){
+                            i += "<tr>";
+                            i += "<td>" + products[j].ProductID + "</td>";
+                            i += "<td>" + products[j].ProductName + "</td>";
+                            i += "<td>" + products[j].Price + "</td>";
+                            i += "<td>" + products[j].Quantity + "</td>";
+                            i += '<td><button class="btn btn-danger" onclick="retrieve('+"'"+products[j].ProductID+"'"+','+"'"+products[j].ProductName+"'"+','+"'"+products[j].Price+"'"+','+"'"+products[j].Quantity+"'"+')">Add Cart</button></td></tr>'
+                        }
+                        document.getElementById("productDetails").innerHTML = i;
+                    }
+                )
+            })
+    </script>
+</body>
+</html>

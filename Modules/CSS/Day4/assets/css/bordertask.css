@@ -1,0 +1,9 @@
+﻿div{
+    text-align:center;
+}
+p {
+    border: 3px;
+    border-style: solid;
+    border-color: #FF0000;
+    padding: 1em;
+}

@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <link rel="stylesheet" href="..\styles\layout.css" />
+   
+</head>
+<body>
+    <header class="menu" id="menu_id">
+        <a href="#" style="color: limegreen;">LOGO HERE</a>
+        <div class="header_right">
+            <a href="#">HOME</a>
+            <a href="#">PAGES</a>
+            <a href="#">BLOG</a>
+            <a href="#">PORTFOLIO</a>
+            <a href="#">FEATURES</a>
+            <a href="#">SHORTCODES</a>
+        </div>
+        <a class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+
+    <script>
+            function myFunction() {
+                var x = document.getElementById("menu_id");
+                if (x.className === "menu") {
+                    x.className += " res_menu";
+                } else {
+                    x.className = "menu";
+                }
+            }
+    </script>
+
+    <div class="main_container">
+        <div class="banner">
+            <img src="..\images\bg.jpg" alt="banner" />
+        </div>
+        <div class="ban_down">
+            <p class="ban_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <p class="title_p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <button type="button">Download Now</button><hr />
+        </div>
+        <div class="row1">
+            <div class="column1">
+                <p class="title1">Fully Responsive</p>
+                <p class="description1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <div class="column1">
+                <p class="title1">HTML5 + CSS3</p>
+                <p class="description1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <div class="column1">
+                <p class="title1">Launch Ready</p>
+                <p class="description1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="column2">
+                <img src="..\images\logo1.png" alt="350*220" />
+                <p class="title2">Project One</p>
+                <p class="description2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <div class="column2">
+                <img src="..\images\logo2.png" alt="350*220" />
+                <p class="title2">Project One</p>
+                <p class="description2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <div class="column2">
+                <img src="..\images\logo3.png" alt="350*220" />
+                <p class="title2">Project One</p>
+                <p class="description2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <div class="column2">
+                <img src="..\images\logo4.png" alt="350*220" />
+                <p class="title2">Project One</p>
+                <p class="description2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+        </div>
+        <div class="row3">
+            <div class="column3">
+                <p>Welcome to this site</p><hr />
+                <img src="..\images\logo5.png" alt="315*200" />
+                <div class="col_side">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Lorem ipsum dolor sit amet</li>
+                    </ul>
+                </div>
+                <div class="description3">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <p class="name">- CEO, Jack Bour</p>
+                </div>
+            </div>
+            <div class="column3_img">
+                <p>Latest Shots</p><hr />
+                <img src="..\images\logo6.png" alt="538*316" />
+            </div>
+        </div>
+        <div class="row4">
+            <div class="column4">
+                <p class="column4_title">Our Clients</p><hr />
+            </div>
+            <div class="client_img">
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="main_footer">
+            <div class="fot_logo">
+                <h1>LOGO HERE</h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <div class="post">
+                <p class="title3">Latest Pposts</p><hr />
+                <div>
+                    <p class="fot_title">Incrediable content</p>
+                    <p>May 8,2014</p><hr />
+                </div>
+                <div>
+                    <p class="fot_title">Incrediable content</p>
+                    <p>May 8,2014</p><hr />
+                </div>
+                <div>
+                    <p class="fot_title">Incrediable content</p>
+                    <p>May 8,2014</p><hr />
+                </div>
+            </div>
+            <div class="fot_links">
+                <p class="title3">Useful Links</p><hr />
+                <p>ABOUT US</p><hr />
+                <p>ABOUT US</p><hr />
+                <p>ABOUT US</p><hr />
+                <p>ABOUT US</p><hr />
+                <p>ABOUT US</p><hr />
+            </div>
+            <div class="fot_contact">
+                <p class="title3">Contact Us</p><hr />
+                <address>
+                    30/B Adarsh Society<br />
+                    Near Kasshi Parekh Complex<br />
+                    Swastic Char Rasta, C G Road<br />
+                    Ahmedabad 380009<br />
+                    Gujarat - India<br />
+                    Phone:-
+                </address>
+            </div>
+        </div>
+        <div class="sub_footer">
+            <p>@2015 All Rights.....</p>
+        </div>
+    </div>
+</body>
+</html>

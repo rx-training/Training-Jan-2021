@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Employee Form Validation</title>
+    </head>
+
+    <style>
+        .error-box
+        {
+            width: 30%;
+            height: 100%;
+            margin-left: 35%;
+        }
+        .form-box
+        {
+            width: 30%;
+        }
+    </style>
+
+    <script>
+
+        function checkForm()
+        {
+            var id = document.getElementById("empid").value;
+            var name = document.getElementById("empname").value;
+            var age = document.getElementById("empage").value;
+            var salary = document.getElementById("empsalary").value;
+            var email = document.getElementById("empemail").value;
+            var doj = document.getElementById("empdoj").value;
+            var loc = document.getElementById("location").value;
+            var flage = 0;
+            
+            var missing = false;
+            var strFileds = "";
+
+            if(id == "")
+            {
+                missing = true;
+                strFileds += "Please Enter Employee ID\n";
+            }
+            if(id.length != 5)
+            {
+                missing = true;
+                strFileds += "Please Enter 5 Letter in Employee ID\n";
+            }
+            if(name == "")
+            {
+                missing =true;
+                strFileds += "Please Enter Employee Name\n";
+            }
+            if(age == "")
+            {
+                missing = true;
+                strFileds += "Please Enter Age\n";
+            }
+            if(isNaN(age))
+            {
+                missing = true;
+                strFileds += "Age Should be Number\n";
+            }
+            if(loc == "select")
+            {
+                missing = true;
+                strFileds += "Please Select Location\n";
+            }
+            if(salary == "")
+            {
+                missing = true;
+                strFileds += "Please Enter Salary\n";
+            }
+            if(email == "")
+            {
+                missing = true;
+                strFileds += "Please Enter Email\n";
+            }
+            if(doj == "")
+            {
+                missing = true;
+                strFileds += "Please Enter Date Of Join\n";
+            }
+            if(missing)
+            {
+                document.getElementById("error").innerHTML = strFileds;
+                return false;
+            }
+            return true;
+            
+            
+        }
+        
+    </script>
+
+    <body>
+        <div class="error-box mt-5 text-danger">
+            <h6 id="error"></h6>
+        </div>
+        
+        <form name="frmname">
+        <div class="container form-box border border-success">
+            <h2 class="text-center">Employee registration</h2>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Employee ID</label>
+                        <input type="text" id="empid" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Employee Name</label>
+                        <input type="text" id="empname" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Employee Age</label>
+                        <input type="text" class="form-control" id="empage">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Employee Salary</label>
+                        <input type="text" class="form-control" id="empsalary">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Employee Email</label>
+                        <input type="email" class="form-control" id="empemail" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Date Of Joining</label>
+                        <input type="date" class="form-control" id="empdoj">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Location</label>
+                        <select name="" id="location" class="form-control">
+                            <option value="select">Select</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Vadodra">Vadodra</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <label for="" class="form-group">Gender</label>
+                        <input type="radio" id="radiobtn" value="male" class="ml-3">Male
+                        <input type="radio" id="radiobtn" value="female" class="ml-3">Female
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 mb-5">
+                <div class="col-md-12">
+                    <div class="form form-inline">
+                        <input type="submit" class="btn btn-success w-100" value="Submit" onclick="return checkForm()"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

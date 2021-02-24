@@ -1,0 +1,30 @@
+#main-content {
+    border: 2px solid black;
+    overflow: auto;
+}
+
+#leftcol{
+    float: left;
+    width: 30%;
+    background-color: rosybrown;
+    margin-left: 10px;
+    
+    
+}
+
+#rightcol {
+    float: right;
+    width: 30%;
+    background-color: lightyellow;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#centercol {
+    left: 35%;
+    text-align: center;    
+    position: absolute;
+    width: 450px;
+    box-sizing:content-box;   
+    background-color: aliceblue;
+}

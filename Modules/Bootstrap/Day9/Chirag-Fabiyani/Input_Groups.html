@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Bootstrap Session 2</title>
+</head>
+<body>
+    <header>
+        <h1 class="display-3 text-center my-4">Input Groups</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="dropdown">
+                  <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                      2: Utilities
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="Typography.html">2.2 Basic Typography</a>
+                      <a class="dropdown-item" href="Alignment_and_Display.html">2.3 Text Alignment & Display</a>
+                      <a class="dropdown-item" href="Float_Position.html">2.4 Floats & Position</a>
+                      <a class="dropdown-item" href="Colors_and_Backgrounds.html">2.5: Colors & Background</a>
+                      <a class="dropdown-item" href="Spacing.html">2.6 Spacing</a>
+                      <a class="dropdown-item" href="Sizing.html">2.7 Sizing</a>
+                      <a class="dropdown-item" href="Breakpoints.html">2.8 Breakpoints</a>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="dropdown">
+                  <button class="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                      3: CSS Components
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="Buttons.html">3.2 Buttons</a>
+                      <a class="dropdown-item" href="Navbar.html">3.3 Navbar</a>
+                      <a class="dropdown-item" href="List_Groups_Badges.html">3.4 List Groups & Badges</a>
+                      <a class="dropdown-item" href="Forms.html">3.5 Forms</a>
+                      <a class="dropdown-item" href="Input_Groups.html">3.6 Input Groups</a>
+                      <a class="dropdown-item" href="Alerts_and_ProgressBar.html">3.7 Alerts & Progress</a>
+                      <a class="dropdown-item" href="Tables_and_Pagination.html">3.8 Tables & Pagination</a>
+                      <a class="dropdown-item" href="Cards.html">3.9 Cards</a>
+                      <a class="dropdown-item" href="Media_Objects.html">3.10 Media Objects</a>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="dropdown">
+                  <button class="btn btn-warning btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                      4: Grid & Flexbox
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">4.2 Grid System</a>
+                      <a class="dropdown-item" href="#">4.3 Grid Alignment</a>
+                      <a class="dropdown-item" href="#">4.4 Flexbox</a>
+                      <a class="dropdown-item" href="#">4.5 Auto Margins & Wrap</a>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="dropdown">
+                  <button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                      5: JavaScript Widgets
+                  </button>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">5.2 Carousel</a>
+                      <a class="dropdown-item" href="#">5.3 Collapse</a>
+                      <a class="dropdown-item" href="#">5.4 Tooltips</a>
+                      <a class="dropdown-item" href="#">5.5 Popovers</a>
+                      <a class="dropdown-item" href="#">5.6 Modals</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </header>
+
+      <div class="container">
+        
+        <div class="input-group">
+            <span class="input-group-text">@</span>
+            <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <br>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Email address">
+            <span class="input-group-text">@something.com</span>
+        </div>
+        <br>
+        <label for="profile-url">Choose profile URL</label>
+        <div class="input-group">
+            <span class="input-group-text">https://something.com/member/</span>
+            <input type="text" class="form-control" id="profile-url">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input class="form-control" type="text">
+            <span class="input-group-text">.00</span>
+        </div>
+        <br>
+        
+        <div class="input-group input-group-lg">
+            <span class="input-group-text">@</span>
+            <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <br>
+        <div class="input-group">
+        
+            <span class="input-group-text">
+                <input class="form-check mt-2" type="checkbox">
+            </span>
+            <input type="text" class="form-control">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text">
+                <input type="radio">
+            </span>
+            <span class="input-group-text">$5.00</span>
+            <input type="text" class="form-control">
+        </div>
+        <br>
+        
+         <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">Search</button>
+            </span>
+        </div>
+
+    </div>
+    <div style="margin-top:500px;"></div>
+</body>
+</html>

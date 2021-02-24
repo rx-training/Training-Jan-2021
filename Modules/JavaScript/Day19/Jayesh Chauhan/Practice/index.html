@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <form onsubmit="return false;">
+            <input class="form-control form-control-sm" type="text" name="rad" id="rad">
+            <button class="btn btn-primary btn-sm mt-1" onclick="aoc(rad.value)">Area of circle</button>
+            <p id="circle"></p>
+            <p id="rect"></p>
+
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        //Practice 1
+        var aoc = function(r) {
+            var area = Math.PI * r * r;
+            document.getElementById('circle').innerHTML = area;
+        };
+
+        //Practice 2
+        var l = parseInt(prompt("Enter length "));
+        var b = parseInt(prompt("Enter width "));
+        var aor2 = new Function("l", "b", "return l * b");
+
+        function aor(l, b) {
+            console.log("Area of Rectangle = " + aor2(l, b));
+            //document.getElementById('rect').innerHTML = aor2(l, b);
+        }
+        aor(l, b);
+
+        //Practice 3 - Hoisting means invoking functions before they defined
+        add(l, b);
+
+        function add(l, b) {
+            console.log("Addition = " + (l + b));
+        }
+
+        //Practce 4
+        var employee = {
+            display: function(bg, method) {
+                return this.Name + "<br>" + this.Address + "<br>" + this.Designation + "<br>" + bg + "<br>" + method;
+            }
+        }
+
+        var employee1 = {
+            Name: "Jayesh Chauhan",
+            Address: "Limbdi",
+            Designation: "Trainee"
+        }
+        console.log(employee1.Name)
+
+        document.getElementById("circle").innerHTML = employee.display.call(employee1, "A-", "call");
+
+        //Practice 5
+        document.getElementById("rect").innerHTML = employee.display.apply(employee1, ["A-", "apply"]);
+
+        //Practice 6
+        var salaryUpdate = function(salary) {
+            var currentSalary = salary;
+            var generator = function() {
+                currentSalary *= 2;
+                return currentSalary;
+            };
+            return generator;
+        };
+
+        var updateFn = salaryUpdate(20000);
+        console.log(updateFn())
+    </script>
+</body>
+
+</html>

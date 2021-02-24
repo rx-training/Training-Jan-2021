@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+        </style>
+        <script>
+            function validatingform() {
+                var id=document.getElementById("empID").value;
+                var name=document.getElementById("empName").value;
+                var age=document.getElementById("empAge").value;
+                var designation=document.getElementById("empDesignation").value;
+                var salary=document.getElementById("empSalary").value;
+                var location=document.getElementById("empLocation").value;
+                var email=document.getElementById("empEmail").value;
+                var doj=document.getElementById("empDOJ").value;
+                var contact=document.getElementById("empContact").value;
+                if(id==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter Employee Code";
+                    return false;
+                }
+                else if(name==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter name";
+                    return false;
+                }
+                else if(age==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter Age";
+                    return false;
+                }
+                else if(designation==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter Designation";
+                    return false;
+                }
+                else if(salary==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter Salary";
+                    return false;
+                }
+                else if(location==="select") {
+                    document.getElementById("errormsg").innerHTML = "Please select one location";
+                    return false;
+                }
+                else if(email==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter Email Address";
+                    return false;
+                }
+                else if(doj==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter Date of Joining";
+                    return false;
+                }
+                else if(contact==="") {
+                    document.getElementById("errormsg").innerHTML = "Please enter Contact Details";
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="../../../HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../CSS/cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../jQuery/jQueryindex.html" class="nav-link">jQuery</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Assignment.html" target="_blank" class="nav-link">getPocket</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Admin.html" target="_blank" class="nav-link">getPocket Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>JavaScript</li>
+                            <ul>
+                                <li>Day 17</li>
+                                <ul>
+                                    <a href="Assignment.html" class="text-dark"><li>Assignment</li></a>
+                                    <a href="../PractiseExercise/PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <h3 class="text-center mt-5 mb-5 text-success">Employee Form</h3>
+                    <p id="errormsg" class="text-center text-danger mt-5 mb-5"></p>
+                    <form>
+                        <div class="form-group">
+                            <label for="employeeID" class="mt-5 text-primary">EmployeeID</label>
+                            <input type="text" id="empID" class="form-control" placeholder="ID" pattern="^.{5,}$">
+                            <small class="form-text text-muted">Employee ID should be atleast 5 character long</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="employeeName" class="mt-3 text-primary">Employee Name</label>
+                            <input type="text" id="empName" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="age" class="mt-3 text-primary">Employee Age</label>
+                            <input type="number" id="empAge" class="form-control" placeholder="Age">
+                        </div>
+                        <div class="form-group">
+                            <p class=" mt-3 text-primary">Gender:</p>
+                            <div class="form-check">
+                               <input class="form-check-input" class="mt-3" type="radio" name="gender" id="male1" value="male">
+                               <label class="form-check-label" for="gender">Male</label>
+                            </div>
+                            <div class="form-check">
+                               <input class="form-check-input" class="mt-3"type="radio" name="gender" id="female" value="female">
+                               <label class="form-check-label" for="gender">Female</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="designation" class="mt-3 text-primary">Designation</label>
+                            <input type="text" id="empDesignation" class="form-control" placeholder="Designation">
+                        </div>
+                        <div class="form-group">
+                            <label for="salary" class="mt-3 text-primary">Salary</label>
+                            <input type="text" id="empSalary" class="form-control" placeholder="Salary">
+                        </div>
+                        <div class="form-group">
+                            <label for="location" class="mt-3 text-primary">Location</label>
+                            <select id="empLocation" class="form-control">
+                                <option value="select">Select</option>
+                                <option>Calcutta</option>
+                                <option>Chennai</option>
+                                <option>Delhi</option>
+                                <option>Mumbai</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="mt-3 text-primary">Employee Email</label>
+                            <input type="email" id="empEmail" class="form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="DOJ" class="mt-3 text-primary">Date of Joining</label>
+                            <input type="date" id="empDOJ" class="form-control" placeholder="Date of Joining">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactno" class="mt-3 text-primary">Contact no</label>
+                            <input type="text" id="empContact" class="form-control" placeholder="Contact no">
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" class="mt-3 bg-success" value="Submit Form" onclick="return validatingform()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        <title>Pocket</title>
+        <script>
+            function validateSignupDetails() {
+                var users;
+                var name=document.getElementById("usname").value;
+                var email=document.getElementById("usemail").value;
+                var pswd=document.getElementById("uspswd").value;
+                var emailpattern=/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+                var pswdpattern=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+                var storedemailpass=JSON.parse(localStorage.getItem("users"));
+                if(name==="" || email==="" || pswd==="") {
+                    alert("Please fill all the fields");
+                }
+                else if(!(email.match(emailpattern))) {
+                    alert("Please enter correct Mail Address");
+                }
+                else if(!(pswd.match(pswdpattern))) {
+                    alert("Please enter correct Password");
+                }
+                else {
+                    var obj={"name":name,"email":email,"password":pswd};
+                    users=JSON.parse(localStorage.getItem("users")) || [];
+                    users.push(obj);
+                    users=JSON.stringify(users);
+                    localStorage.setItem("users",users);
+                    setTimeout(function() {
+                        window.location.href="UserLogin.html";
+                    });
+                } 
+            }
+        </script>
+    </head>
+    <body>
+        <!--NavBar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a href="Assignment.html" class="navbar-brand text-danger ml-5" style="font-size: 45px;">pocket</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggeler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-items">
+                            <a href="UserSignup.html" class="nav-link">Sign Up</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">How to Save</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">Go Premium</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-items">
+                            <button class="border border-dark mt-2 ml-1">Log In</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <hr class="bg-dark">
+        <div class="container">
+            <div class="row" style="margin-top: 120px;">
+                <div class="col-lg-5 d-lg-block">
+                    <h1 class="display-4 text-center">
+                        <strong>Get Started<br>With Pocket</strong>
+                    </h1>
+                    <div class="d-flex flex-row mt-3">
+                        <div class="p-4 align-self-start">
+                            <i class="fas fa-save" style="font-size: 40px;"></i>
+                        </div>
+                        <div class="p-4" style="color: gray;">
+                            Save anything from across the web in a personal library.
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div class="p-4 align-self-start">
+                            <i class="fas fa-mobile" style="font-size: 40px;"></i>
+                        </div>
+                        <div class="p-4" style="color: gray;">
+                            Enjoy whatever you save, whenver you are free.
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div class="p-4 align-self-start">
+                            <i class="fas fa-paper-plane" style="font-size: 40px;"></i>
+                        </div>
+                        <div class="p-4" style="color: gray;">
+                            Get thought-provoking stories in our daily news-letters.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card text-center card-form border border-dark" style="margin-left: 180px;">
+                        <strong class="mt-3">Sign Up</strong>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group mt-3">
+                                    <input type="text" id="usname" class="form-control form-control-lg" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="usemail" class="form-control form-control-lg" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="uspswd" class="form-control form-control-lg" placeholder="Password">
+                                </div>
+                                <div class="text-center text-muted">Please enter at least 6 characters</div>
+                                <button type="submit" class="bg-primary text-light btn-block p-2 mt-4" onclick="validateSignupDetails()">Log In</button>
+                            </form>
+                        </div>
+                        <div class="d-flex">
+                            <hr width="50%" class="bg-dark">OR<hr width="50%" class="bg-dark">
+                        </div>
+                        <div class="form-group mt-3">
+                            <a href="" class="text-dark btn-block border border-dark ml-5 mr-3 w-75 form-control-lg"><i class="fab fa-apple"></i>&nbsp;&nbsp;Continue With Apple</a>
+                        </div>
+                        <div class="form-group mt-1">
+                            <a href="" class="text-dark btn-block border border-dark ml-5 mr-3 w-75 form-control-lg""><i class="fab fa-google"></i>&nbsp;&nbsp;Continue With Google</a>
+                        </div>
+                        <div class="form-group mt-1">
+                            <a href="" class="text-dark btn-block border border-dark ml-5 mr-3 w-75 form-control-lg""><i class="fab fa-firefox"></i>&nbsp;&nbsp;Continue With Firefox</a>
+                        </div>
+                        <a href="UserLogin.html" class="text-center text-dark mb-2" style="text-decoration: underline;text-decoration-color: blue;">Already have an account? Log in now</a>
+                        <p class="text-muted mt-2 mb-3">By signing up, you agree to Pocket’s <a href="" class="text-muted" style="text-decoration: underline;text-decoration-color:gray;">Terms of Service</a> and <a href="" class="text-muted" style="text-decoration: underline;text-decoration-color: gray;"> Policy.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <nav class="navbar navbar-expand-lg">
+                        <ul class="navbar-nav" style="font-size: 12px;">
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Blog</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">About</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Explore</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Publishers</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Developers</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Terms of Service</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Privacy</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Support</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="" class="nav-link text-dark">Jobs</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-2">
+                    <p class="mt-3 bg-light text-dark">Connect:
+                        <img class="img-fluid" src="twitter.jpg" width="30px" height="30px">
+                        <img class="img-fluid" src="fb.jpg" width="30px" height="30px">
+                    </p>
+                    <small><p class="text-center text-gray text-muted">&copy; 2019 Read It Later, Inc</p></small>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

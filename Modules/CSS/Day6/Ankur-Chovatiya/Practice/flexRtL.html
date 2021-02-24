@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex box </title>
+    <style>
+        .flexBox{
+            background-color: aqua;
+            display: flex;
+            /* flex-direction: row-reverse; */
+            justify-content: flex-end;
+        }
+        .item{
+            background-color: blueviolet;
+            border: 2px solid red;
+            /* width: 80px; */
+            text-align: center;
+        }
+        @media (max-width: 800px) {
+            .flexBox{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Flex box Right to left</h1>
+    <div class="flexBox">
+        <div class="item">Home</div>
+        <div class="item">AboutUs</div>
+        <div class="item">ContactUs</div>
+    </div>
+</body>
+</html>
