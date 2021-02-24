@@ -38,13 +38,16 @@
             text-decoration: underline;
             transform: rotate(-90deg);
         } 
+        span {
+         display: none;
+        }
 
     </style>
 
     <body>
         <!---Navbar Section Start-->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <img src="../../img/logo.png" alt="" height="80px" width="80px">
+                <img src="/img/logo.png" alt="" height="80px" width="80px">
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -68,6 +71,9 @@
                         <li class="nav-item">
                             <a href="/Mitul-Soni/src/Admin/index.html" class="nav-link" target="_blank">Admin Panel</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/Jquery/main_index.html" class="nav-link">Jquery</a>
+                        </li>
                     </ul>
                 </div>
             
@@ -84,11 +90,19 @@
                     <ul>
                         <li>Assignment</li>
                             <ul>
-                                <li><a href="assignement.html">Assignement</a></li>
+                                <li><a href="/Jquery/Day23/Mitul-Soni/assignement.html">Assignement</a></li>
                             </ul>
                             <li>Practice</li>
                             <ul>
-                                <li><a href="index.html">Task1</a></li>
+                                <li><a href="/Jquery/Day23/Mitul-Soni/index.html">Task1</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="custome_event.html">Custome Event</a></li>
+                                <li><a href="delegate_live.html">Delegate Live</a></li>
+                                <li><a href="dom.html">Dom</a></li>
+                                <li><a href="event_handling.html">Event Handling</a></li>
+                                <li><a href="on_and_bind.html">On and Bind</a></li>
+                                <li><a href="user_input.html">User Input</a></li>
                             </ul>
                     </ul>
                 </ul>
@@ -119,60 +133,58 @@
                 </ul>
             </div>
 			<div class="col-md-9">
-				<div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1>Put a droplist with 5 country name from list object using jquery</h1>
-                            <form>
-                                <select id="countryName" class="form-control mt-3">
-                                    <option value="pleaseSelect">pleaseSelect</option>
-                                    <option value="India">India</option>
-                                    <option value="UK">UK</option>
-                                    <option value="USA">USA</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="Dubai">Dubai</option>
-                                </select>
-                            </form>
+				<div class="row">
+                    <div class="col-md-12">
+                        <!--On mouse hover event-->
+                        <h5>On Mouse Hover</h5>
+                        <p id="onmouse">Hover the mouse pointer over this paragraph.</p>
+        
+                        <br>
+                        <!--On Focus-->
+                        <h5>On Focus</h5>
+                        <input>
+                        <span>Nice to meet you!</span>
+        
+                        <!--On FocusOut-->
+                        <h5>On FocusOut</h5>
+                        <div style="border: 1px solid black;padding:10px;" id="focusout">
+                            First name: <input type="text"><br>
+                            Last name: <input type="text">
                         </div>
-                        <div>
-                            <span id="result"></span>
-                        </div>
+                            
+                        <!--On Mouse Out-->
+                        <h5>On Mouse Out</h5>
+                        <p id="onmouseout">Move the mouse pointer over this paragraph.</p>
+        
                     </div>
                 </div>
-            
                 <script>
-                    
                     $(document).ready(function(){
-                        $("#countryName").change(function(){
-                            if($("#countryName option:selected").text() == "pleaseSelect")
-                            {
-                                $("#result").html("<ul style='list-style-type:none'><li>India</li><li>UK</li><li>USA</li><li>Germany</li><li>Dubai</li></ul>");
-                            }
-                            else if($("#countryName option:selected").text() == "India")
-                            {
-                                $("#result").html($("#countryName option:selected").text());
-                            }
-                            else if($("#countryName option:selected").text() == "UK")
-                            {
-                                $("#result").html($("#countryName option:selected").text());
-                            }
-                            else if($("#countryName option:selected").text() == "USA")
-                            {
-                                $("#result").html($("#countryName option:selected").text());
-                            }
-                            else if($("#countryName option:selected").text() == "Germany")
-                            {
-                                $("#result").html($("#countryName option:selected").text());
-                            }
-                            else
-                            {
-                                $("#result").html($("#countryName option:selected").text());
-                            }
-                        })
-                        $("#result").html("<ul style='list-style-type:none'><li>India</li><li>UK</li><li>USA</li><li>Germany</li><li>Dubai</li></ul>");
-                    })
-            
-            
+                           $("p").hover(function(){
+                               $(this).css("background-color", "yellow");
+                               }, function(){
+                               $(this).css("background-color", "pink");
+                           }); 
+           
+                           $("input").focus(function(){
+                               $("span").css("display", "inline").fadeOut(2000);
+                           });
+           
+                           $("#focusout").focusin(function(){
+                               $(this).css("background-color", "#FFFFCC");
+                           });
+                           $("#focusout").focusout(function(){
+                               $(this).css("background-color", "#FFFFFF");
+                           });
+           
+                           $("#onmouseout").mouseover(function(){
+                               $("#onmouseout").css("background-color", "yellow");
+                           });
+                           $("#onmouseout").mouseout(function(){
+                               $("#onmouseout").css("background-color", "lightgray");
+                           });
+                           
+                   });
                 </script>
 				
 			</div>
