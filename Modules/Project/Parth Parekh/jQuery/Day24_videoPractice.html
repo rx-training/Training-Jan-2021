@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>Day 24 Practice Excercise</title>
+    <title>Day 24 video Excercise</title>
     <style>
-    .col-md-4 a:hover {
-    color: blue !important;
-    }
+        .col-md-4 a:hover {
+            color: blue !important;
+        }
     </style>
-
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container ">
             <a href="#" class="navbar-brand"> <img src="../src/img/logo.jpg" alt="Logo" height="90px" width="90px"> </a>
@@ -66,73 +66,103 @@
                         <a class="nav-link text-capitalize text-muted" href="Day22_assignment.html">Day 22 assignment</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize text-active" href="Day24_assignment.html">Day 24 assignment</a>
+                        <a class="nav-link text-capitalize text-muted" href="Day24_assignment.html">Day 24 assignment</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize text-muted" href="Day24_videoPractice.html">Day 24 Video Practice</a>
+                        <a class="nav-link text-capitalize text-active" href="Day24_videoPractice.html">Day 24 Video Practice</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-8  mb-4">
+            <div class="col-md-8 mt-5 mb-4">
+
 
                 <div class="container mt-2">
-                    <h2 class="text-center text-info">Assignment</h2>
+                    <div class="hello">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet placeat obcaecati
+                        saepe
+                        magnam? Maxime consectetur itaque suscipit magnam totam doloremque consequuntur explicabo adipisci expedita,
+                        minima
+                        veritatis, assumenda, quas autem.</div>
+                    <h3 class="text-info"> Map Method Examples So In console</h3>
+                    <p> Translate all items in an array or object to new array of items.</p>
 
-                    <input id="myInput" type="text" class="form-control mb-3 mt-2"   placeholder="Search..">
-                        <table class="table table-dark  table-hover ">
-                            <thead >
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody" class="text-info">
-                            </tbody>
-                        </table> 
+
+                    <h3 class="text-info mt-3">Grep Method</h3>
+                    <p>Finds the elements of an array which satisfy a filter function. The original array is not affected</p>
+
+                    <h3 class="text-info mt-3">Type method</h3>
+                    <p>Determine the type any variable or object</p>
+                    <p>Syntax : $.type(new Date())</p>
+
+                    <h3 class="text-info mt-3">Callbacks method</h3>
+                    <p>A multi-purpose callbacks list object that provides a powerful way to manage callback lists.</p>
+                    <p>Syntax : $.type(new Date())</p>
+                    <div id="log"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        
-        var  t = "";
-
-        $("#myInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#tbody tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
+        $(".hello").remove();
+        var x = $.map([0, 1, 2], function (n) {
+            return n + 4;
         });
-        
-        $.get("https://gorest.co.in/public-api/users", function (data, status) {
-            var ss  =  data.data;
-            //USing For Loop
-            // for(var  i = 0 ; i <ss.length ; i++ )
-            // {
-            //     t += "<tr><td>" + ss[i].id +"</td>" +
-            //          "<td>" + ss[i].name + "</td>" +
-            //          "<td>" + ss[i].email + "</td>" +
-            //          "<td>" + ss[i].gender + "</td>" +
-            //          "<td>" + ss[i].status + "</td></tr>" ;
-            // }
-            //USing Each function
-            $.each(ss , function (i , value) {
-                t += "<tr><td>" + ss[i].id + "</td>" +
-                     "<td>" + ss[i].name + "</td>" +
-                     "<td>" + ss[i].email + "</td>" +
-                     "<td>" + ss[i].gender + "</td>" +
-                     "<td>" + ss[i].status + "</td></tr>";
-            });
+        console.log(x.join(" "));
 
-            console.log(t);
-            $("#tbody").append(t);  // Using Append
-            //$("#tbody").html(t);  // Using html
+        var y = $.map([0, 1, 2], function (n) {
+            return [n, n + 1];
         });
-        
+        console.log(y);
+
+        var object1 = {
+            apple: 0,
+            banana: { weight: 52, price: 100 },
+            cherry: 97
+        };
+        var object2 = {
+            banana: { price: 200 },
+            durian: 100
+        };
+
+        // Merge object2 into object1
+        $.extend(object1, object2);
+
+
+        $("#log").append(JSON.stringify(object1));
+        console.log(JSON.stringify(object1));
+
+        //grep method
+        var ans = $.grep([0, 1, 2], function (n, i) {
+            return n > 0;
+        });
+        console.log(ans.join(","));
+
+        console.log($.type(new Error()));
+        console.log($.type(new Date()));
+        console.log($.type(null));
+        console.log($.type(/^\w+$/));
+        console.log($.type([{ name: "Parth" }]));
+
+        function fn1(value) {
+            console.log(value);
+        }
+
+        function fn2(value) {
+            console.log("fn2 says: " + value);
+
+        }
+        var callbacks = $.Callbacks();
+        callbacks.add(fn1);
+
+        // Outputs: foo!
+        callbacks.fire("foo!");
+
+        callbacks.add(fn2);
+
+        // Outputs: bar!, fn2 says: bar!
+        callbacks.fire("bar!");
+
+
 
     </script>
 
@@ -145,7 +175,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
         crossorigin="anonymous"></script>
-    
+
 </body>
 
 </html>
