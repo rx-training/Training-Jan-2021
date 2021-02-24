@@ -1,3 +1,11 @@
+<!-- 1. Create one paragraph, add some dummy text and apply blue background color using jquery
+2. There is one Hide/show the text inside the #helpText span element when the user’s mouse passes over the text “
+3. – Label : “Please select your technology :” 
+    – Consider following set of radio buttons :-“PHP”, “ASP.NET”, “ASP”, “JSP”, “PERL”, “Cold Fusion”, “Other”. Layout these buttons in a Horizontal manner.
+    – Clicking on a particular radio button should display the related technology name besides label : “You have  selected : “.
+    – Use multiple “span” HTML element for displaying the related message.
+    – Note that radio button should be selectable by clicking on the corresponding label. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,77 +18,70 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Practice</title>
 </head>
-<body class="m-5">
-
-    <div class="mainContainer1 m-5 p-5"> Main Container1
-        <div class="ancestor p-5"> Ancestor
-            <div class="first p-5"> Parent1
-                <div class="sibling1 p-5"> Sibling1
-                </div>
-                <div class="sibling2 p-5"> Sibling2
-                </div>
+<body>
+    <p id="firstP" class="m-5"></p>
+    <p id="secondP" class="m-5">(Hover on the text) Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias itaque nulla obcaecati quasi delectus ullam expedita quibusdam. Reiciendis, ipsam repellendus!</p>
+    <form class="form m-5">
+        <div class="form-group">
+            <label for="selection">Please select your technology : </label>
+            <span class="result"></span>
+        </div>
+        <div class="form-group">
+            <div class="form-check d-inline px-4">
+                <label for="PHP" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn1" value="PHP" class="form-check-input"> PHP
+                </label>
             </div>
-            <br>
-            <div class="second p-5"> Parent2
-                <div class="child1 p-5"> Child1
-                </div>
+            <div class="form-check d-inline px-4">
+                <label for="ASP.NET" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn2" value="ASP.NET" class="form-check-input">ASP.NET
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="ASP" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn3" value="ASP" class="form-check-input">ASP
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="JSP" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn4" value="JSP" class="form-check-input">JSP
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="Perl" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn5" value="Perl" class="form-check-input">Perl
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="coldfusion" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn6" value="Cold Fusion" class="form-check-input">Cold Fusion
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="other" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn7" value="Other" class="form-check-input">Other
+                </label>
             </div>
         </div>
-    </div>
-
-    <div class="mainContainer2 m-5 p-5">Main Container2
-        <div class="first p-5">First</div>
-        <div class="eq p-5">Eq</div>
-        <div class="last p-5">Last</div>
-        <p class="special p-5">Special Case</p>
-        <p class="notSpecial p-5">Not Special</p>
-        <p class="next p-5">Next</p>
-        <p class="special p-5">Special Case</p>
-    </div>
-
-    <div class="container text-center m-5 p-5">
-        <div id="loadContent"></div>
-        <button class="load btn btn-primary">Load content</button>
-        <button class="get btn btn-primary">GET content</button>
-    </div>
+    </form>
 
     <script>
         $(document).ready(function(){
-            $(".mainContainer1").find("*").css({"background": "lightblue", "border": "1px solid lightblue"}); // find
-            $(".child1").parent().css({"background": "darkolivegreen", "border": "1px solid darkolivegreen"}); // parent
-            $(".ancestor").parents().css({"background": "lightgray", "border": "1px solid lightgray"}); // parents
-            $(".sibling1").parentsUntil(".ancestor").css({"background": "darkcyan", "border": "1px solid darkcyan"}); // parentsUntil
-            $(".second").children().css({"background": "lightseagreen", "border": "1px solid lightseagreen"}); // children
-            $(".first").children("div.sibling1").css({"background": "lightgreen", "border": "1px solid lightgreen"}); // children
-            $(".first").find(".sibling2").css({"background": "lightcoral", "border": "1px solid lightcoral"}); // find
-            $(".mainContainer2").siblings().css({"background": "darkkhaki", "border": "1px solid darkkhaki"}); // siblings
-            $(".mainContainer1").siblings().css({"background": "darkkhaki", "border": "1px solid darkkhaki"}); // siblings
-
-            $(".mainContainer2 div").first().css({"background": "red", "border": "1px solid red"}); // first
-            $(".mainContainer2 div").eq(1).css({"background": "lightsalmon", "border": "1px solid lightsalmon"}); // eq
-            $(".mainContainer2 div").last().css({"background": "violet", "border": "1px solid violet"}); // last
-            $("p").not(".special").css({"background": "green", "border": "1px solid green"}); // not
-            $(".notSpecial").next().css({"background": "blue", "border": "1px solid blue"}); // Next
-            $("p").filter(".special").css({"background": "indigo", "border": "1px solid indigo"});  // special
-
-            $(".load").click(function(){
-                $("#loadContent").load("intro.txt", function(text, status, xhr){
-                    if(status == "success"){
-                        alert("External content loaded successfully");
-                    }
-                    else{
-                        alert("Error: " + xhr.status + " : " + xhr.statusText);
-                    }
-                });
+            
+            // 1
+            $("#firstP").text("Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio architecto labore id.").css("background","blue");
+            
+            // 2
+            $("#secondP").hover(function(){
+                $("#secondP").toggle();
             });
 
-            $(".get").click(function(){
-                $.get("intro.txt", function(data, status){
-                    alert(data + "\n" + status);
-                });
+            // 3
+            $("input[name='buttonGroup']").click(function(){
+                $(".result").html($(this).val());
             });
-        }); 
+
+        });
     </script>
-
 </body>
 </html>

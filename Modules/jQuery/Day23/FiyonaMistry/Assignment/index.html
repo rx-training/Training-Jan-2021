@@ -1,3 +1,10 @@
+<!-- Put a droplist with 5 country name from list object using jquery
+(Eg. India, United Kingdom..). Default value should “Please select”.
+– Bellow droplist all country name which are in the dropdown that should display with Label :
+“Your Selected Country : “.
+– By default all country name should display.
+– Only that country name should appear which are you select from dropdown. All other label should be disappear.
+– When i select ‘Please select’, all countries name should get displayed. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,35 +17,38 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Assignment</title>
 </head>
-<body class="m-5">
-    <div class="container">
-        <table id="content" class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+<body>
+    <form class="m-5">
+        <div class="form-group">
+            <select class="form-control" name="country" id="country">
+                <option value="all">Please Select</option>
+                <option value="India">India</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Africa">Africa</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="selected">Your Selected Country : </label>
+            <span class="result"></span>
+        </div>
+    </form>
 
     <script>
         $(document).ready(function(){
-            $.getJSON("https://gorest.co.in/public-api/users", function(data){
-                var flag='';
-                $.each(data.data, function(key, value){
-                    flag += '<tr>';
-                    flag += '<td>' + value.id + '</td>';
-                    flag += '<td>' + value.name + '</td>';
-                    flag += '<td>' + value.email + '</td>';
-                    flag += '<td>' + value.gender + '</td>';
-                    flag += '<td>' + value.status + '</td>';
-                    flag += '</td>';
-                });
-                $("#content").append(flag);
+
+            $("#country option").not("option[value='all']").each(function(index, value){
+                $(".result").append(", " + $(this).val());
+            });
+
+            $("#country").click(function(){
+                if($(this).val() == "all"){
+                    $(".result").text("India, United Kingdom, Canada, Dubai, Africa");
+                }
+                else{
+                $(".result").text($(this).val());
+                }
             });
         });
     </script>

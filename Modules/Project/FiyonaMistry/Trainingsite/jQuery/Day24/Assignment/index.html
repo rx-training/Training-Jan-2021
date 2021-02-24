@@ -49,52 +49,49 @@
         <div class="row">
             <div class="col-2 bg-info">
                 <ol start="1">
-                    <li>Day 22
-                        <ul type="disc">
-                            <li><a href="#" class="text-dark"> Assignment</a></li>
-                            <li><a href="../Practice/index.html" class="text-dark"> Practice</a></li>
-                        </ul>
-                    </li>
                     <li>Day 23
                         <ul type="disc">
                             <li><a href="../../Day23/Assignment/index.html" class="text-dark"> Assignment</a></li>
                             <li><a href="../../Day23/Practice/index.html" class="text-dark"> Practice</a></li>
                         </ul>
                     </li>
+                    <li>Day 24
+                        <ul type="disc">
+                            <li><a href="#" class="text-dark"> Assignment</a></li>
+                            <li><a href="../Practice/index.html" class="text-dark"> Practice</a></li>
+                        </ul>
+                    </li>
                 </ol>
             </div>
-            <div class="col-10">
-                <form class="m-5">
-                    <div class="form-group">
-                        <select class="form-control" name="country" id="country">
-                            <option value="all">Please Select</option>
-                            <option value="India">India</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Dubai">Dubai</option>
-                            <option value="Africa">Africa</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="selected">Your Selected Country : </label>
-                        <span class="result"></span>
-                    </div>
-                </form>
+            <div class="col-10 p-5">
+                <div class="container">
+                    <table id="content" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             
                 <script>
                     $(document).ready(function(){
-            
-                        $("#country option").not("option[value='all']").each(function(index, value){
-                            $(".result").append(", " + $(this).val());
-                        });
-            
-                        $("#country").click(function(){
-                            if($(this).val() == "all"){
-                                $(".result").text("India, United Kingdom, Canada, Dubai, Africa");
-                            }
-                            else{
-                            $(".result").text($(this).val());
-                            }
+                        $.getJSON("https://gorest.co.in/public-api/users", function(data){
+                            var flag='';
+                            $.each(data.data, function(key, value){
+                                flag += '<tr>';
+                                flag += '<td>' + value.id + '</td>';
+                                flag += '<td>' + value.name + '</td>';
+                                flag += '<td>' + value.email + '</td>';
+                                flag += '<td>' + value.gender + '</td>';
+                                flag += '<td>' + value.status + '</td>';
+                                flag += '</td>';
+                            });
+                            $("#content").append(flag);
                         });
                     });
                 </script>
@@ -103,7 +100,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="fixed-bottom bg-info py-2">
+    <footer class="bg-info py-2">
         <div class="container">
             <p class="text-center text-white">Copyright &copy; 2021. All rights reserved.</p>
         </div>
