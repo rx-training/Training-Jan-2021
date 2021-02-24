@@ -53,6 +53,9 @@
 #showcase {
   position: relative; }
 
+#banner-img {
+  height: 550px; }
+
 #overlay {
   position: absolute;
   top: 0;
