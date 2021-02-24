@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>JavaScript</title>
+    <script>
+        //Function For Exercise1
+        function changePara() {
+            document.getElementById('para1').innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur repellendus iste deleniti repudiandae, qui voluptatem officia architecto, natus aliquam maxime quia quasi debitis autem illo odio itaque ab magni pariatur.";
+
+        }
+
+        //Function For Exercise2
+        var selectedParaId = "p1";
+        function selectedPara(selectedId)
+        {
+            selectedParaId = selectedId;
+        }
+
+        function changePara1()
+        {
+            document.getElementById(selectedParaId).innerText = "Hello, How are You?";
+        }
+
+        //Function For Exercise3
+        function changePic(){
+            document.getElementById('image').src = "https://www.w3schools.com/w3images/ocean.jpg";
+        }
+
+        //Function For Exercise4
+        function changeText(){
+            document.getElementById('myText').value = "Hello, How are You?";
+        }
+
+        //Function For Exercise5
+        function changeColor(){
+            document.getElementById('demo').style.color = "red";
+        }
+
+        //Function For Exercise6
+        function hidePara(){
+            document.getElementById('demo1').style.display = "none";
+        }
+
+        //Function For Exercise7
+        function windowAssign() {
+            location.assign("https://www.w3schools.com/js/js_window_location.asp")
+        }
+
+        //Function For Exercise8
+        function prevPage() {
+            history.back();
+        }
+
+        function nextPage() {
+            history.forward();
+        }
+
+        //Function For Exercise9
+        var myWindow;
+
+        function createWindow() {
+            myWindow = window.open("", "", "width=100, height=100");
+        }
+
+        function resizeWindow() {
+            myWindow.resizeTo(500, 500);
+            myWindow.focus();
+        }
+    </script>
+  </head>
+  <body>
+      <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="../../../../assets/logopng.png" alt="logo" height="80px" width="100px"></a>
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../HTML/index.html">HTML</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../CSS/index.html">CSS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../Bootstrap/index.html">Bootstrap</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="../../../index.html">JavaScript</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../JQuery/index.html">JQuery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../Bootstrap/Day14/Harsh Shah/src/index.html" target="_blank">Project</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bg-dark text-white">
+              <h6>JavaScript Section</h6>
+              <ul>
+                  <li>
+                      Day15
+                      <ul>
+                          <li>Harsh Shah
+                              <ul>
+                                  <li><a href="../../../Day15/Harsh Shah/Practice Exercises/exercise1.html">Exercise1</a></li>
+                                  <li><a href="../../../Day15/Harsh Shah/Practice Exercises/exercise2.html">Exercise2</a></li>
+                                  <li><a href="../../../Day15/Harsh Shah/Assignment/assignment.html">Assignment</a></li>
+                              </ul>
+                          </li>
+                      </ul>    
+                  </li>
+              </ul>
+              <ul>
+                <li>
+                    Day16
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                                <li><a href="../../../Day16/Harsh Shah/Practice Exercises/exercises.html">Exercises</a></li>
+                                <li><a href="../../../Day16/Harsh Shah/Assignment/assignment.html">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day17
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="exercises.html">Exercises</a></li>
+                              <li><a href="../Assignment/assignment.html">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day18
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="../../../Day18/Harsh Shah/Practice Exercises/exercises.html">Exercises</a></li>
+                              <li><a href="../../../Day18/Harsh Shah/Assignment/assignment.html">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day19
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="../../../Day19/Harsh Shah/Practice Exercises/exercises.html">Exercises</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day20
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="../../../Day20/Harsh Shah/Practice Exercise/index.html">Exercise</a></li>
+                              <li><a href="../../../Day20/Harsh Shah/Assignment/index.html">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+                  
+            </div>
+            <div class="col-md-9">
+                <!-- Exercise1 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 1</p>
+        <p class="lead">Click Below Button to Change Paragraph.</p>
+        <p id="para1">Hello!</p>
+        <button class="btn btn-primary" onclick="changePara()">Click to Change</button>
+    </div>
+
+    <!-- Exercise2 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 2</p>
+        <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p id="p3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p class="lead">Select Paragraph and Click Below Button to Change Paragraph.</p>
+        <div class="form-inline mt-4">
+            <div class="form-group">
+                <label class="ml-5 pl-5" for="selectPara">Select Paragraph : </label>
+                <select class="form-control mx-4" name="selectPara" id="selectPara" onchange="selectedPara(this.value)">
+                    <option value="p1" selected>Paragraph 1</option>
+                    <option value="p2">Paragraph 2</option>
+                    <option value="p3">Paragraph 3</option>
+                </select>
+            </div>
+            <button class="btn btn-primary ml-5" onclick="changePara1()">Click to Change</button>
+        </div>   
+    </div>
+
+    <!-- Exercise3 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 3</p>
+        
+        <div>
+            <img id="image" class="img-fluid rounded w-50" src="https://www.w3schools.com/w3images/paris.jpg" alt="Image">
+        </div>
+        <p class="lead mt-4">Click Below Button to Change Picture.</p>
+        <button class="btn btn-primary" onclick="changePic()">Click to Change</button>
+    </div>
+
+    <!-- Exercise4 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 4</p>
+        <div class="input-group w-50 mx-auto mt-4">
+            <input id="myText" class="form-control" type="text" value="Hello">
+        </div>
+        <p class="lead mt-3">Click Below Button to Change Value of Textbox.</p>
+        <button class="btn btn-primary" onclick="changeText()">Click Here</button>
+    </div>
+
+    <!-- Exercise5 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 5</p>
+        <p id="demo" class="lead">Click Below Button to Change Color of Paragraph.</p>
+        <button class="btn btn-primary" onclick="changeColor()">Click Here</button>
+    </div>
+
+    <!-- Exercise6 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 6</p>
+        <p id="demo1" class="lead">Click Below Button to Hide Paragraph.</p>
+        <button class="btn btn-primary" onclick="hidePara()">Click Here</button>
+    </div>
+
+    <!-- Exercise7 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 7</p>
+        <p class="lead">Click Below Button to Redirect w3schools.com Window Location Tutorial.</p>
+        <button class="btn btn-primary" onclick="windowAssign()">Click Here</button>
+    </div>
+
+    <!-- Exercise8 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 8</p>
+        <p class="lead">Click Below Button to get Previous or Next page.</p>
+        <button class="btn btn-primary" onclick="prevPage()">Previous</button>
+        <button class="btn btn-primary ml-3" onclick="nextPage()">Next</button>
+    </div>
+
+    <!-- Exercise9 -->
+    <div class="container bg-light border border-primary rounded mt-5 p-5 w-75 text-center">
+        <p class="display-4">Exercise 9</p>
+        <p class="lead">Click Below Button to Resize the Window.</p>
+        <button class="btn btn-primary" onclick="createWindow()">Create Window</button>
+        <button class="btn btn-primary ml-3" onclick="resizeWindow()">Resize Window</button>
+
+    </div>
+
+    <div class="mt-5"></div>
+            </div>
+                    
+                    
+        </div>
+
+    </div>
+    
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  </body>
+</html>
