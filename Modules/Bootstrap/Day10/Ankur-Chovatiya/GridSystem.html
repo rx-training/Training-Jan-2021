@@ -1,59 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <!-- <h1>Hello, world!</h1> -->
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Grid</title>
+</head>
+<body style="margin: 50px;">
     <div class="row">
-        <div class="col-lg-6 col-sm-3 bg-danger ">6 column in large device</div>
-        <div class="col-lg-6 bg-warning col-sm-6">6 column in large device</div>
-        <!-- <div class="col-sm-3 bg-info"> ha ha </div> -->
-    </div>
-
-    <div class="row mt-3">
-        <div class="col bg-primary">column 1</div>
-        <div class="col bg-secondary">column 2</div>
-        <div class="col bg-info">column 3</div>
-    </div>
-
-    <div class="row mt-3">
-        <div class="col bg-danger order-3">column 1</div>
-        <div class="col bg-light">column 2</div>
-        <div class="col bg-success">column 3</div>
-        
-    </div>
-
-    <div class="row mt-3">
-        <div class="col-3 bg-success ml-auto">column3</div>
-        <div class="col-3 bg-success ml-auto">column3</div>
-    </div>
-
-    <div class="row bg-danger mt-3">
-        <div class="col-lg-12">
-            column main
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border: 1px solid black;">
+            <ul>
+                <li>6 in small screen</li>
+                <li>8 in medium screen</li>
+                <li>9 in large screen</li>
+                <li>10 in xlarge screen</li>
+            </ul>
         </div>
-       
-        <div class="row">
-            <div class="col-6"> column 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum officiis animi saepe aliquam sunt voluptates voluptas ullam cumque modi, quia voluptate accusamus. Aperiam qui libero cumque eveniet nulla saepe cum!m10</div>
-            <div class="col-6"> column 3</div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border: 1px solid black;">
+            <ul>
+                <li>6 in small screen</li>
+                <li>4 in medium screen</li>
+                <li>3 in large screen</li>
+                <li>2 in xlarge screen</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm order-4" style="border: 1px solid black;">Equal Width 1</div>
+        <div class="col-sm order-2" style="border: 1px solid black;">Equal Width 2</div>
+        <div class="col-sm order-3" style="border: 1px solid black;">Equal Width 3</div>
+        <div class="col-sm order-1" style="border: 1px solid black;">Equal Width 4</div>
+    </div>
+    <div class="row">
+        <div class="col" style="border: 1px solid black;">Equal Width 1</div>
+        <div class="col" style="border: 1px solid black;">Equal Width 2</div>
+        <div class="w-100"></div>
+        <div class="col" style="border: 1px solid black;">Equal Width 3</div>
+        <div class="col" style="border: 1px solid black;">Equal Width 4</div>
+    </div>
+    <div class="row">
+        <div class="col" style="border: 1px solid black;">Auto Layout</div>
+        <div class="col-5" style="border: 1px solid black;">Auto Layout</div>
+        <div class="col-5" style="border: 1px solid black;">Auto Layout</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4" style="border: 1px solid black;">Offsetting Row 1</div>
+        <div class="col-lg-4 ml-auto" style="border: 1px solid black;">Offsetting Row 2</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 ml-auto" style="border: 1px solid black;">Offsetting Row 1</div>
+        <div class="col-lg-4 ml-auto" style="border: 1px solid black;">Offsetting Row 2</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 m-auto" style="border: 1px solid black;">Offsetting Row</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10" style="border: 1px solid blue;">Level 1: column 10
+            <div class="row">
+                <div class="col-lg-6" style="border: 1px solid red;">Level 2: column 6</div>
+                <div class="col-lg-6" style="border: 1px solid red;">Level 2: column 6</div>
+            </div>
         </div>
     </div>
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
