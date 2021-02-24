@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+<body class="bg-dark text-white">
+
+	<div class="bg-success">
+		<div class="container">
+			<h3 class="text-center">Assignment</h3>
+		</div>
+	</div>
+	<div class="container">
+		<form class="form-group">
+		<label for="date">Enter date in below format :</label>
+		<input type="text" id="inp" class="form-control" placeholder="MM-DD-YYYY">
+		</form>
+		<br>
+		<button onclick="validate()" class="btn btn-primary">Validate</button>
+		<p id="para"></p>
+		<p id="para1"></p>
+	</div>
+	<script>
+		function validate(){
+			var n = document.getElementById('inp').value;
+			var spl = n.split('-');
+			if(isNaN(spl[0]) || isNaN(spl[1]) || isNaN(spl[2]))
+			{
+				document.getElementById('para').innerHTML = "Only digit should be there";
+			}
+			if(spl[0]>12 || spl[0]<1)
+			{
+				document.getElementById('para').innerHTML = "Please Enter month between 1 to 12";
+			}
+			if(spl[1]>31 || spl[1]<1)
+			{
+				document.getElementById('para').innerHTML = "Please Enter days between 1 to 31";
+			}
+			if(spl[2]>2021)
+			{
+				document.getElementById('para').innerHTML = "Please Enter year between 1950 to  feb 2021"; 
+			}
+			if(spl[0] == 1 || spl[0] == 3 || spl[0] == 5 || spl[0] == 7 || spl[0] == 8 || spl[0] == 10 || spl[0] == 12)
+			{
+				if(spl[1]>31)
+				{
+					document.getElementById('para1').innerHTML = "Days should be in between 1 to 31";
+				}
+			}
+			else if(spl[0]==2)
+			{
+				if((spl[2]%4 == 0) && (spl[2]%100)!=0 || (spl[2]%400)==0)
+				{
+					if(spl[1]>29)
+					{
+					document.getElementById('para1').innerHTML = "Days should be in between 1 to 29";
+					}
+				}
+				else if(spl[1]>28)
+				{
+					document.getElementById('para1').innerHTML = "Days should be in between 1 to 28";
+				}
+				else
+				{
+					document.getElementById(para1).innerHTML = "validate !!!"
+				}
+			}
+		}
+	</script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
