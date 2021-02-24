@@ -1,68 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en">
     <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="Asset/cityname.js"></script>
-    <style>
-
-    </style>
-    </head>
-    <script>
-        window.onload = () => {
-            dropbt();
-        }
-        function Submits(){ 
-                var citynames = $("#contoryname").val();
-                //alert("cityname"+citynames);
-                var listnew ;
-                var obcity = {
-                  "city" :citynames,
-                }
-                listnew=JSON.parse(localStorage.getItem('listnew')) || [];
-                listnew.push(obcity);
-                obcity =JSON.stringify(listnew);
-                localStorage.setItem("listnew",obcity);        
-                return true;
-        }
-        function dropbt(){
-             $(document).ready(function(){
-                    listnew=JSON.parse(localStorage.getItem('listnew'));
-                    var  str ="";
-                    for(i=0;i<listnew.length;i++){
-                       str += "<option value="+listnew[i].city+">"+listnew[i].city+"</option>";
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../../../css/style.css">
+        <script src="Asset/cityname.js"></script>
+        <title>JQuery Page</title>
+        <script>
+            window.onload = () => {
+                dropbt();
+            }
+            function Submits(){ 
+                    var citynames = $("#contoryname").val();
+                    //alert("cityname"+citynames);
+                    var listnew ;
+                    var obcity = {
+                      "city" :citynames,
                     }
-                    $("#city").html(str);
-                });
-        }
-    </script>
+                    listnew=JSON.parse(localStorage.getItem('listnew')) || [];
+                    listnew.push(obcity);
+                    obcity =JSON.stringify(listnew);
+                    localStorage.setItem("listnew",obcity);        
+                    return true;
+            }
+            function dropbt(){
+                 $(document).ready(function(){
+                        listnew=JSON.parse(localStorage.getItem('listnew'));
+                        var  str ="";
+                        for(i=0;i<listnew.length;i++){
+                           str += "<option value="+listnew[i].city+">"+listnew[i].city+"</option>";
+                        }
+                        $("#city").html(str);
+                    });
+            }
+        </script>
+        <style>
+            .heightforback{
+                min-height: 600px;
+            }
+        </style>
+    </head>
     <body>
-        <div class="container card my-5 text-center">
-            <div class="h3 card-header">Forms</div>
-            <div class="card-body">
-                <form class="p-3">
-                    <div>
-                       <label for="contoryname">Enter New Contory Name</label>
-                       <input type="text" class="my-3" id="contoryname">
+        <!-- Navigationbar -->
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <a class="navbar-brand" href="#"><img class="ml-3" src="../../../../img/radix.jpg" style="width: 80px;" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link h5" href="../../../Html/index.html">Html</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link h5" href="../../../Css/index.html">Css</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link h5" href="../../../Bootstrap/index.html">Bootstrap</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link h5" href="../../../Js/index.html">Javascript</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link h5" href="#">JQuery</a>
+            </li>
+            </ul>
+            </div>  
+        </nav>
+        <section>
+            <div class="row w-100">
+                <div class="col-4 bg-dark text-white heightforback" >
+                    <div class="text-center h5 py-5">JQuery</div>
+                <ul>
+                    <li>Day 22
+                        <ul>
+                            <li>Niraj_sapra
+                                <ul>
+                                    <li>Practice
+                                        <ul>
+                                            <li><a href="../../Practice/Day_22/Svn-practice/Branches/Niraj-sapra/test.txt">Svn-learning</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>    
+                    </li>
+                    <li>Day 23
+                        <ul>
+                            <li>Niraj_sapra
+                                <ul>
+                                    <li>Practice
+                                        <ul>
+                                            <li><a href="../../Practice/Day_23/backgroundcolor.html">Backgroundcolor</a></li>
+                                            <li><a href="../../Practice/Day_23/checkradio.html">Check radion button </a></li>
+                                            <li><a href="../../Practice/Day_23/contorylist.html">Contory list</a></li>
+                                            <li><a href="../../Practice/Day_23/mouseevent.html">MouseEvents</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>Assignment
+                                        <ul>
+                                            <li><a href="#">Dropdown button</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>    
+                    </li>
+                    <li>Day 24
+                        <ul>
+                            <li>Niraj_sapra
+                                <ul>
+                                    <li>Practice
+                                        <ul>
+                                            <li>Ajax
+                                                <ul>
+                                                    <li>
+                                                        <li><a href="../../Practice/Day_24/Ajax/josndata.html">Jsondata html</a></li>
+                                                        <li><a href="../../Practice/Day_24/Ajax/load.html">Load Ajax file</a></li>
+                                                    </li>
+                                                </ul>                 
+                                            </li>
+                                            <li>Ancestors
+                                                <ul>
+                                                    <li>
+                                                        <li><a href="../../Practice/Day_24/Ancestors/Parent.html">Parent</a></li>
+                                                        <li><a href="../../Practice/Day_24/Ancestors/Parents.html">Parents</a></li>
+                                                        <li><a href="../../Practice/Day_24/Ancestors/parentsUntil.html">parentsUntil</a></li>
+                                                    </li>
+                                                </ul>                 
+                                            </li>
+                                            <li>Descnedants
+                                                <ul>
+                                                    <li>
+                                                        <li><a href="../../Practice/Day_24/Descendants/Children.html">Children</a></li>
+                                                        <li><a href="../../Practice/Day_24/Descendants/Find.html">Find</a></li>
+                                                    </li>
+                                                </ul>                 
+                                            </li>
+                                            <li>Filtering
+                                                <ul>
+                                                    <li>
+                                                        <li><a href="../../Practice/Day_24/Day_24/Filtering/first.html">Filtering all method</a></li>
+                                                    </li>
+                                                </ul>                 
+                                            </li>
+                                    <li>Assignment
+                                        <ul>
+                                            <li><a href="../Day_24/index.html">Josn data get using link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>    
+                    </li>
+                </ul>         
+                </div>
+                <div class="col-8">
+                    <div class="container card my-5 text-center">
+                        <div class="h3 card-header">Forms</div>
+                        <div class="card-body">
+                            <form class="p-3">
+                                <div>
+                                   <label for="contoryname">Enter New Contory Name</label>
+                                   <input type="text" class="my-3" id="contoryname">
+                                </div>
+                                <div class="my-3">
+                                    <label for="showcity">Choose best city:</label>
+                                    <select id="city" name="city">
+                                      <option value="" active>Please select City</option>
+                                      <!-- <option value="saab">Saab</option>
+                                      <option value="fiat">Fiat</option>
+                                      <option value="audi">Audi</option> -->
+                                    </select>        
+                                </div>
+                                <div>
+                                    <button onclick="Submits()">Submit</button>
+                                </div>   
+                            </form>
+                        </div>
+                        
                     </div>
-                    <div class="my-3">
-                        <label for="showcity">Choose best city:</label>
-                        <select id="city" name="city">
-                          <option value="" active>Please select City</option>
-                          <!-- <option value="saab">Saab</option>
-                          <option value="fiat">Fiat</option>
-                          <option value="audi">Audi</option> -->
-                        </select>        
-                    </div>
-                    <div>
-                        <button onclick="Submits()">Submit</button>
-                    </div>   
-                </form>
-            </div>
-            
-        </div>
+                </div>
+            </div>    
+        </section>
+        <script src="../../../../js/jquery.min.js"></script>
+        <script src="../../../../js/popper.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
     </body>
 </html>
