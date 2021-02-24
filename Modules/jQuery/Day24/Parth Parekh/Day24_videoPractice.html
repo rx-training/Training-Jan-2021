@@ -23,6 +23,13 @@
         <h3 class="text-info mt-3">Grep Method</h3>
         <p>Finds the elements of an array which satisfy a filter function. The original array is not affected</p>
 
+        <h3 class="text-info mt-3">Type method</h3>
+        <p>Determine the type any variable or object</p>
+        <p>Syntax  :   $.type(new Date())</p>
+
+        <h3 class="text-info mt-3">Callbacks method</h3>
+        <p>A multi-purpose callbacks list object that provides a powerful way to manage callback lists.</p>
+        <p>Syntax : $.type(new Date())</p>
         <div id="log"></div>
 
         
@@ -55,13 +62,38 @@
 
            
         $("#log").append(JSON.stringify(object1));
-        console.log($("#log").append(JSON.stringify(object1)));
+        console.log(JSON.stringify(object1));
 
         //grep method
         var ans = $.grep([0, 1, 2], function (n, i) {
                 return n > 0;
         });
         console.log(ans.join(","));
+
+        console.log($.type(new Error()));
+        console.log($.type(new Date()));
+        console.log($.type(null));
+        console.log($.type(/^\w+$/));
+        console.log($.type([{name : "Parth"}]));
+
+        function fn1(value) {
+                console.log(value);
+        }
+
+        function fn2(value) {
+                console.log("fn2 says: " + value);
+                
+        }
+        var callbacks = $.Callbacks();
+        callbacks.add(fn1);    
+
+        // Outputs: foo!
+        callbacks.fire("foo!");
+
+        callbacks.add(fn2);
+
+        // Outputs: bar!, fn2 says: bar!
+        callbacks.fire("bar!");
 
     
 
