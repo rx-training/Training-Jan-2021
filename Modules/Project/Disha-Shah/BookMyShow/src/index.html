@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+
+    <title>Movie Tickets, Plays, Sports, Events & Cinemas near Mumbai - BookMyShow</title>
+</head>
+
+<body id="home">
+    <!--Navbar-->
+    <nav class="navbar navbar-dark bg-dark fixed-top py-sm-2 py-md-3">
+        <div class="container">
+            <a class="navbar-brand d-none d-lg-block" href="#home"><svg viewBox="0 0 88 26" height="33.9" width="115"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>BookMyShow</title>
+                    <g fill="none">
+                        <path
+                            d="M55.433 7.383l-1.444-2.43-2.583 1.213-1.444-2.43L47.38 4.95l-1.445-2.43-2.582 1.215-1.445-2.43-2.582 1.212L37.88.087 35.3 1.3l-5.476 17.591 6.643 2.005a3.516 3.516 0 0 1 3.363-2.45c1.944 0 3.52 1.557 3.52 3.478l-.001.07c.016.315-.021.634-.118.946l6.756 2.042 5.446-17.6"
+                            fill="#C4242B"></path>
+                        <path
+                            d="M35.52 17.438a.705.705 0 0 1-.591-.705V8.122a.715.715 0 0 1 .724-.717h6.297c.164 0 .329.016.489.043a2.798 2.798 0 0 1 2.336 2.749v6.536a.705.705 0 0 1-.217.51.73.73 0 0 1-.641.195.704.704 0 0 1-.59-.705v-6.536a1.363 1.363 0 0 0-1.377-1.358h-1.372v7.894a.723.723 0 0 1-.86.705.705.705 0 0 1-.59-.705V8.838h-2.75v7.895a.704.704 0 0 1-.216.51.728.728 0 0 1-.642.195M45.99 21.19a.704.704 0 0 1-.592-.706c0-.195.074-.377.209-.51a.73.73 0 0 1 .516-.206c.61 0 1.14-.39 1.315-.97l.748-2.462-2.448-8.083a.722.722 0 0 1 .483-.904.742.742 0 0 1 .896.473l1.82 6.03 1.839-6.026c.091-.34.46-.556.839-.49l.051.011c.392.121.608.528.489.907l-2.52 8.295-.796 2.655c-.206.61-.56 1.106-1.022 1.44-.5.365-1.086.557-1.694.557a.708.708 0 0 1-.133-.012M1.614 15.87h1.428c.788 0 1.43-.633 1.43-1.413v-4.141c0-.687-.498-1.272-1.183-1.391a1.501 1.501 0 0 0-.247-.022l-1.43.001.002 6.965zM.72 17.347a.732.732 0 0 1-.616-.734V3.758c0-.203.077-.391.218-.53a.751.751 0 0 1 .666-.203c.362.062.624.37.624.734v3.656h1.43a2.91 2.91 0 0 1 2.938 2.901l-.001 4.141c0 1.601-1.318 2.902-2.938 2.902H.86a.676.676 0 0 1-.14-.011zM11.096 8.839a1.478 1.478 0 0 0-.246-.02c-.801 0-1.43.62-1.43 1.412v4.313a1.413 1.413 0 0 0 1.43 1.412c.788 0 1.429-.632 1.43-1.412l-.001-4.313c0-.688-.498-1.272-1.183-1.392m-.763 8.564a2.905 2.905 0 0 1-2.42-2.86V10.23c0-.778.304-1.507.858-2.054a2.94 2.94 0 0 1 2.079-.847 2.91 2.91 0 0 1 2.938 2.902l-.001 4.313c0 .775-.308 1.504-.867 2.055a2.94 2.94 0 0 1-2.07.847 2.948 2.948 0 0 1-.517-.043M18.902 8.839a1.47 1.47 0 0 0-.245-.02c-.802 0-1.428.62-1.428 1.412v4.313a1.412 1.412 0 0 0 1.428 1.412c.378 0 .733-.146 1.005-.41.273-.268.424-.624.424-1.002V10.23c0-.687-.498-1.27-1.184-1.391m-.762 8.564a2.907 2.907 0 0 1-2.42-2.859v-4.313c0-1.601 1.317-2.903 2.937-2.903.17 0 .34.014.506.043a2.91 2.91 0 0 1 2.431 2.86v4.313c0 .777-.308 1.504-.867 2.055a2.94 2.94 0 0 1-2.07.847c-.174 0-.348-.014-.517-.043M24.142 17.434a.733.733 0 0 1-.614-.733V3.758a.735.735 0 0 1 .753-.745.746.746 0 0 1 .754.745v7.66l3.474-3.843a.766.766 0 0 1 .697-.228c.139.024.27.085.379.175.309.28.33.75.052 1.048l-2.615 2.88 2.717 4.902a.705.705 0 0 1 .066.553.732.732 0 0 1-.37.443.755.755 0 0 1-.5.082.749.749 0 0 1-.526-.356l-2.444-4.433-.93 1.013v3.047c0 .202-.08.39-.225.532a.758.758 0 0 1-.668.201M57.41 17.426a2.782 2.782 0 0 1-1.96-1.355.75.75 0 0 1-.068-.569.739.739 0 0 1 .346-.45c.15-.084.33-.114.505-.084a.75.75 0 0 1 .525.358c.199.335.509.546.895.614.42.066.803-.048 1.116-.316.29-.267.442-.648.404-1.016a1.22 1.22 0 0 0-.548-.964l-2.031-1.425a2.708 2.708 0 0 1-1.155-2.013 2.642 2.642 0 0 1 .884-2.152 2.754 2.754 0 0 1 2.24-.694h.001c.856.15 1.555.63 1.95 1.323a.746.746 0 0 1 .07.563.747.747 0 0 1-.348.454.757.757 0 0 1-.504.083.747.747 0 0 1-.526-.357c-.172-.3-.482-.51-.856-.575a1.189 1.189 0 0 0-1.021.296c-.26.238-.403.596-.382.96.019.351.22.694.523.894l2.032 1.404a2.729 2.729 0 0 1 1.177 2.101 2.651 2.651 0 0 1-.906 2.214 2.84 2.84 0 0 1-2.307.714l-.055-.008M63.246 17.447a.75.75 0 0 1-.625-.735V3.77c0-.202.08-.39.226-.533a.762.762 0 0 1 .667-.2.733.733 0 0 1 .615.733v3.655h1.43c.174 0 .348.015.516.045a2.902 2.902 0 0 1 2.42 2.857l.001 6.385a.741.741 0 0 1-.883.734.747.747 0 0 1-.625-.735v-6.384a1.41 1.41 0 0 0-1.43-1.412h-1.429v7.797a.742.742 0 0 1-.754.746.781.781 0 0 1-.13-.01M73.609 8.85a1.429 1.429 0 0 0-1.26.39c-.268.265-.416.62-.416 1v4.316c0 .686.494 1.27 1.173 1.388a1.43 1.43 0 0 0 1.261-.388c.274-.268.424-.622.424-1.001V10.24c0-.687-.497-1.272-1.182-1.391m-.763 8.563a2.903 2.903 0 0 1-2.42-2.857V10.24c-.001-1.6 1.317-2.902 2.937-2.902.169 0 .34.013.506.043a2.91 2.91 0 0 1 2.43 2.859v4.315a2.856 2.856 0 0 1-.867 2.054 2.938 2.938 0 0 1-2.586.803M87.892 8.254a.712.712 0 0 0-.077-.545.781.781 0 0 0-.49-.342.747.747 0 0 0-.864.546 920.42 920.42 0 0 1-1.452 5.726l-.014.056-.013-.056c-.62-2.458-1.447-5.69-1.456-5.724a.706.706 0 0 0-.58-.55.75.75 0 0 0-.85.548c-.01.03-.819 3.268-1.454 5.726l-.014.056-.014-.056c-.618-2.458-1.447-5.695-1.455-5.726a.74.74 0 0 0-.889-.536.73.73 0 0 0-.542.877l2.185 8.632a.754.754 0 0 0 .714.556.708.708 0 0 0 .715-.557c.008-.033.837-3.27 1.456-5.73l.013-.054.016.054c.64 2.483 1.451 5.73 1.452 5.732a.754.754 0 0 0 .715.556.71.71 0 0 0 .714-.559l2.184-8.63"
+                            fill="#FFF"></path>
+                    </g>
+                </svg></a>
+
+            <form class="form-inline mr-auto d-none d-md-block">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+                    </div>
+                    <input type="search" class="form-control"
+                        placeholder="Search for Movies, Events, Plays, Sports and Activities" size="60">
+                </div>
+            </form>
+
+            <div class="dropdown d-none d-lg-block">
+                <a class="dropdown-toggle text-white mr-3 text-decoration-none" data-toggle="modal"
+                    data-target="#citiesModal">
+                    Ahmedabad
+                </a>
+
+
+            </div>
+
+            <form class="form-inline d-none d-lg-block">
+                <a class="btn btn-danger btn-sm mr-3 ml-0" data-toggle="modal" data-target="#loginModal">Sign in</a>
+            </form>
+
+            <div class="d-none d-lg-block"><span class="menulines" onclick="openNav()"><i class="fa fa-bars"></i></span>
+            </div>
+
+
+            <div class="d-flex flex-row flex-fill align-items-center d-sm-block d-md-none">
+                <div class="flex-grow-1">
+                    <div class="text-white mb-0">
+                        <h4 class="mb-0">It All Starts Here!</h4>
+                    </div>
+                    <div class="mt-0">
+                        <a href="#"><small class="text-white">Ahmedabad &gt;</small></a>
+                    </div>
+                </div>
+                <a href="#">
+                    <span class="flex-grow-1 text-right text-white">
+                        <i class="fa fa-search fa-2x"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="sidenav text-primary d-lg-block" id="mySidenav">
+        <h5 class="bg-dark text-white py-4 pl-3" style="margin-top: -25px;">Hey!</h5>
+        <a href="javascript:void(0)" class="closebtn text-white" onclick="closeNav()">&times;</a>
+        <div class="d-flex flex-row align-items-center shadow p-2 bg-white rounded">
+            <img src="https://in.bmscdn.com/webin/movies/superstar/rewards_login.png" alt="" class="img-fluid pr-1"
+                width="40" height="40">
+            <small style="font-size:15px; color: black;">Unlock Special Offers and great benefits</small>
+            <a class="btn btn-outline-danger py-1" data-toggle="modal" data-target="#registerModal">Login/Register</a>
+
+        </div>
+
+        <a href="#" class="pt-3 px-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M13.977 5.094l.002.002-.005-.002v.001l-.021-.005.206.045A5.002 5.002 0 0 1 18 10v6.974L20 19h-2l-3.55-.001a2.5 2.5 0 1 1-4.9 0L7.027 19v.004h-3L6 17.003V10a5.002 5.002 0 0 1 4.048-4.91l-.049.01L10 4a2 2 0 1 1 4 0l.001 1.1-.008-.002-.035-.008.018.004zm-.563 13.905h-2.829a1.5 1.5 0 1 0 2.83 0zM13 6h-2a4 4 0 0 0-4 4v6.978L7.014 18H17v-8a4 4 0 0 0-4-4zm.983-.904l.003.001.007.001-.008-.001-.002-.001zm-.002 0h.002l-.005-.002.003.002zm-.28-.047l.112.017.018.002-.13-.019zm-3.388-.003l-.057.009.036-.005.02-.004zm.267-.029l-.172.018.148-.016.024-.002zm2.928.008l.082.01a5.014 5.014 0 0 0-.082-.01zm-2.803-.016l-.125.008h.015l.11-.008zm2.538-.003h.013l.05.003-.063-.003zM12 3a1 1 0 0 0-1 1v1h2V4a1 1 0 0 0-1-1z">
+                </path>
+            </svg>
+            &nbsp;Notifications
+            <span class="sidebar-icons">
+                <svg width="6" height="11" xmlns="http://www.w3.org/2000/svg">
+                    <title>Right Arrow</title>
+                    <path
+                        d="M.627.958a.572.572 0 0 1 0-.747.447.447 0 0 1 .679 0l4.04 4.469a.569.569 0 0 1 0 .75L1.307 9.9a.447.447 0 0 1-.68 0 .572.572 0 0 1 0-.747l3.706-4.097L.627.958z"
+                        fill="#999"></path>
+                </svg>
+
+            </span>
+        </a>
+        <hr>
+        <div class="px-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M16.121 16.793l2.829 2.828-2.829 2.829-.707-.707 2.122-2.122-2.122-2.121.707-.707zm3 0l2.829 2.828-2.829 2.829-.707-.707 2.122-2.122-2.122-2.121.707-.707zM12 2c5.523 0 10 4.477 10 10 0 1.27-.237 2.509-.693 3.665l-.144.345-1.085-.477.308-.26a9 9 0 1 0-6.577 5.544l.2.98c-.656.135-1.328.203-2.009.203-5.523 0-10-4.477-10-10S6.477 2 12 2zm-.178 5.01l.014.01H15v1h-2.113a3.493 3.493 0 0 1 .613 2H15v1l-1.651.001a3.503 3.503 0 0 1-2.943 2.456l-.201.017 3.149 3.149-.708.707-3.996-3.996a.5.5 0 0 1 .268-.847l.086-.007H10a2.5 2.5 0 0 0 2.283-1.48h-3.78v-1H12.5L12.5 10c0-.789-.368-1.513-.974-1.98H8.504v-1h3.313l.005-.01z">
+                </path>
+            </svg>
+            &nbsp; <span class="text-muted">QuickPay
+                <span class="sidebar-icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#666" fill-rule="evenodd"
+                            d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
+                        </path>
+                    </svg>
+                </span>
+            </span>
+        </div>
+        <hr>
+        <div class="px-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M9.5 2A3.5 3.5 0 0 1 13 5.5V6h3l.375 6H22v3a2 2 0 1 0 0 4v3H2L3 6h3v-.5A3.5 3.5 0 0 1 9.5 2zM21 13H7v1.17a3.001 3.001 0 0 1 0 5.66V21h14v-1.17a3.001 3.001 0 0 1 0-5.66V13zM6 7H3.94l-.876 14H6v-2a2 2 0 1 0 0-4v-3h9.372l-.311-5H13v2h-1V7H7v2H6V7zm8 7.5l.735 1.489 1.643.238-1.19 1.16.281 1.636L14 18.25l-1.47.773.281-1.637-1.189-1.159 1.643-.238L14 14.5zM9.5 3A2.5 2.5 0 0 0 7 5.5V6h5v-.5A2.5 2.5 0 0 0 9.5 3z">
+                </path>
+            </svg>
+            &nbsp; <span class="text-muted">Booking History
+                <span class="sidebar-icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#666" fill-rule="evenodd"
+                            d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
+                        </path>
+                    </svg>
+                </span>
+            </span>
+        </div>
+        <hr>
+        <div class="px-3">
+            <svg width="20" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M3.5 0.450012C1.98122 0.450012 0.75 1.68123 0.75 3.20001L0.75 11.9667L0.75 13.1333C0.75 14.6521 1.98122 15.8833 3.5 15.8833L7.58137 15.8833L7.19803 18.1833H5.93335C5.51914 18.1833 5.18335 18.5191 5.18335 18.9333C5.18335 19.3476 5.51914 19.6833 5.93335 19.6833L16.0667 19.6833C16.4809 19.6833 16.8167 19.3476 16.8167 18.9333C16.8167 18.5191 16.4809 18.1833 16.0667 18.1833H14.8021L14.4187 15.8833L18.5 15.8833C20.0188 15.8833 21.25 14.6521 21.25 13.1333V11.9667L21.25 3.20001C21.25 1.68123 20.0188 0.450012 18.5 0.450012L3.5 0.450012ZM19.75 11.2167V3.20001C19.75 2.50966 19.1904 1.95001 18.5 1.95001L3.5 1.95001C2.80965 1.95001 2.25 2.50966 2.25 3.20001L2.25 11.2167L19.75 11.2167ZM2.25 12.7167L19.75 12.7167V13.1333C19.75 13.8237 19.1904 14.3833 18.5 14.3833L13.538 14.3833C13.5365 14.3833 13.5349 14.3833 13.5334 14.3833H8.46671C8.46516 14.3833 8.4636 14.3833 8.46205 14.3833L3.5 14.3833C2.80964 14.3833 2.25 13.8237 2.25 13.1333V12.7167ZM9.10206 15.8833H12.898L13.2814 18.1833L8.71873 18.1833L9.10206 15.8833ZM9.05302 3.81177C9.46927 3.57284 9.97603 3.5521 10.4105 3.75634L10.4116 3.75685L13.3496 5.14376C13.9171 5.39728 14.2832 5.96098 14.2832 6.58335C14.2832 7.20571 13.9171 7.76942 13.3496 8.02293L10.4105 9.41035C9.97595 9.61463 9.4691 9.59384 9.05281 9.3548C8.6235 9.11022 8.35598 8.65631 8.35008 8.16212L8.34998 8.15317L8.35003 5.00514C8.35556 4.51061 8.6233 4.05629 9.05302 3.81177ZM9.85003 5.1505L12.7175 6.50411C12.724 6.50719 12.7306 6.51017 12.7372 6.51306C12.7651 6.52527 12.7832 6.55286 12.7832 6.58335C12.7832 6.61383 12.7651 6.64142 12.7372 6.65363L12.7261 6.6586L12.7175 6.66258L9.85003 8.01619L9.85003 5.1505Z"
+                    fill="#777"></path>
+            </svg>
+            &nbsp; <span class="text-muted">Stream History</span>
+        </div>
+        <hr>
+        <div class="px-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M14.5 2a2.5 2.5 0 0 1 2.44 3.047L18.6 3.8l.6.8L17.333 6H20a1 1 0 0 1 1 1v4h-1v11H4V11H3V7a1 1 0 0 1 1-1h2.667L4.8 4.6l.6-.8 1.66 1.247A2.5 2.5 0 0 1 14.5 2zm-3 9H5v10h6.5v-2.041a3 3 0 0 1 0-5.918V11zm7.5 0h-6.5v2.042a3 3 0 0 1 0 5.916V21H19V11zm-7 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-.5-7H4v3h7.5V7zM20 7h-7.5v3H20V7zm-5.5-4A1.5 1.5 0 0 0 13 4.5V6h1.5a1.5 1.5 0 0 0 0-3zm-5 0a1.5 1.5 0 0 0-.144 2.993L9.5 6H11V4.5A1.5 1.5 0 0 0 9.5 3z">
+                </path>
+            </svg>
+            &nbsp; <span class="text-muted">Rewards
+                <span class="sidebar-icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#666" fill-rule="evenodd"
+                            d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
+                        </path>
+                    </svg>
+                </span>
+            </span>
+        </div>
+        <hr>
+        <a href="#" class="px-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M8.23 1.833l1.147 1.984 2.187-.993 1.012 1.987 2.051-.994 1.148 1.988 2.05-.994 1.148 1.987 2.252-.993.947 1.987-4.346 14.375-5.367-1.67a3 3 0 0 0-5.678-1.766l-4.953-1.54 4.35-14.367 2.052-.99zm-.401 1.304l-.82.397L3.072 16.53l3.267 1.016a4 4 0 0 1 7.154 2.225l3.666 1.14 3.943-13.04-.363-.76-2.184.963-1.131-1.959-2.051.994-1.148-1.987-2.097 1.016-1.022-2.01-2.142.974-1.136-1.966zm6.509 4.74l1.215 4.053 1.098-4.043.965.261-.13.483-1.492 5.5c-.307 1.131-.927 1.793-1.83 1.863l-.161.006h-.5v-1h.5c.443 0 .76-.283.977-.966l.049-.165.029-.11-1.678-5.594.958-.288zM10.5 8a2.5 2.5 0 0 1 2.495 2.336L13 10.5v3.42h-1V10.5a1.5 1.5 0 0 0-1.356-1.493L10.5 9v5h-1V9H8v4.92H7V8h3.5z">
+                </path>
+            </svg>
+            &nbsp;BookASmile
+        </a>
+        <hr>
+        <a href="#" class="px-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M12 2a7 7 0 0 1 7 7h2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2a3.5 3.5 0 0 1-3.308 3.495l-.192.005-1.563.001a2 2 0 1 1 0-1.001H15.5a2.5 2.5 0 0 0 2.495-2.336L18 17V9A6 6 0 1 0 6 9v8H3a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h2a7 7 0 0 1 7-7zm0 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-7-9H3v6h2v-6zm16 0h-2v6h2v-6z">
+                </path>
+            </svg>
+            &nbsp;Help & Support
+        </a>
+        <hr>
+        <div class="px-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M14 2c.25 0 .46.18.49.42l.38 2.65c.61.25 1.17.58 1.69.98l2.49-1a.5.5 0 0 1 .61.22l2 3.46c.12.22.07.49-.12.64l-2.11 1.65c.04.32.07.64.07.98 0 .34-.03.66-.07.98l2.11 1.65c.19.15.24.42.12.64l-2 3.46c-.09.16-.26.25-.43.25-.06 0-.12-.01-.18-.03l-2.49-1c-.52.39-1.08.73-1.69.98l-.38 2.65c-.03.24-.24.42-.49.42h-4c-.25 0-.46-.18-.49-.42l-.38-2.65c-.61-.25-1.17-.58-1.69-.98l-2.49 1a.5.5 0 0 1-.61-.22l-2-3.46a.505.505 0 0 1 .12-.64l2.11-1.65A7.93 7.93 0 0 1 4.5 12c0-.33.03-.66.07-.98L2.46 9.37a.493.493 0 0 1-.12-.64l2-3.46c.09-.16.26-.25.43-.25.06 0 .12.01.18.03l2.49 1c.52-.39 1.08-.73 1.69-.98l.38-2.65c.03-.24.24-.42.49-.42zm-.437 1h-3.126l-.398 2.778-.53.217a6.672 6.672 0 0 0-1.469.855l-.45.338-.523-.21-2.076-.836-1.568 2.712 2.21 1.727-.07.563A6.881 6.881 0 0 0 5.5 12c0 .251.02.524.062.856l.07.563-.446.349-1.763 1.378 1.567 2.71 2.607-1.047.453.348c.461.355.945.637 1.46.848l.529.217.08.566.318 2.212h3.126l.398-2.778.53-.217a6.672 6.672 0 0 0 1.469-.855l.45-.338.523.21 2.076.836 1.568-2.712-2.21-1.727.07-.563A6.73 6.73 0 0 0 18.5 12c0-.258-.02-.518-.062-.856l-.07-.563.446-.349 1.763-1.378-1.567-2.71-2.607 1.047-.453-.348a6.305 6.305 0 0 0-1.46-.848l-.529-.217-.08-.566L13.562 3zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6z">
+                </path>
+            </svg>
+            &nbsp; <span class="text-muted">Settings
+                <span class="sidebar-icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#666" fill-rule="evenodd"
+                            d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
+                        </path>
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+
+
+
+    <!--Below navbar-->
+    <nav class="navbar navbar-expand navbar-dark nav-activities below-navbar">
+        <div class="container">
+            <div class="d-none d-md-block">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Stream<span class="badge text-danger">NEW</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Plays</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Activities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Fanhood</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="#">Buzz</a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="d-none d-lg-block">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link py-0">ListYourShow<span class="badge text-danger">NEW</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link py-0">Corporates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link py-0">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link py-0">Gift Cards</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+
+    <!--heading slider-->
+    <section id="heading-slider" class="px-5 pt-3 d-none d-lg-block">
+
+        <div class="row">
+            <div class="col">
+                <div class="slick-carousel">
+
+                    
+                        <div class="slide-content mx-1">
+                            <a href="#">
+                                <img src="images/headCarousel-1.jpg"
+                                    alt="Nucleya Presents SUB Cinema" loading="lazy"
+                                    class="w-100 rounded">
+                            </a>
+                        </div>
+                    
+                        <div class="slide-content mx-1">
+                            <a href="#">
+                                <img src="images/headCarousel-2.jpg"
+                                    alt="Sunburn Home Festival 2.0" loading="lazy"
+                                    class="w-100 rounded">
+                            </a>
+                        </div>
+                    
+                        <div class="slide-content mx-1"><a href="#">
+                                <img src="images/headCarousel-3.jpg"
+                                    alt="Manoj Bajpayee Teaches Acting" loading="lazy"
+                                    class="w-100 rounded">
+                            </a></div>
+                    
+                        <div class="slide-content mx-1"><a href="#">
+                                <img src="images/headCarousel-4.jpg"
+                                    alt="SRMD Global Youth Festival:Virtual Edition 2021" loading="lazy"
+                                    class="w-100 rounded">
+                            </a></div>
+                    
+                        <div class="slide-content mx-1"><a href="#">
+                                <img src="images/headCarousel-5.jpg"
+                                    alt="Anantkoti  (Shri Swami Samarth Charitra Natak)" loading="lazy"
+                                    class="w-100 rounded">
+                            </a></div>
+                    
+                        <div class="slide-content mx-1">
+                            <a href="#">
+                                <img src="images/headCarousel-2.jpg"
+                                    alt="Sunburn Home Festival 2.0" loading="lazy"
+                                    class="w-100 rounded">
+                            </a>
+                        </div>
+                    
+                        <div class="slide-content mx-1"><a href="#">
+                                <img src="images/headCarousel-1.jpg"
+                                    alt="Naanu Nan Jaanu" loading="lazy"
+                                    class="w-100 rounded">
+                            </a></div>
+                    
+                        <div class="slide-content mx-1"><a href="#">
+                                <img src="images/headCarousel-6.jpg"
+                                    alt="Mid Night Song" loading="lazy"
+                                    class="w-100 rounded">
+                            </a></div>
+                    
+                        <div class="slide-content mx-1"><a href="#">
+                                <img src="images/headCarousel-7.jpg"
+                                    alt="Sunburn Home Festival 2.0" loading="lazy"
+                                    class="w-100 rounded">
+                            </a></div>
+                    
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </section>
+
+    <section id="heading-img">
+        <div class="d-md-block d-lg-none">
+            <div class="row overflow-auto">
+                <div class="col-2">
+                    <img src="images/headCarouselMedium-1.png"
+                        alt="" loading="lazy">
+                </div>
+                <div class="col-2">
+                    <img src="images/headCarouselMedium-2.png"
+                        alt="" loading="lazy">
+                </div>
+                <div class="col-2">
+                    <img src="images/headCarouselMedium-3.png"
+                        alt="" loading="lazy">
+                </div>
+                <div class="col-2">
+                    <img src="images/headCarouselMedium-4.png"
+                        alt="" loading="lazy">
+                </div>
+                <div class="col-2">
+                    <img src="images/headCarouselMedium-5.png"
+                        alt="" loading="lazy">
+                </div>
+                <div class="col-2">
+                    <img src="images/headCarouselMedium-6.png"
+                        alt="" loading="lazy">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col pr-0">
+                    <img src="images/headImage-medium.png"
+                        alt="" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="main-content">
+        <div class="bg-light py-5" style="margin-top: -20px;">
+            <!--recommended movies-->
+            <section id="recommended-movies">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold h3">Recommended Movies</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row slick-recommended-movies" id="recommendedMovies">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <div class="container my-5 d-none d-lg-block">
+                <a href="#">
+                    <img src="images/longLabel-1.png"
+                        alt="" loading="lazy" class="w-100 rounded">
+                </a>
+            </div>
+
+            <!--Entertainment-->
+            <section id="entertainment">
+                <div class="container">
+                    <h4 class="font-weight-bold h3">The Best Of Entertainment</h4>
+                    <p class="text-muted d-md-block d-lg-none">Step out or stay in, interesting experiences for everyone
+                    </p>
+
+                    <div class="row slick-entertainment">
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-1.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-2.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-3.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-4.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-5.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-6.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-7.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-8.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-9.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div>
+                                <div class="slide-content">
+                                    <a href="#"><img
+                                            src="images/entertainment-10.png"
+                                            alt="" loading="lazy" class="w-100"></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+        </div>
+
+        <!--Premieres-->
+        <section id="premieres" class="bg-dark">
+            <div class="container text-white py-5 d-none d-lg-block">
+                <h4 class="font-weight-bold h3">Premieres</h4>
+                <h6>Brand new releases every Friday</h6>
+
+                <div class="row slick-entertainment" id="premiereMovies">
+                    
+
+                </div>
+            </div>
+
+
+            <div class="container text-white py-3 d-sm-block d-lg-none">
+
+                <img src="images/premiere-mediumLabel.png"
+                    alt="" loading="lazy" class="w-100">
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    </ol>
+                    <div class="carousel-inner" id="premiereCarousel">
+                        
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </section>
+
+        <!--outdoor events-->
+        <section id="outdoor-events" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="font-weight-bold h3">Outdoor Events<span class="badge badge-danger mx-2">NEW</span>
+                        </h4>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="text-decoration-none">
+                            <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                            </h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="row slick-recommended-movies" id="outdoorEvents">
+                    
+                </div>
+            </div>
+        </section>
+
+        <div class="bg-light">
+            <!--Laughter Therapy-->
+            <section id="outdoor-events" class="pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold h3">Laughter Therapy</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row slick-recommended-movies" id="laughterTherapy">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!--Popular Events-->
+            <section id="outdoor-events" class="pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold h3">Popular Events</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row slick-recommended-movies" id="popularEvents">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <div class="container d-none d-lg-block pb-5">
+                <a href="#">
+                    <img src="images/longLabel-2.png"
+                        alt="" loading="lazy" class="w-100 rounded">
+                </a>
+            </div>
+
+            <div class="bg-dark mb-5">
+                <div class="container d-md-block d-lg-none p-3">
+                    <a href="#">
+                        <img src="images/mediumLabel-1.png"
+                            alt="" loading="lazy" class="w-100 rounded">
+                    </a>
+                </div>
+            </div>
+
+            <!--Latest Plays-->
+            <section id="outdoor-events" class="pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold h3">The Latest Plays</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row slick-recommended-movies" id="playsSlider">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!--Top games and sports events-->
+            <section id="top-sports-events" class="pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold h3">Top Games &amp; Sports Events</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row slick-recommended-movies" id="topSports">
+                        
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <!--Trending Searches-->
+            <section id="trending-search">
+                <div class="container d-none d-lg-block pb-5">
+                    <h4 class="font-weight-bold h3">Trending Searches Right Now</h4>
+                    <div class="d-flex flex-row flex-wrap">
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">India Vs England</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">Chaal Jeevi Laieye</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">Fast and Furious 9</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">ICC CWC 2019 - India Vs England (Live Screening)</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">K.G.F. Chapter 2</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">Suryavanshi</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">Uppena</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">India Vs West Indies T20</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">L2: Empurran</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <h5 class="search-item h6">West Indies Vs India T20 Match 1</h5>
+                                <h5 class="font-weight-normal h6">Movies</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="bg-dark mb-5">
+
+                <div class="container d-md-block d-lg-none p-3">
+                    <a href="#">
+                        <img src="images/mediumLabel-2.png"
+                            alt="" loading="lazy" class="w-100 rounded">
+                    </a>
+                </div>
+
+            </div>
+
+            <!--explore fun activities-->
+            <section id="fun-activities" class="pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold h3">Explore Fun Activities</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="text-decoration-none">
+                                <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row slick-recommended-movies" id="funActivities">
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!--Footer section-->
+
+    <!--Ipad and Mobile footer-->
+    <div class="d-md-block d-lg-none mt-5">
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <ul class="navbar-nav d-flex flex-row flex-fill text-center">
+                <li class="nav-item flex-grow-1">
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="33px" viewBox="0 0 24 24">
+                            <path id="a" fill="#DC3558"
+                                d="M22.172 7.792l-4.326 14.375-5.367-1.667c.077-.256.106-.517.093-.774l.002-.056c0-1.57-1.252-2.842-2.797-2.842-1.257 0-2.32.843-2.672 2.002l-5.277-1.638 4.35-14.368 2.052-.99 1.147 1.983 2.051-.99 1.148 1.984 2.051-.99 1.148 1.984 2.05-.991 1.148 1.984 2.052-.99 1.147 1.984zM6.353 16.005a.567.567 0 0 0 .51-.16.582.582 0 0 0 .172-.416V8.981H9.22v6.448a.572.572 0 0 0 .979.417.585.585 0 0 0 .173-.417V8.981h1.091a1.104 1.104 0 0 1 1.092 1.11v5.338a.57.57 0 0 0 .979.417.584.584 0 0 0 .173-.417V10.09c0-1.108-.781-2.053-1.856-2.245a2.21 2.21 0 0 0-.388-.035H6.46a.576.576 0 0 0-.576.585v7.033c0 .29.194.527.47.576zm8.317 3.065c.035.006.07.01.106.009.483 0 .949-.158 1.346-.456.368-.272.648-.678.812-1.175l.633-2.168 2.001-6.776a.595.595 0 0 0-.388-.741l-.041-.01c-.301-.053-.594.123-.666.4l-1.461 4.923-1.447-4.925a.593.593 0 0 0-.711-.387.593.593 0 0 0-.384.74l1.945 6.6-.594 2.013c-.14.473-.56.791-1.044.791a.57.57 0 0 0-.577.585c0 .29.194.527.47.577z">
+                            </path>
+                        </svg>
+                        <br><small style="color: rgb(253, 98, 124);">Home</small>
+                    </a>
+                </li>
+                <li class="nav-item flex-grow-1">
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="33px" viewBox="0 0 24 24">
+                            <path fill="#222539" fill-rule="evenodd"
+                                d="M17.976 2c1.32 0 2.586.515 3.52 1.434a4.856 4.856 0 0 1 1.456 3.463c0 2.705-2.228 4.897-4.976 4.897-2.748 0-4.976-2.192-4.976-4.897C13 4.193 15.228 2 17.976 2zm0 6.475c.426 0 .834-.165 1.135-.461.301-.296.47-.698.47-1.117.001-.639-.39-1.216-.99-1.46-.6-.246-1.29-.111-1.75.34a1.562 1.562 0 0 0-.348 1.723c.248.59.834.975 1.483.975zm-8.12.14c.384 0 .576.19.576.568v2.118a.505.505 0 0 1-.148.421.523.523 0 0 1-.428.146H5.01a.523.523 0 0 0-.43.145.505.505 0 0 0-.148.422v.605a.514.514 0 0 0 .152.418c.112.11.268.165.426.15h3.17c.383 0 .575.188.575.566v2.118a.503.503 0 0 1-.144.423.521.521 0 0 1-.428.147h-3.17a.523.523 0 0 0-.429.145.505.505 0 0 0-.149.422v3.854a.505.505 0 0 1-.147.422.523.523 0 0 1-.429.146H1.582a.533.533 0 0 1-.426-.15.514.514 0 0 1-.152-.418v-12.1a.505.505 0 0 1 .148-.423.523.523 0 0 1 .43-.145h8.274z">
+                            </path>
+                        </svg>
+                        <br><small>Store</small>
+                    </a>
+                </li>
+                <li class="nav-item flex-grow-1">
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="33px" viewBox="0 0 15 23">
+                            <path fill="#222539" fill-rule="evenodd"
+                                d="M6.35373 4.89117C6.18624 4.89117 6.05047 4.77552 6.05047 4.63286V0.26664C6.05047 0.119379 6.19062 0 6.36351 0C6.44566 -3.6381e-05 6.52432 0.0283189 6.58148 0.0785783C6.63865 0.128838 6.66942 0.1967 6.66677 0.26664V4.63286C6.66681 4.70284 6.63352 4.76983 6.57452 4.81852C6.51551 4.86721 6.43584 4.89343 6.35373 4.89117ZM14.5019 8.79643C14.4614 8.80704 14.4186 8.80704 14.3782 8.79643L2.08879 4.31023C2.03643 4.29014 1.99479 4.25202 1.97285 4.20409C1.94853 4.14793 1.9515 4.08495 1.98101 4.03092C2.01052 3.97689 2.06377 3.93693 2.12743 3.92105C2.16784 3.91043 2.21069 3.91043 2.2511 3.92105L14.5405 8.41432C14.5936 8.43312 14.636 8.47094 14.6579 8.51903C14.6798 8.56713 14.6792 8.62132 14.6564 8.66906C14.6348 8.73452 14.5752 8.78358 14.5019 8.79643ZM4.67102 22.49C4.62527 22.5036 4.57739 22.5036 4.53164 22.49L0.148978 20.1664C0.0866151 20.1323 0.0389482 20.0692 0.0173434 19.9919C-0.00578113 19.9178 -0.00578113 19.8363 0.0173434 19.7623C0.0534658 19.6642 0.129448 19.5948 0.218667 19.5786C0.263951 19.561 0.312762 19.561 0.358045 19.5786L4.74071 21.893C4.86714 21.9707 4.92389 22.1489 4.87235 22.3063C4.83312 22.3998 4.75805 22.4649 4.67102 22.4808V22.49ZM14.2583 9.76663L1.99833 4.93647C1.80777 4.86183 1.59263 4.8811 1.41878 4.98839C1.24494 5.09569 1.13312 5.27821 1.11756 5.48006C1.45168 7.68526 1.52031 9.92175 1.32203 12.1429C1.13723 14.3982 0.69402 16.6257 0.000878195 18.7824C-0.00543306 18.8366 0.0226953 18.8891 0.071654 18.9144C1.32989 19.5667 5.8045 21.4848 5.88314 21.5159C5.94028 21.5327 6.0021 21.5144 6.04042 21.4693C6.1163 21.3197 6.19312 21.1707 6.27087 21.0222C7.59386 21.1258 8.90765 21.2925 10.2049 21.5213C10.3177 21.5281 10.4234 21.4775 10.4669 21.3958C10.7438 20.9868 11.2268 20.3886 11.4918 20.0605C11.5907 19.938 11.6593 19.8531 11.6754 19.8297C11.7274 19.799 11.7505 19.7467 11.7338 19.6974C11.7171 19.6482 11.664 19.6117 11.5993 19.6051C11.5545 19.5993 11.5088 19.5993 11.4641 19.6051H8.51471C8.38372 19.6051 8.10273 19.5952 7.82173 19.5853C7.54074 19.5753 7.25975 19.5654 7.12876 19.5654H7.07265C8.01528 17.9343 9.0735 16.3699 10.2398 14.8841C11.5059 13.3566 12.9408 11.9736 14.5178 10.7606C14.6549 10.6062 14.7059 10.3948 14.654 10.1959C14.6021 9.99702 14.4539 9.83633 14.2583 9.76663ZM3.35093 6.79968C3.3267 8.5014 3.17424 10.199 2.89482 11.8783C2.54681 13.5558 2.1031 15.2125 1.56581 16.8405C1.56581 16.8963 1.52004 16.9415 1.46358 16.9415C1.40711 16.9415 1.36134 16.8963 1.36134 16.8405C1.76629 15.1197 2.02928 13.3693 2.14774 11.6065C2.29079 9.7952 2.25127 7.9743 2.02978 6.17068C2.0337 6.12603 2.05906 6.08595 2.09798 6.06289C2.13689 6.03983 2.18464 6.0366 2.22638 6.05419L3.15433 6.4347C3.30181 6.4921 3.38517 6.64684 3.35093 6.79968ZM7.84939 4.76415C7.87857 4.81883 7.93247 4.8606 7.99832 4.87957C8.06388 4.89926 8.13588 4.89454 8.1973 4.86654C8.25871 4.83854 8.30407 4.78973 8.32263 4.73168L9.76581 1.28097C9.8157 1.16627 9.75085 1.03797 9.61987 0.992237C9.48555 0.949651 9.33688 1.00949 9.28745 1.12604L7.84428 4.59084C7.81837 4.64675 7.82022 4.70947 7.84939 4.76415ZM9.85089 5.79509C9.75985 5.68972 9.75985 5.52014 9.85089 5.41477L12.3174 2.0342C12.4095 1.93001 12.5577 1.93001 12.6497 2.0342C12.693 2.08338 12.7174 2.15031 12.7174 2.22013C12.7174 2.28994 12.693 2.35687 12.6497 2.40606L10.1832 5.78664C10.0932 5.8932 9.94497 5.89697 9.85089 5.79509Z">
+                            </path>
+                        </svg>
+                        <br><small>Buzz</small>
+                    </a>
+                </li>
+                <li class="nav-item flex-grow-1">
+                    <a class="nav-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="33px" viewBox="0 0 24 24">
+                            <path fill="#222539"
+                                d="M12 11.044a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zM8.5 12h7a4.5 4.5 0 0 1 4.5 4.5V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2.5A4.5 4.5 0 0 1 8.5 12z">
+                            </path>
+                        </svg>
+                        <br><small>Profile</small>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+
+    <!--Laptop footer-->
+    <div class="d-none d-lg-block">
+        <!--Navigate to top-->
+        <section id="home-nav" class="p-2">
+            <div class="container">
+                <small><a href="#home" class="text-muted text-decoration-none">Home</a></small>
+            </div>
+        </section>
+
+        <!--Privacy note-->
+        <section id="privacy-note" class="bg-light py-4">
+            <div class="container text-muted">
+                <h6 class="mb-0">Privacy Note</h6>
+                <small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum atque aperiam placeat
+                    officia et ex nemo nulla, itaque labore, voluptas dolores ut saepe? Aperiam dolor nostrum nemo ad ex
+                    blanditiis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim iusto expedita asperiores
+                    sint, placeat cum.</small>
+            </div>
+        </section>
+
+        <!--Footer links-->
+        <section id="contact" class="text-white bg-dark">
+            <div class="container py-2">
+                <div class="row">
+                    <div class="col-lg-10 align-self-center">
+                        <h6>
+                            <svg width="48px" height="48px" viewBox="0 0 39 43" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="LYS---Lead-in---Desktop" transform="translate(-19.000000, -433.000000)">
+                                        <image id="Bitmap" x="19" y="433" width="39" height="43"
+                                            xlink:href="data:image/png;base64,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"
+                                            style="mix-blend-mode: lighten;"></image>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span class="font-weight-bold"> List Your Show </span>
+                            <span class="font-weight-normal">Got a show, event, activity or a great experience? Partner
+                                with us &amp; get listed on BookMyShow</span>
+
+
+
+                        </h6>
+                    </div>
+                    <div class="col-lg-2 text-right align-self-center">
+                        <button class="btn btn-danger text-right">Contact today!</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="services" class="text-white p-3" style="background: rgb(71, 71, 71);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 text-center"><a href="#">
+                            <h1><i class="fa fa-headphones" style="font-size: 50px;"></i></h1>
+                            <h6 class="font-weight-normal small">24/7 CUSTOMER CARE</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 text-center"><a href="#">
+                            <h1><i class="fa fa-ticket" style="font-size: 50px;"></i></h1>
+                            <h6 class="font-weight-normal small">RESEND BOOKING CONFIRMATTION</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 text-center"><a href="#">
+                            <h1><i class="fa fa-envelope-open-o" style="font-size: 50px;"></i></h1>
+                            <h6 class="font-weight-normal small">SUBSCRIBE TO THE NEWSLETTER</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="links" class="bg-dark text-muted">
+            <div class="container">
+                <div class="pt-4 pb-2">
+                    <h6>Movies Playing in Ahmedabad</h6>
+
+                    <ul class="list-unstyled d-flex">
+                        <li><a href="#" class="pl-0">Monster Hunter</a></li>
+                        <li><a href="#">Chaal jeevi laieye</a></li>
+                        <li><a href="#">Vijay the Master</a></li>
+                        <li><a href="#">Tenet</a></li>
+                        <li><a href="#">National Theatre Live: Hansard</a></li>
+                        <li><a href="#">Ramprasad ki Tehrvi</a></li>
+                        <li><a href="#">Tikkhi Mitthi Life</a></li>
+                        <li><a href="#">Wonder Woman 1984</a></li>
+                        <li><a href="#">Dhadak</a></li>
+                        <li><a href="#" class="border-0">KGF</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Upcoming Movies</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Centha</a></li>
+                        <li><a href="#">Oh My Ghost</a></li>
+                        <li><a href="#">Care of Kaadhal</a></li>
+                        <li><a href="#">FCUK</a></li>
+                        <li><a href="#">Our Friend</a></li>
+                        <li><a href="#">Operation Java</a></li>
+                        <li><a href="#">Kalavida</a></li>
+                        <li><a href="#">Naanum Single Thaan</a></li>
+                        <li><a href="#">Saajan Bakery Since 1962</a></li>
+                        <li><a href="#">Kanasu Maratikkide</a></li>
+                        <li><a href="#">Aelay</a></li>
+                        <li><a href="#">Paani Ch Madhaani</a></li>
+                        <li><a href="#">Magic</a></li>
+                        <li><a href="#">My Hero Academia: Two Heroes</a></li>
+                        <li><a href="#" class="pl-0">Mystery Of Sarika</a></li>
+                        <li><a href="#">Ek aur Love Story</a></li>
+                        <li><a href="#">Kutti Story</a></li>
+                        <li><a href="#">Nimmuru</a></li>
+                        <li><a href="#">KOKKA</a></li>
+                        <li><a href="#" class="border-0">Prem Tame</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Movies by Genre</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Drama</a></li>
+                        <li><a href="#">Romantic</a></li>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Thriller</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Historical</a></li>
+                        <li><a href="#">Screening</a></li>
+                        <li><a href="#">Mythological</a></li>
+                        <li><a href="#">Noir</a></li>
+                        <li><a href="#">Psychological</a></li>
+                        <li><a href="#">War</a></li>
+                        <li><a href="#">Political</a></li>
+                        <li><a href="#">Mystery</a></li>
+                        <li><a href="#">Animation</a></li>
+                        <li><a href="#">Musical</a></li>
+                        <li><a href="#">Sci-Fi</a></li>
+                        <li><a href="#">Supernatural</a></li>
+                        <li><a href="#">Adaptation</a></li>
+                        <li><a href="#">Classic</a></li>
+                        <li><a href="#">Crime</a></li>
+                        <li><a href="#" class="border-0 pl-0">Bollywood</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Movies by Language</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Hindi</a></li>
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Gujarati</a></li>
+                        <li><a href="#">Marathi</a></li>
+                        <li><a href="#">Punjabi</a></li>
+                        <li><a href="#">Telugu</a></li>
+                        <li><a href="#">Kannad</a></li>
+                        <li><a href="#">Malayalam</a></li>
+                        <li><a href="#">Urdu</a></li>
+                        <li><a href="#">Japanese</a></li>
+                        <li><a href="#">Bhojpuri</a></li>
+                        <li><a href="#">Khasi</a></li>
+                        <li><a href="#">Nepali</a></li>
+                        <li><a href="#">Chattisgarhi</a></li>
+                        <li><a href="#">French</a></li>
+                        <li><a href="#">Konkani</a></li>
+                        <li><a href="#">Tulu</a></li>
+                        <li><a href="#">English 7D</a></li>
+                        <li><a href="#">Assamese</a></li>
+
+                        <li><a href="#">Oriya</a></li>
+                        <li><a href="#">Portugese</a></li>
+                        <li><a href="#">Sindhi</a></li>
+                        <li><a href="#">Bengali</a></li>
+                        <li><a href="#" class="border-0">Tamil</a></li>
+                    </ul>
+                    </small>
+                </div>
+
+                <div class="pb-2">
+                    <h6>Plays by Genre in Ahmedabad</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Online Streaming Plays Plays</a></li>
+                        <li><a href="#">Drama PLays</a></li>
+                        <li><a href="#">Historical PLays</a></li>
+                        <li><a href="#">Comedy Plays</a></li>
+                        <li><a href="#">Adaptation Plays</a></li>
+                        <li><a href="#">Adventure Plays</a></li>
+                        <li><a href="#">Thriller Plays</a></li>
+                        <li><a href="#">Tribute Plays</a></li>
+                        <li><a href="#">Fantasy Plays</a></li>
+                        <li><a href="#">Mythological Plays</a></li>
+                        <li><a href="#">Noir Plays</a></li>
+                        <li><a href="#">Psychological Plays</a></li>
+                        <li><a href="#">War Plays</a></li>
+
+                        <li><a href="#">Political Plays</a></li>
+                        <li><a href="#" class="pl-0">Mystery Plays</a></li>
+                        <li><a href="#">Regional Plays</a></li>
+                        <li><a href="#">Musical Plays</a></li>
+                        <li><a href="#">Sci-Fi Plays</a></li>
+                        <li><a href="#">Classic Plays</a></li>
+                        <li><a href="#">Period Plays</a></li>
+                        <li><a href="#">Adult Plays</a></li>
+                        <li><a href="#">Horror Plays</a></li>
+                        <li><a href="#">Romantic Plays</a></li>
+                        <li><a href="#">Tragedy Plays</a></li>
+                        <li><a href="#">Action Plays</a></li>
+                        <li><a href="#">Suspense Plays</a></li>
+                        <li><a href="#" class="border-0">Biography Plays</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Movie Reviews</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Trending Articles</a></li>
+                        <li><a href="#">Latest News on Movies, Events, Plays and Sports</a></li>
+                        <li><a href="#">Rajeev Masand Movie Reviews</a></li>
+                        <li><a href="#">Anupama Chopra Movie Reviews</a></li>
+                        <li><a href="#">Film Reviews</a></li>
+                        <li><a href="#" class="border-0">Guest Blogging</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Movie Updates and Celebrities</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Upcoming Movies</a></li>
+                        <li><a href="#">Now Showing</a></li>
+                        <li><a href="#" class="border-0">Movie Celebrities</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Things To Do In Ahmedabad</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Amusement Parks</a></li>
+                        <li><a href="#">Adventures</a></li>
+                        <li><a href="#">Quizzes and Competitions</a></li>
+                        <li><a href="#">Shops and Malls</a></li>
+                        <li><a href="#">Valentines Day Celebrations</a></li>
+                        <li><a href="#">Durga Pooja Festival</a></li>
+                        <li><a href="#">Food & Drinks</a></li>
+                        <li><a href="#">Nightlife</a></li>
+                        <li><a href="#">Tourist Attractions</a></li>
+                        <li><a href="#">Navratri</a></li>
+                        <li><a href="#">New Year Parties</a></li>
+                        <li><a href="#">Hospitals</a></li>
+                        <li><a href="#">Monuments</a></li>
+                        <li><a href="#">Gaming</a></li>
+                        <li><a href="#" class="pl-0">Holi Parties</a></li>
+                        <li><a href="#">Festivals</a></li>
+                        <li><a href="#">Christmas Celebrations</a></li>
+                        <li><a href="#">Parties</a></li>
+                        <li><a href="#">Hilsa Festival</a></li>
+                        <li><a href="#" class="border-0">Unique Tours</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Sports Events In Ahmedabad</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">E Sports</a></li>
+                        <li><a href="#">Walking</a></li>
+                        <li><a href="#">Archery</a></li>
+                        <li><a href="#">Pool</a></li>
+                        <li><a href="#">Snooker</a></li>
+                        <li><a href="#">Boat Race</a></li>
+                        <li><a href="#">Bowling</a></li>
+                        <li><a href="#">Golf</a></li>
+                        <li><a href="#">Kabbadi</a></li>
+                        <li><a href="#">Polo</a></li>
+                        <li><a href="#">Cricket</a></li>
+                        <li><a href="#">Judo</a></li>
+                        <li><a href="#">Table Tennis</a></li>
+                        <li><a href="#">Wrestling</a></li>
+                        <li><a href="#">Football</a></li>
+                        <li><a href="#">Volleyball</a></li>
+                        <li><a href="#">Basketball</a></li>
+                        <li><a href="#">Kickboxing</a></li>
+                        <li><a href="#">Running</a></li>
+                        <li><a href="#">Cycling</a></li>
+                        <li><a href="#">Muay Thai</a></li>
+                        <li><a href="#">Sailing</a></li>
+                        <li><a href="#">Swimming</a></li>
+                        <li><a href="#" class="pl-0">Triathlon</a></li>
+                        <li><a href="#">Boxing</a></li>
+                        <li><a href="#">Card Games</a></li>
+                        <li><a href="#">Aethletics</a></li>
+                        <li><a href="#">Hockey</a></li>
+                        <li><a href="#">Tennis</a></li>
+                        <li><a href="#">Baseball</a></li>
+                        <li><a href="#">Iced Skating</a></li>
+                        <li><a href="#">Mixed Martial Arts</a></li>
+                        <li><a href="#">Motor Sports</a></li>
+                        <li><a href="#">Rugby</a></li>
+                        <li><a href="#">Shooting</a></li>
+                        <li><a href="#">Weight Lifting</a></li>
+                        <li><a href="#">Badminton</a></li>
+                        <li><a href="#">Chess</a></li>
+                        <li><a href="#" class="border-0">Derby Horce Race</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Events In Ahmedabad</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Online Streaming Events</a></li>
+                        <li><a href="#">Workshops</a></li>
+                        <li><a href="#">Kids</a></li>
+                        <li><a href="#">Comedy Shows</a></li>
+                        <li><a href="#">Music Shows</a></li>
+                        <li><a href="#">Talks</a></li>
+                        <li><a href="#">Meetups</a></li>
+                        <li><a href="#">Screenings</a></li>
+                        <li><a href="#">Exhibitions</a></li>
+                        <li><a href="#">Spirituality</a></li>
+                        <li><a href="#">Conferences</a></li>
+                        <li><a href="#" class="border-0">Award Shows</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Cinemas In Top Cities</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Mumbai</a></li>
+                        <li><a href="#">National Capital Region (NCR)</a></li>
+                        <li><a href="#">Chennai</a></li>
+                        <li><a href="#">Bengaluru</a></li>
+                        <li><a href="#">Hyderabad</a></li>
+                        <li><a href="#">Pune</a></li>
+                        <li><a href="#">Ahmedabad</a></li>
+
+                        <li><a href="#" class="border-0">Kolkata</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Events In Top Cities</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Mumbai</a></li>
+                        <li><a href="#">National Capital Region (NCR)</a></li>
+                        <li><a href="#">Chennai</a></li>
+                        <li><a href="#">Bengaluru</a></li>
+                        <li><a href="#">Hyderabad</a></li>
+                        <li><a href="#">Pune</a></li>
+                        <li><a href="#">Ahmedabad</a></li>
+
+                        <li><a href="#" class="border-0">Kolkata</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Plays In Top Cities</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Mumbai</a></li>
+                        <li><a href="#">National Capital Region (NCR)</a></li>
+                        <li><a href="#">Chennai</a></li>
+                        <li><a href="#">Bengaluru</a></li>
+                        <li><a href="#">Hyderabad</a></li>
+                        <li><a href="#">Pune</a></li>
+                        <li><a href="#">Ahmedabad</a></li>
+
+                        <li><a href="#" class="border-0">Kolkata</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Activities In Top Cities</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Mumbai</a></li>
+                        <li><a href="#">National Capital Region (NCR)</a></li>
+                        <li><a href="#">Chennai</a></li>
+                        <li><a href="#">Bengaluru</a></li>
+                        <li><a href="#">Hyderabad</a></li>
+                        <li><a href="#">Pune</a></li>
+                        <li><a href="#">Ahmedabad</a></li>
+
+                        <li><a href="#" class="border-0">Kolkata</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Movies In Top Cities</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Mumbai</a></li>
+                        <li><a href="#">National Capital Region (NCR)</a></li>
+                        <li><a href="#">Chennai</a></li>
+                        <li><a href="#">Bengaluru</a></li>
+                        <li><a href="#">Hyderabad</a></li>
+                        <li><a href="#">Pune</a></li>
+                        <li><a href="#">Ahmedabad</a></li>
+
+                        <li><a href="#" class="border-0">Kolkata</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Countries</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Indonesia</a></li>
+                        <li><a href="#">Singapore</a></li>
+                        <li><a href="#">UAE</a></li>
+                        <li><a href="#">Sri Lanka</a></li>
+
+                        <li><a href="#" class="border-0">West Indies</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>Help</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Current Openings</a></li>
+                        <li><a href="#">Press Release</a></li>
+                        <li><a href="#">Press Coverage</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policies</a></li>
+                        <li><a href="#">FAQs</a></li>
+
+                        <li><a href="#" class="border-0">Sitemap</a></li>
+
+
+                    </ul>
+
+                </div>
+
+                <div class="pb-2">
+                    <h6>BookMyShow Exclusives</h6>
+
+                    <ul class="list-unstyled d-flex flex-row flex-wrap">
+                        <li><a href="#" class="pl-0">Watchguide</a></li>
+                        <li><a href="#">Fanhood</a></li>
+                        <li><a href="#">Superstar</a></li>
+                        <li><a href="#">BookASmile</a></li>
+                        <li><a href="#">Corporate Vouchers</a></li>
+                        <li><a href="#">Gift Catfs</a></li>
+                        <li><a href="#">List My Show</a></li>
+                        <li><a href="#">Offers</a></li>
+
+                        <li><a href="#" class="border-0">TVOD</a></li>
+
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+            <div class="d-flex justify-content-center align-items-baseline py-5 footer-logo">
+                <span></span>
+                <a href="#" class="mx-4">
+                    <svg viewBox="0 0 88 26" height="33.9" width="115" xmlns="http://www.w3.org/2000/svg">
+                        <title>BookMyShow</title>
+                        <g fill="none">
+                            <path
+                                d="M55.433 7.383l-1.444-2.43-2.583 1.213-1.444-2.43L47.38 4.95l-1.445-2.43-2.582 1.215-1.445-2.43-2.582 1.212L37.88.087 35.3 1.3l-5.476 17.591 6.643 2.005a3.516 3.516 0 0 1 3.363-2.45c1.944 0 3.52 1.557 3.52 3.478l-.001.07c.016.315-.021.634-.118.946l6.756 2.042 5.446-17.6"
+                                fill="#C4242B"></path>
+                            <path
+                                d="M35.52 17.438a.705.705 0 0 1-.591-.705V8.122a.715.715 0 0 1 .724-.717h6.297c.164 0 .329.016.489.043a2.798 2.798 0 0 1 2.336 2.749v6.536a.705.705 0 0 1-.217.51.73.73 0 0 1-.641.195.704.704 0 0 1-.59-.705v-6.536a1.363 1.363 0 0 0-1.377-1.358h-1.372v7.894a.723.723 0 0 1-.86.705.705.705 0 0 1-.59-.705V8.838h-2.75v7.895a.704.704 0 0 1-.216.51.728.728 0 0 1-.642.195M45.99 21.19a.704.704 0 0 1-.592-.706c0-.195.074-.377.209-.51a.73.73 0 0 1 .516-.206c.61 0 1.14-.39 1.315-.97l.748-2.462-2.448-8.083a.722.722 0 0 1 .483-.904.742.742 0 0 1 .896.473l1.82 6.03 1.839-6.026c.091-.34.46-.556.839-.49l.051.011c.392.121.608.528.489.907l-2.52 8.295-.796 2.655c-.206.61-.56 1.106-1.022 1.44-.5.365-1.086.557-1.694.557a.708.708 0 0 1-.133-.012M1.614 15.87h1.428c.788 0 1.43-.633 1.43-1.413v-4.141c0-.687-.498-1.272-1.183-1.391a1.501 1.501 0 0 0-.247-.022l-1.43.001.002 6.965zM.72 17.347a.732.732 0 0 1-.616-.734V3.758c0-.203.077-.391.218-.53a.751.751 0 0 1 .666-.203c.362.062.624.37.624.734v3.656h1.43a2.91 2.91 0 0 1 2.938 2.901l-.001 4.141c0 1.601-1.318 2.902-2.938 2.902H.86a.676.676 0 0 1-.14-.011zM11.096 8.839a1.478 1.478 0 0 0-.246-.02c-.801 0-1.43.62-1.43 1.412v4.313a1.413 1.413 0 0 0 1.43 1.412c.788 0 1.429-.632 1.43-1.412l-.001-4.313c0-.688-.498-1.272-1.183-1.392m-.763 8.564a2.905 2.905 0 0 1-2.42-2.86V10.23c0-.778.304-1.507.858-2.054a2.94 2.94 0 0 1 2.079-.847 2.91 2.91 0 0 1 2.938 2.902l-.001 4.313c0 .775-.308 1.504-.867 2.055a2.94 2.94 0 0 1-2.07.847 2.948 2.948 0 0 1-.517-.043M18.902 8.839a1.47 1.47 0 0 0-.245-.02c-.802 0-1.428.62-1.428 1.412v4.313a1.412 1.412 0 0 0 1.428 1.412c.378 0 .733-.146 1.005-.41.273-.268.424-.624.424-1.002V10.23c0-.687-.498-1.27-1.184-1.391m-.762 8.564a2.907 2.907 0 0 1-2.42-2.859v-4.313c0-1.601 1.317-2.903 2.937-2.903.17 0 .34.014.506.043a2.91 2.91 0 0 1 2.431 2.86v4.313c0 .777-.308 1.504-.867 2.055a2.94 2.94 0 0 1-2.07.847c-.174 0-.348-.014-.517-.043M24.142 17.434a.733.733 0 0 1-.614-.733V3.758a.735.735 0 0 1 .753-.745.746.746 0 0 1 .754.745v7.66l3.474-3.843a.766.766 0 0 1 .697-.228c.139.024.27.085.379.175.309.28.33.75.052 1.048l-2.615 2.88 2.717 4.902a.705.705 0 0 1 .066.553.732.732 0 0 1-.37.443.755.755 0 0 1-.5.082.749.749 0 0 1-.526-.356l-2.444-4.433-.93 1.013v3.047c0 .202-.08.39-.225.532a.758.758 0 0 1-.668.201M57.41 17.426a2.782 2.782 0 0 1-1.96-1.355.75.75 0 0 1-.068-.569.739.739 0 0 1 .346-.45c.15-.084.33-.114.505-.084a.75.75 0 0 1 .525.358c.199.335.509.546.895.614.42.066.803-.048 1.116-.316.29-.267.442-.648.404-1.016a1.22 1.22 0 0 0-.548-.964l-2.031-1.425a2.708 2.708 0 0 1-1.155-2.013 2.642 2.642 0 0 1 .884-2.152 2.754 2.754 0 0 1 2.24-.694h.001c.856.15 1.555.63 1.95 1.323a.746.746 0 0 1 .07.563.747.747 0 0 1-.348.454.757.757 0 0 1-.504.083.747.747 0 0 1-.526-.357c-.172-.3-.482-.51-.856-.575a1.189 1.189 0 0 0-1.021.296c-.26.238-.403.596-.382.96.019.351.22.694.523.894l2.032 1.404a2.729 2.729 0 0 1 1.177 2.101 2.651 2.651 0 0 1-.906 2.214 2.84 2.84 0 0 1-2.307.714l-.055-.008M63.246 17.447a.75.75 0 0 1-.625-.735V3.77c0-.202.08-.39.226-.533a.762.762 0 0 1 .667-.2.733.733 0 0 1 .615.733v3.655h1.43c.174 0 .348.015.516.045a2.902 2.902 0 0 1 2.42 2.857l.001 6.385a.741.741 0 0 1-.883.734.747.747 0 0 1-.625-.735v-6.384a1.41 1.41 0 0 0-1.43-1.412h-1.429v7.797a.742.742 0 0 1-.754.746.781.781 0 0 1-.13-.01M73.609 8.85a1.429 1.429 0 0 0-1.26.39c-.268.265-.416.62-.416 1v4.316c0 .686.494 1.27 1.173 1.388a1.43 1.43 0 0 0 1.261-.388c.274-.268.424-.622.424-1.001V10.24c0-.687-.497-1.272-1.182-1.391m-.763 8.563a2.903 2.903 0 0 1-2.42-2.857V10.24c-.001-1.6 1.317-2.902 2.937-2.902.169 0 .34.013.506.043a2.91 2.91 0 0 1 2.43 2.859v4.315a2.856 2.856 0 0 1-.867 2.054 2.938 2.938 0 0 1-2.586.803M87.892 8.254a.712.712 0 0 0-.077-.545.781.781 0 0 0-.49-.342.747.747 0 0 0-.864.546 920.42 920.42 0 0 1-1.452 5.726l-.014.056-.013-.056c-.62-2.458-1.447-5.69-1.456-5.724a.706.706 0 0 0-.58-.55.75.75 0 0 0-.85.548c-.01.03-.819 3.268-1.454 5.726l-.014.056-.014-.056c-.618-2.458-1.447-5.695-1.455-5.726a.74.74 0 0 0-.889-.536.73.73 0 0 0-.542.877l2.185 8.632a.754.754 0 0 0 .714.556.708.708 0 0 0 .715-.557c.008-.033.837-3.27 1.456-5.73l.013-.054.016.054c.64 2.483 1.451 5.73 1.452 5.732a.754.754 0 0 0 .715.556.71.71 0 0 0 .714-.559l2.184-8.63"
+                                fill="#FFF"></path>
+                        </g>
+                    </svg>
+                </a>
+                <span></span>
+            </div>
+
+            <div class="socials">
+                <div class="container text-center pb-5">
+                    <a href="#"><i class="fa fa-facebook fa-2x mx-2"></i></a>
+                    <a href="#"><i class="fa fa-twitter fa-2x mx-2"></i></a>
+                    <a href="#"><i class="fa fa-instagram fa-2x mx-2"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play fa-2x mx-2"></i></a>
+                    <a href="#"><i class="fa fa-pinterest fa-2x mx-2"></i></a>
+                    <a href="#"><i class="fa fa-linkedin fa-2x mx-2"></i></a>
+                </div>
+            </div>
+
+            <div class="copyright text-center pb-5">
+                <small>Copyright &copy; 2021</small>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cities Modal -->
+    <div class="modal fade" id="citiesModal" tabindex="-1" aria-labelledby="citiesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <form class="form-inline">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="fa fa-search"></i></span>
+                                    </div>
+                                    <input type="search" class="form-control" placeholder="Search for Your City"
+                                        size="100">
+                                </div>
+                            </form>
+                            <h6 class="font-weight-normal text-center pt-3">Popular Cities</h6>
+                            <div class="d-flex flex-row flex-nowrap text-center pt-3">
+                                <div class="px-0 mx-0 d-inline-block" data-toggle="tooltip" data-placement="bottom"
+                                    title="Mumbai: Western &nbsp; Thane  &nbsp;   Mumbai: South & Central &nbsp;    Navi Mumbai  &nbsp;   Kalyaan  &nbsp;   Ulhasnagar">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/mumbai.png"
+                                            alt="MUMBAI" class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Mumbai</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block" data-toggle="tooltip" data-placement="bottom"
+                                    title="Delhi &nbsp; Gurugram(Gurgaon) &nbsp; Noida &nbsp; Ghaziabad &nbsp; Kundli &nbsp; Greater Noida &nbsp; Faridabad &nbsp; Pilkhuwa">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/ncr.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">NCR</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/bang.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Banagluru</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/hyd.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Hyderabad</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/ahd-selected.png"
+                                            alt="NCR" class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Ahmedabad</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/chd.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Chandigarh</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/chen.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Chennai</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/pune.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Pune</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/kolk.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Kolkata</h6>
+                                    </a>
+                                </div>
+                                <div class="px-0 mx-0 d-inline-block">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <img src="//in.bmscdn.com/m6/images/common-modules/regions/koch.png" alt="NCR"
+                                            class="w-50 img-fluid">
+                                        <h6 class="font-weight-normal text-center pt-3">Kochi</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="text-decoration-none">
+                                <h6 class="font-weight-normal text-center mt-lg-5" style="color: rgb(253, 98, 124);">
+                                    View All Cities
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="loginModalLabel">Login</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <form class="mb-4">
+                        <div class="form-group">
+                            <input type="number" name="" id="" class="form-control" placeholder="Enter Contact Number"
+                                maxlength="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="" id="" class="form-control" placeholder="Enter Password"
+                                required>
+                        </div>
+                        <button class="btn btn-danger btn-block" type="submit">Login</button>
+                    </form>
+
+                    <a href="#" class="text-danger" id="next-trigger"><small>Don't have a account? Register
+                            Yourself</small></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="registerModalLabel">Register</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <form class="mb-4">
+                        <div class="form-group">
+                            <input type="text" name="" id="" class="form-control" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="" id="" class="form-control" placeholder="Enter Contact Number"
+                                maxlength="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="" id="" class="form-control" placeholder="Enter Password"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="" id="" class="form-control" placeholder="Confirm Password"
+                                required>
+                        </div>
+                        <button class="btn btn-danger btn-block" type="submit">Register</button>
+                    </form>
+
+                    <a href="#" class="text-danger" id="back-trigger" data-dismiss="modal"><small>Already have an
+                            account? Login</small></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/storeData.js"></script>
+    <script src="js/userIndex.js"></script>  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="js/main.js"></script>
+    
+
+
+    <script>
+        const openNav = () => {
+            document.getElementById('mySidenav').style.width = "400px"
+        }
+
+        const closeNav = () => {
+            document.getElementById('mySidenav').style.width = "0px"
+        }
+    </script>
+
+
+    
+</body>
+
+</html>
