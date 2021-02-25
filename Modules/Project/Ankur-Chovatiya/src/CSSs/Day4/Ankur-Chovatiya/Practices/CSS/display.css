@@ -1,13 +1,13 @@
-h1{
+#dish{
     display: inline;
 }
-p{
+#dis {
     display: inline;
 }
-img.img1{
+#disi1 .img1{
     display: block;
     width: 500px;
 }
-img{
+#disi2 {
     display: none;
 }

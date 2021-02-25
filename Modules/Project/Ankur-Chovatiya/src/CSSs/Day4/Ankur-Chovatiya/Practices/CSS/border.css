@@ -6,7 +6,7 @@ h1{
     border-bottom-color: black;
     border-radius: 10px;
 }
-p{
+#border{
     border-style: solid;
     border-color: blue;
     text-align: justify;

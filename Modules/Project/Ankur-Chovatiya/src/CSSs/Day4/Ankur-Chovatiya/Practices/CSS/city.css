@@ -1,25 +1,25 @@
-ul{
+#city{
     list-style-type: none;
     background-color: aqua;
 }
-a:link{
+#city a:link{
     color: red;
 
     text-decoration: none;
 }
 
-a:visited{
+#city a:visited{
     color:crimson;
 }
 
-a:hover{
+#city a:hover{
     color: blueviolet;
     text-decoration: underline;
-}
-a:active{
+} 
+#city a:active{
     color: rgb(51, 99, 187);
 }
-ul li{
+#city li{
     display: inline;
     margin-left: 15px;
     font-size: 25px;

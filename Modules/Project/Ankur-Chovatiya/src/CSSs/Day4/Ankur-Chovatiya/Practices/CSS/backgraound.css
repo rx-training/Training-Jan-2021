@@ -1,4 +1,6 @@
-*{
+#back{
+    height: 100%;
+    width: 100%;
     background-color: antiquewhite;
     background-image: url(https://picsum.photos/700/300);
     background-repeat: no-repeat;
