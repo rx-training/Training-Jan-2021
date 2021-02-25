@@ -187,8 +187,8 @@
                     </select>
                 </div>
                 
-                <label for="articleid" class="mt-3 text-primary" pattern="^.{2,}$">Article ID:</label>
-                <input type="text" id="articleid" class="form-control" placeholder="Article ID">
+                <label for="articleid" class="mt-3 text-primary">Article ID:</label>
+                <input type="text" id="articleid" class="form-control" pattern="^.{2,}$" placeholder="Article ID">
                 
                 <label for="links" class="mt-3 text-primary">Links</label>
                 <textarea id="categorylink" class="form-control" placeholder="links"></textarea>
@@ -196,7 +196,7 @@
                 <div class="form-group mt-4">
                     <label for="images">Images</label>
                     <input type="file" id="categoryimage" class="form-control">
-                    <img id="image">
+                    <img src="" id="image">
                     <script>
                         document.getElementById("categoryimage").onchange=function () {
                             var reader=new FileReader();
