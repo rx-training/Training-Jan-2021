@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $('#result').html("");
+    $('#result').html("<tr><th>ID</th><th>Name</th><th>Email</th><th>Gender</th><th>Status</th><th>Created At</th><th>Updated At</th></tr>");
+    $.getJSON("https://gorest.co.in/public-api/users", function(result){
+        $.each(result.data, function(i){
+            $('#result').append("<tr><td>"+result.data[i].id+"</td><td>"+result.data[i].name+"</td><td>"+result.data[i].email+"</td><td>"+result.data[i].gender+"</td><td>"+result.data[i].status+"</td><td>"+result.data[i].created_at+"</td><td>"+result.data[i].updated_at+"</td></tr>");
+        })
+    });
+  });
+});
+</script>
+</head>
+<body>
+<div class="container text-center my-5 mx-auto">
+<button class="btn btn-warning text-white">Get JSON data</button>
+</div>
+<div>
+    <table class="table table-bordered" id="result">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
