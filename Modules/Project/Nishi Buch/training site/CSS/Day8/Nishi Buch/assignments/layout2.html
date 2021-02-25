@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+
+
     .d1 
     {
         display:grid;
@@ -27,9 +29,9 @@
         font-size: 12px;
     }
     .button {
-  background-color:green;
+  background-color:#008000;
   border: none;
-  color: white;
+  color: #ffffff;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -89,7 +91,7 @@
     grid-template-areas: "add d8 d9 d10";
     padding-top: 70px;
     background-color: rgb(52, 49, 49);
-    color: white;
+    color: #ffffff;
 }
 .th
 {
@@ -105,7 +107,27 @@
     grid-template-columns: 2fr 2fr;
     grid-template-rows: 0.2fr;
     grid-template-areas: "h4";
-    background-color: black;
+    background-color: #000000;
+}
+nav ul li{
+    display: inline;
+    
+}
+nav ul li a:hover{
+	color: #008000;
+}
+nav ul li a{
+    color: #000000;
+    text-decoration: none;
+    margin-left: 10px;
+    
+    
+}
+.mob a{
+    color: #ffffff;
+}
+.mob a:hover{
+    color: #008000;
 }
 @media only screen and (max-width: 768px)
 {
@@ -125,15 +147,17 @@
 
 </head>
 <body>
-    <div class="d1">
-        <h2 style="color: green;">Logo here</h2>
-        <h4>HOME</h4>
-        <h4>PAGES</h4>
-        <h4>BLOGS</h4>
-        <h4>PORTFOLIO</h4>
-        <h4>FEATURES</h4>
-        <h4>SHORTCODE</h4>
-    </div>
+    <nav>
+        <ul style="list-style-type: none;margin-left: 800px;">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PAGES</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">PORTFOLIO</a></li>
+            <li><a href="#">FEATURES</a></li>
+            <li><a href="#">SHORTCODE</a></li>
+        </ul>
+    </nav>
+
     <img src="images\lt1.jpg" alt="failed" style="width: 100%;">
     <div class="d2" style="padding-top: 20px;">
         <h3 >lorem ipsum dolor sit amet,consectetur adipisicing alit</h3>
@@ -209,7 +233,7 @@
     </div>
 	<div class="main">
 		<div class="add" >
-		<h1 style="color: green;">Logo Here</h1>
+		<h1 style="color: #008000;">Logo Here</h1>
 		<h5>
 Etiam pharetra magna viate fringilla posuere.Integer
 lacinia,nisi nec semper faucibus, elit neque imperddiet sem,
@@ -233,16 +257,16 @@ ut molestie felis nisi sit amet leo.</h5>
 
 		<div class="d9">
 		<h1 style="font-weight: lighter;">Useful Links</h1>
-		<hr class="new1">
-		About Us
-		<hr class="new1">
-		About Us
-		<hr class="new1">
-		About Us
-		<hr class="new1">
-		About Us
-		<hr class="new1">
-		About Us
+		<hr class="new1"><a href="#" style="color: #ffffff;">	About Us</a>
+	
+		<hr class="new1"><a href="#" style="color: #ffffff;">About Us</a>
+		
+		<hr class="new1"><a href="#" style="color: #ffffff;">About Us
+        </a>
+		<hr class="new1"><a href="#" style="color: #ffffff;">About Us</a>
+		
+		<hr class="new1"> <a href="#" style="color: #ffffff;">About Us</a>
+		
 		</div>
 		<div class="d10">
 			<h1>Contact Us</h1>
@@ -251,13 +275,13 @@ ut molestie felis nisi sit amet leo.</h5>
 			Swastik Char Rasta,C G Road,
 			Ahmedabad-38009
 			Gujarat-India
-			:<div class="mob">Phone:+91-79-26400685</div>
+			:<div class="mob"><a href="#">Phone:+91-79-26400685</a></div>
 		</div>
 	</div>
 
   <div class="final">
       
-      <h4 style="color: white;">2015@All Rights Reserved.PrivacyPolicy|Terms of Service</h4>
+      <h4 style="color: #ffffff;">2015@All Rights Reserved.PrivacyPolicy|Terms of Service</h4>
       
   </div>
 

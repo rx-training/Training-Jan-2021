@@ -6,7 +6,7 @@
     <style>
 nav{
     font-size: 2rem;
-    background-color: black;
+    background-color:#000000;
 }
 nav ul
 {
@@ -21,13 +21,19 @@ nav ul li{
     padding:0.5rem;
     flex:auto;
     text-align: center;
+    
 }
 nav ul li:hover
 {
-    background-color:lightblue;
-    color:white;
+    background-color:#000000;
+    color:rgb(255, 0, 0);
 }
-    
+nav ul li a{
+    color: #ffffff;
+}  
+nav ul li a:hover{
+    color: rgb(100, 205, 240);
+}  
 @media (max-width: 400px) {
             nav ul {
                 flex-direction: column;
@@ -44,7 +50,7 @@ nav ul li:hover
     <header>
     <nav>
         <ul>
-            <li><a href="#">About</a></li>
+            <li ><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Feedback</a></li>
