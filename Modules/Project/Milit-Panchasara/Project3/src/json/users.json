@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id":1,
+      "name":"Milit Panchasara",
+      "email":"milit6116@gmail.com",
+      "password":"milit",
+      "accountType": "saving",
+      "accountID":100001,
+      "money":45000
+    },
+    {
+      "id":2,
+      "name":"Udit Panchasara",
+      "email":"udit@gmail.com",
+      "password":"udit",
+      "accountType": "current",
+      "accountID":100002,
+      "money":2000
+    }
+  ]
+}
