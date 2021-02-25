@@ -1,0 +1,45 @@
+{"mobile" : [{"Product":"Redmi 9A 3GB 32GB (Midnight Black)","Price":"Rs 7067","Image":"img/mobile/redmi9a.jpg"},
+    {"Product":"OPPO A11K 2 GB RAM","Price":"Rs 7436","Image":"img/mobile/oppoa11k.jpg"},
+    {"Product":"OPPO A52","Price":"Rs 15389","Image":"img/mobile/oppoa52.jpg"},
+    {"Product":"IKall K250","Price":"Rs 4867","Image":"img/mobile/ikall.jpg"}],
+
+"men" : [{"Product":"Pack of 2 Multicolor Tshirt","Price":"Rs 324","Image":"img/men/multicolour.jpg"},
+        {"Product":"Pack of 3 Collar Tshirt","Price":"Rs 436","Image":"img/men/colortshirt.jpg"},
+        {"Product":"Men Silver Jacket","Price":"Rs 389","Image":"img/men/jacket.jpg"},
+        {"Product":"Men Black Tshirt","Price":"Rs 467","Image":"img/men/blacktshirt.jpg"}],
+
+"women" : [{"Product":"Orange Silk Saree","Price":"Rs 824","Image":"img/women/orangesaree.jpg"},
+          {"Product":"Black Cotton Saree","Price":"Rs 7436","Image":"img/women/blacksaree.jpg"},
+          {"Product":"Blue Printed Art Saree","Price":"Rs 1589","Image":"img/women/bluesaree.jpg"},
+          {"Product":"Red Velvet Silk Saree","Price":"Rs 4267","Image":"img/women/redsaree.jpg"}],
+
+"kitchen" : [{"Product":"Juice Blender USB Portable","Price":"Rs 1124","Image":"img/kitchen/blender.jpg"},
+            {"Product":"Container Set (Airtight)","Price":"Rs 736","Image":"img/kitchen/container.jpg"},
+            {"Product":"Lunch Box - Stainless Steel","Price":"Rs 1589","Image":"img/kitchen/lunchbox.jpg"},
+            {"Product":"Vegetable Slicer","Price":"Rs 427","Image":"img/kitchen/slicer.jpg"}],
+
+"appliances" : [{"Product":"Godrej Single Door Fridge","Price":"Rs 19124","Image":"img/appliances/fridge.jpg"},
+                {"Product":"Microwave Oven","Price":"Rs 14936","Image":"img/appliances/oven.jpg"},
+                {"Product":"Split AC 5 Star","Price":"Rs 21589","Image":"img/appliances/splitac.jpg"},
+                {"Product":"Haier Window AC","Price":"Rs 20427","Image":"img/appliances/windowac.jpg"}],
+            
+"sports" : [{"Product":"Badminton Racket","Price":"Rs 1124","Image":"img/sports/badminton.jpg"},
+            {"Product":"Cricket Bat","Price":"Rs 1936","Image":"img/sports/cricketbat.jpg"},
+            {"Product":"Boxing Kit","Price":"Rs 2589","Image":"img/sports/boxingkit.jpg"},
+            {"Product":"Swimming Kit","Price":"Rs 427","Image":"img/sports/swimmingkit.jpg"}],
+
+"essentials" : [{"Product":"Surf Excel Matix","Price":"Rs 624","Image":"img/essentials/detergent.jpg"},
+                {"Product":"Fogg Men Body Deodorant","Price":"Rs 336","Image":"img/essentials/deo.jpg"},
+                {"Product":"Meswak Herbal Toothpaste","Price":"Rs 189","Image":"img/essentials/toothpaste.jpg"},
+                {"Product":"Himalaya Men Neem Facewash","Price":"Rs 427","Image":"img/essentials/facewash.jpg"}],
+
+"offers" : [{"Product":"Bluetooth Earphones","Price":"Rs 1624","Image":"img/offers/earphones.jpg"},
+            {"Product":"Men Jeans Collection","Price":"Rs 3836","Image":"img/offers/jeans.jpg"},
+            {"Product":"5 Spain Style Shirts Collection","Price":"Rs 4589","Image":"img/offers/shirt.jpg"},
+            {"Product":"Fastrack Men Stylish Watch","Price":"Rs 4127","Image":"img/offers/watch.jpg"}],
+
+"global" : [{"Product":"Bluetooth Collar Earphones","Price":"Rs 1324","Image":"img/global/collar.jpg"},
+            {"Product":"Touch Night Lamp","Price":"Rs 3536","Image":"img/global/lamp.jpg"},
+            {"Product":"Ladies Leather Purse","Price":"Rs 2589","Image":"img/global/purse.jpg"},
+            {"Product":"iVOOMi 13000Mah Powerbank","Price":"Rs 1127","Image":"img/global/powerbank.jpg"}] 
+               }
