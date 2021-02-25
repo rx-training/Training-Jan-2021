@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>JS Assignment</title>
+</head>
+<body>
+    <div class="container m-5">
+        <form action="" class="form">
+            <div class=" form-group row">
+                <label for="number1" class="col-4 text-right pt-3">Please enter first number: </label>
+                <input type="number" class="form-control m-2 col" placeholder="number 1" id="number1" required>
+            </div>
+            <div class="form-group row">
+                <label for="number2" class="col-4 text-right pt-3">Please enter second number: </label>
+                <input type="number" class="form-control m-2 col" placeholder="number 2" id="number2" required>
+            </div>
+            <div class="form-group row">
+                <label for="operation" class="col-4 text-right">Please select operation you want to perform:</label>
+                <div class="col-8">
+                    <div class="form-check">
+                        <label for=""><input type="radio" value="addition" id="addition" name="operation" checked> Addition</label>
+                    </div>
+                    <div class="form-check">
+                        <label for=""><input type="radio" value="substraction" id="substraction" name="operation"> Substraction</label>
+                    </div>
+                    <div class="form-check">
+                        <label for=""><input type="radio" value="multiplication" id="multiplication" name="operation"> Multiplication</label>
+                    </div>
+                    <div class="form-check">
+                        <label for=""><input type="radio" value="division" id="division" name="operation"> Division</label>
+                    </div>
+                </div>
+            </div>
+        </form><br>
+        <div class="text-center">
+            <button class="btn btn-outline-dark mb-3 d-inline" onclick="calculate()">Calculate</button>
+            <button class="btn btn-outline-danger mb-3 d-inline" onclick="reset()">Reset</button>
+        </div>
+        <h1>Result: <span id="resultFromJS"></span></h1>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        function calculate(){
+            var num1 = document.getElementById('number1').value;
+            var num2 = document.getElementById('number2').value;
+
+            if(num1 == "" || num2 == "")
+            {
+                alert('Please insert both numbers');
+                return;
+            }
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+
+            switch (true) {
+                case document.getElementById('addition').checked == true:
+                    var result = num1 + num2;
+                    break;
+                
+                case document.getElementById('substraction').checked == true:
+                    var result = num1 - num2;
+                    break;
+
+                case document.getElementById('multiplication').checked == true:
+                    var result = num1 * num2;
+                    break;
+
+                case document.getElementById('division').checked == true:
+                    var result = (num1 / num2).toFixed(3);
+                    break;
+            
+                default:
+                    break;
+            }
+
+            document.getElementById('resultFromJS').innerHTML = result;
+        }
+
+        function reset() {
+            document.getElementById('substraction').checked = false;
+            document.getElementById('addition').checked = true;
+            document.getElementById('multiplication').checked = false;
+            document.getElementById('division').checked = false;
+            document.getElementById('number1').value = null;
+            document.getElementById('number2').value = null;
+            document.getElementById('resultFromJS').innerHTML = "";
+        }
+    </script>
+</body>
+</html>

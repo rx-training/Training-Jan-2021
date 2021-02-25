@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Blogen Admin Area</title>
+    </head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+        <a class="navbar-brand" href="#">Blogen</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav">
+                <li class="nav-item  px-2">
+                    <a class="nav-link  active" href="index.html">Dashboard </a>
+                </li>
+                <li class="nav-item  px-2">
+                    <a class="nav-link" href="posts.html">Posts</a>
+                </li>
+                <li class="nav-item  px-2">
+                    <a class="nav-link" href="categories.html">Categories</a>
+                </li>
+                <li class="nav-item  px-2">
+                    <a class="nav-link" href="users.html">Users</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item  dropdown mr-3">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> 
+                        <i class="fa fa-user" aria-hidden="true"></i>Welcome Brad </a>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>Profile </a>
+                        <a href="settings.html" class="dropdown-item">
+                            <i class="fa fa-gear" aria-hidden="true"></i>Settings </a>
+                    </div>  
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link"> <i class="fa fa-user-times" aria-hidden="true"></i> Logout</a>
+                </li>   
+            </ul>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1> <i class="fa fa-gear" aria-hidden="true"></i> Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Actions  -->
+    <section id="action" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <a href="#" class="btn btn-block btn-primary" data-toggle="modal"data-target="#addpostmodal">
+                     <i class="fa fa-plus" aria-hidden="true"></i> Add Post</a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href="#" class="btn btn-block btn-success" data-toggle="modal" data-target="#addcategorymodal">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add Categories</a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href="#" class="btn btn-block btn-warning" data-toggle="modal" data-target="#addusermodal">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add User</a>
+                </div>
+            </div>    
+        </div>
+    </section>
+
+    <!-- Posts -->
+    <section id="posts">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 mb-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Latest Posts</h4>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="table-dark h4">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Dates Posted</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td>Post One</td>
+                                    <td>Web Development</td>
+                                    <td>July 12 ,2017</td>
+                                    <td><a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right" aria-hidden="true">Text Details</i>
+                                    </a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">2</td>
+                                    <td>Post Two</td>
+                                    <td>Tech Gadets</td>
+                                    <td>July 12 ,2017</td>
+                                    <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true">Text Details</i>
+                                        </a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">3</td>
+                                    <td>Post Three</td>
+                                    <td>Web Development</td>
+                                    <td>July 15 ,2017</td>
+                                    <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true">Text Details</i>
+                                        </a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">4</td>
+                                    <td>Post Four</td>
+                                    <td>Web Development</td>
+                                    <td>July 18 ,2017</td>
+                                    <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true">Text Details</i>
+                                        </a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">5</td>
+                                    <td>Post Five</td>
+                                    <td>Health & Wellness</td>
+                                    <td>July 12 ,2017</td>
+                                    <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true">Text Details</i>
+                                        </a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">6</td>
+                                    <td>Post six</td>
+                                    <td>Web Development</td>
+                                    <td>July 12 ,2017</td>
+                                    <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true">Text Details</i>
+                                        </a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center bg-primary text-white mb-4">
+                        <div class="card-body">
+                            <h3>Posts</h3>
+                            <h1 class="display-4"> <i class="fa fa-pencil" aria-hidden="true"></i> 6</h1>
+                            <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
+                        </div>
+                    </div>
+                    <div class="card text-center bg-success text-white mb-4">
+                        <div class="card-body">
+                            <h3>Category</h3>
+                            <h1 class="display-4"> <i class="fa fa-folder-open-o" aria-hidden="true"></i> 4</h1>
+                            <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+                        </div>
+                    </div>
+                    <div class="card text-center bg-warning text-white mb-4">
+                        <div class="card-body">
+                            <h3>Users</h3>
+                            <h1 class="display-4"> <i class="fa fa-users" aria-hidden="true"></i> 2</h1>
+                            <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 p-5" id="main-footer" >
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="lead  text-center"> Copyright &copy; 2017 Blogen</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Post Modal -->
+    <div class="modal fade" id="addpostmodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Add Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                   <form action="">
+                       <div class="form-group">
+                         <label for="">Title</label>
+                         <input type="text" name="" id="" class="form-control" placeholder="" >
+                       </div>
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select type="text" name="" id="" class="form-control" placeholder="">
+                                <option value="">Web Development</option>
+                                <option value="">Tech Gedgets</option>
+                                <option value="">Business</option>
+                                <option value="">Health & Wellness</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Image Upload</label>
+                            <input type="file" name="" id="" class="form-control-file" placeholder="">
+                            <small class="form-text text-muted">Max Size 3mb</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Body</label>
+                            <textarea  name="editor1" class="form-control" placeholder="" > </textarea>
+                        </div>
+                   </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Modal -->
+    <div class="modal fade" id="addusermodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title">Add User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" name="" id="" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" name="" id="" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" id="" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Confirm Password</label>
+                            <input type="password" id="" class="form-control" placeholder="">
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-warning">Save Changes</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div class="modal fade" id="addcategorymodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Add Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Title</label>
+                            <input type="text" name="" id="" class="form-control" placeholder="">
+                        </div>
+                        
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+</body>
+</html>

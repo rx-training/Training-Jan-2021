@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Tooltip</title>
+</head>
+<body style="margin: 50px;">
+    <!--Same goes for left, right and bottom, just change the placement-->
+    <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on the top">
+        Tooltip on the Top
+    </button>
+
+    <button class="btn btn-primary" id="hello" data-toggle="tooltip" data-placement="bottom" data-html="true" title="<h4>Heading 4</h4><p>A paragraph under h4</p>">
+        Tooltip with HTML
+    </button>
+
+    <button class="btn btn-warning" onclick="showTooltip()">
+        Show Tooltip
+    </button>
+    <button class="btn btn-warning" onclick="hideTooltip()">
+        Hide Tooltip
+    </button>
+    <button class="btn btn-warning" onclick="toggleTooltip()">
+        Toggle Tooltip
+    </button>
+
+    <script>
+        //init tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+
+        function showTooltip(){
+            $('#hello').tooltip('show');
+        }
+        function hideTooltip(){
+            $('#hello').tooltip('hide');
+        }
+        function toggleTooltip(){
+            $('#hello').tooltip('toggle');
+        }
+
+        //tooltip events
+        $('#hello').on('show.bs.tooltip', function(){
+            console.log('Tooltip show');
+        });
+        $('#hello').on('shown.bs.tooltip', function(){
+            console.log('Tooltip shown');
+        });
+        $('#hello').on('hide.bs.tooltip', function(){
+            console.log('Tooltip hide');
+        });
+        $('#hello').on('hidden.bs.tooltip', function(){
+            console.log('Tooltip hidden');
+        });
+    </script>
+</body>
+</html>

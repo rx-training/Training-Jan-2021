@@ -1,0 +1,22 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <p id="pid">Area of Rectangle is: </p>
+        <script type="text/javascript">
+            function rectangle(length , width)
+            {
+                this.length = length;
+                this.width = width;
+                this.area = function()
+                {
+                    this.cal =  parseInt(this.length) * parseInt(this.width);
+                    document.getElementById("pid").innerHTML +=" " + this.cal;
+                };    
+            }
+            var area1 = new rectangle(4 , 5);
+            area1.area();
+        </script>
+    </body>
+</html>

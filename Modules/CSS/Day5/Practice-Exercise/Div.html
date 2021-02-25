@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Use of nested div tag</title>
+        <style>
+           .float-container
+            {
+             border: 3px solid #fff;
+             padding: 10px;
+            }
+
+            .float-child1 {
+                width: 30%;
+                float: left;
+                padding: 20px;
+                border: 2px solid green;
+            }  
+            .float-child {
+                width: 30%;
+                float: right;
+                padding: 20px;
+                border: 2px solid red;
+            }  
+
+            .float-child3 {
+                width: 30%;
+                float: right;
+                padding: 20px;
+                border: 2px solid blue;
+            }  
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="float-container">
+
+            <div class="float-child1">
+              <div class="green"> This is first</div>
+            </div>
+            
+            <div class="float-child">
+              <div class="red">This is third</div>
+            </div>
+
+            <div class="float-child3">
+                <div class="blue">This is second</div>
+              </div>
+            
+          </div>
+    </body>
+</html>

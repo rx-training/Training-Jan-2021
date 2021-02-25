@@ -1,0 +1,20 @@
+Public repository for gitignore and branch practice - https://github.com/dpshah269/Day-2-Training
+ID	    	Message
+47ddca7b	Initial commit
+b3e5f765	Repo created with gitignore
+c770d17a	Created new file in main branch
+06b53d35	Development branch created
+8abd16ba	git checkout done, pushing changes
+4a58cea5	pulling changes from remote branch
+a7d2e7db    Merge pull request #1 from dpshah269/development
+f784cf58	New folder created in local repo
+
+Commits in forked local repository
+ID	    	Message
+8478c34a	REFS: #5 and fixes #5(Created file in VS)
+cf1a39d5	REFS: #5 and fixes #5(Updated code in github(pull))
+c769d73e	Update index.html
+35e03fee	REFS: #5 and fixes #5(Resolved Conflicts)
+cb5dcf16	REFS: #5 and fixes #5(changes for checking fetch)
+ed36c267	REFS: #5 and fixes #5(Fetch checked successfully)
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container mt-3">
+        <h1 class="h4">Enter a Date for Validation</h1>
+        <form>
+            <div class="form-group">
+                <label for="date">Enter date:</label>
+                <input type="text" name="" id="date" required>
+                <span class="text-muted">Date Format: 12-31-1999</span>
+            </div>
+        </form>
+        <button class="btn btn-primary" type="submit" onclick="return checkDate()">Check</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script>
+        function checkDate() {
+            var userDate = document.getElementById("date").value;
+            var trimDate = userDate.trim();
+            var date = trimDate.split("-");
+
+            if(userDate == "") {
+                alert("Please enter date!");
+                return false;
+            }
+            if(date.length>3 || date.length<2) {
+                alert("Please enter valid date!");
+                return false;
+            }
+            if(isNaN(date[0]) || isNaN(date[1]) || isNaN(date[2])){
+                alert("Please enter number in date");
+                return false;
+            }
+            if(date[0].length!=2){
+                alert("Please enter valid month");
+                return false;
+            }
+            if(date[1].length!=2){
+                alert("please enter valid day");
+                return false;
+            }
+            if(date[2].length!=4){
+                alert("please enter valid year");
+                return false;
+            }
+            else {
+                if(date[1]>0 && date[1]<=31) {
+                    if(date[0]>0 && date[0]<=12) {
+                        if(date[0]==2) {
+                            if(date[2]%4 !=0 ) {
+                                if(date[1]<29) {
+                                    alert("correct date!");
+                                    return false;
+                                }
+                                else{
+                                    alert("please enter valid date!");
+                                    return false;
+                                }
+                            }
+                            else{
+                                if(date[1]<30) {
+                                    alert("correct date!");
+                                    return false;
+                                }
+                                else{
+                                    alert("please enter valid date!");
+                                    return false;
+                                }
+                            }
+                            
+                        }
+                        else if(date[0]==1 || date[0]==3 || date[0]==5 || date[0]==7 || date[0]==8 || date[0]==10 || date[0]==12) {
+                                if(date[1]<=31) {
+                                    alert("correct date!");
+                                    return false;
+                                }
+                                else{
+                                    alert("please enter valid date!");
+                                    return false;
+                                }
+                        }
+                        else {
+                            if(date[1]<31) {
+                                alert("correct date!");
+                                return false;
+                            }
+                            else{
+                                alert("please enter valid date!");
+                                return false;
+                            }
+                        }
+                    }
+                    else{
+                        alert("please enter valid month!");
+                        return false;
+                    }
+                }
+                else {
+                    alert("please enter valid day!");
+                    return false;
+                    
+                }
+            }
+        }
+    </script>
+</body>
+</html>

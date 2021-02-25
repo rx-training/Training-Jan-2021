@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        var productID = "prd-2000";
+        document.write("<br>"+productID);
+        document.write("<br>"+window.productID);
+        document.write(this==window);
+        var description = "hardware product";
+        function upadatedProduct()
+        {
+            description = "updated product";
+        }
+        upadatedProduct();
+        document.write("<br>"+description);
+
+        function upadatedProduct2()
+        {
+            description2 = "updated product";
+        }
+        upadatedProduct2();
+        document.write("<br>"+description2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
