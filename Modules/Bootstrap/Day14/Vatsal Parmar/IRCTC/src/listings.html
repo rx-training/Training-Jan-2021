@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <!-- Trains available For AHMEDABAD to VADODRA,AHMEDABAD to MUMBAI,AHMEDABAD to DEHLI,AHMEDABAD to JAIPUR-->
     <nav id="nav1" class="navbar navbar-light navbar-expand-md mb-n4">
       <div class="container">
         <ul class="navbar-nav mx-auto">
@@ -151,237 +152,207 @@
         </a>
       </div>
     </nav>
-    <div id="showcase" class="container-fluid">
-      <img
-        id="banner-img"
-        src="./img/home_page_banner.jpg"
-        alt="banner image"
-      />
-      <div id="overlay" class="container row">
-        <div class="col-md-6 mt-2 row">
-          <div class="col-md-6" id="sub-overlay">
-            <a
-              id="overlay-btn"
-              href="#"
-              class="nav-link btn btn-primary btn-md text-white"
-              >PNR STATUS</a
-            >
+
+    <div class="container-fluid">
+      <form id="searchForm" class="p-3">
+        <div class="row">
+          <div class="form-group col-md-2">
+            <input
+              class="form-control text-primary"
+              id="from"
+              placeholder="From"
+            />
           </div>
-          <div class="col-md-6" id="sub-overlay">
-            <a
-              id="overlay-btn"
-              href="#"
-              class="nav-link btn btn-primary btn-md text-white"
-              >CHARTS/VACANCY</a
-            >
+          <!-- <i class="fa fa-arrows-v ml-5 mt-n5"></i> -->
+          <div class="form-group col-md-2">
+            <input class="form-control text-primary" id="to" placeholder="To" />
           </div>
-          <div class="col-md-12 bg-white p-2">
-            <h3 class="text-center pt-2">BOOK TICKET</h3>
-            <form>
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="form-group">
-                    <label for="from"></label>
-                    <input
-                      class="form-control"
-                      id="from"
-                      placeholder="From"
-                      required
-                    />
-                  </div>
-                  <!-- <i class="fa fa-arrows-v ml-5 mt-n5"></i> -->
-                  <div class="form-group mt-n4">
-                    <label for="to"></label>
-                    <input
-                      class="form-control"
-                      id="to"
-                      placeholder="To"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control" id="ticketType">
-                      <option value="GENERAL">GENERAL</option>
-                      <option value="LADIES">LADIES</option>
-                      <option value="SR.CITIZEN">SR.CITIZEN</option>
-                      <option value="DIVYAANG">DIVYAANG</option>
-                      <option value="TATKAL">TATKAL</option>
-                    </select>
-                  </div>
-                  <div class="form-check d-inline">
-                    <label class="form-check-label">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        value="option1"
-                        id="op1"
-                      />
-                      Divyaang Concession
-                    </label>
-                  </div>
-                  <div class="form-check d-inline">
-                    <label class="form-check-label">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        value="option1"
-                        id="op2"
-                        checked
-                      />
-                      Flexible With Date
-                    </label>
-                  </div>
-                  <div class="form-check d-inline">
-                    <label class="form-check-label">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        value="option1"
-                        id="op3"
-                      />
-                      Train With Available Berth
-                    </label>
-                  </div>
-                </div>
-                <div class="col-md-5">
-                  <div class="form-group mt-4">
-                    <input type="date" class="form-control" id="date" />
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control" id="seatType">
-                      <option value="All Class">All Class</option>
-                      <option value="EA">Anubhuti Class(EA)</option>
-                      <option value="1A">AC First Class(1A)</option>
-                      <option value="EC">Exec. Chair Car (EC)</option>
-                      <option value="AC2">AC 2 Tier</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <button
-                class="btn btn-warning mt-1"
-                type="button"
-                onclick="search()"
-              >
-                Search
-              </button>
-            </form>
+          <div class="form-group col-md-2">
+            <select class="form-control text-primary" id="ticketType">
+              <option value="GENERAL">GENERAL</option>
+              <option value="LADIES">LADIES</option>
+              <option value="SR.CITIZEN">SR.CITIZEN</option>
+              <option value="DIVYAANG">DIVYAANG</option>
+              <option value="TATKAL">TATKAL</option>
+            </select>
           </div>
-          <div id="sub-overlay3" class="col-md-12 bg-white mt-1">
-            <p class="text-danger text-center mt-4" style="font-weight: bold">
-              Get your Favourite Food delivered on your Train Seat with IRCTC
-              E-Catering at selected stations
+
+          <div class="form-group col-md-2">
+            <input type="date" class="form-control text-primary" id="Date" />
+          </div>
+          <div class="form-group col-md-2">
+            <select class="form-control text-primary" id="seatType">
+              <option value="All Class">All Class</option>
+              <option value="EA">Anubhuti Class(EA)</option>
+              <option value="1A">AC First Class(1A)</option>
+              <option value="EC">Exec. Chair Car (EC)</option>
+              <option value="AC2">AC 2 Tier</option>
+            </select>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="form-check col-md-2">
+            <label class="form-check-label text-white">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                value="option1"
+                id="op1"
+              />
+              Divyaang Concession
+            </label>
+          </div>
+          <div class="form-check col-md-2">
+            <label class="form-check-label text-white">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                value="option1"
+                checked
+                id="op2"
+              />
+              Flexible With Date
+            </label>
+          </div>
+          <div class="form-check col-md-2">
+            <label class="form-check-label text-white">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                value="option1"
+                id="op3"
+              />
+              Train With Available Berth
+            </label>
+          </div>
+          <button
+            type="button"
+            class="btn btn-warning col-md-2 col-sm-10 mx-auto"
+            onclick="search()"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+
+      <div class="row">
+        <!-- SIDE BAR -->
+
+        <div class="col-md-3">
+          <div class="p-3 border border-dark">
+            <strong>JOURNEY CLASS</strong>
+          </div>
+          <div class="p-3 border border-dark">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="Anubhuti Class(EA)"
+                  id="EA"
+                />
+                Anubhuti Class
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="AC First Class(1A)"
+                  id="1A"
+                />
+                AC First Class(1A)
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="Exec. Chair Car (EC)"
+                  id="EC"
+                />
+                Exec. Chair Car (EC)
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="AC 2 Tier"
+                  id="AC2"
+                />
+                AC 2 Tier
+              </label>
+            </div>
+          </div>
+
+          <div class="p-3 border border-dark">
+            <strong>TRAIN TYPE</strong>
+          </div>
+          <div class="p-3 border border-dark">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="JANSHATABDI"
+                />
+                JANSHATABDI
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="SHATABDI"
+                />
+                SHATABDI
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="SPECIAL"
+                />
+                SPECIAL
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="SPECIAL TATKAL"
+                />
+                SPECIAL TATKAL
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRAIN LISTINGS CONTAINER -->
+        <div class="col-md-9">
+          <div class="container p-2">
+            <p>
+              <span id="noOfResult"></span> Results For
+              <strong id="location"></strong><strong> - </strong
+              ><strong id="destination"></strong><strong> | </strong
+              ><strong id="date"></strong> For Quota | <span id="quota"></span>
             </p>
           </div>
-        </div>
-        <div id="heading-container" class="col-md-6 text-white text-center">
-          <h1 id="main-heading" class="display-4 ml-4">INDIAN RAILWAYS</h1>
-          <h4 class="ml-4">Seafty | Security | Punctuality</h4>
-        </div>
-      </div>
-    </div>
-    <section id="section1">
-      <div class="container text-center py-5">
-        <h2>Have you not found the right one?</h2>
-        <h2>Find a service suitable for you here.</h2>
-        <div class="row justify-content-center">
-          <span>
-            <h2><i class="fa fa-plane"></i></h2>
-            <p>FLIGHTS</p>
-          </span>
-          <span>
-            <h2><i class="fa fa-hotel"></i></h2>
-            <p>STAY</p>
-          </span>
-          <span>
-            <h2><i class="fa fa-home"></i></h2>
-            <p>RAIL DRIDHTI</p>
-          </span>
-          <span>
-            <h2><i class="fa fa-bell"></i></h2>
-            <p>E-CATERING</p>
-          </span>
-        </div>
-        <div class="row justify-content-center">
-          <span>
-            <h2><i class="fa fa-briefcase"></i></h2>
-            <p>HILIDAY PACKAGES</p>
-          </span>
-          <span>
-            <h2><i class="fa fa-train"></i></h2>
-            <p>TOURIST TRAIN</p>
-          </span>
-          <span>
-            <h2><i class="fa fa-h-square"></i></h2>
-            <p>HILL RAILWAYS</p>
-          </span>
-          <span>
-            <h2><i class="fa fa-subway"></i></h2>
-            <p>CHARTER TRAIN</p>
-          </span>
-          <span>
-            <h2><i class="fa fa-university"></i></h2>
-            <p>GALLERY</p>
-          </span>
-        </div>
-      </div>
-    </section>
 
-    <section id="section2">
-      <div class="container text-center py-3">
-        <h1>HOLYDAYS</h1>
-        <div class="card-deck mt-5">
-          <div class="card">
-            <img class="card-image-top" src="./img/exterior.jpg" alt="" />
-            <div class="card-body">
-              <h4 class="card-title">Maharaja's Express</h4>
-              <p class="card-text">
-                Redefining Royalty, Luxury and Comfort, Maharaja’s express takes
-                you on a sojourn to the era of bygone stately splendour of
-                princely states. Sylvan furnishings, elegant ambience and modern
-                amenities are amalgamated for an “Experience Unsurpassed”. It
-                has been a winner of “World’s Leading Luxury train” by World
-                Travel Awards consecutively for last six years.
-              </p>
-              <a href="#" class="card-link">Read More</a>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image-top" src="./img/Thailand.jpg" alt="" />
-            <div class="card-body">
-              <h4 class="card-title">International Packages</h4>
-              <p class="card-text">
-                Best deals in International Holiday packages, handpicked by
-                IRCTC, for Thailand, Dubai, Sri Lanka, Hong Kong, China, Macau,
-                Bhutan, Nepal, U.K., Europe, USA, Australia etc. The packages
-                are inclusive of sightseeing, meals, visa charges and overseas
-                medical insurance to give you a hassle-free and memorable
-                experience.
-              </p>
-              <a href="#" class="card-link">Read More</a>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-image-top" src="./img/Kashmir.jpg" alt="" />
-            <div class="card-body">
-              <h4 class="card-title">Domestic Air Packages</h4>
-              <p class="card-text">
-                Be it the spiritual devotee seeking blessings of Tirupati,
-                Shirdi or Mata Vaishno Devi or the leisure traveller wanting to
-                relish the Blue mountains of North East, Sand-dunes of
-                Rajasthan, Hamlets of Ladakh, Wonders of Himalayas, Serene lakes
-                or Picturesque Islands, IRCTC has it all. Discover India through
-                IRCTC!
-              </p>
-              <a href="#" class="card-link">Read More</a>
-            </div>
-          </div>
+          <!-- Train List -->
+          <div class="container" id="trainContainer"></div>
         </div>
       </div>
-    </section>
 
-    <!-- FOOTER -->
-    <div class="container-fluid">
+      <!-- FOOTER -->
       <section id="footer">
         <div class="container row py-5">
           <div class="col-md-3">
@@ -731,40 +702,6 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-      function search() {
-        var location = document.getElementById("from").value;
-        var destination = document.getElementById("to").value;
-        var ticket = document.getElementById("ticketType").value;
-        var seat = document.getElementById("seatType").value;
-        var date = document.getElementById("date").value;
-        var filter = [];
-
-        if (document.getElementById("op1").checked == true) {
-          filter.push("Divyaang Concession");
-        }
-        if (document.getElementById("op2").checked == true) {
-          filter.push("Flexible With Date");
-        }
-        if (document.getElementById("op3").checked == true) {
-          filter.push("Flexible With Date");
-        }
-
-        var data = {
-          location: location.toUpperCase(),
-          destination: destination.toUpperCase(),
-          ticket: ticket,
-          seat: seat,
-          date: date,
-          filter: filter,
-        };
-
-        var searchData = JSON.stringify(data);
-        localStorage.setItem("Search Data", searchData);
-
-        window.location.href = "listings.html";
-        //console.log(data);
-      }
-    </script>
+    <script src="js/listings.js"></script>
   </body>
 </html>

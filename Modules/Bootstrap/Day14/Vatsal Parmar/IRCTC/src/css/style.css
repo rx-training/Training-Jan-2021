@@ -54,7 +54,8 @@
   position: relative; }
 
 #banner-img {
-  height: 550px; }
+  height: 550px;
+  width: 100%; }
 
 #overlay {
   position: absolute;
@@ -120,3 +121,10 @@ h3 {
   #register-container .container {
     background-color: white;
     border-radius: 50px; }
+
+#searchForm {
+  background-color: #020280; }
+
+#ticketForm {
+  background-color: #ebebeb;
+  border-radius: 20px; }
