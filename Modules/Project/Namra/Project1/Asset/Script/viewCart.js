@@ -16,7 +16,7 @@ window.onload = function () {
     else {
         var str = "<div class='row'>";
         var grandTotal = 0;
-        var tableStr = "<tr><th>ID</th><th>Product Name</th><th>Returnable</th><th>Price</th></tr>"
+        var tableStr = "<tr><th>ID</th><th>Product Name</th><th>Returnable</th><th>Original Price</th><th>Offer</th><th> Final Price</th></tr>"
         for (var i = 0; i < cartArr.Cart.length; i++) {
             var imgLink = cartArr.Cart[i].Image_src;
             var imgArr = imgLink.split('/');
@@ -44,8 +44,8 @@ window.onload = function () {
                                 </div> \
                             </div>\
                             </div>';
-            grandTotal += cartArr.Cart[i].Price;
-            tableStr +='<tr><th>'+(i+1)+'</th><td>'+cartArr.Cart[i].Prodcut_Name+'</td><td>'+cartArr.Cart[i].Returnable+'</td><td><i class="fas fa-rupee-sign"></i> '+cartArr.Cart[i].Price+'</td></tr>';
+            grandTotal += (cartArr.Cart[i].Price -(cartArr.Cart[i].Product_offer * cartArr.Cart[i].Price / 100));
+            tableStr +='<tr><th>'+(i+1)+'</th><td>'+cartArr.Cart[i].Prodcut_Name+'</td><td>'+cartArr.Cart[i].Returnable+'</td><td><i class="fas fa-rupee-sign"></i> '+cartArr.Cart[i].Price+'</td><td>'+cartArr.Cart[i].Product_offer+' %</td><td><i class="fas fa-rupee-sign"></i> '+(cartArr.Cart[i].Price -(cartArr.Cart[i].Product_offer * cartArr.Cart[i].Price / 100))+'</td></tr>';
         }
         console.log(str);
         document.getElementById("viewCart").innerHTML = str +"</div>";
@@ -56,7 +56,7 @@ window.onload = function () {
                                                     </div>\
                                                     <div class="card-body">\
                                                         <h4>Number of items : '+cartArr.Cart.length+'</h4>\
-                                                        <h3>Total Bill : <i class="fas fa-rupee-sign"></i> '+grandTotal+'</h3>\
+                                                        <h3>Total Bill : <i class="fas fa-rupee-sign"></i> '+grandTotal.toFixed(2)+'</h3>\
                                                     </div>\
                                                     <div class="card-footer text-center">\
                                                         <button class="btn-lg border border-dark text-white" onclick="return placeOrder()" style="background-color:rgb(255, 119, 0)">Place Your Order</button>\

@@ -18,12 +18,10 @@ window.onload=function(){
 
     if(userData.Gender == "Male"){
         document.getElementById("imageUser").innerHTML = "<img class='img-fluid rounded' src='../Image/male.png'>";
-        document.getElementsByClassName("labelUser").style.color ="blue";
 
     }
     else{
         document.getElementById("imageUser").innerHTML = "<img class='img-fluid rounded'src='../Image/female.png'>";
-        document.getElementsByClassName("labelUser").style.color ="green";
     }
 
 }
