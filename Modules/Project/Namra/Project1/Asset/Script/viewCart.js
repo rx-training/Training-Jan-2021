@@ -16,7 +16,7 @@ window.onload = function () {
     else {
         var str = "<div class='row'>";
         var grandTotal = 0;
-        var tableStr = "<tr><th>ID</th><th>Product Name</th><th>Returnable</th><th>Original Price</th><th>Offer</th><th> Final Price</th></tr>"
+        var tableStr = "<tr><th>ID</th><th>Product Name</th><th>Returnable</th><th>Original Price</th><th>Offer</th><th> Final Price</th><td class='bg-white text-danger'>Don't want to<br> buy <i class='far fa-frown-open'></i></td></tr>"
         for (var i = 0; i < cartArr.Cart.length; i++) {
             var imgLink = cartArr.Cart[i].Image_src;
             var imgArr = imgLink.split('/');
@@ -35,7 +35,7 @@ window.onload = function () {
             str += '<div class="col-6 col-md-4 col-lg-3 mt-5"> \
                             <div class="card" style="border: none;background-color: rgba(2224, 166, 65, 0.4);"> \
                             <div class=" card-header text-center bg-dark"> \
-                                <div class=" text-white">' + cartArr.Cart[i].Prodcut_Name + '</div> \
+                                <div class=" text-white">' + cartArr.Cart[i].Prodcut_Name + '<span class="float-right" onclick="return cartDelete('+i+')"><i class="fas text-danger fa-times"></i></span></div> \
                             </div> \
                                 <div class="card-body"> \
                                     <div class="deals-img-container"> \
@@ -45,7 +45,7 @@ window.onload = function () {
                             </div>\
                             </div>';
             grandTotal += (cartArr.Cart[i].Price -(cartArr.Cart[i].Product_offer * cartArr.Cart[i].Price / 100));
-            tableStr +='<tr><th>'+(i+1)+'</th><td>'+cartArr.Cart[i].Prodcut_Name+'</td><td>'+cartArr.Cart[i].Returnable+'</td><td><i class="fas fa-rupee-sign"></i> '+cartArr.Cart[i].Price+'</td><td>'+cartArr.Cart[i].Product_offer+' %</td><td><i class="fas fa-rupee-sign"></i> '+(cartArr.Cart[i].Price -(cartArr.Cart[i].Product_offer * cartArr.Cart[i].Price / 100))+'</td></tr>';
+            tableStr +='<tr><th>'+(i+1)+'</th><td>'+cartArr.Cart[i].Prodcut_Name+'</td><td>'+cartArr.Cart[i].Returnable+'</td><td><i class="fas fa-rupee-sign"></i> '+cartArr.Cart[i].Price+'</td><td>'+cartArr.Cart[i].Product_offer+' %</td><td><i class="fas fa-rupee-sign"></i> '+(cartArr.Cart[i].Price -(cartArr.Cart[i].Product_offer * cartArr.Cart[i].Price / 100))+'</td><td class="bg-danger"><a class="text-white" onclick="return  cartDelete('+i+')">Remove <i class="fas fa-trash"></i></a></td></tr>';
         }
         console.log(str);
         document.getElementById("viewCart").innerHTML = str +"</div>";
@@ -119,4 +119,15 @@ function placeOrder(){
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     location.reload();
+}
+function cartDelete(index){
+    var cartArr = JSON.parse(localStorage.getItem("Cart"));
+
+    cartArr.Cart.splice(index,1);
+    localStorage.setItem("Cart",JSON.stringify(cartArr));
+    
+    location.reload();
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    return false;
 }
