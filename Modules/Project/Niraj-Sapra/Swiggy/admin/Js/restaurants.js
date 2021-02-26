@@ -2,6 +2,10 @@ window.onload = () => {
     citynames();
     show();
 }
+function logout(){
+  location.href = '../../index.html';
+  return true;
+}
 function show(){
  var table = document.getElementById('my_table');
  var list = JSON.parse(localStorage.getItem('reslist'));

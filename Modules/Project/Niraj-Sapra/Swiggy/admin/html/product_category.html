@@ -6,9 +6,8 @@
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-        <script type="text/javascript" src="../Js/restaurants.js"></script>
-        <script type="text/javascript" src="../Js/login.js"></script>
-        <link rel="stylesheet" href="../css/restaurants.css"></link>
+        <script type="text/javascript" src="../Js/product.json"></script>
+        <script type="text/javascript" src="../Js/product.js"></script>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,11 +47,11 @@
                                 font-size: 16px;
                                 font-weight: 500;"><i class="fas fa-utensils"></i>product</a>
                               </li>
-                            <li class="nav-item"><!--href="../../index.html"--> 
-                                <a id="logout" onclick="return logout()" class="nav-link mx-5 py-3"  style="color: #3d4152;
+                            <li class="nav-item">
+                             <a id="logout" onclick="logout()" class="nav-link mx-5 py-3" href="../../index.html" style="color: #3d4152;
                                 font-size: 16px;
                                 font-weight: 500;"><i class="fas fa-user-times"></i>logout</a>
-                              </li>
+                            </li>
                           </ul>
                     </div>
                 </div>    
@@ -62,7 +61,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6">
-                                <h1><i class="far fa-cog"></i>Restaurants</h1>
+                                <h1><i class="far fa-cog"></i>Product</h1>
                             </div>
                         </div>
                     </div>
@@ -72,7 +71,7 @@
                 <div class="container mx-auto my-3"> 
                     <div class="col-lg-3">
                         <a href="" class="btn btn-warning btn-block" id="adduser" data-toggle="modal" data-target="#Adduser">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New Restorent
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New Product
                         </a>
                     </div>
                 </div>
@@ -215,10 +214,8 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>  
-                                            <th>City</th>
-                                            <th>Restaurant Name</th>
-                                            <th>Discount Offer1</th>
-                                            <th>Discount Offer2</th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                             <th>Update</th>
                                         </tr>

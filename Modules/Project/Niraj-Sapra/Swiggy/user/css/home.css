@@ -16,6 +16,10 @@ outline: 0px solid;
     border-color: #f5f6fa;
     box-shadow: 0 4px 7px 0 rgb(75 76 79 / 60%);
 }
+.linkshow,.linkshow:hover{
+    text-decoration: none;
+    color:#fc8019;
+}
 .cardbodys{
     border: 0px solid;
 }
