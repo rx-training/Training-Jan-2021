@@ -29,6 +29,9 @@
     }
     
 }
+body{
+    background-color: #a3b0bd;
+}
 //  banner section 
 #banner{
     background: url("/img/banner/zeenews-bannerwebp.webp") no-repeat;
@@ -46,7 +49,7 @@
 #subnews{
     .card{
     height: 15rem;
-    width: 25rem;}
+    width: auto}
 }
 //  budegt section 
 .card-grid{
@@ -65,15 +68,38 @@
     }
 }
 
+
 @media (min-width: 768px) and (max-width: 992px) {
     .nav-link {
         font-size: 14px;
     }
     .input-search{
-        width: 100px;
+        width: 80px;
+        height: 40px;
     }
-}
+
 .right-logo {
     text-align: right;
     float: right;
+}
+// .navbar{
+//     .container{
+//         margin: 3px;
+//         padding:5px;
+//     }
+// }
+
+}
+//for mobile font size reducing 
+@media only screen and (max-width: 768px)
+{
+    body{
+        font-size: 70%;
+    }
+   
+    
+        .container{
+            width: 80%;
+        }
+    
 }

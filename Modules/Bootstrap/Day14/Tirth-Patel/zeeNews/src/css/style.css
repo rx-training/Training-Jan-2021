@@ -24,6 +24,9 @@
   #mainNavbar a {
     color: white; }
 
+body {
+  background-color: #a3b0bd; }
+
 #banner {
   background: url("/img/banner/zeenews-bannerwebp.webp") no-repeat;
   background-size: cover;
@@ -36,7 +39,7 @@
 
 #subnews .card {
   height: 15rem;
-  width: 25rem; }
+  width: auto; }
 
 .card-grid {
   display: grid;
@@ -55,8 +58,14 @@
   .nav-link {
     font-size: 14px; }
   .input-search {
-    width: 100px; } }
+    width: 80px;
+    height: 40px; }
+  .right-logo {
+    text-align: right;
+    float: right; } }
 
-.right-logo {
-  text-align: right;
-  float: right; }
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 70%; }
+  .container {
+    width: 80%; } }
