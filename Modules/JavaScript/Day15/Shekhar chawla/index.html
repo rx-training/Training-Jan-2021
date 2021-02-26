@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title>Javascript Day1</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body class="bg-dark text-white">
+	<div class="container ">
+
+		<!-- Accept three numbers from the user using prompt, find the greater of these the numbers and do the sum of that numbers which are greater than 40. -->
+		<h4>Greater : <span id="answer1"></span></h4>
+		<h4>Sum (n>40) : <span id="answer2"></span></h4><br>
+
+		<p>Number one: <span id="num1"></span></p>
+		<p>Number two: <span id="num2"></span></p>
+		<p>Number three: <span id="num3"></span></p>
+		
+		<button class="btn bg-white" onclick="max()">Calculate Max number:</button><br><small>Click this button</small>
+		<hr class="bg-white">
+
+		<!-- Declare array with 5 city names and iterate these values with the help of loop and display it with alert. -->
+		<button class="btn bg-white" onclick="viewCities()">Cities:</button><br><small>Click this button to view Gujarat cities</small><hr class="bg-white">
+
+		<!-- Assignment
+		Create an application for performing basic math operations like Addition, Subtraction,   Multiplication and Division.
+
+		Consider following elements:
+
+		 Label : “Please enter first number : ” with Text Box
+		 Label : “Please enter second number : ” with Text Box
+		 Label : “Please select operation you want to perform : ” with set of Radio Buttons like “Addition”, “Subtraction”, “Multiplication” and “Division” presented in vertical manner.
+		Two buttons,  “Calculate” and “Reset”
+		 Label: “Result is: ” with final result – Place all the checks to make sure that user enters only numeric values for text boxes. Clicking on “Calculate” button will perform the requested operation and   the result will be displayed below “Calculate” and “Reset” buttons in the form of text,   e.g. : “Result is : 10”. – Clicking on “Reset” button will reset all the form information including radio button   selection and result text.
+		 -->		
+ 		<form>
+			<div class="form-row my-4">
+				<div class="col">
+					<label for="firstNum">First number:</label>
+					<input class="form-control" id="firstNum" type="number" onkeyup="calculator()"></input>
+					<div><small id="msg1" class="text-warning"></small></div>
+				</div>
+				<div class="col">
+					<label for="secondNum">Second number:</label>
+					<input class="form-control" id="secondNum" type="number" onkeyup="calculator()"></input>
+					<div><small id="msg2" class="text-warning"></small></div>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="col">
+					<div class="form-check">
+						<input class="form-check-input" type="radio" id="add" name="op" value="+">
+						<label class="form-check-label" for="add">+</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" id="sub" name="op" value="-">
+						<label class="form-check-label" for="sub">-</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" id="mul" name="op" value="*">
+						<label class="form-check-label" for="mul">x</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" id="div" name="op" value="/">
+						<label class="form-check-label" for="div">/</label>
+					</div>
+				</div>
+				<div class="col">
+					<button class="btn btn-primary mr-2" onclick="showResult()" type="button">Calculate</button>
+
+					<button class="btn btn-warning" onclick="reset()">Reset</button>
+				</div>
+			</div>
+			<h4 class="text-center">Result : <span id="result"></span> </h4>
+		</form>
+
+	</div>
+	
+
+	<!-- Practice -->
+ 	<form>
+ 		<table>
+ 			<tr>
+ 				<td>Distance:</td>
+ 				<td><input type="number" id="distance" onKeyUp="calculate();">m</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Time:</td>
+ 				<td><input type="number" id="time" onKeyUp="calculate();">s</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Speed:</td>
+ 				<td><span id="speed"></span><span id="unit">&nbsp;m/s</span></td>
+ 			</tr>
+ 		</table>
+ 	</form>
+
+ 	<script type="text/javascript" src="scripts/app.js"></script>
+</body>
+</html>
