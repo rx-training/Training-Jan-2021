@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Order food online. Get fresh food delivery from FreshMenu.</title>
     </head>
 
@@ -139,448 +140,47 @@
                 <div class="row">
                     <div class="col-4 py-3">
                         <ul style="list-style-type: none;">
-                            <a href="#snacks" class="text-dark font-weight-bold pb-3 active"><h5>Snacks</h5></a>
-                            <a href="#appetizers" class="text-dark font-weight-bold pb-3"><h5>Appertizers</h5></a>
-                            <a href="#dessert" class="text-dark font-weight-bold pb-3"><h5>Dessert</h5></a>
-                            <a href="#beverage" class="text-dark font-weight-bold pb-3"><h5>Beverage</h5></a>
-                            <a href="#continental" class="text-dark font-weight-bold pb-3"><h5>Continental</h5></a>
-                            <a href="#indianthalis" class="text-dark font-weight-bold pb-3"><h5>Indian / Thalis</h5></a>
-                            <a href="#fitnfab" class="text-dark font-weight-bold pb-3"><h5>Fit N Fab</h5></a>
-                            <a href="#wokstation" class="text-dark font-weight-bold pb-3"><h5>Wok-Station</h5></a>
-                            <a href="#bigbiriyanico" class="text-dark font-weight-bold pb-3"><h5>Big Biriyani Co.</h5></a>
-                            <a href="#largeplates" class="text-dark font-weight-bold pb-3"><h5>Large Plates</h5></a>
+                            <a href="#snacks" class="text-dark font-weight-bold pb-3 active class1"><h5>Snacks</h5></a>
+                            <a href="#appetizers" class="text-dark font-weight-bold pb-3 class2"><h5>Appertizers</h5></a>
+                            <a href="#dessert" class="text-dark font-weight-bold pb-3 class3"><h5>Dessert</h5></a>
+                            <a href="#beverage" class="text-dark font-weight-bold pb-3 class4"><h5>Beverage</h5></a>
+                            <a href="#continental" class="text-dark font-weight-bold pb-3 class5"><h5>Continental</h5></a>
+                            <a href="#indianthalis" class="text-dark font-weight-bold pb-3 class6"><h5>Indian / Thalis</h5></a>
+                            <a href="#fitnfab" class="text-dark font-weight-bold pb-3 class7"><h5>Fit N Fab</h5></a>
+                            <a href="#wokstation" class="text-dark font-weight-bold pb-3 class8"><h5>Wok-Station</h5></a>
+                            <a href="#bigbiriyanico" class="text-dark font-weight-bold pb-3 class9"><h5>Big Biriyani Co.</h5></a>
+                            <a href="#largeplates" class="text-dark font-weight-bold pb-3 class10"><h5>Large Plates</h5></a>
                         </ul>
                     </div>
                     <div class="col-8 py-2">
-                        <div id="snacks">
-                            <h1>Snacks</h1>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">313 Cal | Low Calorie</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/28180fe1-b815-4085-a17c-cb45de65646f.jpg" alt="Wrap">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Achari Paneer Tikka Wrap</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>139</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Continental</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/2c16d1ed-d384-40bc-a60e-2ac83f01eac1.jpg" alt="Breadsticks">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Herb Breadsticks</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>89</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Indian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/bb6b8e8f-c9a1-4243-9956-a1fcb9cc8e2d.JPG" alt="Upma">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Quinoa-Masala-Upma</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>149</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
- 
-                            <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">486 cal | Low Calorie</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/ae62ee10-d8a4-4637-8426-8c3c4ad6e358.JPG" alt="Sandwich">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Fresh Slaw Sandwich</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>85</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">649 Cal | Calorie</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/aed7711f-e69f-4b3c-a3cf-d97ebbf0fc03.JPG" alt="Bhurji Wrap">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Palak-Paneer Bhurji Wrap</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>129</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Indian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/56b332fb-a8e2-482e-9ea6-a91a8d163d59.JPG" alt="Burger">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Perfect Veggie Burger</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>149</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="snacks">     
                         </div>
-                        <div id="appetizers" class="mt-5">
-                            <h1>Appetizers</h1>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Indian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/766d9e02-d0f6-4c56-b05b-fd14fbb4a057.jpg" alt="Spring Rolls">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Veg Spring Rolls</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>179</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Pan-Asian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/c167e968-8658-49fc-86b2-3fe9338a95e2.jpg" alt="Chilli Paneer">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Chilli Paneer</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>199</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Pan-Asian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/4859b9fb-ed15-4998-8160-8985e4b17ff6.JPG" alt="Veggies">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Veggies in Chilli-Garlic Sauce</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>179</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
- 
-                            <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Pan-Asian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/1be9ff91-ced3-452b-933b-d1fc40906724.JPG" alt="Corn">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Crispy Fried American Corn</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>179</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Fusion</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/4bb06455-1083-46fb-8bea-e0574228da66.jpeg" alt="Wedges">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Lemon Mint Potato Wedges</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>149</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Continental</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/f105ee7f-c398-4872-9a22-7bb66de9459f.jpg" alt="Garlic Bread">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Garlic Bread Supreme</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>159</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div id="appetizers" class="mt-3">
                         </div>
-                        <div id="dessert" class="mt-5">
-                            <h1>Dessert</h1>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">World Cuisine</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/b5c75319-b4a0-4b54-9ec9-5d523deb1836.JPG" alt="Cake">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Black Forest Cake Slice</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>89</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">World Cuisine</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/0150b7ac-b3f6-4098-9ea3-0f8405e0e1b6.JPG" alt="Cake">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Double-Chocolate Cake Slice</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>79</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">World Cuisine</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/0e2b209f-76e6-4254-82f6-75d7c399ed6f.jpg" alt="Tart">
-                                        
-                                            <h6 class="card-title py-1 text-muted">salted-Caramel Chocolate Tart</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>139</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
- 
-                            <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Indian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/5b529aab-82fc-4c53-85a3-b8a15d080b9a.JPG" alt="Tukda">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Shahi-Tukda (Mini)</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>69</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">World Cuisine</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/0411effa-5f6b-41c5-acb0-386ba01fe00b.JPG" alt="Roll">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Red-Velvet Swiss Roll</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>79</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">World Cuisine</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/8059ae5c-6153-430f-8b5e-0b84cd9aabe1.jpg" alt="Cake">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Homemade Chocolate-Cake</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>85</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div id="dessert" class="mt-3">
                         </div>
-                        <div id="beverage" class="mt-5">
-                            <h1>Beverage</h1>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Universal</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/020c54f1-1ff3-4aaf-afcc-6190a03df451.jpg" alt="Lemonade">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Masala Lemonade</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>89</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Indian</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/3867c0c8-6e4f-441e-8972-494790ce3070.JPG" alt="Chaas">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Mint Chaas</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>69</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Universal</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/8c5e38b4-b490-4492-9ef8-b9dc857a040a.jpg" alt="Juice">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Black Grape Juice</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>149</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
- 
-                            <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Universal</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/6762207c-eda2-4cf9-a481-3e9fcfc68eeb.jpg" alt="Shake">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Strawberry Shake</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>149</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Universal</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/d9efa8bf-31d6-48c7-b737-7bc2177b5277.jpg" alt="Coffee">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Cold Coffee</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>149</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Universal</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/f93a3d85-bec2-4e8f-ba3f-16bd5e40ada8.jpg" alt="Juice">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Pomegranate Juice</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>149</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div id="beverage" class="mt-3">
                         </div>
-                        <div id="continental" class="mt-5">
-                            <h1>Continental</h1>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">309 CAL | Low Calorie</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/c235c0c4-0098-46ce-8114-879d7c09cc58.JPG" alt="Arrabbiata">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Penne Arrabbiata</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>209</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Mediterranean</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/0c225d64-b9d5-41a8-bfd0-f9b144ca52b3.JPG" alt="Rice Bowl">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Lebanese Falafel Rice Bowl</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>230</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Mexican</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/bc38daba-bdb2-4c4b-ad67-344c1c2b646b.jpg" alt="Bowl">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Cowboy-Burrito-Bowl</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>209</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
- 
-                            <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">738 Cal | Calorie</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/da0ceae2-e122-470c-ac98-5a9d8813c654.jpg" alt="Alfredo">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Penne Alfredo</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>209</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Mexican</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/b0594e83-97d3-4ce8-a059-6d605dabdaef.jpg" alt="Salad">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Burrito Bowl with Salad</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>259</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card border border-light py-2">
-                                        <small class="card-text text-muted">Continental</small>
-                                        <img class="card-img mt-2 rounded"  src="//d3gy1em549lxx2.cloudfront.net/e125bcf6-14ac-4b26-8be0-bf6db21c5fef.JPG" alt="Mac">
-                                        
-                                            <h6 class="card-title py-1 text-muted">Corn-Pepper Mac 'n' Cheese</h6>
-                                            <div class="d-flex flex-row">
-                                            <h6 class="card-subtitle pt-3"><i class="fa fa-inr"></i>219</h6>
-                                            <a href="#" class="btn btn-warning btn-rounded text-white ml-auto mt-0">Add<i class="fa fa-plus"></i></a>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div id="continental" class="mt-3">
+                        </div>
+
+                        <div id="indianthalis" class="mt-3">
+                        </div>
+
+                        <div id="fitnfab" class="mt-3">
+                        </div>
+
+                        <div id="wokstation" class="mt-3">
+                        </div>
+
+                        <div id="bigbiriyanico" class="mt-3">
+                        </div>
+
+                        <div id="largeplates" class="mt-3">
                         </div>
                         
                     </div>
@@ -643,7 +243,7 @@
         <section id="section7" class="py-3 bg-dark text-white p-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-2 mr-3">
+                    <div class="col-2 mr-5">
                         <ul style="list-style-type: none;"> 
                             <li><a href="#" class="font-weight-bold text-white pb-3">Categories</a></li>
                             <li><a href="#" class="text-muted pb-3">Mains</a></li>
@@ -653,7 +253,7 @@
                             <li><a href="#" class="text-muted pb-3">Quickbites</a></li>
                         </ul>
                     </div>
-                    <div class="col-2 mr-3">
+                    <div class="col-2 mr-5">
                         <ul style="list-style-type: none;"> 
                             <li><a href="#" class="font-weight-bold text-white pb-3">Cuisines</a></li>
                             <li><a href="#" class="text-muted pb-3">Indian</a></li>
@@ -662,7 +262,7 @@
                             <li><a href="#" class="text-muted pb-3">American</a></li>
                         </ul>
                     </div>
-                    <div class="col-2 mr-3">
+                    <div class="col-2 mr-5">
                         <ul style="list-style-type: none;"> 
                             <li><a href="#" class="pb-3 text-dark d-none"></a>&nbsp;</li>
                             <li><a href="#" class="text-muted pb-3">Mexican</a></li>
@@ -710,6 +310,7 @@
                 </div>
             </div>
         </div>
+        <script src="menu.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
