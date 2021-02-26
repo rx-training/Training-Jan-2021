@@ -1,7 +1,7 @@
-{"mobile" : [{"Product":"Redmi 9A 3GB 32GB (Midnight Black)","Price":"Rs 7067","Image":"img/mobile/redmi9a.jpg"},
-    {"Product":"OPPO A11K 2 GB RAM","Price":"Rs 7436","Image":"img/mobile/oppoa11k.jpg"},
-    {"Product":"OPPO A52","Price":"Rs 15389","Image":"img/mobile/oppoa52.jpg"},
-    {"Product":"IKall K250","Price":"Rs 4867","Image":"img/mobile/ikall.jpg"}],
+{"mobile" : [{"Product":"Redmi 9A 3GB 32GB (Midnight Black)","Price":"Rs 7067","Image":"img/mobile/redmi9a.jpg","ProductId":"m1"},
+    {"Product":"OPPO A11K 2 GB RAM","Price":"Rs 7436","Image":"img/mobile/oppoa11k.jpg","ProductId":"m2"},
+    {"Product":"OPPO A52","Price":"Rs 15389","Image":"img/mobile/oppoa52.jpg","ProductId":"m3"},
+    {"Product":"IKall K250","Price":"Rs 4867","Image":"img/mobile/ikall.jpg","ProductId":"m4"}],
 
 "men" : [{"Product":"Pack of 2 Multicolor Tshirt","Price":"Rs 324","Image":"img/men/multicolour.jpg"},
         {"Product":"Pack of 3 Collar Tshirt","Price":"Rs 436","Image":"img/men/colortshirt.jpg"},

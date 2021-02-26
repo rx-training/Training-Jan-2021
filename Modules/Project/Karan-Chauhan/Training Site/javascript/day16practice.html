@@ -82,7 +82,7 @@
     var myArray = ["Cat", "Dog", "Elephant", "Horse", "Rat", "Fish"];
 
     function fnPush() {
-        var item = document.getElementById('data').value;
+        var item = document.getElementById('pushdata').value;
         myArray.push(item);
         alert(myArray);
         return false;
@@ -294,7 +294,7 @@
                     <form id="form5">
                         <h3>PUSH:</h3>  
                         <label for="string">Enter the data to push:</label>
-                        <input type="text" class="form-control" id="data" required>              
+                        <input type="text" class="form-control" id="pushdata" required>              
                         <input type="submit" value="PUSH" class="btn btn-light m-3" onclick="return fnPush()">
                     </form>
                 </div>

@@ -63,7 +63,7 @@
              alert(some);
           }
            function fnPromise(){ 
-                var str = document.getElementById('data').value;
+                var str = document.getElementById('reversedata').value;
                 docheck(str);
            }
           function docheck(data)
@@ -260,7 +260,7 @@
                 <div class="bg-light p-3">
                     <form id="form2">
                         <h3>Function that takes in a single parameter and returns a new promise:</h3>   
-                        <input type="text" class="form-control" id="data" placeholder="Enter any String" required>             
+                        <input type="text" class="form-control" id="reversedata" placeholder="Enter any String" required>             
                         <input type="button" value="RETURN" class="btn btn-warning m-3" onclick="fnPromise()">
                     </form>
                 </div>
