@@ -1,3 +1,4 @@
+localStorage.setItem("Wallet","100");
 async function getProducts(file) {
                 let myObject = await fetch(file);
                 let myData = await myObject.json();
@@ -48,4 +49,5 @@ async function getProducts(file) {
                 $("#grocerycontent").html(groceryBlock);
                       
             }
-            getProducts("paytm.json");
+getProducts("paytm.json");
+
