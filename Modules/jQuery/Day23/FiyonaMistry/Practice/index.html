@@ -1,0 +1,87 @@
+<!-- 1. Create one paragraph, add some dummy text and apply blue background color using jquery
+2. There is one Hide/show the text inside the #helpText span element when the user’s mouse passes over the text “
+3. – Label : “Please select your technology :” 
+    – Consider following set of radio buttons :-“PHP”, “ASP.NET”, “ASP”, “JSP”, “PERL”, “Cold Fusion”, “Other”. Layout these buttons in a Horizontal manner.
+    – Clicking on a particular radio button should display the related technology name besides label : “You have  selected : “.
+    – Use multiple “span” HTML element for displaying the related message.
+    – Note that radio button should be selectable by clicking on the corresponding label. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Practice</title>
+</head>
+<body>
+    <p id="firstP" class="m-5"></p>
+    <p id="secondP" class="m-5">(Hover on the text) Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias itaque nulla obcaecati quasi delectus ullam expedita quibusdam. Reiciendis, ipsam repellendus!</p>
+    <form class="form m-5">
+        <div class="form-group">
+            <label for="selection">Please select your technology : </label>
+            <span class="result"></span>
+        </div>
+        <div class="form-group">
+            <div class="form-check d-inline px-4">
+                <label for="PHP" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn1" value="PHP" class="form-check-input"> PHP
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="ASP.NET" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn2" value="ASP.NET" class="form-check-input">ASP.NET
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="ASP" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn3" value="ASP" class="form-check-input">ASP
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="JSP" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn4" value="JSP" class="form-check-input">JSP
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="Perl" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn5" value="Perl" class="form-check-input">Perl
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="coldfusion" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn6" value="Cold Fusion" class="form-check-input">Cold Fusion
+                </label>
+            </div>
+            <div class="form-check d-inline px-4">
+                <label for="other" class="form-check-label">
+                    <input type="radio" name="buttonGroup" id="radiobtn7" value="Other" class="form-check-input">Other
+                </label>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            
+            // 1
+            $("#firstP").text("Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio architecto labore id.").css("background","blue");
+            
+            // 2
+            $("#secondP").hover(function(){
+                $("#secondP").toggle();
+            });
+
+            // 3
+            $("input[name='buttonGroup']").click(function(){
+                $(".result").html($(this).val());
+            });
+
+        });
+    </script>
+</body>
+</html>
