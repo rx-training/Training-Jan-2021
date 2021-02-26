@@ -483,7 +483,10 @@
         <!-- <script src="paytm.js"></script> -->
         <script>
             
-            localStorage.setItem("Wallet", "100");
+            
+
+
+            
                 async function getProducts(file) {
                     let myObject = await fetch(file);
                     let myData = await myObject.json();
@@ -564,14 +567,26 @@
                 { 
                     alert("Enter Valid Email & Password");  
                 }
+                window.location.href  = "index.html";
             }
         
-            // if (sessionStorage.getItem("session")) {
-            //         profile = '<i class="fa fa-user h3 d-inline" aria-hidden="true"></i><h3>' + user + '</h3>';
-            //         $("#profile").html(profile);
-            // }
+           var sessionValue = sessionStorage.getItem("session");
+           var sv = JSON.parse(sessionValue);
 
-             setInterval(() => {
+            var List = localStorage.getItem("register_users");
+            var userList = JSON.parse(List);
+            //console.log(userList.Users); 
+            var anyuser = userList.Users;
+            //console.log(anyuser);
+            $.each(anyuser, function (i, v) {
+                if (v.name == sv.name) {
+                    var w = v.wallet;
+                    console.log(w);
+                    localStorage.setItem("Wallet", w);
+                }
+            });
+
+            setInterval(() => {
                     var sss = sessionStorage.getItem("session");
                     if (sss != null) {
                         var info = sessionStorage.getItem("session");
@@ -587,13 +602,16 @@
 
                     }
                     else { console.log("Session not get"); }
-                }, 1000);
+            }, 1000);
 
-                function logout() {
-                    localStorage.removeItem("payment_history");
-                    sessionStorage.removeItem("session");
-                    window.location.href = "index.html";
-                } 
+            function logout() {
+                localStorage.removeItem("payment_history");
+                sessionStorage.removeItem("session");
+                window.location.href = "index.html";
+            }
+
+
+             
             
             
 

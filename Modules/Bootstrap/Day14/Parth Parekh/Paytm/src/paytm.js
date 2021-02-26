@@ -1,4 +1,23 @@
-localStorage.setItem("Wallet","100");
+var sessionValue = sessionStorage.getItem("session");
+            var sv = JSON.parse(sessionValue);
+
+            var List = localStorage.getItem("register_users");
+            var userList = JSON.parse(List);
+            //console.log(userList.Users); 
+            var anyuser = userList.Users;
+            console.log(anyuser);
+        $.each(anyuser, function (i, v) {
+            if (v.name == sv.name) {
+                var w = v.wallet;
+                console.log(w);
+                //localStorage.setItem("Wallet", w);
+                    
+            }
+});
+
+
+
+
 async function getProducts(file) {
                 let myObject = await fetch(file);
                 let myData = await myObject.json();

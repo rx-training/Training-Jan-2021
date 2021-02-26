@@ -3,12 +3,50 @@
         {
             "name" :"Harsh",
             "email":"xyz@gmail.com",
-            "password": "xyz"
+            "password": "xyz",
+            "wallet" : "100",
+            "contacts":[
+                {
+                    
+                    "no": "1",
+                    "name": "Parth",
+                    "mobile_no": "1234567890"
+                },
+                {
+                    "no": "2",
+                    "name": "Vatsal",
+                    "mobile_no": "9109910394"
+                },
+                {
+                    "no": "3",
+                    "name": "Hriday",
+                    "mobile_no": "9196415323"
+                }
+                
+            ]
         },
         {
             "name" : "Parth",
             "email": "parth@gmail.com",
-            "password": "parth"
+            "password": "parth",
+            "wallet" : "200",
+            "contacts" :[
+                {
+                    "no": "1",
+                    "name": "Dharva",
+                    "mobile_no": "9123915343"
+                },
+                {
+                    "no": "2",
+                    "name": "Harshiv",
+                    "mobile_no": "9123915343"
+                },
+                {
+                    "no": "3",
+                    "name": "Raj",
+                    "mobile_no": "9143955883"
+                } 
+            ]
         }   
     ]
 }

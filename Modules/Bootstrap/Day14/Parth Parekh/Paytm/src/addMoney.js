@@ -1,37 +1,41 @@
 
-
-        var array = new Array();
+        var sessionValue = sessionStorage.getItem("session");
+        var sv = JSON.parse(sessionValue);
+        
         async function getContact(file) {
                 let myObject = await fetch(file);
                 let myData = await myObject.json();
-                localStorage.setItem("contacts",JSON.stringify(myData));
-                var List = localStorage.getItem("contacts");
-                var contactList = JSON.parse(List);
-                console.log(contactList); 
+                localStorage.setItem("register_users",JSON.stringify(myData));
+                let List = localStorage.getItem("register_users");
+                let userList = JSON.parse(List);
+                console.log(userList.Users); 
+                let anyuser = userList.Users;
+                $.each(anyuser , function ( i , v ){
+                    if(v.name == sv.name)
+                    {
+                        var temp = "";
+                        let x = v.contacts;
+                        //console.log(x);
+                        $.each(x , function ( i , value) {
+                            temp += "<tr >";
+                            temp += "<td class='p-3'>" + value.no + "</td>";
+                            temp += "<td>" + value.name + "</td>";
+                            temp += "<td>" + value.mobile_no + "</td>";
+                            temp += '<td><button data-toggle="modal" data-target="#pay" class="btn btn-success btn-block" onclick="payvalue(' + "'" + value.name + "'" + ',' + "'" + value.mobile_no + "'" + ')">Pay</button></td>';
+                            temp += "</tr>";
+                        });
+                        $("#tbody").html(temp);
 
-                temp = "";
-                
-                var data = contactList.contacts;
-                $.each(data , function ( i , value) {
-                    temp += "<tr >";
-                    temp += "<td class='p-3'>" + value.no + "</td>";
-                    temp += "<td>" + value.name + "</td>";
-                    temp += "<td>" + value.mobile_no + "</td>";
-                    temp += '<td><button data-toggle="modal" data-target="#pay" class="btn btn-success btn-block" onclick="payvalue(' + "'" + value.name + "'" + ',' + "'" + value.mobile_no + "'" + ')">Pay</button></td>';
-                    temp += "</tr>";
-                })
-                $("#tbody").html(temp);
-
-                $("#myInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#tbody tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        $("#myInput").on("keyup", function () {
+                        var value = $(this).val().toLowerCase();
+                        $("#tbody tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                        });
+                    }            
                 });
-        });
-
-                
-        }
-        getContact("contactList.json");
+        };
+        getContact("register_users.json");
 
         
         var name="";
@@ -50,9 +54,7 @@
             modelBlock += "<button type='button' class='btn text-white bg-success btn-block' data-dismiss='modal' onclick='moneysend(amount.value )' >Pay</button>";
             
             $('#modelbody').html(modelBlock);
-            // console.log(a,b);
-            
-           
+            // console.log(a,b);   
         }
 
         
@@ -68,75 +70,92 @@
                 
                 if(check == true)
                 {
-                    var w = localStorage.getItem("Wallet");
                     
-                    console.log(w);
-
-                    var ob1 ;
-                    var aa = [];
+                    let List = localStorage.getItem("register_users");
+                    let userList = JSON.parse(List);
+                    //console.log(userList.Users); 
+                    let anyuser = userList.Users;   
                     
-                    if(amount > w)
-                    {
-                        alert("Insufficient Balance");    
-                    }
-                    else{
-                           
-                        var his = localStorage.getItem("payment_history");
-                        //console.log(his);
-                        var payment_historyObject = JSON.parse(his);
-                        if(payment_historyObject == null)
+                    $.each(anyuser , function ( i , v ){
+                        if(v.name == sv.name)
                         {
-                            console.log("payment_history is null");
-                            var total = w - amount;
-                            var wallet = localStorage.setItem("Wallet", total);
-                            var d = new Date();
-                            var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
-                            var h = d.getHours() + ":" + d.getMinutes();
-                            var object = {
-                                name : name,
-                                num :num,
-                                amount : amount,
-                                total : total,
-                                date : date,
-                                time : h
-                            }
-                            aa.push(object);
-                            ob1 = { array : aa};
-                            localStorage.setItem("payment_history", JSON.stringify(ob1));
-                            var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
-                                 "<p> <a href='passbook.html'> Check history </p> </a>";
-                            $("#success").html(s);
-                        }
-                        else{
-
-                            var aa = payment_historyObject.array;
-                            console.log(aa);    
-                            var total = w - amount;
-                            var wallet = localStorage.setItem("Wallet", total);
-                            var d = new Date();
-                            var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
-                            var h = d.getHours() + ":" + d.getMinutes();
-                            var object = {
-                                name : name,
-                                num :num,
-                                amount : amount,
-                                total : total,
-                                date : date,
-                                time : h
-                            }
-                            aa.push(object);
-                            console.log(aa);
-                            ob1 = { array : aa};
-                            console.log(ob1);
-                            localStorage.setItem("payment_history", JSON.stringify(ob1));
+                            // var w = v.wallet;
+                            var w = localStorage.getItem("Wallet");
                             
+                            //console.log(w);
+                            var ob1 ;
+                            var aa = [];
+                    
+                            if(amount > w)
+                            {
+                                alert("Insufficient Balance");    
+                            }
+                            else
+                            {    
+                                var his = localStorage.getItem("payment_history");
+                                //console.log(his);
+                                var payment_historyObject = JSON.parse(his);
+                                if(payment_historyObject == null)
+                                {
+                                    console.log("payment_history is null");
+                                    console.log(amount);
+                                    var total = w - amount;
+                                    var wallet = localStorage.setItem("Wallet", total);
+                                    var d = new Date();
+                                    var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
+                                    var h = d.getHours() + ":" + d.getMinutes();
+                                    var object = {
+                                        name : name,
+                                        num :num,
+                                        amount : amount,
+                                        total : total,
+                                        date : date,
+                                        time : h
+                                    }
+                                    aa.push(object);
+                                    ob1 = { array : aa};
+                                    localStorage.setItem("payment_history", JSON.stringify(ob1));
+                                    var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
+                                        "<p> <a href='passbook.html'> Check history </p> </a>";
+                                    $("#success").html(s);
+                                }
+                                else
+                                {
+                                    var aa = payment_historyObject.array;
+                                    console.log(aa);  
+                                    console.log(amount);  
+                                    var total = w - amount;
+                                    var wallet = localStorage.setItem("Wallet", total);
+                                    var d = new Date();
+                                    var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
+                                    var h = d.getHours() + ":" + d.getMinutes();
+                                    var object = {
+                                        name : name,
+                                        num :num,
+                                        amount : amount,
+                                        total : total,
+                                        date : date,
+                                        time : h
+                                    }
+                                    aa.push(object);
+                                    console.log(aa);
+                                    ob1 = { array : aa};
+                                    console.log(ob1);
+                                    localStorage.setItem("payment_history", JSON.stringify(ob1));
+                                    
 
-                            var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
-                                    "<p> <a href='passbook.html'> Check history </p> </a>";
-                            $("#success").html(s);
+                                    var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
+                                            "<p> <a href='passbook.html'> Check history </p> </a>";
+                                    $("#success").html(s);
+                                }
+                                    //window.location.href="passbook.html";
+                            }                        
+                        //if end
                         }
-                        //window.location.href="passbook.html";
-                    }              
+                    });
+                    
+
+                    
                 }
                 else{
                     e.preventDefault();
@@ -203,6 +222,7 @@
             sessionStorage.removeItem("session");
             window.location.href = "index.html";
         } 
+    
 
 
         

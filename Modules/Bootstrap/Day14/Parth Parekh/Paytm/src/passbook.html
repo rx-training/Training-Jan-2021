@@ -14,7 +14,7 @@
     </style>
     <title>Passbook</title>
 </head>
-<body onload="loading()">
+<body >
     
     <ol class="breadcrumb align-items-center small bg-light" style="background-color: #f3f7f8;">
         <button class="btn btn-sm text-white  ml-4" style="background-color:rgb(231,75,36);">V'day Sale</button>
@@ -111,7 +111,7 @@
     
     
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                        <button type="button" class="btn text-white" style="background-color: #012b72;">Submit</button>
                     </form>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
-    
+
                         <div class="form-group">
                             <label for="">Email</label>
                             <input type="email" name="" id="email" required class="form-control" placeholder="">
@@ -151,14 +151,25 @@
 
     
     <script>
-        var w = localStorage.getItem("Wallet");
-        $("#purse").html(w);
-        
-        function loading() {
+            var sessionValue = sessionStorage.getItem("session");
+            var sv = JSON.parse(sessionValue);
+
+            var List = localStorage.getItem("register_users");
+            var userList = JSON.parse(List);
+            //console.log(userList.Users); 
+            var anyuser = userList.Users;
+            console.log(anyuser);
+            $.each(anyuser, function (i, v) {
+                if (v.name == sv.name) {
+                    var w = v.wallet;
+                    //console.log(w);
+                    $("#purse").html(w);
+                }
+            });
         
             var payment_history = localStorage.getItem("payment_history");
         
-            console.log(payment_history);
+            //console.log(payment_history);
              
             var data = JSON.parse(payment_history);
             var data = data.array;
@@ -175,9 +186,9 @@
                 $("#balance").html(listBlock);
                 $("#purse").html(value.total);
             });
-        }
-        
-        $.getJSON("register_users.json", function (data, status) {
+
+
+            $.getJSON("register_users.json", function (data, status) {
                 localStorage.setItem("register_users", JSON.stringify(data));
             });
             function loginCheck(email, password) {
@@ -203,10 +214,10 @@
                 else {
                     alert("Enter Valid Email & Password");
                 }
-        }
-        
+            }
 
-        setInterval(() => {
+
+            setInterval(() => {
                 var sss = sessionStorage.getItem("session");
                 if (sss != null) {
                     var info = sessionStorage.getItem("session");
@@ -214,21 +225,23 @@
                     var profileinfo = JSON.parse(info);
                     //console.log(profileinfo);
                     profile = '<h3 class="mr-5 mb-4 p-2"><i class="fa fa-user " aria-hidden="true"></i>' + profileinfo.name +
-                        '<button type="button" class="ml-3 btn btn-danger" onclick=logout()>'+
+                        '<button type="button" class="ml-3 btn btn-danger" onclick=logout()>' +
                         '<i class="fa fa-angle-down" aria-hidden="true"></i> Logout</button> </h3>';
                     $("#profile").html(profile);
                     $("#d1").css("display", "none");
                     $("#d2").css("display", "none");
-
                 }
                 else { console.log("Session not get"); }
-        }, 1000);
+            }, 1000);
 
-        function logout(){
-            localStorage.removeItem("payment_history");
-            sessionStorage.removeItem("session");
-            window.location.href = "index.html";
-        } 
+            function logout() {
+                localStorage.removeItem("payment_history");
+                sessionStorage.removeItem("session");
+                window.location.href = "index.html";
+            }
+
+        
+         
 
     </script>
     
