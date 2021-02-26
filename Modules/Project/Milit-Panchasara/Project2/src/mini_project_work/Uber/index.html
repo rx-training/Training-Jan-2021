@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/uber.css">
+    <title>Uber</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+        <div class="container-lg container-nav">
+            <a class="navbar-brand" href="">Uber</a>
+            <div class="nav-item ml-auto mr-3 d-inline-block d-lg-none"><a href="" class=" text-white" data-toggle="modal" data-target="#login-modal"><i
+                class="fa fa-user"></i></a></div>
+            <div class="nav-item bg-white rounded mr-3  d-inline-block d-lg-none signup-div" style="border-radius: 20px!important ;">
+                <a href="" class="text-dark" data-toggle="modal" data-target="#signup-modal">Sign
+                    Up</a>
+                </div>
+            
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class=" navbar-collapse collapse" id="navbarnav1" tabindex="2">
+                <ul class="navbar-nav w-100">
+                    <li class="nav-item dropdown  order-lg-1">
+                        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Company</a>
+                        <div class=" dropdown-menu">
+                            <a href="" class="dropdown-item">About Us</a>
+                            <a href="" class="dropdown-item">Our Offerings</a>
+                            <a href="" class="dropdown-item">How Uber Works</a>
+                            <a href="" class="dropdown-item">Global citizenship</a>
+                            <a href="" class="dropdown-item">Newsroom</a>
+                            <a href="" class="dropdown-item">Investor relations</a>
+                            <a href="" class="dropdown-item">Blog</a>
+                            <a href="" class="dropdown-item">Careers</a>
+                        </div>
+                    </li>
+                    <li class="nav-item order-lg-2"><a href="" class="nav-link">Safety</a></li>
+                    <li class="nav-item order-lg-3"><a href="" class="nav-link">Help</a></li>
+                    <li class="nav-item order-lg-4"><a href="" class="nav-link">COVID-19 resources</a></li>
+                    <li class="nav-item ml-lg-auto order-last order-lg-5"><a href="" class="nav-link" data-toggle="modal"
+                            data-target="#language-modal"><i class="fa fa-globe"></i> EN</a></li>
+                    <li class="nav-item dropdown order-lg-6 products-menu">
+                        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <span style="letter-spacing: 1px;">
+                                <i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i><i
+                                    class="fa fa-ellipsis-v"></i>
+                            </span> Products
+                        </a>
+                        <div class=" dropdown-menu" id="produts-dropwdown">
+                            <button class="close d-inline-block d-lg-none" data-dismiss="dropdown"><span class="h1"><b>&times;</b></span></button>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-home"></i></span> Home</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-car"></i></span> Drive</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-cog"></i></span> Ride</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-spoon"></i></span> Eat</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-glass"></i></span> Restaurants</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-truck"></i></span> Freight</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-bicycle"></i></span> Bike &amp;
+                                Scoot</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-bus"></i></span> Transit</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-suitcase"></i></span> Business</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-money"></i></span> Money</a>
+                        </div>
+                    </li>
+                    <li class="nav-item  d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal"><i
+                                class="fa fa-user"></i> Log In</a></li>
+                    <li class="nav-item bg-white rounded d-none d-lg-inline-block  order-lg-8" style="border-radius: 20px!important ;">
+                        <a id="sign_up_link" href="" class="nav-link" data-toggle="modal" data-target="#signup-modal">Sign
+                            Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="alerts-section">
+        <div class="alert alert-dismissible container">
+            <button class="close" data-dismiss="alert" type="button">
+                <span>&times;</span> <!--  gives X sign -->
+            </button>
+            <h5>Helping to keep each other safe</h5>
+            <p>We’re actively monitoring the COVID-19 situation and are continually working to help keep those who rely
+                on our platform healthy and safe.</p>
+            <a href="">Go to Uber’s COVID-19 hub</a><br>
+            <a href="">Read about our Door-to-Door Safety Standard</a>
+        </div>
+    </section>
+
+    <section id="products" class="h-md-100">
+        <div class="w-100 px-lg-5 pt-lg-5">
+            <div class="">
+                <!-- List group -->
+                <div class="list-group list-group-horizontal text-center" id="myList" role="tablist">
+                    <a class="list-group-item list-group-item-action active" onclick="changeBGImage('earn')" data-toggle="list" href="#earn"
+                        role="tab"><i class="fa fa-home"></i><br>Earn</a>
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('ride')" data-toggle="list" href="#ride"
+                        role="tab"><i class="fa fa-car"></i><br>Ride</a>
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('eat')" data-toggle="list" href="#eat"
+                        role="tab"><i class="fa fa-spoon"></i><br>Eat</a>
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('freight')" data-toggle="list" href="#freight"
+                        role="tab"><i class="fa fa-truck"></i><br>Freight</a>
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('business')" data-toggle="list" href="#business"
+                        role="tab"><i class="fa fa-suitcase"></i><br>Business</a>
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('transit')" data-toggle="list" href="#transit"
+                        role="tab"><i class="fa fa-bus"></i><br>Transit</a>
+                    <a class="list-group-item list-group-item-action" onclick="changeBGImage('bike')" data-toggle="list" href="#bikenscoot"
+                        role="tab"><i class="fa fa-bicycle"></i><br>Bike &amp; scoot</a>
+                </div>
+            </div>
+
+        
+            <!-- Tab panes -->
+            <div class="row content-row pl-0">
+                <div class="col-12 col-lg-6 bg-white content-column">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="earn" role="tabpanel">
+                            <h1>Get in the driver's seat and get paid</h1>
+                            <p>Drive on the platform with the largest network of active riders.</p>
+                            <a href="" class="btn btn-dark btn-black">Sign up to drive</a>
+                            <a href="" class="link-black">Learn more about driving and delivering</a>
+                        </div>
+                        <div class="tab-pane" id="ride" role="tabpanel">
+                            <h1>Request a ride now</h1>
+                            <div class="input-group">
+                                <input class="form-control border-right-0" style="background-color: #dee2e6;height: 50px;" type="text" placeholder="Enter pickup location">
+                                <div class=" input-group-append">
+                                    <button class="btn border border-left-0" style="background-color: #dee2e6;"><i class="fa fa-location-arrow"></i></button>
+                                </div>
+                            </div>
+                            <input class="form-control d-block" style="background-color: #dee2e6;height: 50px; width: 95%;" type="text" placeholder="Enter destination">
+                            
+                            
+                            <a href="" class="btn btn-dark btn-black d-inline-block mr-1">Request now</a>
+                            <a href="" class="btn btn-dark btn-gray d-inline-block ml-2">Schedule for later</a>
+                        </div>
+                        <div class="tab-pane" id="eat" role="tabpanel">
+                            <h1>Discover delicious eats</h1>
+                            <p>Order delivery from restaurants you love.</p>
+                            <a href="" class="btn btn-dark btn-black">Order now</a>
+                            <a href="" class="link-black">Own a restaurant? Partner with Uber Eats</a>
+                        </div>
+                        <div class="tab-pane" id="freight" role="tabpanel">
+                            <h1>A new direction for freight</h1>
+                            <p>Greater transparency for shippers and carriers to do business together.</p>
+                            <a href="" class="btn btn-dark btn-black">Get shipper details</a>
+                            <a href="" class="link-black">Sign up to be a carrier</a>
+                        </div>
+                        <div class="tab-pane" id="business" role="tabpanel">
+                            <h1>Move your teams and employees</h1>
+                            <p>Uber for Business helps to simplify business travel, expensing, and customer experiences.</p>
+                            <a href="" class="btn btn-dark btn-black">Learn more</a>
+                        </div>
+                        <div class="tab-pane" id="transit" role="tabpanel">
+                            <h1>Empowering public transportation</h1>
+                            <p>Uber’s software and transit solutions help local agencies build the best ways to move their communities forward.</p>
+                            <a href="" class="btn btn-dark btn-black">Learn more</a>
+                        </div>
+                        <div class="tab-pane" id="bikenscoot" role="tabpanel">
+                            <h1>Bike or scoot there</h1>
+                            <p>Go further and have more fun with electric bikes and scooters.</p>
+                            <a href="" class="btn btn-dark btn-black">Get a ride</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="../../img/Product-Masthead-Tablet.jpg" class="img-fluid d-block d-lg-none "alt="" id="tab-list-image">
+                </div>
+        </div>
+
+
+    </section>
+    <section id="stats">
+        <div class="container pt-5 stats-content">
+            <h1>Setting 10,000+ cities in<br>motion</h1>
+            <a href="" class="link-black">View all cities</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-5">
+            <h1>Uber for Business</h1>
+            <p>The power of Uber in everyday business</p>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 p-3">
+                    <img src="../../img/business-eater-horz2x.png" alt="" class="img-fluid mb-3 w-100 p-0">
+                    <h5>
+                        Work meals
+                    </h5>
+                    <p>
+                        Delight your employees with their favorite meals delivered directly to anywhere they work.
+                    </p>
+                    <a href="" class="link-black">Learn more</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 p-3">
+                    <img src="../../img/employee-travel-horz2x.png" alt="" class="img-fluid mb-3 w-100 p-0">
+                    <h5>
+                        Employee rides
+                    </h5>
+                    <p>
+                        Take the work out of work-related trips. Create ground travel and commute programs for employees.
+                    </p>
+                    <a href="" class="link-black">Learn more</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 p-3">
+                    <img src="../../img/ride-coordinator-horz2x.png" alt="" class="img-fluid mb-3 w-100 p-0">
+                    <h5>
+                        Courtesy rides
+                    </h5>
+                    <p>Aim to impress. Arrange door-to-door rides for your customers, clients, and guests.</p>
+                    <a href="" class="link-black">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-12 col-lg-6 order-lg-2 text-center my-5">
+                    <img src="../../img/Safety_ilo.svg" alt="" class="img-fluid py-5 my-lg-auto">
+                </div>
+                <div class="col-12 col-lg-6 order-lg-1">
+                    <h1 class="mb-4">Our commitment to your safety</h1>
+                    <p>
+                        With every safety feature we add and every standard in our Community Guidelines we uphold, we're committed to working to create a safe environment for our users.
+                    </p>
+                    <a href="" class="mr-5 d-inline-block link-black">Learn more about our Community Guidelines</a><br class="d-none d-lg-block">
+                    <a href="" class="mr-5 d-inline-block link-black">See all safety features</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-5 py-5">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <i class="fa fa-users" style="font-size: 25px;margin-bottom: 15px;"></i>
+                    <h5 class="mb-3">About us</h5>
+                    <p class="mb-4">Find out how we started, what drives us, and how we’re igniting opportunity.</p>
+                    <a href="" class="mb-4 link-black">Learn more</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <i class="fa fa-file" style="font-size: 25px;margin-bottom: 15px;"></i>
+                    <h5 class="mb-3">Newsroom</h5>
+                    <p class="mb-4">See announcements about our latest releases, initiatives, and partnerships.</p>
+                    <a href="" class="mb-4 link-black">Learn more</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <i class="fa fa-home" style="font-size: 25px;margin-bottom: 15px;"></i>
+                    <h5 class="mb-3">Global citizenship</h5>
+                    <p class="mb-4">Read about our commitment to making a positive impact in the cities we serve.</p>
+                    <a href="" class="mb-4 link-black">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-5 py-5">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <a class="link-black w-100" href=""><h1 class="py-4 h2">Sign up to drive <i class="float-right fa fa-arrow-right"></i></h1></a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <a class="link-black w-100" href="login.html"><h1 class="py-4 h2">Sign up to ride <i class="float-right fa fa-arrow-right"></i></h1></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white px-5">
+        <div class="footer-container">
+            <h3 class="company-name">Uber</h3>
+            <a href="" class="footer-link help-center-link">Visit Help center</a>
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <h4>Company</h4>
+                    <ul class=" list-unstyled">
+                        <li><a href="" class="footer-link">About us</a></li>
+                        <li><a href="" class="footer-link">Our offerings</a></li>
+                        <li><a href="" class="footer-link">Newsroom</a></li>
+                        <li><a href="" class="footer-link">Investors</a></li>
+                        <li><a href="" class="footer-link">Blog</a></li>
+                        <li><a href="" class="footer-link">Careers</a></li>
+                        <li><a href="" class="footer-link">AI</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <h4>Products</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="" class="footer-link">Ride</a></li>
+                        <li><a href="" class="footer-link">Drive</a></li>
+                        <li><a href="" class="footer-link">Eat</a></li>
+                        <li><a href="" class="footer-link">Uber for Business</a></li>
+                        <li><a href="" class="footer-link">Uber freight</a></li>
+                    </ul>
+                </div>
+                <div class="d-none d-md-block d-lg-none col-md-4"></div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <h4>Global citizenship</h4>
+                    <ul class=" list-unstyled">
+                        <li><a href="" class="footer-link">Safety</a></li>
+                        <li><a href="" class="footer-link">Diversity and Inclusion</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row pt-5">
+                <div class="col-12 col-lg-3 pr-2 pr-md-5">
+                    <ul class=" list-inline list-unstyled d-lg-flex justify-content-lg-between">
+                        <li class="list-inline-item pr-4 pr-md-5 pr-lg-0"><a href="" class="footer-link"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item pr-4 pr-md-5 pr-lg-0"><a href="" class="footer-link"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item pr-4 pr-md-5 pr-lg-0"><a href="" class="footer-link"><i class="fa fa-youtube"></i></a></li>
+                        <li class="list-inline-item pr-4 pr-md-5 pr-lg-0"><a href="" class="footer-link"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="list-inline-item pr-4 pr-md-5 pr-lg-0"><a href="" class="footer-link"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-3 mb-5">
+                    <a href="" class="footer-link pr-4" data-toggle="modal"
+                        data-target="#language-modal"><i class="fa fa-globe"></i> English</a>
+                    <a href="#" class="footer-link pr-4"><i class="fa fa-map-marker"></i> Rajkot</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 text-lg-right ml-lg-auto mb-5">
+                    <div class="row">
+                        <div class="col-5 col-md-6 px-1">
+                            <a href="" class="footer-link my-auto"><img class="img-fluid" src="../../img/app-store-google-4d63c31a3e.svg" alt=""></a>
+                        </div>
+                        <div class="col-5 col-md-6 px-1">
+                            <a href="" class="footer-link"><img class="img-fluid" style="height: 93%;" src="../../img/app-store-apple-f1f919205b.svg" alt=""></a>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+
+            <div class="row">
+                <p class="col-12 col-lg small text-secondary">&copy; Uber Technologies Inc.</p>
+                <ul class="col-12 col-lg text-lg-right list-inline list-unstyled">
+                    <li class="list-inline-item"><a href="" class="footer-link small text-secondary">Privacy</a></li>
+                    <li class="list-inline-item"><a href="" class="footer-link small text-secondary">Accessibility</a></li>
+                    <li class="list-inline-item"><a href="" class="footer-link small text-secondary">Terms</a></li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </footer>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <script>
+        function changeBGImage(type) {
+            switch (type) {
+                case "earn":
+                    document.getElementById('products').style.backgroundImage = 'url("../../img/Product-Masthead-Desktop.jpg")';
+                    document.getElementById('tab-list-image').src = '../../img/Product-Masthead-Desktop.jpg';
+                    break;
+
+                case "ride":
+                    document.getElementById('products').style.backgroundImage = 'url("../../img/ride_2x.jpg")';
+                    document.getElementById('tab-list-image').src = '../../img/ride_2x.jpg';
+                    break;
+
+                case "eat":
+                    document.getElementById('products').style.backgroundImage = 'url("../../img/eats-hero-desktop-6.jpg")';
+                    document.getElementById('tab-list-image').src = '../../img/eats-hero-desktop-6.jpg';
+                    break;
+
+                case "freight":
+                    document.getElementById('products').style.backgroundImage = 'url("../../img/Freight_2x.jpg")';
+                    document.getElementById('tab-list-image').src = '../../img/Freight_2x.jpg';
+                    break;
+
+                case "business":
+                    document.getElementById('products').style.backgroundImage = 'url("../../img/Business_2x.jpg")';
+                    document.getElementById('tab-list-image').src = '../../img/Business_2x.jpg';
+                    break;
+
+                case "transit":
+                    document.getElementById('products').style.backgroundImage = 'url("../../img/Transit_2x.jpg")';
+                    document.getElementById('tab-list-image').src = '../../img/Transit_2x.jpg';
+                    break;
+
+                case "bike":
+                    document.getElementById('products').style.backgroundImage = 'url("../../img/bikes_2x.jpg")';
+                    document.getElementById('tab-list-image').src = '../../img/bikes_2x.jpg';
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    </script>
+
+    <!-- ----- language modal ----- -->
+    <div class=" modal fade w-100 mt-5" id="language-modal" tabindex="1">
+        <div class=" modal-dialog">
+            <div class=" modal-content">
+                <div class=" modal-body">
+                    <div class="container">
+                        <button class="close" data-dismiss="modal"><span class="h1"><b>&times;</b></span></button>
+                        <div class="row">
+                            <div class="col">
+                                <h1>Select your preferred language</h1>
+                            </div>
+                        </div>
+                        <div class="row text-decoration-none text-dark" style="margin-top: 100px;">
+                            <div class="col-12 col-md-3 py-3 px-3 link-div">
+                                <a href="" class=" text-decoration-none text-dark">বাংলা</a>
+                            </div>
+                            <div class="col-12 col-md-3 py-3 px-3 link-div active">
+                                <a href="" class=" text-decoration-none text-dark">English</a>
+                            </div>
+                            <div class="col-12 col-md-3 py-3 px-3 link-div">
+                                <a href="" class=" text-decoration-none text-dark">हिन्दी</a>
+                            </div>
+                            <div class="col-12 col-md-3 py-3 px-3 link-div">
+                                <a href="" class=" text-decoration-none text-dark">ಕನ್ನಡ</a>
+                            </div>
+                            <div class="col-12 col-md-3 py-3 px-3 link-div">
+                                <a href="" class=" text-decoration-none text-dark">मराठी</a>
+                            </div>
+                            <div class="col-12 col-md-3 py-3 px-3 link-div">
+                                <a href="" class=" text-decoration-none text-dark">தமிழ்</a>
+                            </div>
+                            <div class="col-12 col-md-3 py-3 px-3 link-div">
+                                <a href="" class=" text-decoration-none text-dark">తెలుగు</a>
+                            </div>
+                            <div class="col-12 col-md-3 py-3 px-3 link-div">
+                                <a href="" class=" text-decoration-none text-dark">اردو</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ----- login modal ----- -->
+    <div class=" modal fade w-100 mt-5" id="login-modal" tabindex="1">
+        <div class=" modal-dialog">
+            <div class=" modal-content">
+                <div class=" modal-body">
+                    <div class="container">
+                        <button class="close" data-dismiss="modal"><span class="h1"><b>&times;</b></span></button>
+                        <div class="row text-decoration-none text-dark" style="margin-top: 200px;">
+                            <div class="col-12 col-md-6">
+                                <a href="" class="h2 py-4 link-black w-100">Driver Login <i class="float-right fa fa-arrow-right"></i></a>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <a href="login.html" class="h2 py-4 link-black w-100">Rider Login <i class="float-right fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ----- signup modal ----- -->
+    <div class=" modal fade w-100 mt-5" id="signup-modal" tabindex="1">
+        <div class=" modal-dialog">
+            <div class=" modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <button class="close" data-dismiss="modal"><span class="h1"><b>&times;</b></span></button>
+                        <div class="row text-decoration-none text-dark" style="margin-top: 200px;">
+                            <div class="col-12 col-md-6">
+                                <a class="link-black w-100" href=""><h1 class="py-4 h2">Sign up to drive <i class="float-right fa fa-arrow-right"></i></h1></a>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <a class="link-black w-100" href="login.html"><h1 class="py-4 h2">Sign up to ride <i class="float-right fa fa-arrow-right"></i></h1></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <title>UBER Admin</title>
+    <script>
+       if(localStorage.getItem('logged_in_admin') == null) {
+           window.location.href = 'login.html';
+       }
+    </script>
+</head>
+<body>
+    <button class="btn btn-outline-dark float-right m-2" onclick="logout()">Log Out</button>
+    <div class="mx-2">
+        <h1 class=" display-1">Uber Admin</h1>
+        <hr style="background-color: black; height: 3px;">
+        <h1 class=" display-4">Trips:</h1>
+        <hr>
+        <table class=" table table-bordered table-hover" id="trips-table">
+            <thead class="bg-dark text-light">
+                <tr>
+                    <th>Trip ID</th>
+                    <th>Rider ID</th>
+                    <th>Driver ID</th>
+                    <th>Ride Type</th>
+                    <th>Pickup ID</th>
+                    <th>Destination ID</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Cancelled by Rider</th>
+                    <th>Cancelled by Driver</th>
+                    <th>Trip Rating</th>
+                    <th>Trip cost</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tripdata-table-body">
+
+            </tbody>
+        </table>
+        
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../js/manageUser.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        
+
+        var rideData = null;
+        async function getItemsFromFile() {
+            var file = await fetch('../rideTypes.json');
+            let data = await file.text();
+
+            $(document).ready( function () {
+                $('#trips-table').DataTable();
+            } );
+
+            rideData = JSON.parse(data);
+            populateData();
+        }
+
+        getItemsFromFile();
+
+        function getRideTypeName(id) {
+            let rideName;
+            rideData.rides.forEach(ride => {
+                if(ride.id == id) {
+                    rideName = ride.name;
+                    return;
+                }                
+            });
+            return rideName;
+        }
+
+        function populateData() {
+            var allTripsData = JSON.parse(localStorage.getItem('userTrips'));
+            var tableBody = document.getElementById('tripdata-table-body').innerHTML;
+            allTripsData.forEach(trip => {
+                let user = getUserDataFromId(trip.rider_id);
+                let rideType = getRideTypeName(trip.ride_type_id);
+
+                let rating = getTripRating(trip.id);
+                
+                if(trip.is_canceled_by_driver == 0 && trip.is_canceled_by_rider == 0) {
+                    document.getElementById('tripdata-table-body').innerHTML += '<tr>\
+                        <td>'+ trip.id +'</td>\
+                        <td data-toggle="tooltip" data-placement="right" title="+91 '+user.mobile_number+'">'+ trip.rider_id +'</td>\
+                        <td>'+ trip.driver_id +'</td>\
+                        <td>'+ rideType +'</td>\
+                        <td>'+ trip.pickup_id +'</td>\
+                        <td>'+ trip.destination_id +'</td>\
+                        <td>'+ trip.start_time +'</td>\
+                        <td>'+ trip.end_time +'</td>\
+                        <td>'+ trip.is_canceled_by_rider +'</td>\
+                        <td>'+ trip.is_canceled_by_driver +'</td>\
+                        <td>' + rating + '</td>\
+                        <td>' + trip.trip_cost + ' &#8377;</td>\
+                        <td >\
+                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="viewUser('+trip.id+')">View</button>\
+                        </td>\
+                        </tr>';
+                }
+                else {
+                    document.getElementById('tripdata-table-body').innerHTML += '<tr style="background-color:#ffe0e1">\
+                        <td>'+ trip.id +'</td>\
+                        <td data-toggle="tooltip" data-placement="right" title="+91 '+user.mobile_number+'">'+ trip.rider_id +'</td>\
+                        <td>'+ trip.driver_id +'</td>\
+                        <td>'+ rideType +'</td>\
+                        <td>'+ trip.pickup_id +'</td>\
+                        <td>'+ trip.destination_id +'</td>\
+                        <td>'+ trip.start_time +'</td>\
+                        <td>'+ trip.end_time +'</td>\
+                        <td>'+ trip.is_canceled_by_rider +'</td>\
+                        <td>'+ trip.is_canceled_by_driver +'</td>\
+                        <td>-</td>\
+                        <td>-</td>\
+                        <td >\
+                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="viewUser('+trip.id+')">View</button>\
+                        </td>\
+                        </tr>';
+                }
+            });
+        }
+
+
+        
+    </script>
+
+</body>
+</html>

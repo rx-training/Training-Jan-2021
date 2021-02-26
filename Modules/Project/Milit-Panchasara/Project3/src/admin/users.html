@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Blogen</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top p-0">
+        <div class="container px-5">
+            <a class="pl-3 navbar-brand" href="">Blogen</a>
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="navbar-collapse collapse" id="navbarNav">
+                <ul class=" navbar-nav w-100">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Dashboard</a></li>
+                    <!-- <li class="nav-item"><a href="posts.html" class="nav-link">Posts</a></li>
+                    <li class="nav-item"><a href="categories.html" class="nav-link ">Categories</a></li> -->
+                    <li class="nav-item"><a href="users.html" class="nav-link active">Users</a></li>
+                    <li class="nav-item ml-sm-auto"><a href="login.html" class="nav-link"><i
+                                class="fa fa-user-times"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="header" class="pt-3 mt-4 bg-warning text-white">
+        <div class="container px-5 p-1">
+            <h1 class="px-3"><i class="fa fa-users"></i> Users</h1>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container px-5">
+            <div class="row m-3">
+                <div class="col-3">
+                    <button class="btn btn-warning btn-block m-3" data-toggle="modal" data-target="#add-user-modal"><i
+                            class="fa fa-plus"></i>Add User</button>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class=" card-title">
+                                <h4>Users</h4>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <table class=" table table-striped">
+                                <thead class=" bg-dark text-white">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Milit Panchasara</td>
+                                        <td>milit@xyz.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jon Doe</td>
+                                        <td>jon@doe.com</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <nav class="ml-3">
+                                <ul class=" pagination pagination-sm">
+                                    <li class=" page-item disabled"><a href="" class=" page-link">Previous</a></li>
+                                    <li class=" page-item active"><a href="" class=" page-link">1</a></li>
+                                    <li class=" page-item"><a href="" class=" page-link">2</a></li>
+                                    <li class=" page-item"><a href="" class=" page-link">3</a></li>
+                                    <li class=" page-item"><a href="" class=" page-link">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="footer" class="bg-dark text-white p-5">
+        <div class="container px-5 text-center">
+            <p class="font-weight-light">Copyright &copy; 2017 Blogen</p>
+        </div>
+    </section>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/admin/manageUser.js"></script>
+
+    <!-- ----- add user modal ----- -->
+    <div class=" modal fade" id="add-user-modal" tabindex="1">
+        <div class=" modal-dialog">
+            <div class=" modal-content">
+                <div class=" modal-header bg-warning text-white">
+                    <h1 class=" modal-title h5">Add User</h1>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class=" modal-body">
+                    <form action="" class="form" id="add-user-form">
+                        <div class="form-group">
+                            <label for="title">Name:</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="ac-type">Account Type:</label>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="c-type" id="c-type-saving" value="saving" checked>
+                                    Saving
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="c-type" id="c-type-current" value="current">
+                                    Current
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                            <div id="password-error"><span class="small text-danger"></span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpassword">Confirm Password:</label>
+                            <input type="password" class="form-control" name="cpassword" id="cpassword">
+                            <div id="cpassword-error"><span class="small text-danger"></span></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer text-right">
+                    <button class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    <button class="btn btn-warning btn-sm" type="button" onclick="(new manageUser).create()">Save
+                        Changes</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

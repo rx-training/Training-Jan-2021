@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>JQuery</title>
+</head>
+
+<body>
+    <div class="m-5">
+        <ul>
+            <li class="first">
+                <p>
+                    This is the dummy paragraph for the practice exercise 1. <span>Jquey is used in this file.</span>
+                </p>
+            </li>
+            <li class="second">
+                <p>
+                    This is paragraph wont be affected due to <b>:first</b> selector.
+                </p>
+            </li>
+            <li class="third">
+                <p>
+                    This is paragraph wont be affected due to <b>:first</b> selector.
+                </p>
+            </li>
+            <p>para without li inside ul</p>
+        </ul>
+        <h2>View console for jquery results...</h2>
+
+        <hr>
+        <div id="div1"><h2></h2></div>
+
+        <button>Get External Content</button>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log($("span").parents()); //all parents
+        });
+
+        $(document).ready(function(){
+            console.log($("span").parent()); // immediate parent
+        });
+
+        $(document).ready(function(){
+            console.log($("span").parentsUntil("ul")); // parents until particular parent (excludding that parent i.e upto li only) (ul in this case)
+        });
+
+        $(document).ready(function(){
+            console.log($("ul").children()); //all immediate childs only "li"s
+        });
+
+        $(document).ready(function(){
+            console.log($("ul").children("li.first")); //filtered children
+        });
+
+        $(document).ready(function(){
+            console.log($("div").find("li"));
+        });
+
+        $(document).ready(function(){
+            console.log($("div").find("*"));
+        });
+
+        $(document).ready(function(){
+            console.log($("li").siblings("p"));
+        });
+
+        $(document).ready(function(){
+            console.log($("li.second").next());
+        });
+
+        $(document).ready(function(){
+            console.log($("li").nextAll());
+        });
+
+        $(document).ready(function(){
+            console.log($("li").nextUntil("p"));
+        });
+
+        $(document).ready(function(){
+            console.log($("li.second").prev());
+        });
+
+        $(document).ready(function(){
+            console.log($("p").prevAll());
+        });
+
+        $(document).ready(function(){
+            console.log($("p").prevUntil("li.second"));
+        });
+
+        $(document).ready(function(){
+            console.log($("li").not(".second"));
+        });
+
+        $(document).ready(function(){
+            console.log($("li").filter(".second"));
+        });
+
+        $(document).ready(function(){
+            console.log($("li").eq(0));
+        });
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#div1 h2").load("content.txt");
+            });
+        });
+    </script>
+</body>
+
+</html>
