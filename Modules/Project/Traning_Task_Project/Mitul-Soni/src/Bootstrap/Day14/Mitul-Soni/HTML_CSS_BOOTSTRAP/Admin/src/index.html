@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Bootstrap 4 Starter Pack</title>
+    </head>
+
+    <body onload="getPostInfoData()">
+        <!--Navbar Section-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-0">
+            <div class="container">
+                <a href="index.html" class="navbar-brand px-2">Gujarat University</a>
+                <button class="navbar-toggler mr-3 mt-2 mb-2" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-2">
+                            <a href="index.html" class="nav-link active">Dashbord</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="posts.html" class="nav-link">Posts</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="categories.html" class="nav-link">College</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="users.html" class="nav-link">Users</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="result.html" class="nav-link">Result</a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown mr-3">
+                            <a href="#" class="nav-link dropdown-toggle px-2" data-toggle="dropdown">
+                                <i class="fa fa-user"></i> Welcome Brad
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="profile.html" class="dropdown-item"><i class="fa fa-user-circle"></i> Profile</a>
+                                <a href="settings.html" class="dropdown-item"><i class="fa fa-gear"></i> Setting</a>
+                            </div>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="login.html" class="nav-link"><i class="fa fa-user-times"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </nav>
+
+        <!-- Header-Section -->
+        <header id="main-header" class="py-2 bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1><i class="fa fa-gear"></i> Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--End Header Section-->
+
+        <!--Action Section-->
+        <section id="action" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+                            <i class="fa fa-plus"></i> Add Post
+                        </a>
+                    </div>
+                        <div class="col-md-3">
+                        <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoriesModal">
+                            <i class="fa fa-plus"></i> Add College
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUsersModal">
+                            <i class="fa fa-plus"></i> Add Faculty
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="result.html" class="btn btn-info btn-block">
+                            <i class="fa fa-plus"></i> Add Result
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--End Action Section-->
+
+        <!--Posts Section-->
+            <section id="posts">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Latest Posts</h4>
+                                </div>
+                                <script>
+                                    
+                                </script>
+                                
+                                <table class="table table-striped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Date Posted</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <script>
+                                    function getPostInfoData()
+                                    {
+                                        var str = "";
+                                        var get,create,text,i;
+                                        get = localStorage.getItem("post");
+                                        create = JSON.parse(get);
+                                        create.forEach(post => {
+                                            str += "<tr>";
+                                            str += "<td>"+post.id+"</td>";    
+                                            str += "<td>"+post.title+"</td>";
+                                            str += "<td>"+post.category+"</td>";
+                                            str += "<td>"+post.date+"</td>";
+                                            str += '<td><button class="btn btn-info" onclick="getView()">View</button></td></tr>';
+                                        });
+                                        document.getElementById("post-info").innerHTML = str;
+                                        postcount();
+                                        collegecount();
+                                        facultycount();
+                                    
+                                    }
+                                    function getView()
+                                    {
+                                        window.location.href = "posts.html";
+                                    }
+                                    </script>
+                                    <tbody id="post-info">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="card text-center bg-primary text-white mb-3">
+                                <script>
+                                    function postcount()
+                                    {
+                                        var get,create,text,i;
+                                        get = localStorage.getItem("post");
+                                        create = JSON.parse(get);
+                                        var postCount = 0;
+                                        create.forEach(post => {
+                                            postCount = postCount + 1;    
+                                        });
+                                        document.getElementById("postCount").innerHTML = postCount;
+                                    }
+                                    function collegecount()
+                                    {
+                                        var get,create,text,i;
+                                        get = localStorage.getItem("college");
+                                        create = JSON.parse(get);
+                                        var collegeCount = 0;
+                                        create.forEach(college => {
+                                            collegeCount = collegeCount + 1;    
+                                        });
+                                        document.getElementById("collegeCount").innerHTML = collegeCount;
+                                    }
+                                    function facultycount()
+                                    {
+                                        var get,create,text,i;
+                                        get = localStorage.getItem("faculty");
+                                        create = JSON.parse(get);
+                                        var facultyCount = 0;
+                                        create.forEach(faculty => {
+                                            facultyCount = facultyCount + 1;    
+                                        });
+                                        document.getElementById("facultyCount").innerHTML = facultyCount;
+                                    }
+                                    
+                                </script>
+                                <div class="card-body">
+                                    <h3>Posts</h3>
+                                    <h1 class="display-4">
+                                        <i class="fa fa-pencil"></i> <h5 id="postCount"></h5>
+                                    </h1>
+                                    <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
+                                </div>
+                            </div>
+
+                            <div class="card text-center bg-success text-white mb-3">
+                                <div class="card-body">
+                                    <h3>College</h3>
+                                    <h1 class="display-4">
+                                        <i class="fa fa-folder"></i> <h5 id="collegeCount"></h5>
+                                    </h1>
+                                    <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+                                </div>
+                            </div>
+
+                            <div class="card text-center bg-warning text-white mb-3">
+                                <div class="card-body">
+                                    <h3>Users</h3>
+                                    <h1 class="display-4">
+                                        <i class="fa fa-users"></i> <h5 id="facultyCount"></h5>
+                                    </h1>
+                                    <a href="user.html" class="btn btn-outline-light btn-sm">View</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!--End Posts Section-->
+
+        <!--Footer Section-->
+            <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead text-center">Copyright &copy; 2020 Gujarat University</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>   
+
+        <!--End Footer Section-->
+
+        <!--Post Modal-->
+            <div class="modal fade" id="addPostModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title">
+                                Add Post
+                            </h5>
+                            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                        </div>
+                        <script>
+                            function addpost()
+                            {
+                                var id = document.getElementById("id").value;
+                                var title = document.getElementById("title").value;
+                                var category = document.getElementById("category").value;
+                                var date = document.getElementById("date").value;
+                                var bodytext = document.getElementById("bodytext").value;
+                                
+                                var temp;
+                                if(title=="" && category=="") 
+                                {
+                                    alert("Please Insert all fields");
+                                }
+                                else
+                                {
+                                    var object = {
+                                        'id':id,
+                                        'title':title,
+                                        'category':category,
+                                        'date':date,
+                                        'bodytext':bodytext
+                                    }
+                                }
+                                
+                                temp = JSON.parse(localStorage.getItem('post')) || [];
+                                temp.push(object);
+                                object=JSON.stringify(temp);
+                                localStorage.setItem('post',object);
+                                alert("Successfull Added");
+                                getPostInfoData();
+                                document.getElementById("postData").reset();
+                            }
+
+                        </script>
+                        <div class="modal-body">
+                            <form name="postform" id="postData">
+                                <div class="form-group">
+                                    <label for="id">ID</label>
+                                    <input type="text" id="id" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" id="title" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="categories">Categories</label>
+                                    <select name="categories" id="category" class="form-control">
+                                        <option value="Student">Student</option>
+                                        <option value="College">College</option>
+                                        <option value="Student/College">Student/College</option>
+                                        <option value="Genral">Genral</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">Date</label>
+                                    <input type="date" id="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="body">Body</label>
+                                    <textarea class="form-control" id="bodytext"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button" onclick="addpost()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--End Post Modal-->
+
+         <!--Categories Modal-->
+            <div class="modal fade" id="addCategoriesModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success text-white">
+                            <h5 class="modal-title">
+                                Add College
+                            </h5>
+                            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                        </div>
+                        <script>
+                            function addcollege()
+                            {
+                                var code = document.getElementById("code").value;
+                                var collegename = document.getElementById("collegename").value;
+                                var address = document.getElementById("address").value;
+                                var course = document.getElementById("course").value;
+                                var seat = document.getElementById("seat").value;
+
+                                var collegetemp;
+                                if(code=="" && collegename=="" && address=="" && course=="" && seat=="")
+                                {
+                                    alert("Please Insert all fields");
+                                }
+                                else
+                                {
+                                    var object = {
+                                        'code':code,
+                                        'collegename':collegename,
+                                        'address':address,
+                                        'course':course,
+                                        'seat':seat
+                                    }
+                                }
+                                collegetemp = JSON.parse(localStorage.getItem('college')) || [];
+                                collegetemp.push(object);
+                                object=JSON.stringify(collegetemp);
+                                localStorage.setItem('college',object);
+                                alert("Successfull Added");
+                                document.getElementById("collegeData").reset();
+                            }   
+                        </script>
+                        <div class="modal-body">
+                            <form action="" id="collegeData">
+                                <div class="form-group">
+                                    <label for="title">College Code</label>
+                                    <input type="text" class="form-control" id="code">
+                                    <label for="title">College Name</label>
+                                    <input type="text" class="form-control" id="collegename">
+                                    <label for="title">College Address</label>
+                                    <input type="text" class="form-control" id="address">
+                                    <label for="title">College Course</label>
+                                    <select name="course" id="course" class="form-control">
+                                        <option value="Select Course" active>Select Course</option>
+                                        <option value="B.Com">B.Com</option>
+                                        <option value="BCA">BCA</option>
+                                        <option value="BBA">BBA</option>
+                                    </select>
+                                    <label for="title">College Course Seat</label>
+                                    <input type="text" class="form-control" id="seat">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button class="btn btn-success" data-dismiss="modal" onclick="addcollege()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--End Categories Modal-->
+
+        <!--User Modal-->
+            <div class="modal fade" id="addUsersModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-warning text-white">
+                            <h5 class="modal-title">
+                                Add Faculty
+                            </h5>
+                            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                        </div>
+                        <script>
+                            function addUserData()
+                            {
+                                var facultyCode = document.getElementById("facultyCode").value;
+                                var facultyname = document.getElementById("facultyname").value;
+                                var facultyemail = document.getElementById("facultyemail").value;
+                                var facultyCollege = document.getElementById("facultyCollege").value;
+                                var facultyCourse = document.getElementById("facultyCourse").value;
+                                var facultyexp = document.getElementById("facultyexp").value;
+                                var facultyphone = document.getElementById("facultyphone").value;
+
+                                var facultytemp;
+                                if(facultyCode == "" || facultyname=="" || facultyemail=="" || facultyCollege=="" || facultyCourse == "" || facultyexp=="" || facultyphone=="")
+                                {
+                                    alert("Please Insert all fields");
+                                }
+                                else
+                                {
+                                    var object = {
+                                        'facultyCode':facultyCode,
+                                        'facultyname':facultyname,
+                                        'facultyemail':facultyemail,
+                                        'facultyCollege':facultyCollege,
+                                        'facultyCourse':facultyCourse,
+                                        'facultyexp':facultyexp,
+                                        'facultyphone':facultyphone
+                                    }
+                                    
+                                }
+                                
+                                facultytemp = JSON.parse(localStorage.getItem('faculty')) || [];
+                                facultytemp.push(object);
+                                object=JSON.stringify(facultytemp);
+                                localStorage.setItem('faculty',object);
+                                alert("Successfull Added");
+                                document.getElementById("facultyData").reset();
+
+                            }
+                        </script>
+                        <div class="modal-body">
+                            <form action="" id="facultyData">
+                                <div class="form-group">
+                                    <label for="facultyCode">Faculty Code</label>
+                                    <input type="text" class="form-control" id="facultyCode">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="facultyname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="facultyemail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="collegename">College Name</label>
+                                    <input type="text" class="form-control" id="facultyCollege">
+                                </div>
+                                <div class="form-group">
+                                    <label for="course">Course</label>
+                                    <select id="facultyCourse" class="form-control">
+                                        <option value="Select Course" active>Select Course</option>
+                                        <option value="B.Com">B.Com</option>
+                                        <option value="BCA">BCA</option>
+                                        <option value="BBA">BBA</option>
+                                    </select>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="exp">Exprience</label>
+                                    <input type="text" class="form-control" id="facultyexp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact">Contact Number</label>
+                                    <input type="tel" class="form-control" id="facultyphone">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button class="btn btn-warning" data-dismiss="modal" onclick="addUserData()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--User End Modal-->
+    
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+    </body>
+</html>

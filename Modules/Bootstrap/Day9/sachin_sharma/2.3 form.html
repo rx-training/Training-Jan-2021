@@ -1,0 +1,181 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <title>bootstrap_practice</title>
+</head>
+<body>
+    <header>
+            <h1 class="display-3 text-center my-4">Forms</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-block dropdown-toggle" type="button"
+                            data-toggle="dropdown">
+                             Utilities
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="1.1 basic_typography.html" class="dropdown-item">Basic Typography</a>
+                                <a href="1.2 display_alingment.html" class="dropdown-item">Display and alingment</a>
+                                <a href="1.3 float_fixed_postion.html" class="dropdown-item">Float and fixed postion</a>
+                                <a href="1.4 color_bg.html" class="dropdown-item">color and background</a>  
+                                <a href="1.5 spacing.html" class="dropdown-item">spacing</a>  
+                                <a href="1.6 size_border.html" class="dropdown-item">size and borders</a>
+                                <a href="1.7 break_point.html" class="dropdown-item">Break point</a>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-danger btn-block dropdown-toggle" type="button"
+                            data-toggle="dropdown">
+                             CSS Component 
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="2.1 navbar.html" class="dropdown-item">Navbar</a>
+                                <a href="2.2 list_group.html" class="dropdown-item">List Group and Badges</a>
+                                <a href="2.3 form.html" class="dropdown-item">Forms</a>
+                                <a href="2.4 input_and_addons.html" class="dropdown-item">input and addons</a>
+                                <a href="2.5 progressbar.html" class="dropdown-item">Progressbar and alerts</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-success btn-block dropdown-toggle" type="button"
+                            data-toggle="dropdown">
+                             Grid and Flexbox
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Basic Typography</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-warning btn-block dropdown-toggle" type="button"
+                            data-toggle="dropdown">
+                             javascript and widgets
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Basic Typography</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </header>
+    
+        <div class="container">
+            <br>
+                <form action="">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" placeholder="enter name" class="form-control form-control-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="email" placeholder="enter email" class="form-control form-control-lg">
+                        <small class="form-text">dont share your mail id to anyone</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" placeholder class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select name="" id="gender" class="form-control">
+                            <option value="">Male</option>
+                            <option value="">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Massge</label>
+                        <textarea name="" id="" rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">upload file</label>
+                        <input type="file" class="form-control">
+                    </div>
+
+                    <!--form check-->
+                    <fieldset class="form-group">
+                        <legend>
+                            what are you using this service ?
+                        </legend>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" value="option1" checked class="form-check-input">Personal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" value="option1" checked class="form-check-input">Comercial use
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" value="option1" checked class="form-check-input">Testing
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div>
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">Sign up for newsletter                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2 " >Submit</button>
+
+
+                </form> <br>
+                <form class="form-inline">
+                    <input type="text" placeholder="enter username" class="form-control mr-3">
+                    <input type="password" placeholder="password"  class="form-control mr-3">
+                    <div class="form-check">
+                        <label form-check-label>
+                            <input type="checkbox" class="form-check-input mr-10"> Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-danger">submit</button>
+                </form>
+                <br>
+                <h1 class="bg-primary">row and colm class with form</h1>
+
+                <form action="" class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" placeholder="enter username" class="form-control">
+                        </div>
+                        <div class="col">
+                            <input type="password" placeholder="password" class="form-control">
+
+                        </div>
+
+                    </div>
+
+                </form>
+                <h1 class="bg-primary">validation</h1> <br>
+
+                <div class="form-group">
+                    <label for="">name</label>
+                    <input type="text" placeholder="enter name" class="form-control is-valid">
+                    
+                    <label for="">Password</label>
+                    <input type="password" placeholder="enter name" class="form-control is-invalid"><div class="invalid-feedback">password not strong</div>
+                    <label for="">confirm Passward</label>
+                    <input type="password" placeholder="enter name" class="form-control is-invalid"><div class="invalid-feedback">password not match</div>
+                </div>
+        </div>
+
+
+
+
+</body>
+</html>

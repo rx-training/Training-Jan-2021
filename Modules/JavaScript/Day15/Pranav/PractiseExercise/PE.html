@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <title>Javascript Practise Exercise 1</title>
+        
+        <script type="text/javascript">
+
+            function greatestno() {
+                var value1=prompt("Enter first no:");
+                var value2=prompt("Enter second no:");
+                var value3=prompt("Enter third no:");
+                var no1=parseInt(value1);
+                var no2=parseInt(value2);
+                var no3=parseInt(value3);
+                if(no1>no2 && no1>no3) 
+                    alert("First no: " + no1 + " is greatest.");
+                else if(no2>no3 && no2>no1) 
+                    alert("Second no: " + no2 + " is greatest.");
+                else
+                    alert("Third no: " + no3 + " is greatest.");
+            }
+
+            function total() {
+                var value1=prompt("Enter first no:");
+                var value2=prompt("Enter second no:");
+                var value3=prompt("Enter third no:");
+                var no1=parseInt(value1);
+                var no2=parseInt(value2);
+                var no3=parseInt(value3);
+                if(no1>40 && no2>40 && no3>40) {
+                    var sum=no1+no2+no3;
+                    alert("Sum of no. greater than 40 is: "+ sum);
+                }
+                else if(no1>40 && no2>40) {
+                    var sum=no1+no2;
+                    alert("Sum of no. greater than 40 is: "+ sum);
+                }
+                else if(no2>40 && no3>40) {
+                    var sum=no2+no3;
+                    alert("Sum of no. greater than 40 is: "+ sum);
+                }
+                else if(no3>40 && no1>40) {
+                    var sum=no3+no1;
+                    alert("Sum of no. greater than 40 is: "+ sum);
+                }
+                else {
+                    alert("Sorry,No number is greater than 40");
+                }
+            }
+            function city1()
+            {
+                var city=["Mumbai","Pune","Hyderabad","Banglore"];
+                for(var i=0;i<city.length;i++)
+                    alert("City: "+city[i]);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="text-center">
+            <button class="btn-primary" onclick="greatestno()">Show greatest no</button>
+            <button class="btn-warning" onclick="total()">Show sum of nos greater than 40</button>
+            <button class="btn-success" onclick="city1()">Show Cities</button>
+        </div>
+    </body>
+</html>

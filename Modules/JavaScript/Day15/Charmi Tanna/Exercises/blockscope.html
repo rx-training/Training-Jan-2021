@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        try{
+            throw 123;
+        }
+        catch(e)
+        {
+            document.write(e);
+        }
+        "use strict";
+        document.write(e1);
+        try{
+            throw 123;
+        }
+        catch(e1)
+        {
+            document.write(e1);
+        }
+
+        document.write(insideCatch);
+        try{
+            throw 123;
+        }
+        catch(e2)
+        {
+            var insideCatch = "Inside Catch";
+            document.write(e2);
+        }
+
+        document.write(insideCatch);
+        try{
+            throw 123;
+        }
+        catch(e4)
+        {
+
+        }
+        document.write(e4);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

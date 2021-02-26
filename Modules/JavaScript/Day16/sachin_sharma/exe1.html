@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">        
+    <title>Exe1</title>
+</head>
+<body>
+    <h1 class="bg-secondary text-center"> Exe 1 check string is empty or not</h1>
+    <form action="exe1.html">
+        <div class="container">
+            <div class="form-group">
+                <label for="">Enter string</label>
+                <input type="text" placeholder="enter string" class="form-control" id="inputStr"> <br>
+                <input type="button" class="btn btn-primary btn-block" value="check" onclick="checkStrEmpty()">
+            </div>
+        </div>
+    </form>
+    <div class="alert alert-danger text-center" id="demo">
+
+    </div>
+
+    <script>
+        function checkStrEmpty()
+        {    
+            str=document.getElementById("inputStr").value; 
+
+            if(str.length>0)
+            {
+                document.getElementById('demo').innerHTML=" str is not empty its length is" + str.length;
+
+            }
+            else{
+                document.getElementById('demo').innerHTML="str is empty";
+            }
+        }
+        
+     </script>
+</body>
+</html>

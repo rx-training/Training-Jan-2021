@@ -1,0 +1,79 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>
+           EmployeeFrom
+        </title>
+        <style>
+            .main{
+                text-align: center;
+                font-size: 30;
+            }
+            .tab{
+                font-size: 30;
+                width: 60%;
+                
+            }
+        </style>
+    </head>
+
+    <body>
+        <center><h1>Employee Registration</h1></center>
+        <form class="main">
+            <table align="center" class="tab">
+                <tr>
+                    <td>Employee Name :</td>
+                    <td><input type="text" required="required"></td>
+                </tr>
+                <tr>
+                    <td>Age :</td>
+                    <td><input type="number" size="3" min="0" max="200" required="required"></td>
+                </tr>
+                <tr>
+                    <td>Gender :</td>
+                    <td>
+                        <input type="radio" name="gender"  value="male" required="required">
+                        <label>Male</label>
+                        <input type="radio" name="gender" value="female" required="required">
+                        <label >Female</label>
+                        <input type="radio" name="gender" value="other" required="required">
+                        <label >Other</label>
+                    </td>
+                </tr>       
+                <tr>
+                    <td>Designation</td>
+                    <td><input type="text" required="required"></td>
+                </tr> 
+                <tr>
+                    <td>Email id</td>
+                    <td><input type="email" required="required"></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>
+                        <select name="Location">
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Vadodara">Vadodara</option>
+                            <option value="Surat">Surat</option>
+                          </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>Date of joining</td>
+                    <td><input type="date" required="required"></td>
+                </tr>      
+                <tr>
+                    <td>Salary</td>
+                    <td><input type="number" min="0" required="required"></td>
+                </tr>
+                <tr>
+                    <td>Contact number</td>
+                    <td><input type="tel" required="required"></td>
+                </tr>
+                   
+            </table>
+            <input type="submit">
+        </form>
+    </body>
+</html>

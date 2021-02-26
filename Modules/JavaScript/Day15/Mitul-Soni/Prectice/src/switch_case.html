@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+</head>
+<script>
+    var orderType = 'business';
+    var shipMethod;
+
+    switch(orderType)
+    {
+        case 'business':
+            shipMethod = 'fedex';
+            break;
+
+        case 'personal':
+            shipMethod = 'USA GROUND';
+            break;
+
+        default:
+            shipMethod = 'USA';
+            break;
+    }
+
+    console.log(shipMethod);
+
+
+
+    /* Example 2 */
+
+    var orderTotal = 99.99;
+    var discount;
+
+    switch(true)
+    {
+        case orderTotal >= 50 && orderTotal < 75:
+            discount = 10;
+            break;
+
+        case orderTotal >= 75 && orderTotal < 100:
+            discount = 20;
+            break;
+        
+        case orderTotal >= 100:
+            discount = 30;
+            break;
+        
+        default:
+            discount = 0;
+            break;
+
+    }
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .head{
+            border: 2px solid red;
+            margin:20px
+        }
+        .hide{
+            border: 1px solid black;
+            height: 100px;
+            width: 300px;
+            margin: 20px;
+        }
+        .size{
+            border: 1px solid black;
+            height: 100px;
+            width: 300px;
+            margin: 20px;
+            font-size: 30px;
+        }
+        @media only screen and (max-width: 800px){
+            .head{
+                border: 2px solid yellow;
+            }
+            .hide{
+                display: none;
+            }
+            .size{
+                font-size: 20px;
+            }
+        }
+            
+    </style>
+</head>
+<body>
+    <h1 class="head">
+        This is heading
+    </h1>
+    <p class="head">
+        This is paragraph 
+    </p>
+    <div class="hide">
+        Thios div will be hidden in small size screen
+    </div>
+    <div class="size">
+        Font size will be smaller in small screen
+    </div>
+</body>
+</html>

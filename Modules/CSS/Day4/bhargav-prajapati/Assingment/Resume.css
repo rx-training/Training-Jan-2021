@@ -1,0 +1,30 @@
+#A
+{
+    text-align: right;
+    color: darkred;
+}
+#B
+{
+    
+    text-align: center;
+    border: solid steelblue;
+    background-color: steelblue;
+    
+}
+#C
+{
+    height: 15%;
+    width: 100%;
+    border-style: solid;
+    text-align: center;
+}
+#Z
+{
+    text-align: center;
+    background-color:steelblue;
+}
+#Q:hover
+{
+    background-color:steelblue;
+
+}

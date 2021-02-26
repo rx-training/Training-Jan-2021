@@ -1,0 +1,41 @@
+﻿#div1 {
+    background-color:lightblue;
+    width: 250px;
+    height: 100px;
+    border: solid black;
+    overflow: visible;
+}
+#div2 {
+    
+    position:static;
+    background-color: lightblue;
+    width: 250px;
+    height: 100px;
+    border: solid black;
+    overflow: hidden;
+}
+#div3 {
+    background-color: lightblue;
+    width: 250px;
+    height: 100px;
+    border: solid black;
+    overflow: scroll;
+}
+#div4{
+    background-color: lightblue;
+    width: 250px;
+    height: 100px;
+    border: solid black;
+    overflow: auto;
+}
+
+#div5 {
+    background-color: lightblue;
+    width: 200px;
+    height: 50px;
+    border: solid black;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+

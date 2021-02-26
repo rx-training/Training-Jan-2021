@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>employee detail from api</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <button class="btn btn-primary">get data</button>
+        <table class=" table table-striped ">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>status</th>
+                </tr>
+            </thead>
+
+            <tbody class="data">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.getJSON("https://gorest.co.in/public-api/users", function (data) {
+                    var details = data.data;
+                    
+                    var employee_data = '';
+                    $.each(details,function(key,value){
+                        
+                        employee_data += '<tr>' +'<td>' +value.id +'</td>'+'<td>' +value.name+'</td>'+'<td>' +value.email +'</td>'+'<td>' +value.gender +'</td>'+'<td>' +value.status +'</td>'+'</tr>'
+                        
+                    });
+                   
+                    $(".data").append(employee_data);
+                    
+                });
+            });
+        })
+    </script>
+</body>
+
+</html>

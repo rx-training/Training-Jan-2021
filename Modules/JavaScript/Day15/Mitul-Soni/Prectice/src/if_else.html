@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If_ELSE</title>
+</head>
+<script>
+    var total = 99.99;
+    var freeShipping;
+    var saving;
+    if(total >= 100.00)
+    {
+        freeShipping = true;
+        saving = 29.99;
+    }
+    else
+    {
+        freeShipping = false;
+        saving = 0;
+    }
+    console.log(freeShipping  + " " +  saving);
+
+    function getResult()
+    {
+        var no1 = document.getElementById("number1").value;
+        var no2 = document.getElementById("number2").value;
+
+        if(no1%2 == 0 && no2 % 2 == 0)
+        {
+            alert("Both Numbers is Even");
+        }
+        else
+        {
+            alert("Both Numbers is Odd");
+        }
+    }
+</script>
+<body>
+    <center>
+        <input type="text" id="number1" placeholder="Enter Number"><br><br>
+        <input type="text" id="number2" placeholder="Enter Number"><br><br>
+        <input type="submit" onclick="getResult()" value="Result">
+    </center>
+</body>
+</html>

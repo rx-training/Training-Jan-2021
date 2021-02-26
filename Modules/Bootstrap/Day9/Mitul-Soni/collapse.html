@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1 class="display-3 text-center my4">Basic Typography</h1>	
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="dropdown mt-4 mx-2">
+		  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">2: Utilities
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="text-alignment.html">2.1 Text Alignment & Display</a></li>
+							<li><a href="float.html">2.2 Float & Fixed Position</a></li>
+							<li><a href="color.html">2.3 Colors & Background</a></li>
+							<li><a href="margin.html">2.4 Margin & Spacing</a></li>
+							<li><a href="sizing.html">2.5 Sizing & Borders</a></li>
+							<li><a href="breakpoint.html">2.6 CSS Breakpoint</a></li>				
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">3: CSS Components
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="button.html">Buttons & Buttons Group</a></li>
+							<li><a href="navbar.html">Navbar & Nav</a></li>
+							<li><a href="listgroup.html">Listgroup & Badges</a></li>
+							<li><a href="forms.html">Forms & Input</a></li>
+							<li><a href="input.html">Input Groups</a></li>
+							<li><a href="alert.html">Alerts & Progressbar</a></li>
+							<li><a href="table.html">Tables & Pagination</a></li>
+							<li><a href="card.html">Working With Cards</a></li>
+							<li><a href="media.html">Media Objects</a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">4: Grid & Flexbox
+		  				<span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu">
+						<li><a href="grid-alignment.html">Grid Alignment</a></li>
+						<li><a href="flexbox.html">Flexbox Classes</a></li>
+						<li><a href="auto-margin.html">Auto Margin wrap & Ordering</a></li>
+					</ul>
+		  		</div>
+		  	</div>
+		  	<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">5: JavaScript Widgets
+		  				<span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu">
+						<li><a href="carousel.html">Carousel Slider</a></li>
+						<li><a href="collapse.html">Collpse & Accordion</a></li>
+						<li><a href="tooltip.html">Tooltips</a></li>
+						<li><a href="popover.html">Popover</a></li>
+						<li><a href="modal.html">Modal</a></li>	
+					</ul>
+				</div>
+			</div>
+		</div>	
+		<br><br>
+		<hr>
+        <br>
+
+        <!--Button With Collapse-->
+        <button class="btn btn-primary" data-toggle="collapse" data-target="#collapse-btn-1">
+            Read More
+        </button>
+
+        <div class="collapse mb-5" id="collapse-btn-1">
+            <div class="card">
+                <div class="card-body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+        </div>  
+
+        <br><br>
+        <!--Accordion-->
+        <div id="accordion" role="tablist" class="col-lg-5">
+            <div class="card">
+                <div class="card-header" role="tab" id="heading">
+                    <h5>
+                        <a href="#collapse1" data-parent="#accordion" data-toggle="collapse">Collapse One</a>
+                    </h5>
+                </div>
+
+                <div class="collapse show" id="collapse1">
+                    <div class="card-body">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

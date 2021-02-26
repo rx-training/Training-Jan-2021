@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        var id = 5*3;
+        document.write("<br>"+id);
+        var id1 = 1.1*1.1;
+        document.write("<br>"+id1);
+        if(id1 != 1.21)
+        document.write("<br>"+"Big Problem");
+        if(id1.toFixed(2) == 1.21)
+        document.write("<br>"+"Fixed");
+        var id2 = 20*NaN;
+        document.write("<br>"+id2);
+        var id3 = 20*undefined;
+        document.write("<br>"+id3);
+        var id4 = 20*null;
+        document.write("<br>"+id4);
+        var obj=
+        {
+            valueOf : function(){return 100;}
+        };
+        var total=4*obj;
+        document.write("<br>"+total);
+        var total1=4*Infinity;
+        document.write("<br>"+total1);
+        var total2=-4*Infinity;
+        document.write("<br>"+total2);
+        var total3=-4*"xyz";
+        document.write("<br>"+total3);
+        var total4=9/0;
+        document.write("<br>"+total4);
+        total4=-9/0;
+        document.write("<br>"+total4);
+        total4=9/"3";
+        document.write("<br>"+total4);
+        total4=9%4;
+        document.write("<br>"+total4);
+        total4=9%"     4    ";
+        document.write("<br>"+total4);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

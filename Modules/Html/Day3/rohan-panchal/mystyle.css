@@ -1,0 +1,4 @@
+body{}
+input[type=range] ::after{content: attr(max);}
+input[type=range] ::before{content: attr(min);}
+input[type=range] {width: 250px;color: brown;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: small;}

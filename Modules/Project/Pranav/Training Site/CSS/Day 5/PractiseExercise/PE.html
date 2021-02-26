@@ -1,0 +1,243 @@
+<html>
+    <head>
+        <title>HTML Assignment Day3</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<style>
+			#img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+            .headContainer {
+                width: 100%;
+                height: 30px;
+                font-size: 19px;
+                border: 4px solid grey;
+                background: blue;
+                text-align: center;
+            }
+            .first-container {
+                float: left;
+                width: 33%;
+                height:auto;
+                font-size: 19px;
+                border: 2px solid gray;
+            }
+            .second-container {
+                float: left;
+                width: 33%;
+                height: auto;
+                font-size: 19px;
+                border: 2px solid gray;
+            }
+            .third-container {
+                float: left;
+                width: 33%;
+                height: auto;
+                font-size: 19px;
+                border: 2px solid gray;
+            }
+            .relative {
+                position: relative;
+                width: 300px;
+                height: 100px;
+            }
+            .absolute {
+                position: absolute;
+                top: 50px;
+                width: 150px;
+                right: 20px;
+            }
+            .static {
+                position: static;
+                left: 50px;
+                margin-bottom: 100px;
+            }
+            .fixed {
+                position: fixed;
+                bottom: 30px;
+                right: 40px;
+                width: 300px;
+            }
+            .sidebar {
+                width: 120px;
+                height: 60px;
+                position: fixed;
+                z-index: 1;
+                top: 300px;
+                left: 30px;
+                background:green;
+                padding: 4px 6px 4px 14px;
+                font-size: 19px;
+            }
+        </style>
+    </head>
+    <body>
+		<div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="../../../HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../jQuery/jQueryindex.html" class="nav-link">jQuery</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Assignment.html" target="_blank" class="nav-link">getPocket</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Admin.html" target="_blank" class="nav-link">getPocket Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>CSS</li>
+                            <ul>
+                                <li>Day 5</li>
+                                <ul>
+                                    <a href="../Assignment/Assignment.html" target="_blank"class="text-dark"><li>Assignment</li></a>
+                                    <a href="PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="sidebar">
+                        <a href="https://www.youtube.com/channel/UC-eAwfIEu-i6GKze4uCenmg">Youtube</a>
+                        <a href="#https://www.sportskeeda.com/contact">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <p class="mb-2 mt-4">Practise Exercise 1-(Parent div should contain 3 div inside)</p>
+                    <div>
+                        <header class="headContainer">
+                            Welcome to My First Page 
+                        </header>
+                        <p class="first-container">
+                            HTML is the language in which most websites are written. HTML is used to create pages and make them functional.HTML was 
+                            first created by Tim Berners-Lee, Robert Cailliau, and others starting in 1989. It stands for Hyper Text Markup Language.
+                            Hypertext means that the document contains links that allow the reader to jump to other places in the document or to 
+                            another document altogether. The latest version is known as HTML5. A Markup Language is a way that computers speak to 
+                            each other to control how text is processed and presented. To do this HTML uses two things: tags and attributes.
+                        </p>
+                        <p class="second-container">
+                            Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML 
+                            or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media. CSS is among 
+                            the core languages of the open web and is standardized across Web browsers.CSS also has rules for alternate formatting 
+                            if the content is accessed on a mobile device.
+                        </p>
+                        <p class="third-container">
+                            JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+                            While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as 
+                            Node.js, Apache CouchDB and Adobe Acrobat. It is a prototype-based, multi-paradigm, single-threaded, dynamic 
+                            language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.
+                        </p>
+                    </div>
+                    <img src="1.jpg" alt="">
+                    <p class="mt-4 mb-4"><strong>position properties static, relative, fixed and absolute.</strong></p>
+                    <div class="relative">
+                        <div class="relative1">
+                            This text is using relative property.
+                        </div>
+                        <div class="static">
+                            This text is using static property.
+                        </div>
+                        <div class="fixed">
+                            This text is using fixed property.
+                        </div>
+                        <div class="absolute">
+                            This text is using absolute property.
+                        </div>
+                    </div>
+                    <p class="mt-4 mb-4"><strong>Overflow Properties Demo.</strong></p>
+                    <div style="width: 200px;height: 100px;overflow: scroll;margin-top: 50px;">
+                        Sport includes all forms of competitive physical activity or games which,through casual or organized participation, 
+                        at least in part aim to use, maintain or improve physical ability and skills while providing enjoyment to participants, and 
+                        in some cases, entertainment for spectators
+                    </div>
+                    <p style="width: 200px;height: 100px;overflow: hidden;margin-top: 50px;">
+                        Sports can bring positive results to one's physical health. Hundreds of sports 
+                        exist, from those between single contestants, through to those with hundreds of simultaneous participants, either in teams 
+                        or competing as individuals. In certain sports such as racing, many contestants may compete, simultaneously or consecutively,
+                        with one  winner; in others, the contest (a match) is between two sides, each attempting to exceed the other.
+                    </p>
+                    <h4 style="width: 700px;height: 100px;overflow: visible;margin-top: 50px;">
+                        Some sports allow a "tie" or "draw", in which there is no single winner;others provide tie-breaking methods to ensure one 
+                        winner and one loser. A number of contests may be arranged in a tournament producing a champion. Many sports leagues make an
+                        annual champion by arranging games in a regular sports season, followed in some cases by playoffs.
+                        </h4>
+                    </h4>
+                    <p style="margin-top: 150px;"><strong>Layout containing header,footer,leftbar.</strong></p>
+                    <div style="margin-top: 200px;background-color: greenyellow;">
+                        <header>
+                            <center>
+                                <h1>
+                                    Welcome to SportsKeeda
+                                </h1>
+                                <h3 style="margin-top: 40px;margin-left: 50px;">
+                                    One Stop destination for all sports related news.
+                                </h3>
+                            </center>
+                            <h3 style="margin-top: 40px;margin-left: 50px;">
+                                Sportskeeda is a sports and esports news website that was founded in 2009.Majority stake in the website was acquired
+                                by the gaming firm Nazara Technologies in 2019 at a valuation $10M .The website has news, features, commentary and 
+                                videos on sports like football, cricket, hockey, tennis, basketball, kabaddi etc and also on esports like PUBG Mobile, 
+                                Valorant, CS:GO and League of Legends. Its operations are managed by the incorporated organization Absolute Sports Private Limited.              Contents
+                            </h3>
+                            <p style="margin-left: 60px;margin-top: 40px;">
+                                Sportskeeda was founded by its current Chief Executive Officer Porush Jain in association with his fellow sports 
+                                enthusiasts Anshu Prasad and Robin Chhabria as well as Srinivas Cuddapah.Sportskeeda’s content is procured from a 
+                                variety of sources; the site accepts and publishes articles contributed by its community of writers. Sportskeeda 
+                                claims to publish around 150 articles every day.Esports and gaming form a significant part of Sportskeeda's content,
+                                 particularly since the halt in sporting action due to the COVID-19 pandemic[14]. Sportskeeda covers several mobile 
+                                 games like PUBG Mobile, Free Fire and COD Mobile. The site also has content on some of the American games such as Fortnite, GTA and Valorant
+                            </p>
+                        </header>
+                        <footer style="margin-top: 50px;">
+                            <a href="https://www.sportskeeda.com/">To know more</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
