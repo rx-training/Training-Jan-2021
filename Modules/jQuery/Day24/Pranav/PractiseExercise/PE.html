@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>PHP Training Site</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 330px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+            #bgimg1 {
+                width: 100%;
+                height: 500px;
+                background-image: url("jQuery1.jpg"); 
+                background-size: 100% 100%;
+            }
+            .ancestors * {
+                display: block;
+                border: 2px solid yellow;
+                color: green;
+                margin-top: 50px;
+                color: lightgrey;
+            }
+        </style>
+        <script>
+            $(document).ready(function() {
+                //find
+                $(".mainContainer1").find("*").css({"background": "blue", "border": "1px solid red"});
+                
+                //parent
+                $(".child1").parent().css({"background": "yellow", "border": "1px solid green"});
+                
+                //Parents
+                $(".ancestor").parents().css({"background": "lightgray", "border": "1px solid lightgray"});
+                
+                //ParentsUntil
+                $(".sibling1").parentsUntil(".ancestor").css({"background": "cyan", "border": "1px solid cyan"});
+                
+                //Children
+                $(".second").children().css({"background": "darkseagreen", "border": "1px solid seagreen"});
+                
+                //Children
+                $(".first").children("div.sibling1").css({"background": "lightgreen", "border": "1px solid darkgreen"});
+                
+                //Find
+                $(".first").find(".sibling2").css({"background": "lightgreen", "border": "1px solid lightgray"});
+                
+                //Siblings
+                $(".mainContainer2").siblings().css({"background": "magenta", "border": "1px solid lightyellow"});
+                
+                //Siblings
+                $(".mainContainer1").siblings().css({"background": "yellow", "border": "1px solid magenta"});
+
+                //First
+                $(".mainContainer2 div").first().css({"background": "red", "border": "1px solid red"});
+                
+                //Eq
+                $(".mainContainer2 div").eq(1).css({"background": "lightsalmon", "border": "1px solid lightsalmon"});
+                
+                //Last
+                $(".mainContainer2 div").last().css({"background": "violet", "border": "1px solid violet"});
+                
+                //Not
+                $("p").not(".special").css({"background": "green", "border": "1px solid green"});
+                
+                //Next
+                $(".notSpecial").next().css({"background": "blue", "border": "1px solid blue"});
+                
+                //Filter
+                $("p").filter(".special").css({"background": "indigo", "border": "1px solid indigo"});
+
+                $(".load").click(function(){
+                    $("#loadContent").load("temp.txt",function(text,status,req){
+                        if(status != "success"){
+                            alert("Error Occured");
+                        }
+                    });
+                });
+
+                $(".get").click(function(){
+                    $.get("temp.txt", function(data,status){
+                        alert("Please open console to see the output");
+                        console.log(data + "\n" + status);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="../../../HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../CSS/cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../jQueryindex.html" class="nav-link">jQuery</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Assignment.html" target="_blank" class="nav-link">getPocket</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Admin.html" target="_blank" class="nav-link">getPocket Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>jQuery</li>
+                            <ul>
+                                <li>Day 24</li>
+                                <ul>
+                                    <a href="../Assignment/Assignment.html" class="text-dark"><li>Assignment</li></a>
+                                    <a href="PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10 mt-4">
+                    <div class="mainContainer1 m-5 p-5"> Container 1
+                        <div class="ancestor p-5"> Ancestor
+                            <div class="first p-5"> Parent1
+                                <div class="sibling1 p-5"> Sibling1
+                                </div>
+                                <div class="sibling2 p-5"> Sibling2
+                                </div>
+                            </div>
+                            <br>
+                            <div class="second p-5"> Parent2
+                                <div class="child1 p-5"> Child1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="mainContainer2 m-5 p-5">Container 2
+                        <div class="first p-5">First</div>
+                        <div class="eq p-5">Eq</div>
+                        <div class="last p-5">Last</div>
+                        <p class="special p-5">Special</p>
+                        <p class="notSpecial p-5">Not Special</p>
+                        <p class="next p-5">Next</p>
+                        <p class="special p-5">Special</p>
+                    </div>
+                
+                    <div class="container text-center m-5 p-5">
+                        <button class="load btn btn-success">Fetch content</button>
+                        <button class="get btn btn-success">GET content</button>
+                        <div id="loadContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

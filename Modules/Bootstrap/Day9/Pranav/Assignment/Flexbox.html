@@ -8,6 +8,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            .row-h1 {
+                background: #f4f4f4;
+                height: 250px;
+            }
+            .item-h1 {
+                border: 1px solid #333;
+            }
+        </style>
     </head>
     <body>
         <h1 class="display-3 text-center my-4"> Basic Typography</h1>
@@ -78,80 +87,107 @@
                 </div>
             </div>
         </div>
-        <h3 class="text-center mt-5">Grid System Demo.</h3>
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border:1px solid #333">
-                    <ul>
-                        <li>6 column on small screen</li>
-                        <li>8 columns on medium screen</li>
-                        <li>9 columns on large screen</li>
-                        <li>10 columns on extra large screen</li>                       
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border:1px solid #333">
-                    <ul>
-                        <li>6 column on small screen</li>
-                        <li>4 column on medium screen</li>
-                        <li>3 columns on large screen</li>
-                        <li>2 columns on extra large screen</li>
-                    </ul>
-                </div>
+        <h3 class="text-center mt-5">Colors Demo.</h3>
+        <div class="container mt-5">
+            <div class="d-flex flex-row row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-            
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Equal Width</div>
-                <div class="col" style="border:1px solid #333">Equal Width</div>
-                <div class="col" style="border:1px solid #333">Equal Width</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row-reverse row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-            
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="w-100"></div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row justify-content-start row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Auto Layout</div>
-                <div class="col-6" style="border:1px solid #333">Auto Layout</div>
-                <div class="col-4" style="border:1px solid #333">Auto Layout</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row justify-content-center row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-
-            <div class="row">
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row justify-content-end row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-
-            <div class="row">
-                <div class="col order-2" style="border:1px solid #333">First</div>
-                <div class="col order-3" style="border:1px solid #333">Second</div>
-                <div class="col order-1" style="border:1px solid #333">Third</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row justify-content-around row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-
-            <div class="row">
-                <div class="col-md-4" style="border:1px solid #333">4 col</div>
-                <div class="col-md-4 ml-auto" style="border:1px solid #333">4 col offset 4</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row justify-content-between row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-
-            <div class="row">
-                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col</div>
-                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col offset 3</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row align-items-start row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-
-            <div class="row">
-                <div class="col-md-6 m-auto" style="border:1px solid #333">6 col offset 3</div>
+            <br>
+            <br>
+            <div class="d-flex flex-row align-items-center row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-9" style="border:1px solid #333">Level 1: .col-sm-9</div>
-                <div class="row">
-                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-8 .col-sm-6</div>
-                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-4 .col-sm-6</div>
-                </div>
+            <br>
+            <br>
+            <div class="d-flex flex-row align-items-end row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-row align-items-baseline row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-row align-items-stretch row-h1">
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+                <div class="p-4 item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-row row-h1">
+                <div class="p-4 align-self-md-start item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-center item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-end item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-baseline item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-stretch item-h1">Flex Item</div>
+            </div>
+            <br>
+            <br>
+            <div class="d-flex flex-row row-h1">
+                <div class="p-4 align-self-md-start item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-center item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-end item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-baseline item-h1">Flex Item</div>
+                <div class="p-4 align-self-md-stretch item-h1">Flex Item</div>
             </div>
         </div>
     </body>

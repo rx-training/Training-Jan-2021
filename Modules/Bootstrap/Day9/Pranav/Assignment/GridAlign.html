@@ -35,6 +35,8 @@
                             CSS Components
                         </button>
                         <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Section Intro</a>
+                            <a class="dropdown-item" href="Btngroup.html">Button & Button Groups</a>
                             <a class="dropdown-item" href="Nav.html">Navbars & Nav</a>
                             <a class="dropdown-item" href="Listgrp.html">ListGroups & Badges</a>
                             <a class="dropdown-item" href="Forms.html">Form & Input</a>
@@ -78,79 +80,133 @@
                 </div>
             </div>
         </div>
-        <h3 class="text-center mt-5">Grid System Demo.</h3>
+        <h3 class="text-center mt-5">Grid Alignment Demo.</h3>
         <div class="container">
             
-            <div class="row">
-                <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border:1px solid #333">
-                    <ul>
-                        <li>6 column on small screen</li>
-                        <li>8 columns on medium screen</li>
-                        <li>9 columns on large screen</li>
-                        <li>10 columns on extra large screen</li>                       
-                    </ul>
+            <div class="row align-items-start" style="height:200px;border:1px #333 solid">
+                <div class="col">
+                    Top Aligned Text
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border:1px solid #333">
-                    <ul>
-                        <li>6 column on small screen</li>
-                        <li>4 column on medium screen</li>
-                        <li>3 columns on large screen</li>
-                        <li>2 columns on extra large screen</li>
-                    </ul>
+                <div class="col">
+                    Top Aligned Text
+                </div>
+                <div class="col">
+                    Top Aligned Text
+                </div>
+            </div>
+
+            <div class="row align-items-center" style="height:200px;border:1px #333 solid">
+                <div class="col">
+                    Middle Aligned Text
+                </div>
+                <div class="col">
+                    Middle Aligned Text
+                </div>
+                <div class="col">
+                    Middle Aligned Text
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Equal Width</div>
-                <div class="col" style="border:1px solid #333">Equal Width</div>
-                <div class="col" style="border:1px solid #333">Equal Width</div>
+            <div class="row align-items-end" style="height:200px;border:1px #333 solid">
+                <div class="col">
+                    Bottom Aligned Text
+                </div>
+                <div class="col">
+                    Bottom Aligned Text
+                </div>
+                <div class="col">
+                    Bottom Aligned Text
+                </div>
             </div>
+        </div>
+        
+        <div class="container">
+            <div class="row" style="height:200px;border:1px #333 solid">
+                <div class="col align-items-start">
+                    Top Aligned
+                </div>
+                <div class="col align-items-center">
+                    Middle Aligned
+                </div>
+                <div class="col align-items-end">
+                    Bottom Aligned
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
             
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="w-100"></div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
+            <div class="row justify-content-start mt-5" style="height:200px;border:1px #333 solid">
+                <div class="col-4">
+                    Left Aligned Text
+                </div>
+                <div class="col-4">
+                    Left Aligned Text
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Auto Layout</div>
-                <div class="col-6" style="border:1px solid #333">Auto Layout</div>
-                <div class="col-4" style="border:1px solid #333">Auto Layout</div>
+            <div class="row justify-content-center" style="height:200px;border:1px #333 solid">
+                <div class="col-4">
+                    Center Aligned Text
+                </div>
+                <div class="col-4">
+                    Center Aligned Text
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
+            <div class="row justify-content-end" style="height:200px;border:1px #333 solid">
+                <div class="col-4">
+                    Right Aligned Text
+                </div>
+                <div class="col-4">
+                    Right Aligned Text
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col order-2" style="border:1px solid #333">First</div>
-                <div class="col order-3" style="border:1px solid #333">Second</div>
-                <div class="col order-1" style="border:1px solid #333">Third</div>
+            <div class="row justify-content-around" style="height:200px;border:1px #333 solid">
+                <div class="col-4">
+                    Content Around
+                </div>
+                <div class="col-4">
+                    Content Around
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-4" style="border:1px solid #333">4 col</div>
-                <div class="col-md-4 ml-auto" style="border:1px solid #333">4 col offset 4</div>
+            <div class="row justify-content-between" style="height:200px;border:1px #333 solid">
+                <div class="col-4">
+                    Content Between
+                </div>
+                <div class="col-4">
+                    Content Between
+                </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col</div>
-                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col offset 3</div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-9">
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            Lorem ipsur dolor sit amet, consectetur adipisicing elit. Consequuntur,repudiandae!
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-6 m-auto" style="border:1px solid #333">6 col offset 3</div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            Lorem ipsur dolor sit amet, consectetur adipisicing elit. Consequuntur,repudiandae!
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-9" style="border:1px solid #333">Level 1: .col-sm-9</div>
-                <div class="row">
-                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-8 .col-sm-6</div>
-                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-4 .col-sm-6</div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            Lorem ipsur dolor sit amet, consectetur adipisicing elit. Consequuntur,repudiandae!
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

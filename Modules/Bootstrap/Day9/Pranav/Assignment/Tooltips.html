@@ -8,6 +8,37 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            $('[data-toggle="tooltip"]').tooltip();
+            
+            function showTooltip() {
+                $('#hello').tooltip('show');
+            }
+
+            function hideTooltip() {
+                $('#hello').tooltip('hide');
+            }
+
+            function toggleTooltip() {
+                $('#hello').tooltip('toggle');
+            }
+
+            $("#hello").on('show.bs.tooltip',function() {
+                console.log("Tooltip Show");
+            });
+
+            $("#hello").on('hide.bs.tooltip',function() {
+                console.log("Tooltip Hide");
+            });
+
+            $("#hello").on('shown.bs.tooltip',function() {
+                console.log("Tooltip Shown");
+            });
+
+            $("#hello").on('hidden.bs.tooltip',function() {
+                console.log("Tooltip Hidden");
+            });
+        </script>
     </head>
     <body>
         <h1 class="display-3 text-center my-4"> Basic Typography</h1>
@@ -71,12 +102,30 @@
                             <a class="dropdown-item" href="Carousel.html">Carousel Slider</a>
                             <a class="dropdown-item" href="CollapseAccord.html">Collapse & Accordion</a>
                             <a class="dropdown-item" href="Tooltips.html">Tooltips</a>
-                            <a class="dropdown-item" href="Popovers.html">Popovers</a>
-                            <a class="dropdown-item" href="Modals.html">Modals</a>
+                            <a class="dropdown-item" href="#">Popovers</a>
+                            <a class="dropdown-item" href="#">Modals</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <h3 class="text-center mt-5">Tooltips Demo.</h3>
+        <button class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on Top</button>
+        <button class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on Right</button>
+        <button class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on Bottom</button>
+        <button class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on Left</button>
+        <br>
+        <br>
+        <button id="hello" class="btn btn-primary" data-toggle="tooltip" data-placement="top" data-html="true" title="<h3>Welcome</h3><p>poiuytqrew</p>">Tooltip with HTML</button>
+        <hr>
+        <button class="btn btn-secondary" onclick="showTooltip()">
+            Show Tooltip
+        </button>
+        <button class="btn btn-secondary" onclick="hideTooltip()">
+            Hide Tooltip
+        </button>
+        <button class="btn btn-secondary" onclick="toggleTooltip()">
+            Toggle Tooltip
+        </button>
     </body>
 </html>

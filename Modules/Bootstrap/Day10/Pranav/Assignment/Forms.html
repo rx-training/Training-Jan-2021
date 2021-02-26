@@ -78,80 +78,104 @@
                 </div>
             </div>
         </div>
-        <h3 class="text-center mt-5">Grid System Demo.</h3>
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border:1px solid #333">
-                    <ul>
-                        <li>6 column on small screen</li>
-                        <li>8 columns on medium screen</li>
-                        <li>9 columns on large screen</li>
-                        <li>10 columns on extra large screen</li>                       
-                    </ul>
+        <h3 class="text-center mt-5">Forms Demo.</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter Name:">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter Email:">
+                <small class="form-text text-muted">Your email will not be shared with anyone</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter Password:" readonly>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-control" >
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="3" class="form-control" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="file">File Input</label>
+                <input type="file" id="file" class="form-control-life">
+                <small id="fileHelp" class="form-text text-muted">Max 3mb size</small>
+            </div>
+            <fieldset class="form-group">
+                <legend>Why are you using this service?</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="option1" checked>Personal
+                    </label>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border:1px solid #333">
-                    <ul>
-                        <li>6 column on small screen</li>
-                        <li>4 column on medium screen</li>
-                        <li>3 columns on large screen</li>
-                        <li>2 columns on extra large screen</li>
-                    </ul>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="option1">Commercial use
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="option1">Testing
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Sign Up for Newsletter
+                </label>
+            </div>
+            <button class="btn btn-primary"     type="submit">SUbmit</button>
+        </form>
+        <br>
+        <br>
+        <form class="form-inline">
+            <input type="text" id="username" class="form-control mr-2" placeholder="Enter Username:">
+            <input type="pswd" id="password" class="form-control mr-2" placeholder="Enter Password:">
+            <div class="form-check">
+                <label class="form-check-label mr-2">
+                    <input type="checkbox" class="form-check-input">Remember Me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+        <br>
+        <br>
+        <form>
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First Name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Last Name">
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Equal Width</div>
-                <div class="col" style="border:1px solid #333">Equal Width</div>
-                <div class="col" style="border:1px solid #333">Equal Width</div>
+        </form>
+        <br>
+        <br>
+        <div class="form-grop">
+            <label for="username">Username</label>
+            <input type="text" class="form-control is-valid" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control is-invalid" id="password">
+            <div class="invalid-feedback">
+                Password not strong enough
             </div>
-            
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="w-100"></div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-                <div class="col" style="border:1px solid #333">Equal Width Multi</div>
-            </div>
-
-            <div class="row">
-                <div class="col" style="border:1px solid #333">Auto Layout</div>
-                <div class="col-6" style="border:1px solid #333">Auto Layout</div>
-                <div class="col-4" style="border:1px solid #333">Auto Layout</div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-            </div>
-
-            <div class="row">
-                <div class="col order-2" style="border:1px solid #333">First</div>
-                <div class="col order-3" style="border:1px solid #333">Second</div>
-                <div class="col order-1" style="border:1px solid #333">Third</div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4" style="border:1px solid #333">4 col</div>
-                <div class="col-md-4 ml-auto" style="border:1px solid #333">4 col offset 4</div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col</div>
-                <div class="col-md-3 ml-auto" style="border:1px solid #333">3 col offset 3</div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 m-auto" style="border:1px solid #333">6 col offset 3</div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-9" style="border:1px solid #333">Level 1: .col-sm-9</div>
-                <div class="row">
-                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-8 .col-sm-6</div>
-                    <div class="col-sm-6" style="border:1px solid red">Level 2: .col-4 .col-sm-6</div>
-                </div>
+        </div>
+        <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="text" class="form-control is-invalid" id="password2">
+            <div class="invalid-feedback">
+                Password not strong enough
             </div>
         </div>
     </body>

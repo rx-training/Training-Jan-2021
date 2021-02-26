@@ -8,6 +8,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            $('[data-toggle="popover"]').popover();
+            function showPopover() {
+                $('#myPopover').popover('show');
+            }
+
+            function hidePopover() {
+                $('#myPopover').popover('hide');
+            }
+
+            function togglePopover() {
+                $('#myPopover').popover('toggle');
+            }
+        </script>
     </head>
     <body>
         <h1 class="display-3 text-center my-4"> Basic Typography</h1>
@@ -72,11 +86,22 @@
                             <a class="dropdown-item" href="CollapseAccord.html">Collapse & Accordion</a>
                             <a class="dropdown-item" href="Tooltips.html">Tooltips</a>
                             <a class="dropdown-item" href="Popovers.html">Popovers</a>
-                            <a class="dropdown-item" href="Modals.html">Modals</a>
+                            <a class="dropdown-item" href="#">Modals</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <button class="btn btn-danger mt-5" data-toggle="popover" data-placement="top" title="Popover Title" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit">Toggle Popover</button>
+        <button class="btn btn-primary mt-5" data-toggle="popover" data-placement="right" title="Popover Title" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit">Toggle Popover</button>
+        <button class="btn btn-secondary mt-5" data-toggle="popover" data-placement="bottom" title="Popover Title" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit">Toggle Popover</button>
+        <button class="btn btn-warning mt-5" data-toggle="popover" data-placement="left" title="Popover Title" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit">Toggle Popover</button>
+        <button id="myPopover" class="btn btn-info mt-5" data-toggle="popover" data-placement="left" title="Popover Title" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit" data-trigger="focus">Toggle Popover</button>
+        <br>
+        <br>
+        <button class="btn btn-secondary" onclick="showPopover()">Show Popover</button>
+        <button class="btn btn-secondary" onclick="hidePopover()">Hide Popover</button>
+        <button class="btn btn-secondary" onclick="togglePopover()">Toggle Popover</button>
     </body>
 </html>
