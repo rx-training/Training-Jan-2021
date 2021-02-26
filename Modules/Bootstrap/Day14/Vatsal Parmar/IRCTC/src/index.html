@@ -671,14 +671,26 @@
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" required />
+                <label for="email">User Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userid"
+                  placeholder="Enter Id"
+                />
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" required />
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter Password"
+                />
               </div>
-              <button class="btn btn-info" type="submit">Log In</button>
+              <button class="btn btn-info" type="button" onclick="auth()">
+                Log In
+              </button>
             </form>
           </div>
         </div>
@@ -738,6 +750,7 @@
         var ticket = document.getElementById("ticketType").value;
         var seat = document.getElementById("seatType").value;
         var date = document.getElementById("date").value;
+
         var filter = [];
 
         if (document.getElementById("op1").checked == true) {
@@ -764,6 +777,19 @@
 
         window.location.href = "listings.html";
         //console.log(data);
+      }
+
+      // User Auth
+
+      function auth() {
+        var userid = document.getElementById("userid").value;
+        var password = document.getElementById("password").value;
+
+        if (userid == "admin" && password == "admin") {
+          window.location.href = "admin.html";
+        } else {
+          alert("Wrong Id Or Password");
+        }
       }
     </script>
   </body>

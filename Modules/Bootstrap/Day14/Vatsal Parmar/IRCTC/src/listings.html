@@ -642,14 +642,26 @@
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" required />
+                <label for="email">User Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userid"
+                  placeholder="Enter Id"
+                />
               </div>
               <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" required />
+                <label for="pwd">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter Password"
+                />
               </div>
-              <button class="btn btn-info" type="submit">Log In</button>
+              <button class="btn btn-info" type="button" onclick="auth()">
+                Log In
+              </button>
             </form>
           </div>
         </div>

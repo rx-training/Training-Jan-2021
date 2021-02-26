@@ -77,3 +77,16 @@ function ticket() {
       break;
   }
 }
+
+// User Auth
+
+function auth() {
+  var userid = document.getElementById("userid").value;
+  var password = document.getElementById("pwd").value;
+
+  if (userid == "admin" && password == "admin") {
+    window.location.href = "admin.html";
+  } else {
+    alert("Wrong Id Or Password");
+  }
+}

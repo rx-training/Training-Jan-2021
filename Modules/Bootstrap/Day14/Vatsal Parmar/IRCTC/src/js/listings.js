@@ -47,7 +47,14 @@ async function getData(file) {
   let x = await fetch(file);
   let y = await x.json();
 
-  trains = y.trains;
+  var l = localStorage.getItem("Listing Data");
+  if (l == null) {
+    trains = y.trains;
+  } else {
+    var Data = JSON.parse(l);
+    trains = Data.trains;
+    //console.log("from else block");
+  }
 
   var trainCard = "";
 
@@ -202,4 +209,17 @@ function book(id) {
   let trainData = JSON.stringify(t);
   localStorage.setItem("Train Data", trainData);
   window.location.href = "booking.html";
+}
+
+// User Auth
+
+function auth() {
+  var userid = document.getElementById("userid").value;
+  var password = document.getElementById("pwd").value;
+
+  if (userid == "admin" && password == "admin") {
+    window.location.href = "admin.html";
+  } else {
+    alert("Wrong Id Or Password");
+  }
 }

@@ -29,7 +29,13 @@
             <a href="#" class="nav-link">AGENT LOGIN</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">CONTACT US</a>
+            <a
+              href="#"
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#contactModal"
+              >CONTACT US</a
+            >
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">ASKDISHA</a>
@@ -188,7 +194,7 @@
                 <label for="name">Confirm Password</label>
                 <input
                   type="password"
-                  id="password"
+                  id="conf_password"
                   class="form-control"
                   placeholder="Confirm Password"
                   required
@@ -513,8 +519,102 @@
       </section>
     </div>
 
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title">Log In</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="email">User Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userid"
+                  placeholder="Enter Id"
+                />
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter Password"
+                />
+              </div>
+              <button class="btn btn-info" type="button" onclick="auth()">
+                Log In
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div class="modal fade" id="contactModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title">You May Contact Us</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <div>&times;</div>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <strong>Care Numbers :</strong> 0755-6610661, 0755-4090600
+              (Language: Hindi and English)..
+            </p>
+            <p>
+              <strong>For Railway tickets booked through IRCTC</strong><br />
+              <strong>General Information</strong><br />
+              <strong>I-tickets/e-tickets :</strong
+              ><span> care@irctc.co.in</span><br />
+              <strong>Mumbai Suburban Season tickets :</strong>
+              <span> seasontickets@irctc.co.in</span>
+            </p>
+            <p>
+              For IRCTC SBI Card users who do not receive the card within 01
+              month from the date of application kindly call on the Railway SBI
+              Card Helpline nos. at 0124-39021212 or 18001801295 (if calling
+              from BSNL/MTNL line) or send email to
+              <span>customercare@sbicard.com</span>. For other queries on your
+              IRCTC SBI card account, kindly email at
+              <span>loyaltyprogram@irctc.co.in</span>
+            </p>
+            <strong>
+              Registered Office / Corporate Office <br />
+              Indian Railway Catering and Tourism Corporation Ltd., <br />
+              B-148, 11th Floor, Statesman House, <br />
+              Barakhamba Road, New Delhi 110001
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      function auth() {
+        var userid = document.getElementById("userid").value;
+        var password = document.getElementById("pwd").value;
+
+        if (userid == "admin" && password == "admin") {
+          window.location.href = "admin.html";
+        } else {
+          alert("Wrong Id Or Password");
+        }
+      }
+    </script>
   </body>
 </html>
