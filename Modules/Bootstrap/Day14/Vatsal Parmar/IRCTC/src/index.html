@@ -746,6 +746,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
       function search() {
+        //getting data from user
+
         var location = document.getElementById("from").value;
         var destination = document.getElementById("to").value;
         var ticket = document.getElementById("ticketType").value;
@@ -773,6 +775,7 @@
           filter: filter,
         };
 
+        //setting seacrch data in local storage
         var searchData = JSON.stringify(data);
         localStorage.setItem("Search Data", searchData);
 

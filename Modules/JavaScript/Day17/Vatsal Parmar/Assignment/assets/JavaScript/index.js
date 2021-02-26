@@ -58,6 +58,7 @@ function checkData() {
     ];
   }
 
+  // checking for errors
   if (patt.test(eId) && eId != "") {
     Err[0] = true;
   } else {
@@ -103,6 +104,8 @@ function checkData() {
   } else {
     Err[8] = false;
   }
+
+  //checking for errors
   if (
     Err[0] == true &&
     Err[1] == true &&
@@ -125,6 +128,8 @@ function checkData() {
     document.getElementById("ans1").innerHTML = "";
     document.getElementById("ans2").innerHTML = "";
     document.getElementById("ans3").innerHTML = "";
+
+    //to show error msg
     for (var i = 0; i < Err.length; i++) {
       if (Err[i] == false) {
         document.getElementById("ans1").innerHTML +=

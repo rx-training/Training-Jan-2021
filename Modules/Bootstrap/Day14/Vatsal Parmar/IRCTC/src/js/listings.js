@@ -1,6 +1,7 @@
 var s = localStorage.getItem("Search Data");
 var searchData = JSON.parse(s);
 
+//giving value according to the search data
 document.getElementById("location").innerHTML = searchData.location;
 document.getElementById("destination").innerHTML = searchData.destination;
 document.getElementById("date").innerHTML = searchData.date;
@@ -16,6 +17,7 @@ document.getElementById("seatType").value = searchData.seat;
 
 // SIDE BAR
 switch (searchData.seat) {
+  //pre selectin travell class acordin search data
   case "All Class":
     document.getElementById("EA").checked = true;
     document.getElementById("1A").checked = true;
@@ -49,8 +51,12 @@ async function getData(file) {
 
   var l = localStorage.getItem("Listing Data");
   if (l == null) {
+    //getting train list from json file if not found in local storage
+
     trains = y.trains;
   } else {
+    //getting updated train list from local storage
+
     var Data = JSON.parse(l);
     trains = Data.trains;
     //console.log("from else block");
@@ -58,7 +64,11 @@ async function getData(file) {
 
   var trainCard = "";
 
+  //for showing number of results getting
   var nor = 0;
+
+  //showin train list
+
   for (let i = 0; i < trains.length; i++) {
     if (
       searchData.location == trains[i].from &&
@@ -155,6 +165,7 @@ async function getData(file) {
     }
   }
 
+  //showing number of results getting
   document.getElementById("noOfResult").innerHTML = nor;
   if (nor == 0) {
     $("#trainContainer").append(
@@ -194,6 +205,7 @@ function search() {
     filter: filter,
   };
 
+  //setting search data in local storage
   let searchData = JSON.stringify(data);
   localStorage.setItem("Search Data", searchData);
 

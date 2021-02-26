@@ -1,9 +1,12 @@
+//getting selected train data from local storage
 var a = localStorage.getItem("Train Data");
 var trainData = JSON.parse(a);
 
+//getting search data from local storage
 var b = localStorage.getItem("Search Data");
 var searchData = JSON.parse(b);
 
+//showing data
 document.getElementById("tName").innerHTML = trainData.name;
 document.getElementById("date").innerHTML = searchData.date;
 document.getElementById("from").innerHTML = trainData.from;
@@ -16,6 +19,7 @@ document.getElementById("p2").innerHTML = trainData.class[1].price + " Rs";
 document.getElementById("p3").innerHTML = trainData.class[2].price + " Rs";
 document.getElementById("p4").innerHTML = trainData.class[3].price + " Rs";
 
+//to show total
 $("#anubhuti").click(function () {
   var nos = document.getElementById("num").value;
   $("#total").html("Total : " + nos * trainData.class[0].price + " Rs");
@@ -37,6 +41,7 @@ $("#AC2").click(function () {
 });
 
 function ticket() {
+  //getting selected travel class and number of seats
   let op1 = document.getElementById("anubhuti").checked;
   let op2 = document.getElementById("1A").checked;
   let op3 = document.getElementById("EC").checked;
@@ -54,6 +59,7 @@ function ticket() {
   document.getElementById("ticketStop").innerHTML = trainData.stop;
   document.getElementById("ticketQuota").innerHTML = searchData.ticket;
 
+  //showing total price
   switch (true) {
     case op1:
       $("#ticketPrice").html(nos * trainData.class[0].price + " Rs");

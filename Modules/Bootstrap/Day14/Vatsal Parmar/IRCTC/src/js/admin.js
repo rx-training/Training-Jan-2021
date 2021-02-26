@@ -1,7 +1,11 @@
+// geting listing data from local storage
 var a = localStorage.getItem("Listing Data");
 
 if (a == null) {
+  //getting listings data from json file if not available in local storage
+
   $.getJSON("train-data.json", function (data, status) {
+    //storing listing data in local storage
     var listingData = JSON.stringify(data);
     localStorage.setItem("Listing Data", listingData);
 
@@ -9,6 +13,7 @@ if (a == null) {
     var Data = JSON.parse(a);
     Data = Data.trains;
 
+    //showing listing data in table
     var rowData = "";
 
     $.each(Data, function (i, value) {
@@ -58,6 +63,8 @@ if (a == null) {
     $("#tableBody").append(rowData);
   });
 } else {
+  //showing listing data from local storage
+
   var Data = JSON.parse(a);
   Data = Data.trains;
   var rowData = "";
@@ -114,6 +121,8 @@ function addTrain() {
   var Data = JSON.parse(a);
   Data = Data.trains;
 
+  //grting new train data from input
+
   var id = Data.length + 1;
   var name = document.getElementById("name").value;
   var from = document.getElementById("from").value;
@@ -127,6 +136,7 @@ function addTrain() {
   var AC2 = document.getElementById("AC2").value;
   var duration = document.getElementById("duration").value;
 
+  //making object of train data
   var obj = {
     id: id,
     name: name.toUpperCase(),
@@ -160,12 +170,14 @@ function addTrain() {
     ],
   };
 
+  //pushing new train data object in to array
   Data.push(obj);
 
   var b = {
     trains: Data,
   };
 
+  //storing data in local storage
   let listingData = JSON.stringify(b);
   localStorage.setItem("Listing Data", listingData);
 

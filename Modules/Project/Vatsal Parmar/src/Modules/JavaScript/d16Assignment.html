@@ -169,6 +169,8 @@
     <script>
       function checkDate(input1, ans, wrng) {
         var a = input1.value;
+
+        //checking for empty value
         if (a == "") {
           wrng.innerHTML = "Enter Valid Date";
           ans.innerHTML = "";
@@ -181,11 +183,17 @@
           ans.innerHTML = "";
           return;
         } else {
+          //checking for month
+
           if (date[0] > 0 && date[0] <= 12) {
+            //checking for days
+
             if (date[1] > 0 && date[1] <= 31) {
               if (date[0] == 2) {
                 if (date[2].length == 4) {
                   if (date[2] % 4 == 0) {
+                    //checking for fabruary
+
                     if (date[1] > 0 && date[1] <= 29) {
                       ans.innerHTML = "Valid Date : " + a;
                       wrng.innerHTML = "";
@@ -213,6 +221,7 @@
                   return;
                 }
               } else if (
+                //checking for months having 31 days
                 date[0] == 1 ||
                 date[0] == 3 ||
                 date[0] == 5 ||

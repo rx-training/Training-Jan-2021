@@ -218,6 +218,7 @@
 
         products = y.products;
 
+        //showing products in table
         for (var i = 0; i < products.length; i++) {
           var tr = document.createElement("tr");
           var th1 = document.createElement("th");
@@ -275,6 +276,8 @@
           };
           arr.push(p);
         }
+
+        //setting cart data in local storage
         let a = JSON.stringify(arr);
         localStorage.setItem("Items", a);
       }
@@ -303,6 +306,8 @@
               "</li>";
           }
         }
+
+        //showing total price
         var total = 0;
         for (let i = 0; i < arr.length; i++) {
           total = total + arr[i].Qty * arr[i].Price;

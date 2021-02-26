@@ -296,6 +296,7 @@
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script>
+      //initial array for push and pop operation
       var arr1 = ["Hello", "World"];
       for (var i = 0; i < arr1.length; i++) {
         document.getElementById("ans5").innerHTML +=
@@ -310,6 +311,7 @@
       }
 
       function convertInArr() {
+        document.getElementById("ans2").innerHTML = "";
         var b = document.getElementById("input2").value;
         var t = b.trim();
         console.log(t);
@@ -333,6 +335,7 @@
         document.getElementById("ans4").innerHTML = e.getDate();
       }
 
+      //adding element in array using push
       function addElement() {
         document.getElementById("ans5").innerHTML = "";
         var str = document.getElementById("input5").value;
@@ -343,6 +346,7 @@
         }
       }
 
+      //removing element using pop
       function deleteElement() {
         var f = arr1.pop();
         document.getElementById("ans6").innerHTML =
