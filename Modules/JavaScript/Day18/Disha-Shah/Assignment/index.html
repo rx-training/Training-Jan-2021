@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="h2 bg-dark text-white text-center fixed-top py-3 font-weight-light text-uppercase">University of Mumbai Examination</h1>
+        <div>
+            <h1 class="h4 text-center py-5">Welcome To Online Examination - 2021</h1>
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <h1 class="h5">Instructions</h1>
+                    <ul>
+                        <li class="text-info">Exam is of 3 hours</li>
+                        <li class="text-info">Cannot Leave Examination hall before time.</li>
+                        <li class="text-info"><strong>No Negative Marking</strong> present</li>
+                        <li class="text-info">All are MCQ Questions</li>
+                        <li class="text-info">Examination Hall is under CCTV Surveillance. <strong>Do Not</strong> try any Unfair Means</li>
+                        <li class="text-info">Login to take the exam</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center font-weight-bold h4">LOGIN</div>
+                        <div class="card-body">
+                            <div id="errid"></div>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" name="" id="eid" placeholder="Enrollment Id" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="" id="pass" placeholder="Password" class="form-control">
+                                </div>
+                                <input type="submit" value="Login" class="btn btn-primary btn-block" onclick="return validateForm()">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="h4 text-center">ALL THE BEST</h1>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script>
+        function validateForm() {
+            var eid = document.getElementById("eid").value;
+            var pass = document.getElementById("pass").value;
+            var errAr = new Array(2);
+            var flag=1;
+
+            function checkEId() {
+                if(!eid.match(/^[0-9]{5,}$/)) {
+                    errAr[0] = "Enrollment Id should be of minimum 5 characters.";
+                    
+                }
+                else {
+                    errAr[0] ="";
+                   
+                }
+                return errAr[0];
+            }
+
+            function checkPass() {
+                if(!pass.match(/^[a-zA-Z0-9]{8,}$/)) {
+                    errAr[1] = "Invalid Password";
+                }
+                else {
+                    errAr[1] = "";
+                }
+                return errAr[1];
+            }
+
+            if(eid == "") {
+                errAr[0] = "Enrollment Id is required.";  
+            }
+            else{
+                checkEId();
+            }
+            if(pass == "") {
+                errAr[1] = "Password is required.";
+                
+            }
+            else{
+                checkPass();
+            }
+
+            document.getElementById("errid").innerHTML = "";
+            for(var i=0; i<errAr.length; i++) {
+                if(errAr[i] == "") {
+                    continue;
+                }
+                else{
+                    flag = 0;
+                    document.getElementById("errid").innerHTML += '<div class="alert alert-danger">' + errAr[i] + '</div>';
+                }
+            }
+
+            if(flag == 1) {
+                alert("Successfully Logged In!!")
+                window.location.assign("Exam.html");  
+            }
+            return false;
+
+        }
+    </script>
+</body>
+</html>

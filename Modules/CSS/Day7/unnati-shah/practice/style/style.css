@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+.first{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.second{
+    flex: 25%;
+    max-width: 30%;
+    margin: 1px;
+}
+
+div img{
+    border:3px solid black;
+}
+@media  (max-width:800px){
+    .second{
+        flex:50%;
+        max-width: 50%;
+
+    }
+}
+@media  (max-width:600px){
+    .second{
+        flex:100%;
+        max-width: 100%;
+
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./Asset/index.js"></script>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="bg-secondary">
+    <div class="container bg-light text-center my-5">
+        <h1 class="display-4 my-5">Assignment</h1>
+        <hr class="bg-info mb-5">
+        <form>
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <div class="form-group ">
+                        <label for="EmployeeID"> Employee ID</label>
+                        <input type="text" id ="EmployeeID" class=" bg-light text-center text-info form-control border border-info" placeholder="12345">
+                    </div>
+                </div>
+                <div class="col-md-7 mb-3">
+                    <div class="form-group ">
+                        <label for="EmployeeName"> Employee Name</label>
+                        <input type="text" id ="EmployeeName" class=" bg-light text-center text-info form-control border border-info  " placeholder="Enter Your Name">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <label for="EmployeeAge">Age</label>
+                        <input type="number" id ="EmployeeAge" max="50" min="18" class=" bg-light text-center text-info form-control border border-info" placeholder="Age">
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mt-4">
+                    <div class="form-group display-5">
+                        <label for="EmployeeGender" class="h5">Gender</label> <br>
+                        <input type="radio" class="mx-1 " name="Gender" value="Male" checked>Male
+                        <input type="radio" class="mx-1 " name="Gender" value="Female">Female 
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <label for="EmployeeDesignation">designation</label>
+                        <select id="EmployeeDesignation" class=" bg-light text-info form-control border border-info">
+                            <option value="Dot Net">Dot Net Developer</option>
+                            <option value="Node JS">Node JS Developer</option>
+                            <option value="PHP">PHP Developer</option>
+                            <option value="React JS">React JS Developer</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <label for="EmployeeSalary">Salary</label>
+                        <input type="text" id ="EmployeeSalary" class=" bg-light text-center text-info form-control border border-info" placeholder="Salary">
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <label for="EmployeeLocation">Location</label>
+                        <select name="" id="EmployeeLocation" class=" bg-light text-info form-control border border-info">
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Vadodara">Vadodara</option>
+                            <option value="Mehsana">Mehsana</option>
+                            <option value="Rajkot">Rajkot</option>
+                            <option value="Banaskantha">Banaskantha</option>
+                            <option value="Gandhinagar">Gandhinagar</option>
+                            <option value="Nadiad">Nadiad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="EmployeeContact">Contact Number </label>
+                    <input type="text" id="EmployeeContact" class="bg-light text-center text-info form-control border border-info mb-3" placeholder="xxxxx xxxxx">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 ">
+                    <label for="EmployeeEmail" class="pt-2">Email</label>
+                </div>
+                <div class="col-md-5 mb-3">
+                    <div class="form-group">    
+                        <div class="input-group ">
+                            <input type="email" id ="EmployeeEmail" class=" bg-light text-center text-info form-control border border-info" placeholder="example123.abc">
+                            <span class="input-group-text bg-dark text-white border border-info" id="basic-addon2">@example.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="pt-2"for="EmployeeDate">Date of Joining</label>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        <input type="text" placeholder="MM-DD-YYYY" id ="EmployeeDate" class=" bg-light text-center text-info form-control border border-info" placeholder="example123.abc">
+                    </div>
+                </div>
+            </div>
+            <p id="reviewEmployeeAlert" class="text-danger"></p>
+            <label id="reviewEmployee" class="text-light bg-danger"></label><hr>
+            <input type="submit" class="bg-light text-center text-info btn btn-outline-info mb-3" onclick="return assignment()"><br>
+            <p id="resultEmployeeLabel" class="text-success"></p>
+            <label id="resultEmployee" class="text-light bg-success"></label><br>
+        </form>
+    
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

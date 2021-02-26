@@ -1,0 +1,508 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="../../assets/css/dashboard.scss">
+   <link href="http://fonts.googleapis.com/css?family=Princess+Sofia" rel="stylesheet" type="text/css">
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+   
+   <link rel="stylesheet" href="Starter File/css/index.css">
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body >
+    
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="height: 100px;">
+        <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> -->
+           <img class="px-4" style="position: fixed; height: 5rem;top: 1%;" src="../../assets/images/logo_radix.png" alt="">
+          <!-- </a> -->
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       <ul class="navbar-nav px-3 mx-auto">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link h1 text-light" href="#" style="font-family: 'Edwardian Script ITC';">Rohan Panchal</a>
+          </li>
+        </ul>
+      </header>
+      <style>
+         
+      </style>
+      <div class="nav-scroller bg-body w-100 shadow-sm">
+          <nav class="nav nav-underline bg-dark" aria-label="Secondary navigation">
+            <a class="nav-link text-light" aria-current="page" href="../../htmlindex.html">HTML</a>
+            <a class="nav-link text-light" href="../../cssindex.html">CSS</a>
+            <a class="nav-link text-light active" href="../../bootstrapindex.html">Bootstrap</a>
+            <a class="nav-link text-light" href="../../javascriptindex.html">JAVASCRIPT</a>
+          </nav>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse bg-dark">
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item dropend">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#multiCollapseExample910" role="button">Day9-Day10</a>
+                    <ul class="collapse multi-collapse mx-1 list-unstyled" id="multiCollapseExample910">
+                        <a class="nav-link" href="../Day10/index.html">BasicTypography</a>
+                        <a class="nav-link" href="../Day10/textalignment.html">textalignment</a>
+                        <a class="nav-link" href="../Day10/floatsandpositions.html">floatsandpositions</a>
+                        <a class="nav-link" href="../Day10/colorandbackground.html">colorandbackground</a>
+                        <a class="nav-link" href="../Day10/spacing.html">spacing</a>
+                        <a class="nav-link" href="../Day10/sizeandborders.html">sizeandborders</a>
+                        <a class="nav-link" href="../Day10/breakpoints.html">breakpoints</a>
+                        <a class="nav-link" href="../Day10/buttons.html">buttons</a>
+                        <a class="nav-link" href="../Day10/navbar.html">navbars</a>
+                        <a class="nav-link" href="../Day10/listgroupsbadges.html">listgroupsbadges</a>
+                        <a class="nav-link" href="../Day10/forms.html">forms</a>
+                        <a class="nav-link" href="../Day10/inputgroups.html">inputgroups</a>
+                        <a class="nav-link" href="../Day10/alertsandprogressbar.html">alertsandprogressbar</a>
+                        <a class="nav-link" href="../Day10/tablesandpagination.html">tablesandpagination</a>
+                        <a class="nav-link" href="../Day10/cards.html">cards</a>
+                        <a class="nav-link" href="../Day10/meidaobjects.html">meidaobjects</a>
+                        <a class="nav-link" href="../Day10/gridsystem.html">gridsystem</a>
+                        <a class="nav-link" href="../Day10/gridalignment.html">gridalignment</a>
+                        <a class="nav-link" href="../Day10/flexbox.html">flexbox</a>
+                        <a class="nav-link" href="../Day10/marginandwrapping.html">marginandwrapping</a>
+                        <a class="nav-link" href="../Day10/carousal.html">carousel</a>
+                        <a class="nav-link" href="../Day10/collapse.html">collapse</a>
+                        <a class="nav-link" href="../Day10/tooltips.html">tooltips</a>
+                        <a class="nav-link" href="../Day10/popovers.html">popover</a>
+                        <a class="nav-link" href="../Day10/models.html">modal</a>
+                    </ul>
+                </li>
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#multiCollapseExample11" role="button">Day11</a>
+                  <ul class="collapse show multi-collapse mx-1 list-unstyled" id="multiCollapseExample11">
+                      <a class="nav-link" href="../Day11/index.html">Layout</a>
+                  </ul>
+                </li>
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#multiCollapseExample12" role="button">Day12</a>
+                  <ul class="collapse multi-collapse mx-1 list-unstyled" id="multiCollapseExample12">
+                      <a class="nav-link" href="../Day12/index.html">LoopLabLayout</a>
+                  </ul>
+                </li>
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#multiCollapseExample13" role="button">Day13</a>
+                  <ul class="collapse multi-collapse mx-1 list-unstyled" id="multiCollapseExample13">
+                      <a class="nav-link" href="../Day13/blogen/index.html" target="_blank">Practise</a>
+                      <a class="nav-link" href="../Day13/mitzu/index.html" target="_blank">Layout</a>
+                  </ul>
+                </li>
+                <li class="nav-item dropend">
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#multiCollapseExample14" role="button">Day14</a>
+                  <ul class="collapse multi-collapse mx-1 list-unstyled" id="multiCollapseExample14">
+                      <a class="nav-link" href="../Day14/index.html">MakeMyTrip</a>
+                  </ul>
+                </li>
+            </ul>
+            </div>
+          </nav>
+      
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand text-danger" href="#top">La Galerie d'art de Rembrandt</a>     
+        </div>
+       
+        <button class="navbar-toggler navbar-toggler-right" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-items">
+                    <a class="nav-link" href="#s2_trio">Works</a>
+                </li>
+                <li class="nav-items">
+                    <a class="nav-link" href="#s3_painting_of_the_week">Highlighted Painting</a>
+                </li>
+                <li class="nav-items">
+                    <a class="nav-link" href="#s4_about">About</a>
+                </li>
+                <li class="nav-items">
+                    <a class="nav-link" href="#s5_prints">Prints</a>
+                </li>
+                <li class="nav-items">
+                    <a class="nav-link" href="#s6_paintings">Paintings</a>
+                </li>
+                <li class="nav-items">
+                    <a class="nav-link" href="#s7_drawings">Drawings</a>
+                </li>
+                <li class="nav-items">
+                    <a class="nav-link" href="#s8_contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#s9_footer">Info</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <!-- s1_header -->
+    <section id="s1_header">
+        
+            <aside class="container">
+                <h1 class="text-danger display-4">Rembrandt Van Rijn</h1>
+                <h5 class="text-white">Painter, Draughtsman &amp; Printmaker</h5>
+            </aside>
+        
+    </section>
+    <style>
+        #s1_header{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,1fr);
+        }
+        #s1_header aside{
+            text-align: center;
+            grid-column: 2/4;
+            grid-row: 4/5;
+        }
+        @media (max-width: 992px){
+            #s1_header{height: 50vh;}
+           
+        #s1_header .display-4{font-size: 28px;}
+        #s1_header h5{font-size: 12px;}
+        }
+      
+    </style>
+    <!-- s2_trio -->
+    <section id="s2_trio">
+        <div class="container py-5 mygrid">
+            
+       <div class="card mx-2 mysubgrid">
+           <div class="card-body">
+                <img class="img-fluid border border-dark" src="Starter File/img/interface-imgs/s2-prints.png" alt="">
+                <aside>
+                    <h2 class="text-danger my-2">prints</h2>
+                    <p>Reproductions of all of Rembrandt's prints available for purchase. Magnificent prints that show life among Rembrandt’s family and friends.
+                    </p>
+                </aside>
+           </div>
+       </div>
+        
+       <div class="card mx-2 mysubgrid">
+           <div class="card-body">
+                <img class="img-fluid border border-dark" src="Starter File/img/interface-imgs/s2-paintings.png" alt="">
+                <aside>
+                    <h2 class="text-danger my-2">paintings</h2>
+                    <p>Framed, vertical, rectangular pictures,  some over four feet in height. Discovered, framed and designed for collectors like you.
+                    </p>
+                </aside>
+           </div>
+       </div>
+
+       <div class="card mx-2 mysubgrid">
+           <div class="card-body">
+                <img class="img-fluid border border-dark" src="Starter File/img/interface-imgs/s2-drawings.png" alt="">
+                <aside>
+                    <h2 class="text-danger my-2">drawings</h2>
+                    <p>Rembrandt was one of the greatest draftsmen in the history of art. His drawings expressed his own feelings and observations.
+                    </p>
+                </aside>
+           </div>
+       </div>
+        
+
+        </div>
+    </section>
+    <!-- s3_painting_of_the_week -->
+    <section id="s3_painting_of_the_week" class="text-center py-5">
+        <div class="container p-4">
+            
+        
+        <h1 class="text-danger">Highlighted Painting</h1>
+        <img class="img-fluid my-3 border border-light" style="border-width: 3px!important;" src="Starter File/img/s3-painting-of-the-week-Rembrandt_castello_sulla_riva_1640-1650.png" alt="">
+        <p class="text-white">Castle Overlooking a River (circa 1645)</p>
+        </div>
+    </section>
+    <!-- s4_about -->
+    <section id="s4_about" class="py-5">
+        <div class="container py-5 s4_grid_about">
+            <div class="img-selfpotrait">
+                <img class="img-fluid" src="Starter File/img/interface-imgs/s4-about-Rembrandt_Self-Portrait_(1637).png" alt="">
+            </div>
+        <div class="hd-about">
+            <h3 class="text-danger">About</h3>
+        </div>
+        <div class="txt-about">
+            <p><strong>Rembrandt van Rijn</strong> was a Dutch painter and etcher. He is generally considered one of the greatest painters and printmakers in European art and the most important in Dutch history. His contributions to art came in a period of great wealth and cultural achievement that historians call the Dutch Golden Age when Dutch Golden Age painting, although in many ways antithetical to the Baroque style that dominated Europe, was extremely prolific and innovative, and gave rise to important new genres in painting.
+            </p>
+        </div>
+        </div>
+    </section>
+    <!-- s5_prints -->
+    <section id="s5_prints" class="py-5">
+        <div class="container py-5">
+            
+       
+        <h1 class="text-danger">Prints</h1>
+        <div class="my-thumbs">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/A-Stout-Man-in-a-Large-Cloak_circa-1628-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Bald-headed-Old-Man_1630-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Bearded-Old-Man-with-a-High-Forehead_circa-1630-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Beggar-Man-and-Beggar-Woman-Conversing-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Bust-of-an-Old-Bearded-Man_1631-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Jerome-Reading-in-the-Wilderness_1634-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Josephs-Coat-Brought-to-Jacob_circa-1633-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Old-Man-with-a-Snub-Nose_circa-1629-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Old-Woman-Seated-in-a-Cottage-with-a-String-of-Onions-on-the-Wall_1631-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Rembrandt_van_Rijn_-_The_Quacksalver_1635-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Self-portrait-in-a-Cap,-Laughing-_1630-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Self-portrait-Leaning-Forward_circa-1628-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/Sheet-of-studies-of-mens-heads_-circa-1630-1631-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/The-Artists-Mother--Head-and-Bust-Three-quarters-Right_1628-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/The-Blindness-of-Tobit-a-Sketch_circa-1629-thumb.jpg" alt="">
+        <img class="img-fluid" src="Starter File/img/prints-img/prints-thumbs/The-Small-Lion-Hunt-with-Two-Lions_-circa-1632-thumb.jpg" alt="">
+        <img class="img-fluid my-bk-image" src="Starter File/img/interface-imgs/s5-prints.png" alt="">
+
+        </div>
+        </div>
+    </section>
+    <!-- s6_paintings -->
+    <section id="s6_paintings" class="py-5">
+        <div class="container py-5">
+
+            <h1 class="text-danger">Paintings</h1>
+            <aside>
+                <div class="my-paintings-container my-paintings-area my-cursor">
+                    <div class="painting-1" data-bs-toggle="modal" data-bs-target="#painting1"></div>
+                    <div class="painting-2"></div>
+                    <div class="painting-3"></div>
+                    <div class="painting-4"></div>
+                    <div class="painting-5"></div>
+                    <div class="painting-6"></div>
+                    <div class="painting-7"></div>
+                    <div class="painting-8"></div>
+                    <div class="painting-9"></div>
+                    <div class="painting-10"></div>     
+                </div>
+            </aside>
+            <img src="Starter File/img/interface-imgs/s6-painting-200.png" class="img-fluid windmill" alt="">
+        </div>
+       
+    </section>
+    <!-- s7_drawings -->
+    <section id="s7_drawings" class=" py-5">
+        <div class="container py-5">
+            
+       
+        <h1 class="text-danger">Drawings</h1>
+        <div class="my-thumbs">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/a-young-woman-having-her-hair-braided_circa-1637-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/an-elephant-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/blind-man-walking-with-a-stick-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/dutch-farmhouse-in-sunlight_circa-1635-1636-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/group-of-horsemen_circa-1632-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/lady-with-a-fan-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/landscape-with-two-cottages_circa-1633-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/man-leaning-on-a-stick-facing-right_circa-1629-1630-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/old-man-seated-in-an-armchair_1631-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/portrait-of-harmen-gerritsz-van-rijn_1630-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/saskia-at-a-window_circa-1634-1635-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/seated-old-man_circa-1630--thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/study-of-a-girl-sleeping-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/susanna-and-the-elders_circa-1630-1633-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/the-entombment_1630-thumb.jpg">
+        <img class="img-fluid" src="starter File/img/drawings-img/drawings-thumbs/woman-carrying-a-child-downstairs_circa-1636-thumb.jpg">
+        <img class="img-fluid my-bk-image" src="Starter File/img/interface-imgs/s7-drawing.png" alt="">
+
+        </div>
+        </div>
+    </section>
+    <!-- s8_contact -->
+    <section id="s8_contact" class="py-5">
+
+
+        <div class="container contacts_grid py-5">
+            
+       
+        <aside class="content-copy">
+            <h1 class="text-danger">Contacts</h1>
+            <p>La Galerie d'art de Rembrandt <br>
+                182 N. Union Ave,  <br>
+                Farmington, UT 84025 <br>
+                555-1234 <br>
+                loremipsum@email.com</p>
+        </aside>
+            <p class="content-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12092399.719946038!2d-108.9313613973186!3d42.273271331500304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752fee11014e82f%3A0x1c5e3fda11f60198!2sPluralsight!5e0!3m2!1sen!2sus!4v1537034361031" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </p>
+            <img class="img-fluid content-picture" src="Starter File/img/interface-imgs/s8-contact.png" alt="">
+
+        
+
+        </div>
+    </section>
+    <!-- s9_footer -->
+    <section id="s9_footer" class="text-white py-5">
+
+        <div class="container s9_footer_grid py-5">
+
+        <aside class="footer_hours" style="grid-area: footer_hours;">
+            <h1 class="text-danger h3">La Galerie d'art de Rembrandt </h1>
+            <p>Tuesday - Friday: 10:00 am - 5:00 pm <br>
+                Saturday: 10:00 am - 3:00 pm <br>
+                Closed Sundays and Mondays</p>
+                <div class="btn-toolbar" role="toolbar" aria-label="Social Media Toolbar">
+
+                <div class="btn-group m-2 btn-group-sm" role="group" aria-label="Button group">
+                    
+                
+                    <button type="button" class="btn btn-info"><i class="fab fa-facebook-square"></i> </button>
+                    <button type="button" class="btn btn-info"><i class="fab fa-twitter-square"></i> </button>
+                    <button type="button" class="btn btn-info"><i class="fab fa-linkedin"></i> </button>
+                    <button type="button" class="btn btn-info"><i class="fab fa-instagram"></i> </button>
+
+                </div>
+                </div>
+        </aside>
+        <aside class="footer_menu" style="grid-area: footer_menu;">
+            <h1 class="text-danger h5">Menu</h1>
+                <ul class="list-unstyled">
+                    <li>Home</li>
+                    <li>Paintings, Drawings and Prints</li>
+                    <li>Painting of the Week</li>
+                    <li>About Rembrandt</li>
+                    <li>Prints</li>
+                    <li>Paintings</li>
+                    <li>Drawings</li>
+                    <li>Contacts</li>
+                </ul>
+        </aside>
+        <aside class="footer_musuem" style="grid-area: footer_musuem;">
+            <h1 class="text-danger h5">Some Museums Showing Rembrandts</h1>
+                <ul class="list-unstyled">
+                    <li>Hermitage Museum</li>
+                    <li>Louvre</li>
+                    <li>National Gallery of Art</li>
+                    <li>National Gallery</li>
+                    <li>Norton Simon Museum</li>
+                    <li>Rijksmuseum</li>
+                    <li>Smithsonian</li>
+                    <li>Staaliche Museen Preussischer Kulturbesitz</li>
+                    <li>The Getty</li>
+                    <li>The Metropolitan Museum of Art</li>
+                </ul>
+        </aside>
+        <aside class="footer_painting_names" style="grid-area: footer_painting_names;">
+            <h1 class="text-danger h5">Painting names</h1>
+                <ul class="list-unstyled">
+                    <li>Self Portrait As A Young Man</li>
+                    <li>Portrait Of Jan Six</li>
+                    <li>Syndics Of The Drapers' Guild</li>
+                    <li>The Storm On The Sea</li>
+                    <li>Self-Portrait With Beret</li>
+                    <li>Danaë</li>
+                    <li>The Bride</li>
+                    <li>The Anatomy Lesson</li>
+                    <li>The Night Watch</li>
+                    <li>The Naughty Child</li>
+                </ul>
+        </aside>
+        <aside class="footer_links" style="grid-area: footer_links;">
+            <h1 class="text-danger h5"> Other Links</h1>
+                <ul class="list-unstyled">
+                    <li>Complete Self Portraits</li>
+                    <li>Selected Self Portraits</li>
+                    <li>About the Self Portraits</li>
+                    <li>Selected Drawings</li>
+                    <li>About the Drawings</li>
+                    <li>Complete Etchings</li>
+                    <li>Selected Etchings</li>
+                    <li>About the Etchings</li>
+                </ul>
+        </aside>
+        <aside class="footer_img" style="grid-area: footer-img;"><img class="img-fluid" src="Starter File/img/interface-imgs/s9-footer-drawing.jpg" alt=""></aside>
+        </div>
+    </section>
+
+
+    <section class="text-white bg-dark small my-5 text-center">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script> Whatever. All rights reserved.</p>
+    </section>
+     
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('a[href^="#"]').on('click',function (e) {e.preventDefault();
+
+	    	var target = this.hash,
+	    	$target = $(target);
+
+	    	$('html, body').stop().animate({
+	        	'scrollTop': $target.offset().top
+	   	 }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    	});
+		});
+	});
+</script>
+<div id="painting1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="rembrandt painting 1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="my-modal-title">Title</h5> -->
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="Starter File/img/paintings-img/1920px-P1150002_Cognacq-Jay_Rembrandt_anesse_de_Balaam_rwk.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+  </div>
+</div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
+   

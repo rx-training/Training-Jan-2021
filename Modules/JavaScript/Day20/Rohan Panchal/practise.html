@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Day20-Practise</title>
+  </head>
+  <body>
+    
+    <div class="container my-5">
+        <div class="row">
+            <h5 class="h5">1. Store following JSON data into localstorage,read that data and print it into console</h5>
+            <div class="col">
+                    <button class="btn btn-primary btn-lg" type="button" onclick="get()">Click 1</button>
+            </div>
+        </div>
+        <div class="row">
+            <h5 class="h5">2. Keep above JSON Data into a file, using Web Fetch API read that data.</h5>
+            <div class="col">
+                    <button class="btn btn-primary btn-lg" type="button" onclick="readdata()">Click 2</button>
+                    <div id="result"></div>
+            </div>
+        </div>
+        <div class="row">
+            <h5 class="h5">3. GeoLocation API.</h5>
+            <div class="col">
+                    <button class="btn btn-primary btn-lg" type="button" onclick="getcords()">Click Here</button>
+                    <div id="result2"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //var gettext = fetch('read.json');
+        //console.log(gettext.JSON());
+        //localStorage.setItem('data',gettext.json());
+        localStorage.setItem('data','{ "products" : [   { "Name": "Cheese", "Price" : 2.50, "Location": "Refrigerated foods"},   { "Name": "Crisps", "Price" : 3, "Location": "the Snack isle"},   { "Name": "Pizza", "Price" : 4, "Location": "Refrigerated foods"},   { "Name": "Chocolate", "Price" : 1.50, "Location": "the Snack isle"},   { "Name": "Self-raising flour", "Price" : 1.50, "Location": "Home baking"},   { "Name": "Ground almonds", "Price" : 3, "Location": "Home baking"} ]}');
+        async function get(){
+            var x = await fetch('read.json');
+            var y = await x.text();
+            getdata(y);
+        }
+        function getdata(val)
+        {
+            alert('watch into console');
+            console.log(val);
+        }
+        function readdata()
+        {
+            getdata2('read.json');
+        }
+        async function getdata2(fileName)
+        {
+            var getText = await fetch(fileName);
+            var printText = await getText.json();
+            document.getElementById('result').innerHTML = JSON.stringify(printText);
+        }
+        function getcords()
+        {
+            navigator.geolocation.watchPosition(showpos,showerror);
+        }
+        var x = document.getElementById('result2');
+        function showpos(pos)
+        {
+            document.getElementById('result2').innerHTML = "Latitude is ="+pos.coords.latitude+"<br>Longitude is ="+pos.coords.longitude;
+        }
+        function showerror(error)
+        {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+                case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+                case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+                case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+            }
+        }
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

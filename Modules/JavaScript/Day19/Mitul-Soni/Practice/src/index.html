@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Function Nameing</title>
+    </head>
+
+
+
+    <body>
+       
+        <p id="demo"></p>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script>
+
+            // Function typeof
+            var employee = function(name){ };
+            console.log(typeof employee);
+            
+            // Function Expression
+            var x = function (a, b) {return a * b};
+            document.getElementById("demo").innerHTML = x;
+
+            // Function error
+            var emp = function(name){
+                throw('Error');
+            };
+            var action = emp;
+            action('JJ');
+    
+            
+    
+        </script>
+
+    </body>
+</html>

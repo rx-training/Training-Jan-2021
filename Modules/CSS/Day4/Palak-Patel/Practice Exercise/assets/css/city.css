@@ -1,0 +1,36 @@
+body {
+    text-align: center;
+}
+
+.para {
+    font-size: larger;
+    /* margin-left: -20px;
+    margin-right: -20px; */
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+li {
+    display: inline;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+    li:hover {
+        background-color: lightgray;
+        color: white;
+        box-shadow: 5px 5px 10px gray;
+    }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.headings {
+    color: blue;
+}
