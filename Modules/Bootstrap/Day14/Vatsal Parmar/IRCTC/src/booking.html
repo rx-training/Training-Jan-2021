@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>IRCTC</title>
   </head>
+
   <body>
     <nav id="nav1" class="navbar navbar-light navbar-expand-md mb-n4">
       <div class="container">
@@ -23,7 +24,7 @@
             >
           </li>
           <li class="nav-item">
-            <a href="register.html" class="nav-link active">REGISTER</a>
+            <a href="register.html" class="nav-link">REGISTER</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">AGENT LOGIN</a>
@@ -150,99 +151,104 @@
         </a>
       </div>
     </nav>
+
     <div class="container-fluid">
-      <div id="register-container" class="container-fluid p-5">
-        <div class="container p-5">
-          <h1>Create Your Account</h1>
-          <h3>GARBAGE/JUNK VALUES IN PROFILE MAY LEAD TO DEACTIVATION</h3>
-          <h4>
-            Please use a valid E-Mail ID and mobile number in registration.
-          </h4>
-          <div class="col-md-8 mt-5 text-primary">
-            <form id="register-form">
-              <div class="form-group">
-                <label for="name">User Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  class="form-control"
-                  placeholder="User Name"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="name">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-control"
-                  placeholder="User Name"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="name">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  class="form-control"
-                  placeholder="Password"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="name">Confirm Password</label>
-                <input
-                  type="password"
-                  id="conf_password"
-                  class="form-control"
-                  placeholder="Confirm Password"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="name">Preferred Language</label>
-                <select class="form-control">
-                  <option value="">Hindi</option>
-                  <option value="">English</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="name">Security Question</label>
-                <select class="form-control">
-                  <option value="">What is your pet name?</option>
-                  <option value="">
-                    What was the name of your first school?
-                  </option>
-                  <option value="">
-                    What is the name of your best friend?
-                  </option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="answer">Security Answer</label>
-                <input
-                  type="text"
-                  id="answer"
-                  class="form-control"
-                  placeholder="Security Answer"
-                  required
-                />
-              </div>
-              <button class="btn btn-outline-warning btn-lg" type="reset">
-                Reset
-              </button>
-              <button class="btn btn-primary btn-lg ml-5" type="submit">
-                Submit
-              </button>
-            </form>
+      <div class="container">
+        <h1 class="text-primary display-3 text-center py-2">Ticket Booking</h1>
+      </div>
+      <div id="ticketForm" class="container col-md-6 p-4 my-2 text-primary">
+        <div class="form-group">
+          <label for="name"><strong>Enter Name : </strong></label>
+          <input
+            class="form-control text-primary"
+            id="name"
+            placeholder="Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name"><strong>Enter Number Of Seats : </strong></label>
+          <input
+            class="form-control text-primary"
+            id="num"
+            placeholder="No. Of Seats"
+            type="number"
+          />
+        </div>
+        <p><strong>Train Name : </strong><span id="tName"></span></p>
+        <p><strong>Date : </strong><span id="date"></span></p>
+        <p>
+          <strong>From : </strong><span id="from"></span> &nbsp;&nbsp;
+          <strong>Time : </strong><span id="start"></span>
+        </p>
+        <p>
+          <strong>To : </strong><span id="to"></span> &nbsp;&nbsp;
+          <strong>Time : </strong><span id="stop"></span>
+        </p>
+        <p><strong>Quota : </strong><span id="quota"></span></p>
+        <div class="forn-group">
+          <label><strong>Select Travel Class :</strong></label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="anubhuti"
+              value="Anubhuti"
+            />
+            <label class="form-check-label" for="anubhuti">
+              Anubhuti Class &nbsp;&nbsp; Price : <span id="p1"></span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="1A"
+              value="1A"
+            />
+            <label class="form-check-label" for="1A">
+              AC First Class (1A) &nbsp;&nbsp; Price : <span id="p2"></span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="EC"
+              value="EC"
+            />
+            <label class="form-check-label" for="EC">
+              Exec. Chair Car (EC) &nbsp;&nbsp; Price : <span id="p3"></span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="AC2"
+              value="AC2"
+            />
+            <label class="form-check-label" for="AC2">
+              AC 2 Tier &nbsp;&nbsp; Price : <span id="p4"></span>
+            </label>
           </div>
         </div>
+        <p class="text-success mt-2"><strong id="total">Total : </strong></p>
+        <button
+          class="btn btn-warning mt-2"
+          type="button"
+          data-toggle="modal"
+          data-target="#ticketModal"
+          onclick="ticket()"
+        >
+          Confirm Booking
+        </button>
       </div>
-    </div>
 
-    <!-- FOOTER -->
-    <div class="container-fluid">
+      <!-- FOOTER -->
       <section id="footer">
         <div class="container row py-5">
           <div class="col-md-3">
@@ -601,20 +607,44 @@
       </div>
     </div>
 
+    <!-- Ticket Modal -->
+    <div class="modal fade" id="ticketModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title">Your Ticket</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <div>&times;</div>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Name : </strong><span id="Name"></span></p>
+            <p>
+              <strong>Number Of Seats : </strong><span id="numOfSeate"></span>
+            </p>
+            <p><strong>Train Name : </strong><span id="trainName"></span></p>
+            <p><strong>Date : </strong><span id="ticketDate"></span></p>
+            <p>
+              <strong>From : </strong><span id="ticketFrom"></span> &nbsp;&nbsp;
+              <strong>Time : </strong><span id="ticketStart"></span>
+            </p>
+            <p>
+              <strong>To : </strong><span id="ticketTo"></span> &nbsp;&nbsp;
+              <strong>Time : </strong><span id="ticketStop"></span>
+            </p>
+            <p><strong>Quota : </strong><span id="ticketQuota"></span></p>
+            <p>
+              <strong>Travel Class : </strong><span id="ticketClass"></span>
+            </p>
+            <p><strong>Price : </strong><span id="ticketPrice"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-      function auth() {
-        var userid = document.getElementById("userid").value;
-        var password = document.getElementById("pwd").value;
-
-        if (userid == "admin" && password == "admin") {
-          window.location.href = "admin.html";
-        } else {
-          alert("Wrong Id Or Password");
-        }
-      }
-    </script>
+    <script src="js/booking.js"></script>
   </body>
 </html>

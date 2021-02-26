@@ -84,6 +84,12 @@ $primary: rgb(2, 2, 128);
 #showcase {
   position: relative;
 }
+
+#banner-img {
+  height: 550px;
+  width: 100%;
+}
+
 #overlay {
   position: absolute;
   top: 0;
@@ -172,4 +178,17 @@ h3 {
     background-color: white;
     border-radius: 50px;
   }
+}
+
+// Listing Page
+
+#searchForm {
+  background-color: $primary;
+}
+
+// Booking Page
+
+#ticketForm {
+  background-color: rgb(235, 235, 235);
+  border-radius: 20px;
 }
