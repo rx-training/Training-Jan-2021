@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light" style="background-image: url('./Asset/Image/background.jpg');
+min-height: 500px;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark  sticky-top" style="background-color: black;">
+        <div class="container">
+            <span class="text-white" style="font-size:30px;cursor:pointer" onclick="openNav()">NAMRA PATEL</span>
+
+
+            <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav ml-auto text-white">
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="indexHTML.html" class="nav-link">HTML <i class="fab fa-html5"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" style="color: rgb(255, 255, 119);">CSS <i class="fab fa-css3"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="indexBootstrap.html" class="nav-link">Bootstrap <i class="fas fa-bold"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="indexJavaScript.html" class="nav-link">Javascript <i class="fab fa-js-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day4
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Assignment</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day4/Namra/Assignment/Resume.html')">Resume</a>
+                </li>
+                <li class="divider"></li>
+
+                <li class="dropdown-header">Practice</li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day4/Namra/Practice/Student.html')">Student</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day4/Namra/Practice/Task2.html')">Task2</a>
+                </li>
+                
+
+            </ul>
+        </div>
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day5
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Assignment</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day5/Namra/Assignment/Assignment.html')">Assignment</a>
+                </li>
+                <li class="divider"></li>
+
+                <li class="dropdown-header">Practice</li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day5/Namra/Practice/Position.html')">Practice</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day5/Namra/Practice/Practice1.html')">Practice 1</a>
+                </li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day5/Namra/Practice/Practice2.html')">Practice 2</a>
+                </li>
+                
+
+            </ul>
+        </div>
+
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day6
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Assignment</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day6/Namra/Assignment/Assignment1.html')">Assignment</a>
+                </li>
+                <li class="divider"></li>
+
+                <li class="dropdown-header">Practice</li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day6/Namra/Practice/Practice1_2_3_4.html')">Practice 1-4</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day6/Namra/Practice/Practice5.html')">Practice 5</a>
+                </li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day6/Namra/Practice/Practice6.html')">Practice 6</a>
+                </li>
+                
+
+            </ul>
+        </div>
+
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day7
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Assignment</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day7/Namra/Assignment/Index.html')">Assignment</a>
+                </li>
+                <li class="divider"></li>
+
+                <li class="dropdown-header">Practice</li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day7/Namra/Practice/Index.html')">Practice 1</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day7/Namra/Practice/Practical2.html')">Practice 2</a>
+                </li>
+                
+
+            </ul>
+        </div>
+
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day8
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Assignment</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day8/Namra/Assignment/Grid.html')">Assignment</a>
+                </li>
+               
+
+            
+                
+
+            </ul>
+        </div>
+
+
+
+    </div>
+    
+
+
+
+
+
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-lg-2 text-center mb-2">
+                <span id="dayTag" class="text-white mb-2 display-3"></span>
+            </div>
+            <div class="col-lg-10">
+                <div id="displayHTML">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadPage(value) {
+            document.getElementById("displayHTML").innerHTML = '<embed type="text/html" src="./Asset/CSS' + value + '" width = "100%" height="570px">';
+            value = (value.split("/"))[1];
+            document.getElementById("dayTag").innerHTML = value;
+        }
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

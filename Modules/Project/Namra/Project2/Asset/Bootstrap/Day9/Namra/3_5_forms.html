@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <title>Bootstrap Sandbox</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="display-3 text-center my-4">Forms</h1><!-- my for margin top bottom, display for size and text-center for align-->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3"> <!-- for medium size device column devided by 3 out of 12-->
+              <div class="dropdown"> <!-- for dropdown menu -->
+                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown"> 
+                  <!--btn for button, btn-primary for button color, btn-block for block, dropdown-toggle for toggle when button is clicked -->
+                2: Utilities
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="2_2_basic_typography.html">Basic Typography</a>
+                  <a class="dropdown-item" href="2_3_text_alignment_display.html">Text Alignment & Display</a>
+                  <a class="dropdown-item" href="2_4_floats_position.html">Floats & Position</a>
+                  <a class="dropdown-item" href="2_5_colors_background.html">Colors & Background</a>
+                  <a class="dropdown-item" href="2_6_spacing.html">Spacing</a>
+                  <a class="dropdown-item" href="2_7_sizing.html">Sizing</a>
+                  <a class="dropdown-item" href="2_8_breakpoints.html">Breakpoints</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="dropdown">
+                <button class="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                  3: CSS Components
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="3_2_buttons.html">Buttons</a>
+                  <a class="dropdown-item" href="3_3_navbar.html">Navbar</a>
+                  <a class="dropdown-item" href="3_4_list_groups_badges.html">List Groups & Badges</a>
+                  <a class="dropdown-item" href="3_5_forms.html">Forms</a>
+                  <a class="dropdown-item" href="3_6_input_groups.html">Input Groups</a>
+                  <a class="dropdown-item" href="3_7_alerts_progress.html">Alerts & Progress</a>
+                  <a class="dropdown-item" href="3_8_tables_pagination.html">Tables & Pagination</a>
+                  <a class="dropdown-item" href="3_9_cards.html">Cards</a>
+                  <a class="dropdown-item" href="3_10_media_object.html">Media Objects</a>
+                  <a class="dropdown-item" href="3_11_jumbotron.html">Jumbotron</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+                <div class="dropdown">
+                  <button class="btn btn-warning btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                    4: Grid & Flexbox
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../../Day10/Namra/4_2_grid_system.html">Grid System</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/4_3_grid_alignment.html">Grid Alignment</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/4_4_flexbox.html">Flexbox</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/4_5_auto_margins_wrapping_order.html">Auto Margins & Wrap</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="dropdown">
+                  <button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                    5: JavaScript Widgets
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../../Day10/Namra/5_2_carousel.html">Carousel</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/5_3_collapse.html">Collapse</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/5_4_tooltips.html">Tooltips</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/5_5_popovers.html">Popovers</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/5_6_modals.html">Modals</a>
+                    <a class="dropdown-item" href="../../Day10/Namra/5_7_scrollspy.html">ScrollSpy</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <hr>
+      </header>
+
+    <div class="container">
+        <!--##################START HERE#####################-->
+
+        <!-- FORM -->
+        <form>
+            <!-- TEXT FIELD GROUPS -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control form-control-sm" id="name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control form-control-lg" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" id="company" placeholder="Enter company name">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"  class="form-control"id="password" placeholder="Password">
+            </div>
+            <!-- SELECT -->
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <!-- TEXTAREA -->
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea   class="form-control" id="message" rows="3"></textarea>
+            </div>
+            <!-- FILE INPUT -->
+            <div class="form-group">
+                <label for="file">File input</label>
+                <input  class="form-control-file" type="file" id="file">
+                <small id="fileHelp" class="form-text text-muted">Max 3mb size</small>
+            </div>
+            <!-- CUSTOM FILE INPUT -->
+            <div class="form-group">
+                <input type="file" id="myfile">
+                <label for="myfile">Choose file</label>
+            </div>
+            
+            <!-- RANGE -->
+            <div class="form-group">
+                <label for="membership">Membership Level</label>
+                <input type="range">
+            </div>
+            <fieldset class="form-group">
+                <legend>What you using this service for?</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" name="exampleRadios"type="radio" value="option1" >Personal1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="exampleRadios" value="option2" >Personal2
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="exampleRadios" value="option3" >Personal3
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio"class="form-check-input" name="exampleRadios" value="option4" >Personal4
+                    </label>
+                </div>
+            </fieldset>
+            <button class="btn btn-primary"type="submit">Submit</button>
+        </form>
+
+        <br>
+        <br>
+
+
+        <!-- INLINE FORM -->
+        <form class="form-inline">
+            <input class="form-control mr-2" type="text" id="username" placeholder="Enter username">
+            <input type="text" class="form-control mr-2"id="password" placeholder="Password">
+            <div class="form-check">
+                <label class="form-check-label mr-2">
+                    <input type="checkbox" class="form-check-input"> Remember me
+                </label>
+            </div>
+
+            <button  class="btn btn-secondary"type="submit">Submit</button>
+        </form>
+
+        <br>
+        <br>
+
+        <!-- FORM ROW -->
+        <form class="form-row">
+            <div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col">
+                    <input type="text"  class="form-control"placeholder="Last name">
+                </div>
+            </div>
+        </form>
+
+        <br>
+        <br>
+
+        <!-- VALIDATION -->
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control is-valid"type="text" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control is-invalid"type="text" id="password">
+            <div class="invalid-feedback">
+                Password not strong enough
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input  class="form-control is-invalid" type="text" id="password2">
+            <div class="invalid-feedback">
+                Password does not match
+            </div>
+        </div>
+
+    </div>
+    <!-- ./container -->
+    <div style="margin-top:500px;"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
