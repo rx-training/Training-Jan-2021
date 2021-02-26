@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Blogen</title>
+    <title>Detroit United Bank</title>
+    <script src="../js/admin/session.js"></script>
+    <script src="../js/admin/logout.js"></script>
+    <script>
+        (new sessionAdmin).checkSession();
+    </script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top p-0">
         <div class="container px-5">
-            <a class="pl-3 navbar-brand" href="">Blogen</a>
+            <a class="pl-3 navbar-brand" href="">Detroit United Bank</a>
             <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"><span
                     class="navbar-toggler-icon"></span></button>
             <div class="navbar-collapse collapse" id="navbarNav">
                 <ul class=" navbar-nav w-100">
                     <li class="nav-item"><a href="index.html" class="nav-link">Dashboard</a></li>
-                    <!-- <li class="nav-item"><a href="posts.html" class="nav-link">Posts</a></li>
-                    <li class="nav-item"><a href="categories.html" class="nav-link ">Categories</a></li> -->
                     <li class="nav-item"><a href="users.html" class="nav-link active">Users</a></li>
-                    <li class="nav-item ml-sm-auto"><a href="login.html" class="nav-link"><i
-                                class="fa fa-user-times"></i> Logout</a></li>
+                    <li class="nav-item ml-sm-auto"><a class="nav-link" onclick="(new logoutAdmin).logOut()"><i class="fa fa-user-times"></i> Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -51,25 +53,19 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <table class=" table table-striped">
+                            <table class=" table table-hover">
                                 <thead class=" bg-dark text-white">
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Account Type</th>
+                                        <th>Money</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Milit Panchasara</td>
-                                        <td>milit@xyz.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jon Doe</td>
-                                        <td>jon@doe.com</td>
-                                    </tr>
+                                <tbody id="users-body">
+                                    
                                 </tbody>
                             </table>
                             <nav class="ml-3">
@@ -89,7 +85,7 @@
     </section>
     <section id="footer" class="bg-dark text-white p-5">
         <div class="container px-5 text-center">
-            <p class="font-weight-light">Copyright &copy; 2017 Blogen</p>
+            <p class="font-weight-light">Copyright &copy; 2017 Detroit United Bank</p>
         </div>
     </section>
 
@@ -97,6 +93,9 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/admin/manageUser.js"></script>
+    <script>
+        (new viewUsers).list();
+    </script>
 
     <!-- ----- add user modal ----- -->
     <div class=" modal fade" id="add-user-modal" tabindex="1">
@@ -111,10 +110,12 @@
                         <div class="form-group">
                             <label for="title">Name:</label>
                             <input type="text" class="form-control" name="name" id="name">
+                            <div id="name-error"><span class="small text-danger"></span></div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" name="email" id="email">
+                            <div id="email-error"><span class="small text-danger"></span></div>
                         </div>
                         <div class="form-group">
                             <label for="ac-type">Account Type:</label>

@@ -9,6 +9,25 @@ var manageUser = function() { // class
 };
 
 manageUser.prototype.create = function() {
+    $("#name-error span").html('');
+    $("#email-error span").html('');
+
+    if(this.name.trim() == "") {
+        $("#name-error span").html('Please enter a name.');
+        return;
+    }
+
+    if(!this.checkEmailFormat(this.email)) {
+        $("#email-error span").html('Please enter valid email.');
+        return;
+    }
+
+    if(this.checkEmailExist(this.email)) {
+        $("#email-error span").html('Email already linked with other account.');
+        return;
+    }
+
+
     if(this.password.match(/[A-Z]+/g) != null && this.password.match(/[a-z]+/g) != null && this.password.match(/[0-9]+/g) != null && this.password.length > 5) {
         if(this.password != this.c_password) {
             $("#cpassword-error span").html("Password didn't match !");
@@ -45,6 +64,7 @@ manageUser.prototype.create = function() {
         localStorage.setItem('totalUsersCount', newUserCount);
         $("#add-user-form").trigger("reset");
         $("#add-user-modal").modal("toggle");
+        (new viewUsers).list();
         return;
     }
     else {
@@ -52,6 +72,121 @@ manageUser.prototype.create = function() {
         return;
     }
 };
+
+manageUser.prototype.checkEmailFormat = function (email) {
+    if(!email.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-]+$/g) || email.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-]+$/g) != email) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+manageUser.prototype.checkEmailExist = function (email) {
+    let userData = localStorage.getItem('users');
+    if(userData == null) {
+        return false;
+    }
+    else {
+        let isExist = false;
+        userData = JSON.parse(userData);
+        userData.forEach(user => {
+            if(user.email == email) {
+                isExist = true;
+                return;
+            }
+        });
+        return isExist;
+    }
+}
+
+manageUser.prototype.block = function(id) {
+    if(!confirm("You will be blocked. Are you sure?")) {
+        return; 
+    }
+    let users = localStorage.getItem('users');
+    if(users != null) {
+        users = JSON.parse(users);
+        for (let i = 0; i < users.length; i++) {
+            if(id == users[i].id) {
+                users[i].is_blocked = 1;
+                break;
+            }
+        }
+        localStorage.setItem('users',JSON.stringify(users));
+        if(localStorage.getItem('logged_in_user') == id) {
+            localStorage.removeItem('logged_in_user');
+            localStorage.removeItem('logged_in_user_data');
+        }
+        (new viewUsers).list();
+    }
+};
+
+manageUser.prototype.unblock = function(id) {
+    if(!confirm("You will be unblocked. Are you sure?")) {
+        return; 
+    }
+    let users = localStorage.getItem('users');
+    if(users != null) {
+        users = JSON.parse(users);
+        for (let i = 0; i < users.length; i++) {
+            if(id == users[i].id) {
+                users[i].is_blocked = 0;
+                break;
+            }
+        }
+        localStorage.setItem('users',JSON.stringify(users));
+        (new viewUsers).list();
+    }
+};
+
+var viewUsers = function() { // class
+};
+
+viewUsers.prototype.list = function() {
+    let users = localStorage.getItem('users');
+    if(users != null) {
+        users = JSON.parse(users);
+        $('#users-body').html('');
+        users.forEach(user => {
+            if(user.is_blocked == 0) {
+                $('#users-body').append('<tr>\
+                    <td>' + user.id + '</td>\
+                    <td>' + user.name + '</td>\
+                    <td>' + user.email + '</td>\
+                    <td>' + user.account_type + '</td>\
+                    <td>' + user.money + '</td>\
+                    <td><a class="btn btn-sm btn-outline-secondary">Details</a> <button class="btn btn-sm btn-outline-danger" onclick="(new manageUser).block(' + user.id + ')">Block</button></td>\
+                    </tr>');
+            }
+            else {
+                $('#users-body').append('<tr style="background-color:#ffe0e1">\
+                    <td>' + user.id + '</td>\
+                    <td>' + user.name + '</td>\
+                    <td>' + user.email + '</td>\
+                    <td>' + user.account_type + '</td>\
+                    <td>' + user.money + '</td>\
+                    <td><a class="btn btn-sm btn-outline-secondary">Details</a> <button class="btn btn-sm btn-outline-success" onclick="(new manageUser).unblock(' + user.id + ')">Unblock</button></td>\
+                    </tr>');
+            }
+            
+        });
+    }
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

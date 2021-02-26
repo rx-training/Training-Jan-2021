@@ -9,7 +9,9 @@ session.prototype.checkSession = function() {
     let userID = localStorage.getItem('logged_in_user');
     if(userID == null || userData == null) {
         window.location.href='login.html';
+        return false;
     }
+    return true;
 };
 
 session.prototype.isLoggedIn = function() {
