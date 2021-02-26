@@ -33,7 +33,26 @@
             } else {
                 userlocation = "Not Available";
             }
-            var list1 = localStorage.getItem('user');
+            var listdata;
+            var userdata = {
+                "Name": "Test", "ContactNumber": "9999999999",
+                "Email": "test@gmail.com", "Password": "123", "Geolocation": userlocation, "Browser": "Chrome"
+            };
+            listdata = localStorage.getItem('user') || [];
+            listdata.push(userdata);
+            var myJSON = JSON.stringify(listdata);
+            localStorage.setItem('user', myJSON);
+
+            var itemadded = JSON.parse(localStorage.getItem('items')) || [];
+
+            var itemjson = {
+                "ProductName": "Camera", "Price": "10000", "ProductDescription": "HD Camera (Water and Dust Resistant)"
+            };
+
+
+            itemadded.push(itemjson);
+            var myJSON2 = JSON.stringify(itemadded);
+            localStorage.setItem('items', myJSON2);
             displayItem();
 
         }
