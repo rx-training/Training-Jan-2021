@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
-
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -109,7 +109,10 @@
             </nav>
 
             <div class="bg-light">
-                <h1 class="h4 p-4">Latest Movies</h1>
+                <div class="d-flex p-4 justify-content-between">
+                    <h1 class="h4">Latest Movies</h1>
+                    <button class="btn btn-danger px-md-5" data-toggle="modal" data-target="#addMovieModal">Add Movie&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+                </div>
                 <div class="table-responsive w-100">
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
@@ -136,13 +139,244 @@
 
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title mx-3" id="addMovieModalLabel">Add Movie</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body mx-3">
+                <small class="text-danger">*  Required</small>
+                <form>
+                    <div class="form-group row">
+                        <label for="movieId" class="col-sm-3 col-form-label h5">Id<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="movieId">
+                            <small class="text-danger" id="errId"></small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="movieName" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="movieName">
+                            <small class="text-danger" id="errName"></small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="movieImage" class="col-sm-3 col-form-label h5">Image<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control-file" id="movieImage" multiple>
+                            <small class="text-danger" id="errImage"></small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="movieRating" class="col-sm-3 col-form-label h5">Rating<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="movieRating">
+                            <small class="text-danger" id="errRating"></small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="movieFilm" class="col-sm-3 col-form-label h5">Film<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9 d-flex flex-row flex-wrap">
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="2D" name="film" id="2D">
+                                <label class="form-check-label" for="2D">
+                                2D
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="3D" name="film" id="3D">
+                                <label class="form-check-label" for="3D">
+                                3D
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="4DX" name="film" id="4DX">
+                                <label class="form-check-label" for="4DX">
+                                4DX
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="MX4D" name="film" id="MX4D">
+                                <label class="form-check-label" for="MX4D">
+                                MX4D
+                                </label>
+                            </div>
+                            <small class="text-danger" id="errFilm"></small>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="movieLanguage" class="col-sm-3 col-form-label h5">Language<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9 d-flex flex-row flex-wrap">
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="English" name="language" id="English">
+                                <label class="form-check-label" for="English">
+                                English
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Hindi" name="language" id="Hindi">
+                                <label class="form-check-label" for="Hindi">
+                                Hindi
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Tamil" name="language" id="Tamil">
+                                <label class="form-check-label" for="Tamil">
+                                Tamil
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Telugu" name="language" id="Telugu">
+                                <label class="form-check-label" for="Telugu">
+                                Telugu
+                                </label>
+                            </div>
+                            <small class="text-danger" id="errLanguage"></small>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="movieTime" class="col-sm-3 col-form-label h5">Time<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="movieTime">
+                            <small class="text-danger" id="errTime"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="movieGenre" class="col-sm-3 col-form-label h5">Genre<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9 d-flex flex-row flex-wrap">
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Action" name="genre" id="Action">
+                                <label class="form-check-label" for="Action">
+                                Action
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Thriller" name="genre" id="Thriller">
+                                <label class="form-check-label" for="Thriller">
+                                Thriller
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Comedy" name="genre" id="Comedy">
+                                <label class="form-check-label" for="Comedy">
+                                Comedy
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Drama" name="genre" id="Drama">
+                                <label class="form-check-label" for="Drama">
+                                Drama
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Family" name="genre" id="Family">
+                                <label class="form-check-label" for="Family">
+                                Family
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Animation" name="genre" id="Animation">
+                                <label class="form-check-label" for="Animation">
+                                Animation
+                                </label>
+                            </div>
+                            <small class="text-danger" id="errGenre"></small>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="movieCertification" class="col-sm-3 col-form-label h5">Certification<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9 d-flex flex-row flex-wrap">
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="radio" value="UA" name="certification" id="UA">
+                                <label class="form-check-label" for="UA">
+                                UA
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="radio" value="U" name="certification" id="U">
+                                <label class="form-check-label" for="U">
+                                U
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="radio" value="A" name="certification" id="A">
+                                <label class="form-check-label" for="A">
+                                A
+                                </label>
+                            </div>
+                            <small class="text-danger" id="errCertification"></small>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="movieReleaseDate" class="col-sm-3 col-form-label h5">Date of Release<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="movieReleaseDate">
+                            <small class="text-danger" id="errReleaseDate"></small>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="movieAbout" class="col-sm-3 col-form-label h5">About</label>
+                        <div class="col-sm-9">
+                            <textarea name="" id="movieAbout" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="movieCategory" class="col-sm-3 col-form-label h5">Category<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9 d-flex flex-row flex-wrap">
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Recommended" name="category" id="Recommended">
+                                <label class="form-check-label" for="Recommended">
+                                    Recommended
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Premiere" name="category" id="Premiere">
+                                <label class="form-check-label" for="Premiere">
+                                    Premiere
+                                </label>
+                            </div>
+                            <small class="text-danger" id="errCategory"></small>
+                        </div>
+                        
+                    </div>
+                </form> 
+            </div>
+            <div class="modal-footer mx-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" id="saveMovie" onclick="return addMovie()">Add</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
     <script src="../js/jquery.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+   
     <script src="../js/storeData.js"></script>
     <script src="../js/adminSidebar.js"></script>
     <script src="../js/movies.js"></script>
-    
+    <script src="../js/add-movie.js"></script>
 
 </body>
 </html>

@@ -1,135 +1,136 @@
 [    
-    {   
-        "Id":1, 
-        "Name": "Sunday Brunch at the Nine Restaurant", 
-        "ImgUrls":"images/funactivity-1.jpg",
-        "Language":"English,Hindi,Gujarati",
-        "Time": "1h",
-        "AgeGroup": "3+yrs",
-        "Category": "Lunch & Dinner",
-        "DateOfGame": "14 Feb 2021 onwards",
-        "Venue": "YMCA: Ahmedabad",
-        "TicketPrice": "Rs.2,000"
-        
-    },
-    {   
-        "Id":2, 
-        "Name": "One Day Picnic at Neonz Resort & Club", 
-        "ImgUrls":"images/funactivity-2.jpg",
-        "Language":"English,Hindi,Gujarati",
-        "Time": "12h",
-        "AgeGroup": "3+yrs",
-        "Category": "Resorts",
-        "DateOfGame": "11 Feb 2021 onwards",
-        "Venue": "Neonz Resort & Club:Sojitra",
-        "TicketPrice": "Rs.1,174"
-        
-    },  
-    {   
-        "Id":3, 
-        "Name": "Mission Black Terror", 
-        "ImgUrls":"images/funactivity-3.jpg",
-        "Language":"English",
-        "Time": "1h",
-        "AgeGroup": "5+yrs",
-        "Category": "Escape Games",
-        "DateOfGame": "10 Feb 2021",
-        "Venue": "Online (Play from Home)",
-        "TicketPrice": "Rs.199"
-        
-    },
-    {   
-        "Id":4, 
-        "Name": "Money Heist by Mystery Rooms", 
-        "ImgUrls":"images/funactivity-4.jpg",
-        "Language":"English",
-        "Time": "1h",
-        "AgeGroup": "8+yrs",
-        "Category": "Excape Games",
-        "DateOfGame": "11 Feb 2021 onwards",
-        "Venue": "Online (Play from Home)",
-        "TicketPrice": "Rs.700"
-        
-    },
-    {   
-        "Id":5, 
-        "Name": "Sudarshan Chakra", 
-        "ImgUrls":"images/funactivity-5.jpg",
-        "Language":"English,Hindi",
-        "Time": "1h",
-        "AgeGroup": "10+yrs",
-        "Category": "Gaming",
-        "DateOfGame": "25 Feb 2021 onwards",
-        "Venue": "Online (Play From Home)",
-        "TicketPrice": "Rs.550"
-        
-    },
-    {   
-        "Id":6, 
-        "Name": "Secret Mansion by The Hidden Hour", 
-        "ImgUrls":"images/funactivity-6.jpg",
-        "Language":"English,Hindi",
-        "Time": "1h",
-        "AgeGroup": "10+yrs",
-        "Category": "Escape Games",
-        "DateOfGame": "10 Feb 2021 onwards",
-        "Venue": "Online (Play from Home)",
-        "TicketPrice": "Rs.500"
-        
-    },
-    {   
-        "Id":7, 
-        "Name": "Jai Mahishmati", 
-        "ImgUrls":"images/funactivity-7.jpg",
-        "Language":"Hindi",
-        "Time": "1h",
-        "AgeGroup": "8+yrs",
-        "Category": "Gaming",
-        "DateOfGame": "11 Feb 2021 onwards",
-        "Venue": "Online Streaming",
-        "TicketPrice": "Rs.580"
-        
-    },
-    {   
-        "Id":8, 
-        "Name": "DOVIC 91- Halfway through the BIO War Countdown", 
-        "ImgUrls":"images/funactivity-8.jpg",
-        "Language":"English",
-        "Time": "1h 30mins",
-        "AgeGroup": "8+yrs",
-        "Category": "Escape Games",
-        "DateOfGame": "21 Feb 2021 onwards",
-        "Venue": "Online (Play from home)",
-        "TicketPrice": "Rs.700 onwards"
-        
-    },
-    {   
-        "Id":9, 
-        "Name": "Lost in Space by Mystery Rooms", 
-        "ImgUrls":"images/funactivity-9.jpg",
-        "Language":"English,Hindi",
-        "Time": "1h",
-        "AgeGroup": "8+yrs",
-        "Category": "Escape games",
-        "DateOfGame": "21 Feb 2021 onwards",
-        "Venue": "Online (Play from Home)",
-        "TicketPrice": "Rs.700"
-        
-    },
-    {   
-        "Id":10, 
-        "Name": "Pirates of Carribean by Mystery Rooms", 
-        "ImgUrls":"images/funactivity-10.jpg",
-        "Language":"English,Hindi",
-        "Time": "1h",
-        "AgeGroup": "8+yrs",
-        "Category": "Escape Games",
-        "DateOfGame": "21 Feb 2021 onwards",
-        "Venue": "Online (Play From Home)",
-        "TicketPrice": "Rs.700"
-        
-    }
-    
-]
+            {   
+                "Id":1, 
+                "Name": "Sunday Brunch at the Nine Restaurant", 
+                "ImgUrls":"images/funactivity-1.jpg",
+                "Language":"English,Hindi,Gujarati",
+                "Time": "1h",
+                "AgeGroup": "3+yrs",
+                "Category": "Lunch & Dinner",
+                "DateOfGame": "14 Feb 2021 onwards",
+                "Venue": "YMCA: Ahmedabad",
+                "TicketPrice": "Rs.2,000"
+                
+            },
+            {   
+                "Id":2, 
+                "Name": "One Day Picnic at Neonz Resort & Club", 
+                "ImgUrls":"images/funactivity-2.jpg",
+                "Language":"English,Hindi,Gujarati",
+                "Time": "12h",
+                "AgeGroup": "3+yrs",
+                "Category": "Resorts",
+                "DateOfGame": "11 Feb 2021 onwards",
+                "Venue": "Neonz Resort & Club:Sojitra",
+                "TicketPrice": "Rs.1,174"
+                
+            },  
+            {   
+                "Id":3, 
+                "Name": "Mission Black Terror", 
+                "ImgUrls":"images/funactivity-3.jpg",
+                "Language":"English",
+                "Time": "1h",
+                "AgeGroup": "5+yrs",
+                "Category": "Escape Games",
+                "DateOfGame": "10 Feb 2021",
+                "Venue": "Online (Play from Home)",
+                "TicketPrice": "Rs.199"
+                
+            },
+            {   
+                "Id":4, 
+                "Name": "Money Heist by Mystery Rooms", 
+                "ImgUrls":"images/funactivity-4.jpg",
+                "Language":"English",
+                "Time": "1h",
+                "AgeGroup": "8+yrs",
+                "Category": "Excape Games",
+                "DateOfGame": "11 Feb 2021 onwards",
+                "Venue": "Online (Play from Home)",
+                "TicketPrice": "Rs.700"
+                
+            },
+            {   
+                "Id":5, 
+                "Name": "Sudarshan Chakra", 
+                "ImgUrls":"images/funactivity-5.jpg",
+                "Language":"English,Hindi",
+                "Time": "1h",
+                "AgeGroup": "10+yrs",
+                "Category": "Gaming",
+                "DateOfGame": "25 Feb 2021 onwards",
+                "Venue": "Online (Play From Home)",
+                "TicketPrice": "Rs.550"
+                
+            },
+            {   
+                "Id":6, 
+                "Name": "Secret Mansion by The Hidden Hour", 
+                "ImgUrls":"images/funactivity-6.jpg",
+                "Language":"English,Hindi",
+                "Time": "1h",
+                "AgeGroup": "10+yrs",
+                "Category": "Escape Games",
+                "DateOfGame": "10 Feb 2021 onwards",
+                "Venue": "Online (Play from Home)",
+                "TicketPrice": "Rs.500"
+                
+            },
+            {   
+                "Id":7, 
+                "Name": "Jai Mahishmati", 
+                "ImgUrls":"images/funactivity-7.jpg",
+                "Language":"Hindi",
+                "Time": "1h",
+                "AgeGroup": "8+yrs",
+                "Category": "Gaming",
+                "DateOfGame": "11 Feb 2021 onwards",
+                "Venue": "Online Streaming",
+                "TicketPrice": "Rs.580"
+                
+            },
+            {   
+                "Id":8, 
+                "Name": "DOVIC 91- Halfway through the BIO War Countdown", 
+                "ImgUrls":"images/funactivity-8.jpg",
+                "Language":"English",
+                "Time": "1h 30mins",
+                "AgeGroup": "8+yrs",
+                "Category": "Escape Games",
+                "DateOfGame": "21 Feb 2021 onwards",
+                "Venue": "Online (Play from home)",
+                "TicketPrice": "Rs.700 onwards"
+                
+            },
+            {   
+                "Id":9, 
+                "Name": "Lost in Space by Mystery Rooms", 
+                "ImgUrls":"images/funactivity-9.jpg",
+                "Language":"English,Hindi",
+                "Time": "1h",
+                "AgeGroup": "8+yrs",
+                "Category": "Escape games",
+                "DateOfGame": "21 Feb 2021 onwards",
+                "Venue": "Online (Play from Home)",
+                "TicketPrice": "Rs.700"
+                
+            },
+            {   
+                "Id":10, 
+                "Name": "Pirates of Carribean by Mystery Rooms", 
+                "ImgUrls":"images/funactivity-10.jpg",
+                "Language":"English,Hindi",
+                "Time": "1h",
+                "AgeGroup": "8+yrs",
+                "Category": "Escape Games",
+                "DateOfGame": "21 Feb 2021 onwards",
+                "Venue": "Online (Play From Home)",
+                "TicketPrice": "Rs.700"
+                
+            }
+            
+        ]
+
 
 
