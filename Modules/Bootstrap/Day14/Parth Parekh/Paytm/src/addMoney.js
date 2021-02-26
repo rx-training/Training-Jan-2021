@@ -1,5 +1,6 @@
- 
- var array = [];
+
+
+        var array = new Array();
         async function getContact(file) {
                 let myObject = await fetch(file);
                 let myData = await myObject.json();
@@ -70,38 +71,70 @@
                     var w = localStorage.getItem("Wallet");
                     
                     console.log(w);
+
                     var ob1 ;
+                    var aa = [];
                     
                     if(amount > w)
                     {
                         alert("Insufficient Balance");    
                     }
                     else{
-                        var total = w - amount;
-                        var wallet = localStorage.setItem("Wallet", total);
-                        var d = new Date();
-                        var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
-                        var h = d.getHours() + ":" + d.getMinutes();
-                        var object = {
-                            name : name,
-                            num :num,
-                            amount : amount,
-                            total : total,
-                            date : date,
-                            time : h
+                           
+                        var his = localStorage.getItem("payment_history");
+                        //console.log(his);
+                        var payment_historyObject = JSON.parse(his);
+                        if(payment_historyObject == null)
+                        {
+                            console.log("payment_history is null");
+                            var total = w - amount;
+                            var wallet = localStorage.setItem("Wallet", total);
+                            var d = new Date();
+                            var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
+                            var h = d.getHours() + ":" + d.getMinutes();
+                            var object = {
+                                name : name,
+                                num :num,
+                                amount : amount,
+                                total : total,
+                                date : date,
+                                time : h
+                            }
+                            aa.push(object);
+                            ob1 = { array : aa};
+                            localStorage.setItem("payment_history", JSON.stringify(ob1));
+                            var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
+                                 "<p> <a href='passbook.html'> Check history </p> </a>";
+                            $("#success").html(s);
                         }
-                        array.push(object);
-                        ob1 = { array : array};
-                        console.log(ob1);
-                        localStorage.setItem("payment_history", JSON.stringify(ob1));
-                        
+                        else{
 
-                        var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
-                                "<p> <a href='passbook.html'> Check history </p> </a>";
-                        $("#success").html(s);
+                            var aa = payment_historyObject.array;
+                            console.log(aa);    
+                            var total = w - amount;
+                            var wallet = localStorage.setItem("Wallet", total);
+                            var d = new Date();
+                            var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
+                            var h = d.getHours() + ":" + d.getMinutes();
+                            var object = {
+                                name : name,
+                                num :num,
+                                amount : amount,
+                                total : total,
+                                date : date,
+                                time : h
+                            }
+                            aa.push(object);
+                            console.log(aa);
+                            ob1 = { array : aa};
+                            console.log(ob1);
+                            localStorage.setItem("payment_history", JSON.stringify(ob1));
+                            
 
-                        
-                        
+                            var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
+                                    "<p> <a href='passbook.html'> Check history </p> </a>";
+                            $("#success").html(s);
+                        }
                         //window.location.href="passbook.html";
                     }              
                 }
@@ -116,6 +149,60 @@
                 alert("Enter more than 5 rupees ");
         }
 
+        $.getJSON("register_users.json", function (data ,status) {
+                localStorage.setItem("register_users" , JSON.stringify( data )); 
+            });
+            function loginCheck(email ,password) {
+                
+                var email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+                if(email_pattern.test(email) && email !="" && password !="")
+                {
+                    var getObject = localStorage.getItem("register_users");
+                    var getUser = JSON.parse(getObject);
+                    var get = getUser.Users;
+                    console.log(get);
+                    var flag = 1;
+                    
+                    var profile = "";
+                    $.each(get , function  ( i , v) {
+                       if(email == v.email && password == v.password ) {
+                           flag = 0;
+                        var obj2 = { name : v.name , value : 1}
+                           sessionStorage.setItem("session" ,JSON.stringify(obj2));  
+                       }
+                    });
+                    if(flag){ alert("Email & Passwrod Not match"); }
+                }
+                else
+                { 
+                    alert("Enter Valid Email & Password");  
+                }
+        }
+        
+
+        setInterval(() => {
+                var sss = sessionStorage.getItem("session");
+                if (sss != null) {
+                    var info = sessionStorage.getItem("session");
+                    //console.log(info);
+                    var profileinfo = JSON.parse(info);
+                    //console.log(profileinfo);
+                    profile = '<h3 class="mr-5 mb-4 p-2"><i class="fa fa-user " aria-hidden="true"></i>' + profileinfo.name +
+                        '<button type="button" class="ml-3 btn btn-danger" onclick=logout()>'+
+                        '<i class="fa fa-angle-down" aria-hidden="true"></i> Logout</button> </h3>';
+                    $("#profile").html(profile);
+                    $("#d1").css("display", "none");
+                    $("#d2").css("display", "none");
+
+                }
+                else { console.log("Session not get"); }
+        }, 1000);
+
+        function logout(){
+            localStorage.removeItem("payment_history");
+            sessionStorage.removeItem("session");
+            window.location.href = "index.html";
+        } 
 
 
         

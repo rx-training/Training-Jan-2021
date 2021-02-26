@@ -29,6 +29,7 @@
         <a class="breadcrumb-item text-muted" href="#">24x7 Help</a>
     </ol>
     <!-- First Navbar -->
+    <div class="text-right" id="profile"> </div>
     <div class="row bg-light" id="firstnav">
         <div class="col">
             <nav class="navbar navbar-expand-lg navbar-light ">
@@ -59,11 +60,11 @@
                                     aria-hidden="true"></i> Passbook</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark mt-2" href="#" data-toggle="modal" data-target="#loginmodal"> <i
+                            <a class="nav-link text-dark mt-2" id="d1" href="#" data-toggle="modal" data-target="#loginmodal"> <i
                                     class="fa fa-smile-o h5" aria-hidden="true"></i> Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark mt-2" href="#" data-toggle="modal" data-target="#signupmodal"> <i
+                            <a class="nav-link text-dark mt-2" id="d2" href="#" data-toggle="modal" data-target="#signupmodal"> <i
                                     class="fa fa-smile-o h5" aria-hidden="true"></i> Sign Up</a>
                         </li>
                     </ul>
@@ -132,7 +133,7 @@
     
     
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                        <button type="button" class="btn text-white" style="background-color: #012b72;">Submit</button>
                     </form>
                 </div>
             </div>
@@ -150,18 +151,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
-    
+                    <form>
+
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" name="" id="" required class="form-control" placeholder="">
+                            <input type="email" name="" id="email" required class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="password" id="" required class="form-control" placeholder="">
+                            <input type="password" id="password" required class="form-control" placeholder="">
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                        <button type="button" class="btn text-white" data-dismiss="modal"
+                            onclick="loginCheck(email.value , password.value)"
+                            style="background-color: #012b72;">Submit</button>
                     </form>
                 </div>
             </div>
