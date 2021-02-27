@@ -137,10 +137,28 @@
                    </div>
                   </div>
                   <div class="col-10">
-                     <div class="container my-5">
-                      <h1>Hello developer!</h1>
-                 </div>
-             </div>
+                    <div class="container py-5">
+                        <h1>University of Mumbai Examination 2021</h1>
+                    
+                        <div class="row">
+                            <div class="col">
+                            <button id="sbtn" class="btn btn-primary">Start Exam</button>
+                            </div>
+                            <div class="col">
+                            <div class="timer">
+                            <span id="hr" class="lead">03</span>:
+                            <span id="min" class="lead">00</span>:
+                            <span id="sec" class="lead">00</span>
+                            </div>
+                        </div>
+                        </div>
+                                <div class="row">
+                                    <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo cum assumenda perferendis. Praesentium, officiis neque itaque beatae consectetur sed cupiditate eveniet est laudantium esse, deleniti recusandae omnis doloremque at voluptate explicabo aliquid hic perspiciatis natus aliquam tenetur ducimus. Aliquam molestiae quidem delectus cum et, incidunt, possimus nesciunt harum quasi dolorum distinctio iusto. Doloribus commodi labore quasi odio nisi possimus, quia consectetur explicabo voluptatem rerum nobis mollitia? Officiis cum velit est rerum nostrum eum quasi incidunt, corrupti omnis maiores dolorem? Ea doloremque aliquid quisquam animi eveniet laudantium sit porro quo, sed, saepe consequuntur! Cumque odit, quia facilis in eligendi mollitia est dolorem tempora quasi? Quod vel deleniti earum dolor, consectetur molestiae, sapiente quaerat natus officiis labore assumenda cupiditate tempore impedit, autem nulla. Nulla in aliquam labore consequuntur laudantium voluptatem, neque eaque excepturi laborum iste ex nobis est, sit exercitationem consectetur. Pariatur tempora repellendus in saepe dolore magni ratione qui totam molestias?Lorem ipsum dolor sit amet consectetur adipisicing elit. Non aperiam fuga dignissimos et nostrum a dolor incidunt quis. Perspiciatis culpa et at, consequatur quos vitae quod similique dolorum, rerum, mollitia aspernatur enim voluptatum cupiditate natus quisquam deleniti. Quas, exercitationem! Nesciunt mollitia cupiditate ducimus neque quo facilis commodi blanditiis delectus minima!</div>
+                                </div>
+                    
+                            <button id="stop" class="btn btn-primary">Submite Exam</button>
+                        </div>
+                      </div>
         </div>
          </section>
          
@@ -166,37 +184,54 @@
         <script src="../../../../js/jquery.min.js"></script>
         <script src="../../../../js/popper.min.js"></script>
         <script src="../../../../js/bootstrap.min.js"></script>
-        <script>
-            let first = prompt("enter the first number");
-            let second = prompt("enter the second number")
-            let third = prompt("enter the third number");
-    
-    
-            if(first > second){
-                if(first > third){
-                    alert("first number is heigest");
+        <script>    
+            let start = document.getElementById("sbtn");
+            let stop = document.getElementById("stop");
+            let hr = document.getElementById("hr");
+            let min = document.getElementById("min");
+            let sec = document.getElementById("sec");
+            // console.log(sec);
+            let hour = 2;
+            let minute = 59;
+            let second = 59;
+            let interval;
+            start.onclick = function() {
+        
+               interval = setInterval(() => {
+                    // console.log(second + " " + minute + " " + hour  );
+                    second--;
+                    sec.innerHTML = second;
+                if(second == 00){
+                    // console.log("hi");
+                    second = 59;
+                    minute--;
+                    sec.innerHTML = second;
                 }
-                else{
-                    alert("third number is heigest");
+                min.innerHTML = minute;
+                if(minute == 00){
+                    minute = 60;
+                    hour --;
+                    min.innerHTML = minute;
                 }
-    
+                    hr.innerHTML = hour;
+                
+                }, 100);
+        
             }
-            else{
-                if(second > third){
-                    alert(" Second number is heigest");
-                }
-                else{
-                    alert("third nuber is heigest");
-                }
+        
+            stop.onclick = function(){
+                // console.log("cliked")
+                clearInterval(interval);
             }
-    
-            let sum = parseInt(first) + parseInt(second) + parseInt(third);
-            if(sum > 40)
-            {
-               alert(sum);
-            }
+        
         </script>
     </body>
 </html>
+
+
+
+
+
+
 
 
