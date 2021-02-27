@@ -1,6 +1,7 @@
 document.getElementById("recommendedMovies").innerHTML = "";
 document.getElementById("premiereCarousel").innerHTML ="";
             var moviesArray = JSON.parse(localStorage.getItem("Movies"));
+            
             for(data in moviesArray.Movies){
                 if(moviesArray.Movies[data].Recommended==true){
                     console.log(moviesArray.Movies[data].Recommended);
@@ -15,13 +16,13 @@ document.getElementById("premiereCarousel").innerHTML ="";
                     document.getElementById("premiereMovies").innerHTML += '<div class="col-lg-3"><div><div class="slide-content"><a href="#"><img src="../'
                         + moviesArray.Movies[data].ImgUrls.split(',')[1] +'" alt="" loading="lazy" class="w-100 rounded"></a><h6 style="color: white;" class="pt-3">'
                         + moviesArray.Movies[data].Name + '</h6><h6 class="font-weight-normal d-none d-lg-block">'
-                        + moviesArray.Movies[data].Language.split(',')[0] +'</h6></div></div></div>';
+                        + moviesArray.Movies[data].Language +'</h6></div></div></div>';
 
                     document.getElementById("premiereCarousel").innerHTML += '<div class="carousel-item pt-3 pb-5"><div class="d-flex flex-row flex-fill py-3"><div class="flex-grow-1 pr-3"><a href="#"><img src="../'
                         + moviesArray.Movies[data].ImgUrls.split(',')[1] + '" alt="" loading="lazy" class="w-100 rounded"></a></div><div class="text-white align-self-center"><h6>'
                         + moviesArray.Movies[data].Name +'</h6><p>' + moviesArray.Movies[data].Time + '</p><p>' + moviesArray.Movies[data].Genre + '•' 
                         + moviesArray.Movies[data].Certification +'</p><p>'
-                        + moviesArray.Movies[data].Language.split(',')[0] + '</p><p>' + moviesArray.Movies[data].About 
+                        + moviesArray.Movies[data].Language + '</p><p>' + moviesArray.Movies[data].About 
                         + '</p></div></div><button class="btn btn-danger btn-block">Buy or Rent</button></div>';
                     $(".carousel-item:first").addClass('active');
                 }

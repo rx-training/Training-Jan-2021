@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin-Dashboard</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Plays</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -37,7 +37,7 @@
                         
                         </li>
                         <li class="nav-item">
-                            <a href="login.html" class="nav-link text-white" id="logoutBtn"><i class="fa fa-user-times"></i> Logout</a>
+                            <a href="index.html" class="nav-link text-white" id="logoutBtn"><i class="fa fa-user-times"></i> Logout</a>
                         </li>
                     </ul>
                 </div>            
@@ -71,7 +71,7 @@
                     
                 </li>
                 <li>
-                    <a href="#">Sports</a>
+                    <a href="sports.html">Sports</a>
                     
                 </li>
                 <li>
@@ -96,7 +96,7 @@
     
         </nav>
         <!-- Page Content -->
-        <div id="content">
+        <div id="content" class="w-100">
     
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
                 <div class="container-fluid">
@@ -108,14 +108,41 @@
                 </div>
             </nav>
 
+            <div class="bg-light">
+                <h1 class="h4 p-4">Latest Plays</h1>
+                <div class="table-responsive w-100">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Language</th>
+                                <th>Time</th>
+                                <th>Age Group</th>
+                                <th>Genre</th>
+                                <th>Date Of Event</th>
+                                <th>Event Time</th>
+                                <th>Venue</th>
+                                <th>Ticket Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblPlays">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/storeData.js"></script>
-    <script src="../js/adminSidebar.js"></script>
-    <script src="../js/admin-dashboard.js"></script>
-
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/storeData.js"></script> -->
+    <script src="js/adminSidebar.js"></script>
+    <script src="js/plays.js"></script>
+    
 </body>
 </html>

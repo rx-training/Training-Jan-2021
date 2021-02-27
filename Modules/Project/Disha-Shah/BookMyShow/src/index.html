@@ -1503,14 +1503,14 @@
                 <div class="modal-body text-center">
                     <form class="mb-4">
                         <div class="form-group">
-                            <input type="number" name="" id="" class="form-control" placeholder="Enter Contact Number"
-                                maxlength="10" required>
+                            <input type="number" name="" id="loginNo" class="form-control" placeholder="Enter Contact Number"
+                             max="10" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="" id="" class="form-control" placeholder="Enter Password"
+                            <input type="password" name="" id="loginPass" class="form-control" placeholder="Enter Password"
                                 required>
                         </div>
-                        <button class="btn btn-danger btn-block" type="submit">Login</button>
+                        <input type="submit" value="Login" class="btn btn-danger btn-block" id="btnLogin">
                     </form>
 
                     <a href="#" class="text-danger" id="next-trigger"><small>Don't have a account? Register
@@ -1582,6 +1582,41 @@
             document.getElementById('mySidenav').style.width = "0px"
         }
     </script>
+
+<script>
+    $(document).ready(function(){
+        
+        $("#btnLogin").click(function(){
+            var adminNo = document.getElementById("loginNo").value;
+            var adminPass = document.getElementById("loginPass").value;
+            
+            
+            
+            
+                $.getJSON("JSON/adminInfo.json", function(data, status){
+                    $.each(data, function(index, data){
+                        console.log(data);
+                        
+
+                            if(adminNo == data.ContactNo && adminPass == data.Password) {
+                                
+                                alert("Successfully Logged In!!");
+                                localStorage.logged_in_admin = JSON.stringify(data);
+                                window.location.assign("admin-dashboard.html"); 
+                                return;
+                            }
+                            
+                            
+                    })
+                    
+                });
+
+            
+        });
+    });
+
+    
+</script>
 
     
     

@@ -1,6 +1,6 @@
 
     if(!localStorage.logged_in_admin){
-        window.location.assign("login.html");
+        window.location.assign("index.html");
     }
     else{
         
