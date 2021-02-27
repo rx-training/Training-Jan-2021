@@ -75,8 +75,10 @@
 
 
     <div class="container mb-4">
-        <div class="row mt-3 p-2 text-right display-4 text-danger" >  <div class="col" > 
-             Wallet <i class="fa fa-id-card-o" aria-hidden="true"></i> : <span id="purse" class="ml-2"></span></div></div>
+        
+        <div class="row mt-3 p-2 text-right display-4 text-danger" id="dnone">  <div class="col" > 
+             Wallet <i class="fa fa-id-card-o" aria-hidden="true"></i> : <span id="purse" class="ml-2">0</span></div></div>
+        <div id="getLoginFirst" ></div>
         <div id="balance"></div>
     </div>
 
@@ -91,28 +93,30 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form >
                         <div class="form-group">
                             <label for="">Name</label>
-                            <input type="text" name="" required id="" required class="form-control" placeholder="">
+                            <input type="text" name="" required id="Name" required class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" name="" required id="" required class="form-control" placeholder="">
+                            <input type="email" name="" required id="email" required class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="password" id="" required class="form-control" placeholder="">
+                            <input type="password" id="password" required class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
-                            <input type="password" id="" required class="form-control" placeholder="">
+                            <input type="password" id="confirmPass" required class="form-control" placeholder="">
                         </div>
     
     
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                        <button type="button" class="btn text-white"
+                         onclick="signup(Name.value , email.value , password.value , confirmPass.value)" style="background-color: #012b72;">Submit</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -144,107 +148,14 @@
                             onclick="loginCheck(email.value , password.value)"
                             style="background-color: #012b72;">Submit</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
     </div>
 
     
-    <script>
-            var sessionValue = sessionStorage.getItem("session");
-            var sv = JSON.parse(sessionValue);
-
-            var List = localStorage.getItem("register_users");
-            var userList = JSON.parse(List);
-            //console.log(userList.Users); 
-            var anyuser = userList.Users;
-            console.log(anyuser);
-            $.each(anyuser, function (i, v) {
-                if (v.name == sv.name) {
-                    var w = v.wallet;
-                    //console.log(w);
-                    $("#purse").html(w);
-                }
-            });
-        
-            var payment_history = localStorage.getItem("payment_history");
-        
-            //console.log(payment_history);
-             
-            var data = JSON.parse(payment_history);
-            var data = data.array;
-            console.log(data);
-            listBlock = "";
-            $.each(data , function  (i ,value) {
-                listBlock += "<div class='card text-success mt-5 p-3'> <h2 class='card-title display-4'>Money Send To :  " + value.name + "</h2>" +
-                    "<p class='card-text'>Mobile no :   " + value.num + "</p>" +
-                    "<p class='card-text'>Amount Pay :  " + value.amount + "</p>" +
-                    "<p class='card-text'>Remaining Balance :   " + value.total + "</p>" +
-                    "<p class='card-text '> Transaction Date : " + value.date + " </p>" +
-                    "<p class='card-text '> Transaction Time : " + value.time + " </p>" +
-                    "</div>";
-                $("#balance").html(listBlock);
-                $("#purse").html(value.total);
-            });
-
-
-            $.getJSON("register_users.json", function (data, status) {
-                localStorage.setItem("register_users", JSON.stringify(data));
-            });
-            function loginCheck(email, password) {
-
-                var email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-                if (email_pattern.test(email) && email != "" && password != "") {
-                    var getObject = localStorage.getItem("register_users");
-                    var getUser = JSON.parse(getObject);
-                    var get = getUser.Users;
-                    console.log(get);
-                    var flag = 1;
-
-                    var profile = "";
-                    $.each(get, function (i, v) {
-                        if (email == v.email && password == v.password) {
-                            flag = 0;
-                            var obj2 = { name: v.name, value: 1 }
-                            sessionStorage.setItem("session", JSON.stringify(obj2));
-                        }
-                    });
-                    if (flag) { alert("Email & Passwrod Not match"); }
-                }
-                else {
-                    alert("Enter Valid Email & Password");
-                }
-            }
-
-
-            setInterval(() => {
-                var sss = sessionStorage.getItem("session");
-                if (sss != null) {
-                    var info = sessionStorage.getItem("session");
-                    //console.log(info);
-                    var profileinfo = JSON.parse(info);
-                    //console.log(profileinfo);
-                    profile = '<h3 class="mr-5 mb-4 p-2"><i class="fa fa-user " aria-hidden="true"></i>' + profileinfo.name +
-                        '<button type="button" class="ml-3 btn btn-danger" onclick=logout()>' +
-                        '<i class="fa fa-angle-down" aria-hidden="true"></i> Logout</button> </h3>';
-                    $("#profile").html(profile);
-                    $("#d1").css("display", "none");
-                    $("#d2").css("display", "none");
-                }
-                else { console.log("Session not get"); }
-            }, 1000);
-
-            function logout() {
-                localStorage.removeItem("payment_history");
-                sessionStorage.removeItem("session");
-                window.location.href = "index.html";
-            }
-
-        
-         
-
-    </script>
-    
+    <script src="passbook.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

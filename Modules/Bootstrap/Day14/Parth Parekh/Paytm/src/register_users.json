@@ -1,15 +1,15 @@
 {
     "Users":[
         {
-            "name" :"Harsh",
-            "email":"xyz@gmail.com",
-            "password": "xyz",
-            "wallet" : "100",
+            "name" :"Parth",
+            "email":"parth@gmail.com",
+            "password": "parth",
+            "wallet" : "300",
             "contacts":[
                 {
                     
                     "no": "1",
-                    "name": "Parth",
+                    "name": "Parth Mumbai",
                     "mobile_no": "1234567890"
                 },
                 {
@@ -21,14 +21,49 @@
                     "no": "3",
                     "name": "Hriday",
                     "mobile_no": "9196415323"
+                },
+                {
+                    "no": "4",
+                    "name": "Karina",
+                    "mobile_no": "0109910394"
+                },
+                {
+                    "no": "5",
+                    "name": "Katrina Kaff",
+                    "mobile_no": "9109000394"
+                },
+                {
+                    "no": "6",
+                    "name": "Salman khan",
+                    "mobile_no": "9888880394"
+                },
+                {
+                    "no": "7",
+                    "name": "Sunil Shethy",
+                    "mobile_no": "9177779099"
+                },
+                {
+                    "no": "8",
+                    "name": "Ronak",
+                    "mobile_no": "8129910394"
+                },
+                {
+                    "no": "9",
+                    "name": "vanraj ",
+                    "mobile_no": "7107210394"
+                },
+                {
+                    "no": "10",
+                    "name": "Devil",
+                    "mobile_no": "9509610394"
                 }
                 
             ]
         },
         {
-            "name" : "Parth",
-            "email": "parth@gmail.com",
-            "password": "parth",
+            "name" : "Harsh",
+            "email": "xyz@gmail.com",
+            "password": "xyz",
             "wallet" : "200",
             "contacts" :[
                 {
@@ -45,8 +80,68 @@
                     "no": "3",
                     "name": "Raj",
                     "mobile_no": "9143955883"
-                } 
+                },
+                {
+                    "no": "4",
+                    "name": "Jadeja",
+                    "mobile_no": "7143955456"
+                },
+                {
+                    "no": "5",
+                    "name": "komal",
+                    "mobile_no": "2145955883"
+                },
+                {
+                    "no": "6",
+                    "name": "Raj",
+                    "mobile_no": "7143977887"
+                },
+                {
+                    "no": "7",
+                    "name": "yashvardhan patil",
+                    "mobile_no": "71045798"
+                }
+
             ]
-        }   
+        },
+        {
+            "name": "vayu",
+            "email": "vayu@gmail.com",
+            "password": "vayu",
+            "wallet": "100",
+            "contacts": [
+                {
+                    "no": "1",
+                    "name": "kaiff",
+                    "mobile_no": "9239153467"
+                },
+                {
+                    "no": "2",
+                    "name": "rohan",
+                    "mobile_no": "7123915457"
+                },
+                {
+                    "no": "3",
+                    "name": "Raj",
+                    "mobile_no": "9143955907"
+                },
+                {
+                    "no": "4",
+                    "name": "Jadeja",
+                    "mobile_no": "7143955458"
+                },
+                {
+                    "no": "5",
+                    "name": "Vimal",
+                    "mobile_no": "8145955883"
+                },
+                {
+                    "no": "6",
+                    "name": "Raj",
+                    "mobile_no": "7143977887"
+                }
+                
+            ]
+        }  
     ]
 }

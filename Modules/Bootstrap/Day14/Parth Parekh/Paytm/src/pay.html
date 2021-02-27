@@ -79,7 +79,7 @@
              
         </div>
         <div class="row mt-3">
-            <div class="display-4  ml-2 text-success">Your Contact List</div>
+            <div class="display-4  ml-2 text-success" id="getLoginfirst">Your Contact List</div>
         </div>
         <div class="row mt-3 p-3">
             <input id="myInput" type="text" class="form-control mb-3 mt-2 text-capitalize " placeholder="Your contacts..">
@@ -116,24 +116,25 @@
                     <form action="">
                         <div class="form-group">
                             <label for="">Name</label>
-                            <input type="text" name="" required id="" required class="form-control" placeholder="">
+                            <input type="text" name="" required id="Name" required class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" name="" required id="" required class="form-control" placeholder="">
+                            <input type="email" name="" required id="email" required class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="password" id="" required class="form-control" placeholder="">
+                            <input type="password" id="password" required class="form-control" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
-                            <input type="password" id="" required class="form-control" placeholder="">
+                            <input type="password" id="confirmPass" required class="form-control" placeholder="">
                         </div>
     
     
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                        <button type="button" class="btn text-white"
+                        onclick="signup(Name.value , email.value , password.value , confirmPass.value)" style="background-color: #012b72;">Submit</button>
                     </form>
                 </div>
             </div>
@@ -188,6 +189,7 @@
             </div>
         </div>
     </div>
+    
 
 
     <script src="addMoney.js"></script>

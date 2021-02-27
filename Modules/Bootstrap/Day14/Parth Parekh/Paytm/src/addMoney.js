@@ -10,30 +10,36 @@
                 let userList = JSON.parse(List);
                 console.log(userList.Users); 
                 let anyuser = userList.Users;
-                $.each(anyuser , function ( i , v ){
-                    if(v.name == sv.name)
-                    {
-                        var temp = "";
-                        let x = v.contacts;
-                        //console.log(x);
-                        $.each(x , function ( i , value) {
-                            temp += "<tr >";
-                            temp += "<td class='p-3'>" + value.no + "</td>";
-                            temp += "<td>" + value.name + "</td>";
-                            temp += "<td>" + value.mobile_no + "</td>";
-                            temp += '<td><button data-toggle="modal" data-target="#pay" class="btn btn-success btn-block" onclick="payvalue(' + "'" + value.name + "'" + ',' + "'" + value.mobile_no + "'" + ')">Pay</button></td>';
-                            temp += "</tr>";
-                        });
-                        $("#tbody").html(temp);
+                if(sv==null)
+                {
 
-                        $("#myInput").on("keyup", function () {
-                        var value = $(this).val().toLowerCase();
-                        $("#tbody tr").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                        });
-                        });
-                    }            
-                });
+                }
+                else{
+                    $.each(anyuser , function ( i , v ){
+                        if(v.name == sv.name)
+                        {
+                            var temp = "";
+                            let x = v.contacts;
+                            //console.log(x);
+                            $.each(x , function ( i , value) {
+                                temp += "<tr >";
+                                temp += "<td class='p-3'>" + value.no + "</td>";
+                                temp += "<td>" + value.name + "</td>";
+                                temp += "<td>" + value.mobile_no + "</td>";
+                                temp += '<td><button data-toggle="modal" data-target="#pay" class="btn btn-success btn-block" onclick="payvalue(' + "'" + value.name + "'" + ',' + "'" + value.mobile_no + "'" + ')">Pay</button></td>';
+                                temp += "</tr>";
+                            });
+                            $("#tbody").html(temp);
+
+                            $("#myInput").on("keyup", function () {
+                            var value = $(this).val().toLowerCase();
+                            $("#tbody tr").filter(function () {
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                            });
+                            });
+                        }          
+                    });
+                }
         };
         getContact("register_users.json");
 
@@ -61,6 +67,7 @@
 
         function  moneysend(amount) {
             var amount = parseInt(amount);
+           
             if( ! (amount <= 5))
             {
                 // console.log(amount);
@@ -170,8 +177,8 @@
 
         $.getJSON("register_users.json", function (data ,status) {
                 localStorage.setItem("register_users" , JSON.stringify( data )); 
-            });
-            function loginCheck(email ,password) {
+        });
+        function loginCheck(email ,password) {
                 
                 var email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
                 if(email_pattern.test(email) && email !="" && password !="")
@@ -190,23 +197,69 @@
                            sessionStorage.setItem("session" ,JSON.stringify(obj2));  
                        }
                     });
-                    if(flag){ alert("Email & Passwrod Not match"); }
+                    if(flag){ alert("Email & Password Not match"); }
+                    window.location.href  = "index.html";
                 }
                 else
                 { 
                     alert("Enter Valid Email & Password");  
                 }
+                
         }
-        
 
-        setInterval(() => {
-                var sss = sessionStorage.getItem("session");
+        function  signup(name , email , password , confirmPass ) {   
+                let email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+                if(email_pattern.test(email) && name !="" && password !="" && confirmPass !="" && password ==confirmPass)
+                {
+                    console.log("true");
+                    var object1 = {
+                        name:name,
+                        password : password,
+                        email : email
+                    }
+                    //console.log(object1);
+                    localStorage.setItem("new users",JSON.stringify(object1));
+                    let sss = localStorage.getItem("new users");
+                    console.log(sss);
+                    window.location.href = "pay.html";
+
+                }
+                else {
+                    alert("Enter Valid Data");
+                    console.log("false");
+                }
+                
+        }
+
+        //New User
+        setTimeout(() => {
+            let sss = localStorage.getItem("new users");
+            if (sss != null) {
+                let object = JSON.parse(sss);
+                console.log(object.name);
+                let profile = '<h3 class="mr-5 mb-4 p-2 text-capitalize"><i class="fa fa-user " aria-hidden="true"></i>' + object.name +
+                    '<button type="button" class="ml-3 btn btn-danger" onclick=logout()>' +
+                    '<i class="fa fa-angle-down" aria-hidden="true"></i> Logout</button> </h3>';
+                $("#profile").html(profile);
+                $("#d1").css("display", "none");
+                $("#d2").css("display", "none"); 
+                let block = "<i class='fa fa-smile-o' aria-hidden='true'></i> You don't have contact list";
+                    //console.log(block);
+                $("#getLoginfirst").html(block);
+            }
+            
+        }, 101);
+
+        
+        //session
+        setTimeout(() => {
+                let sss = sessionStorage.getItem("session");
                 if (sss != null) {
-                    var info = sessionStorage.getItem("session");
+                    let info = sessionStorage.getItem("session");
                     //console.log(info);
-                    var profileinfo = JSON.parse(info);
+                    let profileinfo = JSON.parse(info);
                     //console.log(profileinfo);
-                    profile = '<h3 class="mr-5 mb-4 p-2"><i class="fa fa-user " aria-hidden="true"></i>' + profileinfo.name +
+                    let profile = '<h3 class="mr-5 mb-4 p-2 text-capitalize"><i class="fa fa-user " aria-hidden="true"></i>' + profileinfo.name +
                         '<button type="button" class="ml-3 btn btn-danger" onclick=logout()>'+
                         '<i class="fa fa-angle-down" aria-hidden="true"></i> Logout</button> </h3>';
                     $("#profile").html(profile);
@@ -214,11 +267,19 @@
                     $("#d2").css("display", "none");
 
                 }
-                else { console.log("Session not get"); }
-        }, 1000);
+                else { 
+                    let block = "<i class='fa fa-smile-o' aria-hidden='true'></i> you need to login first"+
+                    "<a href='#'  data-toggle='modal' data-target='#loginmodal' class='text-info text-capitalize h3 ml-2'>Click here to login</a> ";
+                    //console.log(block);
+                    $("#getLoginfirst").html(block);
+                    console.log("Session not get"); 
+                }
+        }, 100);
 
         function logout(){
             localStorage.removeItem("payment_history");
+            localStorage.removeItem("Wallet");
+            localStorage.removeItem("new users");
             sessionStorage.removeItem("session");
             window.location.href = "index.html";
         } 
