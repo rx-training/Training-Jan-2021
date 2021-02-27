@@ -6,7 +6,9 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Book Bus Travels, AC Volvo Bus, rPool & Bus Hire - redbus India</title>
+        <script src="js/index.js"></script>
     </head>
 
     <body>
@@ -53,8 +55,8 @@
                         <li class="nav-item dropdown" id="user-menu">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o"></i></a>
                             <div class="dropdown-menu dropdown-menu-right mr-0">
-                                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#signinNav">Sign-in</a>
-                                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#signupNav">Sign-up</a>
+                                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#signinNav">Log-in/sign up</a>
+                                
                             </div>
                         </li>
                     </ul>
@@ -77,29 +79,32 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="index.html">
+                            <form action="user.html"  id="sign-up-form">
                                 <div class="form-group">
-                                    <label for="">First Name<sup class="text-danger">*</sup></label>
-                                    <input type="text" class="form-control" required placeholder="Enter first name">
+                                    <label for="fname">First Name<sup class="text-danger">*</sup></label>
+                                    <input type="text" class="form-control" id="fname" required placeholder="Enter first name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Last Name<sup class="text-danger">*</sup></label>
-                                    <input type="text" class="form-control" required placeholder="Enter last name">
+                                    <label for="lname">Last Name<sup class="text-danger">*</sup></label>
+                                    <input type="text" class="form-control" id="lname" required placeholder="Enter last name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Email Name<sup class="text-danger">*</sup></label>
-                                    <input type="email" class="form-control" required placeholder="Enter email id">
+                                    <label for="email">Email Name<sup class="text-danger">*</sup></label>
+                                    <input type="email" class="form-control" id="email" required placeholder="Enter email id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Password<sup class="text-danger">*</sup></label>
-                                    <input type="password" class="form-control" required placeholder="Enter Password">
+                                    <label for="password">Password<sup class="text-danger">*</sup></label>
+                                    <input type="password" class="form-control" id="password" required placeholder="Enter Password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Confirm password<sup class="text-danger">*</sup></label>
-                                    <input type="password" class="form-control" required placeholder="Confirm password">
+                                    <label for="cpassword">Confirm password<sup class="text-danger">*</sup></label>
+                                    <input type="password" class="form-control" id="cpassword" required placeholder="Confirm password">
                                 </div>
-                                <input type="submit" class="btn btn-primary"  value="Sign up">
+                                <input type="button" class="btn btn-primary" id="sign-up" value="Sign up">
                             </form>
+                            <div class="text-center">
+                                <a href="#" data-toggle="modal" data-target="#signinNav" data-dismiss="modal">Account exist? Signin</a>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -114,23 +119,26 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white">Sign in</h4>
+                            <h4 class="modal-title text-white">Log in</h4>
                             <button class="close" data-dismiss="modal">
                                 <span>&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="index.html">
+                            <form action="user.html" id="lofinForm">
                                 <div class="form-group">
-                                    <label for="">Email Name<sup class="text-danger">*</sup></label>
-                                    <input type="email" class="form-control" required placeholder="Enter email id">
+                                    <label for="loginMail">Email Name<sup class="text-danger">*</sup></label>
+                                    <input type="email" class="form-control" id="loginMail" required placeholder="Enter email id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Password<sup class="text-danger">*</sup></label>
-                                    <input type="password" class="form-control" required placeholder="Enter Password">
+                                    <label for="loginPassword">Password<sup class="text-danger">*</sup></label>
+                                    <input type="password" class="form-control" id="loginPassword" required placeholder="Enter Password">
                                 </div>
-                                <input type="submit" class="btn btn-primary"  value="Sign in">
+                                <input type="button" class="btn btn-primary"  id="login"  value="Sign in">
                             </form>
+                            <div class="text-center">
+                                <a href="#" data-toggle="modal" data-target="#signupNav" data-dismiss="modal">Signup</a>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -156,41 +164,41 @@
             <div class="c01 carousel-caption align-self-center">
                 <div class="container">
                     <div class="row">
-                        <div class="col-6 col-md-3 px-0 ">
-                            <div class="form-group ">
-                                <div class="input-group">
-                                    <span class="input-group-prepend igp1 input-group-text bg-white"><i class="fa fa-building"></i></span>
-                                    <input type="text" class="form-control" placeholder="From">
+                        <form action="" class="form-inline">
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend igp1 input-group-text bg-white"><i class="fa fa-building"></i></span>
+                                        <input type="text" id="source" class="form-control" placeholder="From">
+                                    </div>
                                 </div>
-                            
                             </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-0 ">
-                            <div class="form-group ">
-                                <div class="input-group">
-                                    <span class="input-group-prepend igp input-group-text bg-white"><i class="fa fa-building"></i></span>
-                                    <input type="text" class="form-control" placeholder="To">
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend igp input-group-text bg-white"><i class="fa fa-building"></i></span>
+                                        <input type="text" id="destination" class="form-control" placeholder="To">
+                                    </div>
+                                
                                 </div>
-                            
                             </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-0 ">
-                            <div class="form-group ">
-                                <div class="input-group">
-                                    <span class="input-group-prepend igp input-group-text bg-white"><i class="fa fa-calendar"></i></span>
-                                    <input type="date" class="form-control" placeholder="Date">
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend igp input-group-text bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input type="date" id="date" class="form-control" placeholder="Date">
+                                    </div>
+                                
                                 </div>
-                            
                             </div>
-                        </div>
-                        <div class="col-6 col-md-3 px-0 ">
-                            <div class="form-group ">
-                                <div class="input-group">
-                                    <buttont type="submit" class="btn search form-control" placeholder="Name">Search Buses</buttont>
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <buttont type="submit" id="busSearch" class="btn search form-control" placeholder="Name">Search Buses</buttont>
+                                    </div>
                                 </div>
-
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>  

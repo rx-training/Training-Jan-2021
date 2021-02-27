@@ -1,7 +1,10 @@
 // Main Sass File
 $theme-color : rgb(230,78,81);
 
-
+.bg-theme{
+    background: $theme-color;
+    color: white;
+}
 
 #redbus-navbar{
     background: $theme-color;
@@ -259,4 +262,27 @@ $theme-color : rgb(230,78,81);
     body{
         margin-top: 82px;
     }
+}
+
+#buslist,#admin {
+    margin-top: 78px;
+    .card{
+        width: 300px;
+        height: 200px;
+    }
+}
+.badge {
+    font-size: 15px;
+}
+
+.navLink{
+    font-size: 25px;
+    margin-top: -7px;
+    color: white;
+}
+.busMOdal{
+    max-width: 80%;
+}
+.userModal{
+    max-width: 50%;
 }

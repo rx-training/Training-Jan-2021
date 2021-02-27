@@ -1,3 +1,7 @@
+.bg-theme {
+  background: #e64e51;
+  color: white; }
+
 #redbus-navbar {
   background: #e64e51; }
   #redbus-navbar .ml-4 a:hover {
@@ -171,3 +175,23 @@
     top: 90%; }
   body {
     margin-top: 82px; } }
+
+#buslist, #admin {
+  margin-top: 78px; }
+  #buslist .card, #admin .card {
+    width: 300px;
+    height: 200px; }
+
+.badge {
+  font-size: 15px; }
+
+.navLink {
+  font-size: 25px;
+  margin-top: -7px;
+  color: white; }
+
+.busMOdal {
+  max-width: 80%; }
+
+.userModal {
+  max-width: 50%; }

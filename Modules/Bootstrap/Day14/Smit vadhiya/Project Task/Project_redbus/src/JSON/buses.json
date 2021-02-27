@@ -1,0 +1,47 @@
+[
+    {
+        "ID" : 23,
+        "busname" : "Shree hari",
+        "start" : "ahmedabad",
+        "end" : "junagadh",
+        "coach" : "A/C Sleeper (2+1)",
+        "startTime" : "22:30",
+        "endTime" : "06:00",
+        "rating" : 4.4,
+        "farePrice" : 500
+    },
+    {
+        "ID" : 24,
+        "busname" : "Neeta tours and travels",
+        "start" : "ahmedabad",
+        "end" : "junagadh",
+        "coach" : "Volvo A/C Seater (2+2)",
+        "startTime" : "23:30",
+        "endTime" : "07:00",
+        "rating" : 3.4,
+        "farePrice" : 450
+    },
+    {
+        "ID" : 12,
+        "busname" : "Gujarat travels",
+        "start" : "ahmedabad",
+        "end" : "junagadh",
+        "coach" : "Volvo A/C Seater (2+2)",
+        "startTime" : "19:30",
+        "endTime" : "04:00",
+        "rating" : 1.3,
+        "farePrice" : 450
+    },
+    {
+        "ID" : 22,
+        "busname" : "Gujarat travels",
+        "start" : "surat",
+        "end" : "bhavnagar",
+        "coach" : "Volvo A/C Seater (2+2)",
+        "startTime" : "09:00",
+        "endTime" : "16:00",
+        "rating" : 3.0,
+        "farePrice" : 478
+    }
+
+]
