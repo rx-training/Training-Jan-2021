@@ -97,6 +97,16 @@ body{
     .form-container{
         padding: 70px 50px;
     }
+
+    .user-cards-container{
+        .col-md-4{
+            margin-bottom: 25px;
+        }
+
+        .row{
+            margin-bottom: 25px;
+        }
+    }
 }
 
 @media only screen and (max-width:768px){
