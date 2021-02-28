@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Day5 Layout</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+        integrity="sha512-UwcC/iaz5ziHX7V6LjSKaXgCuRRqbTp1QHpbOJ4l1nw2/boCfZ2KlFIqBUA/uRVF0onbREnY9do8rM/uT/ilqw=="
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../../../assests/style.css">
+
+    <link rel="stylesheet" href="./assests/style.css">
+</head>
+
+<body>
+
+    <div id="mainNavbar">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light p-0">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand font-weight-bold"> <img src="../../../assests/radix-logo.png" alt="" width="58"> </a>
+
+                <button class="navbar-toggler navbar-toggler-right p-3" type="button" data-toggle="collapse"
+                    data-target="#navResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                    <ul class="navbar-nav px-3 ml-auto">
+                        <li class="nav-item p-3"><a href="../../../HTML/index.html" class="nav-link">HTML</a></li>
+                        <li class="nav-item p-3"><a href="../../css-index.html" class="nav-link">CSS</a></li>
+                        <li class="nav-item p-3"><a href="../../../BOOTSTRAP/bootstrap-index.html" class="nav-link">BOOTSTRAP</a></li>
+                        <li class="nav-item p-3"><a href="../../../JAVASCRIPT/javascript-index.html" class="nav-link">JAVASCRIPT</a></li>
+                        <li class="nav-item p-3"><a href="../../../JQUERY/jquery-index.html" class="nav-link">JQUERY</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+
+
+        <nav id="sidebar" class="active">
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#day4SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 4</a>
+
+                    <ul class="collapse list-unstyled" id="day4SubMenu">
+                        <li>
+                            <a href="#day4ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+
+                            <ul class="list-unstyled" id="day4ExerciseseSubMenu">
+                                <li> <a href="../../Day4/Practice Exercises/student_report_card.html"> 1. Report Card Centered </a></li>
+                                <li> <a href="../../Day4/Practice Exercises/exercise_2_to_5.html"> 2 - 5. Exercises </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day4AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+
+                            <ul class="list-unstyled" id="day4AssignmentSubMenu">
+                                <li> <a href="../../Day4/Assignment/resume.html"> 1. Resume </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day5SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 5</a>
+
+                    <ul class="collapse list-unstyled" id="day5SubMenu">
+                        <li>
+                            <a href="#day5ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+
+                            <ul class="list-unstyled" id="day5ExerciseseSubMenu">
+                                <li> <a href="../../Day5/Practice Exercises/Exercise1.html"> 1. CSS Overlow Demo </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day5AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+
+                            <ul class="list-unstyled" id="day5AssignmentSubMenu">
+                                <li> <a href="../../Day5/Practice Exercises/Exercise2.html"> 1. Basic Layout Demo </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#day5LayoutSubMenu" data-toggle="collapse" aria-expanded="false"> Layout</a>
+
+                            <ul class="list-unstyled" id="day5LayoutSubMenu">
+                                <li> <a class="sidebar-link-active" href="../../Day5/Layout/layout.html"> 1. Layout </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day6SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 6</a>
+
+                    <ul class="collapse list-unstyled" id="day6SubMenu">
+                        <li>
+                            <a href="#day6ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+
+                            <ul class="list-unstyled" id="day6ExerciseseSubMenu">
+                                <li> <a href="../../Day6/Practice Exercises/exercise5-6.html"> 5 - 6. Flexbox Demo </a></li>
+                                <li> <a href="../../Day6/Practice Exercises/gallery.html"> 7. Flexbox Gallery </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day6AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+
+                            <ul class="list-unstyled" id="day6AssignmentSubMenu">
+                                <li> <a href="../../Day6/Assignment/res_nav.html"> 1. Responsive Navbar </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day7SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 7</a>
+
+                    <ul class="collapse list-unstyled" id="day7SubMenu">
+                        <li>
+                            <a href="#day7ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+
+                            <ul class="list-unstyled" id="day7ExerciseseSubMenu">
+                                <li> <a href="../../Day7/Practice Exercises/exercises.html"> 1. Media Query Demo </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day7AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+
+                            <ul class="list-unstyled" id="day7AssignmentSubMenu">
+                                <li> <a href="../../Day7/Assignment/gallery.html"> 1. Responsive Gallery </a></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#day7LayoutSubMenu" data-toggle="collapse" aria-expanded="false"> Layout</a>
+
+                            <ul class="list-unstyled" id="day7LayoutSubMenu">
+                                <li> <a href="../../Day7/Responsive Layout/layout.html"> 1. Responsive Layout </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day8SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 8</a>
+
+                    <ul class="collapse list-unstyled" id="day8SubMenu">
+
+                        <li>
+                            <a href="#day8AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+
+                            <ul class="list-unstyled" id="day8AssignmentSubMenu">
+                                <li> <a href="../../Day8/Responsive Layout Using Grid/gridlayout.html"> 1. Grid Layout Demo </a></li>
+                                <li> <a href="../../Day8/Responsive Layout Using Grid/responsive_gridlayout.html"> 2. Grid Layout </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div id="content">
+            <div class="container-fluid pl-0">
+                <button type="button" id="sidebarCollapse" class="btn btn-blue">
+                    <i class="fas fa-align-left"></i>
+                </button>
+            </div>
+            <div class="mt-3">
+                <div class="main_container">
+
+                    <header>
+                        <div class="logo">
+                            Logo Here
+                        </div>
+                        <div>
+                            <ul id="header_ul">
+                                <li style="margin-left: 21.5vw;">Home</li>
+                                <li>Dropdown</li>
+                                <li>Left Sidebar</li>
+                                <li>Right Sidebar</li>
+                                <li>Two Sidebar</li>
+                                <li>No Sidebar</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="banner">
+                        <img src="./assests/images/banner.jpg" height="350vh" width="100%">
+                    </div>
+
+                    <div class="under_banner_div">
+                        <div class="acarna_header">
+                            <strong>Arcana :</strong> A responsive site template freebie by HTML5 UP <button
+                                id="learn_button">Learn More</button>
+                            </dnv>
+                        </div>
+
+                        <div class="imp_container">
+                            <div class="imp" style="margin-left: 12.5%;">
+                                <img src="./assests/images/icon1.png" height="100" width="100">
+                                <div class="imp_header">
+                                    This is Important
+                                </div>
+                                <div class="imp_text">
+                                    <div>Nullam dictum felis eu pede mollis eu</div>
+                                    <div>Aenean commodo ligula eget dolor</div>
+                                    <div>Lorem ipsum dolor sit amet</div>
+                                </div>
+                            </div>
+
+                            <div class="imp">
+                                <img src="./assests/images/icon2.png" height="100" width="100">
+                                <div class="imp_header">
+                                    Also Important
+                                </div>
+                                <div class="imp_text">
+                                    <div>Nullam dictum felis eu pede mollis eu</div>
+                                    <div>Aenean commodo ligula eget dolor</div>
+                                    <div>Lorem ipsum dolor sit amet</div>
+                                </div>
+                            </div>
+
+                            <div class="imp">
+                                <img src="./assests/images/icon4.png" height="100" width="100">
+                                <div class="imp_header">
+                                    Probably Important
+                                </div>
+                                <div class="imp_text">
+                                    <div>Nullam dictum felis eu pede mollis eu</div>
+                                    <div>Aenean commodo ligula eget dolor</div>
+                                    <div>Lorem ipsum dolor sit amet</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gig_conatiner">
+
+                            <div class="gig_header">
+                                A gignatic heading you can use for whatever
+                            </div>
+                            <hr>
+                            <div class="gig_subtitle">
+                                With a much smaller subtitle hanging out just below it
+                            </div>
+                        </div>
+
+
+
+                        <div class="products_container">
+
+                            <div class="upper_products_container">
+
+                                <div class="product1">
+                                    <img src="./assests/images/pic01.jpg" alt="Product1" height="100" width="100">
+                                    <div class="product_desc_container1">
+                                        <div class="product_title1">
+                                            The First Thing
+                                        </div>
+                                        <div class="product_desc1">
+                                            <div>Nullam dictum felis eu pede mollis eu</div>
+                                            <div>Aenean commodo ligula eget dolor</div>
+                                            <div>Lorem ipsum dolor sit amet</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product2">
+                                    <img src="./assests/images/pic02.jpg" alt="Product1" height="100" width="100">
+                                    <div class="product_desc_container2">
+                                        <div class="product_title2">
+                                            The Second Thing
+                                        </div>
+                                        <div class="product_desc2">
+                                            <div>Nullam dictum felis eu pede mollis eu</div>
+                                            <div>Aenean commodo ligula eget dolor</div>
+                                            <div>Lorem ipsum dolor sit amet</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="upper_products_container">
+
+                                <div class="product1">
+                                    <img src="./assests/images/pic03.jpg" alt="Product1" height="100" width="100">
+                                    <div class="product_desc_container1">
+                                        <div class="product_title1">
+                                            The Third Thing
+                                        </div>
+                                        <div class="product_desc1">
+                                            <div>Nullam dictum felis eu pede mollis eu</div>
+                                            <div>Aenean commodo ligula eget dolor</div>
+                                            <div>Lorem ipsum dolor sit amet</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product2">
+                                    <img src="./assests/images/pic04.jpg" alt="Product1" height="100" width="100">
+                                    <div class="product_desc_container2">
+                                        <div class="product_title2">
+                                            The Fourth Thing
+                                        </div>
+                                        <div class="product_desc2">
+                                            <div>Nullam dictum felis eu pede mollis eu</div>
+                                            <div>Aenean commodo ligula eget dolor</div>
+                                            <div>Lorem ipsum dolor sit amet</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="quest_div">
+                            <div class="quest_header">
+                                Are you ready to continue your quest ? <button id="coin_button">Insert Coin</button>
+                            </div>
+
+
+                        </div>
+
+                        <footer>
+                            <div class="footer_list1">
+                                <h4 style="text-align: center;">Links To Stuff</h4>
+                                <ul>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer_list2">
+                                <h4 style="text-align: center;">More Links To Stuff</h4>
+                                <ul>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                    <li><a href="#">Sed ut unde</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="get_in_touch_container">
+                                <h4>Get in Touch</h4>
+                                <form>
+                                    <input type="text" id="name" placeholder="Name">
+                                    <input type="email" id="mail" placeholder="Email">
+                                    <br>
+                                    <textarea rows="7" cols="44" id="msg" placeholder="Message"
+                                        style="margin-top: 15px; width: 330px;"></textarea>
+                                    <br>
+                                    <button id="send_button">Send Message</button>
+                                </form>
+                            </div>
+                        </footer>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+
+        <script>
+            $(document).ready(function () {
+                $("#sidebarCollapse").on('click', function () {
+                    $("#sidebar").toggleClass('active');
+                });
+            });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/bag.js"></script>
+    <title>Bag</title>
+    <link rel="shortcut icon" href="./img/myntra-logo.png" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"> <img src="./img/myntra-logo.png" alt="Logo" height="50"
+                    width="50"> </a>
+
+            <button class="navbar-toggler navbar-toggler-right p-0" type="button" data-toggle="collapse"
+                data-target="#navResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                <ul class="navbar-nav px-3 navbar-left-link-container">
+                    <li class="nav-item px-2"><a href="#" class="nav-link">MEN</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">WOMEN</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">KIDS</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">HOME & LIVING</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">OFFERS</a></li>
+                </ul>
+
+                <div class="search_container ml-auto">
+                    <ul class="navbar-nav" style="font-size: 13px;">
+                        <li class="nav-item mr-3">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-search"></i> </span>
+                                </div>
+                                <input class="form-control d-block form-control-lg" type="search" style="height: 30px;">
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a id="profile" href="profile.html" class="nav-link">
+                                <div class="nav-icon-container">
+                                    <div class="text-center text-muted">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        Profile
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="wishlist.html" class="nav-link">
+                                <div class="nav-icon-container">
+                                    <div class="text-center text-muted">
+                                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        Wishlist
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="view-bag" href="bag.html" class="nav-link">
+                                <div class="nav-icon-container">
+                                    <div class="text-center text-muted">
+                                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        Bag
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="navbar search-container2 pt-2">
+        <div class="container-fluid">
+            <div class="input-group mt-3 ml-auto serach_box">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-search"></i> </span>
+                </div>
+                <input class="form-control d-block form-control-lg" type="search" style="height: 30px;">
+            </div>
+            <div class="nav-item">
+                <div class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <div class="nav-icon-container">
+                            <div class="text-center text-muted">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div class="text-dark">
+                                Profile
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="wishlist.html" class="nav-link">
+                    <div class="nav-icon-container">
+                        <div class="text-center text-muted">
+                            <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        </div>
+                        <div class="text-dark">
+                            Wishlist
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="bag.html" class="nav-link">
+                    <div class="nav-icon-container">
+                        <div class="text-center text-muted">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        </div>
+                        <div class="text-dark">
+                            Bag
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container pb-5" style="width:fit-content;">
+        <ul id="bag" class="list-group">
+
+        </ul>
+    </div>
+
+
+    <footer class="bg-light">
+
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-sm col-md-6 col-lg-3 p-2">
+                    <div class="font-weight-bold pb-3">
+                        ONLINE SHOPPING
+                    </div>
+                    <div class="footer-links">
+                        <ul class="list-unstyled">
+                            <li><a class="text-muted" href="#">Men</a></li>
+                            <li><a class="text-muted" href="#">Women</a></li>
+                            <li><a class="text-muted" href="#">Kids</a></li>
+                            <li><a class="text-muted" href="#">Home & Living</a></li>
+                            <li><a class="text-muted" href="#">Offers</a></li>
+                            <li><a class="text-muted" href="#">Gift Cards</a></li>
+                            <li><a class="text-muted" href="#">Myntra Insider</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm col-md-6 col-lg-3 p-2">
+                    <div class="font-weight-bold pb-3">
+                        USEFUL LINKS
+                    </div>
+                    <div class="footer-links">
+                        <ul class="list-unstyled">
+                            <li><a class="text-muted" href="#">Contact Us</a></li>
+                            <li><a class="text-muted" href="#">FAQ</a></li>
+                            <li><a class="text-muted" href="#">T&C</a></li>
+                            <li><a class="text-muted" href="#">Terms Of Use</a></li>
+                            <li><a class="text-muted" href="#">Track Orders</a></li>
+                            <li><a class="text-muted" href="#">Shipping</a></li>
+                            <li><a class="text-muted" href="#">Cancellation</a></li>
+                            <li><a class="text-muted" href="#">Returns</a></li>
+                            <li><a class="text-muted" href="#">Whitehat</a></li>
+                            <li><a class="text-muted" href="#">Blog</a></li>
+                            <li><a class="text-muted" href="#">Careers</a></li>
+                            <li><a class="text-muted" href="#">Privacy Policy</a></li>
+                            <li><a class="text-muted" href="#">Site Map</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm col-md-6 col-lg-3 p-2">
+                    <div>
+                        <div class="font-weight-bold pb-3">
+                            EXPERIENCE MYNTRA APP ON MOBILE
+                        </div>
+                        <div class="footer-links">
+                            <div>
+                                <a href="#"><img src="./img/get-in-on-google.png" alt="" width="150"></a>
+                                <a href="#"><img src="./img/download-on-app.png" alt="" width="150"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="font-weight-bold pt-4">
+                            KEEP IN TOUCH
+                        </div>
+                        <div class="d-flex flex-row justify-content-start lead footer-links">
+                            <div class="p-3">
+                                <a href="#"> <i class="fa fa-facebook text-muted"></i> </a>
+                            </div>
+                            <div class="p-3">
+                                <a href="#"> <i class="fa fa-twitter text-muted"></i> </a>
+                            </div>
+                            <div class="p-3">
+                                <a href="#"> <i class="fa fa-youtube-play text-muted"></i> </a>
+                            </div>
+                            <div class="p-3">
+                                <a href="#"> <i class="fa fa-instagram text-muted"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm col-md-6 col-lg-3 p-2">
+                    <div class="pb-3">
+                        <img class="mt-2 float-left"
+                            src="https://constant.myntassets.com/web/assets/img/6c3306ca-1efa-4a27-8769-3b69d16948741574602902452-original.png"
+                            alt="" style="width: 48px; height: 40px; margin-right: 7px;">
+                        <span class="font-weight-bold">100% ORIGINAL</span> <span class="text-muted">gaurantee for
+                            all
+                            products at </span> <span class="text-muted"> myntra.com</span>
+                    </div>
+                    <div class="pb-3">
+                        <img class="mt-1 float-left"
+                            src="https://constant.myntassets.com/web/assets/img/ef05d6ec-950a-4d01-bbfa-e8e5af80ffe31574602902427-30days.png"
+                            alt="" style="width: 48px; height: 49px; margin-right: 7px;">
+                        <span class="font-weight-bold">Returning within 30days</span> <span class="text-muted">of
+                            receiving your order</span>
+                    </div>
+                    <div class="pb-3">
+                        <img class="mt-1 float-left"
+                            src="https://constant.myntassets.com/web/assets/img/cafa8f3c-100e-47f1-8b1c-1d2424de71041574602902399-truck.png"
+                            alt="" style="width: 48px; height: 43px; margin-right: 7px;">
+                        <span class="font-weight-bold">Get free delivery</span> <span class="text-muted">for every
+                            order
+                            above Rs. 799</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

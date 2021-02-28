@@ -1,0 +1,19 @@
+{
+    "Admin" : [
+        {
+            "adminId" : "1",
+            "email" : "nihar.sodhaparmar@gmail.com",
+            "password" : "nihar.123"
+        },
+        {
+            "adminId" : "2",
+            "email" : "nihar.sodha@gmail.com",
+            "password" : "nihar.456"
+        },
+        {
+            "adminId" : "3",
+            "email" : "nihar.sodha123@gmail.com",
+            "password" : "nihar.789"
+        }
+    ]
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Day3 Employee Registration Form Assignment</title>
+
+
+    <link rel="stylesheet" href="../Practice Exercises/style_for_login.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+        integrity="sha512-UwcC/iaz5ziHX7V6LjSKaXgCuRRqbTp1QHpbOJ4l1nw2/boCfZ2KlFIqBUA/uRVF0onbREnY9do8rM/uT/ilqw=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../../assests/style.css">
+</head>
+
+<body style="padding-top: 72.3px;">
+
+    <div id="mainNavbar">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light p-0">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand font-weight-bold"> <img src="../../../assests/radix-logo.png" alt=""
+                        width="58"> </a>
+
+                <button class="navbar-toggler navbar-toggler-right p-3" type="button" data-toggle="collapse"
+                    data-target="#navResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                    <ul class="navbar-nav px-3 ml-auto">
+                        <li class="nav-item p-3"><a href="../../index.html" class="nav-link">HTML</a></li>
+                        <li class="nav-item p-3"><a href="../../../CSS/css-index.html" class="nav-link">CSS</a></li>
+                        <li class="nav-item p-3"><a href="../../../BOOTSTRAP/bootstrap-index.html"
+                                class="nav-link">BOOTSTRAP</a></li>
+                        <li class="nav-item p-3"><a href="../../../JAVASCRIPT/javascript-index.html"
+                                class="nav-link">JAVASCRIPT</a></li>
+                        <li class="nav-item p-3"><a href="../../../JQUERY/jquery-index.html" class="nav-link">JQUERY</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+
+
+        <nav id="sidebar" class="active">
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#day3SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        3</a>
+
+                    <ul class="collapse list-unstyled" id="day3SubMenu">
+                        <li>
+                            <a href="#day3ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
+
+                            <ul class="list-unstyled" id="day3ExerciseseSubMenu">
+                                <li> <a href="../Practice Exercises/student_report_card.html"> 1. Report Card </a></li>
+                                <li> <a href="../Practice Exercises/department.html"> 2. HR Higherarchy </a></li>
+                                <li> <a href="../Practice Exercises/login.html"> 3. Login Form </a></li>
+                                <li> <a href="../Practice Exercises/article.html"> 4. Article Tag </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day3AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
+
+                            <ul class="list-unstyled" id="day3AssignmentSubMenu">
+                                <li> <a class="sidebar-link-active" href="./registration.html"> 1. Employee Form </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div id="content">
+
+            <div class="container-fluid pl-0">
+                <button type="button" id="sidebarCollapse" class="btn btn-blue">
+                    <i class="fas fa-align-left"></i>
+                </button>
+            </div>
+
+            <div class="header mt-3">
+                <ul>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li style="float: left;"><a href="">Home</a></li>
+                </ul>
+            </div>
+
+            <h2>Registration</h2>
+            <form name="regForm" action="" method="POST">
+                <table align="center">
+                    <tr>
+                        <td>
+                            <label for="name" class="lab1"> Name </label>
+                        </td>
+                        <td>
+                            <input class="input1" type="text" id="name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="age" class="lab1"> Age </label>
+                        </td>
+                        <td>
+                            <input class="input1" type="number" id="age" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="gender" class="lab1"> Gender </label>
+                        </td>
+                        <td>
+                            <input type="radio" id="gender" name="gender" value="male" required><label
+                                for="male">Male</label>
+                            <input type="radio" id="gender" name="gender" value="female"><label
+                                for="female">Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="designation" class="lab1"> Designation </label>
+                        </td>
+                        <td>
+                            <input class="input1" type="text" id="designation" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="salary" class="lab1"> Salary </label>
+                        </td>
+                        <td>
+                            <input class="input1" type="number" id="salary" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="location" class="lab1"> Location </label>
+                        </td>
+                        <td>
+                            <select name="location" class="dropdown_input" required>
+                                <option value="">Select</option>
+                                <option value="ahmedabad">Ahmedabad</option>
+                                <option value="nadiad">Nadiad</option>
+                                <option value="vadodara">Vadodara</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="mail" class="lab1"> E-mail </label>
+                        </td>
+                        <td>
+                            <input class="input1" type="email" id="mail" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="joining_date" class="lab1"> Date of Joining </label>
+                        </td>
+                        <td>
+                            <input class="dropdown_input" type="date" id="joining_date" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="number" class="lab1"> Contact Number </label>
+                        </td>
+                        <td>
+                            <input class="input1" type="tel" id="number" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input class="submit1" type="submit" value="submit">
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#sidebarCollapse").on('click', function () {
+                $("#sidebar").toggleClass('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

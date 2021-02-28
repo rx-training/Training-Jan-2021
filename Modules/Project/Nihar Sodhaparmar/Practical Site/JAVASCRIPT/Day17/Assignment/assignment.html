@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+        integrity="sha512-UwcC/iaz5ziHX7V6LjSKaXgCuRRqbTp1QHpbOJ4l1nw2/boCfZ2KlFIqBUA/uRVF0onbREnY9do8rM/uT/ilqw=="
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../../../assests/style.css">
+    <title>Day17 Employee Registration Form</title>
+    <script>
+        function isValid() {
+            var empId = document.getElementById('empId').value;
+            var empName = document.getElementById('empName').value;
+            var age = document.getElementById('age').value;
+            var designation = document.getElementById('designation').value;
+            var salary = document.getElementById('salary').value;
+            var location = document.getElementById('location').value;
+            var email = document.getElementById('email').value;
+            var dateOfJoin = document.getElementById('dateOfJoin').value;
+            var number = document.getElementById('number').value;
+            var gender;
+
+            var strValid = new Array(8);;
+
+            var pattern = /^\d{6}$/;
+            if (empId == "" || pattern.test(empId)) {
+                strValid[0] = "Enter Valid EmployeeId<br/>";
+            }
+            else {
+                strValid[0] = "";
+            }
+
+            if (empName == "") {
+                strValid[1] = "Enter valid Employee Name<br/>";
+            }
+            else {
+                strValid[1] = "";
+            }
+
+            if (age == "" || age <= 18 || age >= 50) {
+                strValid[2] = "Enter Valid Age<br/>";
+            }
+            else {
+                strValid[2] = "";
+            }
+
+            var genderArray = document.getElementsByName("gender");
+            if (genderArray[0].checked) {
+                gender = "Male";
+            }
+            else if (genderArray[1].checked) {
+                gender = "Female"
+            }
+            else {
+                gender = "Other"
+            }
+
+            if (designation == "") {
+                strValid[3] = "Enter Valid designation<br/>";
+            }
+            else {
+                strValid[3] = "";
+            }
+
+            if (salary == "") {
+                strValid[4] = "Enter Valid Salary<br/>";
+            } else {
+                strValid[4] = "";
+            }
+
+            var patternEmail = /[a-z0-9A-Z.$%&#]*@[a-zA-Z0-9]*[.][c][o][m]$/;
+            if (email == "" || patternEmail.test(email) == false) {
+                strValid[5] = "Please Enter Valid Email<br/>"
+            }
+            else {
+                strValid[5] = "";
+            }
+
+            if (dateOfJoin == "") {
+                strValid[6] = "Enter Valid Date<br/>"
+            }
+            else {
+                strValid[6] = "";
+            }
+
+            var patternContact = /^\d{10}$/;
+            if (number == "" || patternContact.test(number) == false) {
+                strValid[7] = "Enter Valid Contact Number<br>";
+            }
+            else {
+                strValid[7] = ""
+            }
+
+
+
+            var isvalid = false;
+            for (var x in strValid) {
+                if (strValid[x] != "") {
+                    isvalid = true;
+                }
+            }
+
+            var validHeading = document.getElementById('validHeading');
+            var validMessages = document.getElementById('validMessages');
+            if (!isvalid) {
+                validHeading.innerText = "Employee Details";
+                validHeading.style.color = "green";
+                validMessages.style.color = "green";
+                validMessages.innerHTML = "ID : " + parseInt(empId) + "<br>Name : " + empName + "<br>Age : " + age + "<br>Gender : " + gender + "<br>Designation : " + designation + " Developer<br>Salary : " + salary + "<br>Location : " +
+                    location + "<br>Email : " + email + "<br>Joining Date : " + dateOfJoin + "<br>Contact Number : " + number;
+            }
+            else {
+                validHeading.innerText = "Alerts";
+                validHeading.style.color = "red";
+                validMessages.style.color = "red";
+                validMessages.innerHTML = strValid[0] + strValid[1] + strValid[2] + strValid[3] + strValid[4] + strValid[5] + strValid[6] + strValid[7];
+            }
+
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="mainNavbar">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light p-0">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand font-weight-bold"> <img src="../../../assests/radix-logo.png" alt="" width="58"> </a>
+
+                <button class="navbar-toggler navbar-toggler-right p-3" type="button" data-toggle="collapse"
+                    data-target="#navResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                    <ul class="navbar-nav px-3 ml-auto">
+                        <li class="nav-item p-3"><a href="../../../HTML/index.html" class="nav-link">HTML</a></li>
+                        <li class="nav-item p-3"><a href="../../../CSS/css-index.html" class="nav-link">CSS</a></li>
+                        <li class="nav-item p-3"><a href="../../../BOOTSTRAP/bootstrap-index.html"
+                                class="nav-link">BOOTSTRAP</a></li>
+                        <li class="nav-item p-3"><a href="../../../JAVASCRIPT/javascript-index.html"
+                                class="nav-link">JAVASCRIPT</a></li>
+                                <li class="nav-item p-3"><a href="../../../JQUERY/jquery-index.html" class="nav-link">JQUERY</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+
+
+        <nav id="sidebar" class="active">
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#day15SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        15</a>
+
+                    <ul class="collapse list-unstyled" id="day15SubMenu">
+                        <li>
+                            <a href="#day15ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
+
+                            <ul class="list-unstyled" id="day15ExerciseseSubMenu">
+                                <li> <a href="../../Day15/Practice Exercises/exercise1.html"> 1. Sum of 3 which > 40</a>
+                                </li>
+                                <li> <a href="../../Day15/Practice Exercises/exercise2.html"> 2. Alert using Loop </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day15AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
+
+                            <ul class="list-unstyled" id="day15AssignmentSubMenu">
+                                <li> <a href="../../Day15/Assignment/assignment.html"> 1. Basic Calculator </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day16SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        16</a>
+
+                    <ul class="collapse list-unstyled" id="day16SubMenu">
+                        <li>
+                            <a href="#day16ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
+
+                            <ul class="list-unstyled" id="day16ExerciseseSubMenu">
+                                <li> <a href="../../Day16/Practice Exercises/exercises.html"> 1 - 5. Exercises</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day16AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
+
+                            <ul class="list-unstyled" id="day16AssignmentSubMenu">
+                                <li> <a href="../../Day16/Assignment/assignment.html"> 1. Custom Date Validation </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day17SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        17</a>
+
+                    <ul class="collapse list-unstyled" id="day17SubMenu">
+                        <li>
+                            <a href="#day17ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
+
+                            <ul class="list-unstyled" id="day17ExerciseseSubMenu">
+                                <li> <a href="../../Day17/Practice Exercises/exercises.html"> 1 - 9. Exercises</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#day17AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
+
+                            <ul class="list-unstyled" id="day17AssignmentSubMenu">
+                                <li> <a class="sidebar-link-active" href="../../Day17/Assignment/assignment.html"> 1. Eployee Form Validation </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day18SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 18</a>
+    
+                    <ul class="collapse list-unstyled" id="day18SubMenu">
+                        <li>
+                            <a href="#day18ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+    
+                            <ul class="list-unstyled" id="day18ExerciseseSubMenu">
+                                <li> <a href="../../Day18/Practice Exercises/exercises.html"> 1 - 3. Exercises</a></li>
+                            </ul>
+                        </li>
+    
+                        <li>
+                            <a href="#day18AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+    
+                            <ul class="list-unstyled" id="day18AssignmentSubMenu">
+                                <li> <a href="../../Day18/Assignment/assignment.html"> 1. University Exam Page </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+    
+                <li>
+                    <a href="#day19SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 19</a>
+    
+                    <ul class="collapse list-unstyled" id="day19SubMenu">
+                        <li>
+                            <a href="#day19ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+    
+                            <ul class="list-unstyled" id="day19ExerciseseSubMenu">
+                                <li> <a href="../../Day19/Practice Exercises/exercises.html"> 1 - 6. Exercises</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#day20SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 20</a>
+        
+                    <ul class="collapse list-unstyled" id="day20SubMenu">
+                        <li>
+                            <a href="#day20ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment </a>
+        
+                            <ul class="list-unstyled" id="day20ExerciseseSubMenu">
+                                <li> <a href="../../Day20/Practice Exercise and Assignment Combine/cart.html"> 1. Cart </a></li>
+                                <li> <a href="../../Day20/Practice Exercise and Assignment Combine/geolocation.html"> 2. Geolocation </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#projectSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Myntra Mini Project</a>
+
+                    <ul class="collapse list-unstyled" id="projectSubMenu">
+                        <li>
+                            <a href="../../Myntra Live Mini Project/login.html" target="_blank"> Myntra </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div id="content">
+            <div class="container-fluid pl-0">
+                <button type="button" id="sidebarCollapse" class="btn btn-blue">
+                    <i class="fas fa-align-left"></i>
+                </button>
+            </div>
+            <div class="mt-3">
+                <div class="container mt-5 w-50">
+
+                    <div class="card">
+
+                        <div class="card-header display-4 text-center" style="font-size: 40px;">
+                            Employee Registration
+                        </div>
+
+                        <div class="card-body mr-3">
+                            <form>
+                                <div class="form-group row mt-3">
+                                    <label class="col-lg-3 form-control-label col-form-label" for="empId">Employee ID
+                                    </label>
+                                    <input id="empId" class="form-control col-lg-9" type="text" autofocus
+                                        placeholder="Employee Id must be of 5 digits">
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label" for="empName">Employee
+                                        Name </label>
+                                    <input id="empName" class="form-control col-lg-9" type="text"
+                                        placeholder="Enter Employee Name">
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label" for="age">Age</label>
+                                    <input id="age" class="form-control col-lg-9" type="number"
+                                        placeholder="Age must be between 18 to 50">
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label"
+                                        for="gender">Gender</label>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label"> <input class="form-check-input" type="radio"
+                                                name="gender" value="male" checked> Male</label>
+                                        <label class="form-check-label ml-5"> <input class="form-check-input"
+                                                type="radio" name="gender" value="female"> Female</label>
+                                        <label class="form-check-label ml-5"> <input class="form-check-input"
+                                                type="radio" name="gender" value="female"> Other</label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label"
+                                        for="designation">Designation</label>
+                                    <input id="designation" class="form-control col-lg-9" type="text"
+                                        placeholder="Enter Designation">
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <label class="col-lg-3 form-control-label col-form-label"
+                                        for="salary">Salary</label>
+                                    <input id="salary" class="form-control col-lg-9" type="number"
+                                        placeholder="Enter Salary">
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label"
+                                        for="location">Location</label>
+                                    <select class="form-control col-lg-9" name="location" id="location">
+                                        <option value="nadiad" selected>Nadiad</option>
+                                        <option value="ahmedabad">Ahmedabad</option>
+                                        <option value="vadodara">Vadodara</option>
+                                        <option value="gandhinagar">Gandhinagar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label" for="email">E-mail</label>
+                                    <input id="email" class="form-control col-lg-9" type="email"
+                                        placeholder="abc@xyz.com">
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label" for="dateOfJoin">Date Of
+                                        Joining</label>
+                                    <input id="dateOfJoin" class="form-control col-lg-9" type="date">
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 form-control-label col-form-label" for="number">Contact
+                                        Number</label>
+                                    <input id="number" class="form-control col-lg-9" type="text"
+                                        placeholder="Enter Contact Number">
+                                </div>
+                                <p id="validHeading" class="text-center"></p>
+                                <div id="validMessages" class="text-center"></div>
+                                <div class="form-group row mx-5 mt-5">
+                                    <button id="submitBtn" class="col-3 btn btn-primary mx-auto" type="submit"
+                                        onclick="return isValid()"> Submit</button>
+                                    <input class="col-3 btn btn-secondary mx-auto" type="reset" value="Reset">
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-5"></div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#sidebarCollapse").on('click', function () {
+                $("#sidebar").toggleClass('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
