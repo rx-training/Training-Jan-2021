@@ -17,10 +17,24 @@
                         + "</td><td>" + activitiesArray[data].Category + "</td><td>" 
                         + activitiesArray[data].DateOfGame
                         + "</td><td>" + activitiesArray[data].Venue + "</td><td>" + activitiesArray[data].TicketPrice + "</td><td>" 
-                        + "<div class='d-md-block d-lg-inline'><a href='#' class='text-dark m-1'><i class='fa fa-2x fa-pencil' id='playEdit-" 
-                        + activitiesArray[data].Id + "'></i></a><a href='#' class='text-dark m-1'><i class='fa fa-2x fa-trash' id='playDelete-" 
+                        + "<div class='d-md-block d-lg-inline'><a href='editActivity.html?id=" + activitiesArray[data].Id + "' class='text-dark m-1'><i class='fa fa-2x fa-pencil' id='playEdit-" 
+                        + activitiesArray[data].Id + "'></i></a><a href='#' class='text-dark m-1' onclick='return removeActivity(" + data + ")'><i class='fa fa-2x fa-trash' id='playDelete-" 
                         + activitiesArray[data].Id + "'></i></a></div>";
                 
             }
     }    
+
+    function removeActivity(i){
+        var activityArray = JSON.parse(localStorage.getItem("Activities"));
+    
+        activityArray.splice(i,1);
+        console.log(activityArray);
+    
+        localStorage.setItem("Activities", JSON.stringify(activityArray));
+        alert("activity deleted successfully!!");
+        window.location.assign("activities.html");
+        
+    
+        return false;
+    }
         

@@ -536,13 +536,13 @@
                     alt="" loading="lazy" class="w-100">
 
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <ol class="carousel-indicators" id="premiereCarouselList">
+                        <!--<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>-->
                     </ol>
                     <div class="carousel-inner" id="premiereCarousel">
                         
@@ -1565,7 +1565,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script src="js/storeData.js"></script>
-    <!--<script src="js/add-movie.js"></script>-->
+    
     <script src="js/userIndex.js"></script>
     
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -1600,7 +1600,7 @@
 
                             if(adminNo == data.ContactNo && adminPass == data.Password) {
                                 
-                                alert("Successfully Logged In!!");
+                                alert("Successfully Logged In as " + data.Username + "!!");
                                 localStorage.logged_in_admin = JSON.stringify(data);
                                 window.location.assign("admin-dashboard.html"); 
                                 return;
@@ -1623,3 +1623,5 @@
 </body>
 
 </html>
+
+

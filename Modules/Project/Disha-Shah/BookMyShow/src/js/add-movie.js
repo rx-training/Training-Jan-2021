@@ -1,21 +1,28 @@
-    function addMovie() {
-        var Id = document.getElementById("movieId").value;
+$(document).ready(function () {
+    
+
+    $("#movieImage").change( function() {
+
+        var input = document.getElementById("movieImage");
+        $('#movieImageShow').attr('src', "../images/" + input.files[0].name);
+        document.getElementById("errImage").innerHTML='';
+         
+    });
+    
+})
+   
+   function addMovie() {
+        
         var Name = document.getElementById("movieName").value;
         var Image = document.getElementById("movieImage").value;
         var Rating = document.getElementById("movieRating").value;
         var Time = document.getElementById("movieTime").value;
         var DateOfRelease = document.getElementById("movieReleaseDate").value;
+        var About = document.getElementById("movieAbout").value;
         var errAr = [];
         var flag = 0;
 
-        if(Id == ""){
-            document.getElementById("errId").innerHTML='Id is required';
-            errAr[0]=1;
-        }
-        else{
-            document.getElementById("errId").innerHTML='';
-            errAr[0]=0;
-        }
+        
         if(Name == ""){
             document.getElementById("errName").innerHTML='Name is required';
             errAr[1]=1;
@@ -56,45 +63,53 @@
             document.getElementById("errReleaseDate").innerHTML='';
             errAr[5]=0;
         }
-        if(document.getElementById("2D").checked==false && document.getElementById("3D").checked==false && document.getElementById("4DX").checked==false && document.getElementById("MX4D").checked==false) {
-            document.getElementById("errFilm").innerHTML='<span class="mt-2">Film is Required</span>';
+        if(About == ""){
+            document.getElementById("errAbout").innerHTML='About is required';
             errAr[6]=1;
         }
         else{
-            document.getElementById("errFilm").innerHTML='';
+            document.getElementById("errAbout").innerHTML='';
             errAr[6]=0;
         }
-        if(document.getElementById("English").checked==false && document.getElementById("Tamil").checked==false && document.getElementById("Hindi").checked==false && document.getElementById("Telugu").checked==false) {
-            document.getElementById("errLanguage").innerHTML='<span class="mt-2">Language is Required</span>'
+        if(document.getElementById("2D").checked==false && document.getElementById("3D").checked==false && document.getElementById("4DX").checked==false && document.getElementById("MX4D").checked==false) {
+            document.getElementById("errFilm").innerHTML='<span class="mt-2">Film is Required</span>';
             errAr[7]=1;
         }
         else{
-            document.getElementById("errLanguage").innerHTML='';
+            document.getElementById("errFilm").innerHTML='';
             errAr[7]=0;
         }
-        if(document.getElementById("Action").checked==false && document.getElementById("Thriller").checked==false && document.getElementById("Comedy").checked==false && document.getElementById("Drama").checked==false && document.getElementById("Family").checked==false && document.getElementById("Animation").checked==false) {
-            document.getElementById("errGenre").innerHTML='<span class="mt-2">Genre is Required</span>';
+        if(document.getElementById("English").checked==false && document.getElementById("Tamil").checked==false && document.getElementById("Hindi").checked==false && document.getElementById("Telugu").checked==false) {
+            document.getElementById("errLanguage").innerHTML='<span class="mt-2">Language is Required</span>'
             errAr[8]=1;
         }
         else{
-            document.getElementById("errGenre").innerHTML='';
+            document.getElementById("errLanguage").innerHTML='';
             errAr[8]=0;
         }
-        if(document.getElementById("UA").checked==false && document.getElementById("U").checked==false && document.getElementById("A").checked==false) {
-            document.getElementById("errCertification").innerHTML='Certification is Required';
+        if(document.getElementById("Action").checked==false && document.getElementById("Thriller").checked==false && document.getElementById("Comedy").checked==false && document.getElementById("Drama").checked==false && document.getElementById("Family").checked==false && document.getElementById("Animation").checked==false) {
+            document.getElementById("errGenre").innerHTML='<span class="mt-2">Genre is Required</span>';
             errAr[9]=1;
         }
         else{
-            document.getElementById("errCertification").innerHTML='';
+            document.getElementById("errGenre").innerHTML='';
             errAr[9]=0;
         }
-        if(document.getElementById("Recommended").checked==false && document.getElementById("Premiere").checked==false) {
-            document.getElementById("errCategory").innerHTML='Category is Required';
+        if(document.getElementById("UA").checked==false && document.getElementById("U").checked==false && document.getElementById("A").checked==false) {
+            document.getElementById("errCertification").innerHTML='Certification is Required';
             errAr[10]=1;
         }
         else{
-            document.getElementById("errCategory").innerHTML='';
+            document.getElementById("errCertification").innerHTML='';
             errAr[10]=0;
+        }
+        if(document.getElementById("Recommended").checked==false && document.getElementById("Premiere").checked==false) {
+            document.getElementById("errCategory").innerHTML='Category is Required';
+            errAr[11]=1;
+        }
+        else{
+            document.getElementById("errCategory").innerHTML='';
+            errAr[11]=0;
         }
 
 
@@ -136,19 +151,14 @@
 
 
         var input = document.getElementById("movieImage");
-        var imgs = [];
-        for(var i=0;i<input.files.length;i++){
-            console.log(input.files[i].name);
-            imgs.push(input.files[i].name);
-        }
-        var imgsJoin = imgs.join(",")
-        console.log(imgsJoin);
+        var ImgUrl = "images/" + input.files[0].name;
+        
 
 
         var recommended = false;
         var premiere = false;
-        var ImgUrls = "";
-        
+       
+
         var categoryitems=document.getElementsByName('category');
 		for(var i=0; i<categoryitems.length; i++){
 			if(categoryitems[i].type=='checkbox' && categoryitems[i].checked==true && categoryitems[i].value=="Recommended"){
@@ -158,24 +168,18 @@
 				premiere = true;
             }
 		}
-        if((recommended == true && premiere == true) || (recommended == true && premiere == false)){
-            ImgUrls = "images/" + imgsJoin;
-                
-        }
-        else if((recommended == false && premiere == true)){
-            ImgUrls = ",images/" + imgsJoin;
-        }
+        
         console.log(recommended + " " + premiere);
 
-        //ImgUrls = ",images/" + imgsJoin;
-        console.log(ImgUrls);
+        
 
+        var moviesArray = JSON.parse(localStorage.getItem("Movies"));
         
         var movie = {
            
-            "Id":Id, 
+            "Id": moviesArray.Movies.length+1, 
             "Name": Name, 
-            "ImgUrls": ImgUrls,
+            "ImgUrls": ImgUrl,
             "Rating": Rating,
             "Film": film,
             "Language": language,
@@ -183,6 +187,7 @@
             "Genre": genre,
             "Certification": certification,
             "DateOfRelease": DateOfRelease,
+            "About": About,
             "Recommended": recommended,
             "Premiere": premiere 
         }
@@ -195,7 +200,7 @@
         }
 
         if(flag==0){
-            var moviesArray = JSON.parse(localStorage.getItem("Movies"));
+            
             console.log(moviesArray.Movies[0].Name);
             moviesArray.Movies.push(movie);
             console.log(moviesArray.Movies);
@@ -203,7 +208,7 @@
                 Movies: moviesArray.Movies,
             };
             localStorage.setItem("Movies", JSON.stringify(a));
-            
+            alert("Succesfully added new movie!!");
             window.location.assign("movies.html");
         
 

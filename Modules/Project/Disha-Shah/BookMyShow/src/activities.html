@@ -63,6 +63,10 @@
                     
                 </li>
                 <li>
+                    <a href="activities.html">Activities</a>
+                    
+                </li>
+                <li>
                     <a href="comedy.html">Comedy</a>
                     
                 </li>
@@ -74,10 +78,7 @@
                     <a href="sports.html">Sports</a>
                     
                 </li>
-                <li>
-                    <a href="activities.html">Activities</a>
-                    
-                </li>
+                
                 <li>
                     <a href="events.html">Events</a>
                     
@@ -109,7 +110,10 @@
             </nav>
 
             <div class="bg-light">
-                <h1 class="h4 p-4">Latest Fun Activities</h1>
+                <div class="d-flex p-4 justify-content-between">
+                    <h1 class="h4">Latest Fun Activities</h1>
+                    <button class="btn btn-danger px-md-5" data-toggle="modal" data-target="#addActivityModal">Add Activity&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+                </div>
                 <div class="table-responsive w-100">
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
@@ -137,13 +141,155 @@
 
         </div>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="addActivityModal" tabindex="-1" aria-labelledby="addActivityModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title mx-3" id="addActivityModalLabel">Add Activity</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body mx-3">
+                <small class="text-danger">*  Required</small>
+                <form>
+                    
+                    <div class="form-group row">
+                        <label for="activityName" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="activityName">
+                            <small class="text-danger" id="errName"></small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="activityImage" class="col-sm-3 col-form-label h5">Image<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control-file" id="activityImage">
+                            <small class="text-danger" id="errImage"></small>
+                            <img src="" alt="" id="activityImageShow" class="img-fluid w-25 mt-3">
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group row">
+                        <label for="activityLanguage" class="col-sm-3 col-form-label h5">Language<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9 d-flex flex-row flex-wrap">
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="English" name="language" id="English">
+                                <label class="form-check-label" for="English">
+                                English
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Hindi" name="language" id="Hindi">
+                                <label class="form-check-label" for="Hindi">
+                                Hindi
+                                </label>
+                            </div>
+                            <div class="form-check mr-2 mt-2">
+                                <input class="form-check-input" type="checkbox" value="Gujarati" name="language" id="Gujarati">
+                                <label class="form-check-label" for="Gujarati">
+                                Gujarati
+                                </label>
+                            </div>
+                            
+                            <small class="text-danger" id="errLanguage"></small>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="activityTime" class="col-sm-3 col-form-label h5">Time<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="activityTime">
+                            <small class="text-danger" id="errTime"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="activityAgeGroup" class="col-sm-3 col-form-label h5">Age Group<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="activityAgeGroup">
+                            <small class="text-danger" id="errAgeGroup"></small>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label for="activityCategory" class="col-sm-3 col-form-label h5">Category<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <select class="custom-select" id="activityCategory">
+                                <option selected name="actCategory" value=""></option>
+                                <option name="actCategory" value="Lunch & Dinner">Lunch & Dinner</option>
+                                <option name="actCategory" value="Resorts">Resorts</option>
+                                <option name="actCategory" value="Escape Games">Escape Games</option>
+                                <option name="actCategory" value="Gaming">Gaming</option>
+                            </select>
+                            <small class="text-danger" id="errCategory"></small>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group row">
+                        <label for="activityDate" class="col-sm-3 col-form-label h5">Date for Activity<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="activityDate">
+                            <small class="text-danger" id="errActivityDate"></small>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="activityVenue" class="col-sm-3 col-form-label h5">Venue<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <select class="custom-select" id="activityVenue">
+                                <option selected name="actVenue" value=""></option>
+                                <option name="actVenue" value="YMCA: Ahmedabad">YMCA: Ahmedabad</option>
+                                <option name="actVenue" value="Neonz Resort & Club:Sojitra">Neonz Resort & Club:Sojitra</option>
+                                <option name="actVenue" value="Online (Play from Home)">Online (Play from Home)</option>
+                                <option name="actVenue" value="Online Streaming">Online Streaming</option>
+                            </select>
+                            <small class="text-danger" id="errVenue"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="activityTicket" class="col-sm-3 col-form-label h5">Ticket Price<span class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1">Rs.</span>
+                                </div>
+                                <input type="number" class="form-control" id="activityTicket">
+                            </div>
+                            <small class="text-danger" id="errTicket"></small>
+                        </div>
+                        
+                    </div>
+
+                    
+                </form> 
+            </div>
+            <div class="modal-footer mx-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" id="saveActivity" onclick="return addActivity()">Add</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- <script src="js/storeData.js"></script> -->
     <script src="js/adminSidebar.js"></script>
     <script src="js/activities.js"></script>
-
+    <script src="js/add-activity.js"></script>
     
 </body>
 </html>

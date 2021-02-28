@@ -1,4 +1,5 @@
 document.getElementById("recommendedMovies").innerHTML = "";
+document.getElementById("premiereCarouselList").innerHTML = "";
 document.getElementById("premiereCarousel").innerHTML ="";
             var moviesArray = JSON.parse(localStorage.getItem("Movies"));
             
@@ -6,20 +7,25 @@ document.getElementById("premiereCarousel").innerHTML ="";
                 if(moviesArray.Movies[data].Recommended==true){
                     console.log(moviesArray.Movies[data].Recommended);
                     document.getElementById("recommendedMovies").innerHTML += '<div class="col-sm-12 col-md-4 col-lg-3"><div><div class="slide-content"><a href="#" class="text-decoration-none"><img src="../' + 
-                    moviesArray.Movies[data].ImgUrls.split(',')[0] + '" alt="" loading="lazy" class="w-100 rounded"><h6 style="color: black;" class="pt-3">' 
+                    moviesArray.Movies[data].ImgUrls + '" alt="" loading="lazy" class="w-100 rounded"><h6 style="color: black;" class="pt-3">' 
                     + moviesArray.Movies[data].Name +'</h6><h6 class="text-muted font-weight-normal d-none d-lg-block">' 
                     + moviesArray.Movies[data].Genre + '</h6></a></div></div></div>'
                 };
 
                 if(moviesArray.Movies[data].Premiere==true){
                     console.log(moviesArray.Movies[data].Premiere);
+                    
                     document.getElementById("premiereMovies").innerHTML += '<div class="col-lg-3"><div><div class="slide-content"><a href="#"><img src="../'
-                        + moviesArray.Movies[data].ImgUrls.split(',')[1] +'" alt="" loading="lazy" class="w-100 rounded"></a><h6 style="color: white;" class="pt-3">'
+                        + moviesArray.Movies[data].ImgUrls +'" alt="" loading="lazy" class="w-100 rounded"></a><h6 style="color: white;" class="pt-3">'
                         + moviesArray.Movies[data].Name + '</h6><h6 class="font-weight-normal d-none d-lg-block">'
                         + moviesArray.Movies[data].Language +'</h6></div></div></div>';
 
+                    document.getElementById("premiereCarouselList").innerHTML += '<li class="premiereIndicators" data-target="#carouselExampleIndicators" data-slide-to="' + data + '"></li>';
+                    $(".premiereIndicators:first").addClass('active');
+
+
                     document.getElementById("premiereCarousel").innerHTML += '<div class="carousel-item pt-3 pb-5"><div class="d-flex flex-row flex-fill py-3"><div class="flex-grow-1 pr-3"><a href="#"><img src="../'
-                        + moviesArray.Movies[data].ImgUrls.split(',')[1] + '" alt="" loading="lazy" class="w-100 rounded"></a></div><div class="text-white align-self-center"><h6>'
+                        + moviesArray.Movies[data].ImgUrls + '" alt="" loading="lazy" class="w-100 rounded"></a></div><div class="text-white align-self-center"><h6>'
                         + moviesArray.Movies[data].Name +'</h6><p>' + moviesArray.Movies[data].Time + '</p><p>' + moviesArray.Movies[data].Genre + '•' 
                         + moviesArray.Movies[data].Certification +'</p><p>'
                         + moviesArray.Movies[data].Language + '</p><p>' + moviesArray.Movies[data].About 

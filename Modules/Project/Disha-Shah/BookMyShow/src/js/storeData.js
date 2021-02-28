@@ -4,13 +4,11 @@ window.onload = () => {
         moviesFetch.then(x => x.json())
         .then(y => {
            var x1 = localStorage.getItem("Movies");
-            console.log("x1"+x1);
+            
             if(x1==null){
                 localStorage.setItem("Movies", JSON.stringify(y));
             }
-            // else{
-            //      localStorage.setItem("Movies", JSON.stringify(x1));
-            //  }
+            
         }).catch(err => console.log(err));
 
         //comedy
@@ -45,6 +43,10 @@ window.onload = () => {
     var activitiesFetch = fetch("./JSON/activities.json");
         activitiesFetch.then(x => x.json())
         .then(y => {
-            localStorage.setItem("Activities", JSON.stringify(y));
+            var x1 = localStorage.getItem("Activities");
+            
+            if(x1==null){
+                localStorage.setItem("Activities", JSON.stringify(y));
+            }
         }).catch(err => console.log(err));
 }
