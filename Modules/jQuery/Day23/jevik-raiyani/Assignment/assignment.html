@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+
+$(document).ready(function(){
+            $("#counTry").on("change",function(){
+                switch ($(this).val()){
+                        case "India":
+                        $("#perfo").html("You have selected : " + $(this).val());
+                        break;
+                        case "USA":
+                        $("#perfo").html("You have selected : " + $(this).val());
+                        break;
+                        case "Canada":
+                        $("#perfo").html("You have selected : " + $(this).val());
+                        break;
+                        case "Nepal":
+                        $("#perfo").html("You have selected : " + $(this).val());
+                        break;
+                        case "Bhutan":
+                        $("#perfo").html("You have selected : " + $(this).val());  
+                        break;   
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <span>Please Select Your Country :</span>
+    <select name="" id="counTry"  required>
+        <option selected disabled>Select Country</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="Nepal">Nepal</option>
+        <option value="Bhutan">Bhutan</option>
+    </select>
+    <br>
+    <br>
+    <span id="perfo">You have selected : None</span>
+</body>
+</html>
