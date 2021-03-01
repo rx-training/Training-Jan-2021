@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    </head>
+<body>
+
+<h1 class="display-2 text-center">Resizing Window</h1>
+<p class="lead">Try to change windows height and width using Windows object</p>
+<button onclick="openWindow()"  class="btn btn-danger btn-block">Create window</button>
+<button onclick="resizeWindow()" class="btn btn-success btn-block">Resize window</button>
+
+<script>
+var myWindow;
+
+function openWindow() {
+  myWindow = window.open("", "", "width=500, height=500");
+}
+
+function resizeWindow() {
+  myWindow.resizeTo(1000, 1000);
+  myWindow.focus();
+}
+</script>
+
+</body>
+</html>
