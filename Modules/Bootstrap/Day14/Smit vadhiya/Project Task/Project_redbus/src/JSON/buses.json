@@ -42,6 +42,50 @@
         "endTime" : "16:00",
         "rating" : 3.0,
         "farePrice" : 478
+    },
+    {
+        "ID" : 25,
+        "busname" : "Patel tours and travels",
+        "start" : "junagadh",
+        "end" : "ahmedabad",
+        "coach" : "Non A/C Seater (2+2)",
+        "startTime" : "12:24",
+        "endTime" : "20:35",
+        "rating" : 1.2,
+        "farePrice" : 320
+    },
+    {
+        "ID" : 26,
+        "busname" : "Gurukrupa travels",
+        "start" : "junagadh",
+        "end" : "ahmedabad",
+        "coach" : "Non A/C Sleeper (1+2)",
+        "startTime" : "6:00",
+        "endTime" : "13:15",
+        "rating" : 4.6,
+        "farePrice" : 392
+    },
+    {
+        "ID" : 27,
+        "busname" : "Neeta tours and travels",
+        "start" : "junagadh",
+        "end" : "ahmedabad",
+        "coach" : "Volvo A/C Sleeper (1+2)",
+        "startTime" : "22:00",
+        "endTime" : "5:20",
+        "rating" : 3.9,
+        "farePrice" : 475
+    },
+    {
+        "ID" : 28,
+        "busname" : "Mahasagar travels",
+        "start" : "ahmedabad",
+        "end" : "junagadh",
+        "coach" : "Volvo A/C Seater (2+2)",
+        "startTime" : "16:25",
+        "endTime" : "23:59",
+        "rating" : 4.0,
+        "farePrice" : 600
     }
 
 ]

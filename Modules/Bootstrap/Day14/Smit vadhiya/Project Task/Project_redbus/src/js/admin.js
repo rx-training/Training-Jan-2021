@@ -31,7 +31,7 @@ $(document).ready(function(){
         for (i in item){
             str += "<td>"+item[i]+"</td>"
         }
-        str += '<td><span><button class="btn btn-danger h5 p-1">&times;</button></span></td></tr>'
+        str += '<td><span><button class="btn btn-danger btn-block h5 p-1"><i class="fa fa-close"></i></button></span></td></tr>'
     }
     tbody.append(str);    
 
@@ -61,7 +61,6 @@ $(document).ready(function(){
         }
         
 
-
         if (newBusName.length == 0){
             alert("Enter bus name");
         } else if (newBusID.length == 0){
@@ -90,7 +89,7 @@ $(document).ready(function(){
                 "coach" : newBusCoach,
                 "startTime" : newBusStartTime,
                 "endTime" : newBusEndTime,
-                "rating" : 3,
+                "rating" : 3.1,
                 "farePrice" : newBusPrice
             }
 
@@ -101,8 +100,8 @@ $(document).ready(function(){
             for(i in newBUsData){
                 busAppend += "<td>"+newBUsData[i]+"</td>"
             }
-            busAppend += '<td><span><button class="btn btn-danger h5 p-1">&times;</button></span></td></tr>';
-            tbody.append(busAppend);
+            busAppend += '<td><span><button class="btn btn-danger btn-block h5 p-1"><i class="fa fa-close"></i></button></span></td></tr>';
+            tbody.append(busAppend); 
 
             //-----------Add bus to localstorage------------
 
@@ -155,7 +154,7 @@ $(document).ready(function(){
                             userStr += "<td>"+item[i]+"</td>"
                         }
                     }
-                    userStr += '<td><span><button class="btn btn-danger h5 p-1"> <i class="fa fa-user-times"></i></button></span></td></tr>';
+                    userStr += '<td><span><button class="btn btn-danger btn-block h5 p-1"> <i class="fa fa-user-times"></i></button></span></td></tr>';
                 }
             }
             userTbody.append(userStr);
@@ -211,7 +210,7 @@ $(document).ready(function(){
                         blockStr += "<td>"+item[i]+"</td>"
                     }
                 }
-                blockStr += '<td><span><button class="btn btn-success h5 p-1"> <i class="fa fa-user-plus"></i></button></span></td></tr>';
+                blockStr += '<td><span><button class="btn btn-success btn-block h5 p-1"> <i class="fa fa-user-plus"></i></button></span></td></tr>';
             }
         }
         blockTbody.append(blockStr);
