@@ -3,44 +3,59 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pocket</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Pocket</title>
         <style>
             #heading1 {
                 width: 100%; 
                 height: 620px; 
                 background-image: url("bgimg1.png"); 
                 background-size: 100% 100%;
+                opacity: 0.9;
             }
             #heading2 {
                 width: 100%; 
                 height: 620px; 
                 background-image: url("bgimg4.png"); 
                 background-size: 100% 100%;
+                opacity: 0.9;
             }
             .knowledge {
-                padding-top: 110px;
+                background: rgba(0, 0, 0, 0.5);
+                padding-top: 80px;
             }
             .saving {
-                padding-top: 150px;
+                padding-top: 250px;
+            }
+            #pocketinfo {
+                height:300px;
+                background-color:#0B4C5F;
+            }
+            #quote {
+                border-left: 1px solid white;
+                height: 150px;
+            }
+            #awards {
+                border-left: 1px solid white;
+                height: 150px;
             }
         </style>
     </head>
     <body>
         <!--NavBar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="container">
                 <a href="Assignment.html" class="navbar-brand text-danger">pocket</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                    <span class="navbar-toggeler-icon"></span>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-items">
-                            <a href="" class="nav-link">Sign Up</a>
+                            <a href="UserSignup.html" class="nav-link">Sign Up</a>
                         </li>
                         <li class="nav-items">
                             <a href="" class="nav-link">How to Save</a>
@@ -69,7 +84,7 @@
                             <button class="border border-primary bg-primary mb-3 btn-block">Sign up with Google</button>
                             <button class="border border-light bg-light btn-block mb-3">Sign up with Email</button>
                             <p class="text-white mb-4">Already have an account?
-                                <a href="" class="text-white">Log in ></a>
+                                <a href="UserLogin.html" class="text-white">Log in ></a>
                             </p>
                             <p class="text-white text-small">By Signing up, you agree to pocket's Terms of Service and Privacy Policy</p>
                         </div>
@@ -78,106 +93,94 @@
             </div>
         </div>
         <!--Image+Text 1-->
-        <section class="py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mt-5">
-                        <p class="h2 mt-3">Save Content from everywhere</p>
-                        <p>Save articles, videos and stories from any publication, page or app.Curate your own space filled with everything 
-                            you can't wait to learn.
-                        </p>
-                    </div>
-                    <div class="col-md-8 mt-3">
-                        <img src="bgimg2.png" class="img-fluid" width="700" height="500" alt="">
-                    </div>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4 mt-5">
+                    <p class="h2 mt-3">Save Content from everywhere</p>
+                    <p>Save articles, videos and stories from any publication, page or app.Curate your own space filled with everything 
+                        you can't wait to learn.
+                    </p>
+                </div>
+                <div class="col-md-8 mt-3">
+                    <img src="bgimg2.png" class="img-fluid" width="700" height="500" alt="">
                 </div>
             </div>
-        </section>
+        </div>
         <!--Image+Text 2-->
-        <section class="py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 mt-1">
-                        <img src="bgimg3.png" class="img-fluid" width="600" height="400" alt="">
-                    </div>
-                    <div class="col-md-4 mt-5">
-                        <p class="h2 mt-3">Fuel Your Mind anywhere.</p>
-                        <p>Immerse yourself in great content anywhere - even offline. Read or listen without distraction or any device.</p>
-                    </div>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-8 mt-1">
+                    <img src="bgimg3.png" class="img-fluid" width="600" height="400" alt="">
+                </div>
+                <div class="col-md-4 mt-5">
+                    <p class="h2 mt-3">Fuel Your Mind anywhere.</p>
+                    <p>Immerse yourself in great content anywhere - even offline. Read or listen without distraction or any device.</p>
                 </div>
             </div>
-        </section>
+        </div>
         <!--Body1-->
         <div id="heading2">
             <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <p class="h2 text-white text-center saving">Start saving to Pocket</p>
-                        <div class="text-center">
-                            <button class="btn-primary">Sign up now</button>
-                        </div>
-                    </div>
+                <p class="h2 text-center saving">Start saving to Pocket</p>
+                <div class="text-center">
+                    <button class="btn-primary">Sign up now</button>
                 </div>
             </div>
         </div>
         <!--Body2-->
-        <div class="row align-items-center" style="height:380px;background-color:#0B4C5F;">
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3">
-                <img class="img-fluid ml-5" src="download.jpg" width="200px" height="200px">
-            </div>
-            <div style="border-left: 1px solid white;height: 200px;"></div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                <p class="text-white ml-5 mr-5">"It's revolutioned the way I read industry news on the go. I'm in love"</p>
-                <p class="text-white ml-5"><img class="img-fluid ml-5" src="twitter.jpg" width="20px" height="20px">@elliebudd_</p>
-            </div>
-            <div style="border-left: 1px solid white;height: 200px;"></div>
-            <div class="col ml-5">
-                <p class="h3 text-white">10X</p>
-                <p class="text-white">Webby Award Winner</p>
-            </div>
-            </div>
-        <!--Body3-->
-        <nav class="navbar navbar-expand-lg mt-5">
-            <div class="container">
-                <div class="d-md-flex d-block flex-row mx-md-auto mx-0">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Blog</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">About</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Explore</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Publishers</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Developers</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Terms of Service</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Privacy</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Support</a>
-                        </li>
-                        <li class="nav-items">
-                            <a href="" class="nav-link">Jobs</a>
-                        </li>
-                    </ul>
+        <div class="container-fluid">
+            <div class="row align-items-center" id="pocketinfo">
+                <div class="col-md-4">
+                    <img class="img-fluid ml-5" src="download.jpg" width="200px" height="200px">
+                </div>
+                <div class="col-md-4" id="quote">
+                    <p class="text-white mt-4">"It's revolutioned the way I read industry news on the go. I'm in love"</p>
+                    <p class="text-white ml-5"><img class="img-fluid ml-5" src="twitter.jpg" width="20px" height="20px">@elliebudd_</p>
+                </div>
+                <div class="col-md-4" id="awards">
+                    <p class="h3 text-white mt-4 ml-5">10X</p>
+                    <p class="text-white ml-5">Webby Award Winner</p>
                 </div>
             </div>
-        </nav>
+        </div>
+        <!--Body3-->
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Blog</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">About</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Explore</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Publishers</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Developers</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Terms of Service</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Privacy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Support</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="" class="nav-link">Jobs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <!--Body4-->
-        <div class="container">
-            <center>
-                <img class="img-fluid" src="fb.jpg" width="40px" height="40px">
-                <img class="img-fluid" src="twitter.jpg" width="40px" height="40px">
-            </center>
+        <div class="container d-flex justify-content-center">
+            <img class="img-fluid" src="fb.jpg" width="40px" height="40px">
+            <img class="img-fluid" src="twitter.jpg" width="40px" height="40px">
         </div>
         <div class="container">
             <p class="text-center text-gray text-muted">&copy; 2019 Read It Later, Inc</p>
