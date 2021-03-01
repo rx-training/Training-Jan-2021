@@ -1,43 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $('#result').html("");
-    $('#result').html("<tr><th>ID</th><th>Name</th><th>Email</th><th>Gender</th><th>Status</th><th>Created At</th><th>Updated At</th></tr>");
-    $.getJSON("https://gorest.co.in/public-api/users", function(result){
-        $.each(result.data, function(i){
-            $('#result').append("<tr><td>"+result.data[i].id+"</td><td>"+result.data[i].name+"</td><td>"+result.data[i].email+"</td><td>"+result.data[i].gender+"</td><td>"+result.data[i].status+"</td><td>"+result.data[i].created_at+"</td><td>"+result.data[i].updated_at+"</td></tr>");
-        })
-    });
-  });
-});
-</script>
+    <script>
+        $(document).ready(function(){
+            var txt = "<form class=' container my-5 mx-auto text-center form'><label>Enter the Country:-</label><input type='text' id='country' placeholder='Country'><br><label>Country Dropdown:-</label><select><option>Please select</option></select><br><button class='btn btn-primary' onclick='return drop()'>Submit</button><br><h4 id='text'></h4></form>"
+            $("body").append(txt);
+            $('select').click(function(){
+                $('option').each(function(index,element){
+                    if($(this).val() == 'Please select' && $(this).prop("selected")){
+                        document.getElementById('text').innerHTML = ""
+                        $('option').each(function(index,element){
+                            if($(this).val() !== 'Please select'){
+                                document.getElementById('text').innerHTML += $(this).val()+"<br>";
+                            }
+                        });
+                    }
+                    else if($(this).prop("selected")){
+                        $("#text").text($(this).text());
+                    }
+                });
+            });
+        });
+        function drop(){
+            var flag = 0;
+            $('option').each(function(index,element){
+                if($('#country').val() == $(this).val()){
+                    flag = 1;
+                }
+            });
+            if($('#country').val() !== "" && flag == 0){
+                var txt = "<option>"+$('#country').val()+"</option>";
+                $("select").append(txt);
+            }
+            return false;
+        }
+    </script>
 </head>
 <body>
-<div class="container text-center my-5 mx-auto">
-<button class="btn btn-warning text-white">Get JSON data</button>
-</div>
-<div>
-    <table class="table table-bordered" id="result">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Status</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-        </tr>
-    </table>
-</div>
-
 </body>
 </html>
