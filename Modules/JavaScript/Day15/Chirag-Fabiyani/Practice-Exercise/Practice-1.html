@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Practice-1</title>
+    <script>
+        function action(){
+            var a = parseInt(prompt("Enter value 1"));
+            var b = parseInt(prompt("Enter value 2"));
+            var c = parseInt(prompt("Enter value 3"));
+            var sum;
+            if(a>=40){
+                if(b>=40){
+                    if(c>=40){
+                        sum=a+b+c;
+                        console.log(sum+" is the sum");
+                        alert(sum+" is the sum");
+                    }
+                    else{
+                        sum=a+b;
+                        console.log(sum+" is the sum");
+                        alert(sum+" is the sum");
+                    }
+                }
+                else{
+                    if(c>=40){
+                        sum=a+c;
+                        console.log(sum+" is the sum");
+                        alert(sum+" is the sum");
+                    }
+                    else{
+                        sum=a;
+                        console.log(sum+" is the sum");
+                        alert(sum+" is the sum");
+                    }
+                }
+            }
+            else{
+                console.log(
+                    "All the values are less than 40"
+                );
+                alert(
+                    "All the value are less than 40"
+                );
+            }
+        }
+    </script>
+</head>
+<body>
+    <button class="btn btn-primary btn-lg m-5" onclick="action()">Perform Task</button>
+</body>
+</html>
