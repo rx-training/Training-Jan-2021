@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Day 19 Extras</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">JavaScript</a>
+            </li>
+            <li class="nav-item">
+              <a href="../jQuery/d22PracticeExercise.html" class="nav-link"
+                >jQuery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d15PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Practice Exercise</a
+          >
+          <a
+            href="d15Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Assignment</a
+          >
+          <a
+            href="d16PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Practice Exercise</a
+          >
+          <a
+            href="d16Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Assignment</a
+          >
+          <a
+            href="d17PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Practice Exercise</a
+          >
+          <a
+            href="d17Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Assignment</a
+          >
+          <a
+            href="d18PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Practice Exercise</a
+          >
+          <a
+            href="d18Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Assignment</a
+          >
+          <a
+            href="d19PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Practice Exercise</a
+          >
+          <a
+            href="d19Extras.html"
+            class="list-group-item list-group-item-action active"
+            >Day 19 Extras</a
+          >
+          <a
+            href="d20Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 20 Assignment</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <div class="container">
+          <h1 class="text-center">Day-19 Extras</h1>
+          <h2>JavaScript Class</h2>
+          <p class="text-success my-2"><strong id="ans1"></strong></p>
+          <h2>Create a Class method named "age", that returns the Car age:</h2>
+          <p class="text-success my-2"><strong id="ans2"></strong></p>
+          <h2>
+            Create a class named "Model" which will inherit the methods from the
+            "Car" class:
+          </h2>
+          <p class="text-success my-2"><strong id="ans3"></strong></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+      class Car {
+        constructor(name, year) {
+          this.name = name;
+          this.year = year;
+        }
+        age() {
+          let date = new Date();
+          return date.getFullYear() - this.year;
+        }
+      }
+
+      myCar = new Car("Ford", 2014);
+      document.getElementById("ans1").innerHTML = myCar.name + " " + myCar.year;
+      document.getElementById("ans2").innerHTML =
+        "My car is " + myCar.age() + " years old.";
+
+      // inheritance
+
+      class Cars {
+        constructor(brand) {
+          this.carname = brand;
+        }
+        present() {
+          return "I have a " + this.carname;
+        }
+      }
+
+      class Model extends Cars {
+        constructor(brand, mod) {
+          super(brand);
+          this.model = mod;
+        }
+        show() {
+          return this.present() + ", it is a " + this.model;
+        }
+      }
+
+      let myCars = new Model("Ford", "Mustang");
+      document.getElementById("ans3").innerHTML = myCars.show();
+    </script>
+  </body>
+</html>

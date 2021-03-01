@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Day 22 Practice Exercise</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="../JavaScript/d15PracticeExercise.html" class="nav-link"
+                >JavaScript</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">jQuery</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d22PracticeExercise.html"
+            class="list-group-item list-group-item-action active"
+            >Day 22 Practice Exercise</a
+          >
+          <a
+            href="d22Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 22 Assignment</a
+          >
+          <a
+            href="d24Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 24 Assignment</a
+          >
+          <a
+            href="d24Extras.html"
+            class="list-group-item list-group-item-action"
+            >Day 24 Extras</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <div class="container">
+          <h1 class="text-center">Practice Excercise Day-22</h1>
+          <h2>Excercise 1 :</h2>
+          <p>
+            <strong class="text-secondary">
+              Create one paragraph, add some dummy text and apply blue
+              background color using jquery.
+            </strong>
+          </p>
+          <p id="para-1"></p>
+          <h2>Excercise 2 :</h2>
+          <p>
+            <strong class="text-secondary">
+              There is one Hide/show the text inside the #helpText span element
+              when the user’s mouse passes over the text.
+            </strong>
+          </p>
+          <span id="helpText">Hello World</span>
+          <h2>Excercise 3 :</h2>
+          <p>
+            <strong class="text-secondary">
+              Label : “Please select your technology :” – Consider following set
+              of radio buttons :- “PHP”, “ASP.NET”, “ASP”, “JSP”, “PERL”, “Cold
+              Fusion”, “Other”. Layout these buttons in a Horizontal manner. –
+              Clicking on a particular radio button should display the related
+              technology name besides label : “You have selected : “. – Use
+              multiple “span” HTML element for displaying the related message. –
+              Note that radio button should be selectable by clicking on the
+              corresponding label.
+            </strong>
+          </p>
+          <div class="form-group my-1">
+            <label class="form-label">Please select your technology :</label>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="php"
+                name="technology"
+              />
+              <label class="form-check-label" for="php"> PHP </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="technology"
+                id="asp.net"
+              />
+              <label class="form-check-label" for="asp.net"> ASP.NET </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="technology"
+                id="asp"
+              />
+              <label class="form-check-label" for="asp"> ASP </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="technology"
+                id="jsp"
+              />
+              <label class="form-check-label" for="jsp"> JSP </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="technology"
+                id="perl"
+              />
+              <label class="form-check-label" for="perl"> PERL </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="technology"
+                id="cold"
+              />
+              <label class="form-check-label" for="cold"> Cold Fusion </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="technology"
+                id="other"
+              />
+              <label class="form-check-label" for="other"> Other </label>
+            </div>
+          </div>
+          <strong
+            ><label class="my-3 text-success" id="ans"
+              >YOU HAVE SELECTED :
+            </label></strong
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#para-1")
+          .html("This Text Is Generated By jQuery")
+          .css("background-color", "blue");
+        $("#helpText").mouseover(function () {
+          $("#helpText").hide();
+        });
+        $("#helpText").mouseout(function () {
+          $("#helpText").show();
+        });
+        $("[name='technology']").click(function () {
+          $("[type = 'radio']").each(function (index, element) {
+            if ($(element).prop("checked") == true) {
+              //showing selected technology
+              switch (index) {
+                case 0:
+                  $("#ans").html("YOU HAVE SELECTED : <span> PHP </span>");
+                  break;
+                case 1:
+                  $("#ans").html("YOU HAVE SELECTED : <span> ASP.NET </span>");
+                  break;
+                case 2:
+                  $("#ans").html("YOU HAVE SELECTED : <span> ASP </span>");
+                  break;
+                case 3:
+                  $("#ans").html("YOU HAVE SELECTED : <span> JSP </span>");
+                  break;
+                case 4:
+                  $("#ans").html("YOU HAVE SELECTED : <span> PERL </span>");
+                  break;
+                case 5:
+                  $("#ans").html(
+                    "YOU HAVE SELECTED : <span> Cold Fusion </span>"
+                  );
+                  break;
+                case 6:
+                  $("#ans").html("YOU HAVE SELECTED : <span> Other </span>");
+                  break;
+                default:
+                  $("#ans").html("YOU HAVE SELECTED : ");
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

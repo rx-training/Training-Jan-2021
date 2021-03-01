@@ -37,7 +37,7 @@ function extractString() {
 // getting current date using getDate method
 function gateCurrentDate() {
   var e = new Date();
-  document.getElementById("ans4").innerHTML = e.getDate();
+  document.getElementById("ans4").innerHTML = e.toLocaleDateString();
 }
 
 // adding string to array using push()

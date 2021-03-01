@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Day 24 Assignment</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="../JavaScript/d15PracticeExercise.html" class="nav-link"
+                >JavaScript</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">jQuery</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d22PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 22 Practice Exercise</a
+          >
+          <a
+            href="d22Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 22 Assignment</a
+          >
+          <a
+            href="d24Assignment.html"
+            class="list-group-item list-group-item-action active"
+            >Day 24 Assignment</a
+          >
+          <a
+            href="d24Extras.html"
+            class="list-group-item list-group-item-action"
+            >Day 24 Extras</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <div class="container">
+          <h1 class="text-center">Assignment Day-24</h1>
+          <p>
+            <strong class="text-secondary">
+              Use getJSON method access this web api
+              https://gorest.co.in/public-api/users and display the result in
+              one table.
+            </strong>
+          </p>
+          <div class="container">
+            <input
+              id="myInput"
+              type="text"
+              class="form-control my-3"
+              placeholder="Search.."
+            />
+            <table class="table table-secondary table-hover table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $.getJSON(
+          "https://gorest.co.in/public-api/users",
+          function (data, status) {
+            let Data = data.data;
+            var rowData = "";
+
+            //showing data in table
+            $.each(Data, function (i, value) {
+              rowData +=
+                "<tr>" +
+                "<td>" +
+                Data[i].id +
+                "</td>" +
+                "<td>" +
+                Data[i].name +
+                "</td>" +
+                "<td>" +
+                Data[i].email +
+                "</td>" +
+                "<td>" +
+                Data[i].gender +
+                "</td>" +
+                "<td>" +
+                Data[i].status +
+                "</td>" +
+                "</tr>";
+            });
+            $("#tableBody").append(rowData);
+          }
+        );
+
+        //to search data in table
+        $("#myInput").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#tableBody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
