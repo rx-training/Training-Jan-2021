@@ -1,0 +1,281 @@
+html
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logo
+{
+    color: dodgerblue;
+    text-align: center;
+    width: 100%;
+    height: 65px;
+    font-size: large;
+}
+
+#header_ul
+{
+    list-style-type: none;
+    background-color:black;
+    margin: auto;
+    padding: 0px;
+    width: 100%;
+    height: 65px;
+}
+
+#header_ul li
+{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 20px 30px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#header_ul li:hover
+{
+        color: dodgerblue;
+}
+
+.banner img
+{
+    display: block;
+}
+
+.under_banner_div
+{
+    width: 100%;
+    height: 65px;
+    background-color: black;
+}
+
+.imp_container
+{
+    display: flex;
+}
+
+.imp
+{
+    margin-top: 75px;
+    width: 25%;
+}
+
+.imp img
+{
+    margin-left: 140px;
+}
+
+.imp_header
+{
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.imp_text
+{
+    text-align: center;
+}
+
+.gig_conatiner
+{
+    margin-top: 90px;
+    background-color: lightgrey;
+    height: 280px;
+}
+
+.gig_conatiner hr
+{
+    width: 68%;
+}
+
+.gig_header
+{
+    padding-top: 95px;
+    text-align: center;
+    font-size:xx-large;
+    font-weight: bold;
+}
+
+.gig_subtitle
+{
+    font-size: large;
+    text-align: center;
+}
+
+.upper_products_container
+{
+    margin-top: 70px;
+}
+
+.product1
+{
+    margin-left: 19%;
+}
+
+.product1 img
+{
+    float: left;
+    margin-right: 25px;
+}
+
+.product_desc_container1
+{
+    width: 125%;
+    padding-bottom: 4px;
+    margin-right: 200px;
+}
+
+.product_title1
+{
+    padding: 5px;
+    font-weight: bold;
+}
+
+.product_desc1
+{
+    margin-left: 50px;
+}
+
+.product2 img
+{
+    float: left;
+    margin-right: 25px;
+}
+
+.product_desc_container2
+{
+    width: 150%;
+    padding-bottom: 4px;
+}
+
+.product_title2
+{
+    padding: 5px;
+    font-weight: bold;
+}
+
+.product_desc2
+{
+    margin-left: 50px;
+}
+
+.upper_products_container
+{
+    display: flex;
+}
+
+.quest_div
+{
+    background-color: dodgerblue;
+    width: 100%;
+    height: 124px;
+    margin-top: 70px;
+}
+
+.quest_header
+{
+    padding-top: 40px;
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+footer {
+    background-color: lightgrey;
+    width: 100%;
+    height: 400px;
+    padding-top: 70px;
+    padding-bottom: 10%;
+}
+
+.footer_list1
+{
+    padding-left: 15%;
+    float: left;
+}
+
+.footer_list1 h4
+{
+    margin-left: 40px;
+}
+
+.footer_list1 ul li
+{
+    list-style-type: none;
+    padding-top: 5px;
+}
+
+.footer_list1 ul li a
+{
+    color: black;
+}
+
+.footer_list2
+{
+    padding-left: 9%;
+    float: left;
+}
+
+.footer_list2 h4
+{
+    margin-left: 40px;
+}
+
+.footer_list2 ul li
+{
+    list-style-type: none;
+    padding-top: 5px;
+}
+
+.footer_list2 ul li a
+{
+    color: black;
+}
+
+.get_in_touch_container
+{
+    padding-left: 10%;
+    float: left;
+}
+
+#send_button
+{
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#coin_button
+{
+    margin-top: 7px;
+    position: absolute;
+    margin-left: 15px;
+    background-color: white;
+    color: black;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    font-size: 15px;
+}
+
+.acarna_header
+{
+    padding-top: 17px;
+    color: white;
+    text-align: center;
+}
+
+#learn_button
+{
+    margin-left: 10px;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid dodgerblue;
+}

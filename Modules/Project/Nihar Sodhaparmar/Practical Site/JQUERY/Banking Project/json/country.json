@@ -1,0 +1,17 @@
+{
+    "India" : [
+        {
+            "Gujarat" : [ "Ahmedabad", "Nadiad", "Vadodara"],
+
+            "Maharashtra" : [ "Mumbai", "Pune", "Nagpur"]
+        }
+    ],
+
+    "America" : [
+        {
+            "Alberta" : [ "Airdrie", "Brooks", "Camrose"],
+    
+            "British Columbia" : [ "Armstrong", "Burnaby", "Castlegar"]
+        }
+    ]
+}
