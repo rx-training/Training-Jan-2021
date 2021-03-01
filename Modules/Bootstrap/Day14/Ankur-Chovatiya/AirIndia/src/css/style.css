@@ -29,6 +29,7 @@
 
 #loginTab {
   display: flex;
+  font-size: 25px;
   justify-content: center;
   align-self: center; }
   #loginTab a {
