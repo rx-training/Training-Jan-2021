@@ -1,0 +1,207 @@
+html{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+    color: dimgray;
+}
+.logo{
+    height: 40px;
+    width: 100%;
+    color: yellowgreen;
+    
+}
+.logo h1{
+    padding: 10px 0px 10px 10px;
+    font-size: 20px;
+}
+.menu{
+    height: 40px;
+    width: 100%;
+
+}
+.menu{
+    display: flex;
+    flex-wrap: nowrap;
+    border-top: 1px solid black;
+    border-bottom:  1px solid black;
+}
+.menu span{
+    padding: 15px 10px 10px 10px;
+    font-size: 8px;
+    display: inline;
+}
+.img-main{
+    margin-top: 10px;
+    height: 20%;
+    width: 100%;
+}
+.img-main img{
+    height: 100%;
+    width: 100%;
+}
+
+.data01, .data02, .data03, .data04{
+    padding: 15px;
+    width: 100%;
+    border-bottom: 1px solid dimgray ;
+    
+}
+.download{
+    background-color: green;
+    height: 30px;
+    width: 150px;
+    border-radius: 1mm;
+}
+.works01, .works02, .works03, .works04{
+    padding: 15px;
+    text-align: center;
+    margin: 15px;
+}
+.workimg , .welcomeimg, .shotimg{
+    width: 100%;
+    height: 220px;
+}
+.welcome,.shots{
+    padding: 15px;
+    
+}
+.welcome2{
+    padding-left: 15px;
+    border-left: 1px solid dimgray;
+    clear: both;
+}
+.client{
+    clear: both;
+    margin: 100px 0px;
+}
+.cliimg{
+    height: 50px;
+    background-image: url(logo9.png);
+
+}
+.recent{
+    border-bottom: 1px dotted dimgray;
+    margin: 100px 0px 0px 15px;
+    clear: both;
+}
+.footerlogo{
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+}
+.footerlogo h1{
+    color: forestgreen;
+}
+footer{
+    background-color: rgb(44, 44, 44);
+    width: 100%;
+    padding: 15px;
+}
+.post,.aboutus{
+    padding: 15px;
+}
+.contact{
+    text-align: center;
+    padding: 15px;
+}
+.contact p{
+    font-size: 20px;
+    
+}
+.social{
+    padding: 15px;
+    text-align: center;
+    background-color: black;
+    height: 50px;
+    width: 100%;
+}
+
+.icons > span{
+    padding: 10px;
+}
+@media only screen and (min-width: 754px){
+    .logo{
+        width: 45%;
+        float: left;
+    }
+    .logo h1{
+        padding: 0px 0px 0px 10px;
+        font-size: 20px;
+    }
+    .menu{
+        width: 45%;
+        float: right;
+        border: none;
+    }
+    .img-main{
+        margin-top: 10px;
+        height: 350px;
+        width: 100%;
+        clear: both;
+    }
+    .works01, .works03{
+        float: left;
+        width: 42%;
+    }
+    .works02,.works04{
+        float: right;
+        width: 42%;
+    }
+    .welcomeimg{
+        float: left;
+        width: 40%;
+   
+    }
+    .welcome1{
+        float: right;
+        width: 57%;
+    }
+    .shotimg{
+        height: 350px;
+    }
+    .contact, .aboutus{
+        width: 45%;
+        float: left;  
+    }
+}
+
+@media only screen and (min-width : 900px){
+    .data02, .data03, .data04{
+        width: 29%;
+        float: left;
+        height: 300px;
+
+    }
+    .recent{
+        margin: 400px 0px 0px 15px;
+    }
+    .works01, .works02, .works03, .works04{
+        width: 18.25%;
+        float: left;
+    }
+    .welcome{
+        width: 60%;
+        float: left;
+    }
+    .shots{
+        width: 30%;
+        float: right;
+        height: 220px;
+    }
+    .client{
+        margin-top: 1000px;
+    }
+    .aboutus, .contact , .post , .footerlogo{
+        width: 20%;
+        float: left;
+
+    }
+    .text{
+        float: left;
+        width: 50%;
+        height: 36px;
+        padding-top: 18px;
+    } 
+    .icons{
+        width: 30%;
+        float: right;
+    }
+}
