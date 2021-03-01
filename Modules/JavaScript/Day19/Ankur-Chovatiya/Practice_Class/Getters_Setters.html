@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getters and Setters</title>
+</head>
+<body>
+    <h1>Hell Developers!</h1>
+</body>
+<script>
+
+class Book {
+        constructor(name , author , price){
+            this.name = name;
+            this.author = author;
+            this.price = price;
+        }
+        get bookName(){
+            // console.log("run")
+            return this.name;
+        }
+        set bookName(str){
+            this.name = str;
+        }
+    }
+
+    let book1 = new Book("Half girl Friend" , "chetan bhagat" , 300);
+    console.log(book1.bookName = "GodFather");
+    // console.log(book1.bookName);
+
+
+</script>
+</html>

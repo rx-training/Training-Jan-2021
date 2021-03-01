@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Methods</title>
+</head>
+<body>
+    <h1>Hello Developers!</h1>
+
+
+
+</body>
+<script>
+    let ans1 = 0.3 + 0.2;
+    console.log(ans1); //0.5
+
+    let ans2 = "30" + 20;
+    console.log(ans2); //3020
+
+    let ans3 = 30 + "20";
+    console.log(ans3); //3020
+
+    let ans4 = 30 + 20 + "10";
+    console.log(ans4); // 5010
+
+    let ans5 = "10" - "5";
+    console.log(ans5); //5
+
+    let ans6 = "10" * "5";
+    console.log(ans6); //50
+
+    let ans7 = 100 / "Hi";
+    console.log(ans7); //NaN - Not a number
+
+    let x = 100;
+    let ans8 = x.toString();
+    console.log(x); //100
+
+    let x1 = 9.54654656;
+
+
+    let ans9 = x1.toExponential(5);
+    console.log(ans9); //9.54655e+0
+
+    let ans10 = x1.toFixed(0)
+    let ans11 = x1.toFixed(2)
+    console.log(ans10); //10
+    console.log(ans11); //9.55
+
+    let ans12 = x1.toPrecision();
+    let ans13 = x1.toPrecision(3);
+    console.log(ans12); //as it is number
+    console.log(ans13); //total 3 digit  - 9.55
+
+    let ans14 = x1.valueOf();
+    let ans15 =(15 + x1).valueOf();
+    console.log(ans14); //9. ........
+    console.log(ans15); //24. ......
+
+    
+
+
+     
+</script>
+</html>

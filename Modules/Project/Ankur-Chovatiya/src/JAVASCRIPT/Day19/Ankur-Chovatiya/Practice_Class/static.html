@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static</title>
+</head>
+<body>
+    <h1>Hello developers!</h1>
+</body>
+<script>
+
+    class Book {
+        constructor(name , author , price){
+            this.name = name;
+            this.author = author;
+            this.price = price;
+        }
+        // this is a static method
+        static say(){
+            return "Reading a book is a very good habit";
+        }
+
+        // here we pass a object into a static method
+        static show(obj){
+            return `try ${obj.name} book first`;
+        }
+    }
+
+    let book1 = new Book("Half girl Friend" , "chetan bhagat" , 300);
+    console.log(Book.say());
+    console.log(Book.show(book1));
+
+</script>
+</html>

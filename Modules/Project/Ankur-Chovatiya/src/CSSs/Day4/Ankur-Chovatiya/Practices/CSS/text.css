@@ -1,0 +1,16 @@
+#text {
+    background-color: antiquewhite;
+    color: aqua;
+}
+
+h1{
+    background-color: black;
+    color: coral;
+    text-align: center;
+    direction: rtl;
+    text-decoration: underline;
+    text-transform: capitalize;
+    line-height: 1.5;
+    word-spacing: 10px;
+    text-shadow: 5px 3px 4px red;
+}

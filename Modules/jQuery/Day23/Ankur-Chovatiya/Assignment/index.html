@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Assignment</title>
+</head>
+<body>  
+        <select name="" id="country">
+            <option value="blank">Please select</option>
+            <option value="India">India</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Rasia">Rasia</option>
+            <option value="China">China</option>
+            <option value="USA">USA</option>
+        </select>
+
+        <p>Your Selected Country :
+            <ul>
+                <li>India</li>
+                <li>UK</li>
+                <li>Rasia</li>
+                <li>CHINA</li>
+                <li>USA</li>
+            </ul>
+        </p>
+</body>
+<script>
+
+    $(document).ready(function(){
+
+
+        $("#country").change(function(){
+            if($("#country").val() == "blank"){
+            $("ul").html("<li>India</li><li>UK</li><li>Rasia</li><li>CHINA</li><li>USA</li>")
+        }   
+        else{
+            $("li").hide();
+            $("ul").html($("#country").val());
+        }
+        });
+
+       
+        
+       
+       
+    });
+    
+
+</script>
+</html>
