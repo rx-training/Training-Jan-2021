@@ -1,0 +1,364 @@
+{
+    "snacks": [
+        {
+            "text": "313 Cal | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/28180fe1-b815-4085-a17c-cb45de65646f.jpg",
+            "title": "Achari Paneer Tikka Wrap",
+            "subtitle": "139"
+        },
+        {
+            "text": "Continental",
+            "image": "//d3gy1em549lxx2.cloudfront.net/2c16d1ed-d384-40bc-a60e-2ac83f01eac1.jpg",
+            "title": "Herb Breadsticks",
+            "subtitle": "89"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/bb6b8e8f-c9a1-4243-9956-a1fcb9cc8e2d.JPG",
+            "title": "Quinoa-Masala-Upma",
+            "subtitle": "149"
+        },
+        {
+            "text": "486 cal | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/ae62ee10-d8a4-4637-8426-8c3c4ad6e358.JPG",
+            "title": "Fresh Slaw Sandwich",
+            "subtitle": "85"
+        },
+        {
+            "text": "649 Cal | Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/aed7711f-e69f-4b3c-a3cf-d97ebbf0fc03.JPG",
+            "title": "Palak-Paneer Bhurji Wrap",
+            "subtitle": "129"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/56b332fb-a8e2-482e-9ea6-a91a8d163d59.JPG",
+            "title": "Perfect Veggie Burger",
+            "subtitle": "149"
+        }
+    ],
+    "appetizers": [
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/766d9e02-d0f6-4c56-b05b-fd14fbb4a057.jpg",
+            "title": "Veg Spring Rolls",
+            "subtitle": "179"
+        },
+        {
+            "text": "Pan-Asian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/c167e968-8658-49fc-86b2-3fe9338a95e2.jpg",
+            "title": "Chilli Paneer",
+            "subtitle": "199"
+        },
+        {
+            "text": "Pan-Asian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/4859b9fb-ed15-4998-8160-8985e4b17ff6.JPG",
+            "title": "Veggies in Chilli-Garlic Sauce",
+            "subtitle": "179"
+        },
+        {
+            "text": "Pan-Asian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/1be9ff91-ced3-452b-933b-d1fc40906724.JPG",
+            "title": "Crispy Fried American Corn",
+            "subtitle": "179"
+        },
+        {
+            "text": "Fusion",
+            "image": "//d3gy1em549lxx2.cloudfront.net/4bb06455-1083-46fb-8bea-e0574228da66.jpeg",
+            "title": "Lemon Mint Potato Wedges",
+            "subtitle": "149"
+        },
+        {
+            "text": "Continental",
+            "image": "//d3gy1em549lxx2.cloudfront.net/f105ee7f-c398-4872-9a22-7bb66de9459f.jpg",
+            "title": "Garlic Bread Supreme",
+            "subtitle": "159"
+        }
+    ],
+    "dessert": [
+        {
+            "text": "World Cuisine",
+            "image": "//d3gy1em549lxx2.cloudfront.net/b5c75319-b4a0-4b54-9ec9-5d523deb1836.JPG",
+            "title": "Black Forest Cake Slice",
+            "subtitle": "89"
+        },
+        {
+            "text": "World Cuisine",
+            "image": "//d3gy1em549lxx2.cloudfront.net/0150b7ac-b3f6-4098-9ea3-0f8405e0e1b6.JPG",
+            "title": "Double-Chocolate Cake Slice",
+            "subtitle": "79"
+        },
+        {
+            "text": "World Cuisine",
+            "image": "//d3gy1em549lxx2.cloudfront.net/0e2b209f-76e6-4254-82f6-75d7c399ed6f.jpg",
+            "title": "salted-Caramel Chocolate Tart",
+            "subtitle": "139"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/5b529aab-82fc-4c53-85a3-b8a15d080b9a.JPG",
+            "title": "Shahi-Tukda (Mini)",
+            "subtitle": "69"
+        },
+        {
+            "text": "World Cuisine",
+            "image": "//d3gy1em549lxx2.cloudfront.net/0411effa-5f6b-41c5-acb0-386ba01fe00b.JPG",
+            "title": "Red-Velvet Swiss Roll",
+            "subtitle": "79"
+        },
+        {
+            "text": "World Cuisine",
+            "image": "//d3gy1em549lxx2.cloudfront.net/8059ae5c-6153-430f-8b5e-0b84cd9aabe1.jpg",
+            "title": "Homemade Chocolate-Cake",
+            "subtitle": "85"
+        }
+    ],
+    "beverage": [
+        {
+            "text": "Universal",
+            "image": "//d3gy1em549lxx2.cloudfront.net/020c54f1-1ff3-4aaf-afcc-6190a03df451.jpg",
+            "title": "Masala Lemonade",
+            "subtitle": "89"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/3867c0c8-6e4f-441e-8972-494790ce3070.JPG",
+            "title": "Mint Chaas",
+            "subtitle": "69"
+        },
+        {
+            "text": "Universal",
+            "image": "//d3gy1em549lxx2.cloudfront.net/8c5e38b4-b490-4492-9ef8-b9dc857a040a.jpg",
+            "title": "Black Grape Juice",
+            "subtitle": "149"
+        },
+        {
+            "text": "Universal",
+            "image": "//d3gy1em549lxx2.cloudfront.net/6762207c-eda2-4cf9-a481-3e9fcfc68eeb.jpg",
+            "title": "Strawberry Shake",
+            "subtitle": "149"
+        },
+        {
+            "text": "Universal",
+            "image": "//d3gy1em549lxx2.cloudfront.net/d9efa8bf-31d6-48c7-b737-7bc2177b5277.jpg",
+            "title": "Cold Coffee",
+            "subtitle": "149"
+        },
+        {
+            "text": "Universal",
+            "image": "//d3gy1em549lxx2.cloudfront.net/f93a3d85-bec2-4e8f-ba3f-16bd5e40ada8.jpg",
+            "title": "Pomegranate Juice",
+            "subtitle": "149"
+        }
+    ],
+    "continental": [
+        {
+            "text": "309 CAL | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/c235c0c4-0098-46ce-8114-879d7c09cc58.JPG",
+            "title": "Penne Arrabbiata",
+            "subtitle": "209"
+        },
+        {
+            "text": "Mediterranean",
+            "image": "//d3gy1em549lxx2.cloudfront.net/0c225d64-b9d5-41a8-bfd0-f9b144ca52b3.JPG",
+            "title": "Lebanese Falafel Rice Bowl",
+            "subtitle": "230"
+        },
+        {
+            "text": "Mexican",
+            "image": "//d3gy1em549lxx2.cloudfront.net/bc38daba-bdb2-4c4b-ad67-344c1c2b646b.jpg",
+            "title": "Cowboy-Burrito-Bowl",
+            "subtitle": "209"
+        },
+        {
+            "text": "738 Cal | Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/da0ceae2-e122-470c-ac98-5a9d8813c654.jpg",
+            "title": "Penne Alfredo",
+            "subtitle": "209"
+        },
+        {
+            "text": "Mexican",
+            "image": "//d3gy1em549lxx2.cloudfront.net/b0594e83-97d3-4ce8-a059-6d605dabdaef.jpg",
+            "title": "Burrito Bowl with Salad",
+            "subtitle": "259"
+        },
+        {
+            "text": "Continental",
+            "image": "//d3gy1em549lxx2.cloudfront.net/e125bcf6-14ac-4b26-8be0-bf6db21c5fef.JPG",
+            "title": "Corn-Pepper Mac 'n' Cheese",
+            "subtitle": "219"
+        }
+    ],
+    "indianthalis": [
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/11207c87-de0d-457b-b397-c0d7b0b06459.jpg",
+            "title": "Gobhi Mutter Masala Thali",
+            "subtitle": "199"
+        },
+        {
+            "text": "North Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/802838d1-55fe-4550-90db-a14be9b59871.jpg",
+            "title": "Kadhai Paneer-Thali",
+            "subtitle": "209"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/b840d1b6-a751-49b3-8f26-bdf478fb0da4.JPG",
+            "title": "Mutter Paneer with Jeera rice",
+            "subtitle": "209"
+        },
+        {
+            "text": "North Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/ba46ef6a-df9e-4fc9-a25f-ff1694f50fbd.jpg",
+            "title": "Chole 'n' Jeera Rice",
+            "subtitle": "165"
+        },
+        {
+            "text": "579 Cal | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/639853d2-1720-4147-8cd2-6d0e18e2b2f5.JPG",
+            "title": "Paneer-Makhani 'n' Rice",
+            "subtitle": "249"
+        },
+        {
+            "text": "North Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/b18e7926-6cf8-4a6c-bea9-c054fc0dc29c.JPG",
+            "title": "Rajma-Masala Thali",
+            "subtitle": "179"
+        }
+    ],
+    "fitnfab": [
+        {
+            "text": "758 cal | High Protein",
+            "image": "//d3gy1em549lxx2.cloudfront.net/12457808-131f-4c99-a7c2-3ab39e6c9442.jpg",
+            "title": "Ultimate-Quinoa-Burrito",
+            "subtitle": "249"
+        },
+        {
+            "text": "553 Cal | High Protein",
+            "image": "//d3gy1em549lxx2.cloudfront.net/39115ccd-ddfa-4587-b217-72c8c700399e.JPG",
+            "title": "Lebanese Falafel Superbowl",
+            "subtitle": "249"
+        },
+        {
+            "text": "358 Cal | Low Carb",
+            "image": "//d3gy1em549lxx2.cloudfront.net/39e02796-de7c-4576-8822-592cdb3b9cd7.jpg",
+            "title": "Chilli-Paneer Superbowl",
+            "subtitle": "249"
+        },
+        {
+            "text": "152 Cal | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/9ca0b8ee-c3c5-4c49-948a-0c697175ddd3.jpg",
+            "title": "Russian Salad",
+            "subtitle": "199"
+        },
+        {
+            "text": "227 Cal | Low Carb",
+            "image": "//d3gy1em549lxx2.cloudfront.net/61f9e8f3-12fb-475a-a586-35bbacd71d3a.JPG",
+            "title": "Santa Fe Salad",
+            "subtitle": "199"
+        },
+        {
+            "text": "275 Cal | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/9f931ed7-6caa-4241-a8ca-38db6e4d6185.jpg",
+            "title": "Corn-Cucumber-Bean Salad",
+            "subtitle": "189"
+        }
+    ],
+    "wokstation": [
+        {
+            "text": "523 Cal | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/97c6789e-bf04-4009-8f7b-2219b9cb63cb.jpg",
+            "title": "American Lo Mein",
+            "subtitle": "185"
+        },
+        {
+            "text": "Pan-Asian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/c18e6ced-d63f-471a-b394-ce5f2204699e.JPG",
+            "title": "Smoke That Bowl",
+            "subtitle": "229"
+        },
+        {
+            "text": "641 Cal | Low Calorie",
+            "image": "//d3gy1em549lxx2.cloudfront.net/1aaf4c5f-0f73-4c09-a969-9f9b26aab211.jpg",
+            "title": "Mixed Veg Hakka Noodles",
+            "subtitle": "179"
+        },
+        {
+            "text": "Pan-Asian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/fd4f117b-097a-4b75-8279-2f326cde6881.jpg",
+            "title": "Mongolian Hot Pot",
+            "subtitle": "209"
+        },
+        {
+            "text": "Asian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/abccc352-61c5-4884-8fe1-d291deb155a9.JPG",
+            "title": "Bangkok Street Noodle Bowl",
+            "subtitle": "209"
+        },
+        {
+            "text": "Pan-Asian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/67b27ee2-76da-4eae-8511-d67f3b5ac54d.jpg",
+            "title": "Dragon Noodles with Dumplings",
+            "subtitle": "229"
+        }
+    ],
+    "bigbiriyanico": [
+        {
+            "text": "North Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/9481e357-dd34-4eb6-8ffd-05bc1d681e87.JPG",
+            "title": "Anokhi-Subz-Biriyani",
+            "subtitle": "219"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/1eabfeff-7c25-401d-995c-49a09245b3e2.jpg",
+            "title": "Mutter Paneer-Dum-Biriyani",
+            "subtitle": "199"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/60a28db9-16e2-4fb1-9f25-d483da11c155.JPG",
+            "title": "Kolhapuri Paneer Biriyani",
+            "subtitle": "199"
+        }
+    ],
+    "largeplates": [
+        {
+            "text": "North Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/7e669f7c-335f-44d2-868f-fc3416b7a9ee.jpg",
+            "title": "Paneer Butter Masala",
+            "subtitle": "249"
+        },
+        {
+            "text": "Fusion",
+            "image": "//d3gy1em549lxx2.cloudfront.net/40caaeb3-983b-425b-9428-a44a9eb91fda.jpg",
+            "title": "Kadhai Paneer",
+            "subtitle": "249"
+        },
+        {
+            "text": "North Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/daa56ec9-4b03-4746-989a-fe12ad1b82d9.jpg",
+            "title": "Dal Makhani",
+            "subtitle": "179"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/cc073a13-1601-4799-b4bf-986660789af3.jpg",
+            "title": "Whole-Wheat Paratha(2)",
+            "subtitle": "79"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/429f590f-e9c3-41e9-8710-a02919dabd06.jpg",
+            "title": "Whole-Wheat-Paratha(4)",
+            "subtitle": "149"
+        },
+        {
+            "text": "Indian",
+            "image": "//d3gy1em549lxx2.cloudfront.net/e43033b1-52de-4236-a40d-95e295aedadb.jpg",
+            "title": "Malabari Paratha",
+            "subtitle": "69"
+        }
+    ]
+}
