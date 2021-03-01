@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Paytm</title>
     </head>
 
@@ -23,6 +24,7 @@
             <a class="breadcrumb-item text-muted" href="#">24x7 Help</a>  
         </ol>
         <!-- First Navbar -->
+        <div class="text-right" id="profile"> </div>
         <div class="row bg-light" id="firstnav">
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-light ">
@@ -37,25 +39,23 @@
                     </button>
                     <div class="collapse navbar-collapse " id="collapsibleNavId">
                         <ul class="navbar-nav ml-auto align-items-center">
-                            <li class="nav-item " >
+                            <li class="nav-item ">
                                 <a class="nav-link text-dark" href="#"> 
-                                    <img src="//assetscdn1.paytm.com/dexter/c31b8a6c95d459485a993039d5b1714f.gif" alt="MobileImg" >
+                                    <img src="../src/img/phone.gif" alt="MobileImg" >
                                     Play and Win</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark " href="#"> 
-                                <img src="//assetscdn1.paytm.com/dexter/addMoney-b9bccc4e235b082ef9d75a4da93faa70.svg" alt="Add Money" width="20px"
-                                    data-reactid="28">
-                                    Add Money</a>
+                                <a class="nav-link text-dark" href="pay.html">
+                                <img src="../src/img/add_money.svg" alt="Pay" width="20px">Pay </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="#"> <i class="fa fa-lock" aria-hidden="true"></i> Paytm Wallet</a>
+                                <a class="nav-link text-dark" href="passbook.html"> <i class="fa fa-address-book-o " aria-hidden="true"></i> Passbook</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark mt-2" href="#" data-toggle="modal" data-target="#loginmodal"> <i class="fa fa-smile-o h5" aria-hidden="true"></i> Login</a>
+                                <a class="nav-link text-dark mt-2" id="d1" href="#" data-toggle="modal" data-target="#loginmodal"> <i class="fa fa-smile-o h5" aria-hidden="true"></i> Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark mt-2" href="#" data-toggle="modal" data-target="#signupmodal">  <i class="fa fa-smile-o h5" aria-hidden="true"></i> Sign Up</a>
+                                <a class="nav-link text-dark mt-2" id="d2" href="#" data-toggle="modal" data-target="#signupmodal">  <i class="fa fa-smile-o h5" aria-hidden="true"></i> Sign Up</a>
                             </li>
                         </ul>                        
                     </div>
@@ -185,7 +185,7 @@
                 <div class="row">
                     <div class="col-xs-1 mx-auto">
                         <a href="https://paytmmall.com/paytmmall-app-clpid-6917?src=store&amp;from=storefront" target="_top"
-                            title="Shop on Mall" data-reactid="257">
+                            title="Shop on Mall" >
                             <div><img class="img-fluid"
                                 src="https://assetscdn1.paytm.com/images/catalog/view_item/490054/1576135880393.jpg?imwidth=140&amp;impolicy=hq"
                                 alt="Shop on Mall" width="100"></div>
@@ -202,7 +202,7 @@
                     </div>
                     <div class="col-xs-1 mx-auto">
                         <a href="https://paytmmall.com/women-fashion-clpid-80?src=store&amp;from=storefront" target="_top"
-                            title="Women's Fashion" data-reactid="317">
+                            title="Women's Fashion" >
                             <div><img class="img-fluid"
                                     src="https://assetscdn1.paytm.com/images/catalog/view_item/208483/1607086471246.png?imwidth=140&amp;impolicy=hq"
                                     alt="Women's Fashion" width="100"></div>
@@ -212,7 +212,7 @@
                    
                     <div class="col-xs-1 mx-auto">
                         <a href="https://paytmmall.com/grand-gadget-diwali-sale-clpid-55581?src=store&amp;from=storefront" target="_top"
-                            title="Mobiles &amp; Gadgets" data-reactid="305">
+                            title="Mobiles &amp; Gadgets" >
                             <div><img class="img-fluid"
                                     src="https://assetscdn1.paytm.com/images/catalog/view_item/685288/1607086003967.png?imwidth=140&amp;impolicy=hq"
                                     alt="Mobiles &amp; Gadgets" width="100"></div>
@@ -316,45 +316,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="card-columns  mt-2">
-                    <div class="card">
-                        <img class="card-img-top" src="https://assetscdn1.paytm.com/images/catalog/view_item/666412/1612354707287.jpg" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-dark">Book Now</h4>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <img class="card-img-top " src="https://assetscdn1.paytm.com/images/catalog/view_item/721454/1611914568968.jpg" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-dark">Book Now</h4>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <img class="card-img-top " src="https://assetscdn1.paytm.com/images/catalog/view_item/666429/1611677185674.jpg" alt="">
-                        <div class="card-body"> 
-                            <h4 class="card-title text-center text-dark">Book Now</h4>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <img class="card-img-top " src="https://assetscdn1.paytm.com/images/catalog/view_item/666601/1611677299196.jpg" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-dark">Book Now</h4>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <img class="card-img-top " src="https://assetscdn1.paytm.com/images/catalog/view_item/666428/1611677229643.jpg" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-dark">Book Now</h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top " src="https://assetscdn1.paytm.com/images/catalog/view_item/666430/1611677276600.jpg"
-                            alt="">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-dark">Book Now</h4>
-                        </div>
-                    </div>
-                  
+                <div class="card-columns mt-2" id="dynamicimg">
+                    
                 </div>
             </div>
         </div>
@@ -372,64 +335,7 @@
                 </div>
             </div>
                     
-            <div class="card-columns ">
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top"
-                            src="https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBAPPLE-IPHONESTRI2736846433CC44/1603979127170_0..jpg"
-                            height="`170px" alt="">
-                       
-                        <div class=""> </div>
-                        <h6 class="card-title text-muted">Apple iPhone 11 128 GB White(Without Earphone ...</h4>
-                        <p class="card-text">From <strong>Rs 59781</strong>  <p class="" style="text-decoration: line-through;"> Rs 59900 </p></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <img role="presentation" alt="Apple iPhone 11 64 GB Black (Without Earphone &amp; Adapter)"
-                            src="https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBAPPLE-IPHONESTRI273684103F7E0/1603979128717_0..jpg"
-                            height="170px">
-                        <h6 class="card-title text-muted">Apple iPhone 11 64 GB Black (Without Earphone &amp; Adapter)</h4>
-                        <p class="card-text">From<strong> Rs. 54777</strong> <p class="" style="text-decoration: line-through;"> Rs 54900 </p></p>
-                    </div>
-                </div>
-                <div class="card ">
-                    <div class="card-body">
-                        <img role="presentation" alt="POCO M2 6 GB 64 GB Slate Blue"
-                            src="https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBPOCO-M2-6-GBAPNI9930205D9D329F/1609740636856_0.jpeg"
-                            height="225px">
-                        <h6 class="card-title text-muted">POCO M2 6 GB 64 GB Slate Blue ...</h4>
-                        <p class="card-text">From<strong> Rs. 20000</strong> <p class="" style="text-decoration: line-through;"> Rs 12999 </p></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <img role="presentation" alt="Realme Narzo 20A 4 GB 64  GB Glory Sliver"
-                            src="https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBREALME-NARZOCELL13690283CCE6F2/1612439043248_0.jpg"
-                            height="200px">
-                        <h6  class="card-title text-muted">Realme Narzo 20A 4 GB 64 GB Glory Sliver ...</h4>
-                        <p class="card-text">From <strong> Rs. 10586</strong><p class="" style="text-decoration: line-through;"> Rs 11000 </p></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top"
-                            src="https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBREDMI-9I-4-GMOBI2294399A5521E/1604919442028_1.jpg"
-                            height="225px" alt="">
-                        <h6 class="card-title text-muted">Redmi 9i 4GB 64GB</h4>
-                        <p class="card-text">From <strong> Rs. 8925</strong> <p class="" style="text-decoration: line-through;"> Rs 9000 </p>  </p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top"
-                            src="https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBVIVO-V20-PROKIAA222802C5D5EB98/1605951945484_0..jpg"
-                            height="190px" alt="">
-                        <h6 class="card-title text-muted">Vivo V20 Pro 8 GB 128 GB Midnight Jazz...</div>
-                        <p class="card-text"> From <strong>Rs 29990</strong> <p class="" style="text-decoration: line-through;"> Rs 31250 </p> </div>
-                    </div>
-                </div>
+            <div class="card-columns" id="mobilecontent">
                 
             </div>
               
@@ -439,20 +345,10 @@
         <!-- Grocery Area -->
         <div class="container p-2 my-5 bg-light" id="grocery">
             <div class="row">
-                <h3 class="ml-4">Grocery Bestsellers</h3></div>
-            <div class="row ">
-                <div class="col-md-3">
-                    <a href="#"> <img class="img-fluid" src="https://assetscdn1.paytm.com/images/catalog/view_item/541797/1588322608567.jpg?imwidth=282&amp;impolicy=hq" width="280"></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#" class="">
-                    <img class="img-fluid" class="img-fluid" src="https://assetscdn1.paytm.com/images/catalog/view_item/541796/1588322667915.jpg?imwidth=282&amp;impolicy=hq" width="280"></a></div>
-                <div class="col-md-3 personalcare d-sm-none d-lg-block" >
-                    <a href="#" class=""><img  src="https://assetscdn1.paytm.com/images/catalog/view_item/541798/1587534755616.jpg?imwidth=282&amp;impolicy=hq" ></a>
-                </div>
-                <div class="col-md-3"><a href="#" class="">
-                    <img class="img-fluid" src="https://assetscdn1.paytm.com/images/catalog/view_item/541799/1586445383788.jpg?imwidth=282&amp;impolicy=hq" width="280"></a>
-                </div>
+                <h3 class="ml-4">Grocery Bestsellers</h3>
+            </div>
+            <div class="row " id="grocerycontent">
+               
             </div>
         </div>
        
@@ -530,24 +426,25 @@
                         <form action="">
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" name="" required id="" required class="form-control" placeholder="">
+                                <input type="text" name="" required id="Name" required class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="email" name="" required id="" required class="form-control" placeholder="">
+                                <input type="email" name="" required id="email" required class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" id="" required class="form-control" placeholder="">
+                                <input type="password" id="password" required class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="">Confirm Password</label>
-                                <input type="password" id="" required class="form-control" placeholder="">
+                                <input type="password" id="confirmPass" required class="form-control" placeholder="">
                             </div>
         
                            
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                                <button type="button" class="btn text-white" 
+                                onclick="signup(Name.value , email.value , password.value , confirmPass.value)" style="background-color: #012b72;">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -565,29 +462,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="">
+                        <form>
                             
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="email" name="" id="" required class="form-control" placeholder="">
+                                <input type="email" name="" id="email" required class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" id="" required class="form-control" placeholder="">
+                                <input type="password" id="password" required class="form-control" placeholder="">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn text-white" style="background-color: #012b72;" >Submit</button>
+                            <button type="button" class="btn text-white"  onclick="loginCheck(email.value , password.value)" style="background-color: #012b72;" >Submit</button>
                         </form> 
                     </div>
                 </div>
             </div>
         </div>
 
+
+        <script src="paytm.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script>
-            
-        </script>
+        
     </body>
 </html>
