@@ -7,12 +7,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Detroit United Bank</title>
-    <script src="js/user/session.js"></script>
-    <script src="js/user/logout.js"></script>
-    <script>
-        (new session).checkSession();
-    </script>
+    <title>Detroit United Bank</title>   
 </head>
 
 <body>
@@ -26,7 +21,7 @@
                     <li class="nav-item"><a href="index.html" class="nav-link">Dashboard</a></li>
                     <li class="nav-item ml-sm-auto dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                            Welcome Milit</a>
+                            Welcome <span id="user-name"></span></a>
                         <div class=" dropdown-menu collapse">
                             <div>
                                 <a class="dropdown-item active" href="profile.html">Profile</a>
@@ -64,7 +59,11 @@
                         <div class="card-body">
                             <form action="" class="form" id="edit-user-form">
                                 <div class="form-group">
-                                    <label for="title">Name:</label>
+                                    <label for="ac-id">Account ID:</label>
+                                    <input type="text" class="form-control" name="ac-id" id="ac-id" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
                                     <input type="text" class="form-control" name="name" id="name">
                                     <div id="name-error"><span class="small text-danger"></span></div>
                                 </div>
@@ -110,7 +109,11 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/user/profile.js"></script>
+    <script src="js/user/session.js"></script>
+    <script src="js/user/logout.js"></script>
     <script>
+        (new session).checkSession();
+
         (new profile).show();
     </script>
 

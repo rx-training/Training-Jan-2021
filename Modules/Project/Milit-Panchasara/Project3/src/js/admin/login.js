@@ -1,13 +1,14 @@
 'use strict';
 
-var loginAdmin = function() { // class
-    // Properties:
+var loginAdmin = function() { // loginAdmin class
+    // Properties
     this.email = $('#email').val();
     this.password = $('#password').val();
     
     
 };
 
+//function to login
 loginAdmin.prototype.login = async function() {
     if(!this.validateFields(this.email, this.password)) {
         return;
@@ -17,6 +18,7 @@ loginAdmin.prototype.login = async function() {
     var adminFile = await fetch("../../json/admins.json");
     var data = await adminFile.json();
 
+    //finds user and matches credentials
     data.admins.forEach(admin => {
         if(admin.email == this.email && admin.password == this.password) {
             localStorage.setItem("logged_in_admin_data",JSON.stringify(admin));
