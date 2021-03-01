@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <style type="text/css">
         table {
             border: 1px solid #FF0000;
@@ -24,14 +26,35 @@
         var username = "";
         var userlocation = "";
         var logincounter = 0;
-        
+
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
                 userlocation = "Not Available";
             }
+            var listdata;
+            var userdata = {
+                "Name": "Test", "ContactNumber": "9999999999",
+                "Email": "test@gmail.com", "Password": "123", "Geolocation": userlocation, "Browser": "Chrome"
+            };
+            listdata = localStorage.getItem('user') || [];
+            listdata.push(userdata);
+            var myJSON = JSON.stringify(listdata);
+            localStorage.setItem('user', myJSON);
+
+            var itemadded = JSON.parse(localStorage.getItem('items')) || [];
+
+            var itemjson = {
+                "ProductName": "Camera", "Price": "10000", "ProductDescription": "HD Camera (Water and Dust Resistant)"
+            };
+
+
+            itemadded.push(itemjson);
+            var myJSON2 = JSON.stringify(itemadded);
+            localStorage.setItem('items', myJSON2);
             displayItem();
+
         }
 
         function showPosition(position) {
@@ -129,10 +152,12 @@
                 }
                 if (blockcounter == 0 || blocklist == []) {
                     alert('Login Successful!');
-                    document.getElementById('namebar').innerHTML = "Welcome " + name + ", have a great time ahead! <b class='pt-2 pl-3'><a href='#myordersmodal' data-toggle='modal'>My Orders</a></b>";
+                    document.getElementById('namebar').innerHTML = "Welcome " + name + ", have a great time ahead! <b class='pt-2 pl-3'><a href='#myordersmodal' data-toggle='modal'>My Orders</a><a href='#mycartmodal' class='ml-2' data-toggle='modal'>My Cart</a></b>";
 
-                    document.getElementById('item1').innerHTML = "<button class='btn btn-primary' id='item1' href='#product1modal' data-toggle='modal'>Buy now</button>";
+                    document.getElementById('item1').outerHTML = "<button class='btn btn-primary' id='item1' href='#product1modal' data-toggle='modal'>Buy now</button>";
                     logincounter = 1;
+                    document.getElementById('additem1').outerHTML = "<button class='btn btn-outline-primary ml-3' id='item2' onclick='addToCart()' >Add To Cart</button>";
+
                 }
                 else {
                     alert('Your access is blocked! Please contact at admin@shopclues.com ')
@@ -143,6 +168,15 @@
             }
             document.getElementById('loginemail').value = "";
             document.getElementById('loginpwd').value = "";
+        }
+
+        function addToCart() {
+            var data = { "Email": email, "ProductId": "p1 mouse" };
+            var wishlist = JSON.parse(localStorage.getItem('cart')) || [];
+            wishlist.push(data);
+            var myJSON = JSON.stringify(wishlist);
+            localStorage.setItem('cart', myJSON);
+            alert('Added To Cart!');
         }
 
         /*    function profile() {
@@ -227,6 +261,27 @@
             }
         }
 
+        function mycart() {
+            var table = document.getElementById("mycarttable");
+            var tc = 0;
+            var orderdata = [];
+            orderdata = JSON.parse(localStorage.getItem('cart'));
+
+            for (i = 0; i < orderdata.length; i++) {
+                if (orderdata[i].Email == email) {
+                    var row = table.insertRow(tc + 1);
+                    var no = row.insertCell(0);
+                    var productid = row.insertCell(1);
+                    var custemail = row.insertCell(2);
+                    no.innerHTML = tc + 1;
+                    productid.innerHTML = orderdata[tc].ProductId;
+                    custemail.innerHTML = orderdata[tc].Email;
+                    tc += 1;
+                }
+
+            }
+        }
+
         function displayItem() {
             var table = document.getElementById("recentitems");
             var item = JSON.parse(localStorage.getItem('items')) || [];
@@ -260,6 +315,131 @@
 
         }
 
+    </script>
+    <!--CREATING ITEMS PANEL-->
+    <script>
+
+        $(document).ready(function () {
+
+
+
+            $.getJSON("shopclues.json", function (data) {
+
+                $("#mobilepanel").click(function () {
+                    $("#panelheader h5").text("Mobiles & More");
+                    $("#itemrow").empty();
+                    $.each(data.mobile, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        var pid = val.ProductId;
+                        $("#itemrow").append('<div class="item-hl"><div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button><button class="btn btn-outline-primary ml-3" id=' + pid + '>Add To Cart</button></div></div></div>');
+                    });
+
+                    $("#m1").click(function () {
+                        alert('This is mobile 2');
+                    });
+
+                    $("#m2").click(function () {
+                        alert('This is mobile 2');
+                    });
+
+                });
+
+                $("#menpanel").click(function () {
+                    $("#panelheader h5").text("Men");
+                    $("#itemrow").empty();
+                    $.each(data.men, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+                $("#womenpanel").click(function () {
+                    $("#panelheader h5").text("Women");
+                    $("#itemrow").empty();
+                    $.each(data.women, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+                $("#kitchenpanel").click(function () {
+                    $("#panelheader h5").text("Home and Kitchen");
+                    $("#itemrow").empty();
+                    $.each(data.kitchen, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+                $("#appliancespanel").click(function () {
+                    $("#panelheader h5").text("Appliances");
+                    $("#itemrow").empty();
+                    $.each(data.appliances, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+                $("#sportspanel").click(function () {
+                    $("#panelheader h5").text("Sports & More");
+                    $("#itemrow").empty();
+                    $.each(data.sports, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+                $("#essentialspanel").click(function () {
+                    $("#panelheader h5").text("Essentials");
+                    $("#itemrow").empty();
+                    $.each(data.essentials, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+                $("#offerspanel").click(function () {
+                    $("#panelheader h5").text("Offers");
+                    $("#itemrow").empty();
+                    $.each(data.offers, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+                $("#globalpanel").click(function () {
+                    $("#panelheader h5").text("Global");
+                    $("#itemrow").empty();
+                    $.each(data.global, function (key, val) {
+                        var imgpath = val.Image;
+                        var product = val.Product;
+                        var price = val.Price;
+                        $("#itemrow").append('<div class="item-hl"> <div class="card" style="width: 350px;"> <div class="card-body"> <img src=' + imgpath + ' width="200px" height="400px"> <p class="text-muted">' + product + '</p> <p><b>' + price + '</b></p><button class="btn btn-primary">Buy now</button></div></div></div>');
+                    });
+                });
+
+
+            });
+
+
+
+        });
     </script>
     <title>Online Shopping Site India - Shopclues.com</title>
 </head>
@@ -295,15 +475,15 @@
             </div>
             <nav class="navbar justify-content-center bg-info text-white navbar-expand-sm nav-one">
                 <ul class="navbar-nav small">
-                    <li class="nav-item pr-3"><a href="#">MOBILES & MORE</a></li>
-                    <li class="nav-item pr-3"><a href="#">MEN</a></li>
-                    <li class="nav-item pr-3"><a href="#">WOMEN</a></li>
-                    <li class="nav-item pr-3"><a href="#">HOME & KITCHEN</a></li>
-                    <li class="nav-item pr-3"><a href="#">APPLIANCES</a></li>
-                    <li class="nav-item pr-3"><a href="#">SPORTS & MORE</a></li>
-                    <li class="nav-item pr-3"><a href="#">ESSENTIALS</a></li>
-                    <li class="nav-item pr-3"><a href="#">OFFERS</a></li>
-                    <li class="nav-item pr-3"><a href="#">GLOBAL SHOPPING</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="mobilepanel">MOBILES & MORE</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="menpanel">MEN</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="womenpanel">WOMEN</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="kitchenpanel">HOME & KITCHEN</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="appliancespanel">APPLIANCES</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="sportspanel">SPORTS & MORE</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="essentialspanel">ESSENTIALS</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="offerspanel">OFFERS</a></li>
+                    <li class="nav-item pr-3"><a href="#adbar" id="globalpanel">GLOBAL SHOPPING</a></li>
                 </ul>
             </nav>
         </div>
@@ -371,7 +551,7 @@
         </div>
     </div>
 
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row" id="adbar">
         <div class="item-hl"><img src="img/body-content/ad1.JPG" style="width: 500px;;"></div>
         <div class="item-hl"><img src="img/body-content/ad2.JPG" style="width: 500px;;"></div>
         <div class="item-hl"><img src="img/body-content/ad3.JPG" style="width: 500px;;"></div>
@@ -379,21 +559,15 @@
 
     <!--RECENT ITEMS-->
 
-    <div class="px-3">
+    <div class="px-3" id="panelheader">
         <br>
-        <h5>Your Recently Viewed Items</h5>
+        <h5></h5>
     </div>
 
     <div class="recent-item m-3 container-l bg-light">
-        <div class="d-flex flex-row row-hl">
+        <div class="d-flex flex-row row-hl" id="itemrow">
             <div class="item-hl">
-                <div class="card" style="width: auto;">
-                    <div class="card-body">
-                        <img src="img/recent-items/1.jpg" width="200px" alt="">
-                        <p class="text-muted">Refurbished Nokia 1100 Black Si..</p>
-                        <p><b>Rs 761</b><strike class="text-muted pl-2">Rs 929</strike></p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -409,7 +583,7 @@
     <div class="recent-item m-3 container-l bg-light">
         <div class="d-flex flex-row row-hl">
             <div class="item-hl">
-                <div class="card" style="width: 230px; height: 350px;">
+                <div class="card" style="width: 330px; height: 350px;">
                     <div class="card-body">
                         <img src="img/gadgets-store/1.JPG" width="200px" height="150px" alt="">
                         <p class="text-muted mb-0">USB Optical Wired Mouse Black..</p>
@@ -417,6 +591,9 @@
                                 class="text-muted pl-2 pr-2">Rs 1299</strike><b>Rs 351</b></p>
                         <p style="color: #4285F4;"><b>72% off</b></p>
                         <button class="btn btn-primary" id="item1" onclick="loginToBuy()">Buy now</button>
+                        <button class="btn btn-outline-primary" id="additem1" onclick="loginToBuy()">Add To
+                            Cart</button>
+
                     </div>
                 </div>
             </div>
@@ -471,7 +648,7 @@
                         <button class="btn btn-primary">Buy now</button>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 
@@ -957,6 +1134,56 @@
 
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" onclick="myorders()">View</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- My Cart -->
+    <div class="modal" id="mycartmodal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">My Cart</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <form id="mycardform">
+
+                        <div class="form-group">
+                            <p>Thanks for shopping! Have a nice day!</p>
+                        </div>
+
+                        <div class="card">
+                            <table class="table-striped text-dark bg-white border border-dark" id="mycarttable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>
+                                            Product ID
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="mycart()">View</button>
 
 
                     </form>
