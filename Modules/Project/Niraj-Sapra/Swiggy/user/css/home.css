@@ -1,0 +1,77 @@
+.smallbt{
+    font-size: 33px;
+}
+#linebt:focus{
+outline: 0px solid;
+}
+.link{
+    color: #3d4152;
+    font-size: 16px;
+    font-weight: 500;
+}
+.link:hover{
+ color:#fc8019;
+}
+.cardend:hover{
+    border-color: #f5f6fa;
+    box-shadow: 0 4px 7px 0 rgb(75 76 79 / 60%);
+}
+.linkshow,.linkshow:hover{
+    text-decoration: none;
+    color:#fc8019;
+}
+.cardbodys{
+    border: 0px solid;
+}
+.sizes{
+    font-size: 10px;
+}
+.offercolor{
+    color: #8a584b;
+}
+
+
+
+.footercolor{
+        background-color: #000;
+    }
+    .linkfor {
+        text-decoration: none;
+        color: #fff;
+    }
+    .linkfor:hover{
+        color:#fff;
+        text-decoration : none;
+    }
+    .footercolfirstul {
+        text-decoration: none;
+        text-align: left;
+        list-style-type: none;
+        padding: 20px 0px;
+    }
+    .imgicons{
+        width: 100%;
+        height: 100%;
+    }
+    .bottamforborder{
+        border-bottom:1px solid black;
+        width: 20px;
+        display: table;
+    }
+    @media (min-width: 576px) and (max-width:767px){
+    .mobileview{
+        font-size: 25px;
+        margin-top:20px;
+        text-align:left;
+        display: table;
+    }
+    } 
+    @media (min-width: 768px) and (max-width:991px){
+    .findfood{
+        background-color: #fc8019;
+        display: grid;
+        padding: 18px 5px;
+        font-size: smaller;
+        height: 58px;
+    }
+    } 
