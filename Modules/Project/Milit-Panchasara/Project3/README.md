@@ -1,21 +1,13 @@
-# Bootstrap 4 Starter Pack (version 4.5.2)
+Detroit United Bank:
 
-Latest version of Bootstrap 4! Automation with Gulp and support for sass!
+=> Admin can create user profiles.
 
-### Version
+=> Admin can block users.
 
-2.0.0
+=> User can access website, once account is created.
 
-## Install Dependencies
+=> User can deposit, withdraw or transfer money to other account.
 
-```bash
-npm install 
-```
+=> User can update his/her own profile/password.
 
-## Compile Sass & Run Dev Server
-
-```bash
-npm start
-```
-
-Files are compiled into /src
+=> User can see his/her transactions done.

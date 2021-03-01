@@ -6,6 +6,9 @@ var deposit = function() { // class
 };
 
 deposit.prototype.depositMoney = function() {
+    if(!(new session).checkSession()) {
+        return;
+    }
     $('#d-amount-error span').html('');
     $('#d-password-error span').html('');
     let userData = JSON.parse(localStorage.getItem('logged_in_user_data'));
@@ -14,6 +17,9 @@ deposit.prototype.depositMoney = function() {
         return;
     }
 
+    //save transaction details
+    (new transactions(userData.id, "-", this.amount, "Deposit")).store();
+    
     let users = JSON.parse((localStorage.getItem('users') != null) ? localStorage.getItem('users') : []);
     
     for(var j=0;j<users.length;j++) {
@@ -53,6 +59,9 @@ var withdraw = function() { // class
 };
 
 withdraw.prototype.withdrawMoney = function() {
+    if(!(new session).checkSession()) {
+        return;
+    }
     $('#w-amount-error span').html('');
     $('#w-password-error span').html('');
     let userData = JSON.parse(localStorage.getItem('logged_in_user_data'));
@@ -60,6 +69,9 @@ withdraw.prototype.withdrawMoney = function() {
     if(!this.validateFields(this.amount, this.password, userData)) {
         return;
     }
+
+    //save transaction details
+    (new transactions(userData.id, "-", this.amount, "Withdraw")).store();
 
     let users = JSON.parse((localStorage.getItem('users') != null) ? localStorage.getItem('users') : []);
     
@@ -103,6 +115,9 @@ var transfer = function() { // class
 };
 
 transfer.prototype.transferMoney = function() {
+    if(!(new session).checkSession()) {
+        return;
+    }
     $('#t-amount-error span').html('');
     $('#t-account-error span').html('');
     $('#t-password-error span').html('');
@@ -112,6 +127,11 @@ transfer.prototype.transferMoney = function() {
     if(!this.validateFields(this.amount, this.password, userData, this.accountNo)) {
         return;
     }
+
+    //save transaction details
+    (new transactions(userData.id, this.accountNo, this.amount, "Transfer")).store();
+
+
     let users = JSON.parse((localStorage.getItem('users') != null) ? localStorage.getItem('users') : []);
 
     let receiverNotFound = true;
@@ -160,4 +180,59 @@ transfer.prototype.validateFields = function(amount, password, userData, account
     }
 
     return isValid;
+}
+
+var transactions = function(fromAccount, toAccount = "", amount, type) { // class
+    this.fromAccount = fromAccount;
+    this.toAccount = toAccount;
+    this.amount = amount;
+    this.type = type;
+    this.time = Date();
+
+};
+
+transactions.prototype.store = function() {
+    let  transactionsCount  = 1;
+    if(localStorage.getItem('transactionsCount') != null) {
+        transactionsCount = parseInt(localStorage.getItem('transactionsCount')) + 1;
+    }
+    var currentTran = {
+        'id': transactionsCount,
+        'type':this.type,
+        'fromAccount':this.fromAccount,
+        'toAccount':this.toAccount,
+        'amount':this.amount,
+        'time':this.time
+    }
+    let transactionsFromStorage = localStorage.getItem('transactions');
+    if(transactionsFromStorage == null) {
+        localStorage.setItem('transactions', JSON.stringify(Array(currentTran)));
+    }
+    else {
+        transactionsFromStorage = JSON.parse(transactionsFromStorage);
+        transactionsFromStorage.push(currentTran);
+        localStorage.setItem('transactions', JSON.stringify(transactionsFromStorage));
+    }
+    localStorage.setItem('transactionsCount',transactionsCount);
+    this.list(this.fromAccount);
+
+}
+
+transactions.prototype.list = function(userId) {
+    let transactions = localStorage.getItem('transactions');
+    if(transactions != null) {
+        transactions = JSON.parse(transactions);
+        $('#transactions-body').html('');
+        transactions.forEach(tran => {
+            if(tran.fromAccount == userId) {
+                $('#transactions-body').append('<tr>\
+                    <td>' + tran.id + '</td>\
+                    <td>' + tran.type + '</td>\
+                    <td>' + tran.amount + '</td>\
+                    <td>' + tran.toAccount + '</td>\
+                    <td>' + tran.time + '</td>\
+                    </tr>');
+            }
+        });
+    }
 }
