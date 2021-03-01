@@ -17,52 +17,61 @@
     <link rel="stylesheet" href="../../../../../style.css">
     <link rel="stylesheet" href="./Asset/Style/Practice5.css">
     <style>
-      * {
-        box-sizing: border-box;
-      }
-      
-      .flex-container {
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 30px;
-        text-align: center;
-      }
-      
-      .flexOne {
-          background-color: rgba(212, 128, 71, 0.205);
-          padding: 10px;
-          flex: 25%;
-      }
-      
-      .flexTwo {
-        background-color: rgba(70, 118, 167, 0.377);
-        padding: 10px;
-        flex: 25%;
-      }
-      .flexThird{
-        background-color: rgba(75, 187, 31, 0.315);
-        padding: 10px;
-        flex: 25%;
-      }
-      .flexFour {
-        background-color: rgba(255, 30, 98, 0.185);
-        padding: 10px;
-        flex: 25%;
-      }
-      
-      @media (max-width: 800px) {
-        .flexOne, .flexTwo,.flexThird,.flexFour {
-          flex: 50%;
+        * {
+            box-sizing: border-box;
         }
-      }
-      @media (max-width: 600px) {
-          .flexOne, .flexTwo,.flexThird,.flexFour {
-          flex: 100%;
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 30px;
+            text-align: center;
         }
-      }
-      
-      
-      </style>
+
+        .flexOne {
+            background-color: rgba(212, 128, 71, 0.205);
+            padding: 10px;
+            flex: 25%;
+        }
+
+        .flexTwo {
+            background-color: rgba(70, 118, 167, 0.377);
+            padding: 10px;
+            flex: 25%;
+        }
+
+        .flexThird {
+            background-color: rgba(75, 187, 31, 0.315);
+            padding: 10px;
+            flex: 25%;
+        }
+
+        .flexFour {
+            background-color: rgba(255, 30, 98, 0.185);
+            padding: 10px;
+            flex: 25%;
+        }
+
+        @media (max-width: 800px) {
+
+            .flexOne,
+            .flexTwo,
+            .flexThird,
+            .flexFour {
+                flex: 50%;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .flexOne,
+            .flexTwo,
+            .flexThird,
+            .flexFour {
+                flex: 100%;
+            }
+        }
+    </style>
 
     <title>HTML</title>
 </head>
@@ -72,7 +81,9 @@
     <div id="mainNavbar">
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark p-0" style="background: #269450d2">
             <div class="container-fluid">
-                <a href="#" class="navbar-brand font-weight-bold p-3" style="letter-spacing: 3px;"> <img src="../../../../../background.jpg" class="rounded-circle" height="50px" width="50px" alt=""></a>
+                <a href="#" class="navbar-brand font-weight-bold p-3" style="letter-spacing: 3px;"> <img
+                        src="../../../../../background.jpg" class="rounded-circle" height="50px" width="50px"
+                        alt=""></a>
 
                 <button class="navbar-toggler navbar-toggler-right p-4" type="button" data-toggle="collapse"
                     data-target="#navResponsive">
@@ -81,10 +92,15 @@
 
                 <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
                     <ul class="navbar-nav px-3 ml-auto">
-                        <li class="nav-item p-3"><a href="../../../../../../indexHTML.html" class="nav-link">HTML</a></li>
+                        <li class="nav-item p-3"><a href="../../../../../../indexHTML.html" class="nav-link">HTML</a>
+                        </li>
                         <li class="nav-item p-3"><a href="../../../../../../indexCSS.html" class="nav-link">CSS</a></li>
-                        <li class="nav-item p-3"><a href="../../../../../../indexBootstrap.html" class="nav-link">BOOTSTRAP</a></li>
-                        <li class="nav-item p-3"><a href="../../../../../../indexJavaScript.html" class="nav-link">JAVASCRIPT</a></li>
+                        <li class="nav-item p-3"><a href="../../../../../../indexBootstrap.html"
+                                class="nav-link">BOOTSTRAP</a></li>
+                        <li class="nav-item p-3"><a href="../../../../../../indexJavaScript.html"
+                                class="nav-link">JAVASCRIPT</a></li>
+                        <li class="nav-item p-3"><a href="../../../../../../indexJQuery.html"
+                                class="nav-link">jQuery</a></li>
                     </ul>
 
                 </div>
@@ -99,20 +115,23 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#day4SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 4</a>
+                    <a href="#day4SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        4</a>
 
                     <ul class="collapse list-unstyled" id="day4SubMenu">
                         <li>
-                            <a href="#day4ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+                            <a href="#day4ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
 
                             <ul class="list-unstyled" id="day4ExerciseseSubMenu">
-                                <li> <a href="../../../Day4/Namra/Practice/Student.html"> 1. Student  </a></li>
+                                <li> <a href="../../../Day4/Namra/Practice/Student.html"> 1. Student </a></li>
                                 <li> <a href="../../../Day4/Namra/Practice/Task2.html"> 2. Task</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#day4AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+                            <a href="#day4AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
 
                             <ul class="list-unstyled" id="day4AssignmentSubMenu">
                                 <li> <a href="../../../Day4/Namra/Assignment/Resume.html"> 1. Resume </a></li>
@@ -121,21 +140,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#day5SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 5</a>
+                    <a href="#day5SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        5</a>
 
                     <ul class="collapse list-unstyled" id="day5SubMenu">
                         <li>
-                            <a href="#day5ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+                            <a href="#day5ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
 
                             <ul class="list-unstyled" id="day5ExerciseseSubMenu">
-                                <li> <a href="../../../Day5/Namra/Practice/Position.html"> 1. Position  </a></li>
+                                <li> <a href="../../../Day5/Namra/Practice/Position.html"> 1. Position </a></li>
                                 <li> <a href="../../../Day5/Namra/Practice/Practice1.html"> 2. Practice-1</a></li>
                                 <li> <a href="../../../Day5/Namra/Practice/Practice2.html"> 2. Practice-2</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#day5AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+                            <a href="#day5AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
 
                             <ul class="list-unstyled" id="day5AssignmentSubMenu">
                                 <li> <a href="../../../Day5/Namra/Assignment/Assignment.html"> 1. Assignment </a></li>
@@ -144,21 +166,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#day6SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 6</a>
+                    <a href="#day6SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        6</a>
 
                     <ul class="collapse list-unstyled" id="day6SubMenu">
                         <li>
-                            <a href="#day6ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+                            <a href="#day6ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
 
                             <ul class="list-unstyled" id="day6ExerciseseSubMenu">
-                                <li> <a href="../Practice/Practice1_2_3_4.html"> 1. Practice 1-4  </a></li>
+                                <li> <a href="../Practice/Practice1_2_3_4.html"> 1. Practice 1-4 </a></li>
                                 <li> <a href="../Practice/Practice5.html"> 2. Practice-5</a></li>
                                 <li> <a href="../Practice/Practice6.html"> 2. Practice-6</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#day6AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+                            <a href="#day6AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
 
                             <ul class="list-unstyled" id="day6AssignmentSubMenu">
                                 <li> <a href="./Assignment1.html"> 1. Assignment </a></li>
@@ -167,27 +192,31 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#day7SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 7</a>
+                    <a href="#day7SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        7</a>
 
                     <ul class="collapse list-unstyled" id="day7SubMenu">
                         <li>
-                            <a href="#day7ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice Exercises</a>
+                            <a href="#day7ExerciseseSubMenu" data-toggle="collapse" aria-expanded="false"> Practice
+                                Exercises</a>
 
                             <ul class="list-unstyled" id="day7ExerciseseSubMenu">
-                                <li> <a href="../../../Day7/Namra/Practice/Index.html"> 1. Practice_1  </a></li>
+                                <li> <a href="../../../Day7/Namra/Practice/Index.html"> 1. Practice_1 </a></li>
                                 <li> <a href="../../../Day7/Namra/Practice/Practical2.html"> 2. Practice_2</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#day7AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+                            <a href="#day7AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
 
                             <ul class="list-unstyled" id="day7AssignmentSubMenu">
                                 <li> <a href="../../../Day7/Namra/Assignment/Index.html"> 1. Assignment </a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#day7AssignmentResponsiveSubMenu" data-toggle="collapse" aria-expanded="false"> Responsive Layout</a>
+                            <a href="#day7AssignmentResponsiveSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Responsive Layout</a>
 
                             <ul class="list-unstyled" id="day7AssignmentResponsiveSubMenu">
                                 <li> <a href="../../../Day7/Namra/Responsive_Layout/index.html"> 1. Layout </a></li>
@@ -196,11 +225,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#day8SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 8</a>
+                    <a href="#day8SubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                        8</a>
 
                     <ul class="collapse list-unstyled" id="day8SubMenu">
                         <li>
-                            <a href="#day8AssignmentSubMenu" data-toggle="collapse" aria-expanded="false"> Assignment</a>
+                            <a href="#day8AssignmentSubMenu" data-toggle="collapse" aria-expanded="false">
+                                Assignment</a>
 
                             <ul class="list-unstyled" id="day8AssignmentSubMenu">
                                 <li> <a href="../../../Day8/Namra/Assignment/Grid.html"> 1. Grid </a></li>
@@ -208,7 +239,7 @@
                         </li>
                     </ul>
                 </li>
-                
+
 
             </ul>
 
@@ -221,12 +252,12 @@
                 </button>
             </div>
             <div class="mx-auto" style="width: 90.5%;">
-              <div class="flex-container">
-                <div class="flexOne">Menu</div>
-                <div class="flexTwo">Data</div>
-                <div class="flexThird">Login</div>
-                <div class="flexFour">Department</div>
-              </div>              
+                <div class="flex-container">
+                    <div class="flexOne">Menu</div>
+                    <div class="flexTwo">Data</div>
+                    <div class="flexThird">Login</div>
+                    <div class="flexFour">Department</div>
+                </div>
             </div>
         </div>
 
