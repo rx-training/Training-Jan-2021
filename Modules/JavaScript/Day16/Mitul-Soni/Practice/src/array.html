@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Array Methods</title>
+</head>
+    <script>
+        function join()
+        {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            document.getElementById("result").innerHTML = fruits.join(" | ");
+        }
+        function push()
+        {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            var str = document.getElementById("string").value;
+            fruits.push(str);
+            document.getElementById("result1").innerHTML = fruits.join(" | ");
+        }
+        function pop()
+        {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            fruits.pop();
+            document.getElementById("result2").innerHTML = fruits.join(" | ");
+        }
+        function shifting()
+        {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            fruits.shift();
+            document.getElementById("result3").innerHTML = fruits.join(" | ");
+        }
+        function unshift()
+        {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            var str = document.getElementById("string2").value;
+            fruits.unshift(str);
+            document.getElementById("result4").innerHTML = fruits.join(" | ");
+        }
+        function changeElement()
+        {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            var str = document.getElementById("string3").value;
+            fruits[0] = str;
+            document.getElementById("result5").innerHTML = fruits.join(" | ");
+        }
+        function del()
+        {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            var str = document.getElementById("string4").value;
+            delete fruits[str];
+            document.getElementById("result6").innerHTML = fruits.join(" | ");
+        }
+        function merge()
+        {
+            var arr1 = ["ABC", "DEF"];
+            var arr2 = ["Email", "Youtube", "Whatsapp"];
+            var arr3 = ["Ramesh", "Morgan"];
+            var items = arr1.concat(arr2, arr3);
+            document.getElementById("result7").innerHTML = items.join(" | ");
+        }
+        function slice()
+        {
+            var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+            var rang1 = document.getElementById("rang1").value;
+            var rang2 = document.getElementById("rang2").value;
+            var citrus = fruits.slice(rang1,rang2);
+            document.getElementById("result8").innerHTML = citrus.join(" | ");
+        }
+    </script>
+<body>
+    <div class="container">
+        <h5>Array Methods</h5>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Simple Array</h6>
+                <form action="" class="form-inline">
+                    <input type="button" class="btn btn-success" value="submit" onclick="join()">
+                    <h5 id="result"></h5>
+                </form>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>push</h6>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control" id="string">
+                    <input type="button" class="btn btn-success ml-3" value="submit" onclick="push()">
+                    <h5 id="result1"></h5>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>pop</h6>
+                <form action="" class="form-inline">
+                    <input type="button" class="btn btn-success" value="submit" onclick="pop()">
+                    <h5 id="result2"></h5>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>shifting</h6>
+                <form action="" class="form-inline">
+                    <input type="button" class="btn btn-success" value="submit" onclick="shifting()">
+                    <h5 id="result3"></h5>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Unshift</h6>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control" id="string2">
+                    <input type="button" class="btn btn-success" value="submit" onclick="unshift()">
+                    <h5 id="result4"></h5>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Change Element</h6>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control" id="string3">
+                    <input type="button" class="btn btn-success" value="submit" onclick="changeElement()">
+                    <h5 id="result5"></h5>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Delete Element</h6>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control" id="string4">
+                    <input type="button" class="btn btn-success" value="submit" onclick="del()">
+                    <h5 id="result6"></h5>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Merging Array</h6>
+                <form action="" class="form-inline">
+                    <input type="button" class="btn btn-success" value="submit" onclick="merge()">
+                    <h5 id="result7"></h5>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Slicing</h6>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control" id="rang1">
+                    <input type="text" class="form-control" id="rang2">
+                    <input type="button" class="btn btn-success ml-3" value="submit" onclick="slice()">
+                    <h5 id="result8"></h5>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

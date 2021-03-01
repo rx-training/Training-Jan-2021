@@ -1,0 +1,40 @@
+/*text align center*/
+tr{
+    text-align: center;
+    color: brown;
+    text-transform: capitalize;
+    padding: 5%;
+    background-color: darkgrey;
+    
+    
+
+
+   
+   
+    
+}
+/*list horizontal*/
+
+li{
+    display:inline-block;
+    color:crimson;
+    background-color:plum;
+
+}
+
+.test{
+    border: 4px solid brown;
+    width: 100%;
+    margin: 5px;
+
+   
+    
+}
+
+/*Headings Blue*/
+
+.group1{
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: burlywood;
+}

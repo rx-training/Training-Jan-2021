@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>IMAGE GALLERY</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 6px;
+        }
+
+        .column {
+            flex: 25%;
+            max-width: 40%;
+            padding: 0 4px;
+        }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 900px) {
+            .column {
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .column {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="text-align:center">Responsive Image Gallery</h1>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="assets/images/img1.jpg" style="width:100%">
+            <img src="assets/images/img2.jpg" style="width:100%">
+            <img src="assets/images/img3.jpg" style="width:100%">
+            <img src="assets/images/img4.jpg" style="width:100%">
+            <img src="assets/images/img5.jpg" style="width:100%">
+            <img src="assets/images/img6.png" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="assets/images/img7.jpg" style="width:100%">
+            <img src="assets/images/img8.png" style="width:100%">
+            <img src="assets/images/img9.png" style="width:100%">
+            <img src="assets/images/img10.jpg" style="width:100%">
+            <img src="assets/images/img11.jpg" style="width:100%">
+            <img src="assets/images/img12.jpg" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="assets/images/img4.jpg" style="width:100%">
+            <img src="assets/images/img8.png" style="width:100%">
+            <img src="assets/images/img2.jpg" style="width:100%">
+            <img src="assets/images/img9.png" style="width:100%">
+            <img src="assets/images/img1.jpg" style="width:100%">
+            <img src="assets/images/img10.jpg" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="assets/images/img1.jpg" style="width:100%">
+            <img src="assets/images/img2.jpg" style="width:100%">
+            <img src="assets/images/img3.jpg" style="width:100%">
+            <img src="assets/images/img4.jpg" style="width:100%">
+            <img src="assets/images/img5.jpg" style="width:100%">
+            <img src="assets/images/img6.png" style="width:100%">
+        </div>
+    </div>
+</body>
+</html>

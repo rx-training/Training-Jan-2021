@@ -1,0 +1,75 @@
+<!-- Store following JSON data into localstorage,read that data and print it into console. 
+Keep above JSON Data into a file, using Web Fetch API read that data.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="info.json"></script>
+    <title>Practice</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        fetch("info.json")
+            .then(response => response.json())
+            .then(data => {
+                // var name = data.products["Name"];
+                // console.log(name);
+                // function save(){
+                //     var name = {};
+                //     for(x in data.products){
+                //         console.log(data.products[x].Name);
+                //         localStorage.setItem([data.products[x].Name]);
+                //         //console.log(name);
+                //     }
+                // }
+                // // console.log(name);
+                // function retrieve(){
+                //     var name = localStorage[name];
+                //     console.log("Name : " + name);
+                // } 
+                // function retrieveAll(){
+                //     for(var i = 0; i<localStorage.length; i++){
+                //         var name = localStorage[name];
+                //         console.log("Name : "+ name);
+                //     }
+                // }
+                // save();
+                // retrieveAll();
+                var str = JSON.stringify("info.json");
+                localStorage.setItem("products", str);
+                console.log(data);
+            });
+
+            // no output
+            var x = document.getElementById("demo");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } 
+                else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+            }
+
+        // async function save(){
+        //     let obj = await fetch(JSON.stringify("info.json"));
+        //     localStorage.setItem("products", obj);
+        //     console.log(localStorage);
+        // }
+        // function retrieve(){
+        //     for(var i = 0; i<localStorage.length; i++){
+        //         var obj = localStorage.key(obj);
+        //         console.log(localStorage.getItem(obj[i]));
+        //     }
+        // }
+        // save();
+        // retrieve();
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Practice</title>
+</head>
+<body class="m-5">
+
+    <div class="mainContainer1 m-5 p-5"> Main Container1
+        <div class="ancestor p-5"> Ancestor
+            <div class="first p-5"> Parent1
+                <div class="sibling1 p-5"> Sibling1
+                </div>
+                <div class="sibling2 p-5"> Sibling2
+                </div>
+            </div>
+            <br>
+            <div class="second p-5"> Parent2
+                <div class="child1 p-5"> Child1
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainContainer2 m-5 p-5">Main Container2
+        <div class="first p-5">First</div>
+        <div class="eq p-5">Eq</div>
+        <div class="last p-5">Last</div>
+        <p class="special p-5">Special Case</p>
+        <p class="notSpecial p-5">Not Special</p>
+        <p class="next p-5">Next</p>
+        <p class="special p-5">Special Case</p>
+    </div>
+
+    <div class="container text-center m-5 p-5">
+        <div id="loadContent"></div>
+        <button class="load btn btn-primary">Load content</button>
+        <button class="get btn btn-primary">GET content</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".mainContainer1").find("*").css({"background": "lightblue", "border": "1px solid lightblue"}); // find
+            $(".child1").parent().css({"background": "darkolivegreen", "border": "1px solid darkolivegreen"}); // parent
+            $(".ancestor").parents().css({"background": "lightgray", "border": "1px solid lightgray"}); // parents
+            $(".sibling1").parentsUntil(".ancestor").css({"background": "darkcyan", "border": "1px solid darkcyan"}); // parentsUntil
+            $(".second").children().css({"background": "lightseagreen", "border": "1px solid lightseagreen"}); // children
+            $(".first").children("div.sibling1").css({"background": "lightgreen", "border": "1px solid lightgreen"}); // children
+            $(".first").find(".sibling2").css({"background": "lightcoral", "border": "1px solid lightcoral"}); // find
+            $(".mainContainer2").siblings().css({"background": "darkkhaki", "border": "1px solid darkkhaki"}); // siblings
+            $(".mainContainer1").siblings().css({"background": "darkkhaki", "border": "1px solid darkkhaki"}); // siblings
+
+            $(".mainContainer2 div").first().css({"background": "red", "border": "1px solid red"}); // first
+            $(".mainContainer2 div").eq(1).css({"background": "lightsalmon", "border": "1px solid lightsalmon"}); // eq
+            $(".mainContainer2 div").last().css({"background": "violet", "border": "1px solid violet"}); // last
+            $("p").not(".special").css({"background": "green", "border": "1px solid green"}); // not
+            $(".notSpecial").next().css({"background": "blue", "border": "1px solid blue"}); // Next
+            $("p").filter(".special").css({"background": "indigo", "border": "1px solid indigo"});  // special
+
+            $(".load").click(function(){
+                $("#loadContent").load("intro.txt", function(text, status, xhr){
+                    if(status == "success"){
+                        alert("External content loaded successfully");
+                    }
+                    else{
+                        alert("Error: " + xhr.status + " : " + xhr.statusText);
+                    }
+                });
+            });
+
+            $(".get").click(function(){
+                $.get("intro.txt", function(data, status){
+                    alert(data + "\n" + status);
+                });
+            });
+        }); 
+    </script>
+
+</body>
+</html>

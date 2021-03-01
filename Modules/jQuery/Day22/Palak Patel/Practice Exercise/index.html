@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Exercise Day 22</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".p1").css("background-color", "blue");
+
+            $("#helpText").mouseenter(function () {
+                $(this).hide();
+            });
+
+            $("#helpText").mouseleave(function () {
+                $(this).show();
+            });
+
+            $("input[type=radio]").click(
+                function () {
+                    var tech = $('input[type="radio"]:checked').val();
+                    //console.log(tech);
+                    $(".result").html("Selected Technology is: " +tech);
+                }
+            );
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <h3 class="h4 mt-5">Practice 1</h3>
+        <p class="p-2 p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, est?</p>
+
+        <h3 class="h4 mt-5">Practice 2</h3>
+        <p><span id="helpText">Hides when Mouse goes on me. Shows when mouse leaves me.</span></p>
+
+        <h3 class="h4 mt-5">Practice 3</h3>
+        <form>
+            <label for="title">Please Select Your Technology</label>
+            <div class="form-group">
+                <input type="radio" name="tech" value="PHP" id="tech1">
+                <label for="tech1" class="mr-4">PHP</label>
+                <input type="radio" name="tech" value="ASP.Net" id="tech2">
+                <label for="tech2" class="mr-4">ASP.NET</label>
+                <input type="radio" name="tech" value="ASP" id="tech3">
+                <label for="tech3" class="mr-4">ASP</label>
+                <input type="radio" name="tech" value="JSP" id="tech4">
+                <label for="tech4" class="mr-4">JSP</label>
+                <input type="radio" name="tech" value="PERL" id="tech5">
+                <label for="tech5" class="mr-4">PERL</label>
+                <input type="radio" name="tech" value="Cold Fusion" id="tech6">
+                <label for="tech6" class="mr-4">Cold Fusion</label>
+                <input type="radio" name="tech" value="Other" id="tech7">
+                <label for="tech7">Other</label>
+            </div>
+            <span class="result"></span>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

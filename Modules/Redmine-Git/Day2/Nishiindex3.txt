@@ -1,0 +1,13 @@
+[1]difference betweem fetch and pull:
+
+git fetch is the command that tells your local git to retrieve the latest meta-data info from the original.it doesnot do any file transfering.it is more like just checking to see iit there
+are any changes available.
+
+git pull on the other hand doesthat AND brings those changes from the remote repository.
+
+[2]difference between stash and stage
+
+stash will move your modified files into a stack.so later in same or another branch,you will be able to bring them back and see those modifications in your project.
+
+stage is the step before to make a commit,you add modified files to"staged files" to create your next commit.
+

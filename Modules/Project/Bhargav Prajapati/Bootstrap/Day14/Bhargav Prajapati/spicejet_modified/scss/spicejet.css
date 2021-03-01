@@ -1,0 +1,49 @@
+#navbar1 {
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#navbar1 .nav-link {
+  color: black;
+}
+
+#navbar1 .nav-link:hover {
+  background-color: #d31e1e;
+  color: white;
+}
+
+#navbar1 .dropdown-item {
+  border-bottom: 1px solid white;
+}
+
+.accodian_section .card {
+  opacity: 0.6;
+}
+
+.accodian_section .card:hover {
+  opacity: 1;
+  border: 1px solid  darkcyan;
+}
+
+@media only screen and (max-width: 992px) {
+  .accodian_section .card {
+    display: none;
+  }
+}
+
+#section3 .for_border {
+  border-right: solid black 1px;
+}
+
+@media only screen and (max-width: 992px) {
+  #section3 {
+    display: none;
+  }
+}
+
+#section4 .row div {
+  border-right: 1px solid #ebe1e1;
+  border-top: 1px solid #ebe1e1;
+  border-bottom: 1px solid #ebe1e1;
+}
+/*# sourceMappingURL=spicejet.css.map */

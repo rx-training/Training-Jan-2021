@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (min-width:768px) {
+            .container {
+                display: grid;
+                height: 100vh;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+                grid-template-areas: "nav nav nav" "main main main" "para3 para1 para2" "footer footer sidebar";
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 18px;
+            }
+            nav {
+                background-color: rebeccapurple;
+                grid-area: nav;
+            }
+            main {
+                background-color: red;
+                grid-area: main;
+            }
+            #sidebar {
+                background-color: royalblue;
+                grid-area: sidebar;
+            }
+            #para1 {
+                background-color: cyan;
+                grid-area: para1;
+            }
+            #para2 {
+                background-color: burlywood;
+                grid-area: para2;
+            }
+            #para3 {
+                grid-area: para3;
+                background-color: chartreuse;
+            }
+            footer {
+                background-color: darkmagenta;
+                grid-area: footer;
+            }
+            .options {
+                background-color: royalblue;
+            }
+        }
+        @media only screen and (min-width:1200px) {
+            .container {
+                display: grid;
+                height: 100vh;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+                grid-template-areas: "nav nav nav nav" "sidebar main main main" "sidebar para1 para2 para3" "footer footer footer footer";
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 18px;
+            }
+            nav {
+                background-color: rebeccapurple;
+                grid-area: nav;
+            }
+            main {
+                background-color: red;
+                grid-area: main;
+            }
+            #sidebar {
+                background-color: royalblue;
+                grid-area: sidebar;
+            }
+            #para1 {
+                background-color: cyan;
+                grid-area: para1;
+            }
+            #para2 {
+                background-color: burlywood;
+                grid-area: para2;
+            }
+            #para3 {
+                background-color: chartreuse;
+                grid-area: para3;
+            }
+            footer {
+                background-color: darkmagenta;
+                grid-area: footer;
+            }
+            .options {
+                background-color: royalblue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>Home</nav>
+        <main>Introduction</main>
+        <div id="sidebar">
+            <nav class="options">
+                <a href="images.html">Images</a>
+                <a href="videos.html">Videos</a>
+            </nav>
+        </div>
+        <div id="para1">Chatbot
+            <p>
+                Chatbot:for Admission Process
+                We created a chatbot for admission Process where it will interact with the students and answering questions related to 
+                admission process.We used platfrom Amazon Lex & AWS Lambda.
+                </p>
+        </div>
+        <div id="para2">Movie Guide
+            <p>
+                We developed a application in Android Studio which will be listing the popular movies with their trailers reviews.
+            </p>
+        </div>
+        <div id="para3">Wifi Enabled Webcam
+            <p>
+                IOT based project using WIFI module, microcontroller, camera. It captures live video or starts recording whenever some 
+                motion is sensed which is then transmitted through internet & can be viewed on smartphone or PC.
+            </p>
+        </div>
+        <footer>Conclusion
+            <p>
+                When we completed this projects we came to know that how a real world problems look like & how to solve it.We still have
+                much more to do on this projects.We will continue that and upgrade our knowledge & skills.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

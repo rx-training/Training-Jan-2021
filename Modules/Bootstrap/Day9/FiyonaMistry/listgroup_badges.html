@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>List Group and Badges</title>
+</head>
+<body style="margin: 50px;">
+    <h2 style="background-color: black; color: white;">List Group, badges and breadcrumb</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">List Item 1</li>
+        <li class="list-group-item list-group-item-secondary d-flex justify-content-between">List Item <span class="badge badge-light">2</span></li>
+        <li class="list-group-item list-group-item-warning">List Item 3</li>
+        <li class="list-group-item list-group-item-danger">List Item 4</li>
+    </ul>
+
+    <br>
+    <ul class="list-group">
+        <a class="list-group-item list-group-item-action">Anchor List Item 1</a>
+        <a class="list-group-item list-group-item-action">Anchor List Item 2</a>
+        <a class="list-group-item list-group-item-action">Anchor List Item 3</a>
+        <a class="list-group-item list-group-item-action">Anchor List Item 4</a>
+    </ul>
+
+    <div class="row my-5">
+        <div class="col-3">
+            <div class="list-group mb-5" id="list-tab" role="tab-list">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" href="#list-home" data-toggle="list">Home</a>
+                <a class="list-group-item list-group-item-action" id="list-about-list" href="#list-about" data-toggle="list">About</a>
+                <a class="list-group-item list-group-item-action" id="list-contactUs-list" href="#list-contactUs" data-toggle="list">Contact Us</a>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tab-panel">
+                    Home content
+                </div>
+                <div class="tab-pane fade" id="list-about" role="tab-panel">
+                    About content
+                </div>
+                <div class="tab-pane fade" id="list-contactUs" role="tab-panel">
+                    Contact Us content
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Users</a></li>
+        <li class="breadcrumb-item active">Register User</li>
+    </ol>
+
+</body>
+</html>

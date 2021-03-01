@@ -1,0 +1,308 @@
+.logo {
+    color: green;
+    font-size: 25px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+@media only screen and (min-width: 1200px) {
+    .recentWorks {
+        flex-direction: row;
+        display: flex;
+        color: gray;
+        margin: 30px;
+        margin-top: 50px;
+        text-align: center;
+    }
+    .recentWorks img {
+        width: 50%;
+        height:50%;
+        padding: 20px;
+    }
+    .navbar {
+        padding-left: 900px;
+        overflow: hidden;
+        background-color: #333;
+    }
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+    .dropdown .pagesbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+    .navbar a:hover, .dropdown:hover .pagesbtn {
+        background-color: red;
+    }
+    .bgimg {
+        margin-top: 0px;
+        width: 100%;
+        height:400px;
+    }
+    .head2 {
+        font-size: 25px;
+        margin-top: 20px;
+        color:gray;
+        margin-left: 40px;
+    }
+    .text1 {
+        padding-right: 100px;
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 90px;
+    }
+    .download {
+        margin-top: 20px;
+        margin-left: 40px;
+        height: 50px;
+        background-color: green;
+        color: white;
+    }
+    .head9
+	{
+		margin-left: 40px;
+	    margin-right: 50px;
+         height: 180px;
+        color: gray;
+    }
+    .text11
+	{
+		height: 200px;
+		float: left;
+		width:470px;
+    }
+	.head4 {
+        font-size: 30px;
+        margin-top: 100px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .rw {
+        margin-top: 20px;
+        margin-left: 10px;
+        width: 250px;
+        height: 150px;
+    }
+    .proj1{
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .text2 {
+        font-size: 20px;
+        margin-top: 10px;
+        color: gray;
+        margin-left: 20px;       
+    }
+}
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: none;
+    }
+    .navbar a {
+        display: none;
+    }
+    .dropdown {
+        display: none;
+    }
+    .dropdown .pagesbtn {
+        display: none;
+    }
+    .navbar a:hover, .dropdown:hover .pagesbtn {
+        display: none;
+    }
+    .bgimg {
+        width: 100%;
+        height:400px;
+    }
+    .head2 {
+        font-size: 35px;
+        margin-top: 20px;
+        color:gray;
+        margin-left: 40px;
+    }
+    .text1 {
+        padding-right: 100px;
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .download {
+        margin-top: 20px;
+        margin-left: 40px;
+        height: 50px;
+        background-color: green;
+        color: white;
+    }
+    .head3 {
+        font-size: 30px;
+        margin-top: 30px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head4 {
+        font-size: 30px;
+        margin-top: 100px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .rw {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 150px;
+        width: 250px;
+        height: 150px;
+    }
+    .proj1 {
+        margin-top: 15px;
+        margin-right: 10px;
+        margin-left: 235px;
+        color: black;
+    }
+    .text2 {
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 125px;       
+    }
+    .wts {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 150px;
+        width: 300px;
+        height: 150px;
+    }
+    .text3 {
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .vl {
+        border-left: 6px solid gray;
+        margin-left: 30px;
+        height: 250px;
+    }
+    .text4 {
+        margin-top: 40px;
+        font-size: 20px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head5 {
+        font-size: 25px;
+        margin-top: 30px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head6 {
+        font-size: 30px;
+        margin-top: 70px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .ls {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 150px;
+        width: 275px;
+        height: 250px;
+    }
+    .sp1 {
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+    }
+    .bottom {
+        margin-top: 50px;
+        background-color: black;
+    }
+    .logobottom {
+        color: green;
+        font-size: 25px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .text5 {
+        margin-top: 20px;
+        font-size: 20px;
+        color: white;
+        margin-left: 40px;       
+    }
+    .head7 {
+        font-size: 30px;
+        margin-top: 70px;
+        color: white;
+        margin-left: 40px;
+    }
+    .text6 {
+        font-size: 20px;
+        margin-top: 40px;
+        color: white;
+        margin-left: 40px;
+    }
+    .text7 {
+        font-size: 15px;
+        margin-top: 5px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .text8 {
+        font-size: 18px;
+        margin-top: 30px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .head8 {
+        font-size: 30px;
+        margin-top: 70px;
+        color: white;
+        margin-left: 40px;
+        text-align: center;
+    }
+    .text9 {
+        font-size: 30px;
+        margin-top: 40px;
+        color: white;
+        margin-left: 40px;
+        text-align: center;
+    -}
+    .text10 {
+        font-size: 30px;
+        margin-left: 40px;
+        text-align: center;
+        color: green;
+    }
+    .lastimages {
+        margin-left: 205px;
+        word-spacing: 10px;
+    }
+    .head9 {
+        font-size: 30px;
+        margin-top: 30px;
+        color: gray;
+        margin-left: 40px;
+    }
+    .text11 {
+        padding-right: 100px;
+        font-size: 20px;
+        margin-top: 20px;
+        color: gray;
+        margin-left: 40px;
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice-2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function forward(){
+            window.history.forward();
+        }
+        function page1(){
+            window.location.href = 'Practice-1.html';
+        }
+        function page2(){
+            window.location.href = 'https://www.w3schools.com/js/js_window_location.asp';
+        }
+    </script>
+</head>
+<body>
+    <button class="btn btn-primary btn-lg m-5 p-5" onclick="page1()">Click to redirect to next page-1 on same window</button>
+    <button class="btn btn-primary btn-lg m-5 p-5" onclick="page2()">Click to redirect to next page-2 on same window</button>
+    <button class="btn btn-danger btn-lg m-5 p-5" onclick="forward()">Click to go to forward window</button>
+</body>
+</html>

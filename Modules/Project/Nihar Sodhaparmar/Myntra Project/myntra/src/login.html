@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style-for-login.css">
+    <script src="./js/login.js"></script>
+    <title>Login Page</title>
+    <link rel="shortcut icon" href="./img/myntra-logo.png" />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"> <img src="./img/myntra-logo.png" alt="Logo" height="50" width="50"> </a>
+
+            <button class="navbar-toggler navbar-toggler-right p-0" type="button" data-toggle="collapse"
+                data-target="#navResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                <ul class="navbar-nav px-3 navbar-left-link-container">
+                    <li class="nav-item px-2"><a href="#" class="nav-link">MEN</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">WOMEN</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">KIDS</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">HOME & LIVING</a></li>
+                    <li class="nav-item px-2"><a href="#" class="nav-link">OFFERS</a></li>
+                </ul>
+
+                <div class="search_container ml-auto">
+                    <ul class="navbar-nav" style="font-size: 13px;">
+                        <li class="nav-item mr-3">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-search"></i> </span>
+                                </div>
+                                <input class="form-control d-block form-control-lg" type="search" style="height: 30px;">
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <div class="nav-icon-container">
+                                    <div class="text-center text-muted">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        Profile
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <div class="nav-icon-container">
+                                    <div class="text-center text-muted">
+                                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        Wishlist
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="view-bag" href="login.html" class="nav-link">
+                                <div class="nav-icon-container">
+                                    <div class="text-center text-muted">
+                                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        Bag
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="navbar search-container2 pt-2">
+        <div class="container-fluid">
+            <div class="input-group mt-3 ml-auto serach_box">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-search"></i> </span>
+                </div>
+                <input class="form-control d-block form-control-lg" type="search" style="height: 30px;">
+            </div>
+            <div class="nav-item">
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                        <div class="nav-icon-container">
+                            <div class="text-center text-muted">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div class="text-dark">
+                                Profile
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">
+                    <div class="nav-icon-container">
+                        <div class="text-center text-muted">
+                            <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        </div>
+                        <div class="text-dark">
+                            Wishlist
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="#" class="nav-link">
+                    <div class="nav-icon-container">
+                        <div class="text-center text-muted">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        </div>
+                        <div class="text-dark">
+                            Bag
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-container pt-5">
+        <div class="container bg-white p-0" style="width: 360px;">
+            <img src="https://constant.myntassets.com/pwa/assets/img/banner_login_landing_300.jpg" alt="" width="100%">
+            <div class="mx-4 mt-4">
+                <div class="text-center text-highlighted" style="font-size: 25px; letter-spacing: 2px;">
+                    <span>Login</span>  <!-- <span style="font-size: small;">or</span> <span>Signup</span> -->
+                </div>
+                <form onsubmit="return checkLogin()">
+                    <div class="form-group  mt-4">
+                        <label class="form-control-label" for="usertype">Select User Type</label>
+                        <select class="form-control" name="usertype" id="usertype">
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Email</label>
+                        <input class="form-control" type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="password">Password</label>
+                        <input class="form-control" type="password" name="password" id="password" required>
+                    </div>
+                    <div class="text-muted mt-4">
+                        By Continuing, I agree to the <span class="text-highlighted">Terms of Usage</span> & <span class="text-highlighted">Privacy Policy</span>
+                    </div>
+                    <div class="mt-3">
+                        <input class="btn btn-block login-btn" type="submit" value="Login">
+                    </div>
+                    <div class="text-muted mt-4">
+                        Don't have an account? <a class="text-highlighted register-link" href="#">Register</a>
+                    </div>
+                    <div style="padding-top: 20px;"></div> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>

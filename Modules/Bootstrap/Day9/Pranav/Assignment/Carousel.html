@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BootStrap Assignment</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1 class="display-3 text-center my-4"> Basic Typography</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-primary btn-block dropdown-toogle" type="button" data-toggle="dropdown">
+                            Utilities
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Assignment.html">Basic Typography</a>
+                            <a class="dropdown-item" href="Textalign.html">Text Alignment & Display</a>
+                            <a class="dropdown-item" href="floatpos.html">Floats & Positions</a>
+                            <a class="dropdown-item" href="Bgcolors.html">Colors & Background</a>
+                            <a class="dropdown-item" href="Spacing.html">Spacing</a>
+                            <a class="dropdown-item" href="Sizing.html">Sizing</a>
+                            <a class="dropdown-item" href="Breakpoint.html">Breakpoints</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-block dropdown-toogle" type="button" data-toggle="dropdown">
+                            CSS Components
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Nav.html">Navbars & Nav</a>
+                            <a class="dropdown-item" href="Listgrp.html">ListGroups & Badges</a>
+                            <a class="dropdown-item" href="Forms.html">Form & Input</a>
+                            <a class="dropdown-item" href="Inputgrp.html">Input Groups</a>
+                            <a class="dropdown-item" href="Alerts.html">Alerts & Progress Bars</a>
+                            <a class="dropdown-item" href="Tables.html">Tables & Pagination</a>
+                            <a class="dropdown-item" href="Card.html">Working with Cards</a>
+                            <a class="dropdown-item" href="Mediaobj.html">Media Objects</a>
+                            <a class="dropdown-item" href="Listgrp.html">Breadcrumbs</a>
+                            <a class="dropdown-item" href="Carousel.html">Carousel</a>
+                            <a class="dropdown-item" href="Listgrp.html">Badge</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-warning btn-block dropdown-toogle" type="button" data-toggle="dropdown">
+                            Grid & Flexbox
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Gridsys.html">Grid System</a>
+                            <a class="dropdown-item" href="Flexbox.html">Flex Box</a>
+                            <a class="dropdown-item" href="GridAlign.html">Grid Alignment</a>
+                            <a class="dropdown-item" href="MarginWrap.html">Auto Margins & Wrap</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-danger btn-block dropdown-toogle" type="button" data-toggle="dropdown">
+                            JavaScript Widgets
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Carousel.html">Carousel Slider</a>
+                            <a class="dropdown-item" href="#">Collapse & Accordion</a>
+                            <a class="dropdown-item" href="#">Tooltips</a>
+                            <a class="dropdown-item" href="#">Popovers</a>
+                            <a class="dropdown-item" href="#">Modals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="text-center mt-5">Colors Demo.</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 m-auto">
+
+                    <div id="slider1" class="carousel slide mb-5" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="fb.jpg" width="300" height="300">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="in.jpeg" width="300" height="300">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="github.jpg" width="300" height="300">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slider2" class="carousel slide mb-5" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="fb.jpg" width="300" height="300">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="in.jpeg" width="300" height="300">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="github.jpg" width="300" height="300">
+                            </div>
+                        </div>
+                        <a href="#slider2" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+                        <a href="#slider2" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+                    </div>
+
+                    <div id="slider3" class="carousel slide mb-5" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#slider3" data-slide-to="0"></li>
+                            <li data-target="#slider3" data-slide-to="1"></li>
+                            <li data-target="#slider3" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="fb.jpg" width="600" height="600">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="in.jpeg" width="600" height="600">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="github.jpg" width="600" height="600">
+                            </div>
+                        </div>
+                        <a href="#slider3" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+                        <a href="#slider3" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+                    </div>
+
+                    <div id="slider4" class="carousel slide mb-5" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#slider4" data-slide-to="0"></li>
+                            <li data-target="#slider4" data-slide-to="1"></li>
+                            <li data-target="#slider4" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="fb.jpg" width="600" height="600">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Slide 1</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="in.jpeg" width="600" height="600">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Slide 2</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="github.jpg" width="600" height="600">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Slide 3</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#slider4" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+                        <a href="#slider4" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

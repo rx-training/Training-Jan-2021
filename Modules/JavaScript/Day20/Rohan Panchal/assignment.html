@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    
+    <title>Day20-assignment</title>
+  </head>
+  <body class="text-center">
+    <h1 class="display-1">Assignment  </h1>
+    
+    <hr class="w-50 m-auto">
+    <div class="container my-5">
+     
+      <h1 class="display-4">Products</h1>
+      <div class="row p-2">
+        <div class="col">
+            <div id="result"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container my-5">
+      <h1 class="display-4">Cart Items</h1>
+      <div class="row p-2">
+        <div class="col">
+            <div id="result2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container my-5">
+      <div class="row p-2">
+        <div class="col">
+           
+              <table id="popopo" class="table text-center">
+
+              </table>
+           
+        </div>
+      </div>
+    </div>
+
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      </style>
+
+    <script>
+     
+
+      function display(value)
+      {
+        var div = document.createElement('table');
+        div.setAttribute('class','table text-center table-striped');
+        var id=1;
+        for(let i=0;i<value.products.length;i++)
+        {
+          var tr = document.createElement('tr');
+        
+          var cols = value.products[i];
+        
+         
+          var td = document.createElement('td');
+          td.innerHTML = id++;
+          tr.appendChild(td);
+
+              for(object in cols)
+              {
+                var td = document.createElement('td');
+                td.innerHTML = cols[object];
+                tr.appendChild(td);
+              }
+          var td = document.createElement('td');
+          td.innerHTML = '<a class="btn btn-outline-success">Add to Cart</a>';
+          td.setAttribute('onclick','addToCart('+"'"+JSON.stringify(cols)+"'"+')');
+        
+          tr.appendChild(td);
+          div.appendChild(tr);
+        }
+        document.getElementById('result').appendChild(div);
+
+      }
+     
+      var dd=[];
+      function addToCart(obj)
+      {
+        obj = JSON.parse(obj);
+        dd.push(obj);
+        setlocalstorageitems(dd);
+      }
+      function setlocalstorageitems(vall)
+      {
+        localStorage.setItem('Name',JSON.stringify(vall));
+        getsummaryData();
+      }
+
+       
+      function getsummaryData()
+      {
+          
+          var getdata = JSON.parse(localStorage.getItem('Name'));
+       
+          
+          var all = JSON.stringify(getdata);
+          all = JSON.parse(all);
+        
+
+          document.getElementById('popopo').innerHTML = "";
+            
+          for(let i=0;i<all.length;i++)
+          {
+            var tr = document.createElement('tr');
+
+            rowdatastr = JSON.stringify(getdata[i]);
+           
+            rowdataobj = JSON.parse(rowdatastr);
+            
+            for(obj in rowdataobj)
+            {
+               
+              
+                var td = document.createElement('td');
+                td.innerHTML = rowdataobj[obj];
+                tr.appendChild(td);
+               
+            }
+                var td = document.createElement('td');
+                td.innerHTML = '<a class="btn btn-outline-danger">Remove Item</a>';
+                td.setAttribute('onclick','removele('+"'"+JSON.stringify(rowdataobj)+"'"+')');
+                tr.appendChild(td);
+                document.getElementById('popopo').append(tr);
+          }
+          
+      }
+
+      // to remove cart item
+      function removele(val)
+      {
+          for(let i=0;i<dd.length;i++)
+          {
+              if(JSON.stringify(dd[i]) === val)
+              {
+                console.log("same");
+                dd.splice(i, 1); 
+                console.log('dd ='+dd);
+                setlocalstorageitems(dd);
+               
+              }
+              else{
+                console.log("not same");
+              }
+          }
+          
+      }
+
+
+
+      var mypro = new Promise(async function(resolve,error){
+          var datas = await fetch('read.json');
+          resolve(datas.json());
+      });
+
+      mypro.then(
+        function(params)
+        {
+          display(params);
+        },
+        function(error)
+        {
+          display(error);
+        }
+      )
+  
+
+     
+    </script>
+    
+  
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

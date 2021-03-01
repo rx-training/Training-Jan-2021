@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 2</title>
+</head>
+<style type="text/css">
+	
+	header
+	{
+		height: 20%;
+		width: 90%;
+		border: 1px solid blue;
+		margin: 5px;
+		position: relative;
+		background-color: blue;
+		padding-right: 9%;
+	}
+	h1
+	{
+		text-align: center;
+		color: white;
+	}
+	
+	.first-section
+	{
+		height: 10%;
+		width: 90%;
+		background-color: chartreuse;
+		margin: 5px;
+		padding-right: 9%;
+		text-align: center;
+		font-size: 30px;
+	}
+	div.static
+	{
+		position: static;
+		border: 2px solid green;
+		padding-right: 10%;
+		text-align: left;
+
+	}
+	div.relative
+	{
+		position: relative;
+		border: 2px solid green;
+		text-align: left;
+		left: 30px;
+
+	}
+	div.fixed
+	{
+		position: fixed;
+  		top: 0;
+  		right: 0;
+  		width: 300px;
+ 	    border: 3px solid #73AD21;
+	}
+	div.absolute
+	{
+		position: absolute;
+        top: 80px;
+        right: 0;
+        width: 200px;
+        height: 100px;
+        border: 3px solid #73AD21;
+	}
+	div.relative2
+	{
+		 position: relative;
+         width: 400px;
+         height: 200px;
+         border: 3px solid #73AD21;
+	}
+	div.sticky
+	{
+		 position: sticky;
+         top: 0;
+         padding: 5px;
+  	     background-color: #cae8ca;
+         border: 2px solid #4CAF50;
+	}
+</style>
+<body>
+	<div class="main-container">
+		<header>
+			<h1>This is Position Property Example</h1>
+		</header>
+		<div>
+			<section class="first-section">
+				<p>Static Position</p>
+				<div class="static">
+					This is Static position Property
+				</div>
+			</section>
+		</div>
+		<div>
+			<section class="first-section">
+				<p>Relative Position</p>
+				<div class="relative">
+					This is Relative position Property
+				</div>
+			</section>
+		</div>
+		<div>
+			<section class="first-section">
+				<p>Fixed Position</p>
+				<div class="fixed">
+					This is fixed position Property
+				</div>
+			</section>
+		</div>
+		<div>
+			<section class="first-section">
+				<p>Absolute Position</p>
+				<div class="relative2">
+					<div class="absolute">
+						This is absolute position Property
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="sticky">
+			This is sticky position Property
+		</div>
+		<div style="padding-bottom:2000px">
+			<p>
+				Android 11 introduces "conversations" notifications; they are designed for chat and messaging, and can be presented in pop-up overlays known as "bubbles" when supported by apps. Conversations can also be marked as "priority" to give them greater prominence (pushing them to the top of notifications, and allowing them to bypass do not disturb mode). Notification history over the past 24 hours can also be displayed.[18] Bubbles is designed to replace the existing overlay permission, which is being deprecated in the future due to security (due to its use by clickjacking malware) and performance concerns.[19]
+
+				The menu displayed when holding the power button now includes an area devoted to controlling smart home devices.[18] Media controls are displayed as part of the quick settings area and no longer as a persistent notification.[18] The screenshot button is moved to the recents screen (only on Pixel devices).[20][18] Apps can be pinned on the share menu.[18]
+
+				Android 11 includes a built-in screen recorder.[21]
+			</p>
+		</div>
+	</div>
+</body>
+</html>

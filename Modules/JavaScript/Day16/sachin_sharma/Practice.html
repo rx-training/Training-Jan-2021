@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">        
+    <title>W3 Practice</title>
+</head>
+<body>
+        <p class="bg-primary text-white" id="demo"></p>
+        <p class="bg-info text-white" id="name"></p>
+        <p class="bg-danger text-warning" id="length"> </p>
+        <p class="bg-danger text-warning" id="substr"> </p>
+        <div class="bg-info container" id="practiceDiv">
+    
+
+        </div>
+        <br>
+        <p class="bg-info" id="car"></p>  
+        <p class="bg-info" id="sortAray"></p>  
+        <p class="bg-info" id="push"></p>  
+        <p class="bg-info" id="join"></p>  
+        <p class="bg-info" id="pop"></p>  
+    <script>
+        // e.g of object 
+        var person = {
+            name:"sachin",
+            lastName:'sharma',
+            age:22,
+            fullName: function()
+            {
+                return this.name + " " + this.lastName;
+            }
+
+           
+        };
+        document.getElementById('demo').innerHTML="Name:" + person.name + " <br/> Age is :" + person.age;
+        document.getElementById('name').innerHTML=person.fullName();
+        // string e.g and its method 
+        var str = " its string var";
+        document.getElementById('length').innerHTML="string size is" + str.length;
+        // finding str in str
+        document.getElementById('substr').innerHTML="substring find at postion is" + str.indexOf('var');   
+        document.getElementById('substr').innerHTML="substring find at last postion is" + str.lastIndexOf('var');    
+        document.getElementById('substr').innerHTML="substring find at last postion is" + str.search('str');    
+        
+        // str slice method
+        var str1 = "Apple, Banana, Kiwi";
+        var res = str1.slice(7);
+        document.getElementById('practiceDiv').innerHTML=res + "<br/>";
+        document.getElementById('practiceDiv').innerHTML=res + "<br/>";   
+        // substr method
+        document.write(str1.substr(6));
+        // replace method
+        n=str.replace('var','variable')
+        document.write("<br/>" + n);
+        var text = "  Hello  ";
+        // upercase method
+        text=text.toUpperCase()
+        document.write("<br/>" +text);
+         // trim method 
+        //alert(text.trim());
+        var text1 = "Hello world";
+        var arr =  text1.split(" ");
+        document.write("<br/>" + arr[0]);
+        // charAt method 
+        var str = "Hello";
+        var a=str.charAt(0);
+        document.write("<br/>" + a);
+        // array
+          var cars = ["Saab", "Volvo", "BMW"];
+          document.getElementById("car").innerHTML = cars[2];
+        // array method sort 
+        var numAray= [10,76,45,87];
+        var y = numAray.sort();
+        document.getElementById("sortAray").innerHTML = y;
+        // array method push to add element
+        numAray.push(50);
+        document.getElementById("push").innerHTML = "After push element 50 array is" + numAray;
+        document.getElementById("join").innerHTML = "After join method is  " + cars.join(" * ");
+        numAray.pop();
+        document.getElementById("pop").innerHTML = "After pop method array is" + numAray;
+    </script>
+</body>
+</html>

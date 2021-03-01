@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.one * { 
+  display: block;
+  border: 1px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+.two *{
+    display: block;
+  border: 1px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+
+}
+.three *{
+    display: block;
+  border: 1px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+
+}   
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#span1").parent().css({"color": "red", "border": "1px solid red"});
+});
+
+$(document).ready(function(){
+  $("#span2").parents().css({"color": "blue", "border": "1px solid blue"});
+});
+
+$(document).ready(function(){
+    $("#spannew").parentsUntil("div").css({"color": "green", "border": "1px solid green"});
+});
+
+</script>
+</head>
+<body>
+
+
+  <div style="width:500px;" class="one">
+    <ul>grandparent  
+      <li>parent
+        <span id=span1>span one</span>
+      </li>
+    </ul>   
+  </div>
+
+<br><br>
+
+<div style="width:500px;" class="two">
+    <ul>grandparent  
+      <li>parent
+        <span id=span2>span two</span>
+      </li>
+    </ul>   
+  </div>
+<br><br>
+
+<div style="width:500px;" class="three">
+    <ul>grandparent  
+      <li>parent
+        <span id=spannew>span three</span>
+      </li>
+    </ul>   
+  </div>
+
+</body>
+</html>

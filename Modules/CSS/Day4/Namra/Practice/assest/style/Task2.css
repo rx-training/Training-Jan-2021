@@ -1,0 +1,26 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(122, 196, 26, 0.39);}
+ 
+li{
+    display : block;
+    color: rgb(228, 106, 106);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: right;
+}
+p{
+    border : solid rgba(156, 175, 131, 0.39);
+    background-color: rgb(174, 233, 150);
+}
+*
+{
+    color: rgb(199, 202, 25);
+}
+div>h1,div>h2{
+    color : blue;
+}

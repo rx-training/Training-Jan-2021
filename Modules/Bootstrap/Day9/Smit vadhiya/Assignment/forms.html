@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 class="display-3 text-center my-3">Forms</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown">Utilities</button>
+                    <div class="dropdown-menu">
+                        <a href="basic_typography.html" class="dropdown-item">basic typography</a>
+                        <a href="text_alignment_display.html" class="dropdown-item">Text alignment & display</a>
+                        <a href="float_position.html" class="dropdown-item">Float position</a>
+                        <a href="colours_background.html" class="dropdown-item">colours & background</a>
+                        <a href="spacing.html" class="dropdown-item">Spacing</a>
+                        <a href="sizing.html" class="dropdown-item">Sizing</a>
+                        <a href="breakpoint.html" class="dropdown-item">Breakpoint</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-success btn-block dropdown-toggle" data-toggle="dropdown">CSS component</button>
+                    <div class="dropdown-menu">
+                        <a href="buttons.html" class="dropdown-item">Buttons</a>
+                        <a href="navbar.html" class="dropdown-item">Navbar</a>
+                        <a href="list_group_badge.html" class="dropdown-item">List group & badge</a>
+                        <a href="forms.html" class="dropdown-item">Forms</a>
+                        <a href="input_group.html" class="dropdown-item">Input group</a>
+                        <a href="alert_progress.html" class="dropdown-item">Alet & progress</a>
+                        <a href="table_pagination.html" class="dropdown-item">Table pagination</a>
+                        <a href="cards.html" class="dropdown-item">Cards</a>
+                        <a href="meida_object.html" class="dropdown-item">Media object</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-warning btn-block dropdown-toggle" data-toggle="dropdown">Grid & flexbox</button>
+                    <div class="dropdown-menu">
+                        <a href="grid_system.html" class="dropdown-item">Grid system</a>
+                        <a href="grid_alignment.html" class="dropdown-item">Grid alignment</a>
+                        <a href="flexbox.html" class="dropdown-item">Flexbox</a>
+                        <a href="auto_margin_wrapping.html" class="dropdown-item">Auto margins & wrap</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-danger btn-block dropdown-toggle" data-toggle="dropdown">Javascript Widget</button>
+                    <div class="dropdown-menu">
+                        <a href="carousel.html" class="dropdown-item">Carousel</a>
+                        <a href="collapse.html" class="dropdown-item">Collapse</a>
+                        <a href="tooltip.html" class="dropdown-item">Tooltip</a>
+                        <a href="propovers.html" class="dropdown-item">Propovers</a>
+                        <a href="models.html" class="dropdown-item">Models</a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <hr>
+    </header>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control form-control-sm" placeholder="Enter name" id="name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control form-control-lg" placeholder="Enter email" id="email">
+                <small class="form-text text-muted">Your email will not be shred with anyone</small>
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" class="form-control" readonly placeholder="Password" id="password">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" rows="3" id="message"> </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="file">File input</label>
+                <input type="file" class="form-control-file" id="file">
+                <small class="form-text text-muted">Max 3mb size</small>
+            </div>
+
+            <fieldset class="form-group">
+                <legend>What are you using this services for?</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" name="services" class="form-check-input">Personal
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" name="services" class="form-check-input">Commercial Use
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" name="services" class="form-check-input">Testing
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox"  class="form-check-input">Sign up for newsletter
+                </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+
+        <br><br>
+        <!-- INLINE FORM -->
+        <form class="form-inline">
+            <input type="text" class="form-control mr-2" id="name" placeholder="First Name" > 
+            <input type="text" class="form-control mr-2" id="name" placeholder="Last Name" > 
+            <div class="form-check">
+                    <label class="form-check-label mr-2">
+                        <input type="checkbox" class="form-check-input">Remember me
+                    </label>
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+
+        <!-- FORM-ROW -->
+        <br><br>
+        <form>
+            <div class="form-row "> 
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name">
+                </div>
+            </div>
+        </form>
+        <br><br>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control form-control-sm is-valid" placeholder="Enter name" id="name">
+        </div>
+
+        <div class="form-group">
+            <label for="pwd">Password</label>
+            <input type="password" class="form-control is-invalid"  placeholder="Password" id="password">
+            <div class="invalid-feedback">
+                Password is not strong enough
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pwd">Confirm Password</label>
+            <input type="password" class="form-control is-invalid"  placeholder="Password" id="password">
+            <div class="invalid-feedback">
+                Password does not matches
+            </div>
+        </div>
+    </div>
+</body>
+</html>

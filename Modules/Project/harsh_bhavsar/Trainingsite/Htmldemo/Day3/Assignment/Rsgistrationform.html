@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+	<html class="no-js" lang="en">
+	
+	<head>
+	    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity= "sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"crossorigin="anonymous" /> 
+      
+        
+	    <title>Trainingsite</title>
+
+        <style type="text/css"> 
+          
+           
+            #column1 { 
+              
+                background: green; 
+                
+                color:white; 
+            } 
+
+            footer {
+                            text-align: center;
+                            padding: 3px;
+                            background-color: DarkSalmon;
+                            color: white;
+                        }
+        </style> 
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-primary"> 
+	        <div class="container">
+	            <a href="../../../index1.html" class="navbar-brand"><img src="../../../img/radixlogo.jpg" width="90" height="80" alt="">
+	                
+	            </a>
+	            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+	            <div class="collapse navbar-collapse" id="navbarNav">
+	                <ul class="navbar-nav ml-auto">
+	                    <li class="navitem">
+	                        <a  href="../../index.html" class="nav-link active">HTML</a>
+	                    </li>
+	                    <li class="navitem">
+	                        <a href="../../../Cssdemo/indexcss.html" class="nav-link">CSS</a>
+	                    </li>
+	                    <li class="navitem">
+	                        <a href="../../../Bootstrapdemo/indexbootstrap.html" class="nav-link">Bootstrap</a>
+	                    </li>
+	                    <li class="navitem">
+	                        <a href="../../../Javascriptdemo/indexjavascript.html" class="nav-link">Javascript</a>
+	                    </li>
+                        <li class="navitem">
+	                        <a href="../../../jQuerydemo/indexjQuery.html" class="nav-link">JQuery</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </nav>
+	
+		<div class="container-fluid h-100"> 
+			<div class="row h-100"> 
+				<div id="column1" class="col-md-3" > 
+					<h4 class="text-center text-danger mt-2">Html</h4>
+                        <ul>
+                            <li> <b>Day3</b></li>
+                            <ul>
+                                <li>Assignment</li>
+                                <ol>
+                                    <li><a class="text-white" href="./Rsgistrationform.html"> Registration Form</a></li>
+                                    
+                                    
+                                </ol>
+                                <li>Practice Exercise  </li>
+                                <ol>
+                                    <li><a class="text-white" href="../Practice/list.html">List Hierarchy</a></li>
+                                    <li><a class="text-white" href="../Practice/Loginform.html" > Login form</a></li>
+                                    <li><a class="text-white" href="../Practice/Reportcard.html" > Report Card</a></li>
+                                </ol>
+                            </ul>
+                    
+                    
+                        </ul>
+                </div>
+                <div class="col-md-9"> 
+                    <header>
+                        <h1 Align="center">Employees detail form</h1>
+                        <P style="text-align:center; font-size: 20px;">Employees Details </P>
+                    </header>
+                    <form name='registration'>
+                        <style>
+                            table.center {
+                                margin-left: auto;
+                                margin-right: auto;
+                            }
+                        </style>
+
+                        <table style="width:30%" class="center">
+                            <tr>
+                                <td>  <label for="Empname">EmployeeName:</label></td>
+                                <td> <input type="text" name="Empname" size="20" required /></td>
+                            </tr>
+                            <tr>
+                                <td> <label for="age">Age:</label></td>
+                                <td>    <input type="number" name="age" type="range" min="1" max="100" required /></td>
+                            </tr>
+                            <tr>
+                                <td>  <label id="gender">Gender:</label></td>
+                                <td>
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label>
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Female</label>
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td> <label for="desg">Designation:</label></td>
+                                <td> <input type="text" name="desg" size="10" required /></td>
+                
+                            </tr>
+                            <tr>
+                                <td>  <label for="salary">Salary:</label></td>
+                                <td>  <input type="number" name="Salary" size="10" required /></td>
+                            </tr>
+                            <tr>
+                                <td>  <label for="location">Location:</label></td>
+                
+                                <td>
+                                    <select name="location">
+                                        <option selected="" value="Default">(Please select a country)</option>
+                                        <option value="AH">Ahmedabad</option>
+                                        <option value="GN">Gandhinagar</option>
+                                        <option value="RJ">Rajkot</option>
+                                        <option value="MH">Mehasana</option>
+                                        required
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>  <label for="doj">Date of Joining:</label></td>
+                                <td>  <input type="date" name="doj" required /></td>
+                            </tr>
+                            <tr>
+                                <td> <label for="email">Email id:</label></td>
+                                <td> <input type="email" name="email" size="30" required /></td>
+                            </tr>
+                            <tr>
+                                <td>  <label for="number">Contact Number:</label></td>
+                                <td>  <input type="tel" name="number" size="10" required /></td>
+                            </tr>
+                            <tr>
+                
+                                <td>  <input type="submit" name="Submit" /></td>
+                            </tr>
+                
+                        </table>
+                
+                        <!--This is for practise -->
+                        <label for="time">Time</label>
+                        <input type="time" name="time" /><br />
+                
+                        <label for="month">Month</label>
+                        <input type="month" name="month" /><br />
+                
+                        <label for="week">Week</label>
+                        <input type="week" name="week" /><br />
+                
+                        <label for="">Time</label>
+                        <input type="time" name="time" /><br />
+                
+                        <label for="search">Search</label>
+                        <input type="search" name="search" placeholder="Search bar" /><br />
+                
+                        <label for="color">Colour</label>
+                        <input type="color" name="color" /><br />
+                
+                        <label for="list-data">Data_List</label>
+                        <input type="text" list="data-list">
+                        <datalist id="data-list">
+                            <option label="Pen" value="Pen"></option>
+                            <option label="Pencil" value="Pencil"></option>
+                            <option label="NoteBook" value="Notebook"></option>
+                        </datalist><br />
+                
+                        <label for="progress_bar">Progress Bar:</label>
+                        <progress id="progress_bar" value="10" max="50"></progress><br />
+                
+                        <label for="meter">Meter_Data</label>
+                        <meter id="meter" min="10" max="100" optimum="50" value="90" low="20" high="80"></meter>
+                    </form>
+                
+                   
+                    <footer>
+                        <p>
+                            Author: harsh<br>
+                            <a href="example@example.com">example@example.com</a>
+                        </p>
+                    </footer>
+                </div>   
+					
+			</div> 
+		</div> 
+	
+	
+	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity= "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"> </script> 
+	    <script src= "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity= "sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"crossorigin="anonymous"> </script> 
+	    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity= "sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"> </script> 
+	</body>
+	
+	</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Html And Text Method</title>
+    <script>
+        $(document).ready(function(){
+            $('.btn2').click(function(){
+                alert("Text :- " + $('.test').text());
+                $('.pera1').text("Hello word text Document");
+                
+            });
+            $('.btn1').click(function(){
+                alert("Html :-"+ $('.test').html());
+                $('.pera1').html("<b>Hello word Html Document<b>");
+                   
+
+            });
+           
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center display-3">Html And text method</div>
+    <p class="test">Lorem ipsum dolor <b>sit amet,</b> consectetur <i>adipisicing elit.</i> Minus, deserunt?</p>
+        <button class="btn btn-primary btn1">HTMl Method</button>
+        <button class="btn btn-primary btn2">Text Method</button>
+        <p class="pera1"></p>
+
+</div>
+</body>
+</html>

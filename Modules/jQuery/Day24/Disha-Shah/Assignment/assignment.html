@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="m-3">
+        <!--.getJSON()-->
+        <button class="btn btn-primary" id="getJSONAPIBtn">click to get external JSON data using .getJSON()</button>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>gender</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody id="getJSONAPITbody">
+
+            </tbody>
+        </table>   
+    </div> 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var dataJSON = [];
+            //.getJSON()
+            $("#getJSONAPIBtn").click(function(){
+                $.getJSON("https://gorest.co.in/public-api/users", function(data, status){
+                    dataJSON = data.data;
+                    console.log(dataJSON);
+                    
+                    $.each(dataJSON, function(index, data){
+                        console.log(data.id + " " + data.name + " " + data.email + " " 
+                        + data.gender + " " + data.status + " " + data.created_at + " " + data.updated_at);
+                        $("#getJSONAPITbody").append("<tr><td>" + data.id + "</td><td>" + data.name 
+                            + "</td><td>" + data.email + "</td><td>" + data.gender + "</td><td>"
+                            + data.status + "</td><td>" + data.created_at + "</td><td>" 
+                            + data.updated_at + "</td></tr>");
+                    })
+
+                    /*for(var i=0; i<dataJSON.length; i++){
+                        console.log(dataJSON[i].id + " " + dataJSON[i].name + " " + dataJSON[i].email + " "
+                        + dataJSON[i].gender + " " + dataJSON[i].status + " " + dataJSON[i].created_at + " "
+                        + dataJSON[i].updated_at);
+                        $("#getJSONAPITbody").append("<tr><td>" + dataJSON[i].id + "</td><td>" + dataJSON[i].name 
+                            + "</td><td>" + dataJSON[i].email + "</td><td>" + dataJSON[i].gender + "</td><td>"
+                            + dataJSON[i].status + "</td><td>" + dataJSON[i].created_at + "</td><td>" 
+                            + dataJSON[i].updated_at + "</td></tr>");
+                    }*/
+                });
+            });
+    });
+    </script>
+</body>
+</html>

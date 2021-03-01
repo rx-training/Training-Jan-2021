@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+    <title>JavaScript Day15 Practice Exercise</title>
+</head>
+
+<body>
+
+    <button class="btn btn-primary mt-3 p-2 "  onclick="clickMe()">Button</button>
+
+    <p id="greternum" class="text-info p-3">Greatest Number Among Three Number is :</p>
+    <p id="sum" class="text-danger p-3">Sum Whose Number is Greater than 40 is :</p>
+
+    <script>
+
+        var array = ['Ahmedabad', 'Mumbai', 'Delhi', 'Chennai', 'Bangaluru'];
+        console.log(array);
+
+        for(var i=0  ; i < array.length ; i++)
+        {
+            alert("Name of City "+ [i+1] + " "+ array[i]); 
+        }
+
+        // for( var a of array)
+        // {
+        //     alert(a);
+        // }
+         
+        
+        
+        function clickMe(num1, num2, num3) {
+            var num1 = parseInt(prompt("Enter Number 1"));
+            var num2 = parseInt(prompt("Enter Number 2"));
+            var num3 = parseInt(prompt("Enter Number 3"));
+            
+            //Maximum of 3
+            if (num1 > num2) {
+                if (num1 > num3) {
+                    console.log(num1);
+                    document.getElementById('greternum').innerHTML += "<span class='text-primary h3'>"+num1+"</span>";
+                }
+            }
+            else if (num2 > num3) {
+                console.log(num2);
+                document.getElementById('greternum').innerHTML += "<span class='text-primary h3'>" + num2 + "</span>";
+            }
+            else {
+                console.log(num3);
+                document.getElementById('greternum').innerHTML += "<span class='text-primary h3'>" + num3 + "</span>";
+            }
+            //Sum Whose NUmber Value is Greater than 40
+            var sum = 0;
+            if (num1 > 40) {
+                sum += num1;
+            }
+            if (num2 > 40) {
+                sum += num2;
+            }
+            if (num3 > 40) {
+                sum += num3;
+            }
+            document.getElementById('sum').innerHTML += "<span class='text-primary h3'>" + sum + "</span>";
+        }
+    </script>
+</body>
+</html>

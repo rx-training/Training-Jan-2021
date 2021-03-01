@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM and DOM</title>
+   
+</head>
+
+<script>
+
+    /******* Screen left and screen top *********/
+
+    console.log(window.screenLeft + ' , ' + window.screenTop);
+
+     /******* Inner width & outer width *********/
+    console.log(window.innerWidth + ' , ' + window.outerWidth);
+
+
+    /*  Open new web page on another new window */
+
+    window.open('https://www.google.com','_blank');
+
+
+    /* timer */
+
+    console.log(new Date().getSeconds());
+    setTimeout(function() { console.log(new Date().getSeconds())},1000);
+
+    /* Interval */
+
+    console.log(new Date().getSeconds());
+    var id = setInterval(function() { var sec = new Date().getSeconds();
+    console.log(sec);
+    if(sec == 10)
+    {
+        clearInterval(id);
+    }
+    },1000);
+</script>
+
+<body>
+    
+</body>
+</html>

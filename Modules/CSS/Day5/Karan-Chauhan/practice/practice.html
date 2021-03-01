@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LAYOUT PRACTICE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            box-sizing: border-box;
+            border: 2px solid black;
+
+        }
+        .header {
+            background-color: Highlight;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: skyblue;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .column {
+            float: left;
+            padding: 10px;
+            padding-top: 300px;
+            text-align: center;
+            height: 600px;
+        }
+
+        .column.left {
+            width: 25%;
+            background-color: indianred;
+        }
+
+           
+        .column.middle {
+            width: 50%;
+            background-color: yellow;
+        }
+        
+        .column.right{
+            width: 25%;
+            background-color: rebeccapurple;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">This is Header Section</header>
+    <section class="row">
+        <div class="column left">
+            This is Left Section
+        </div>
+        <div class="column middle">
+            This is Middle Section
+        </div>
+        <div class="column right">
+            This is Right Section
+        </div>
+    </section>
+    <footer class="footer">This is Footer Section</footer>
+</body>
+</html>

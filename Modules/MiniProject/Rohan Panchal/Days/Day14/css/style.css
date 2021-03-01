@@ -1,0 +1,32 @@
+body {
+  font-family: Lato,sans-serif;
+  background: #f2f2f2;
+  padding: 0;
+  margin: 0;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-family: Lato,sans-serif;
+  font-weight: 400; }
+
+.navbar {
+  font-size: 0.8rem; }
+  .navbar img {
+    width: 110px; }
+
+#whyus {
+  background: #e7e7e7; }
+  #whyus p {
+    font-size: 11px; }
+  #whyus h5 {
+    color: #2c2b2b; }
+
+#footer {
+  background-color: black; }
+  #footer p {
+    text-align: right; }
+
+@media (max-width: 992px) {
+  #footer p {
+    text-align: center; }
+  #footer .icons {
+    text-align: center; } }

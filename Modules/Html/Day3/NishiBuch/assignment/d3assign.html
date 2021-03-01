@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+    
+<html>   
+   <head>
+    
+    <center>
+        <title>Employee Details</title>
+    </center>  
+      <h1>EMPLOYEE DETAILS</h1>    
+</head>
+   <body style="background-color: crimson;">
+    <center>
+      <form>
+         <table>
+            
+            <tr>
+               <td align = "right">Name</td>
+               <td><input type = "text" placeholder="Enter Name"  required/></td>
+            </tr>
+                        <tr>
+               <td align = "right">Age</td>
+               <td><input type = "number"placeholder="Enter age"required min="1" max="90" /></td>
+            </tr>
+            
+            <tr>
+                <td align = "right">EMail</td>
+                <td><input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required /></td>
+             </tr>
+ 
+            <tr>
+                <td align = "right">Location</td>
+                <td>
+                   <select required ><option value=" ">Location</option>
+                      <option value = "-1" ></option>
+                      <option value = "1">Ahmedabad</option>
+                      <option value = "2">kutch</option>
+                      <option value = "3">delhi</option>
+                      <option value = "1">karnataka</option>
+                      <option value = "2">jammu</option>
+                      <option value = "3">UK</option>
+                   </select>
+                </td>
+             </tr>
+             
+
+        <tr>
+               <td align = "right">Designation</td>
+               <td><input type = "text" required /></td>
+            </tr>
+
+
+       <tr>
+               <td align = "right">Salary</td>
+               <td><input type = "number"  required pattern="[0-9]+" /></td>
+            </tr>
+
+
+            
+
+           <tr>
+               <td align = "right">Contact Number</td>
+               <td><input type = "number" required pattern="[0-9]+"/></td>
+            </tr>
+
+
+       
+           <tr>
+               <td align = "right">Date</td>
+               <td><input type ="date" required/></td>
+            </tr>
+
+
+       <tr>
+       <td align="right">
+         Gender:
+           </td>
+           <td>
+           <input type="radio" name="Gender">Male
+           <input type="radio" name="Gender">Female
+           </td>
+           </tr>
+
+
+
+            <tr>
+               <td align = "right"></td>
+               <td><input type = "submit" value = "Submit" required /></td>
+            </tr>
+            
+         </table>
+         </form>
+      </form>   
+      </center>   
+   </body>
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

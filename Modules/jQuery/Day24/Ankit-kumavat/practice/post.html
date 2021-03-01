@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+	$.post("https://gorest.co.in/public-api/users",
+    {
+      name: "modi",
+      city: "ahmedabad"
+    }, function(data, status){
+		
+		alert("data" + data + "status" + status);
+	});
+  });
+});
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Post property</h2></div>
+<button>click me!!</button>
+</body>
+</html>

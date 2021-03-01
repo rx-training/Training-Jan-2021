@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Document</title>
+        <style>
+            #mySidenav a {
+                position: absolute;
+                left: -80px;
+                transition: 0.3s;
+                padding: 15px;
+                width: 120px;
+                text-decoration: none;
+                font-size: 20px;
+                color: white;
+                border-radius: 0 5px 5px 0;
+            }
+            #mySidenav a:hover {
+                left: 0;
+            }
+            #adminpage {
+                top: 20px;
+                background-color: #4CAF50;
+            }
+            #mainsite {
+                top: 120px;
+                background-color: #2196F3;
+            }
+        </style>
+        <script>
+            function validcategorydetails() {
+                var posts=[]
+                var category=document.getElementById("category").value;
+                var articleid=document.getElementById("articleid").value;
+                var categorylink=document.getElementById("categorylink").value;
+                var categoryimage=document.getElementById("categoryimage").files[0].name;
+                if(category==="" || articleid==="" || categorylink==="" || categoryimage==="") {
+                    alert("Please fill all the details");
+                }
+                else {
+                    var obj={"category":category,"articleid":articleid,"categorylink":categorylink,"categoryimage":categoryimage};
+                    posts=JSON.parse(localStorage.getItem("posts")) || [];
+                    posts.push(obj);
+                    posts=JSON.stringify(posts);
+                    localStorage.setItem("posts",posts);
+
+                    var i=0;
+                    var flag="";
+                    var fetchposts,createrows;
+                    fetchposts=localStorage.getItem("posts");
+                    createrows=JSON.parse(fetchposts);
+                    createrows.forEach(posts=> {
+                        flag += "<tr>";
+                        flag += "<td>"+posts.category+"</td>";
+                        flag += "<td>"+posts.articleid+"</td>";
+                        flag += "<td>"+posts.categorylink+"</td>";
+                        flag += "<td>"+posts.categoryimage+"</td>";
+                        flag += '<td><button class="btn btn-warning" onclick="updatePost('+"'"+ i +"'"+')">Update</button></td>';
+                        flag += '<td><button class="btn btn-danger" onclick="deletePost('+"'"+ posts.articleid +"'"+')">Delete</button></td></tr>';
+                        i=i+1;
+                    });
+                    document.getElementById("poststable").innerHTML=flag;
+                }
+            }
+            function updatePost(i) {
+                var update=document.getElementById("updatemodalcontainer");
+                var array1=JSON.parse(localStorage.getItem("posts"));
+                update.innerHTML='\
+                    <div class="modal fade" id="updatePostModal" role="dialog"> \
+                        <div class="modal-dialog modal-lg"> \
+                            <div class="modal-content"> \
+                                <div class="modal-header bg-primary text-white"> \
+                                    <h5 class="modal-title">Update Category</h5> \
+                                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button> \
+                                </div> \
+                                <div class="modal-body"> \
+                                    <form> \
+                                        <div class="form-group"> \
+                                            <label class="form-control-label" for="oldcategorylink">Old Post Link</label> \
+                                            <input type="text" class="form-control" id="oldpostlink' + i +'" value ="' + array1[i].categorylink +' " readonly> \
+                                        </div> \
+                                        <div class="form-group"> \
+                                            <label class="form-control-label" for="newcategorylink">New Post Link</label> \
+                                            <input type="text" class="form-control" id="newpostlink' + i + '"> \
+                                        </div> \
+                                        <div class="form-group"> \
+                                            <label class="form-control-label" for="oldcategoryimage">Old Post Image</label> \
+                                            <input type="text" class="form-control" id="oldpostimage' + i +'" value ="' + array1[i].categoryimage +' " readonly> \
+                                        </div> \
+                                        <div class="form-group"> \
+                                            <label class="form-control-label" for="newcategoryimage">New Post Image</label> \
+                                            <input type="file" class="form-control" id="newpostimage' + i + '"> \
+                                        </div> \
+                                    </form> \
+                                </div> \
+                                <div class="modal-footer"> \
+                                    <button class="btn btn-secondary" data-dismiss="modal">Close</button> \
+                                    <button class="btn btn-pink" onclick="return updateCategory(' + i +')">Save Changes</button> \
+                                </div> \
+                            </div> \
+                        </div> \
+                    </div> \
+                ';
+                $("#updatePostModal").modal('show');
+			}
+            function updateCategory(i) {
+                var array1=JSON.parse(localStorage.getItem("posts"));
+                var p1=document.getElementById("newpostlink"+i).value;
+                array1[i].categorylink=p1;
+                var p2=document.getElementById("newpostimage"+i).files[0].name;;
+                array1[i].categoryimage=p2;
+                localStorage.setItem("posts",JSON.stringify(array1));
+                $("#updatePostModal").modal('hide');
+                var i=0;
+                    var flag="";
+                    var fetchposts,createrows;
+                    fetchposts=localStorage.getItem("posts");
+                    createrows=JSON.parse(fetchposts);
+                    createrows.forEach(posts=> {
+                        flag += "<tr>";
+                        flag += "<td>"+posts.category+"</td>";    
+                        flag += "<td>"+posts.articleid+"</td>";
+                        flag += "<td>"+posts.categorylink+"</td>";
+                        flag += "<td>"+posts.categoryimage+"</td>";
+                        flag += '<td><button class="btn btn-warning" onclick="updatePost('+"'"+ i +"'"+')">Update</button></td>';
+                        flag += '<td><button class="btn btn-danger" onclick="deletePost('+"'"+ posts.articleid +"'"+')">Delete</button></td></tr>';
+                        i=i+1;
+                    });
+                    document.getElementById("poststable").innerHTML=flag;
+            }
+            function deletePost(articleid)
+            {
+                var fetchrows,deleterows,i;
+                fetchrows=localStorage.getItem("posts");
+                deleterows=JSON.parse(fetchrows);
+                var deleteindex=0;
+                deleterows.forEach(posts=> {
+                    if(posts.articleid==articleid)
+                    {
+                        deleterows.splice(deleteindex,1);
+                        var object=JSON.stringify(deleterows);
+                        localStorage.setItem("posts",object);
+						var newpostarray=document.getElementById("poststable");  
+						newpostarray.removeChild(newpostarray.childNodes[deleteindex]);
+                    }
+                    deleteindex=deleteindex+1;
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="mySidenav" class="sidenav">
+                <a href="AdminOperations.html" id="adminpage">Admin Page</a>
+                <a href="Discover.html" id="mainsite">Proceed to Main Site</a>
+            </div>
+        </div>
+        <div class="container mb-5">
+            <h3 class="text-center mt-5 mb-5 text-success">Add Content</h3>
+            <form>
+                <div class="form-group">
+                    <label for="category" class="mt-3 text-primary">Category:</label>
+                    <select id="category" class="form-control">
+                        <option>Select Category</option>
+                        <option value="coronavirus">CoronaVirus</option>
+                        <option value="buisness">Buisness</option>
+                        <option value="career">Career</option>
+                        <option value="education">Education</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="food">Food</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="health">Health & Fitness</option>
+                        <option value="parenting">Parenting</option>
+                        <option value="personal">Personal Finance</option>
+                        <option value="politics">Politics</option>
+                        <option value="science">Science</option>
+                        <option value="selfimprovement">Self Improvement</option>
+                        <option value="sports">Sports</option>
+                        <option value="technology">Technology</option>
+                        <option value="travel">Travel</option>
+                    </select>
+                </div>
+                
+                <label for="articleid" class="mt-3 text-primary">Article ID:</label>
+                <input type="text" id="articleid" class="form-control" pattern="^.{2,}$" placeholder="Article ID">
+                
+                <label for="links" class="mt-3 text-primary">Links</label>
+                <textarea id="categorylink" class="form-control" placeholder="links"></textarea>
+            
+                <div class="form-group mt-4">
+                    <label for="images">Images</label>
+                    <input type="file" id="categoryimage" class="form-control">
+                    <img src="" id="image">
+                    <script>
+                        document.getElementById("categoryimage").onchange=function () {
+                            var reader=new FileReader();
+                            reader.onload=function(e) {
+                                document.getElementById("image").src=e.target.result;
+                                image.setAttribute('height','200px');
+                                image.setAttribute('width','200px');
+                            };
+                            reader.readAsDataURL(this.files[0]);
+                        };
+                    </script>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="button" onclick="validcategorydetails()">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="container mt-5">
+            <table class="table table-stripped">
+                <thead>
+                    <th>Category</th>
+                    <th>Article ID</th>
+                    <th>Links</th>
+                    <th>Image</th>
+                </thead>
+                <tbody id="poststable"></tbody>
+            </table>
+        </div>
+        <div id="updatemodalcontainer"></div>
+    </body>
+</html>

@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  </style>
+</head>
+<body>
+    <div class = "container-fluid">
+        <div class = "row py-3">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                  <a href="" class="navbar-brand h1"><img src="./Images/logo.jpg" width="70px" height="70px" class="mr-2"></a>
+                  <button class="navbar-toggler" data-toggle="collapse" data-target="#my-navbar">
+                      <span class="navbar-toggler-icon">
+  
+                      </span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="my-navbar">
+                      <ul class="navbar-nav mr-auto">
+                          <li class="nav-item "><a href="../../HTML/HTML.html" class="nav-link">HTML</a></li>
+                              <li class="nav-item"><a href="../../CSS/CSS.html" class="nav-link">CSS</a></li>
+                              <li class="nav-item "><a href="../../Bootstrap/Bootstrap.html" class="nav-link">BOOTSTRAP</a>
+                              </li>
+                              <li class="nav-item"><a href="../../Javascript/Javascript.html" class="nav-link">JAVASCRIPT</a>
+                              </li>
+                              <li class="nav-item  active"><a href="../Day21/Project.html" class="nav-link">PROJECT</a>
+                              </li>
+                      </ul>
+                  </div>
+                  </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+        <div class = "row py-3">
+          <div class="col-lg-4">
+             <ul>
+                 <li>Day21
+                 <ul>
+                     <li>Project</li>
+                     <ul>
+                      <li><a href="./Project/Project.html">Project</a></li>
+                      
+                      </ul>
+                 </ul>
+                  </li>
+             </ul>
+          </div>
+          <div class="col-lg-8">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark p-0">
+            <div class="container">
+                <a id="logo" href="home.html" class="navbar-brand"><img src="https://static1.bata.in/0/media/css/frontend/octa/images/logo.png"></a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-2"><a href="Women.html"class=" nav-link  text-white bg-danger">WOMEN</a></li>
+                        <li class="nav-item px-2"><a href="Men.html" class=" nav-link text-white bg-danger">MEN</a></li>
+                        <li class="nav-item px-2"><a href="Kids.html" class=" nav-link text-white bg-danger">KIDS</a></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown mr-3">
+                            <a href=""class="nav-link">
+                                <i class="fa fa-truck" aria-hidden="true"></i> Track Order
+                            </a>
+                        </li>
+                        <li class="nav-tem">
+                            <a href="http://127.0.0.1:5501/cart2.html?data" class="nav-link">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> My Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   
+    <div id="accordion"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+ 
+    const container = document.getElementById('accordion');
+     var get;
+     var create;
+    get = localStorage.getItem("products");
+    create = JSON.parse(get);
+   
+ create.product.forEach(products => {
+  
+        console.log(products.productCategory);
+ 
+  const card = document.createElement('div');
+  card.classList = 'card-body';
+ if(products.productCategory == "Women")
+{
+    const content = `
+    
+    <div class="card col-lg-4 float-left">
+<div id="" class="collapse show" aria-labelledby="" data-parent="#accordion">
+   
+        <div class="card-body ">
+        <img src="`+products.file+`">
+        <h5 class="text-center">`+products.brandName+`</h5>
+        <h5 class="text-center">`+products.description+`</h5>
+        <h5 class="text-danger text-center">`+products.price+`</h5>
+        <button class="btn btn-danger" onclick = "cart(`+products.productCode+`)">Add to Cart</button>
+  
+    
+</div>
+</div>
+</div>
+`;
+
+
+
+
+container.innerHTML += content;
+}
+})
+function cart(productCode)
+{
+  //alert(productCode);
+  
+    //url = "cart.html" + encodeURIComponent(productCode);
+    window.location.href = "cart2.html?data="+productCode;
+
+}   
+
+  
+ 
+    
+</script>
+</div>
+</div>
+</div>
+</body>
+</html>
+<html>
+
