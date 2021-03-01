@@ -143,6 +143,7 @@
             let Data = data.data;
             var rowData = "";
 
+            //showing data in table
             $.each(Data, function (i, value) {
               rowData +=
                 "<tr>" +
@@ -167,6 +168,7 @@
           }
         );
 
+        //to search data in table
         $("#myInput").on("keyup", function () {
           var value = $(this).val().toLowerCase();
           $("#tableBody tr").filter(function () {

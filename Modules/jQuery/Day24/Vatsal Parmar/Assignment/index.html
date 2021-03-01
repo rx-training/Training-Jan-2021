@@ -61,19 +61,19 @@
               rowData +=
                 "<tr>" +
                 "<td>" +
-                Data[i].id +
+                value.id +
                 "</td>" +
                 "<td>" +
-                Data[i].name +
+                value.name +
                 "</td>" +
                 "<td>" +
-                Data[i].email +
+                value.email +
                 "</td>" +
                 "<td>" +
-                Data[i].gender +
+                value.gender +
                 "</td>" +
                 "<td>" +
-                Data[i].status +
+                value.status +
                 "</td>" +
                 "</tr>";
             });
@@ -81,6 +81,7 @@
           }
         );
 
+        //for searchin data in table
         $("#myInput").on("keyup", function () {
           var value = $(this).val().toLowerCase();
           $("#tableBody tr").filter(function () {

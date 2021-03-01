@@ -135,6 +135,7 @@
         });
         $("[name='technology']").click(function () {
           $("[type = 'radio']").each(function (index, element) {
+            //showing selected technology using switch
             if ($(element).prop("checked") == true) {
               switch (index) {
                 case 0:

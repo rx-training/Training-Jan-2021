@@ -69,6 +69,8 @@
       <p class="text-danger my-2"><strong id="ans5"></strong></p>
     </div>
     <script>
+      //using call back to show squre of number
+
       function square(num1, ans1, callback) {
         var a = num1.value;
         callback(a * a, ans1);
@@ -85,6 +87,7 @@
       document.getElementById("ans3").innerHTML =
         'Value Of "a" From var keyword : ' + a;
 
+      // reversing enterd string using promise
       function reverse(num2) {
         var num2 = document.getElementById("num2").value;
         let myPromise = new Promise(function (resolve, reject) {

@@ -196,6 +196,8 @@
             clearInterval(t);
           }
         }
+
+        //to show times up message
         let promise = new Promise((resolve, reject) => {
           setTimeout(() => resolve("Time Is Up"), 3 * 60 * 60 * 1000);
         });

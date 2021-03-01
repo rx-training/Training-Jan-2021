@@ -258,6 +258,7 @@
     <script src="../../js/bootstrap.min.js"></script>
     <script>
       function calculate() {
+        //getting inputs from user
         var a = parseInt(document.getElementById("num1").value);
         var b = parseInt(document.getElementById("num2").value);
         var aad = document.getElementById("add").checked;
@@ -265,6 +266,7 @@
         var mul = document.getElementById("mul").checked;
         var div = document.getElementById("div").checked;
 
+        //checking for valid data
         if (isNaN(a)) {
           document.getElementById("wrang-num-1").innerHTML =
             "Please enter first number";
@@ -275,6 +277,8 @@
             "Please enter second number";
           document.getElementById("answer").innerHTML = "";
         } else {
+          //calculating according to user input
+
           switch (true) {
             case aad:
               document.getElementById("answer").innerHTML = a + b;

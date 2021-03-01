@@ -1,10 +1,12 @@
 var products;
 async function getData(file) {
+  //fetching products
   let x = await fetch(file);
   let y = await x.json();
 
   products = y.products;
 
+  //showing products in table
   for (var i = 0; i < products.length; i++) {
     var tr = document.createElement("tr");
     var th1 = document.createElement("th");
@@ -49,6 +51,7 @@ async function getData(file) {
 }
 getData("./assets/product.json");
 
+//adding products to cart
 function addToCart() {
   let arr = [];
   for (var i = 0; i < products.length; i++) {
@@ -63,9 +66,12 @@ function addToCart() {
     arr.push(p);
   }
   let a = JSON.stringify(arr);
+
+  //storing in local storage
   localStorage.setItem("Items", a);
 }
 
+//showing product in cart
 function viewCart() {
   var pData = localStorage.getItem("Items");
   var prodData = JSON.parse(pData);

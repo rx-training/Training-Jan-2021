@@ -270,6 +270,7 @@
     <script src="../../js/bootstrap.min.js"></script>
     <script>
       function checkData() {
+        //grtting user input
         var eId = document.getElementById("EID").value;
         var name = document.getElementById("eName").value;
         var age = document.getElementById("age").value;
@@ -393,6 +394,7 @@
               "<li><strong>" + Data[j] + "</strong></li>";
           }
         } else {
+          //for showing errors
           document.getElementById("ans1").innerHTML = "";
           document.getElementById("ans2").innerHTML = "";
           document.getElementById("ans3").innerHTML = "";

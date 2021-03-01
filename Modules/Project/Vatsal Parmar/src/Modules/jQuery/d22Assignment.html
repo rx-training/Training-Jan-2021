@@ -129,6 +129,7 @@
     <script src="../../js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function () {
+        // adding options in list
         $("#countryList").append(
           "<option id='none' value='none' selected> Please Select </option>"
         );
@@ -148,6 +149,7 @@
           "<option id='Sweden' value='Sweden'> Sweden </option>"
         );
 
+        //showing selected country
         var a = $("#countryList option:selected").val();
         $("#ans").html(
           "<li class='list-group-item'>India</li><li class='list-group-item'>United Kingdom</li><li class='list-group-item'>United States</li><li class='list-group-item'>Canada</li><li class='list-group-item'>Sweden</li>"

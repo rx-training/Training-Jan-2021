@@ -4,6 +4,9 @@ function clickMe() {
   var a = parseInt(prompt("Enter First Number"));
   var b = parseInt(prompt("Enter Second Number"));
   var c = parseInt(prompt("Enter Third Number"));
+
+  // Checking for maxim maximum number
+
   if (a > b) {
     if (a > c) {
       document.getElementById("maximum").innerHTML =
@@ -21,6 +24,9 @@ function clickMe() {
         "<strong>Maximum Number :" + " " + c + "</strong>";
     }
   }
+
+  //adding if entered number is greter then 40
+
   if (a > 40) {
     SUM = SUM + a;
   }
@@ -34,6 +40,7 @@ function clickMe() {
   SUM = 0;
 }
 
+//looping through city array and showing it in alert
 var arr = ["Ahmedabad", "Vadodra", "Jamnagar", "Surat", "Rajkot"];
 function cityNames() {
   for (var i = 0; i < arr.length; i++) {

@@ -1,4 +1,6 @@
 function calculate() {
+  // Taking Inputs
+
   var a = parseInt(document.getElementById("num1").value);
   var b = parseInt(document.getElementById("num2").value);
   var aad = document.getElementById("add").checked;
@@ -6,6 +8,7 @@ function calculate() {
   var mul = document.getElementById("mul").checked;
   var div = document.getElementById("div").checked;
 
+  //Validation for wrong input
   if (isNaN(a)) {
     document.getElementById("wrang-num-1").innerHTML =
       "Please enter first number";
@@ -16,6 +19,8 @@ function calculate() {
       "Please enter second number";
     document.getElementById("answer").innerHTML = "";
   } else {
+    // Taking Switch statement for calculator logic
+
     switch (true) {
       case aad:
         document.getElementById("answer").innerHTML = a + b;

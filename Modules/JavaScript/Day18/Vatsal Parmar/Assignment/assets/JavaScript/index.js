@@ -5,6 +5,8 @@ async function timer() {
 
   var t = setInterval(watch, 1000);
 
+  //increseing mins and hrs
+
   function watch() {
     s++;
     if (s == 60) {
@@ -26,6 +28,7 @@ async function timer() {
       clearInterval(t);
     }
   }
+  //show wing times up warning
   let promise = new Promise((resolve, reject) => {
     setTimeout(() => resolve("Time Is Up"), 3 * 60 * 60 * 1000);
   });

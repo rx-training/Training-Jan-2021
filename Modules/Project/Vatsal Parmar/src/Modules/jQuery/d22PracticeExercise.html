@@ -222,6 +222,7 @@
         $("[name='technology']").click(function () {
           $("[type = 'radio']").each(function (index, element) {
             if ($(element).prop("checked") == true) {
+              //showing selected technology
               switch (index) {
                 case 0:
                   $("#ans").html("YOU HAVE SELECTED : <span> PHP </span>");
