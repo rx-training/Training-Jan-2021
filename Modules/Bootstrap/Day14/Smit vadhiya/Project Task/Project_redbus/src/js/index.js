@@ -1,11 +1,19 @@
 $(document).ready(function(){
 
-    // async function loadjson(){
-    //     let jsonData = await fetch("../JSON/user.json");
-    //     let data = await jsonData.text();
-    //     localStorage.setItem("user",data);
-    // } 
-    // loadjson();
+    async function loadjson(){
+        let jsonData = await fetch("../JSON/user.json");
+        let data = await jsonData.text();
+        localStorage.setItem("user",data);
+
+        jsonData = await fetch("../JSON/buses.json");
+        data = await jsonData.text();
+        localStorage.setItem("buses",data);
+
+        jsonData = await fetch("../JSON/feedback.json");
+        data = await jsonData.text();
+        localStorage.setItem("feedback",data);
+    } 
+    loadjson();
     
 
     var signup = $("#sign-up");

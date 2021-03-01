@@ -1,11 +1,6 @@
 $(document).ready(function(){
 
-    //  async function loadjson(){
-    //      let jsonData = await fetch("../JSON/buses.json");
-    //      let data = await jsonData.text();
-    //      localStorage.setItem("buses",data);
-    //  } 
-    //  loadjson();
+    
     var buses = JSON.parse(localStorage.getItem("buses"));
     var users = JSON.parse(localStorage.getItem("user"));
     var feedback = JSON.parse(localStorage.getItem("feedback"));
@@ -30,18 +25,17 @@ $(document).ready(function(){
 
     //-----------Add DATA TO TABLE------------
 
-    function addToTable(){
-        for(item of buses){
-            str += "    <tr>"
-            for (i in item){
-                str += "<td>"+item[i]+"</td>"
-            }
-            str += '<td><span><button class="btn btn-danger h5 p-1">&times;</button></span></td></tr>'
+    
+    for(item of buses){
+        str += "    <tr>"
+        for (i in item){
+            str += "<td>"+item[i]+"</td>"
         }
-        tbody.append(str);
+        str += '<td><span><button class="btn btn-danger h5 p-1">&times;</button></span></td></tr>'
     }
+    tbody.append(str);    
 
-    addToTable();
+    
 
     
     
