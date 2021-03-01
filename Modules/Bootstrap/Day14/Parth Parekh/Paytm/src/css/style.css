@@ -14,6 +14,9 @@ body {
     color: whitesmoke;
     font-weight: 700; }
 
+.paytm-bg {
+  color: #012b72; }
+
 .bl {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
@@ -52,10 +55,6 @@ body {
 @media screen and (max-width: 576px) {
   #Entertainment .card {
     margin-left: 170px; } }
-
-@media screen and (max-width: 1200px) {
-  .personalcare img {
-    width: 218px; } }
 
 .borderradius {
   border-radius: 8px; }

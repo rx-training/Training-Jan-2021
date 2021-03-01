@@ -1,0 +1,11 @@
+nav{
+    background:lightgreen;
+}
+nav img{
+    width: 80px;
+    height: 80px;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}

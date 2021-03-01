@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+
+        $("document").ready(function(){
+         $("#tech1").click(function()
+        {
+                $("#one").html("<label>you have selected:</label>PHP");
+            });
+            $("#tech2").click(function(){
+                $("#one").html("<label>you have selected:</label>ASP.NET");
+            });
+            $("#tech3").click(function(){
+                $("#one").html("<label>you have selected:</label>ASP");
+            });
+            $("#tech4").click(function(){
+                $("#one").html("<label>you have selected:</label>JSP");
+            });
+            $("#tech5").click(function(){
+                $("#one").html("<label>you have selected:</label>PERL");
+            });
+            $("#tech6").click(function(){
+                $("#one").html("<label>you have selected:</label>cold fusion");
+            });
+            $("#other").click(function(){
+                $("#one").html("<label>you have selected:</label>no technology");
+            });
+
+
+        });
+ 
+    </script>
+</head>
+
+<body>
+    <form>
+    <label for=""> Please select your technology:</label>
+
+    <input type="radio" id="tech1" name="technology" value="PHP">
+    <label for="PHP"><span>PHP</span></label>
+    <input type="radio" id="tech2" name="technology" value="ASP.NET">
+    <label for="ASP.NET"><span>ASP.NET</span></label>
+    <input type="radio" id="tech3" name="technology" value="ASP">
+    <label for="ASP"><span>ASP</span></label>
+    <input type="radio" id="tech4" name="technology" value="JSp">
+    <label for="tech4"><span>JSP</span></label>
+    <input type="radio" id="tech5" name="technology" value="PERL">
+    <label for="tech5"><span>PERL</span></label>
+    <input type="radio" id="tech6" name="technology" value="cold fusion">
+    <label for="tech6"><span>cold fusion</span> </label>
+    <input type="radio" id="other" name="technology" value="other">
+    <label for="other"><span> other</span></label><br><br>
+        <div id="one"></div>
+</form>    
+</body>
+    
+
+</html>

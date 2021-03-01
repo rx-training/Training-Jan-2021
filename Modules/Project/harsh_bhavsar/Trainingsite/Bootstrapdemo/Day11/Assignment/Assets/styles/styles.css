@@ -296,7 +296,7 @@
     grid-template-areas:"footer_hours" "footer_menu" "footer_museum" "footer_painting_names" "footer_links" "footer_img";
 
 }
-.footer_museum h1{
+.footer_museum {
     text-align: center;
 }
 
@@ -306,13 +306,11 @@
 }
 .footer_img{
     width: 50%;
-    justify-self: flex-end;
+  
 }
-.footer_hours{
-    text-align: left;
-}
+
 @media (max-width: 767px) {
-    .footer_menu, .footer_museum, .footer_painting_names, .footer_links{
+  .footer_hours, .footer_img, .footer_menu, .footer_museum, .footer_painting_names, .footer_links{
         border-top: 1px dashed black;
         padding-top: 10px;
         display: flex;

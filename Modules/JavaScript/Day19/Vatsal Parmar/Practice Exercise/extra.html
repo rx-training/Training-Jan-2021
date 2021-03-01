@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Extras</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Day-19 Extras</h1>
+      <h2>JavaScript Class</h2>
+      <p class="text-success my-2"><strong id="ans1"></strong></p>
+      <h2>Create a Class method named "age", that returns the Car age:</h2>
+      <p class="text-success my-2"><strong id="ans2"></strong></p>
+      <h2>
+        Create a class named "Model" which will inherit the methods from the
+        "Car" class:
+      </h2>
+      <p class="text-success my-2"><strong id="ans3"></strong></p>
+    </div>
+    <script>
+      class Car {
+        constructor(name, year) {
+          this.name = name;
+          this.year = year;
+        }
+        age() {
+          let date = new Date();
+          return date.getFullYear() - this.year;
+        }
+      }
+
+      myCar = new Car("Ford", 2014);
+      document.getElementById("ans1").innerHTML = myCar.name + " " + myCar.year;
+      document.getElementById("ans2").innerHTML =
+        "My car is " + myCar.age() + " years old.";
+
+      // inheritance
+
+      class Cars {
+        constructor(brand) {
+          this.carname = brand;
+        }
+        present() {
+          return "I have a " + this.carname;
+        }
+      }
+
+      class Model extends Cars {
+        constructor(brand, mod) {
+          super(brand);
+          this.model = mod;
+        }
+        show() {
+          return this.present() + ", it is a " + this.model;
+        }
+      }
+
+      let myCars = new Model("Ford", "Mustang");
+      document.getElementById("ans3").innerHTML = myCars.show();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

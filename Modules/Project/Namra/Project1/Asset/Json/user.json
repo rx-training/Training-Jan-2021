@@ -1,0 +1,57 @@
+{
+    "Users": [
+        {
+            "User_ID": 1,
+            "UserName": "radix.123",
+            "Password": "radix123$",
+            "Gender" : "Female",
+            "Contact" : 1234567890,
+            "Email" : "abc123@gmail.com",
+            "Name" : "Charmi Parikh",
+            "Cart" : []
+
+        },
+        {
+            "User_ID": 2,
+            "UserName": "radix.234",
+            "Password": "radix.234$",
+            "Gender" : "Male",
+            "Contact" : 1234567890,
+            "Email" : "abc123@gmail.com",
+            "Name" : "Namra Patel",
+            "Cart" : []
+        },
+        {
+            "User_ID": 3,
+            "UserName": "radix.345",
+            "Password": "radix345$",
+            "Gender" : "Male",
+            "Contact" : 1234567890,
+            "Email" : "abc123@gmail.com",
+            "Name" : "Jitendra Patel",
+            "Cart" : []
+
+        },
+        {
+            "User_ID": 4,
+            "UserName": "radix.456",
+            "Password": "radix456$",
+            "Gender" : "Male",
+            "Contact" : 1234567890,
+            "Email" : "abc123@gmail.com",
+            "Name" : "abcd456",
+            "Cart" : []
+        },
+        {
+            "User_ID": 5,
+            "UserName": "radix.56",
+            "Password": "radix56$",
+            "Gender" : "Male",
+            "Contact" : 1234567890,
+            "Email" : "abc123@gmail.com",
+            "Name" : "abcd56",
+            "Cart":[]
+
+        }
+    ]
+}

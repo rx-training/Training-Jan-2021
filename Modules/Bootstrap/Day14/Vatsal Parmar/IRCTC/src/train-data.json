@@ -1,0 +1,324 @@
+{
+  "trains": [
+    {
+      "id": 1,
+      "name": "ADI DDR SPL (09202)",
+      "days": "M T W T F S S",
+      "duration": "-1:30-",
+      "start": "6 : 00",
+      "stop": "7 : 30",
+      "from": "AHMEDABAD",
+      "to": "VADODRA",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "80"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "760"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "300"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "555"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "SURYA NAGRI SPL (02479)",
+      "days": "M T W T F S S",
+      "duration": "-1:30-",
+      "start": "3 : 55",
+      "stop": "5 : 25",
+      "from": "AHMEDABAD",
+      "to": "VADODRA",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "90"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "1145"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "510"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "695"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "MMCT (02932)",
+      "days": "M T W T F S",
+      "duration": "-2:00-",
+      "start": "8 : 00",
+      "stop": "10 : 00",
+      "from": "AHMEDABAD",
+      "to": "VADODRA",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "50"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "870"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "290"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "480"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "BARODA EXP. (03932)",
+      "days": "M W F S",
+      "duration": "-1:00-",
+      "start": "5 : 00",
+      "stop": "6 : 00",
+      "from": "AHMEDABAD",
+      "to": "VADODRA",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "100"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "1270"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "490"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "880"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "SHATABDI SPL (14579)",
+      "days": "M T W T F S S",
+      "duration": "-5:00-",
+      "start": "3 : 25",
+      "stop": "8 : 25",
+      "from": "AHMEDABAD",
+      "to": "MUMBAI",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "500"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "3545"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "1510"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "2695"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "BOMBAY EXP. (13702)",
+      "days": "F S S",
+      "duration": "-6:00-",
+      "start": "5 : 10",
+      "stop": "11 : 10",
+      "from": "AHMEDABAD",
+      "to": "MUMBAI",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "350"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "3005"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "1210"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "2130"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "SWARAJYA (19049)",
+      "days": "M T W T F S S",
+      "duration": "-7:00-",
+      "start": "4 : 30",
+      "stop": "11 : 30",
+      "from": "AHMEDABAD",
+      "to": "MUMBAI",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "290"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "2945"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "1010"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "1905"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "RAJDHANI EXP. (49119)",
+      "days": "S S",
+      "duration": "-8:00-",
+      "start": "4 : 00",
+      "stop": "12 : 00",
+      "from": "AHMEDABAD",
+      "to": "DELHI",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "700"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "5945"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "2033"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "3800"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "DELHI EXP. (49119)",
+      "days": "T W S S",
+      "duration": "-10:00-",
+      "start": "12 : 00",
+      "stop": "22 : 00",
+      "from": "AHMEDABAD",
+      "to": "DELHI",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "600"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "5150"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "2030"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "3500"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "MAHARAJA EXP. (59019)",
+      "days": "M T W T F S S",
+      "duration": "-5:00-",
+      "start": "11 : 00",
+      "stop": "16 : 00",
+      "from": "AHMEDABAD",
+      "to": "JAIPUR",
+      "class": [
+        {
+          "name": "Anubhuti Class",
+          "availability": "WAITING",
+          "price": "405"
+        },
+        {
+          "name": "AC First Class (1A)",
+          "availability": "AVALIABLE",
+          "price": "2550"
+        },
+        {
+          "name": "Exec. Chair Car (EC)",
+          "availability": "AVALIABLE",
+          "price": "1015"
+        },
+        {
+          "name": "AC 2 Tier",
+          "availability": "AVALIABLE",
+          "price": "1909"
+        }
+      ]
+    }
+  ]
+}

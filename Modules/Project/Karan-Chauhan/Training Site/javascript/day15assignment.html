@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> </script>
+    <title>Training Site</title>
+    <style type="text/css">
+        #imglogo {
+            height: 40px;
+            width: 40px;
+            border-radius: 25px;
+        }
+
+        #jsmenu {
+            background: #FCF3CF;
+
+        }
+
+        #bodycontent {
+            background: white;
+            height: 100vh;
+
+        }
+
+        ul {
+            list-style-type: none;
+        }
+    </style>
+
+<script type="text/JavaScript">
+    function myOperation() {
+        var no1 = parseFloat(document.getElementById('no1').value);
+        var no2 = parseFloat(document.getElementById('no2').value);
+
+        
+
+        for (var i = 0; i < document.getElementsByName('operation').length; i++)
+        {
+             if (document.getElementsByName('operation')[i].checked)
+            {
+                 var op = document.getElementsByName('operation')[i].value;
+            }
+        }
+
+        if(op == "addition"){
+            ans = no1 + no2;
+        }
+        else if(op == "subtraction"){
+            ans = no1 - no2;
+        }
+        else if(op == "multiplication"){
+            ans = no1 * no2;
+        }
+        else{
+            ans = no1 / no2;
+        }
+
+        if(isNaN(no1) || isNaN(no2)){
+            alert('Invalid Input!');
+        }
+        else{
+            res = "Result is :" + ans;
+            document.getElementById('result').innerText = res; 
+        }           
+    }
+
+   
+</script>
+
+</head>
+
+<body>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <img src="../logo.JPG" class="mr-2" id="imglogo" alt="Radixweb">
+        <a class="navbar-brand"
+            href="D:\Radixweb\Training-Jan-2021\Modules\Project\Karan-Chauhan\Training Site\index.html">Training
+            Site</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#data">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="data">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../html/index.html">
+                        HTML
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../css/index.html">
+                        CSS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../bootstrap/index.html">
+                        BOOTSTRAP
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../javascript/index.html">
+                        JAVASCRIPT
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../jquery/index.html">
+                        JQUERY
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../project/index.html">
+                        PROJECT
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="row">
+        
+            <div class="col-lg-3 p-3" id="jsmenu">
+                <ul>
+                    <li>
+                        Day-15
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="array.html">Array</a><br>
+                            <a href="day15practice.html">Practice</a>
+                        </li>
+                        <li>
+                            <a href="day15assignment.html">Assignment</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Day-16
+                    </li>
+                    <ul>
+                        <li>                            
+                            <a href="day16practice.html">Practice</a>
+                        </li>
+                        <li>
+                            <a href="day16assignment.html">Assignment</a>
+                        </li>
+                    </ul>
+                   
+                    <li>
+                        Day-17
+                    </li>
+                    <ul>
+                        <li>                            
+                            <a href="day17practice.html">Practice</a>
+                        </li>
+                        <li>
+                            <a href="day17assignment.html">Assignment</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Day-18
+                    </li>
+                    <ul>
+                        <li>                            
+                            <a href="day18practice.html">Practice</a>
+                        </li>
+                        <li>
+                            <a href="day18assignment.html">Assignment</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Day-19
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="day19assignment.html">Assignment</a>
+                        </li>
+                    </ul>
+
+                    <li>
+                        Day-20
+                    </li>
+                    <ul>
+                        <li>                            
+                            <a href="day20practice.html">Practice</a>
+                        </li>
+                        <li>
+                            <a href="day20assignment.html">Assignment</a>
+                        </li>
+                    </ul>
+
+                </ul>
+            </div>
+        
+        <div class="col-lg-9" id="bodycontent">
+            <div class="container">
+                <h1 class="display-4">Arithmetic Operations</h1>
+                <form class="form-group" id="myForm">
+                    <div class="form-group">
+                        <label for="first">Please enter first number : </label>
+                        <input type="text" class="form-control" id="no1" pattern="[0-9]+" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="second">Please enter second number : </label>
+                        <input type="text" class="form-control" id="no2" pattern="[0-9]+" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="operation">Please select operation you want to perform : </label><br>
+        
+                        <input type="radio" value="addition" id="add" name="operation" checked>
+                        <label for="add">Addition</label><br>
+        
+                        <input type="radio" value="subtraction" id="sub" name="operation">
+                        <label for="sub">Subtraction</label><br>
+        
+                        <input type="radio" value="multiplication" id="mul" name="operation">
+                        <label for="mul">Multiplication</label><br>
+        
+                        <input type="radio" value="division" id="divide" name="operation">
+                        <label for="divide">Division</label><br>
+                    </div>
+                    <div class="form-group">
+                        <input type="button" onclick="myOperation()" value="Calculate" id="calculate" class="btn btn-primary">
+                        <input type="reset" value="Reset" id="reset" class="btn btn-secondary">
+                    </div>
+                    <label id="result"></label>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-white p-3">
+        <center>Karan Singh Chauhan </center>
+    </footer>
+
+
+
+</body>
+
+</html>

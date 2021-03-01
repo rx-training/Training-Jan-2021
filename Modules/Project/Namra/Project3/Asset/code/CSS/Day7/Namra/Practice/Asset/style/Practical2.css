@@ -1,0 +1,58 @@
+.Container{
+        padding : 10px;
+        color : White; 
+}
+@media screen and (max-width : 600px){
+    .Container{
+        background-color:rgb(1, 66, 1);
+        padding: 10px;
+    }
+    /*Hide elements with Media queries*/
+    .Container h1{
+        display: none;
+    }
+    /*Change Font size with Media Queries*/
+    .Container p{
+        font-size:small;
+    }
+}
+@media screen and (min-width : 600px){
+    .Container{
+        background-color:rgb(1, 160, 1);
+        padding: 20px;
+    }
+    .Container p{
+        font-size:medium;
+    }
+}
+@media screen and (min-width : 800px){
+    .Container{
+        background-color:rgb(2, 212, 2);
+        padding: 30px;
+    }
+    .Container p{
+        font-size:large;
+    }
+}@media screen and (min-width : 900px){
+    .Container{
+        background-color:rgb(0, 255, 0);
+        padding: 40px;
+    }
+}
+@media screen and (min-width : 1000px){
+    .Container{
+        background-color:rgb(111, 255, 111);
+        padding: 50px;
+        color:grey;
+    }
+    .Container p{
+        font-size:x-large;
+    }
+}
+@media screen and (min-width : 1200px){
+    .Container{
+        background-color:rgb(190, 253, 190);
+        padding: 60px;
+        color: black;
+    }
+}

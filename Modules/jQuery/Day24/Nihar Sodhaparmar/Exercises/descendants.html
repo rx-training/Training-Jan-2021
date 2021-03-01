@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Day23 Descendants Exercise</title>
+
+    <style>
+        .descendants,
+        .descendants * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: black;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".div1").children().css({ "color": "red", "border": "2px solid red" });
+
+            $(".div2").children("p.first").css({ "color": "red", "border": "2px solid red" });
+
+            $(".div3").find("span").css({ "color": "red", "border": "2px solid red" });
+
+            $(".div4").find("*").css({ "color": "red", "border": "2px solid red" });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container bg-light border border-primary rounded my-5 p-5" style="width: fit-content;">
+        <div class="display-4 text-center">Descendants Exercise</div>
+
+        <div class="display-4 mt-5" style="font-size: 35px;">children()</div>
+        <div class="descendants div1" style="width:500px;">div (current element)
+            <p>p (child)
+                <span>span (grandchild)</span>
+            </p>
+            <p>p (child)
+                <span>span (grandchild)</span>
+            </p>
+        </div>
+
+        <div class="descendants div2" style="width:500px;">div (current element)
+            <p class="first">p (child)
+                <span>span (grandchild)</span>
+            </p>
+            <p>p (child)
+                <span>span (grandchild)</span>
+            </p>
+        </div>
+
+        <div class="display-4 mt-5" style="font-size: 35px;">find()</div>
+        <div class="descendants div3" style="width:500px;">div (current element)
+            <p>p (child)
+                <span>span (grandchild)</span>
+            </p>
+            <p>p (child)
+                <span>span (grandchild)</span>
+            </p>
+        </div>
+        <div class="descendants div4" style="width:500px;">div (current element)
+            <p>p (child)
+                <span>span (grandchild)</span>
+            </p>
+            <p>p (child)
+                <span>span (grandchild)</span>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

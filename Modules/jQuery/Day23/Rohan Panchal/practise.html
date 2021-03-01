@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Day21 - Practise</title>
+  </head>
+  <body>
+        <div class="container-fluid p-5">
+            <div class="row">
+                <div class="col">
+                    <h6 class="fs-6">1. Create one paragraph, add some dummy text and apply blue background color using jquery</h6>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 class="fs-6">2. There is one Hide/show the text inside the #helpText span element when the user’s mouse passes over the text “</h6>
+                    <span id="helptext" class="p-2"> Rohan Panchal -Hover Me </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 class="fs-6">3. <br>  – Label : “Please select your technology :”<br>
+
+                        – Consider following set of radio buttons :-
+
+                          “PHP”, “ASP.NET”, “ASP”, “JSP”, “PERL”, “Cold Fusion”, “Other”. Layout these buttons in a Horizontal manner. <br>
+
+                        – Clicking on a particular radio button should display the related technology name besides label : “You have  selected : “<div class="br"></div>
+
+                        – Use multiple “span” HTML element for displaying the related message.  <br>
+
+                        – Note that radio button should be selectable by clicking on the corresponding label.</h6>
+                    <div class="d-flex">
+                        <div class="custom-control custom-checkbox custom-control-inline px-2">
+                            <input id="php" class="custom-control-input" type="radio" name="lang">
+                            <label for="php" class="custom-control-label">PHP</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline px-2">
+                            <input id="aspnet" class="custom-control-input" type="radio" name="lang">
+                            <label for="aspnet" class="custom-control-label">ASP.NET</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline px-2">
+                            <input id="asp" class="custom-control-input" type="radio" name="lang">
+                            <label for="asp" class="custom-control-label">ASP</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline px-2">
+                            <input id="jsp" class="custom-control-input" type="radio" name="lang">
+                            <label for="jsp" class="custom-control-label">JSP</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline px-2">
+                            <input id="perl" class="custom-control-input" type="radio" name="lang">
+                            <label for="perl" class="custom-control-label">PERL</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline px-2">
+                            <input id="coldfusion" class="custom-control-input" type="radio" name="lang">
+                            <label for="coldfusion" class="custom-control-label">COLD-FUSION</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline px-2">
+                            <input id="other" class="custom-control-input" type="radio" name="lang">
+                            <label for="other" class="custom-control-label">OTHER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('p').text("Hello, World").css({'background-color':'blue','color':'white'}).addClass('p-2');
+
+            $('#helptext').hover(function()
+            {
+                $(this).toggle();
+            })
+            $('input[type="radio"]').click(function()
+            {
+                $('input[type="radio"]').each(function(index,ele){
+                    console.log(ele.id);
+                    if($(this).prop('checked'))
+                    {
+                        $('label[for='+ele.id+']').css({'border':'1px solid black'});
+                        $('label[for='+ele.id+']').text("You have selected "+$('label[for='+ele.id+']').text()).css('color','red');
+                    }
+                    else
+                    {
+                        $('label[for='+ele.id+']').css({'border':'0px'});
+                        $('label[for='+ele.id+']').text(ele.id).css('color','black');
+                    }
+                });
+            });
+           
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  </body>
+</html>

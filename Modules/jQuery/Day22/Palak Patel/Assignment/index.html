@@ -28,7 +28,18 @@
 
             $('#click').click(function(e){
                 e.preventDefault();
-                console.log($("#countryName option:selected").text());
+                let country = [];
+                //console.log($("#countryName option:selected").val())
+                if($("#countryName option:selected").val()=='cityAuto'){
+                    $('option').each(function(e){
+                        country.push(this.text);
+                    });
+                    country.shift();
+                    $('.result').html("Your Selected Country: " +[...country].join(", ") );
+                }else{
+                    $('.result').html("Your Selected Country: " +$('option:selected').text() );
+                }
+                //console.log($("#countryName option:selected").text());
             });
         });
     </script>
@@ -38,14 +49,14 @@
 
     <div class="container text-center border rounded pb-2">
         <form>
-            <div class="from-group d-flex">
-                <label class="w-25 mt-5 mb-2">Please Select the country: </label>
-                <select name="" id="countryName" class="mt-5 mb-2 ml-1 form-control">
+            <div class="from-group">
+                <label class="w-25" style="font-weight: 200; font-size: 20px; margin-top: 50px;">Please Select the country: </label>
+                <select name="" id="countryName" class="form-control">
                     
                 </select>
-                <button class="btn btn-success mt-5 ml-2 mb-2" id="click">Submit</button>
+                <button class="btn btn-success my-3" id="click">Submit</button>
             </div>
-            <span style="font-weight: 200; font-size: 20px; margin-top: 50px;">lajibolala</span>
+            <span class="result" style="font-weight: 200; font-size: 20px; margin-top: 50px;"></span>
         </form>
     </div>
 

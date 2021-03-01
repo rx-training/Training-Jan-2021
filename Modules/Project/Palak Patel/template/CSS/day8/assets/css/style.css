@@ -1,0 +1,623 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.work-navbar {
+    width: 100%;
+
+}
+
+.work-navbar .logo {
+    float: left;
+    font-size: 25px;
+    /* margin-right: 640px; */
+    color: green;
+    padding: 15px;
+}
+
+.work-navbar .nav-item {
+    float: right;
+    padding-top: 25px;
+}
+
+.work-navbar .nav-item a {
+    text-decoration: none;
+    color: black;
+    padding-right: 20px;
+}
+
+.corosoul img {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.container .text {
+    width: 90%;
+    padding: 20px 90px 20px 10px;
+}
+
+.container .text h3 {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.container .text p {
+    font-weight: 300;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+
+.container-button {
+    padding: 40px 60px 20px 20px;
+}
+
+.container-button button {
+    width: 150px;
+    height: 40px;
+    background-color: rgb(38, 175, 38);
+    color: white;
+    border: none;
+}
+
+.container1 {
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+    padding: 30px 30px 60px 30px;
+}
+
+.cards {
+    padding: 20px
+}
+
+.cards h3 {
+    font-weight: 400;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.cards p {
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.container2 h3,
+.block1 h3,
+.block2 h3,
+.container4 h3 {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 10px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
+}
+
+.container2 .main-row{
+    position: relative;
+    display: flex;
+    padding: 0px 30px 50px 30px;
+}
+
+.main-row .row{
+    position: relative;
+    display: flex;
+}
+
+.img-card {
+    padding: 20px
+}
+
+.img-card h6 {
+    font-size: 15px;
+    padding: 15px 0;
+}
+
+.img-card p,
+.block-text,
+.cont-block2 {
+    font-weight: 200;
+    font-size: 12px;
+    padding-right: 35px;
+    text-align: justify;
+}
+
+.container3,
+.cont-block {
+    position: relative;
+    display: flex;
+}
+
+.block1 {
+    padding: 10px;
+}
+
+.block2 {
+    padding: 10px;
+}
+
+.block-text {
+    padding-left: 20px;
+}
+
+.block-text p {
+    padding-bottom: 10px;
+}
+
+.block-text span {
+    color: lime;
+    font-weight: 1000;
+}
+
+.cont-block {
+    padding: 10px;
+}
+
+.cont-block2 {
+    padding: 10px;
+    margin-left: 10px;
+    border-left: 1px solid lightgrey;
+}
+
+
+.container4 .flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0px;
+}
+
+.container4 .flex-container>div {
+    width: 100px;
+    margin: 0px 10px 10px 10px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+.container4 .flex-container>div img{
+    width: 100%;
+}
+
+/* footer styling */
+
+.sub-foot1{
+    /* position: relative; */
+    display: inline-flex;
+    padding: 10px;
+    background-color: rgb(44, 42, 42);
+    color: white;
+}
+.foot1 h1{
+    padding: 20px 10px;
+}
+
+.foot1-text{
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+.foot1 p{
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.sub-foot1 .foot1 h1{
+    font-weight: 200;
+}
+
+.foot2, .foot3, .foot4{
+    width: 70%;
+    padding: 10px 10px 10px 20px;
+    align-items: flex-start;
+}
+
+.tit{
+    font-size: 20px;
+    font-weight: 100;
+    border-bottom: 1px dotted white;
+    margin-bottom: 15px;
+}
+
+.foot2 h6{
+    /* padding: 5px 0; */
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.foot2 p{
+    /* padding: 5px 0; */
+    color: rgba(250, 250, 250, 0.3);
+    font-size: 13px;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+}
+
+.ssfoot3 {
+    width: 100%;
+    
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    
+}
+
+.ssfoot3 .left{
+    float: left;
+    width: 40%;
+    font-weight: 100;
+    font-size: 12px;
+    color: rgba(250, 250, 250, 0.4);
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+}
+
+.ssfoot3 .righ{
+    float: right;
+    width: 60%;
+    text-align: right;
+    font-weight: 200;
+    font-size: 12px;
+    color: rgba(250, 250, 250, 0.4);
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+}
+
+.foot2{
+    
+    padding-right: 20px;
+}
+
+.foot4{
+    padding-left: 30px;
+}
+
+.foot4-text{
+    margin-top: 30px;
+}
+
+.foot4-text p{
+    padding-top: 2px;
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.sub-foot2{
+    background-color: black;
+    color: white;
+    /* position: relative; */
+    /*display: flex; */
+    align-items: center;
+    padding: 30px 10px;
+    
+}
+
+.sub-foot2 .sfoot1{
+    font-size: 12px;
+    float: left;
+}
+
+.sub-foot2 .sfoot2{
+    font-size: 12px;
+    float: right;
+    
+}
+
+.main-foot span{
+    color: lime;
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+    *{
+        overflow-x: hidden;
+    }
+    .container{
+        display: inline-block;
+    }
+
+    .container .container-button{
+        padding: 10px 10px 20px 10px;
+    }
+
+    .container .text{
+        padding: 10px;
+    }
+
+    .container .text h3{
+        font-size: 25px;
+    }
+
+    .container .text p{
+        font-size: 15px;
+    }
+
+    .container1{
+        display: inline-block;
+        padding: 15px 5px 15px 15px;
+    }
+
+    .container1 .cards{
+        padding: 10px 0 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    }
+
+    .container1 .cards h3{
+        padding-bottom: 10px;
+    }
+
+    .container1 .cards p{
+        padding-top: 0px;
+        font-size: 13px;
+    }
+
+    .container2 .main-row{
+        display: inline-block;
+    }
+
+    .container2 .row {
+        position: relative;
+        display: flex;
+        padding: 0px 10px 10px 10px;
+    }
+    
+    .img-card {
+        padding: 20px
+    }
+    
+    .img-card h6 {
+        font-size: 15px;
+        padding: 10px 0;
+    }
+    
+    .img-card p,
+    .block-text,
+    .cont-block2 {
+        font-weight: 100;
+        font-size: 12px;
+        padding-right: 15px;
+        text-align: justify;
+    }
+
+    .container3{
+        display: inline-block;
+    }
+
+    .container3 .block1 {
+        padding: 0px;
+    }
+    
+    .container3 .block2 {
+        padding: 0px;
+    }
+
+    .container3 .block2 img{
+        
+        width: 100%;
+    }
+
+    .container4 h3{
+        margin-top: 20px;
+    }
+
+    .flex-container .tab{
+        display: none;
+    }
+
+    .main-foot .sub-foot1{
+        display: inline-block;
+        width: fit-content;
+    }
+
+    .foot2, .foot3, .foot4{
+        padding-left: 10px;
+        width: 100%;
+        /* margin-right: 20px; */
+    }
+
+    .ssfoot3{
+        border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+    }
+
+    .ssfoot3 .left{
+        border-bottom: none;
+    }
+
+    .ssfoot3 .righ{
+        width: 50%;
+        padding-right: 10px;
+        border-bottom: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    *{
+        overflow-x: hidden;
+    }
+    .navbar .logo,
+    .nav-item{
+        float: none;
+    }
+
+    .nav-item{
+        padding-top: 0;
+    }
+    .nav-item a{
+        padding: 0px 15px;
+    }
+    
+    /* .navbar label {
+        display: inline-block;
+        font-style: normal;
+        font-size: 1.2em;
+        padding-right: 50px;
+        padding-top: 20px;
+    } */
+
+    .nav-item a {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+    }
+
+    .container{
+        display: inline-block;
+    }
+
+    .container .container-button{
+        padding: 10px 10px 20px 10px;
+    }
+
+    .container .text{
+        padding: 10px;
+    }
+
+    .container .text h3{
+        font-size: 25px;
+    }
+
+    .container .text p{
+        font-size: 15px;
+    }
+
+    .container1{
+        display: inline-block;
+        padding: 15px 5px 15px 15px;
+    }
+
+    .container1 .cards{
+        padding: 10px 0 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    }
+
+    .container1 .cards h3{
+        padding-bottom: 10px;
+    }
+
+    .container1 .cards p{
+        padding-top: 0px;
+        font-size: 13px;
+    }
+
+    .container2 .main-row{
+        display: inline-block;
+    }
+
+    .container2 .row {
+        position: relative;
+        display: inline-block;
+        /* padding: 0px 10px 10px 10px; */
+    }
+    
+    .img-card img{
+        width: 100%;
+    }
+    
+    .img-card h6 {
+        font-size: 15px;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    .img-card p{
+        text-align: center;
+    }
+
+    .img-card p,
+    .block-text,
+    .cont-block2 {
+        font-weight: 100;
+        font-size: 12px;
+        padding-right: 15px;
+        text-align: justify;
+    }
+
+    .container3{
+        display: inline-block;
+    }
+
+    .container3 .block1 {
+        display: inline-block;
+        padding: 0px;
+    }
+
+    .container3 .block1 .cont-block{
+        display: inline-block;
+    }
+
+    .cont-block img{
+        width: 100%;
+    }
+
+    .cont-block .block-text{
+        padding-left: 0px;
+    }
+    
+    .container3 .block2 {
+        padding: 0px;
+    }
+
+    .container3 .block2 img{
+        
+        width: 100%;
+    }
+
+    .container4 h3{
+        margin-top: 20px;
+    }
+
+    .flex-container .phone{
+        display: none;
+    }
+
+    .main-foot .sub-foot1{
+        display: inline-block;
+        width: fit-content;
+    }
+
+    .foot2, .foot3, .foot4{
+        padding-left: 10px;
+        width: 100%;
+        /* margin-right: 20px; */
+    }
+
+    .ssfoot3{
+        border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+    }
+
+    .ssfoot3 .left{
+        border-bottom: none;
+    }
+
+    .ssfoot3 .righ{
+        width: 50%;
+        padding-right: 10px;
+        border-bottom: none;
+    }
+
+    .foot4 .foot4-text{
+        text-align: center;
+    }
+
+    .sub-foot2{
+        display: inline-block;
+        justify-content: center;
+    }
+
+    .sub-foot2 .sfoot1{
+        text-align: center;
+    }
+    
+    .sub-foot2 .sfoot2{
+        text-align: center;
+        justify-content: center;
+    }
+}

@@ -6,27 +6,18 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	    <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity= "sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"crossorigin="anonymous" /> 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity= "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"> </script> 
-	    <script src= "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-		integrity= "sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"crossorigin="anonymous"> </script> 
-	    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-		integrity= "sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"> </script> 
-        
+       
 	    <title>Trainingsite</title>
 
         <style type="text/css"> 
-            html, 
-            body { 
-                height: 100%; 
-            } 
+            
 
            
-            #leftbar { 
-                height: 100%; 
+            #column1 { 
+              
                 background: green; 
                 
-                color: black; 
+                color:white; 
             } 
         </style> 
 	</head>
@@ -34,24 +25,27 @@
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-primary"> 
 	        <div class="container">
-	            <a href="index.html" class="navbar-brand"><img src="/img/radixlogo.jpg" width="90" height="80" alt="">
+	            <a href="../../../index1.html" class="navbar-brand"><img src="../../../img/radixlogo.jpg" width="90" height="80" alt="">
 	                
 	            </a>
 	            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
 	            <div class="collapse navbar-collapse" id="navbarNav">
 	                <ul class="navbar-nav ml-auto">
 	                    <li class="navitem">
-	                        <a href="/Htmldemo/index.html" class="nav-link active">HTML</a>
+	                        <a href="../../index.html" class="nav-link active">HTML</a>
 	                    </li>
 	                    <li class="navitem">
-	                        <a href="/Cssdemo/indexcss.html" class="nav-link">CSS</a>
+	                        <a href="../../../Cssdemo/indexcss.html" class="nav-link">CSS</a>
 	                    </li>
 	                    <li class="navitem">
-	                        <a href="/Bootstrapdemo/indexbootstrap.html" class="nav-link">Bootstrap</a>
+	                        <a href="../../../Bootstrapdemo/indexbootstrap.html" class="nav-link">Bootstrap</a>
 	                    </li>
 	                    <li class="navitem">
-	                        <a href="/Javascriptdemo/indexjavascript.html" class="nav-link">Javascript</a>
+	                        <a href="../../../Javascriptdemo/indexjavascript.html" class="nav-link">Javascript</a>
 	                    </li>
+                        <li class="navitem">
+                            <a href="../../../jQuerydemo/indexjQuery.html" class="nav-link">JQuery</a>
+                        </li>
 	                </ul>
 	            </div>
 	        </div>
@@ -59,29 +53,29 @@
 	
 		<div class="container-fluid h-100"> 
 			<div class="row h-100"> 
-				<div class="col-md-3 height=100%  text-black" style="background:  green;" > 
+				<div id="column1" class="col-md-3" > 
 					<h4 class="text-center text-danger mt-2">Html</h4>
                         <ul>
                             <li> <b>Day3</b></li>
                             <ul>
                                 <li>Assignment</li>
                                 <ol>
-                                    <li><a href="../Assignment/Rsgistrationform.html"> Registration Form</a></li>
+                                    <li><a class="text-white" href="../Assignment/Rsgistrationform.html"> Registration Form</a></li>
                                     
                                     
                                 </ol>
                                 <li>Practice Exercise  </li>
                                 <ol>
-                                    <li><a href="list.html">List Hierarchy</a></li>
-                                    <li><a href="Loginform.html" > Login form</a></li>
-                                    <li><a href="Reportcard.html" > Report Card</a></li>
+                                    <li><a class="text-white" href="./list.html">List Hierarchy</a></li>
+                                    <li><a class="text-white" href="./Loginform.html" > Login form</a></li>
+                                    <li><a class="text-white" href="./Reportcard.html" > Report Card</a></li>
                                 </ol>
                             </ul>
                     
                     
                         </ul>
                 </div>
-                <div class="col-md-9" style="text-align: justify;"> 
+                <div class="col-md-9" > 
                     <h3>Department Hierarchy</h3>
                     <ol>
                         <li> <b>Computer Department</b></li>
@@ -118,7 +112,13 @@
 			</div> 
 		</div> 
 	
-	
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity= "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"> </script> 
+	    <script src= "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity= "sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"crossorigin="anonymous"> </script> 
+	    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity= "sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"crossorigin="anonymous"> </script> 
+        
 	  
 	</body>
 	

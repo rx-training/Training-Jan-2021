@@ -1,0 +1,68 @@
+// .gradient-container {
+//     background: linear-gradient(to bottom right, #feedf6, #fcf0e2);
+// }
+
+.card {
+    background   : white;
+    border-radius: 10px;
+    box-shadow   : 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding       : 20px 0;
+    background    : #1a1a1a;
+    font-size     : 20px;
+    text-transform: uppercase;
+    font-weight   : 700;
+    text-align    : center;
+    color         : #fff;
+    letter-spacing: 2px;
+}
+
+.form-control {
+    height       : 45px;
+    border-radius: 5px;
+    background   : #e5e5e5;
+    font-size    : 16px;
+}
+
+.form-control-container {
+    padding-right: 77px;
+}
+
+.form-control-label {
+    color       : #555;
+    font-size   : 17px;
+    font-weight : 700;
+    padding-left: 55px;
+    padding-top : 9px;
+}
+
+.form-card-container{
+    padding: 0px 100px;
+}
+
+@media (max-width : 768px) {
+    .form-control-label {
+        padding: 0;
+    }
+
+    .form-control-container {
+        padding: 0;
+    }
+
+    .form-card-container{
+        padding: 0;
+    }
+
+}
+
+@media (min-width : 768px) and (max-width : 1024px){
+    .gradient-container{
+        height: 94vh;
+    }
+
+    .form-card-container{
+        padding: 0;
+    }
+}

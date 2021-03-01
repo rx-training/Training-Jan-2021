@@ -1,0 +1,16 @@
+{
+  "admins": [
+    {
+      "id":1,
+      "name":"Milit Panchasara",
+      "email":"milit6116@gmail.com",
+      "password":"milit"
+    },
+    {
+      "id":2,
+      "name":"XYZ",
+      "email":"xyz@gmail.com",
+      "password":"xyz"
+    }
+  ]
+}
