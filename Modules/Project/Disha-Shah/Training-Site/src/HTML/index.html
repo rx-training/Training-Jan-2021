@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>HTML</title>
+    </head>
+
+    <body>
+        <!--Navbar-->
+        <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
+            
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../images/Radixweb.jpg" alt="" class="img-fluid" width="100px" height="100px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 active" href="#">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../CSS-Practice/index.html">CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../BOOTSTRAP/index.html">BOOTSTRAP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../JAVASCRIPT/index.html">JAVASCRIPT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../JQUERY/index.html">JQUERY</a>
+                    </li>
+                    
+                </ul>
+                
+                </div>
+            
+        </nav>
+        </div>
+
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                
+                <div class="sidebar-header">
+                    <h3>HTML Tasks</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#day3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day3</a>
+                        <ul class="collapse list-unstyled" id="day3Submenu">
+                            
+                            <li>
+                                <a href="#practiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Practice</a>
+                                <ul class="collapse list-unstyled" id="practiceSubmenu">
+                                    <li>
+                                        <a href="Day3/Disha-Shah/Practice/Form.html" class="pl-5">Form</a>
+                                    </li>
+                                    <li>
+                                        <a href="Day3/Disha-Shah/Practice/HRList.html" class="pl-5">HR List</a>
+                                    </li>
+                                    <li>
+                                        <a href="Day3/Disha-Shah/Practice/StudentReportCard.html" class="pl-5">Student Report Card</a>
+                                    </li>
+                                    <li>
+                                        <a href="Day3/Disha-Shah/Practice/videosExamples.html" class="pl-5">videos Examples</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignment</a>
+                                <ul class="collapse list-unstyled" id="assignmentSubmenu">
+                                    <li>
+                                        <a href="Day3/Disha-Shah/Assignments/Employee.html" class="pl-5">Employee Details Form</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+        
+            </nav>
+            <!-- Page Content -->
+            <div id="content">
+        
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <div class="container-fluid">
+        
+                        <button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="return myFunc()">
+                            <i class="fa fa-bars fa-align-left"></i>
+                            
+                        </button>
+                    </div>
+                </nav>
+
+                <img src="../images/HTML_logo.jpg" alt="" class="img-fluid w-75 imgLogo">
+            </div>
+        </div>
+
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            function myFunc() { 
+                var sidebarContent = document.getElementById("sidebar"); 
+                sidebarContent.classList.toggle("active");
+                return false; 
+            } 
+        </script>
+    </body>
+</html>

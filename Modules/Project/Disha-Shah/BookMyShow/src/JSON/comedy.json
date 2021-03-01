@@ -1,0 +1,144 @@
+ [    
+    {   
+        "Id":1, 
+        "Name": "Oh Hello - A Stand-up Comedy Show by Rahul Dua", 
+        "ImgUrls":"images/laughter-1.jpg",
+        "Language":"English,Hindi",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "19 Mar 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "HK Hall Ellisbridge:Ahmedabad",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":2, 
+        "Name": "Vijay Yadav", 
+        "ImgUrls":"images/laughter-2.jpg",
+        "Language":"English,Hindi",
+        "Time": "1h 30m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "5 Mar 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "HK Hall Ellisbridge:Ahmedabad",
+        "TicketPrice": "Rs.499"
+        
+    },  
+    {   
+        "Id":3, 
+        "Name": "Sonali & Devanshi", 
+        "ImgUrls":"images/laughter-3.jpg",
+        "Language":"English,Hindi",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "28 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "HK Hall Ellisbridge:Ahmedabad",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":4, 
+        "Name": "Offbeat Jokes", 
+        "ImgUrls":"images/laughter-4.jpg",
+        "Language":"Hindi",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "14 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "HK Hall Ellisbridge:Ahmedabad",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":5, 
+        "Name": "Laugh O Matic", 
+        "ImgUrls":"images/laughter-5.jpg",
+        "Language":"English",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "28 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "On Zoom",
+        "TicketPrice": "Rs.499"
+        
+    }, 
+    {   
+        "Id":6, 
+        "Name": "Star Night by Garv Malik", 
+        "ImgUrls":"images/laughter-6.jpg",
+        "Language":"English",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "17 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "On Zoom",
+        "TicketPrice": "Rs.499"
+        
+    }, 
+    {   
+        "Id":7, 
+        "Name": "Stand Up Comedy by Vivek Muralidharan", 
+        "ImgUrls":"images/laughter-7.jpg",
+        "Language":"Hindi",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "11 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "HK Hall Ellisbridge:Ahmedabad",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":8, 
+        "Name": "Rehmaan Khan Jokiyapanti", 
+        "ImgUrls":"images/laughter-8.jpg",
+        "Language":"Hindi",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "14 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "HK Hall Ellisbridge:Ahmedabad",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":9, 
+        "Name": "Headliner Suraj Ayyapan", 
+        "ImgUrls":"images/laughter-9.jpg",
+        "Language":"Hindi",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "21 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "On Zoom",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":10, 
+        "Name": "One Woman Man by Sourav Gosh", 
+        "ImgUrls":"images/laughter-10.jpg",
+        "Language":"English,Hindi",
+        "Time": "1h 15m",
+        "AgeGroup": "16+yrs",
+        "Genre": "Comedy",
+        "DateOfLaughter": "13 Feb 2021",
+        "EventTime": "8:00 PM",
+        "Venue": "On Zoom",
+        "TicketPrice": "Rs.499"
+        
+    }
+]
+
+
