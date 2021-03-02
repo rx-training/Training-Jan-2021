@@ -305,49 +305,47 @@
             window.location.href = "index.html";
         } 
     
+        //More update to register user
+        var arrayObject = [];
+        var List = localStorage.getItem("register_users");
+        var userList = JSON.parse(List);
+        //console.log(userList.Users); 
+        var anyuser = userList.Users;
+        //console.log(anyuser);
+        var getStoreUpdateBalance = localStorage.getItem("update_balance");
+        var updateBalanceObject = JSON.parse(getStoreUpdateBalance);
+        if(updateBalanceObject != null){
+            var updateBalanceArray  = updateBalanceObject.updateBalance;
+            // if( updateBalanceArray != null)
+            // {
+            //     arrayObject  = updateBalanceArray;
+            // }
+        }
         
-                                    var arrayObject = [];
-                                    var List = localStorage.getItem("register_users");
-                                    var userList = JSON.parse(List);
-                                    //console.log(userList.Users); 
-                                    var anyuser = userList.Users;
-                                    //console.log(anyuser);
-                                    var getStoreUpdateBalance = localStorage.getItem("update_balance");
-                                    var updateBalanceObject = JSON.parse(getStoreUpdateBalance);
-                                    if(updateBalanceObject != null){
-                                        var updateBalanceArray  = updateBalanceObject.updateBalance;
-                                        // if( updateBalanceArray != null)
-                                        // {
-                                        //     arrayObject  = updateBalanceArray;
-                                        // }
-                                    }
-                                    
-                                    
-                                    var payment_history = localStorage.getItem("payment_history");
-                                    console.log(payment_history);
-                                    if(payment_history)
-                                    { 
-                                        console.log("true");
-                                        let payment_historyObject = JSON.parse(payment_history);
-                                        let historyData = payment_historyObject.array;
-                                        $.each(historyData , function (index , value) {
-                                                $.each(anyuser , function ( i , v) {
-                                                    if(value.name  == v.name)
-                                                    {  
-                                                        let obj = { name : value.name , amount : value.amount}
-                                                        //console.log(obj);
-                                                        arrayObject.push(obj);
-                                                        let object = { updateBalance : arrayObject }
-                                                        localStorage.setItem("update_balance", JSON.stringify(object));
-                                                        
-                                                    }
-                                                    
-                                                });
-                                        });
-                                    }
+        
+        var payment_history = localStorage.getItem("payment_history");
+        console.log(payment_history);
+        if(payment_history)
+        { 
+            console.log("true");
+            let payment_historyObject = JSON.parse(payment_history);
+            let historyData = payment_historyObject.array;
+            $.each(historyData , function (index , value) {
+                    $.each(anyuser , function ( i , v) {
+                        if(value.name  == v.name)
+                        {  
+                            let obj = { name : value.name , amount : value.amount}
+                            //console.log(obj);
+                            arrayObject.push(obj);
+                            let object = { updateBalance : arrayObject }
+                            localStorage.setItem("update_balance", JSON.stringify(object));
+                            
+                        }
+                        
+                    });
+            });
+        }
 
-
-                                    //
         
                            
         
