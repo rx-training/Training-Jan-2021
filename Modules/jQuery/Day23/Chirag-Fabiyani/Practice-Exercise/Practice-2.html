@@ -1,84 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <style>
-        .descendants{
-            display: block;
-            border: 2px solid lightgrey;
-            color: lightgrey;
-            padding: 5px;
-            margin: 15px;
-        }
-        .descendants *{
-            display: block;
-            border: 2px solid lightgrey;
-            color: lightgrey;
-            padding: 5px;
-            margin: 15px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#children").click(function(){
-                $(".descendants").children().css({
-                    "color": "red", "border": "2px solid red"
-                });
-                $("#button button").prop('disabled', true);
-            });
-            $("#children_first").click(function(){
-                $(".descendants").children(".first").css({
-                    "color": "red", "border": "2px solid red"
-                });
-                $("#button button").prop('disabled', true);
-            });
-            $("#children_last").click(function(){
-                $(".descendants").children(".last").css({
-                    "color": "red", "border": "2px solid red"
-                });
-                $("#button button").prop('disabled', true);
-            });
-            $("#find").click(function(){
-                $(".descendants").find("span").css({
-                    "color": "red", "border": "2px solid red"
-                });
-                $("#button button").prop('disabled', true);
-            });
-            $("#find_all").click(function(){
-                $(".descendants").find("*").css({
-                    "color": "red", "border": "2px solid red"
-                });
-                $("#button button").prop('disabled', true);
-            });
-            $("#reset").click(function(){
-               location.reload();
-            });
+           $("#helpText").mouseenter(function(){
+               $(this).hide();
+           });
+           $("#helpText").mouseleave(function(){
+               $(this).show();
+           });
         });
     </script>
 </head>
 <body>
-    <div class="descendants container mx-auto my-5" style="width:500px;">div (current element) 
-        <p class="first">p (child)
-          <span>span (grandchild)</span>   
-        </p>
-        <p class="last">p (child)
-          <span>span (grandchild)</span>
-        </p> 
-      </div>
-      <div class="container mx-auto my-5 text-center" id="button">
-        <button class="btn btn-outline-primary text-center mx-2" id="children">Children</button>
-        <button class="btn btn-outline-warning text-center mx-2" id="children_first">First Child</button>
-        <button class="btn btn-outline-danger text-center mx-2" id="children_last">Last Child</button>
-        <button class="btn btn-outline-dark text-center mx-2" id="find">Find</button>
-        <button class="btn btn-outline-secondary text-center mx-2" id="find_all">Find All Childs</button>
-    </div>
-    <div class="container mx-auto text-center">
-        <button class="btn btn-outline-success text-center" id="reset">Reset Boundaries</button>
-    </div>
+    <h2 class="container my-5 mx-auto text-center" id="helpText">This is demo text.</h2>
 </body>
 </html>

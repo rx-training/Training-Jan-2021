@@ -1,93 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <style>
-        .siblings {
-            display: block;
-            border: 2px solid lightgrey;
-            color: lightgrey;
-            padding: 5px;
-            margin: 15px;
-        }
-        .siblings *{
-            display: block;
-            border: 2px solid lightgrey;
-            color: lightgrey;
-            padding: 5px;
-            margin: 15px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#sibling').click(function(){
-                $('h2').siblings().css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $('#sibling_same').click(function(){
-                $('h2').siblings('p').css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $('#next').click(function(){
-                $('h2').next().css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $('#nextAll').click(function(){
-                $('h2').nextAll().css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $('#nextUntil').click(function(){
-                $('h2').nextUntil('h6').css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $('#prev').click(function(){
-                $('h2').prev().css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $('#prevAll').click(function(){
-                $('h2').prevAll().css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $('#prevUntil').click(function(){
-                $('h2').prevUntil('span').css({"color": "red", "border": "2px solid red"});
-                $("#button button").prop('disabled', true);
-            });
-            $("#reset").click(function(){
-               location.reload();
-            });
+            $("input").click(function(){
+                if($(this).prop("checked")){
+                    var txt = $(this).val();
+                    $('#text').text(txt);
+                }
+            }
+            );
         });
     </script>
 </head>
 <body>
-    <div class="siblings container mx-auto my-5" style="width: 500px;">div (parent)
-        <p>p</p>
-        <span>span</span>
-        <h3>h3</h3>
-        <h4>h4</h4>
-        <h2>h2</h2>
-        <h3>h3</h3>
-        <h4>h4</h4>
-        <h5>h5</h5>
-        <h6>h6</h6>
-        <p>p</p>
-      </div>
-      <div class="container mx-auto my-5 text-center" id="button">
-        <button class="btn btn-outline-primary text-center mx-2" id="sibling">Siblings</button>
-        <button class="btn btn-outline-warning text-center mx-2" id="sibling_same">Same Sibling</button>
-        <button class="btn btn-outline-danger text-center mx-2" id="next">Next</button>
-        <button class="btn btn-outline-dark text-center mx-2" id="nextAll">Next All</button>
-        <button class="btn btn-outline-secondary text-center mx-2" id="nextUntil">Next Until</button>
-        <button class="btn btn-primary text-center mx-2" id="prev">Prev</button>
-        <button class="btn btn-warning text-center mx-2" id="prevAll">Prev All</button>
-        <button class="btn btn-danger text-center mx-2" id="prevUntil">Prev Until</button>
-    </div>
-    <div class="container mx-auto text-center">
-        <button class="btn btn-outline-success text-center" id="reset">Reset Boundaries</button>
-    </div>
+    <form class="form my-5 mx-auto text-center">
+        <label>Please select your technology:</label>
+        <br>
+        <input type="radio" value="PHP" name="tech">PHP
+        <input type="radio" value="ASP.NET" name="tech">ASP.NET
+        <input type="radio" value="ASP" name="tech">ASP
+        <input type="radio" value="JSP" name="tech">JSP
+        <input type="radio" value="PERL" name="tech">PERL
+        <input type="radio" value="Cold Fusion" name="tech">Cold Fusion
+        <input type="radio" value="Other" name="tech">Other
+        <br>
+        <label for="text">You have selected:</label>
+        <span id="text"></span>
+        
+    </form>
 </body>
 </html>
