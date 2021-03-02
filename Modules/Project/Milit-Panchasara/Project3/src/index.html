@@ -15,9 +15,7 @@
     <script src="js/user/session.js"></script>
     <script src="js/user/logout.js"></script>
     <script src="js/user/transaction.js"></script>
-    <script>
-        (new session).checkSession();
-    </script>
+
 </head>
 
 <body>
@@ -31,7 +29,7 @@
                     <li class="nav-item"><a href="index.html" class="nav-link active">Dashboard</a></li>
                     <li class="nav-item ml-sm-auto dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                            Welcome Milit</a>
+                            Welcome <span id="user-name"></span></a>
                         <div class=" dropdown-menu collapse">
                             <div>
                                 <a class="dropdown-item" href="profile.html">Profile</a>
@@ -66,7 +64,7 @@
                             class="fa fa-exchange"></i> Transfer Money</button>
                 </div>
                 <div class="col-3">
-                    <button class="btn btn-outline-dark btn-block disabled m-3">Amount: <span class="lead" id="balance"></span></button>
+                    <button class="btn btn-outline-dark btn-block disabled m-3 text-dark">Amount: <span class="lead" id="balance"></span></button>
                 </div>
             </div>
             <div class="row">
@@ -96,42 +94,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="col-12">
-                    <div class="text-white">
-                        <div class="row">
-
-                            <div class="col-4 mb-3">
-                                <div class="card card-body text-center bg-primary">
-                                    <h3>Deposits</h3>
-                                    <h1 class="display-4">
-                                        <i class="fa fa-plus"></i> 6
-                                    </h1>
-                                    <a href="" class="btn btn-outline-light btn-sm">View</a>
-                                </div>
-                            </div>
-                            <div class="col-4 mb-3">
-                                <div class="card card-body text-center bg-success">
-                                    <h3>Withdraws</h3>
-                                    <h1 class="display-4">
-                                        <i class="fa fa-minus"></i> 4
-                                    </h1>
-                                    <a href="" class="btn btn-outline-light btn-sm">View</a>
-                                </div>
-                            </div>
-                            <div class="col-4 mb-3">
-                                <div class="card card-body text-center bg-warning">
-                                    <h3>Transfers</h3>
-                                    <h1 class="display-4">
-                                        <i class="fa fa-exchange"></i> 2
-                                    </h1>
-                                    <a href="" class="btn btn-outline-light btn-sm">View</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
     <section id="footer" class="bg-dark text-white p-5">
@@ -139,7 +101,10 @@
             <p class="font-weight-light">Copyright &copy; 2017 Detroit United Bank</p>
         </div>
     </section>
-    
+
+    <script>
+        (new session).checkSession();
+    </script>
 
     <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script>
@@ -148,9 +113,6 @@
         $(document).ready( function () {
             $('#transactions-table').DataTable();
         });
-
-        let userInfo = JSON.parse(localStorage.getItem('logged_in_user_data'));
-        $('#balance').html(userInfo.money + " $ (USD)");
     </script>
 
     <!-- ----- deposit modal ----- -->
@@ -232,8 +194,8 @@
                     <form action="" class="form" id="transfer-form">
                         <div class="form-group">
                             <label for="account-id">Transfer to:</label>
-                            <input type="number" class="form-control" name="account-id" id="account-id"
-                                placeholder="Account No.">
+                            <input type="text" class="form-control" name="account-id" id="account-id" maxlength="11"
+                                placeholder="Account No. (11 characters long e.g. DUB1xxxxxxx)">
                             <div id="t-account-error"><span class="small text-danger"></span></div>
                         </div>
                         <div class="form-group">

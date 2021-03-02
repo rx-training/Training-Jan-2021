@@ -1,10 +1,11 @@
 'use strict';
 
-var deposit = function() { // class
+var deposit = function() { // deposit class
    this.amount = $("#d-amount").val();
    this.password = $('#d-password').val();
 };
 
+//function to add money value to user data
 deposit.prototype.depositMoney = function() {
     if(!(new session).checkSession()) {
         return;
@@ -16,21 +17,21 @@ deposit.prototype.depositMoney = function() {
     if(!this.validateFields(this.amount, this.password, userData)) {
         return;
     }
-
-    //save transaction details
-    (new transactions(userData.id, "-", this.amount, "Deposit")).store();
     
     let users = JSON.parse((localStorage.getItem('users') != null) ? localStorage.getItem('users') : []);
     
     for(var j=0;j<users.length;j++) {
         if(users[j].id == userData.id ) {
-            users[j].money  += parseInt(this.amount);
+            users[j].money  += parseInt(this.amount); //find user from array and update money field value
         }
     }
     localStorage.setItem('users',JSON.stringify(users));
 
     userData.money += parseInt(this.amount);
     localStorage.setItem('logged_in_user_data', JSON.stringify(userData));
+
+    //save transaction details
+    (new transactions(userData.id, "-", this.amount, "Deposit")).store();
     
     $("#d-amount").val('');
     $('#d-password').val('');
@@ -51,13 +52,14 @@ deposit.prototype.validateFields = function(amount, password, userData) {
     return isValid;
 }
 
+//========================================================================================================================//
 
-
-var withdraw = function() { // class
+var withdraw = function() { // withdraw class
     this.amount = $("#w-amount").val();
     this.password = $('#w-password').val();
 };
 
+//function to substract money value to user data
 withdraw.prototype.withdrawMoney = function() {
     if(!(new session).checkSession()) {
         return;
@@ -70,25 +72,27 @@ withdraw.prototype.withdrawMoney = function() {
         return;
     }
 
-    //save transaction details
-    (new transactions(userData.id, "-", this.amount, "Withdraw")).store();
-
     let users = JSON.parse((localStorage.getItem('users') != null) ? localStorage.getItem('users') : []);
     
     for(var j=0;j<users.length;j++) {
         if(users[j].id == userData.id ) {
-            users[j].money  -= parseInt(this.amount);
+            users[j].money  -= parseInt(this.amount);  //find user from array and update money field value
         }
     }
     localStorage.setItem('users',JSON.stringify(users));
     
     userData.money -= parseInt(this.amount);
     localStorage.setItem('logged_in_user_data', JSON.stringify(userData));
+
+    //save transaction details
+    (new transactions(userData.id, "-", this.amount, "Withdraw")).store();
+
     $("#w-amount").val('');
     $('#w-password').val('');
     $("#withdraw-modal").modal('toggle');
 };
 
+//function to validate input fields
 withdraw.prototype.validateFields = function(amount, password, userData) {
     let isValid = true;
     if(this.amount == null || this.amount < 1 || this.amount > 100000) {
@@ -107,13 +111,15 @@ withdraw.prototype.validateFields = function(amount, password, userData) {
     return isValid;
 }
 
+//========================================================================================================================//
 
-var transfer = function() { // class
+var transfer = function() { // transfer class
     this.amount = $("#t-amount").val();
     this.accountNo = $("#account-id").val();
     this.password = $('#t-password').val();
 };
 
+//function to process money values between 2 accounts
 transfer.prototype.transferMoney = function() {
     if(!(new session).checkSession()) {
         return;
@@ -128,30 +134,29 @@ transfer.prototype.transferMoney = function() {
         return;
     }
 
-    //save transaction details
-    (new transactions(userData.id, this.accountNo, this.amount, "Transfer")).store();
-
-
     let users = JSON.parse((localStorage.getItem('users') != null) ? localStorage.getItem('users') : []);
 
     let receiverNotFound = true;
     
     for(var i=0;i<users.length;i++) {
-        if(users[i].id == this.accountNo) {
+        if(users[i].account_id == this.accountNo) {
             receiverNotFound = false;
             for(var j=0;j<users.length;j++) {
                 if(users[j].id == userData.id ) {
-                    userData.money -= parseInt(this.amount);
+                    userData.money -= parseInt(this.amount);  //find current user from array and update money field value
                     users[j].money = userData.money;
                     localStorage.setItem('logged_in_user_data', JSON.stringify(userData));
                 }
             }
-            users[i].money += parseInt(this.amount);
+            users[i].money += parseInt(this.amount);  //find money receiver user from array and update money field value
             $("#transfer-form").trigger("reset");
             $("#transfer-modal").modal('toggle');
         }
     }
     localStorage.setItem('users',JSON.stringify(users));
+    
+    //save transaction details
+    (new transactions(userData.id, this.accountNo, this.amount, "Transfer")).store();
 
     if(receiverNotFound) {
         $("#transfer-error span").html('Receiver account not found.');
@@ -160,6 +165,7 @@ transfer.prototype.transferMoney = function() {
     
 };
 
+//function to validate input fields
 transfer.prototype.validateFields = function(amount, password, userData, accountNo) {
     let isValid = true;
     if(amount == null || amount < 1 || amount > 100000) {
@@ -170,7 +176,7 @@ transfer.prototype.validateFields = function(amount, password, userData, account
         $('#t-amount-error span').html("Account doesn't have sufficient money to withdraw !");
         isValid = false;
     }
-    if(accountNo == "") {
+    if(accountNo == "" || accountNo == (JSON.parse(localStorage.getItem('logged_in_user_data'))).account_id) {
         $('#t-account-error span').html("Enter correct Account ID !");
         isValid = false;
     }
@@ -182,7 +188,10 @@ transfer.prototype.validateFields = function(amount, password, userData, account
     return isValid;
 }
 
-var transactions = function(fromAccount, toAccount = "", amount, type) { // class
+//========================================================================================================================//
+
+var transactions = function(fromAccount, toAccount = "", amount, type) { // transactions class
+    //properties
     this.fromAccount = fromAccount;
     this.toAccount = toAccount;
     this.amount = amount;
@@ -191,6 +200,7 @@ var transactions = function(fromAccount, toAccount = "", amount, type) { // clas
 
 };
 
+//function to store all the transactions data
 transactions.prototype.store = function() {
     let  transactionsCount  = 1;
     if(localStorage.getItem('transactionsCount') != null) {
@@ -218,7 +228,9 @@ transactions.prototype.store = function() {
 
 }
 
+//function to view current user's transactions data on page
 transactions.prototype.list = function(userId) {
+    $('#balance').html(JSON.parse(localStorage.getItem('logged_in_user_data')).money + " $ (USD)");
     let transactions = localStorage.getItem('transactions');
     if(transactions != null) {
         transactions = JSON.parse(transactions);

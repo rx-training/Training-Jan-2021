@@ -1,9 +1,10 @@
 'use strict';
 
-var logoutAdmin = function() { // class
+var logoutAdmin = function() { //logout class
    
 };
 
+//function to log out admin
 logoutAdmin.prototype.logOut = function() {
     let userData = localStorage.getItem('logged_in_admin_data');
     let userID = localStorage.getItem('logged_in_admin');

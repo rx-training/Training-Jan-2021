@@ -1,6 +1,7 @@
 'use strict';
 
-var manageUser = function() { // class
+var manageUser = function() { // manageUser class
+    //properties
     this.email = $("#email").val();
     this.name = $("#name").val();
     this.password = $('#password').val();
@@ -8,10 +9,12 @@ var manageUser = function() { // class
     this.type = $('input[name="c-type"]:checked').val();
 };
 
+//function to create new user
 manageUser.prototype.create = function() {
     $("#name-error span").html('');
     $("#email-error span").html('');
 
+    //validations
     if(this.name.trim() == "") {
         $("#name-error span").html('Please enter a name.');
         return;
@@ -26,8 +29,9 @@ manageUser.prototype.create = function() {
         $("#email-error span").html('Email already linked with other account.');
         return;
     }
+    //validations over
 
-
+    //check password and store new user data
     if(this.password.match(/[A-Z]+/g) != null && this.password.match(/[a-z]+/g) != null && this.password.match(/[0-9]+/g) != null && this.password.length > 5) {
         if(this.password != this.c_password) {
             $("#cpassword-error span").html("Password didn't match !");
@@ -37,8 +41,11 @@ manageUser.prototype.create = function() {
         if(localStorage.getItem('totalUsersCount') != null) {
             newUserCount = (parseInt(localStorage.getItem('totalUsersCount')) + 1);
         }
+        let prefix = Math.pow(10, (7 - parseInt((newUserCount.toString()).length)));
+        let account_id = 'DUB' + prefix + newUserCount;
         var userData = {
             "id": newUserCount,
+            "account_id":account_id,
             "name": this.name,
             "email": this.email,
             "date_created": Date(),
@@ -51,7 +58,6 @@ manageUser.prototype.create = function() {
 
         let users = localStorage.getItem('users');
         if(users != null) {
-            // users += "|" + JSON.stringify(userData);
             users = JSON.parse(users);
             users.push(userData);
             localStorage.setItem('users', JSON.stringify(users));
@@ -100,6 +106,7 @@ manageUser.prototype.checkEmailExist = function (email) {
     }
 }
 
+//function to block the existing user
 manageUser.prototype.block = function(id) {
     if(!confirm("You will be blocked. Are you sure?")) {
         return; 
@@ -107,7 +114,7 @@ manageUser.prototype.block = function(id) {
     let users = localStorage.getItem('users');
     if(users != null) {
         users = JSON.parse(users);
-        for (let i = 0; i < users.length; i++) {
+        for (let i = 0; i < users.length; i++) { //find user from array and update status
             if(id == users[i].id) {
                 users[i].is_blocked = 1;
                 break;
@@ -122,6 +129,7 @@ manageUser.prototype.block = function(id) {
     }
 };
 
+//function to unblock the existing user
 manageUser.prototype.unblock = function(id) {
     if(!confirm("You will be unblocked. Are you sure?")) {
         return; 
@@ -129,7 +137,7 @@ manageUser.prototype.unblock = function(id) {
     let users = localStorage.getItem('users');
     if(users != null) {
         users = JSON.parse(users);
-        for (let i = 0; i < users.length; i++) {
+        for (let i = 0; i < users.length; i++) { //find user from array and update status
             if(id == users[i].id) {
                 users[i].is_blocked = 0;
                 break;
@@ -140,16 +148,19 @@ manageUser.prototype.unblock = function(id) {
     }
 };
 
-var viewUsers = function() { // class
+//========================================================================================================================//
+
+var viewUsers = function() { // view class
 };
 
+//function to show list of users on page
 viewUsers.prototype.list = function() {
     let users = localStorage.getItem('users');
     if(users != null) {
         users = JSON.parse(users);
         $('#users-body').html('');
         users.forEach(user => {
-            if(user.is_blocked == 0) {
+            if(user.is_blocked == 0) { //white colored row and a block button for blocked users
                 $('#users-body').append('<tr>\
                     <td>' + user.id + '</td>\
                     <td>' + user.name + '</td>\
@@ -159,7 +170,7 @@ viewUsers.prototype.list = function() {
                     <td><a class="btn btn-sm btn-outline-secondary">Details</a> <button class="btn btn-sm btn-outline-danger" onclick="(new manageUser).block(' + user.id + ')">Block</button></td>\
                     </tr>');
             }
-            else {
+            else { //red colored row and a unblock button for blocked users
                 $('#users-body').append('<tr style="background-color:#ffe0e1">\
                     <td>' + user.id + '</td>\
                     <td>' + user.name + '</td>\
