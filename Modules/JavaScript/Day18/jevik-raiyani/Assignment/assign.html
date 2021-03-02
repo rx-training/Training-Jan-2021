@@ -14,9 +14,10 @@ p {
 
 <p id="demo"></p>
 <h1>test started</h1>
-<form action="/final.html" id="final">
-    <button  class=" submit-btn"> Submit</button>
-</form>
+<button onclick="myFunction()">
+  Submit
+</button>
+
 <script>
 // Set the date we're counting down to
 
@@ -59,6 +60,10 @@ var x = setInterval(function() {
     }
   }
 }, 1000);
+
+function myFunction(){
+      window.location.replace("/final.html");
+  } 
 </script>
 
 </body>
