@@ -316,10 +316,7 @@
         var updateBalanceObject = JSON.parse(getStoreUpdateBalance);
         if(updateBalanceObject != null){
             var updateBalanceArray  = updateBalanceObject.updateBalance;
-            // if( updateBalanceArray != null)
-            // {
-            //     arrayObject  = updateBalanceArray;
-            // }
+            
         }
         
         
@@ -334,8 +331,13 @@
                     $.each(anyuser , function ( i , v) {
                         if(value.name  == v.name)
                         {  
-                            let obj = { name : value.name , amount : value.amount}
-                            //console.log(obj);
+                            let d =new Date();
+                            let date = d.toLocaleDateString();
+                            
+                            // var date = d.getDate() + "/" + d.getMonth()+1 + "/" + d.getFullYear();;
+                            let h = d.getHours() + ":" + d.getMinutes();
+                            let obj = { name : value.name , date : date , time : h, amount : value.amount , sender : sv.name}
+                            console.log(obj);
                             arrayObject.push(obj);
                             let object = { updateBalance : arrayObject }
                             localStorage.setItem("update_balance", JSON.stringify(object));

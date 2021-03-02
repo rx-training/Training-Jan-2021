@@ -165,4 +165,29 @@ function logout() {
     window.location.href = "index.html";
 }
 
+var getItem = localStorage.getItem("update_balance");
+        if(getItem != null)
+        {
+            let dataObject = JSON.parse(getItem);
+            let Data = dataObject.updateBalance;
+            let temp = "";
+            $.each(Data , function  (i , value) {
+
+                if(sv.name == value.name)
+                {
+                    
+                    temp += "<tr>";
+                    temp += "<td class='p-3'>" + value.sender + "</td>";
+                    temp += "<td class='p-3'>" + value.amount + "</td>";
+                    temp += "<td class='p-3'>" + value.date + "</td>";
+                    temp += "<td class='p-3'>" + value.time + "</td>";
+                    
+                    temp += "</tr>";  
+                }
+            });
+            $("#historyTable").append(temp);
+        }
+        
+        
+
 
