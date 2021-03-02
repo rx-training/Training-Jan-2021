@@ -39,7 +39,7 @@ $("document").ready(function(){
                 if(document.getElementById('2_1').innerHTML == bookingArray[i].Seats[j]){
                     $('#2_1').addClass('disabled').css({'background-color':'gray','color':'white','border':'0'});
                 }
-                if(document.getElementById('2_1').innerHTML == bookingArray[i].Seats[j]){
+                if(document.getElementById('2_2').innerHTML == bookingArray[i].Seats[j]){
                     $('#2_2').addClass('disabled').css({'background-color':'gray','color':'white','border':'0'});
                 }
                 if(document.getElementById('2_3').innerHTML == bookingArray[i].Seats[j]){
