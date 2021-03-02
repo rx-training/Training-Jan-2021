@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Detroit United Bank</title>
+    <title>Detroit United Bank Admin</title>
   </head>
 
   <body>
@@ -29,7 +29,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a href="index.html" class="nav-link active">Home</a>
+                <a href="index.html" class="nav-link">Home</a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">About</a>
@@ -38,7 +38,7 @@
                 <a href="#" class="nav-link">Contact</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Login</a>
+                <a href="index.html" class="nav-link">Logout</a>
               </li>
               <li class="nav-item">
                 <a href="register.html" class="nav-link">Open Account</a>
@@ -50,66 +50,38 @@
 
       <!-- Heading -->
       <div class="container py-3">
-        <h4 class="display-3 text-center">Welcome to Detroit United Bank</h4>
+        <h4 class="display-4 text-center">Admin Panel</h4>
       </div>
 
       <!-- section 1 -->
+
       <div class="container">
-        <div class="row">
-          <div class="col-md-6 p-3">
-            <h4 class="display-4">Login</h4>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input
-                type="email"
-                id="email"
-                class="form-control"
-                placeholder="Enter email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="email">Password</label>
-              <input
-                type="password"
-                id="password"
-                class="form-control"
-                placeholder="Enter password"
-              />
-            </div>
-            <button
-              class="btn btn-lg btn-success"
-              type="button"
-              onclick="login()"
-            >
-              Login
-            </button>
-          </div>
-          <div class="col-md-6 p-3">
-            <h4 class="display-4">Open New Account</h4>
-            <ul class="list-group">
-              <li class="list-group-item">
-                Best Intrest Rates On Savings Account
-              </li>
-              <li class="list-group-item">World Class Security</li>
-              <li class="list-group-item">
-                Industry Leading Current Accoun Services
-              </li>
-            </ul>
-            <a class="btn btn-lg btn-info mt-3" href="register.html">
-              Open Account
-            </a>
-          </div>
-        </div>
+        <table class="table table-secondary table-hover table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Account Number</th>
+              <th scope="col">Account Type</th>
+              <th scope="col">Account Balance</th>
+              <th scope="col">Account Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
       </div>
 
       <!-- FOOTER -->
-      <div class="container-fluid p-3 bg-dark text-center text-white">
+      <div class="container-fluid p-3 bg-dark text-center text-white mt-5">
         <p>&copy; Detroit United Bank</p>
       </div>
     </div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/admin.js"></script>
   </body>
 </html>
