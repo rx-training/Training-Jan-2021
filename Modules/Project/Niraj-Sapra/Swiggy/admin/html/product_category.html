@@ -12,6 +12,7 @@
             .valid{
                 display: none;
             }
+            
         </style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -96,12 +97,15 @@
                                     <div class="modal-body">
                                         <form>
                                             <div class="form-group">
+                                                <input type="hidden" class="form-control" placeholder="uid" id="uid">
+                                              </div>
+                                            <div class="form-group">
                                               <input type="text" class="form-control" placeholder="Product Name" id="uproname" value="">
                                               <label id="proname" class="text-denger valid">Enter valid Product Name</label> 
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control" placeholder="Product Price" id="ufoodtype" value="">
-                                                <label id="phpneno" class="text-denger valid">Enter Food Veraity</label>
+                                                <input type="number" class="form-control" placeholder="Product Price" id="uproprice" value="">
+                                                <label id="phpneno" class="text-denger valid">Enter Valid Product Price</label>
                                             </div>
                                               <button onclick="return updateproduct()" class="btn btn-primary">Submit</button>
                                           </form>
@@ -127,6 +131,10 @@
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="Product Price" id="newproprice" value="">
                                                 <label id="proprice" class="text-denger valid">Enter Product Price</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="file" class="form-control" placeholder="Product Image" id="file" required>
+                                                <label id="prodimgs" class="text-danger valid">Enter Product Image</label>
                                             </div>
                                             <button onclick="return Addnewproduct()" class="btn btn-primary">Submit</button>
                                           </form>

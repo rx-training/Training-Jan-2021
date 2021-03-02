@@ -1,14 +1,22 @@
 window.onload = () => {
     citynames();
     show();
+    callauto()
 }
 function logout(){
   location.href = '../../index.html';
   return true;
-}
+}  
 function show(){
- var table = document.getElementById('my_table');
- var list = JSON.parse(localStorage.getItem('reslist'));
+  var list = JSON.parse(localStorage.getItem('reslist')); 
+   if(list == null){
+fetch ("../js/restaurants.json")
+        .then(x => x.text())
+        .then(z =>(localStorage.setItem("reslist", z)));
+  }
+ 
+  var table = document.getElementById('my_table');
+ 
 var str = "";
  for(i = 0; i<list.length ; i++){
    var no = i+1;
@@ -122,4 +130,5 @@ function Addnewrestorent(){
   localStorage.setItem('reslist',resdataob);
   alert("Register New Restorent successfully");
   return true;
-}
+  }
+
