@@ -1,7 +1,10 @@
+//getting accounts details from local storage
 var a = localStorage.getItem("Accounts");
 
 function register() {
+  //checking if details is not present in local storage
   if (a == null) {
+    //getting user detais
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var savings = document.getElementById("savings").checked;
@@ -11,10 +14,13 @@ function register() {
     var accountNo = Math.floor(Math.random() * 12345);
     var emailPatt = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     var account;
+
+    //making object to store user details
     var accountsInfo = {
       accounts: [],
     };
 
+    //checking for selected account type
     if (savings) {
       account = "SAVINGS";
     }
@@ -22,6 +28,7 @@ function register() {
       account = "CURRENT";
     }
 
+    //user details
     var details = {
       name: name.toUpperCase(),
       email: email,
@@ -32,13 +39,16 @@ function register() {
       status: "ACTIVE",
     };
 
+    //validation
     if (name != "") {
       if (email != "" && emailPatt.test(email)) {
         if (email != "admin" && email != "Admin" && email != "ADMIN") {
           if (password != "") {
             if (password == conf_password) {
+              //pushing details in array
               accountsInfo.accounts.push(details);
 
+              //storing in local storage
               var acData = JSON.stringify(accountsInfo);
               localStorage.setItem("Accounts", acData);
               //console.log("from elae part");
@@ -60,6 +70,7 @@ function register() {
       alert("name can not be empty");
     }
   } else {
+    //if local storage is not null
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var savings = document.getElementById("savings").checked;
@@ -72,6 +83,7 @@ function register() {
     var account;
     var accountsInfo = JSON.parse(a);
 
+    //checking for selected account type
     if (savings) {
       account = "SAVINGS";
     }

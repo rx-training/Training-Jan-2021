@@ -144,8 +144,10 @@ function transferMoney() {
             //checking if transfer amount is greter then balance
             if (money <= accountDetails.balance) {
               //updating balance
+              //deducting money from sender
               accountDetails.balance =
                 parseInt(accountDetails.balance) - parseInt(money);
+              //adding money in reciver's balance
               accounts.accounts[i].balance =
                 parseInt(accounts.accounts[i].balance) + parseInt(money);
 
