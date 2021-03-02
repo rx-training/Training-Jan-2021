@@ -1,4 +1,6 @@
-            async function getProducts(file) {
+
+        //Get images Of entertainment , mobile ,grocery from paytm.json file
+        async function getProducts(file) {
                     let myObject = await fetch(file);
                     let myData = await myObject.json();
                     localStorage.setItem("entertainment", JSON.stringify(myData));
@@ -48,27 +50,30 @@
                     $("#grocerycontent").html(groceryBlock);
 
                 }
-                getProducts("paytm.json");
+            getProducts("paytm.json");
             
             $.getJSON("register_users.json", function (data ,status) {
                 localStorage.setItem("register_users" , JSON.stringify( data )); 
             });
+
+            //Funtion for logincheck , if data is Successfull than user value store in to sessionStorage 
+            //to maintain the session in all pages
             function loginCheck(email ,password) {
                 
                 var email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
                 if(email_pattern.test(email) && email !="" && password !="")
                 {
-                    var getObject = localStorage.getItem("register_users");
-                    var getUser = JSON.parse(getObject);
-                    var get = getUser.Users;
+                    let getObject = localStorage.getItem("register_users");
+                    let getUser = JSON.parse(getObject);
+                    let get = getUser.Users;
                     console.log(get);
-                    var flag = 1;
+                    let flag = 1;
                     
-                    var profile = "";
+                    let profile = "";
                     $.each(get , function  ( i , v) {
                        if(email == v.email && password == v.password ) {
                            flag = 0;
-                        var obj2 = { name : v.name , value : 1}
+                        let obj2 = { name : v.name , value : 1}
                            sessionStorage.setItem("session" ,JSON.stringify(obj2));  
                        }
                     });
@@ -82,34 +87,112 @@
                 
             }
         
+
             var sessionValue = sessionStorage.getItem("session");
             var sv = JSON.parse(sessionValue);
+
+            //First set wallet to -1, if user login then set is wallet from is json file  
+            //, and if Payment is done then set wallet to of updated value
+
+            
+            
             if(sv==null){
                 localStorage.setItem("Wallet", -1);
             }
             else{ 
+                    // var arrayObject = [];
                     var List = localStorage.getItem("register_users");
                     var userList = JSON.parse(List);
                     //console.log(userList.Users); 
                     var anyuser = userList.Users;
-                    //console.log(anyuser);
+                    // //console.log(anyuser);
+                    // var getStoreUpdateBalance = localStorage.getItem("update_balance");
+                    // var updateBalanceObject = JSON.parse(getStoreUpdateBalance);
+                    // if(updateBalanceObject != null){
+                    //     var updateBalanceArray  = updateBalanceObject.updateBalance;
+                    //     // if( updateBalanceArray != null)
+                    //     // {
+                    //     //     arrayObject  = updateBalanceArray;
+                    //     // }
+                    // }
+                    
+                    
+                    // var payment_history = localStorage.getItem("payment_history");
+                    // console.log(payment_history);
+                    // if(payment_history)
+                    // { 
+                    //     console.log("true");
+                    //     let payment_historyObject = JSON.parse(payment_history);
+                    //     let historyData = payment_historyObject.array;
+                    //     $.each(historyData , function (index , value) {
+                    //             $.each(anyuser , function ( i , v) {
+                    //                 if(value.name  == v.name)
+                    //                 {  
+                    //                     let obj = { name : value.name , amount : value.amount}
+                    //                     //console.log(obj);
+                    //                     arrayObject.push(obj);
+                    //                     let object = { updateBalance : arrayObject }
+                    //                     localStorage.setItem("update_balance", JSON.stringify(object));
+                                        
+                    //                 }
+                                    
+                    //             });
+                    //     });
+                    // }
+
+                    
                     $.each(anyuser, function (i, v) {
                         if (v.name == sv.name) {
 
                             var walletEmpty = localStorage.getItem("Wallet");
                             if(walletEmpty == -1 )
                             {
-                                var w = v.wallet;
-                                console.log(w);
-                                localStorage.setItem("Wallet", w);
+                                var w = parseInt(v.wallet);
+                                //console.log(w);
+                                //
+
+                                let update_balance = localStorage.getItem("update_balance");
+                                let parseupdate = JSON.parse(update_balance);
+                                if(parseupdate == null){ 
+                                    localStorage.setItem("Wallet" , w);
+                                }
+                                else{
+                                    let parseData = parseupdate.updateBalance;
+                                    console.log(parseData);
+                                    if(parseData)
+                                    {
+                                        console.log("yes");
+                                        $.each(parseData , function  ( index, value) {
+                                            if(sv.name == value.name)
+                                            {
+
+                                                let getAmount = parseInt(value.amount);
+                                                // console.log(getAmount);
+                                                w = w + getAmount ;
+                                                console.log(w);
+                                                localStorage.setItem("Wallet" , w );
+                                            } 
+                                            else{
+                                                localStorage.setItem("Wallet" , w );
+                                            }
+                                        });
+
+                                    }
+                                    else{
+                                        console.log(w);
+                                        localStorage.setItem("Wallet", w);
+                                    }
+                                }
                             }
                             else{
                                 localStorage.setItem("Wallet", walletEmpty);
                             }
                         }
                     });
+                    
             } 
-            
+
+            //For signup validation , user enter Successfull data then , store is data to localStorage
             function  signup(name , email , password , confirmPass ) {   
                 let email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
                 if(email_pattern.test(email) && name !="" && password !="" && confirmPass !="" && password ==confirmPass)
@@ -133,7 +216,9 @@
                 }
                 
         }
-        //New user 
+        
+        /*Get new user from localStorage if new user is not null , then display user name and logout button
+          and add css class to display none to login ,signup link */
         setTimeout(() => {
             let sss = localStorage.getItem("new users");
             if (sss != null) {
@@ -152,7 +237,8 @@
             
         }, 100);
            
-        //Session
+        /*Get session from sessionStorage if session is not null , then display user name and logout button
+          and add css class to display none to login ,signup link */ 
         setTimeout(() => {
                 var sss = sessionStorage.getItem("session");
                 if (sss != null) {
@@ -171,6 +257,8 @@
                 else { console.log("Session not get"); }
         }, 100);
 
+        //Logout Funtion for logout thse user payment_history ,wallet and session of user and redirect to 
+        // index.html page
         function logout() {
             localStorage.removeItem("payment_history");
             localStorage.removeItem("Wallet");

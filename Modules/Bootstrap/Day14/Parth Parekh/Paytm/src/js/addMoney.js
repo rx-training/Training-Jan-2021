@@ -1,7 +1,8 @@
-
+        //To get session if user is login 
         var sessionValue = sessionStorage.getItem("session");
         var sv = JSON.parse(sessionValue);
         
+        //Get Data of User store in register_users.json file & store into localStorage
         async function getContact(file) {
                 let myObject = await fetch(file);
                 let myData = await myObject.json();
@@ -32,10 +33,10 @@
                             $("#tbody").html(temp);
 
                             $("#myInput").on("keyup", function () {
-                            var value = $(this).val().toLowerCase();
-                            $("#tbody tr").filter(function () {
-                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                            });
+                                var value = $(this).val().toLowerCase();
+                                $("#tbody tr").filter(function () {
+                                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                });
                             });
                         }          
                     });
@@ -46,6 +47,8 @@
         
         var name="";
         var num="";
+
+        //below funtion For to Display modal 
         function payvalue(a, b) {
             
             name = a;
@@ -64,7 +67,8 @@
         }
 
         
-
+        //When User click the pay button this funtion run , in this we set user wallet from the json file data ,
+        // and if Payment is send than we update(set wallet in localStorage) wallet with that value.
         function  moneysend(amount) {
             var amount = parseInt(amount);
            
@@ -104,7 +108,7 @@
                                 var payment_historyObject = JSON.parse(his);
                                 if(payment_historyObject == null)
                                 {
-                                    console.log("payment_history is null");
+                                    //console.log("payment_history is null");
                                     console.log(amount);
                                     var total = w - amount;
                                     var wallet = localStorage.setItem("Wallet", total);
@@ -122,15 +126,17 @@
                                     aa.push(object);
                                     ob1 = { array : aa};
                                     localStorage.setItem("payment_history", JSON.stringify(ob1));
-                                    var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
-                                        "<p> <a href='passbook.html'> Check history </p> </a>";
-                                    $("#success").html(s);
+                                    alert("Money added Successfully");
+                                    window.location.href = "pay.html";
+                                    // var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
+                                    //     "<p> <a href='passbook.html'> Check history </p> </a>";
+                                    // $("#success").html(s);
                                 }
                                 else
                                 {
                                     var aa = payment_historyObject.array;
-                                    console.log(aa);  
-                                    console.log(amount);  
+                                    //console.log(aa);  
+                                    //console.log(amount);  
                                     var total = w - amount;
                                     var wallet = localStorage.setItem("Wallet", total);
                                     var d = new Date();
@@ -149,11 +155,17 @@
                                     ob1 = { array : aa};
                                     console.log(ob1);
                                     localStorage.setItem("payment_history", JSON.stringify(ob1));
+                                    alert("Money added Successfully");
+                                    window.location.href = "pay.html";
+                                     //
+                                    
+                                    
+                                    // var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
+                                    //         "<p> <a href='passbook.html'> Check history </p> </a>";
+                                    // $("#success").html(s);
                                     
 
-                                    var s = " <i class='fa display-2 text-success fa-check-square-o ' aria-hidden='true'></i><h2 class='display-4'>Payment Successfull</h2>"+
-                                            "<p> <a href='passbook.html'> Check history </p> </a>";
-                                    $("#success").html(s);
+                                //end
                                 }
                                     //window.location.href="passbook.html";
                             }                        
@@ -175,9 +187,13 @@
                 alert("Enter more than 5 rupees ");
         }
 
+        
         $.getJSON("register_users.json", function (data ,status) {
                 localStorage.setItem("register_users" , JSON.stringify( data )); 
         });
+
+        //Funtion for logincheck , if data is Successfull than user value store in to sessionStorage
+        //to maintain the session in all pages
         function loginCheck(email ,password) {
                 
                 var email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
@@ -207,6 +223,7 @@
                 
         }
 
+        //For signup validation , user enter Successfull data then , store is data to localStorage
         function  signup(name , email , password , confirmPass ) {   
                 let email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
                 if(email_pattern.test(email) && name !="" && password !="" && confirmPass !="" && password ==confirmPass)
@@ -231,7 +248,8 @@
                 
         }
 
-        //New User
+        /*Get new user from localStorage if new user is not null , then display user name and logout button
+          and add css class to display none to login ,signup link */
         setTimeout(() => {
             let sss = localStorage.getItem("new users");
             if (sss != null) {
@@ -251,7 +269,8 @@
         }, 101);
 
         
-        //session
+        /*Get session from sessionStorage if session is not null , then display user name and logout button
+          and add css class to display none to login ,signup link */ 
         setTimeout(() => {
                 let sss = sessionStorage.getItem("session");
                 if (sss != null) {
@@ -276,6 +295,8 @@
                 }
         }, 100);
 
+        //Logout Funtion for logout thse user payment_history ,wallet and session of user and redirect to 
+        // index.html page
         function logout(){
             localStorage.removeItem("payment_history");
             localStorage.removeItem("Wallet");
@@ -284,6 +305,49 @@
             window.location.href = "index.html";
         } 
     
+        
+                                    var arrayObject = [];
+                                    var List = localStorage.getItem("register_users");
+                                    var userList = JSON.parse(List);
+                                    //console.log(userList.Users); 
+                                    var anyuser = userList.Users;
+                                    //console.log(anyuser);
+                                    var getStoreUpdateBalance = localStorage.getItem("update_balance");
+                                    var updateBalanceObject = JSON.parse(getStoreUpdateBalance);
+                                    if(updateBalanceObject != null){
+                                        var updateBalanceArray  = updateBalanceObject.updateBalance;
+                                        // if( updateBalanceArray != null)
+                                        // {
+                                        //     arrayObject  = updateBalanceArray;
+                                        // }
+                                    }
+                                    
+                                    
+                                    var payment_history = localStorage.getItem("payment_history");
+                                    console.log(payment_history);
+                                    if(payment_history)
+                                    { 
+                                        console.log("true");
+                                        let payment_historyObject = JSON.parse(payment_history);
+                                        let historyData = payment_historyObject.array;
+                                        $.each(historyData , function (index , value) {
+                                                $.each(anyuser , function ( i , v) {
+                                                    if(value.name  == v.name)
+                                                    {  
+                                                        let obj = { name : value.name , amount : value.amount}
+                                                        //console.log(obj);
+                                                        arrayObject.push(obj);
+                                                        let object = { updateBalance : arrayObject }
+                                                        localStorage.setItem("update_balance", JSON.stringify(object));
+                                                        
+                                                    }
+                                                    
+                                                });
+                                        });
+                                    }
 
 
+                                    //
+        
+                           
         

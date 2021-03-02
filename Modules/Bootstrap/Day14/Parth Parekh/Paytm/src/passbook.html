@@ -74,12 +74,31 @@
     </div>
 
 
-    <div class="container mb-4">
+    <div class="container  p-3">
         
         <div class="row mt-3 p-2 text-right display-4 text-danger" id="dnone">  <div class="col" > 
-             Wallet <i class="fa fa-id-card-o" aria-hidden="true"></i> : <span id="purse" class="ml-2">0</span></div></div>
+             Wallet <i class="fa fa-id-card-o" aria-hidden="true"></i> : <span id="purse" class="ml-2">0</span></div>
+        </div>
         <div id="getLoginFirst" ></div>
-        <div id="balance"></div>
+        
+        <div class="row mt-3 p-3">
+            <input id="myInput" type="text" class="form-control mb-3 mt-2 text-capitalize " placeholder="Search your Transaction..">
+            <table class="table table-hover mt-3 text-monospace border border-info">
+                <thead class="bg-info ">
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile no </th>
+                        <th>Amount Pay </th>
+                        <th>Remaining Balance </th>
+                        <th>Transaction Date </th>
+                        <th>Transaction Time </th>
+                    </tr>
+                </thead>
+                <tbody id="balance">
+            
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Sign UP MOdal -->
@@ -155,7 +174,7 @@
     </div>
 
     
-    <script src="passbook.js"></script>
+    <script src="../src/js/passbook.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

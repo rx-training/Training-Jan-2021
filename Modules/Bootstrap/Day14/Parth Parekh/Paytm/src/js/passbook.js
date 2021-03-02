@@ -6,16 +6,16 @@ var userList = JSON.parse(List);
 //console.log(userList.Users); 
 var anyuser = userList.Users;
 console.log(anyuser);
-
+//This for if session is not null than we print login user wallet value in #purse id.
 if (sv == null) {
     
 }
 else {
     $.each(anyuser, function (i, v) {
         if (v.name == sv.name) {
-            var w = v.wallet;
-            //console.log(w);
-            $("#purse").html(w);
+
+            let  wall = parseInt(localStorage.getItem("Wallet"));
+            $("#purse").html(wall);
         }
     });
 }
@@ -23,26 +23,35 @@ else {
 var payment_history = localStorage.getItem("payment_history");
 
 //console.log(payment_history);
-    
+//If payment_history is null than it will print no Transaction yet ,Otherwise it will so the payment history
 var data = JSON.parse(payment_history);
 if(data == null)
 {
-    $("#balance").html("<div class='text-center mt-3 display-3 text-info'>No Transaction Yet !!!!</div>");
+    $("#getLoginFirst").html("<div class='text-center mt-3 display-3 text-info'>No Transaction Yet !!!!</div>");
 }
 else{
     console.log(data);
     var data = data.array;
-    listBlock = "";
-    $.each(data , function  (i ,value) {
-        listBlock += "<div class='card text-success mt-5 p-3'> <h2 class='card-title display-4'>Money Send To :  " + value.name + "</h2>" +
-            "<p class='card-text'>Mobile no :   " + value.num + "</p>" +
-            "<p class='card-text'>Amount Pay :  " + value.amount + "</p>" +
-            "<p class='card-text'>Remaining Balance :   " + value.total + "</p>" +
-            "<p class='card-text'> Transaction Date : " + value.date + " </p>" +
-            "<p class='card-text'> Transaction Time : " + value.time + " </p>" +
-            "</div>";
-        $("#balance").html(listBlock);
+    let temp = "";
+    $.each(data , function  (index ,value) {
+        
+        temp += "<tr>";
+        temp += "<td class='p-3'>" + value.name + "</td>";
+        temp += "<td class='p-3'>" + value.num + "</td>";
+        temp += "<td class='p-3'>" + value.amount + "</td>";
+        temp += "<td class='p-3'>" + value.total + "</td>";
+        temp += "<td class='p-3'>" + value.date + "</td>";
+        temp += "<td class='p-3'>" + value.time + "</td>";
+        temp += "</tr>";  
+            
+        $("#balance").html(temp);
         $("#purse").html(value.total);
+    });
+    $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#balance tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
 }
 
@@ -50,6 +59,9 @@ else{
 $.getJSON("register_users.json", function (data, status) {
     localStorage.setItem("register_users", JSON.stringify(data));
 });
+
+//Funtion for logincheck , if data is Successfull than user value store in to sessionStorage 
+//to maintain the session in all pages
 function loginCheck(email, password) {
 
     var email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
@@ -78,6 +90,7 @@ function loginCheck(email, password) {
     
 }
 
+//For signup validation , user enter Successfull data then , store is data to localStorage
 function  signup(name , email , password , confirmPass ) {   
     let email_pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
     if(email_pattern.test(email) && name !="" && password !="" && confirmPass !="" && password ==confirmPass)
@@ -102,6 +115,8 @@ function  signup(name , email , password , confirmPass ) {
     
 }
 
+/*Get new user from localStorage if new user is not null , then display user name and logout button
+          and add css class to display none to login ,signup link */
 setTimeout(() => {
     let sss = localStorage.getItem("new users");
     if (sss != null) {
@@ -117,7 +132,8 @@ setTimeout(() => {
     }
 }, 100);
 
-
+/*Get session from sessionStorage if session is not null , then display user name and logout button
+          and add css class to display none to login ,signup link */ 
 setTimeout(() => {
     let sss = sessionStorage.getItem("session");
     if (sss != null) {
@@ -138,6 +154,9 @@ setTimeout(() => {
     }
 }, 100);
 
+
+//Logout Funtion for logout thse user payment_history ,wallet and session of user and redirect to 
+// index.html page
 function logout() {
     localStorage.removeItem("payment_history");
     localStorage.removeItem("Wallet");
@@ -145,3 +164,5 @@ function logout() {
     localStorage.removeItem("new users");
     window.location.href = "index.html";
 }
+
+
