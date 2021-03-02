@@ -1,0 +1,119 @@
+{
+    "plan":[
+        {
+            "sectionName": "Redmine & Git Training Plan",
+            "data":[
+                {
+                    "day":1,
+                    "learn":[
+                        "Filling log into Redmine on daily basis for the task assigned",
+                        "Adding chrome history screen shots",
+                        "Git Introduction -Create Repository",
+                        "(fork, clone, pull, push, Create pull request"
+                    ],
+                    "practice":[
+                        "Create personal Account",
+                        "Create public Repository",
+                        "Fork the Repository",
+                        "Clone repository on local system",
+                        "Create one text from local system, commit that file and push the changes",
+                        "Modify file in github and pull changes"
+                    ],
+                    "assignment":[
+                        "Fill Redmine log for the task assigned",
+                        "Commit today work in the git repository. Example: Repoistory->Work->RedmineGit->Day1->TeamMemberName(folder)",
+                        "While committing task follows patterns REFS: #4 and fixes #4 (Here 4 means task id)"
+                    ],
+                    "reference":[
+                        "https://docs.microsoft.com/en-us/visualstudio/get-started/tutorial-open-project-from-repo?view=vs-2019",
+                        "https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo",
+                        "https://docs.microsoft.com/en-us/azure/devops/repos/git/pushing?view=azure-devops&tabs=visual-studio",
+                        "https://docs.microsoft.com/en-us/azure/devops/repos/git/pulling?view=azure-devops&tabs=visual-studio"
+                    ]
+                },
+                {
+                    "day":2,
+                    "learn":[
+                        "Creating Branches",
+                        "Checkout of the branch",
+                        "How to resolve conflicts",
+                        "difference between fetch and pull",
+                        ".gitignore",
+                        "Stage the changes",
+                        "Putting changes into stash",
+                        "apply stash"
+                    ],
+                    "practice":[
+                        "Do the hands on topics covered in the session"
+                    ],
+                    "assignment":[
+                        "Create one Folder in local repository, but do not commit that folder and sub folder in remote repository",
+                        "Write difference between fetch and pull",
+                        "Write difference between and stage the changes and stash the changes"
+                    ],
+                    "reference":[]
+                }
+            ]
+        },
+        {
+            "sectionName": "HTML Training Plan",
+            "data":[
+                {
+                    "day":3,
+                    "learn":[
+                        "What is HTML5",
+                        "Empty Tags",
+                        "Common HTML Tags",
+                        "What is Attribute",
+                        "HTML Tables",
+                        "Ordered List & Unordered List",
+                        "Naming Convention",
+                        "HTML Layout",
+                        "Semantic Markup",
+                        "Header& Footer",
+                        "Section, Nav, aside",
+                        "Forms",
+                        "Validation"
+                    ],
+                    "practice":[
+                        "Display Student Report Card, Which contains field like Name, RollNo, Year Of Passing. Different subject marks should be displayed with its grade (Note: use table tag)",
+                        "You are working in some company as HR. you have been assigned a task to arrange department hierarchy example: employee working under some manager (Note: Use Ordered and unordered list with its list-style-type attribute, practice nested list as  well)",
+                        "Create Login Form with field UserName and Password field",
+                        "Use Article tag display one latest news",
+                        "Create Horizontal menu. Menu item will Home, AboutUs, ContactUS (Note: Use Nav tag and anchor tag)"
+                    ],
+                    "assignment":[
+                        "Design a form for storing employee details. (Employee name, age, Gender, designation, salary, location, Email ID, Date of Joining and contact number). (Note: Validation required, Age should be a number, Each field should contain value, Email ID should be in proper format, Date of joining should be in date format, Location should be in the drop down list, Use radio buttons for Gender)"
+                    ],
+                    "reference":[
+                        "https://www.w3schools.com/html/html_elements.asp",
+                        "https://www.w3schools.com/html/html_headings.asp",
+                        "https://www.w3schools.com/html/html_tables.asp",
+                        "https://www.w3schools.com/html/html_lists.asp",
+                        "https://www.w3schools.com/html/html_paragraphs.asp",
+                        "https://www.w3schools.com/html/html5_semantic_elements.asp",
+                        "https://www.w3schools.com/html/html_forms.asp",
+                        "https://www.w3schools.com/html/html_form_attributes.asp",
+                        "https://www.w3schools.com/html/html_layout.asp",
+                        "https://www.w3schools.com/html/html_styles.asp"
+                    ]
+                }
+            ]
+        },
+        {
+            "sectionName": "CSS Training Plan"
+        },
+        {
+            "sectionName": "Bootstrap Training Plan"
+        },
+        {
+            "sectionName": "JavaScript Training Plan"
+        },
+        {
+            "sectionName": "SVN Training Plan"
+        },
+        {
+            "sectionName": "JQuery Training Plan"
+        }
+    ]
+}

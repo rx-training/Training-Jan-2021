@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Radixweb Tutorials</title>
+</head>
+
+<body>
+    <div class="mx-auto " style="width: 300px;margin-top: 100px;box-shadow: 0 0 5px gray;">
+       <div id="content" class="m-2 p-3">
+        <div class="text-center" >
+            <img src="../img/logo.jpg" alt="" height="100px">
+        </div>
+        <div id="login-error"><span class="small text-danger"></span></div>
+        <br><br>
+            <form action="" class="form" id="edit-profile-form">
+                <div class="form-group ">
+                    <label for="email"><h5>Username or email *</h5></label>
+                    <input type="email" class="" name="email" id="email" style="width: 100%;border: 1px solid black;height: 60px; font-size: 20px;">
+                    <div id="email-error"><span class="small text-danger"></span></div>
+                </div>
+                <div class="form-group">
+                    <label for="password"><h5>Password *</h5></label>
+                    <input type="password" class="" name="password" id="password" style="width: 100%;border: 1px solid black;height: 60px; font-size: 20px;">
+                    <div id="password-error"><span class="small text-danger"></span></div>
+                </div>
+                <div class="text-right">
+                    <button type="button" class="btn btn-primary" onclick="(new loginUser).login()" style=" background-color: #2f79d5 !important;"><h6 class="m-0">Login</h6></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/session.js"></script>
+    
+    <script>
+        (new session).isLoggedIn();
+
+        $('.dropdown-menu a.dropdown-toggle').on('mouseover', function(e) {
+            if (!$(this).next().hasClass('show')) {
+                $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+            }
+            var $subMenu = $(this).next(".dropdown-menu");
+            $subMenu.toggleClass('show');
+
+
+            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+                $('.dropdown-submenu .show').removeClass("show");
+            });
+
+
+            return false;
+        });
+    </script>
+</body>
+
+</html>
