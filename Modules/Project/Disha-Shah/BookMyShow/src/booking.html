@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <title>Booking</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
@@ -110,26 +110,25 @@
             </nav>
 
             <div class="bg-light">
-                <h1 class="h4 p-4">Latest Events</h1>
+                <h1 class="h4 p-4">Latest Bookings</h1>
                 <div class="table-responsive w-100">
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Image</th>
+                                <th>Booking Id</th>
+                                <th>Booked by User</th>
+                                <th>User's Contact Number</th>
+                                <th>Movie</th>
                                 <th>Language</th>
-                                <th>Time</th>
-                                <th>Age Group</th>
-                                <th>Category</th>
-                                <th>Sub Category</th>
-                                <th>Event Time</th>
-                                <th>Venue</th>
+                                <th>Film</th>
+                                <th>Theatre</th>
+                                <th>Show Time</th>
+                                <th>Seat No.</th>
                                 <th>Ticket Price</th>
-                                <th>Actions</th>
+                                
                             </tr>
                         </thead>
-                        <tbody id="tblEvents">
+                        <tbody id="tblBookings">
 
                         </tbody>
                     </table>
@@ -141,8 +140,36 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/storeData.js"></script>
+    <!-- <script src="js/storeData.js"></script> -->
     <script src="js/adminSidebar.js"></script>
-    <script src="js/events.js"></script>
+    <script>
+        if(!localStorage.logged_in_admin){
+        window.location.assign("index.html");
+    }
+    else{
+        
+
+        
+            document.getElementById("tblBookings").innerHTML = "";
+            var bookingArray = JSON.parse(localStorage.getItem("Booking"));
+            for(data in bookingArray){
+                //console.log(usersArray[data].Name);
+                
+                    document.getElementById("tblBookings").innerHTML += "<tr><td>" + bookingArray[data].bookingId 
+                        + "</td><td>" + bookingArray[data].bookedByUser 
+                        + "</td><td>" + bookingArray[data].userContact + "</td><td>"
+                        + bookingArray[data].Movie + "</td><td>" 
+                        + bookingArray[data].Language + "</td><td>"
+                        + bookingArray[data].Film + "</td><td>" 
+                        + bookingArray[data].Theatre + "</td><td>"
+                        + bookingArray[data].Time + "</td><td>" 
+                        + bookingArray[data].Seats.join(",") + "</td><td>"
+                        + bookingArray[data].TicketPrice + "</td></tr>";
+                        
+                
+            }
+        }
+
+    </script>
 </body>
 </html>

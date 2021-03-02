@@ -1,3 +1,9 @@
+
+    localStorage.removeItem("selectedMovieDetails");
+    localStorage.removeItem("SelectedTheatreDetails");
+    localStorage.removeItem("NoOfTickets");
+    
+
 document.getElementById("recommendedMovies").innerHTML = "";
 document.getElementById("premiereCarouselList").innerHTML = "";
 document.getElementById("premiereCarousel").innerHTML ="";
@@ -6,7 +12,7 @@ document.getElementById("premiereCarousel").innerHTML ="";
             for(data in moviesArray.Movies){
                 if(moviesArray.Movies[data].Recommended==true){
                     console.log(moviesArray.Movies[data].Recommended);
-                    document.getElementById("recommendedMovies").innerHTML += '<div class="col-sm-12 col-md-4 col-lg-3"><div><div class="slide-content"><a href="#" class="text-decoration-none"><img src="../' + 
+                    document.getElementById("recommendedMovies").innerHTML += '<div class="col-sm-12 col-md-4 col-lg-3"><div><div class="slide-content"><a href="' + moviesArray.Movies[data].Name + '.html" class="text-decoration-none"><img src="../' + 
                     moviesArray.Movies[data].ImgUrls + '" alt="" loading="lazy" class="w-100 rounded"><h6 style="color: black;" class="pt-3">' 
                     + moviesArray.Movies[data].Name +'</h6><h6 class="text-muted font-weight-normal d-none d-lg-block">' 
                     + moviesArray.Movies[data].Genre + '</h6></a></div></div></div>'
@@ -32,6 +38,8 @@ document.getElementById("premiereCarousel").innerHTML ="";
                         + '</p></div></div><button class="btn btn-danger btn-block">Buy or Rent</button></div>';
                     $(".carousel-item:first").addClass('active');
                 }
+
+                
             }
 
         document.getElementById("playsSlider").innerHTML = "";

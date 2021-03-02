@@ -1,0 +1,32 @@
+[    
+    { 
+        "Id": 1, 
+        "Theatre" : "Cineplex: Ahmedabad",
+        "Movie": "Monster Hunter",
+        "StartDate": "2021-03-01",
+        "EndDate": "2021-03-04",
+        "Time": "3:00 PM",
+        "Ticket": "120",
+        "Language": "English",
+        "Film": "2D"
+        
+    },
+
+    { 
+        "Id": 1, 
+        "Theatre" : "PVR Acropolis: Ahmedabad",
+        "Movie": "War",
+        "StartDate": "2021-03-10",
+        "EndDate": "2021-03-14",
+        "Time": "5:00 PM",
+        "Ticket": "220",
+        "Language": "Hindi",
+        "Film": "3D"
+        
+    }
+
+    
+    
+]
+
+

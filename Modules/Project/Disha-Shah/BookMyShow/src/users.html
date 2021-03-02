@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <title>Users</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
@@ -110,26 +110,18 @@
             </nav>
 
             <div class="bg-light">
-                <h1 class="h4 p-4">Latest Events</h1>
+                <h1 class="h4 p-4">Latest Users</h1>
                 <div class="table-responsive w-100">
                     <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Image</th>
-                                <th>Language</th>
-                                <th>Time</th>
-                                <th>Age Group</th>
-                                <th>Category</th>
-                                <th>Sub Category</th>
-                                <th>Event Time</th>
-                                <th>Venue</th>
-                                <th>Ticket Price</th>
-                                <th>Actions</th>
+                                <th>Contact Number</th>
+                                
                             </tr>
                         </thead>
-                        <tbody id="tblEvents">
+                        <tbody id="tblUsers">
 
                         </tbody>
                     </table>
@@ -141,8 +133,28 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/storeData.js"></script>
+    <!-- <script src="js/storeData.js"></script> -->
     <script src="js/adminSidebar.js"></script>
-    <script src="js/events.js"></script>
+    <script>
+        if(!localStorage.logged_in_admin){
+        window.location.assign("index.html");
+    }
+    else{
+        
+
+        
+            document.getElementById("tblUsers").innerHTML = "";
+            var usersArray = JSON.parse(localStorage.getItem("Users"));
+            for(data in usersArray){
+                //console.log(usersArray[data].Name);
+                
+                    document.getElementById("tblUsers").innerHTML += "<tr><td>" + usersArray[data].Id + "</td><td>" 
+                        + usersArray[data].Username + "</td><td>" + usersArray[data].ContactNo + "</td><tr>";
+                        
+                
+            }
+        }
+
+    </script>
 </body>
 </html>
