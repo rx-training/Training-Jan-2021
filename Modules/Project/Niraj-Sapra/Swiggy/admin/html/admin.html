@@ -78,7 +78,7 @@
                               <div class="modal-content">
                                 <!-- Modal Header -->
                                 <div class="modal-header">
-                                  <h4 class="modal-title">New user Data</h4>
+                                  <h4 class="modal-title"> user Data Update</h4>
                                   <button type="button" id ="closes" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <!-- Modal body -->
@@ -89,16 +89,21 @@
                                           </div>
                                         <div class="form-group">
                                           <input type="text" class="form-control" placeholder="Enter name" id="name" value="">
+                                          <div id="names" class="validdatas text-danger">Enter valid Name.</div>
                                         </div>
                                         <div class="form-group">
                                             <input type="tel" class="form-control" placeholder="Enter mobile no" id="mobileno" value="">
+                                            <div id="phones" class="validdatas text-danger">Enter valid Mobile Phone.</div>
                                           </div>
                                           <div class="form-group">
                                             <input type="email" class="form-control" placeholder="Enter email" id="email" value="">
+                                            <div id="emailids" class="validdatas text-danger">Enter valid Email id.</div>
                                           </div>
                                           <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Enter password" id="password" value="">
+                                            <div id="passwords" class="validdatas text-danger">Enter valid Passwords.</div>
                                           </div>
+
                                           <button onclick="return setupdatedata()" class="btn btn-primary">Submit</button>
                                       </form>
                                 </div>
@@ -127,19 +132,19 @@
                                         </div>  
                                         <div class="form-group">
                                           <input type="text" class="form-control" placeholder="Enter name" id="newname" value="">
-                                          <label id="name" class="text-denger valdefault">Enter Valid name</label> 
+                                          <label id="name" class="text-danger valdefault">Enter Valid name</label> 
                                         </div>
                                         <div class="form-group">
                                             <input type="tel" class="form-control" placeholder="Enter mobile no" id="newmobileno" value="">
-                                            <label id="phpneno" class="text-denger valdefault">Enter Valid mobileno</label>
+                                            <label id="phpneno" class="text-danger valdefault">Enter Valid mobileno</label>
                                         </div>
                                           <div class="form-group">
                                             <input type="email" class="form-control" placeholder="Enter email" id="newemail" value="">
-                                            <label id="valemail" class="text-denger valdefault">Enter Valid Email</label>
+                                            <label id="valemail" class="text-danger valdefault">Enter Valid Email</label>
                                         </div>
                                           <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Enter password" id="newpassword" value="">
-                                            <label id="valpass" class="text-denger valdefault">Enter Valid Password</label>
+                                            <label id="valpass" class="text-danger valdefault">Enter Valid Password</label>
                                         </div>
                                           <button onclick="return Addnewuser()" class="btn btn-primary">Submit</button>
                                       </form>

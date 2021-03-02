@@ -16,6 +16,9 @@
 .loginbox{
     margin-top: 20px;
 }
+.validdatas{
+    display: none;
+}
 #sectionimg {
     width: 100%;
     height: 90%;

@@ -7,7 +7,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
         <script type="text/javascript" src="../Js/restaurants.js"></script>
-        <script type="text/javascript" src="../Js/login.js"></script>
+        <!-- <script type="text/javascript" src="../Js/login.js"></script> -->
         <link rel="stylesheet" href="../css/restaurants.css"></link>
 
         <meta charset="utf-8">
@@ -62,7 +62,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6">
-                                <h1><i class="far fa-cog"></i>Restaurants</h1>
+                                <h1><i class="far fa-cog"></i>Restaurants </h1>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="container mx-auto my-3"> 
                     <div class="col-lg-3">
                         <a href="" class="btn btn-warning btn-block" id="adduser" data-toggle="modal" data-target="#Adduser">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New Restorent
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New Restaurant 
                         </a>
                     </div>
                 </div>
@@ -96,15 +96,15 @@
                                                 <input type="hidden" id="uid" value="">
                                               </div>
                                             <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="Enter Restaurant Name" id="unewresname" value="">
-                                              <label id="name" class="text-denger valdefault">Enter valid Restaurant Name</label> 
+                                              <input type="text" class="form-control" placeholder="Restaurant Name" id="unewresname" value="">
+                                              <label id="name" class="text-danger valdefault">Enter valid Restaurant Name</label> 
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Enter category of Food type Item" id="ufoodtype" value="">
-                                                <label id="phpneno" class="text-denger valdefault">Enter Food Veraity</label>
+                                                <input type="text" class="form-control" placeholder="Food type" id="ufoodtype" value="">
+                                                <label id="phpneno" class="text-danger valdefault">Enter Food Veraity</label>
                                             </div>
                                             <div class="form-group">
-                                                  <label for="price">Choose Price Two person :</label>
+                                                  <label for="price">Price of Two person :</label>
                                                 <select name="forprice" class="form-control w-100" id="uprice">
                                                     <option value="100">100</option>
                                                     <option value="200">200</option>
@@ -114,7 +114,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="price">Choose Offer Of product :</label>
+                                                <label for="price">Offer Of product :</label>
                                               <select name="forprice" class="form-control w-100" id="uoffer1">
                                                   <option value="30% off | Use SWIGGYIT">30% off | Use SWIGGYIT</option>
                                                   <option value="Extra 15% Amazon Pay Cashback">Extra 15% Amazon Pay Cashback</option>
@@ -124,7 +124,7 @@
                                               </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="price">Choose Offer Of product :</label>
+                                                <label for="price">Offer Of product :</label>
                                                 <select name="forprice" class="form-control w-100" id="uoffer2">
                                                     <option value="30% off | Use SWIGGYIT">30% off | Use SWIGGYIT</option>
                                                     <option value="Extra 15% Amazon Pay Cashback">Extra 15% Amazon Pay Cashback</option>
@@ -159,12 +159,12 @@
                                                 </select>
                                             </div>  
                                             <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="Enter Restaurant Name" id="newresname" value="">
-                                              <label id="name" class="text-denger valdefault">Enter valid Restaurant Name</label> 
+                                              <input type="text" class="form-control" placeholder="Restaurant Name" id="newresname" value="">
+                                              <label id="name" class="text-danger valdefault">Enter valid Restaurant Name</label> 
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Enter category of Food type Item" id="newfoodtype" value="">
-                                                <label id="phpneno" class="text-denger valdefault">Enter Food Veraity</label>
+                                                <input type="text" class="form-control" placeholder="Food type" id="newfoodtype" value="">
+                                                <label id="phpneno" class="text-danger valdefault">Enter Food Veraity</label>
                                             </div>
                                             <div class="form-group">
                                                   <label for="price">Choose Price Two person :</label>
@@ -197,8 +197,8 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <input type="file" class="form-control" placeholder="Enter Restaurant Image" id="file" value="">
-                                                <label id="resimgs" class="text-denger valdefault">Enter Restorent Image</label>
+                                                <input type="file" class="form-control" placeholder="Enter Restaurant Image" id="file" required>
+                                                <label id="resimgs" class="text-danger valdefault">Enter Restorent Image</label>
                                             </div>
                                             <button onclick="return Addnewrestorent()" class="btn btn-primary">Submit</button>
                                           </form>

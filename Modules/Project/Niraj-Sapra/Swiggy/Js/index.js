@@ -1,5 +1,16 @@
 window.onload = () => {
   citynameshow();
+  storepassword();
+}
+function storepassword(){
+  password = JSON.parse(localStorage.getItem('loginwithsignup')) || [];
+  
+  if(password.length<1){
+  fetch ("Js/loginpassword.json")
+  .then(x => x.text())
+  .then(y => localStorage.setItem("loginwithsignup", y));
+  }
+    
 }
 function citynameshow(){ 
 var lines = document.getElementById('citydynamic');
@@ -15,7 +26,14 @@ function login(){
     var loginphonenumber = document.getElementById('mobilenologin').value;
     var loginpassword = document.getElementById('passwords').value; 
     var loginphoneno = /^\d{10}$/;
+    $(document).ready(function(){
+      $("#mobilenologin,#passwords").focus(function(){
+        $("#validdata").hide();
+      });
+    });
     
+
+
     if(loginphoneno.test(loginphonenumber)== "false" || loginphonenumber == ""){
       document.getElementById('loginphoneno').style.color = "red";
       return false;
@@ -26,24 +44,26 @@ function login(){
       }
     else
     {
-    var list = JSON.parse(localStorage.getItem("list"));
-    alert("data"+loginphonenumber+" "+loginpassword+" "+typeofuser);  
-    for(i=0;i<list.length;i++)
-      {    
-        if(list[i].visitortype == "admin" && list[i].mobileno == loginphonenumber && list[i].password == loginpassword)
+    var loginwithsignup = JSON.parse(localStorage.getItem("loginwithsignup"));
+    for(i=0;i<loginwithsignup.length;i++)
+      
+    {    
+        if(loginwithsignup[i].visitortype == "admin" && loginwithsignup[i].mobileno == loginphonenumber && loginwithsignup[i].password == loginpassword)
         {
               location.href='admin/html/admin.html';
               alert("Login successfully Adminpenal");
               break;
         }
-        else if(list[i].visitortype == "user" && list[i].mobileno == loginphonenumber && list[i].password == loginpassword)
+        else if(loginwithsignup[i].visitortype == "user" && loginwithsignup[i].mobileno == loginphonenumber && loginwithsignup[i].password == loginpassword)
         {
               location.href='user/html/home.html';
               alert("Login successfully Homepage");
               break;
         }
+        else{
+          $("#validdata").show();
+        }
       }
-      //alert("enter valid data");
     } 
 }
 function signup(){
@@ -53,8 +73,7 @@ function signup(){
   var signupemail = document.getElementById('email').value;
   var signuppassword = document.getElementById('pwd').value;   
   var loginphoneno = /^\d{10}$/;
-  var id= 0;
-    var list = localStorage.getItem("list");
+    var password = localStorage.getItem("password");
     if(loginphoneno.test(signupmobileno)== "false" || signupmobileno == ""){
       document.getElementById('signphoneno').style.color = "red";
       return false;
@@ -72,19 +91,17 @@ function signup(){
         return false;
       }
     else{ 
-    var list ;
+    var password ;
     var signupdataob = {
-      "id" : id,
       "visitortype" :typeofuser,
       "mobileno" :signupmobileno,
       "name" :signupname,
       "email" :signupemail,
       "password" :signuppassword,
     }
-    list=JSON.parse(localStorage.getItem('list')) || [];
-    list.push(signupdataob);
-    signupdataob=JSON.stringify(list);
-    localStorage.setItem('list',signupdataob);
+    password = JSON.parse(localStorage.getItem('loginwithsignup')) || [];
+    password.push(signupdataob);
+    localStorage.setItem('loginwithsignup',JSON.stringify(password));
     alert("Register successfully");
     location.href='index.html';
   }
