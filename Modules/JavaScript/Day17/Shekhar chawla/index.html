@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Javascript Day3</title>
+	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body class="bg-dark text-white">
+<body class="">
 <div class="container ">
 	<!-- Practice 1
 	Use the getElementById method to find the <p> element, and change its text to "Hello". -->
@@ -61,64 +62,119 @@
 	Location should be in the drop down list
 	Use radio buttons for Gender
 	Note: Show error message in summary box. -->
-	<form class="form-group my-4" onsubmit="formValidation(this)">
-
-		<fieldset>
-		<legend>Employee Details</legend>
+	
+	<br><br><br><br>
+	
+	<h2 class="my-4" name="jform">Joining Form</h2>
+	<form class="needs-validation" novalidate name="jform">
+		<div class="form-group row">
+			<label for="eId" class="col-2">Employee id</label>
+			<input type="text" class="form-control col-5" id="eId" name="eId" value="34652325" required>
+			<small class="valid-feedback col" id="idSuccess">
+			</small>
+			<small class="invalid-feedback col" id="idError">
+			</small> 
+		</div>
 
 		<div class="form-group row">
-		<label for="empId" class="col-2">Employee Id</label>
-		<input type="text" class="form-control col-4" name="empId" id="empId" placeholder="5s7x6">
-		<small class="text-muted" id="sId">Minimum length should be 5 characters</small><br>
+			<label for="eName" class="col-2">Employee Name</label>
+			<input type="text" class="form-control col-5" id="eName" name="name" value="John doe" required>
+			<small class="valid-feedback col" id="nameSuccess">
+			</small>
+			<small class="invalid-feedback col" id="nameError">
+			</small> 
+		</div>
+		
+		<div class="form-group row">
+			<label for="eAge" class="col-2">Age</label>
+			<input type="text" class="form-control col-5" id="eAge" name="age" value="25" required>
+			<small class="valid-feedback col" id="ageSuccess">
+			</small>
+			<small class="invalid-feedback col" id="ageError">
+			</small>
 		</div>
 
-		<label for="ename">Employee name</label>
-		<input type="text" class="form-control" id="ename" name="ename" placeholder="John Doe"><br>
-
-		<label for="age">Age</label>
-		<input type="number" class="form-control" name="age" id="age" placeholder="26"><br>
-
-		<label for="gender">Gender : </label>
-		<div class="form-check form-check-inline">
-			<input type="radio" class="form-check-input" id="male" name="gender" value="male">Male
+		<div class="form-group row">
+			<label for="eName" class="col-2">Gender</label>
+			<div class="col-5 p-0">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+					<label class="form-check-label" for="male">Male</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="female" value="female">
+					<label class="form-check-label" for="female">Female</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="other" value="other">
+					<label class="form-check-label" for="other">Other</label>
+				</div>
+			</div>
 		</div>
-		<div class="form-check form-check-inline">
-			<input type="radio" class="form-check-input" id="female" name="gender" value="female">Female
+
+		<div class="form-group row">
+			<label for="eRole" class="col-2">Designation</label>
+			<input type="text" class="form-control col-5" id="eRole" name="role" required value="Front end Developer">
+			<small class="valid-feedback col" id="roleSuccess">
+			</small>
+			<small class="invalid-feedback col" id="roleError">
+			</small>
 		</div>
-		<div class="form-check form-check-inline">
-			<input type="radio" class="form-check-input" id="other" name="gender" value="other">Other<br>
+
+		<div class="form-group row">
+			<label for="eName" class="col-2">Salary</label>
+			<input type="text" class="form-control col-5" id="eSal" name="salary" required value="25000">
+			<small class="valid-feedback col" id="salarySuccess">
+			</small>
+			<small class="invalid-feedback col" id="salaryError">
+			</small>
 		</div>
 
-		<div></div>
-
-		<label for="designation">Designation</label>
-		<input type="text" class="form-control" id="designation" name="designation" placeholder="Graphics Engineer"><br>
-
-		<label for="salary">Salary</label>
-		<input type="number" class="form-control" id="salary" name="salary" placeholder="50000"><br>
-
-		<label for="location" >Location</label>
-			<select id="location" class="form-control" name="location">
-				<option value="ahmedabad" selected>Choose...</option>
-				<option value="gandhinagar">Gandhinagar</option>
+		<div class="form-group row">
+			<label for="eLocation" class="col-2">Location</label>
+			<select id="eLocation" name="location" class="form-control col-5">
+				<option value="none">Choose...</option>
 				<option value="ahmedabad">Ahmedabad</option>
-				<option value="other">Other</option>
-			</select><br>
+				<option value="surat">Surat</option>
+				<option value="bhavnagar">Bhavnagar</option>
+				<option value="valsad">Valsad</option>
+			</select>
+			<small class="valid-feedback col" id="locationSuccess">
+			</small>
+			<small class="invalid-feedback col" id="locationError">
+			</small>
+		</div>
 
-		<label for="email">Email</label>
-		<input type="email" class="form-control" id="email" name="email" placeholder="johndoe@gmail.com"><br>
+		<div class="form-group row">
+			<label for="eEmail" class="col-2">Email id</label>
+			<input type="email" class="form-control col-5" id="eEmail" name="email" required value="jonDoe@gmail.com">
+			<small class="valid-feedback col" id="emailSuccess">
+			</small>
+			<small class="invalid-feedback col" id="emailError">
+			</small>
+		</div>
 
-		<label for="date" >Date Of Joining</label>
-		<input type="date" class="form-control" id="date" name="date"><br>
+		<div class="form-group row">
+			<label for="eDate" class="col-2">Date of joining</label>
+			<input type="text" class="form-control col-5" id="eDate" name="date" value="12/01/2012" required>
+			<small class="valid-feedback col" id="dateSuccess">
+			</small>
+			<small class="invalid-feedback col" id="dateError">
+			</small>
+		</div>
 
-		<label for="contact">Contact Number</label>
-		<input type="tel" class="form-control" id="contact" name="contact" placeholder="91 232-234-2344" pattern="[0-9]{2} [0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
-
-		<input type="submit" class="btn btn-primary w-100">
-
-		<p class="text-danger" id="summary"></p>
-		</fieldset>	
+		<div class="row">
+			<button type="submit" class="btn btn-primary my-2 col-7 justify-content-center">Submit</button>
+			<small class="col lead" id="submitError">
+			</small>
+		</div>
+		
 	</form>
+
+
+
+
+
 <!-- 
 
 https://pageclip.co/blog/2018-02-20-you-should-use-html5-form-validation.html

@@ -76,17 +76,163 @@ var resizeWin = () => {
 // 	Use radio buttons for Gender
 // Note: Show error message in summary box.
 
-var formValidation = (input) => {
-	summary = document.getElementById("summary")
 
-	// Id
-	if(input.empId.value == ""){
-		document.getElementById("sId").innerHTML = "enter employee id";
-	}
-
-	// Name
-	var regex = /^[a-zA-Z]+$/;
-	if(regex.test(input.ename.value) == false){
-		summary.innerHTML = "enter employee id";
-	}
+function printMsg(id, msg) {
+  	document.getElementById(id).innerHTML = msg;
 }
+
+
+form = document.jform
+
+form.addEventListener('keyup', function (event) {
+	var idError = nameError = ageError = roleError = salaryError = locationError = dateError = true;
+
+
+	// id...
+	id = form.eId.value;
+	if(id == ""){
+		printMsg("idError", "Please enter id");
+		form.classList.add('was-validated');
+	}
+	else if(id.length < 6) {
+		form.eId.setCustomValidity("Invalid field")
+        printMsg("idError", "Please enter at least 5 chars");
+        form.classList.add('was-validated');
+    }
+    else {
+        printMsg("idSuccess", "Looks good");
+        form.eId.setCustomValidity("")
+        form.classList.add('was-validated');
+        idError = false;
+    }
+
+	// name...
+	name = form.name.value
+	var regex = /^[a-zA-Z\s]+$/;
+	if (name == ""){
+		printMsg("nameError", "Please enter name");
+		form.classList.add('was-validated');
+	} 
+	else if(regex.test(name) === false) {
+		form.name.setCustomValidity("Invalid field")
+        printMsg("nameError", "Please enter a valid name");
+        form.classList.add('was-validated');
+    }
+    else {
+        printMsg("nameSuccess", "Looks good");
+        form.name.setCustomValidity("")
+        form.classList.add('was-validated');
+        nameError = false;
+    }
+
+    // age
+    age = form.age.value;
+    regexAge = /^[0-9\s]+$/;
+    if(age == ""){
+    	printMsg("ageError", "Please enter age");
+    	form.classList.add("was-validated");
+    }
+    else if( regexAge.test(age) == false){
+    	form.age.setCustomValidity("Invalid age");
+    	printMsg("ageError", "Please enter a number");
+    	form.classList.add("was-validated");
+    }
+    else {
+    	printMsg("ageSuccess", "Looks good");
+    	form.age.setCustomValidity("")
+    	form.classList.add("was-validated");
+    	ageError = false;
+    }
+
+    // designation
+    role = form.role.value
+    if (role == ""){
+        printMsg("roleError", "Please enter role");
+        form.classList.add('was-validated');
+    } 
+    else if(regex.test(role) === false) {
+        form.role.setCustomValidity("Invalid field")
+        printMsg("roleError", "Please enter a valid role");
+        form.classList.add('was-validated');
+    }
+    else {
+        printMsg("roleSuccess", "Looks good");
+        form.role.setCustomValidity("")
+        form.classList.add('was-validated');
+        roleError = false;
+    }
+
+    // salary
+    salary = form.salary.value;
+    if( regexAge.test(salary) == false){
+    	form.salary.setCustomValidity("Invalid salary");
+    	printMsg("salaryError", "Please enter a number");
+    	form.classList.add("was-validated");
+    } else {
+    	printMsg("salarySuccess", "Looks good");
+    	form.salary.setCustomValidity("")
+    	form.classList.add("was-validated");
+    	salaryError = false;
+    }
+
+    // location 
+    if (form.location.value == "none"){
+    	form.location.setCustomValidity("Invalid location")
+    	printMsg("locationError" , "Please select location")
+    	form.classList.add("was-validated");
+        locationError = true;
+    }
+    form.location.addEventListener('change', function() {
+        printMsg("locationSuccess", "Looks good");
+        form.location.setCustomValidity("")
+        form.classList.add("was-validated");
+        locationError = false;
+    });
+
+    // Email
+    regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    email = form.email.value;
+    if( email == ""){
+        printMsg("emailError", "Please enter email");
+        form.classList.add('was-validated');
+    }
+    else if(regexEmail.test(email) === false) {
+        form.email.setCustomValidity("Invalid field")
+        printMsg("emailError", "Please enter a valid email");
+        form.classList.add('was-validated');
+    }
+    else {
+        printMsg("emailSuccess", "Looks good");
+        form.email.setCustomValidity("")
+        form.classList.add('was-validated');
+        emailError = false;
+    }
+
+    // Date
+    regexDate = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+    date = form.date.value;
+    if( date == ""){
+        printMsg("dateError", "Please enter date");
+        form.classList.add('was-validated');
+    }
+    else if(regexDate.test(date) === false) {
+        form.date.setCustomValidity("Invalid field")
+        printMsg("dateError", "Please enter a valid date");
+        form.classList.add('was-validated');
+    }
+    else {
+        printMsg("dateSuccess", "Looks good");
+        form.date.setCustomValidity("")
+        form.classList.add('was-validated');
+        dateError = false;
+    }
+    
+})
+form.addEventListener('submit', function (event){
+    if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        printMsg("submitError", "Please enter valid details");
+    }
+})      
