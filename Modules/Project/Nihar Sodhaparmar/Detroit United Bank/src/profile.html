@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/check-login.js"></script>
+    <script src="./js/logout.js"></script>
+    <script src="./js/profile.js"></script>
+    <title>Profile</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top bg-light py-3">
+        <div class="container">
+            <a href="#" class="navbar-brand"><img src="./img/united-bank-logo.png" alt="logo" height="40"
+                    width="150"></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="#personal" class="nav-link">Personal</a></li>
+                    <li class="nav-item"><a href="#business" class="nav-link">Business</a></li>
+                    <li class="nav-item"><a href="#insaurance" class="nav-link">Insaurance</a></li>
+                    <li class="nav-item dropdown"><a id="acNumber" href="" class="nav-link" data-toggle="dropdown">Ac
+                            Number</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="profile.html" class="dropdown-link">Profile</a></li>
+                            <li class="dropdown-item"><a id="logout-btn" href="#" class="dropdown-link">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center pt-5">Profile</h2>
+
+        <table id="profile" class="table">
+            <tr>
+                <td>Account Number</td>
+                <td id="acNumberProfile"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <td>Father Name</td>
+                <td id="fathername"></td>
+            </tr>
+            <tr>
+                <td>Mother Name</td>
+                <td id="mothername"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td id="gender"></td>
+            </tr>
+            <tr>
+                <td>Date Of Birth</td>
+                <td id="dob"></td>
+            </tr>
+            <tr>
+                <td>Marital Status</td>
+                <td id="maritalStatus"></td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td id="email"></td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td id="number"></td>
+            </tr>
+            <tr>
+                <td>Occupation</td>
+                <td id="occupation"></td>
+            </tr>
+            <tr>
+                <td>Income</td>
+                <td id="income"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="row pb-5">
+            <div class="col-md-3 mx-auto">
+                <button class="btn btn-success btn-block" data-toggle="modal" data-target="#editProfileModal">Edit
+                    Profile</button>
+            </div>
+        </div>
+
+        <h2 class="text-center pt-5">Address</h2>
+        <table class="table">
+            <tr>
+                <td>Address</td>
+                <td id="address"></td>
+            </tr>
+            <tr>
+                <td>Pincode</td>
+                <td id="pincode"></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td id="city"></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td id="state"></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td id="country"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="row pb-5">
+            <div class="col-md-3 mx-auto">
+                <button class="btn btn-success btn-block" data-toggle="modal" data-target="#editAddressModal">Edit
+                    Address</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ---------------------------------- EDIT PROFILE MODAL ---------------------------------- -->
+
+    <div class="modal fade" id="editProfileModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Edit Profile</h5>
+                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+                </div>
+                <form onsubmit="return (new profile).updateProfileData()">
+                    <div class="modal-body">
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="fullnameModal">Full Name</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="text" id="fullnameModal" name="fullnameModal"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="fathernameModal">Father's Name</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="text" id="fathernameModal" name="fathernameModal"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="mothernameModal">Mothers's Name</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="text" id="mothernameModal" name="mothernameModal"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="genderModal">Gender</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <div class="form-check form-check-inline mt-2">
+                                    <input class="form-check-input" type="radio" id="maleRadio" name="genderModal"
+                                        value="male">
+                                    <label class="form-check-label" for="">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="femaleRadio" name="genderModal"
+                                        value="female">
+                                    <label class="form-check-label" for="">Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="dobModal">Date Of Birth</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="date" id="dobModal" name="dobModal" required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="marital-statusModal">Marital Status</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <select class="form-control" name="marital-statusModal" id="marital-statusModal">
+                                    <option value="select"> Select Status</option>
+                                    <option value="unmarried">Unmarried</option>
+                                    <option value="married">Married</option>
+                                </select>
+                                <div id="marital-statusModalError" class="text-danger"></div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="emailModal">Email</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="email" id="emailModal" name="emailModal"
+                                            required>
+                                    </div>
+                                    <div class="col-md-4 col-lg-3 mx-auto email-confirm-btn">
+                                        <button id="confirm-mail-btn"
+                                            class="btn btn-secondary btn-block">Confirm</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="numberModal">Mobile Number</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="number" name="numberModal" id="numberModal"
+                                            required>
+                                    </div>
+                                    <div class="col-md-4 col-lg-3 mx-auto email-confirm-btn">
+                                        <button id="confirm-mail-btn"
+                                            class="btn btn-secondary btn-block">Confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="occupationModal">Occupation</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <select class="form-control" name="occupationModal" id="occupationModal">
+                                    <option value="select"> Select Occupation</option>
+                                    <option value="salaried">Salaried</option>
+                                    <option value="selfemployed">Self Employed</option>
+                                    <option value="professional">Professional</option>
+                                    <option value="housewife">Housewife</option>
+                                    <option value="rerired">Retired</option>
+                                    <option value="student">Student</option>
+                                </select>
+                                <div id="occupationModalError" class="text-danger"></div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="incomeModal">Anual Income</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <select class="form-control" name="incomeModal" id="incomeModal">
+                                    <option value="select"> Select Anual Income</option>
+                                    <option value="lessthan2">Less than 2 lakhs</option>
+                                    <option value="2to5">2 to 5 Lakhs</option>
+                                    <option value="5to10">5 to 10 Lakhs</option>
+                                    <option value="10to25">10 to 25 Lakhs</option>
+                                    <option value="25to50">25 to 50 Lakhs</option>
+                                    <option value="50to1crore">50 Lakhs to 1 Crore</option>
+                                    <option value="1crore">1 Crore & Above</option>
+                                </select>
+                                <div id="incomeModalError" class="text-danger"></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input class="btn btn-success" type="submit" value="Update">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------------- EDIT ADDRESS MODAL ---------------------------------- -->
+
+    <div class="modal fade" id="editAddressModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Edit Address</h5>
+                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+                </div>
+                <form onsubmit="return (new profile).updateAddreassData()">
+                    <div class="modal-body">
+
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="countryModal">Select Country</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <select class="form-control" name="countryModal" id="countryModal" disabled>
+                                    <option value="select"> Select Country</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="stateModal">Select State</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <select class="form-control" name="stateModal" id="stateModal" disabled>
+                                    <option value="select" selected> Select State</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="cityModal">Select City</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <select class="form-control" name="cityModal" id="cityModal">
+                                    <option value="select"> Select City</option>
+                                </select>
+                                <div id="cityModalError" class="text-danger"></div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="addressModal">Address</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <textarea class="form-control" name="addressModal" id="addressModal" cols="30" rows="6"
+                                    required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="pincodeModal">Pincode</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="number" id="pincodeModal" name="pincodeModal"
+                                    required>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input class="btn btn-success" type="submit" value="Update">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>
