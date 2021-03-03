@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +42,7 @@
 
     <div class="container form-container bg-light rounded">
 
-        <form onsubmit="return createAccount()">
+        <form onsubmit="return (new userProfile).submitUserProfileData()">
 
             <div class="row">
                 <div class="col-md-3">
@@ -54,7 +54,9 @@
                         <option value="savings">Savings Account</option>
                         <option value="current">Current Account</option>
                     </select>
+                    <div id="acTypeError" class="text-danger"></div>
                 </div>
+                
             </div>
 
             <div class="row mt-4">
@@ -136,7 +138,9 @@
                         <option value="unmarried">Unmarried</option>
                         <option value="married">Married</option>
                     </select>
+                    <div id="maritalStatusError" class="text-danger"></div>
                 </div>
+                
             </div>
 
             <div class="row mt-4">
@@ -153,7 +157,9 @@
                         <option value="rerired">Retired</option>
                         <option value="student">Student</option>
                     </select>
+                    <div id="occupationError" class="text-danger"></div>
                 </div>
+                
             </div>
 
             <div class="row mt-4">
@@ -171,7 +177,9 @@
                         <option value="50to1crore">50 Lakhs to 1 Crore</option>
                         <option value="1crore">1 Crore & Above</option>
                     </select>
+                    <div id="incomeError" class="text-danger"></div>
                 </div>
+                
             </div>
 
             <div class="row mt-4">
@@ -190,13 +198,15 @@
                 </div>
                 <div class="col-md-9 form-control-container">
                     <input class="form-control" type="password" id="cpassword" name="cpassword" required>
+                    <div id="passwordError" class="text-danger"></div>
                 </div>
+
             </div>
 
             <div class="row mt-5 pt-3">
                 <div class="col-md-3"></div>
                 <div class="col-md-9 form-control-container">
-                    <input id="create-ac-next-btn" class="btn btn-success btn-block w-50 mx-auto" type="submit" value="Next">
+                    <input class="btn btn-success btn-block w-50 mx-auto" type="submit" value="Next">
                 </div>
             </div>
 

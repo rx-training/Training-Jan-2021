@@ -1,53 +1,92 @@
-$(document).ready(function (){
 
-    $("#login-btn").on("click", function(){
-        //alert("login");
+//Login Class
+var login = function () {
 
-        var acNumber = $("#acNumber").val();
-        var password = $("#password").val();
+    this.acNumber = $("#acNumber").val();
+    this.password = $("#password").val();
 
-        var accounts = JSON.parse(localStorage.getItem("accounts"));
+};
 
-        for(var i = 0; i < accounts.length; i++){
-            if(accounts[i].accountNumber == acNumber && accounts[i].password==password){
+//Function for validating Fields of login
+login.prototype.validateFields = function () {
 
-                localStorage.setItem("loggedUserAccountNumber",acNumber);
-                location.assign("user-home.html");
-                return false;
-            }
-        }
+    let isValid = true;
 
-        alert("Provide Valid Details");
+    $acNumberError = $("#acNumberError");
+    $passwordError = $("#passwordError");
+
+    $acNumberError.html("");
+    $passwordError.html("");
+
+    if (this.acNumber == "") {
+        $acNumberError.html("Please Provide Account Number");
+        isValid = false;
+    }
+
+    if (this.password == "") {
+        $passwordError.html("Please Provide Password");
+        isValid = false;
+    }
+
+    return isValid;
+
+};
+
+//User Login Function of login
+login.prototype.userLogin = function () {
+
+    if (!this.validateFields()) {
         return false;
+    }
 
-    });
-});
+    var accounts = JSON.parse(localStorage.getItem("accounts"));
+    console.log(accounts);
+
+    for (var i = 0; i < accounts.length; i++) {
+        if (accounts[i].accountNumber == this.acNumber && accounts[i].password == this.password) {
+            console.log("login");
+            localStorage.setItem("loggedUserAccountNumber", this.acNumber);
+            location.assign("user-home.html");
+            return;
+        }
+    }
+
+    $("#loginError").html("Invalid Login Details");
+    return;
+};
 
 
-function submitUserData(){
+//Submuit Class for submitting data from index File
+var submitUser = function () {
+
+    this.name = $("#name").val();
+    this.number = $("#number").val();
+
+};
+
+//Function for Submit User Data of submitUser
+submitUser.prototype.submitUserData = function () {
+
     var isChecked = $("#condition").prop("checked");
 
-        if (!isChecked) {
-            alert("Please select the Checkbox");
-            return false;
-        }
+    if (!isChecked) {
+        $("#checkboxError").html("Please select the Checkbox"); 
+        return false;
+    }
 
-        var name = $("#name").val();
-        var number = $("#number").val();
-        var user = {
-            "name": name,
-            "number": number
-        };
+    var user = {
+        "name": this.name,
+        "number": this.number
+    };
 
-        localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
 
-        //alert("OTP has been sent to your mobile number");
-
-        $("#otp-container").html('\
+    $("#otp-container").html('\
                                         <div class="font-weight-bold mb-5">An SMS with the OTP has been sent to your mobile number.</div>\
                                         <div class="form-group">\
                                             <label class="form-control-label" for="otp">Enter OTP</label>\
                                             <input class="form-control" type="text" name="otp" id="otp" required>\
+                                            <div id="otpError" class="text-danger"></div>\
                                         </div>\
                                         <div class="d-flex mt-5">\
                                             <div class="w-50 pr-2">\
@@ -58,8 +97,8 @@ function submitUserData(){
                                             </div>\
                                         </div>\
                                 ');
-        return false;
-}
+    return false;
+};
 
 function nextBtnClick(){
     //alert("next");
@@ -71,7 +110,7 @@ function nextBtnClick(){
         location.assign("create-account.html");
     }
     else {
-        alert("please provide valid otp");
+        $("#otpError").html("please provide valid otp");
         return false;
     }
 }

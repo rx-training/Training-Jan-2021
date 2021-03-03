@@ -1,5 +1,17 @@
 $(document).ready(function () {
 
+    (new profile).showProfileData();
+    (new profile).showModalData();
+});
+
+//Class for profile
+var profile = function(){
+
+};
+
+//Function for showing Profile Data
+profile.prototype.showProfileData = function (){
+
     var userAcNumber = JSON.parse(localStorage.getItem("loggedUserAccountNumber"));
     var accounts = JSON.parse(localStorage.getItem("accounts"));
 
@@ -8,10 +20,11 @@ $(document).ready(function () {
     for (var i in accounts) {
         if (accounts[i].accountNumber == userAcNumber) {
             account = accounts[i];
-            console.log(account);
+            //console.log(account);
         }
     }
 
+    //Profile Data --------------------------
     $("#acNumberProfile").text(account.accountNumber);
     $("#name").text(account.fullname);
     $("#fathername").text(account.fathername);
@@ -25,14 +38,32 @@ $(document).ready(function () {
     $("#income").text(account.income);
 
 
+    //Address Data ----------------------------
     $("#address").text(account.address);
     $("#pincode").text(account.pincode);
     $("#city").text(account.city);
     $("#state").text(account.state);
     $("#country").text(account.country);
 
+};
 
-    //Profile Modal-------------------------------------------------------------------
+
+//Function for showing profile Modal Data
+profile.prototype.showModalData = function(){
+
+    var userAcNumber = JSON.parse(localStorage.getItem("loggedUserAccountNumber"));
+    var accounts = JSON.parse(localStorage.getItem("accounts"));
+
+    var account;
+
+    for (var i in accounts) {
+        if (accounts[i].accountNumber == userAcNumber) {
+            account = accounts[i];
+            //console.log(account);
+        }
+    }
+
+    //Profile Data ---------------------------
     $("#fullnameModal").val(account.fullname);
     $("#fathernameModal").val(account.fathername);
     $("#mothernameModal").val(account.mothername);
@@ -55,8 +86,8 @@ $(document).ready(function () {
 
     $("#incomeModal option[value=" + account.income + "]").attr("selected", "selected");
 
-    //Address Modal----------------------------------------------------------------
 
+    //Address Data ---------------------------
     $("#countryModal").append('<option value="' + account.country + '" selected> ' + account.country + '</option>');
 
     $("#stateModal").append('<option value="' + account.state + '" selected> ' + account.state + '</option>');
@@ -83,31 +114,55 @@ $(document).ready(function () {
 
     $("#pincodeModal").val(account.pincode);
 
-});
+}
 
-function updateProfile() {
+//Function for validating update Profile Data
+profile.prototype.validateUpdateProfileData = function (){
 
+    $maritalStatusModalError = $("#marital-statusModalError");
+    $occupationModalError = $("#occupationModalError");
+    $incomeModalError = $("#incomeModalError");
+
+    $maritalStatusModalError.html("");
+    $occupationModalError.html("");
+    $incomeModalError.html("");
+
+    var isValid = true;
     var maritalStatus = $("#marital-statusModal").val();
 
     if (maritalStatus == "select") {
-        alert("Please Select Marital Status");
-        return false;
+        $maritalStatusModalError.html("Please Select Marital Status");
+        isValid = false;
     }
 
     var occupation = $("#occupationModal").val();
 
     if (occupation == "select") {
-        alert("Please Select Occupation");
-        return false;
+        $occupationModalError.html("Please Select Occupation");
+        isValid = false;
     }
 
     var income = $("#incomeModal").val();
 
     if (income == "select") {
-        alert("Please Select Income");
+        $incomeModalError.html("Please Select Income");
+        isValid = false;
+    }
+
+    return isValid;
+};
+
+//Function for updating Profile Data
+profile.prototype.updateProfileData = function () {
+
+    if(!this.validateUpdateProfileData()){
         return false;
     }
 
+    var maritalStatus = $("#marital-statusModal").val();
+    var occupation = $("#occupationModal").val();
+    var income = $("#incomeModal").val();
+    
     var fullname = $("#fullnameModal").val();
     var fathername = $("#fathernameModal").val();
     var mothername = $("#mothernameModal").val();
@@ -140,13 +195,20 @@ function updateProfile() {
     localStorage.setItem("accounts", JSON.stringify(accounts));
     location.reload();
     return false;
+
 }
 
-function updateAddress() {
+//Function for updating Profile Data
+profile.prototype.updateAddreassData = function () {
+
+    $cityModalError = $("#cityModalError");
+
+    $cityModalError.html("");
+
     var city = $("#cityModal").val();
 
     if (city == "select") {
-        alert("Please Select City");
+        $cityModalError.html("Please Select City");
         return false;
     }
 
@@ -170,4 +232,5 @@ function updateAddress() {
     location.reload();
 
     return false;
-}
+
+};

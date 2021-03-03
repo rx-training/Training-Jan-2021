@@ -151,9 +151,8 @@
                     <h5 class="modal-title">Edit Profile</h5>
                     <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
                 </div>
-                <form onsubmit="return updateProfile()">
+                <form onsubmit="return (new profile).updateProfileData()">
                     <div class="modal-body">
-
 
                         <div class="row mt-4">
                             <div class="col-md-3">
@@ -222,6 +221,7 @@
                                     <option value="unmarried">Unmarried</option>
                                     <option value="married">Married</option>
                                 </select>
+                                <div id="marital-statusModalError" class="text-danger"></div>
                             </div>
                         </div>
 
@@ -276,6 +276,7 @@
                                     <option value="rerired">Retired</option>
                                     <option value="student">Student</option>
                                 </select>
+                                <div id="occupationModalError" class="text-danger"></div>
                             </div>
                         </div>
 
@@ -294,6 +295,7 @@
                                     <option value="50to1crore">50 Lakhs to 1 Crore</option>
                                     <option value="1crore">1 Crore & Above</option>
                                 </select>
+                                <div id="incomeModalError" class="text-danger"></div>
                             </div>
                         </div>
 
@@ -318,7 +320,7 @@
                     <h5 class="modal-title">Edit Address</h5>
                     <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
                 </div>
-                <form onsubmit="return updateAddress()">
+                <form onsubmit="return (new profile).updateAddreassData()">
                     <div class="modal-body">
 
 
@@ -352,6 +354,7 @@
                                 <select class="form-control" name="cityModal" id="cityModal">
                                     <option value="select"> Select City</option>
                                 </select>
+                                <div id="cityModalError" class="text-danger"></div>
                             </div>
                         </div>
 

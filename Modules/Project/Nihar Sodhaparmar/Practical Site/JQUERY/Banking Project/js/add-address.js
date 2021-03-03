@@ -1,12 +1,22 @@
 $(document).ready(function () {
 
-    async function getCountryData() {
-        var countryData = await fetch("./json/country.json");
-        var countryArray = await countryData.json();
-        localStorage.setItem("countries", JSON.stringify(countryArray));
-    }
-
     getCountryData();
+
+    loadCountryDataOnChange()
+    
+});
+
+
+//Function for get Country Data
+async function getCountryData() {
+    var countryData = await fetch("./json/country.json");
+    var countryArray = await countryData.json();
+    localStorage.setItem("countries", JSON.stringify(countryArray));
+}
+
+
+//Function for load Country Data
+function loadCountryDataOnChange(){
 
     $countryElement = $("#country");
     $stateElement = $("#state");
@@ -68,46 +78,66 @@ $(document).ready(function () {
         $cityElement.html("");
         $cityElement.append(cityStr);
     });
+}
 
-});
 
+//Class for userAddress
 
-function addAddress() {
-    
-    var country = $("#country").val();
+var userAddress = function (){
 
-    if(country == "select"){
-        alert("Please select Country");
+    this.country = $("#country").val();
+    this.state = $("#state").val();
+    this.city = $("#city").val();
+    this.address = $("#address").val();
+    this.pincode = $("#pincode").val();
+
+};
+
+//function for validate userAddress Fields
+userAddress.prototype.validateFields = function () {
+
+    $countryError = $("#countryError");
+    $stateError = $("#stateError");
+    $cityError = $("#cityError");
+
+    $countryError.html("");
+    $stateError.html("");
+    $cityError.html("");
+
+    var isValid = true;
+    if(this.country == "select"){
+        $countryError.html("Please select Country")
+        isValid = false;
+    }
+
+    if(this.state == "select"){
+        $stateError.html("Please select State");
+        isValid = false
+    }
+
+    if(this.city == "select"){
+        $cityError.html("Please select City");
+        isValid = false;
+    }
+
+    return isValid;
+};
+
+userAddress.prototype.submitUserAddress = function (){
+
+    if(!this.validateFields()){
         return false;
     }
-
-
-    var state = $("#state").val();
-
-    if(state == "select"){
-        alert("Please select State");
-        return false
-    }
-
-
-    var city = $("#city").val();
-
-    if(city == "select"){
-        alert("Please select City");
-        return false;
-    }
-
-
-    var address = $("#address").val();
-    var pincode = $("#pincode").val();
-
-    //alert(country + " " + state + " " + city + " " + address + " " + pincode);
 
     var userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
-    var random = Math.floor((Math.random() * 10000000) + 1);
+    var random = accountNumberGenerator();
 
-    alert("Your Account Number is " + random + ". Please note this number and Login using this Account Number");
+    $("#generatedAccountNumber").html("Your Account Number is " + random + ". Please note this number and Login using this Account Number.");
+    $('#accountNumberAlertModal').modal({backdrop: 'static', keyboard: false})  
+    $("#accountNumberAlertModal").modal('show');
+
+    //alert();
 
     var accountDetails = {
         "accountType" : userDetails.accountType,
@@ -122,11 +152,11 @@ function addAddress() {
         "income" : userDetails.income,
         "password" : userDetails.password,
         "number" : userDetails.number,
-        "country" : country,
-        "state" : state,
-        "city" : city,
-        "address" : address,
-        "pincode" : pincode,
+        "country" : this.country,
+        "state" : this.state,
+        "city" : this.city,
+        "address" : this.address,
+        "pincode" : this.pincode,
         "accountNumber" : random,
         "balance" : parseFloat(0)
     }
@@ -140,7 +170,24 @@ function addAddress() {
     localStorage.removeItem("userDetails");
     localStorage.removeItem("user");
 
-    location.assign("index.html");
+    //location.assign("index.html");
 
     return false;
+};
+
+
+function accountNumberGenerator(){
+
+    var random = Math.floor((Math.random() * 10000000) + 1) + 11010100000000;
+
+    var accounts = JSON.parse(localStorage.getItem("accounts"));
+
+    for(var i in accounts){
+        if(accounts[i].accountNumber == random)
+        {
+            accountNumberGenerator();
+        }
+    }
+
+    return random;
 }

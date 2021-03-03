@@ -33,7 +33,8 @@
                     <li class="nav-item"><a href="#personal" class="nav-link">Personal</a></li>
                     <li class="nav-item"><a href="#business" class="nav-link">Business</a></li>
                     <li class="nav-item"><a href="#insaurance" class="nav-link">Insaurance</a></li>
-                    <li class="nav-item dropdown"><a id="acNumber" href="#" class="nav-link" data-toggle="dropdown">Ac Number</a>
+                    <li class="nav-item dropdown"><a id="acNumber" href="#" class="nav-link" data-toggle="dropdown">Ac
+                            Number</a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item"><a href="profile.html" class="dropdown-link">Profile</a></li>
                             <li class="dropdown-item"><a id="logout-btn" href="#" class="dropdown-link">Logout</a></li>
@@ -53,7 +54,7 @@
     <div class="container user-cards-container mt-5">
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5 col-lg-4 mx-auto">
                 <a href="" data-toggle="modal" data-target="#depositMoneyModal">
                     <div class="card">
                         <div class="card-body">
@@ -64,34 +65,51 @@
                 </a>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-5 col-lg-4 mx-auto">
                 <a href="" data-toggle="modal" data-target="#withdrawMoneyModal">
                     <div class="card">
                         <div class="card-body">
-                            <img class="d-block mx-auto" src="./img/withdraw.png" width="50%" alt="Withdraw Money Image">
+                            <img class="d-block mx-auto" src="./img/withdraw.png" width="50%"
+                                alt="Withdraw Money Image">
                             <h3 class="text-center text-dark mt-4">Withdraw Money</h3>
                         </div>
                     </div>
                 </a>
             </div>
+        </div>
 
-            <div class="col-md-4">
+        <div class="row">
+
+            <div class="col-md-5 col-lg-4 mx-auto">
+                <a href="" data-toggle="modal" data-target="#transferMoneyModal">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="d-block mx-auto" src="./img/transfer-money.png" width="50%"
+                                alt="Withdraw Money Image">
+                            <h3 class="text-center text-dark mt-4">Transfer Money</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-5 col-lg-4 mx-auto">
                 <a href="transactions.html">
                     <div class="card">
                         <div class="card-body">
-                            <img class="d-block mx-auto" src="./img/transactions.png" width="50%" alt="Transactions Image">
-                            <h3 class="text-center text-dark mt-4">View Transaction</h3>
+                            <img class="d-block mx-auto" src="./img/transactions.png" width="50%"
+                                alt="Transactions Image">
+                            <h4 class="text-center text-dark mt-4" style="font-size:27.55px">View Transaction</h4>
                         </div>
                     </div>
                 </a>
             </div>
 
         </div>
-        
+
     </div>
 
 
-    <!-- ---------------------------------- ADD MONEY MODAL ---------------------------------- -->
+    <!-- ---------------------------------- DEPOSIT MONEY MODAL ---------------------------------- -->
 
     <div class="modal fade" id="depositMoneyModal">
         <div class="modal-dialog modal-lg">
@@ -101,14 +119,21 @@
                     <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
                 </div>
                 <div class="modal-body">
+                    <div id="daccountError" class="text-danger"></div>
                     <div>
                         <label for="damount">Deposit Amount</label>
                         <input type="number" id="damount" name="damount" class="form-control">
+                        <div id="damountError" class="text-danger"></div>
+                    </div>
+                    <div>
+                        <label for="damount">Password</label>
+                        <input type="password" id="dpassword" name="dpassword" class="form-control">
+                        <div id="dpasswordError" class="text-danger"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="deposit-btn" class="btn btn-success">Add</button>
+                    <button class="btn btn-success" onclick="(new deposit).depositAmount()">Deposit</button>
                 </div>
             </div>
         </div>
@@ -124,14 +149,57 @@
                     <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
                 </div>
                 <div class="modal-body">
+                    <div id="waccountError" class="text-danger"></div>
                     <div>
                         <label for="wamount">Withdraw Amount</label>
                         <input type="number" id="wamount" name="wamount" class="form-control">
+                        <div id="wamountError" class="text-danger"></div>
+                    </div>
+                    <div>
+                        <label for="wamount">Password</label>
+                        <input type="password" id="wpassword" name="wpassword" class="form-control">
+                        <div id="wpasswordError" class="text-danger"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="withdraw-btn" class="btn btn-success">Withdraw</button>
+                    <button id="withdraw-btn" class="btn btn-success"
+                        onclick="(new withdraw).withdrawAmount()">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------------- WITHDRAW MONEY MODAL ---------------------------------- -->
+
+    <div class="modal fade" id="transferMoneyModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Transfer Money</h5>
+                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+                </div>
+                <div class="modal-body">
+                    <div id="taccountError" class="text-danger"></div>
+                    <div>
+                        <label for="taccountNumber">Account Number</label>
+                        <input type="number" id="taccountNumber" name="taccountNumber" class="form-control">
+                        <div id="taccountNumberError" class="text-danger"></div>
+                    </div>
+                    <div>
+                        <label for="tamount">Transfer Amount</label>
+                        <input type="number" id="tamount" name="tamount" class="form-control">
+                        <div id="tamountError" class="text-danger"></div>
+                    </div>
+                    <div>
+                        <label for="tpassword">Password</label>
+                        <input type="password" id="tpassword" name="tpassword" class="form-control">
+                        <div id="tpasswordError" class="text-danger"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="withdraw-btn" class="btn btn-success" onclick="(new transfer).transferAmount()">Transfer</button>
                 </div>
             </div>
         </div>
