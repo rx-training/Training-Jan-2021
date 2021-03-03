@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery Day1</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+</head>
+<body>
+	<!-- Practice Exercise -->
+	<!-- Create one paragraph, add some dummy text and apply blue background color using jquery -->
+	
+	<p class="bg-blue">Greeting of a baby when born.</p>
+	<button class="btn">Click</button>
+
+	<!-- There is one Hide/show the text inside the #helpText span element when the user’s mouse passes over the text “ -->
+	<h2>This is <span id="helpText">&nbsp;&nbsp;Help text...</span></h2>
+
+	<!-- 3. – Label : “Please select your technology :”
+	    – Consider following set of radio buttons :-
+	      “PHP”, “ASP.NET”, “ASP”, “JSP”, “PERL”, “Cold Fusion”, “Other”. Layout these buttons in a Horizontal manner.
+
+	    – Clicking on a particular radio button should display the related technology name besides label : “You have  selected : “.
+
+	    – Use multiple “span” HTML element for displaying the related message.
+
+	    – Note that radio button should be selectable by clicking on the corresponding label. -->
+
+	<form>
+		<div class="msg">
+			<p >Please select your technology :</p>
+		</div>
+		<div class="techList">
+			<div class="techListItem">
+				<input  name="tech" type="radio" value="php"></input>
+				<label for="php">Php</label>
+			</div>
+			<div class="techListItem">
+				<input  name="tech" type="radio" value="asp.net"></input>
+				<label for="aspDotNet">Asp.Net</label>
+			</div>
+			<div class="techListItem">
+				<input  name="tech" type="radio" value="asp"></input>
+				<label for="asp">Asp</label>
+			</div>
+			<div class="techListItem">
+				<input  name="tech" type="radio" value="jsp"></input>
+				<label for="jsp">Jsp</label>
+			</div>
+			<div class="techListItem">
+				<input  name="tech" type="radio" value="perl"></input>
+				<label for="perl">Perl</label>
+			</div>
+			<div class="techListItem">
+				<input  name="tech" type="radio" value="cf"></input>
+				<label for="coldFusion">Cold Fusion</label>
+			</div>
+			<div class="techListItem">
+				<input name="tech" type="radio" value="other"></input>
+				<label for="other">Other</label>
+			</div>
+		</div>
+		
+	</form>
+
+	<!-- Assignment
+
+	– Put a droplist with 5 country name from list object using jquery
+    (Eg. India, United Kingdom..). Default value should “Please select”.
+
+    – Bellow droplist all country name which are in the dropdown that should display with Label :
+      “Your Selected Country : “.
+
+    – By default all country name should display.
+
+    – Only that country name should appear which are you select from dropdown.
+      All other label should be disappear.
+
+    – When i select ‘Please select’, all countries name should get displayed. -->
+    <hr style="margin:2% 10%;">
+    <h3>Countries :</h3>
+
+    <select>
+    	<option selected>Please select</option>
+    	<option>India</option>
+    	<option>Russia</option>
+    	<option>Sri lanka</option>
+    	<option>Australia</option>
+    </select>
+
+    <p>Your selected country</p>
+    <p id="show">
+    	
+    </p>
+
+	<script type="text/javascript" src="scripts/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="scripts/app.js"></script>
+	
+</body>
+</html>
+
+<!-- 
+Day 22/23
+
+JQuery
+
+What to Learn
+
+What is jQuery
+Selectors
+id selector
+class selector
+Events
+Hide, show, Toggle, fadeIn, fadeout
+jQuery DOM Manipulation
+text()
+html()
+val()
+attr()
+jQuery Add Elements
+append()
+prepend()
+after()
+before()
+remove()
+empty()
+setting CSS
+css()
+iterate
+$.each()
+
+
+
+
+
+
+
+Online References:
+
+https://api.jquery.com/category/attributes/
+
+https://api.jquery.com/css/
+
+https://api.jquery.com/each/#each-function
+
+https://www.w3schools.com/jquery/jquery_selectors.asp
+
+Day 24
+
+What to Learn
+
+jQuery Traversing
+Ancestors
+parent()
+parents()
+parentUntil()
+Descendants
+Children()
+Find()
+Filtering
+first()
+last()
+eq()
+filter()
+not()
+jQuery Ajax
+Load method
+jQuery get and getJson methods
+jQuery POST request
+Retrieving js file
+Practice Exercise:
+
+Do the hands on w3school.com
+
+Assignment:
+
+                Use getJSON method access this web api  https://gorest.co.in/public-api/users and display the result in one table. -->
