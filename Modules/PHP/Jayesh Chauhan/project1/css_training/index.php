@@ -19,27 +19,27 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="assignment/4/cv.html">Day 4</a>
+                                    <a href="assignment/4/cv.php">Day 4</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="assignment/5/index.html">Day 5</a>
+                                    <a href="assignment/5/index.php">Day 5</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="assignment/6/index.html">Day 6</a>
+                                    <a href="assignment/6/index.php">Day 6</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="assignment/7/index.html">Day 7</a>
+                                    <a href="assignment/7/index.php">Day 7</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="assignment/8/index.html">Day 8</a>
+                                    <a href="assignment/8/index.php">Day 8</a>
                                 </td>
                             </tr>
                             <tr class="bg-success">
@@ -49,27 +49,27 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="practice/4/practice.html">Day 4</a>
+                                    <a href="practice/4/practice.php">Day 4</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="practice/5/practice1.html">Day 5</a>
+                                    <a href="practice/5/practice1.php">Day 5</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="practice/6/gallery.html">Day 6</a>
+                                    <a href="practice/6/gallery.php">Day 6</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="practice/7/griddemo.html">Day 7</a>
+                                    <a href="practice/7/griddemo.php">Day 7</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="practice/8/practice.html">Day 8</a>
+                                    <a href="practice/8/practice.php">Day 8</a>
                                 </td>
                             </tr>
                         </tbody>
