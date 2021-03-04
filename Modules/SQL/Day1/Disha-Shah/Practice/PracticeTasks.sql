@@ -14,7 +14,7 @@ INSERT INTO Countries VALUES (1, 'China', 2)
 CREATE TABLE JobHistorys(
 	EmployeeId int CONSTRAINT pkEmployeeId PRIMARY KEY,
 	StartDate date,
-	EndDate varchar(25) CONSTRAINT chkEndDate CHECK(EndDate LIKE '[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]'),
+	EndDate varchar(25) CONSTRAINT chkEndDate CHECK(EndDate LIKE '[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]'),
 	Job_Id int,
 	Department_Id int
 )
