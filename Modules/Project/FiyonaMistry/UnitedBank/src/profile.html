@@ -36,20 +36,20 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown mr-3">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>Welcome Test
+                                <i class="fa fa-user"></i> Welcome 
                             </a>
                             <div class="dropdown-menu">
                                 <a href="profile.html" class="dropdown-item">
-                                    <i class="fa fa-user-circle"></i>Profile
+                                    <i class="fa fa-user-circle"></i> Profile
                                 </a>
                                 <a href="settings.html" class="dropdown-item">
-                                    <i class="fa fa-gear"></i>Settings
+                                    <i class="fa fa-gear"></i> Settings
                                 </a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a href="login.html" class="nav-link">
-                                <i class="fa fa-user-times"></i>Logout
+                                <i class="fa fa-user-times"></i> Logout
                             </a>
                         </li>
                     </ul>
@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1><i class="fa fa-user"></i>Edit Profile</h1>
+                        <h1><i class="fa fa-user"></i> Edit Profile</h1>
                     </div>
                 </div>
             </div>
@@ -73,17 +73,17 @@
                 <div class="row">
                     <div class="col-md-3 mr-auto">
                         <a href="index.html" class="btn btn-light btn-block">
-                            <i class="fa fa-arrow-left"></i>Back to Dashboard
+                            <i class="fa fa-arrow-left"></i> Back to Dashboard
                         </a>
                     </div>
                     <div class="col-md-3">
-                        <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#passwordModal">
-                            <i class="fa fa-lock"></i>Change Password
+                        <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#usernameModal">
+                            <i class="fa fa-lock"></i> Change Password
                         </a>
                     </div>
                     <div class="col-md-3">
                         <a href="#" class="btn btn-danger btn-block">
-                            <i class="fa fa-remove"></i>Delete Account
+                            <i class="fa fa-remove"></i> Delete Account
                         </a>
                     </div>
                 </div>
@@ -103,11 +103,11 @@
                                 <form>
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" value="Fiyona Mistry">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" value="test@test.com">
+                                        <input type="email" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="bio">Bio</label>
@@ -138,11 +138,11 @@
         </footer>
 
         <!-- PASSWORD MODAL -->
-        <div class="modal fade" id="passwordModal">
+        <div class="modal fade" id="usernameModal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title">Change Password</h5>
+                        <h5 class="modal-title">Change Username</h5>
                         <button class="close" data-dismiss="modal">
                             <span>&times;</span>
                         </button>
@@ -150,18 +150,14 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Confirm Password</label>
-                                <input type="password" class="form-control">
+                                <label for="password">New Username</label>
+                                <input type="password" id="newUsername" class="form-control">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-warning" data-dismiss="modal">Update Password</button>
+                        <button class="btn btn-warning" id="changeUsernameBTN" data-dismiss="modal">Update Username</button>
                     </div>
                 </div>
             </div>
