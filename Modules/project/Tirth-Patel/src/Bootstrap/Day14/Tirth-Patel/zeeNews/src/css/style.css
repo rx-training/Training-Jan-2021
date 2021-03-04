@@ -24,6 +24,10 @@
   #mainNavbar a {
     color: white; }
 
+#nav .btn {
+  min-width: max-content;
+  max-height: 40px; }
+
 body {
   background-color: #a3b0bd; }
 
@@ -69,3 +73,14 @@ body {
     font-size: 70%; }
   .container {
     width: 80%; } }
+
+.login {
+  margin-top: 200px;
+  max-width: 400px; }
+  .login .zee-news-logo {
+    text-align: center; }
+
+#navigation-bar {
+  background-color: black; }
+  #navigation-bar li a {
+    color: #a02e2e; }

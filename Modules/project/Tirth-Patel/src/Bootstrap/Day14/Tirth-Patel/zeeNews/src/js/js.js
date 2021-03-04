@@ -10,7 +10,11 @@ let cardshtml ="";
 fetch("./json/news.json").then(resp => resp.json()).then(data => {
     var news = data;
     //console.log(news)
-    news.forEach(element => {
+   // let news_string =  JSON.stringify(news);
+  //  localStorage.setItem("news",news_string)
+    var data = JSON.parse(localStorage.getItem("news"))
+   // console.log(data)
+    data.forEach(element => {
 
         let card1news = `<div class="card">
                                 <img src=${element["img-src"]} alt="" height="100%" class="card-img">
@@ -34,7 +38,11 @@ fetch("./json/news.json").then(resp => resp.json()).then(data => {
 fetch("./json/carousel.json").then(resp => resp.json()).then(data =>{
     var car =data;
     //console.log(car)
-    car.forEach(element =>{
+   //let carousel_string = JSON.stringify(car);
+   // localStorage.setItem("breaking-news",carousel_string);
+    var data2 = JSON.parse(localStorage.getItem("breaking-news"));
+   // console.log(data2)
+    data2.forEach(element =>{
        
         
         //console.log(element)
@@ -50,15 +58,19 @@ fetch("./json/carousel.json").then(resp => resp.json()).then(data =>{
        
 
     });
-    //console.log(newshtml2)
+    console.log(newshtml2)
     carousel.innerHTML = newshtml2;
     $(".carousel-inner > .carousel-item:first").addClass("active");
     
 })
 fetch("./json/cards.json").then(resp => resp.json()).then(data =>{
     var card =data;
-    //console.log(car)
-    card.forEach(element =>{
+    //console.log(car);
+    //let cards_string    = JSON.stringify(card);
+    //localStorage.setItem("budget-2021",cards_string);
+    var data3 = JSON.parse(localStorage.getItem("budget-2021"));
+
+    data3.forEach(element =>{
        
         
         //console.log(element)

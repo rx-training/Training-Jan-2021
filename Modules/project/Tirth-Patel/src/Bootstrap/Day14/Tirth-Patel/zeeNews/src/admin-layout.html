@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zee-news-admin</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .table img{
+            width: 100px; 
+           height: 50px;
+        }
+           
+    </style>
+</head>
+
+<body>
+    <section id="navigation-bar">
+        <nav class="navbar">
+            <div class="container">
+                <div class="brand-logo text-center">
+                    <a class="navbar-brand mr-auto bg-dark" href="index.html"> <img class="  img-fluid"
+                            src="./img/zeenewslogo_nav.webp" width="97" height="45" alt=""></a>
+                </div>
+                <ul class="navbar-nav flex-row ml-auto">
+                    <!-- <li class="nav-item dropdown mr-3">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>Welcome
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fa fa-user-circle"></i>profile</a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fa fa-gear"></i>settings</a>
+                        </div>
+                    </li> -->
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link">
+                            <i class="fa fa-user-times"></i> LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section class="sidebar">
+
+        <nav>
+            <div class="container">
+            <div class="row">
+               
+                <div class="col-3">
+                    <div class="d-flex flex-column">
+
+                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                            data-target="#breaking-modal">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i> Add-breaking-News
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#budegt-modal">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i> Add-budget-2021
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#news-card-modal">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i> Add-Live-News
+                        </button>
+                    </div>
+                </div>
+                <div class="col-9">
+                   <table class="table" >
+                    <h2 class="text-center text-danger">  current active-news(Live-news)</h2>
+                    <thead>
+                        <tr>
+                            <th>image</th>
+                            <th>title</th>
+                            <th>text</th>
+                            
+                        </tr>
+                        
+                   </thead>
+                   <tbody id="live-news">
+                      
+                   </tbody>
+                </table>
+                <table class="table" >
+                   <h2 class="text-center text-danger"> current active-news(breaking-news)</h2>
+                 <thead class="table-head">
+                     <tr>
+                         <th>image</th>
+                         <th>title</th>
+                         <th>text</th>
+                         
+                     </tr>
+                 </thead>
+                 <tbody id="breaking-news"></tbody>
+                </table>
+                   <table class="table">
+                    <h2 class="text-center text-danger"> current active-news(budget-2021)</h2>  
+                    <thead class="table-head">
+                        <tr>
+                            <th>image</th>
+                            <th>title</th>
+                            <th>text</th>
+                            <th>action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="budget-2021"></tbody>
+                   </table>
+                </div>
+            </div>
+
+            </div>
+        </nav>
+        </div>
+    </section>
+    <!-- all modal 
+     -->
+    <div class="modal fade" id="breaking-modal" tabindex="-1" role="dialog" aria-labelledby="#breaking-modal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Breaking-news</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="heading">Add Title
+                                <input type="text" class="form-control" name="heading" id="h3-1"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="image-src">Add image</label>
+                            <input type="file" class="form-control" name="img-src" id="img1">
+                        </div>
+                        <div class="form-group">
+                            <label for="data">Information</label>
+                            <textarea name="data" id="info1" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="button" onclick="add_breaking_news()">Submit</button>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="budegt-modal" tabindex="-1" role="dialog" aria-labelledby="budegt-modal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Budget-2021</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="heading">Add Title
+                                <input type="text" class="form-control" name="heading" id="h32"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="image-src">Add image</label>
+                            <input type="file" class="form-control" name="img-src" id="img2">
+                        </div>
+                        <div class="form-group">
+                            <label for="data">Information</label>
+                            <textarea name="data" id="info2" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="button" onclick="add_card_news()">Submit</button>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="news-card-modal" tabindex="-1" role="dialog" aria-labelledby="news-card-modal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Live-News</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="heading">Add Title
+                                <input type="text" class="form-control" name="heading" id="h3-3"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="image-src">Add image</label>
+                            <input type="file" class="form-control" name="img-src" id="img3">
+                            <span id="movie-image"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="data">Information</label>
+                            <textarea name="data" id="info3" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="button" onclick="add_live_news()">Submit</button>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/admin-js.js"></script>
+<script>
+//adding the admin funcitonality is here all add function is below
+
+    function add_live_news() {
+        var live_news_heading = document.getElementById("h3-3").value;
+        var live_news_image = document.getElementById("img3");
+        var live_news_content = document.getElementById("info3").value;
+        var img_path = "./img/News/" + live_news_image.files[0].name;
+        //var x=$("#movie-image").attr('src',"./image/" +image.files[0].name);
+        var news = JSON.parse(localStorage.getItem("news"));
+
+        var New_News = {
+            "img-src": `${img_path}`,
+            "card-title": `${live_news_heading}`,
+            "card-body": `${live_news_content}`,
+        }
+        news.push(New_News);
+        // console.log(news);
+        let news_string = JSON.stringify(news);
+        localStorage.setItem("news", news_string)
+
+    }
+    function add_breaking_news() {
+        var breaking_news_heading = document.getElementById("h3-1").value;
+        var breaking_news_image = document.getElementById("img1");
+        var breaking_news_content = document.getElementById("info1").value;
+        var img_path = "./img/breaking-news/" + breaking_news_image.files[0].name;
+        //var x=$("#movie-image").attr('src',"./img/breaking-news" +image.files[0].name);
+        var news = JSON.parse(localStorage.getItem("breaking-news"));
+        console.log(news)
+        var New_News = {
+            "img-src": `${img_path}`,
+            "car-h3": `${breaking_news_heading}`,
+            "car-p": `${breaking_news_content}`,
+        }
+        news.push(New_News);
+        // console.log(news);
+        let news_string = JSON.stringify(news);
+        localStorage.setItem("breaking-news", news_string)
+
+    }
+    function add_card_news() {
+        var card_news_heading = document.getElementById("h32").value;
+        var card_news_image = document.getElementById("img2");
+        var card_news_content = document.getElementById("info2").value;
+        var img_path = "./img/budget-2021/" + card_news_image.files[0].name;
+        //var x=$("#movie-image").attr('src',"./img/breaking-news" +image.files[0].name);
+        var news = JSON.parse(localStorage.getItem("budget-2021"));
+        console.log(news)
+        var New_News = {
+            "img-src": `${img_path}`,
+            "card-title": `${card_news_heading}`,
+            "card-text": `${card_news_content}`,
+        }
+        news.push(New_News);
+        // console.log(news);
+        let news_string = JSON.stringify(news);
+        localStorage.setItem("budget-2021", news_string)
+
+    }
+</script>
+
+</html>

@@ -1,3 +1,6 @@
+// *{
+//     //color: brown;
+// }
 .navbar-nav{
     a{
         color: rgb(84, 80, 80);
@@ -28,6 +31,10 @@
         color: white;
     }
     
+}
+#nav .btn {
+    min-width: max-content;
+    max-height: 40px;
 }
 body{
     background-color: #a3b0bd;
@@ -102,4 +109,21 @@ body{
             width: 80%;
         }
     
+}
+//  LOGIN PAGE style 
+
+.login{
+    .zee-news-logo{
+        text-align: center;
+    }
+   
+    margin-top: 200px;
+    max-width: 400px;
+}
+//admin-layout stylr
+#navigation-bar{
+    background-color: black;
+    li a{
+        color: rgb(160, 46, 46);
+    }
 }
