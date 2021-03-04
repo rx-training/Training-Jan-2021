@@ -67,7 +67,7 @@ $("document").ready(function(){
 
     
     $("#1_1").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#1_1").hasClass("disabled"))){
             $("#1_1").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("1_1").innerHTML);
             count++;
@@ -80,7 +80,7 @@ $("document").ready(function(){
     })
     
     $("#1_2").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#1_2").hasClass("disabled"))){
             $("#1_2").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("1_2").innerHTML);
             count++;
@@ -92,7 +92,7 @@ $("document").ready(function(){
         }
     })
     $("#1_3").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#1_3").hasClass("disabled"))){
             $("#1_3").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("1_3").innerHTML);
             count++;
@@ -104,7 +104,7 @@ $("document").ready(function(){
         }
     })
     $("#1_4").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#1_4").hasClass("disabled"))){
             $("#1_4").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("1_4").innerHTML);
             count++;
@@ -116,7 +116,7 @@ $("document").ready(function(){
         }
     })
     $("#2_1").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#2_1").hasClass("disabled"))){
             $("#2_1").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("2_1").innerHTML);
             count++;
@@ -128,7 +128,7 @@ $("document").ready(function(){
         }
     })
     $("#2_2").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#2_2").hasClass("disabled"))){
             $("#2_2").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("2_2").innerHTML);
             count++;
@@ -140,7 +140,7 @@ $("document").ready(function(){
         }
     })
     $("#2_3").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#2_3").hasClass("disabled"))){
             $("#2_3").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("2_3").innerHTML);
             count++;
@@ -152,7 +152,7 @@ $("document").ready(function(){
         }
     })
     $("#2_4").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#2_4").hasClass("disabled"))){
             $("#2_4").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("2_4").innerHTML);
             count++;
@@ -164,7 +164,7 @@ $("document").ready(function(){
         }
     })
     $("#3_1").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#3_1").hasClass("disabled"))){
             $("#3_1").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("3_1").innerHTML);
             count++;
@@ -176,7 +176,7 @@ $("document").ready(function(){
         }
     })
     $("#3_2").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#3_2").hasClass("disabled"))){
             $("#3_2").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("3_2").innerHTML);
             count++;
@@ -188,7 +188,7 @@ $("document").ready(function(){
         }
     })
     $("#3_3").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#3_3").hasClass("disabled"))){
             $("#3_3").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("3_3").innerHTML);
             count++;
@@ -200,7 +200,7 @@ $("document").ready(function(){
         }
     })
     $("#3_4").click(function(){
-        if(count!=ticketQty){
+        if(count!=ticketQty && !($("#3_4").hasClass("disabled"))){
             $("#3_4").addClass("btn-success").css("color","white");
             seats.push(document.getElementById("3_4").innerHTML);
             count++;
