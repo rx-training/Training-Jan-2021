@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class practice 1</title>
+</head>
+<body>
+    <h1>Hello Developers!</h1>
+</body>
+<script>
+
+    // class is not a object here
+    "use strict" 
+    // here we use strict mode 
+
+
+
+    
+    class Book {
+        constructor(name , author , price){
+            this.name = name;
+            this.author = author;
+            this.price = price;
+        }
+
+        // add one method
+
+        description(){
+            console.log("this book is very intresting.")
+        }
+
+        description2(){
+            console.log(this.name + " book is very intresting.")
+        }
+
+
+    }
+
+    let book1 = new Book("It started with friend request" , "Sundeep Nagarkar" , 250);
+    let book2 = new Book("Half girl Friend" , "chetan bhagat" , 300);
+
+    book1.description();
+    book1.description2();
+    console.log(book1);
+
+</script>
+</html>

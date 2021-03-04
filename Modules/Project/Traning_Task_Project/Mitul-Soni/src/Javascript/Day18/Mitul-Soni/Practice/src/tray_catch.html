@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Catch Error Handaling</title>
+</head>
+<script>
+
+    try
+    {
+        throw new Error('Custom Error');
+    }
+    catch(e)
+    {
+        console.log(e.name + '-' + e.message);
+    }
+
+
+    // finally Block
+    try
+    {
+        throw new Error('Custom Error');
+    }
+    catch(e)
+    {
+        console.log(e.name + '-' + e.message);
+    }
+    finally
+    {
+        console.log('Finally Done...');
+    }
+
+</script>
+<body>
+    
+</body>
+</html>

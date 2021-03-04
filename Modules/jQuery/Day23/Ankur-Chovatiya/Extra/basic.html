@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Basic Html Stuff</title>
+</head>
+<body>
+    <h1>Hello Developer!</h1>
+    <input type="text" name=""><button id="txt">submit</button><br><br>
+    <button id="btn1">text</button>
+    <button id="btn2">html</button>
+    <p>i am <b>ankur Patel</b></p>
+    <button id="url">Get Url</button>
+    <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+</body>
+<script>
+
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+           alert($("p").text()); 
+        });
+    });
+
+
+    $(document).ready(function(){
+        $("#btn2").click(function(){
+           alert($("p").html()); 
+        });
+    });
+
+
+    $(document).ready(function(){
+        $("#txt").click(function(){
+           alert($("input").val()); 
+        });
+    });
+
+
+    $(document).ready(function(){
+        $("#url").click(function(){
+           alert($("#w3s").attr("href")); 
+        });
+    });
+
+
+</script>
+</html>

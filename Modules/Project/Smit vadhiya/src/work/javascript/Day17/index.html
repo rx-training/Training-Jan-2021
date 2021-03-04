@@ -1,0 +1,260 @@
+
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../../../css/style.css">
+        <title>Assignment</title>    
+    </head>
+
+    <body>
+        <!----------------- navbar ------------------>
+        <din class="container-fluid nav-bar p-0">
+            <div class="navbar navbar-expand-md fixed-top  bg-theme px-4 navbar-light">
+                <!-- NAVBARBRAND -->
+                <a href="../../../../index.html" class="navbar-brand">
+                    <img src="../../../../img/radix.png" height="100px" width="100px" alt="RaidWeb">
+                </a>
+                <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                    <span class="navbar-toggler-icon text-primary"></span>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarnav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item"><a href="../../html/index.html" class="nav-link">Html</a></li>
+                        <li class="nav-item"><a href="../../css/index.html" class="nav-link">Css</a></li>
+                        <li class="nav-item"><a href="../../bootstrap/index.html" class="nav-link">Bootstrap</a></li>
+                        <li class="nav-item"><a href="../../javascript/index.html" class="nav-link active">Javascript</a></li>
+                        <li class="nav-item"><a href="../../jquery/index.html" class="nav-link">Jquery</a></li>  
+                    </ul>
+                </div>
+                <div class="d-md-block d-none">
+                    <h4><i class="fa fa-user"></i> Smit Vadhiya</h4>
+                </div>
+               
+            </div>
+        </din>
+
+        <div class="container-fluid ">
+            <div class="row h-100">
+                <div class="col-12 col-md-3 bg-theme p-3">
+                    <ul style="list-style-type: none;">
+                        <h5>Day 15</h5>
+                        <li>
+                            Pracrice
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day15/Practice Exercise/practice01.html">Practice 01</a></li>    
+                                <li><a href="../Day15/Practice Exercise/practice02.html">Practice 02</a></li>    
+                            </ul>
+                        </li>
+                        <li>
+                            Assignment
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day15/Assignment/calculator.html">Calculator</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 16</h5>
+                        <li>
+                            Practice
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day16/Practice/practice01.html">Practice 01</a></li>    
+                                <li><a href="../Day16/Practice/practice02.html">Practice 02</a></li>    
+                                <li><a href="../Day16/Practice/practice03.html">Practice 03</a></li>    
+                                <li><a href="../Day16/Practice/practice04.html">Practice 04</a></li>    
+                                <li><a href="../Day16/Practice/practice05.html">Practice 05</a></li>    
+                            </ul>
+                        </li>
+                        Assignment
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day16/Assignment/assignment.html">Assignment</a></li>
+                                <li><a href="../Day16/Assignment/change_css.html">Change css</a></li>
+                            </ul>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 17</h5>
+                        <li>
+                            Practice 
+                            <ul style="list-style-type: none;">
+                                <li><a href="practice0106.html">Practice 1 to 6</a></li>    
+                                <li><a href="#">Assignment</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 18</h5>
+                        <li>
+                            Practice
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day18/index.html">Practice</a></li>       
+                            </ul>
+                        </li>
+                        <li>
+                            Assignment
+                            <ul style="list-style-type: none;">   
+                                <li><a href="../Day18/assignment.html">Assignment</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 19</h5>
+                        <li>
+                            Practice
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day19/index.html">Practice</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 20</h5>
+                        <li>
+                            Assignment
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day20/index.html">Assignment</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    
+                </div>
+                <div class="col-12 col-md-9 p-4">
+                    <div class="container">
+                        <h3 class="mt-3">Practice 07 : Use Window.location object to navigate on another page</h3>
+                        <button class="btn btn-warning" onclick="navigate()"> navigate to radixweb.com</button>
+                
+                        <h3 class="mt-3">Practice 08 :  Use Window.history object to move to previous url in the history list</h3>
+                        <button class="btn btn-secondary" onclick="goback()">Go gack</button>
+                
+                        <h3 class="mt-3">Practice 08 :  Try to change windows height and width using Windows object</h3>
+                        <button class="btn btn-warning" onclick="openWin()">Open new screen</button>
+                        <button class="btn btn-info" onclick="resizeWin()">Resize screen</button>
+                        <br><br>
+                
+                        
+                        <h2 class="text-center">Assignment</h2>
+                        <h3 class="text-center text-primary">Employee Details</h3>
+                
+                        <form class="mt-3" action="#lastdiv" id="myForm">
+                            <div class="form-group">
+                                <label for="id">EmployeeID</label>
+                                <input type="text" required class="form-control" placeholder="Employee ID" id="employeeId">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Employee name</label>
+                                <input type="text" required class="form-control" placeholder="Employee name" id="employeeName">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email ID</label>
+                                <input type="email" required class="form-control" placeholder="Email ID" id="emailId">
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="text" required class="form-control" placeholder="Age" id="age">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Gender</label>
+                                <div class="radio" >
+                                    <div>
+                                        <input type="radio" required name="gender" id="gender" > Male
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="gender" id="gender"> Female
+                                    </div>
+                                </div>
+                            </div>
+                           
+                           
+                            <div class="form-group">
+                                <label for="">Location</label>
+                                <select id="location" required class="custom-select-sm">
+                                    <option value="Ahmedabad">Ahmedabad</option>
+                                    <option value="Vadodara">Vadodara</option>
+                                    <option value="Surat">Surat</option>
+                                    <option value="Rajkot">Rajkot</option>
+                                    <option value="Bhavnagar">Bhavnagar</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">date of joining</label>
+                                <input type="date" required >
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="">Designation</label>
+                                <input type="text" required class="form-control" placeholder="Designation">
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label for="">Salary</label>
+                                <input type="number" required class="form-control" placeholder="Salary">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Contact Number</label>
+                                <input type="number" required class="form-control" placeholder="Contact Number">
+                            </div>
+                            <div class="text-center">
+                                <input type="button" value="Submit" class="btn-primary btn" onclick="check(employeeId.value, age.value, )">
+                            </div>
+                        </form>
+                    </div>
+                    <div id="lastdiv">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script type="text/javascript">
+            function navigate(){
+                window.location.assign("https://radixweb.com/");
+            }
+            function goback(){
+                window.history.back();
+            }
+
+            var myWindow;
+
+            function openWin() {
+                myWindow = window.open("", "", "width=100, height=100");
+            }
+
+            function resizeWin() {
+                myWindow.resizeTo(250, 250);
+                myWindow.focus();
+            }
+
+            function check(eid, age){
+                var age = parseInt(age);
+                
+                if(eid.trim().length < 5){
+                    console.log(eid);
+                    alert("Minimum length of EmployeeID 5");
+                    return false;
+                } else if(isNaN(age)) {
+                    console.log(age);
+                    alert("invalid Age");
+                    return false;
+                } else {
+                    alert("Form submited");
+                    $('form').submit();
+                }
+                
+            }
+            
+        </script>
+        <script src="../../../../js/jquery.min.js"></script>
+        <script src="../../../../js/popper.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+    </body>
+</html>

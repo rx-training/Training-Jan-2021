@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Paytm</title>
+</head>
+
+<body>
+    <ol class="breadcrumb align-items-center small bg-light" style="background-color: #f3f7f8;">
+        <button class="btn btn-sm text-white  ml-4" style="background-color:rgb(231,75,36);">V'day Sale</button>
+        <span class="align-items-middle ml-2 ">Up to 80% Off + Rs. 4,000 Offers</span>
+        <a class="breadcrumb-item text-muted ml-auto" href="#">Paytm Service Agent </a>
+        <a class="breadcrumb-item text-muted" href="#">Accept Payments </a>
+        <a class="breadcrumb-item text-muted" href="#">Food Wallet</a>
+        <a class="breadcrumb-item text-muted" href="#">Track Order</a>
+        <a class="breadcrumb-item text-muted" href="#">Sell on Paytm Mall</a>
+        <a class="breadcrumb-item text-muted" href="#">Paytm Smart Retail</a>
+        <a class="breadcrumb-item text-muted" href="#">KYC</a>
+        <a class="breadcrumb-item text-muted" href="#">24x7 Help</a>
+    </ol>
+    <!-- First Navbar -->
+    <div class="row bg-light" id="firstnav">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="index.html"> <img src="./img/download.png" alt="Logo" class="img-fluid"
+                        width="150"></a>
+                <form class="form-inline bg-light">
+                    <input class="form-control mr-sm-2 text-muted" style="width: 400px;" type="text"
+                        placeholder="Search for a Product,Brand or Category">
+                </form>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <li class="nav-item ">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="../src/img/phone.gif" alt="MobileImg">
+                                Play and Win</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="pay.html">
+                                <img src="../src/img/add_money.svg" alt="Pay" width="20px">Pay </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="passbook.html"> <i class="fa fa-address-book-o " aria-hidden="true"></i>
+                                Passbook</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark mt-2" href="#" data-toggle="modal" data-target="#loginmodal">
+                                <i class="fa fa-smile-o h5" aria-hidden="true"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark mt-2" href="#" data-toggle="modal" data-target="#signupmodal">
+                                <i class="fa fa-smile-o h5" aria-hidden="true"></i> Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div id="secondnavabr" class=" p-2">
+        <div class="row  text-white small">
+            <div class="col  ml-4">
+                <a href="register.html" class="text-muted">
+                    <img class="ml-3"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA4CAYAAABez76GAAAAAXNSR0IArs4c6QAAAzlJREFUaAXtm0trFEEQx2cSjTE+Ynwhvg65KREk+MCDkIOiFxXBm4ge9CQoCN6ieBHxpn4DwU/gTSPkJL6QgKIielEjehAUo4muuu2vZCb0LpupHe3ZHaEK/unqru6qmv/WTm+gO44KEOfcIG7PgM1gFXB1oNvUmKwTyVr/Dvt9cCGO45cyudQCOYdBBbRaJgi4OzQ5cUiHJLgWf0/A/JB+c/gaZ+46KulLjjWZUzsyrfmNR1mSkjOG3k+y8iFInE4wC8xO0EU7B3SDuQl6aOcB8bEALEzQS7sI9IHFCZbQLgVbwWsgshrs/6OV8Q8VdN37Xh1pVY7EPO/FvRgyrnyiIWWl5+yxp2eqPNwBJmysm/SB/mUKMH1R15lrus+8nmwKwSQ0QX+b2GkWbqlb/Jn+VfCxbrxRtxkSG61Tx8pC0DYylXeRLxWq56c/0A69FARBRJWHn2wHAVrM0LuYFu+/sxtBykdmBBlBCgOK2SrICFIYUMxWQUaQwoBitgoyghQGFLNVkBGkMKCYrYKMIIUBxWwVZAQpDChmqyAjSGFAMVsFGUEKA4rZKsgIUhhQzFZBRpDCgGK2CjKCFAYUs1WQEaQwoJitgowghQHFbBVkBCkMKOYiD1D1cfZwWUZ87QhyHrucgC1EiiRopJCMW+zU3kEK4UVW0Cdi/1Dia6dTm7XLQXQ5bB5ciiRoB4czHwbPuIFD3nUHGb7WwPTPQ0USlD+5kakhLvZsYOGDaGfP3fwOwq8ozzvo5uSlqFodjaruCrgT3ZgaDv+4+T2Wg6Bb3/oj507Wpu/ORaOusO27NtbMvXIQ5Jx/xyPJ1nE7qLJi5tRbYykHQdXuMR73fe0jc3twqOtF7Vjre6EJGvceYb2nZ6u74q9RHO1hErte/D2K49tRR+de2l/ZC6etfiy5ohlMQu9ij8hsX5LdCbZf2eYl4fT3jLQpZFqqS/sUbPfGsDq5dJfOQZ3WZQz+YkK4AdRD0k9Ecggm2v87uQKR7BoWyN0tuTXYDnlLULmSOREqeNCvGIm9IbHjoBIqwRx+5LbQsZDkSOygFZQ+DJU0iH4KbALLgcRJY6V6qP4rfN8DZyHnOW1Q+Q2TZjaJCCu8RQAAAABJRU5ErkJggg=="
+                        alt="Prepaid/Postpaid">
+                    <span class="text-center ">Prepaid/Postpaid</span>
+                </a>
+            </div>
+            <div class="col">
+                <a href="electricity.html" class="text-muted">
+                    <img class="ml-3"
+                        src="data:image/png;base64,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"
+                        alt="Electricity">
+                    <span class="d-block ml-4">Electricity</span>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-muted">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/657676/1602234384051.png" alt="DTH">
+                    <span class="d-block ml-3">DTH</span>
+
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-muted">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/315135/1576644959956.png"
+                        alt="Buy FASTag" width="55">
+                    <span class="d-block ">Buy Fast Tag</span>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-muted">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/431163/1602141884720.png"
+                        alt="Education" width="75">
+                    <span class="d-block ml-2">Education</span>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-muted">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/464347/1601959693555.png"
+                        alt="Invest in Stocks" width="70">
+                    <span class="d-block ">Invest in Stocks</span>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-muted">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/602490/1600436077456.png"
+                        alt="Paytm First" width="55">
+                    <span class="d-block ">Paytm First</span>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-muted">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/view_item/244549/1602224337309.png"
+                        alt="Book a Cylinder" width="70">
+                    <span class="d-block">Book a Cylinder</span>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-muted">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA4CAMAAABpEU60AAACDVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AvP8AvPcAufYAv/8Axv8AuvYAuvcAv/8A//8AvPgAu/cAvfgAufUAuvUAufYAuvUAv/8AuvUAufYAu/YAzP8AufUAufYAuvcAufYAuvUAuvYAufUAuvYAufUAuvYAuvYAufYAuvYAvPkAufUAuvcAu/YAuvYAuf8Av/kAufUAuvUAv/8AuvUAufUAvfoA//8AuvYAzP8AvPgAvPgAuvcAuvUAv/8AvfYAu/YAvP////////////////////////////////////////8AufU2wiN3AAAArXRSTlMADzxcdICEfGxQKwQFWcP+8ZouTtqmHQyh+79/VD43RGSV3fBYGNDuFjqsgxXbnxI7jAPIYDlXZkgoArMf/E9Dq/rgtw39ZaPvB7QGGtiqmegBySpS2Wv5NGJJzHcQnAudmxGk9sV7uI/rE1tUCAlRXBQDRGEjM+zfGhjW8jgFt/xgwpuRzPTuyL35jCq7l4pZCyjn0xDO6jICqgpMRUNODDZTF0Ej9ST01Hottsp0ChMAAAABb3JOVAHPoneaAAACY0lEQVRIx+2X11cTQRTGUdSoiWCICirGAIJiAewmJgopKKJIUFk1YoNQFLFQVFQQQbGDBRV7oShw52/03o0JcGb15K554CHfQ8433577y5TdOTMJCVFr1uzEOXPnGeYvWGiMvkiSaVFSMoS12Jyil2NZAtOUvHSZHkxqGhUvX7EyfZV1tS0jk1pZa/ic7BwsXGtYFwly1xNqA5ezcRNW5eVPywoo28zjbNmKo9qm2vztO3busjvU0e5GUiIL5ARw7SGzt7BInWi3IRtbRhyehwXyZvmKqQv7JtdsfzoGJQdcNt7YjKX4c/AQEXLKDnvKITw9fu5s099XYHXaEZV79Bj6Sh0QUgaAEnlxUgtx+o/rA2EniidbpUkAJ/SBTgZOTW1Wnc77nw93ZupMjDhn4VxsQC4oignHj69iHBQHxUEzCOS05v5TBQgKe6vzrxibG1hy2zQx5z08DMlTpQGqxgc1gWDUCtRgQbXMsQD4ak2cmTfV+gAsUlwHUM9dxHqAOilsALBzQXaABinEM6uDC3LgqVQKdb2zWkWR7MLFxksh13T5ytWQu9bc0soFtV0X4sZNcu23hLh9h1xHpxB3u5igewLVTa6H3H1yXeQeNPFAvVT0kNwjco/JPSEnnvJAz6jmObm+CLKfXO8LHujlKyFet5MbeCPE23fkBt9j1xq5q/bh46eOkBv8/OXrn6ffvv/grhpLWkUKgJfL8eJZVwrx7jTEBQ0BZEqhGSDI/NgcQQCzlA6P4J4wyuGM4s7zc1jOK2nvLP8VtdQ7idZNwj+mcLdsZUz7XjM+wUIpE+NTin8DYm3KHxBv8pcAAAAASUVORK5CYII="
+                        alt="Broadband/Landline">
+                    <span class="d-block ">Broadband/Landline</span>
+                </a>
+            </div>
+            <div class="col mr-3">
+                <a href="#" class="text-muted">
+                    <img src="data:image/png;base64,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"
+                        alt="Metro">
+                    <span class="d-block ml-3">Metro</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row mp ">
+        <div class=" col-md-4  bg-light ml-5 borderradius p-4 mt-4">
+            <h5 class=" p-3">Mobile Recharge or Bill Payment</h5>
+            
+                <form action="" class="ml-2 ">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input  my-3 " style="height: 21px; width: 21px;"  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label " for="inlineRadio1">Prepaid</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" style="height: 21px; width: 21px;" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Postpaid</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control bl" placeholder="Mobile Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control bl" placeholder="Operator">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" class="form-control bl" placeholder="Amount">
+                    </div>
+                
+                    <div class="form-check ">
+                        <input class="form-check-input " style="height: 21px; width: 21px;" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            <a href="" class="h5 mt-1"> <i class="fa fa-angle-double-right text-primary ml-2" aria-hidden="true"></i> Fast
+                                Forward</a>
+                        </label>
+                        <small class="text-muted d-block">Instant Payment From Your Paytm Balance</small>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg mt-2">Proceed to Recharge </button>
+                </form>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Select Operator -->
+    <div class="container bg-light p-2 my-5" id="four-column-hover">
+        <div class="row my-3 p-3 ml-5  ">
+            <h5>Select Operator</h5>
+        </div>
+        <div class="row text-center  p-1">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                        <img src="https://assetscdn1.paytm.com/images/catalog/operators/84x84/1555311132380.png" role="presentation" height="70"
+                            width="80" alt="Airtel Recharge" title="Airtel Recharge">
+                        <div class="">Airtel
+                        Recharge</div>  
+                </div>
+                <div class="col-md-2">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/operators/84x84/1555325713574.png" role="presentation"
+                        height="70" width="80" alt="BSNL Recharge" title="BSNL Recharge">
+                    <div class=""> BSNL Recharge</div>
+                </div>
+                <div class="col-md-2">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/operators/84x84/1548842919961.png" role="presentation" height="70"
+                        width="80" alt="Jio Recharge" title="Jio Recharge">
+                    <div class=""> Jio Recharge</div>                        
+                </div>
+                <div class="col-md-2">
+                    <img src="https://assetscdn1.paytm.com/images/catalog/operators/84x84/1555325785421.png" role="presentation"
+                        height="70 " width="80" alt="MTNL Recharge" title="MTNL Recharge">
+                    <div class="">MTNL Recharge</div>
+                </div>
+                
+                <div class="col-md-2">
+                <img src="https://assetscdn1.paytm.com/images/catalog/operators/84x84/1599763691135.png" role="presentation" height="70"
+                    width="80" alt="Vodafone Idea Recharge">
+                    <div class="">Vi Recharge </div>
+                </div>
+        </div>
+    </div>
+
+
+    <!--  -->
+    <div class="container bg-light p-4 my-5" id="four-column-hover">
+        <div class="row text-center text-muted">
+            <div class="col-md-3">
+                <h5 class=""> <i class="fa fa-heart-o" aria-hidden="true"></i> </h3>
+                    <h5>24x7 Help</h5>
+                    <h6>Have a query and need help ? Click <strong class="text-primary">here</strong> </h6>
+            </div>
+            <div class="col-md-3">
+                <h5 class=""> <i class="fa fa-check-square" aria-hidden="true"></i> </h3>
+                    <h5>Paytm Trust</h5>
+                    <h6>Your money is yours! All refunds come with no question asked guarantee.</h6>
+            </div>
+
+            <div class="col-md-3">
+                <h5 class=""> <i class="fa fa-star-o" aria-hidden="true"></i> </h3>
+                    <h5>100% Assurance </h5>
+                    <h6>At Paytm, we provide 100% assurance. If you have any issue, your money is immediately refunded.
+                        Sit back and enjoy your
+                        shopping.</h6>
+            </div>
+
+            <div class="col-md-3">
+                <h5 class=""> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </h3>
+                    <h5>Our Promise</h5>
+                    <h6>Happiness is guaranteed at Paytm. If we fall short of your expectations, give us a shout.</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5 bg-light p-4">
+        <div class="row">
+            <div class="col text-muted">
+                Cashback would be added as Paytm Cash, which is One97 Communications Ltd’s loyalty program. It can be
+                used to pay for
+                goods &amp; services sold by merchants that accept ‘Pay with Paytm’
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="Paytm-footer" class="py-4 ">
+        <div class="ml-5 ">
+            <a href="#" class="text-white  font-weight-bold mx-2" target="_self">About Us</a>
+            <a href="#" class="text-white font-weight-bold mx-2" target="_self">Partner with us</a>
+            <a href="#" target="_self" class="text-white font-weight-bold mx-2">Terms &amp; Conditions</a>
+            <a href="#" target="_blank" class="text-white font-weight-bold mx-2">Blog</a>
+            <a href="#" target="_blank" class="text-white font-weight-bold mx-2">Media</a>
+            <a href="#" target="_self" class="text-white font-weight-bold mx-2">24x7Help</a>
+            <a href="#" class="text-white font-weight-bold mx-2" target="_self">Grievance policy</a>
+            <a href="#" target="_self" class="text-white font-weight-bold mx-2">Bug bounty</a>
+            <a href="#" target="_self" class="text-white font-weight-bold mx-2">Recharge Partners</a>
+
+            <a href=""> <i class="fa fa-apple h3 ml-4" aria-hidden="true"></i></a>
+            <a href=""> <i class="fa fa-windows h3 ml-2" aria-hidden="true"></i></a>
+            <a href=""> <i class="fa fa-android h3 ml-2" aria-hidden="true"></i></a>
+            <span class="lead  ml-2 text-white"> | </span>
+            <a href=""> <i class="fa fa-facebook h3 ml-2" aria-hidden="true"></i></a>
+            <a href=""> <i class="fa fa-instagram h3 ml-2" aria-hidden="true"></i></a>
+            <a href=""> <i class="fa fa-twitter h3 ml-2" aria-hidden="true"></i></a>
+        </div>
+    </footer>
+
+    <!-- Sign UP MOdal -->
+    <div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  text-white" style="background-color: #012b72;">
+                    <h5 class="modal-title">Sign Up Page</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" name="" id="" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" name="" id="" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" id="" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Confirm Password</label>
+                            <input type="password" id="" required class="form-control" placeholder="">
+                        </div>
+    
+    
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- login MOdal -->
+    <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  text-white" style="background-color: #012b72;">
+                    <h5 class="modal-title">Login Page</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+    
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" name="" id="" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" id="" required class="form-control" placeholder="">
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn text-white" style="background-color: #012b72;">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

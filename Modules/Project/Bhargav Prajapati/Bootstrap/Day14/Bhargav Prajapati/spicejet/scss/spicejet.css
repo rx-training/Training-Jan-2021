@@ -1,0 +1,45 @@
+#navigation_bar img {
+  height: 70px;
+  width: 200px;
+}
+#navigation_bar .nav-link {
+  color: black !important;
+}
+#navigation_bar .dropdown-item {
+  border-bottom: 1px solid white;
+}
+#navigation_bar .active {
+  background-color: #e93434;
+  color: white;
+}
+#navigation_bar .nav-link:hover {
+  background-color: #e93434;
+}
+#navigation_bar .nav-link:hover b {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  #navigationbar2 .hiding {
+    display: none;
+  }
+}
+
+#section3 .for_border {
+  border-right: solid black 1px;
+}
+@media only screen and (max-width: 600px) {
+  #section3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #section4 td {
+    display: flex;
+    flex-direction: column;
+  }
+  #section4 span {
+    display: inline;
+  }
+}/*# sourceMappingURL=spicejet.css.map */

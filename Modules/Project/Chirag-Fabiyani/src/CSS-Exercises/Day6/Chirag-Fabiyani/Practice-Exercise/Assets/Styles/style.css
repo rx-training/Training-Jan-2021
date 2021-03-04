@@ -1,0 +1,19 @@
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.flex-items img{
+    width: 24%;
+}
+
+@media (max-width: 768px){
+    .flex-items img{
+        width: 49%;
+    }
+}
+@media (max-width: 500px){
+    .flex-items img{
+        width: 100%;
+    }
+}

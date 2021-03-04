@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light" style="background-image: url('./Asset/Image/background.jpg');
+min-height: 500px;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark  sticky-top" style="background-color: black;">
+        <div class="container">
+            <span class="text-white" style="font-size:30px;cursor:pointer" onclick="openNav()">NAMRA PATEL</span>
+
+
+            <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav ml-auto text-white">
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="indexHTML.html" class="nav-link">HTML <i class="fab fa-html5"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="indexCSS.html" class="nav-link">CSS <i class="fab fa-css3"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" style="color: rgb(255, 255, 119);" class="nav-link">Bootstrap <i
+                                class="fas fa-bold"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="indexJavaScript.html" class="nav-link">Javascript <i class="fab fa-js-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="mySidenav" class="sidenav mt-5">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day9
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/2_2_basic_typography.html')">Basic Typography</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/2_3_text_alignment_display.html')">Text Alignment
+                        Display</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/2_4_floats_position.html')">Float Position</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/2_5_colors_background.html')">Background Colors</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/2_6_spacing.html')">Spacing</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day9/Namra/2_7_sizing.html')">Sizing</a>
+                </li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/2_8_breakpoints.html')">BreakPoints</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/3_2_buttons.html')">Buttons</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day9/Namra/3_3_navbar.html')">Navbar</a>
+                </li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/3_4_list_groups_badges.html')">List groups badges</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day9/Namra/3_5_forms.html')">Forms</a>
+                </li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day9/Namra/3_6_input_groups.html')">Input
+                        Group Badges</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/3_7_alerts_progress.html')">Alert Progress</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/3_8_tables_pagination.html')">Tables Pagination</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day9/Namra/3_9_cards.html')">Card</a>
+                </li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/3_10_media_object.html')">Media Object</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day9/Namra/3_11_jumbotron.html')">Jumbotron</a></li>
+
+            </ul>
+        </div>
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day10
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day10/Namra/4_2_grid_system.html')">Grid
+                        system</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/4_3_grid_alignment.html')">Grid Alignment</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/4_4_flexbox.html')">Flexbox</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/4_5_auto_margins_wrapping_order.html')">Auto margin
+                        wrapping order</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/5_2_carousel.html')">Carousel</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/5_3_collapse.html')">Collapse</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/5_4_tooltips.html')">Tooltips</a></li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/5_5_popovers.html')">Popovers</a></li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day9/Namra/5_6_modals.html')">Modals</a>
+                </li>
+                <li><a href="#" class="text-center"
+                        onclick="return loadPage('/Day10/Namra/5_7_scrollspy.html')">Scrollspy</a></li>
+            </ul>
+        </div>
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day11
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Assignment</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day11/Namra/index.html')">Index</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day12
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">LoopLab</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day12/Namra/src/index.html')">Index</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day13
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Blogen Admin</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day13/Namra/Blogen_admin/src/index.html')">Index</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown text-dark">
+            <button class="btn form-control btn-default dropdown-toggle" type="button" data-toggle="dropdown">Day14
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu form-control">
+                <li class="dropdown-header">Amazon</li>
+                <li><a href="#" class="text-center" onclick="return loadPage('/Day14/Namra/index.html')">Index</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-lg-2">
+                <span id="dayTag" class="text-white display-3"></span>
+            </div>
+            <div class="col-lg-10">
+                <div id="displayHTML">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadPage(value) {
+            document.getElementById("displayHTML").innerHTML = '<embed type="text/html" src="./Asset/Bootstrap' + value + '" width = "100%" height="570px">';
+            value = (value.split("/"))[1];
+            document.getElementById("dayTag").innerHTML = value;
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+// Main Sass File
+$primary-color: #3292a6;
+$primary-overlay:rgba(50,146,166,0.8);
+body{
+    margin-top: 105px;
+}
+.navbar{
+    box-shadow: 2px 2px 5px $primary-color;
+    opacity: 0.9;
+    background: #fff;
+    .nav-item{
+        font-size: 1.4rem;
+        padding-right: 20px;
+    }
+}
+html{
+    scroll-behavior: smooth;
+}
+
+#home{
+    background-image: url('../img/mountains.jpg');
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 600px;
+    .primary-layout{
+        background-color: $primary-overlay;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .book-img{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .btn{
+        border-radius: 0px !important;
+        border-color: white;
+    }
+}
+.info-header{
+    width: 50%;
+    margin: auto;
+    border-bottom: 1px solid #ddd;
+}
+#authors-section{
+    img{
+        margin-top: -55px;
+    }
+    .fa{
+        font-size: 25px;
+    }
+    .card:hover{
+        background: $primary-color;
+        color: #fff;
+        .fa{
+            color: white;
+        }  
+    }
+}

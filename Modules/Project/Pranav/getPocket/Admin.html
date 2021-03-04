@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Document</title>
+        <style>
+            body {
+                background-color: cyan;
+            }
+            #adminlogindetails {
+                padding-top: 150px;
+            }
+        </style>
+        <script>
+            function validateAdmin() {
+                var username=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+                if(username==="pranav" && password==="Pranav@009") {
+                    setTimeout(function() {
+                        window.location.href="AdminOperations.html";
+                    });
+                }
+                else {
+                    alert("Pleas enter valid details")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container" id="img1">
+            <div class="text-center text-danger">
+                <h2 style="padding-top: 50px;">Welcome to Pocket!!!</h2>
+            </div>
+            <form id="adminlogindetails">
+                <div class="form-group">
+                    <label for="name" class="text-primary">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter Username:">
+                </div>
+                <div class="form-group">
+                    <label for="name" class="text-primary">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter Password:">
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" id="adminlogin" class="btn btn-success mt-5" onclick="validateAdmin()">Log In</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

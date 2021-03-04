@@ -1,0 +1,59 @@
+// Main Sass File
+$bg-color:#333;
+$font-color:#fff;
+$primary-color:#008ed6;
+$dark-overlay:rgba(0,0,0,0.7);
+$icon-size:30px;
+body{
+    background: $bg-color;
+    color: $font-color;
+}
+.navbar{
+    border-bottom: 3px solid $primary-color;
+    opacity: 0.8;
+}
+#home-section{
+    background-image: url(../img/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 600px;
+    .header-inner{
+        padding-top: 100px;
+    }
+    .dark-overlay{
+        background-color: $dark-overlay;   
+        min-height: 600px;
+    }
+    .card-form{
+        opacity: 0.8;
+    }
+    .fa{
+        color: $primary-color;
+        background-color: #fff;
+        padding: 4px;
+        border-radius: 5px;
+        font-size: $icon-size;
+    }
+
+}
+#explore-section{
+    .fa{
+        color: #fff;
+        background:#333;
+        padding: 4px;
+        border-radius: 5px;
+        font-size: $icon-size;
+
+    }
+}
+#create-section{
+    .fa{
+        color: $primary-color;
+        background-color: #fff;
+        padding: 4px;
+        border-radius: 5px;
+        font-size: $icon-size;  
+    }
+}
+

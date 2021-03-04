@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+        <style>
+        .tooltip{
+            position: relative;
+        }
+        .tooltip .helpText{
+            visibility: hidden;
+
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -60px;
+        }
+        .tooltip:hover .helpText{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="tooltip">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium fugit magni a nemo delectus? Sit consequuntur molestias deleniti nesciunt quae nostrum quam, consectetur repudiandae repellendus praesentium suscipit magni assumenda dicta voluptatum odio ab blanditiis perspiciatis esse eum harum debitis, officia iusto doloremque. Accusamus soluta dolorum ad at, reiciendis blanditiis expedita eligendi? Explicabo porro alias at accusamus repellat rem nobis debitis placeat eum id, veritatis eveniet magni rerum neque ex tempora et impedit esse quod non culpa magnam corrupti saepe. Natus.</p>
+            <span class="helpText">ToolTip Text</span>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $(".tooltip").hover(function(){
+            $(".helpText").css("visibility","visible");
+        });
+    })
+</script>
+</html>

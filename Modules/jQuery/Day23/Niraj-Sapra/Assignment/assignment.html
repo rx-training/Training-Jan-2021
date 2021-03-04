@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="Asset/cityname.js"></script>
+    <style>
+
+    </style>
+    </head>
+    <script>
+        window.onload = () => {
+            dropbt();
+        }
+        function Submits(){ 
+                var citynames = $("#contoryname").val();
+                //alert("cityname"+citynames);
+                var listnew ;
+                var obcity = {
+                  "city" :citynames,
+                }
+                listnew=JSON.parse(localStorage.getItem('listnew')) || [];
+                listnew.push(obcity);
+                obcity =JSON.stringify(listnew);
+                localStorage.setItem("listnew",obcity);        
+                return true;
+        }
+        function dropbt(){
+             $(document).ready(function(){
+                    listnew=JSON.parse(localStorage.getItem('listnew'));
+                    var  str ="";
+                    for(i=0;i<listnew.length;i++){
+                       str += "<option value="+listnew[i].city+">"+listnew[i].city+"</option>";
+                    }
+                    $("#city").html(str);
+                });
+        }
+    </script>
+    <body>
+        <div class="container card my-5 text-center">
+            <div class="h3 card-header">Forms</div>
+            <div class="card-body">
+                <form class="p-3">
+                    <div>
+                       <label for="contoryname">Enter New Contory Name</label>
+                       <input type="text" class="my-3" id="contoryname">
+                    </div>
+                    <div class="my-3">
+                        <label for="showcity">Choose best city:</label>
+                        <select id="city" name="city">
+                          <option value="" active>Please select City</option>
+                          <!-- <option value="saab">Saab</option>
+                          <option value="fiat">Fiat</option>
+                          <option value="audi">Audi</option> -->
+                        </select>        
+                    </div>
+                    <div>
+                        <button onclick="Submits()">Submit</button>
+                    </div>   
+                </form>
+            </div>
+            
+        </div>
+    </body>
+</html>

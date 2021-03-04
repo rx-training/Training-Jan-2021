@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/3b15c7ca15.js" crossorigin="anonymous"></script>
+        <title>Blogen Admin UI</title>
+    </head>
+
+    <body>
+
+        <!--nav bar-->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">Blogen</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navid">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navid">
+                    <ul class="navbar-nav" >
+                        <li class="nav-item  px-3"><a href="index.html" class="nav-link">Dashbord</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav" id="navid">
+                        <li class="nav-item active px-3"><a href="post.html" class="nav-link">Post</a></li>
+                    </ul>
+                    <ul class="navbar-nav" id="navid">
+                        <li class="nav-item  px-3"><a href="categories.html" class="nav-link">Categories</a></li>
+                    </ul>
+                    <ul class="navbar-nav" id="navid">
+                        <li class="nav-item  px-3"><a href="users.html" class="nav-link">Users</a></li>
+                    </ul>
+                    <ul class="ml-auto  navbar-nav">
+                        <li class="nav-item dropdown ">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i> Welecome Brad
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="profil.html" class="dropdown-item">
+                                   <i class="fa fa-user-circle"></i> Profile
+                                </a>
+                                <a href="setting.html" class="dropdown-item">
+                                    <i class="fa fa-gear"></i> Setting
+                                 </a>
+                            </div>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link">
+                                <i class="fa fa-sign-out-alt"></i>   Log In
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Header section-->
+        <header id="" class="bg-primary py-2">
+            <div class="container">
+                <h1 class="text-white"><i class="fas fa-pencil-alt"></i> Post
+                </h1>
+            </div>
+        </header>
+
+        <!--Search bar-->
+        <section id="searchbox"class="bg-light">
+            <div class="container">
+                <div class="row ">
+                
+                <div class="col-sm-6 ml-auto">
+                    
+                        <div class="input-group my-3">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary">Search</button>
+                            </span>
+                        
+                    </form>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!--tables-->
+
+        <section id="tables" class="mt-4">
+            <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Letest Post</h4>
+                        </div>
+                        
+                    </div>
+                    <table class="table table-striped table-hover">
+                        <thead class="text-white bg-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Date Posted</th>
+                                    <th></th>
+                                </tr>
+                        </thead>
+                        <tbody class="text-muted">
+                            <tr>
+                                <td>1</td>
+                                <td>Post One</td>
+                                <td>Web Development</td>
+                                <td>july 12,2017</td>
+                                <td><a href="detail.html" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i>Details</a></td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Post Two</td>
+                                <td>Software Development</td>
+                                <td>july 12,2017</td>
+                                <td><a href="detail.html" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i>Details</a></td>
+                            </tr>
+
+
+                            <tr>
+                                <td>3</td>
+                                <td>Post Three</td>
+                                <td>Designing</td>
+                                <td>july 15,2017</td>
+                                <td><a href="detail.html" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i>Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Post Four</td>
+                                <td>Designing</td>
+                                <td>july 15,2017</td>
+                                <td><a href="detail.html" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i>Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Post Five</td>
+                                <td>Helth and welth</td>
+                                <td>july 15,2017</td>
+                                <td><a href="detail.html" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i>Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Post Six</td>
+                                <td>web Development</td>
+                                <td>july 15,2017</td>
+                                <td><a href="detail.html" class="btn btn-secondary"><i class="fas fa-angle-double-right"></i>Details</a></td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                    <!--pagination-->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item ">
+                            <a class="page-link" href="index.html" aria-disabled="true">Previous</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="index.html">1</a></li>
+                          <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="post.html">2</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="categories.html">3</a></li>
+                          <li class="page-item">
+                            <li class="page-item"><a class="page-link" href="users.html">4</a></li>
+                            <li class="page-item">
+                            <a class="page-link" href="categories.html">Next</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    
+
+                    
+                </div>
+                </div>
+            </div>
+    </section>
+
+               
+                 <!--footer section-->
+        <footer class="bg-dark">
+            <div class="container py-3 m-3">
+            <p class="text-muted text-center"> Copywrite &copy; 2021 Blogen</p>
+        </div>
+        </footer>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor1' );
+    </script>
+    </body>
+</html>

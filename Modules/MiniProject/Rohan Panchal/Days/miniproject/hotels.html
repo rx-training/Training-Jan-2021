@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking , Flight Tickets, Booking at Lowest Airfare | MakeMyTrip</title>
+    <link rel="icon" href="img/title_img.png">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <style>
+        #andar .dropdown-toggle{
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light bg-light px-0 d-none shadow-lg">
+        <div class="container">
+            <a class="navbar-brand"><img class="img-fluid p-0" style="height: 40px;" src="img/logo@2x.png" alt=""></a>
+           
+            <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-inline-block px-2">
+                        <a class="nav-link" href="#"><i class="fa fa-plane fa-2x text-dark" aria-hidden="true"></i>
+                       <p>Flights</p></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="hotels/index.html"><i class="fa fa-building-o fa-2x text-dark" aria-hidden="true"></i> <p>Hotels</p></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#villas"><i class="fa fa-home fa-2x text-dark" aria-hidden="true"></i><p>Villas & Apts</p></a>
+                    </li>
+                    <li class="nav-item px-2 my-0">
+                        <a class="nav-link" href="#"> <i class="fa fa-building-o fa-2x text-dark" aria-hidden="true"></i> <p>Holidays</p></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#"> <i class="fa fa-train fa-2x text-dark" aria-hidden="true"></i> <p>Trains</p></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#"> <i class="fa fa-bus fa-2x text-dark" aria-hidden="true"></i> <p>Buses</p></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#"> <i class="fa fa-id-badge fa-2x text-dark" aria-hidden="true"></i> <p>Visa</p></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#"> <i class="fa fa-taxi fa-2x text-dark" aria-hidden="true"></i> <p>Cabs</p></a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#"> <i class="fa fa-fighter-jet fa-2x text-dark" aria-hidden="true"></i><p>Charter Flights</p></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+                
+            
+            <div class="d-none d-lg-block">
+                <ul class="d-flex  list-unstyled">
+                    <li><button class="btn btn-primary">Login or Create Account</button></li>
+                    <li> <div class="dropdown">
+                        <a class="btn btn-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <span class="">IN</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="#">INDIA</a>
+                          <a class="dropdown-item" href="#">UAE</a>
+                          <a class="dropdown-item" href="#">US</a>
+                        </div>
+                      </div>
+                    </li>
+                </ul>   
+            </div>
+                
+        
+       
+    </nav>
+    <!-- flights -->
+    <!-- Hotels -->
+    
+   
+
+<section class="container-fluid" style="background-color: rgba(5, 6, 31, 0.76); position:absolute;box-shadow: 10px 10px 70px 10px rgb(0, 0, 0);height: 200px;"> 
+    <div class="w-100">
+        <a class="navbar-brand text-end text-white"><img class="img-fluid" src="img/mmtLogoWhite.png" style="height: 40px;" alt=""></a>
+        
+       <ul class="list-unstyled float-right d-flex row pr-5 mr-3">
+         
+            <li id="login" class="text-white px-2 my-1"> <button class="btn btn-secondary">Login or Create Account</button> </li>
+           <li class="text-white px-2 my-1" id="loggedin">
+            <div class="dropdown" id="andar">
+                <a class="btn btn-white dropdown-toggle" style="background-color: rgb(68, 82, 107);" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <span class="text-white px-4" >Hey, </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item p-3" href="#">My Profile</a>
+                  <a class="dropdown-item p-3" href="#">Logout</a>
+                </div>
+              </div>
+           </li>
+           <li class="text-white px-2 my-1">
+            <div class="dropdown">
+               
+                 <a class="btn btn-white dropdown-toggle" style="background-color: rgb(68, 82, 107);" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <span class="text-white">IN</span>
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                 <a class="dropdown-item" href="#">INDIA</a>
+                 <a class="dropdown-item" href="#">UAE</a>
+                 <a class="dropdown-item" href="#">US</a>
+                 </div>
+             </div>
+         </li>
+       </ul>
+    </div>
+      
+</section>
+<article class="px-4" style="background-color: navy;padding-top: 120px; padding-bottom: 20px;padding-left: 0px;">
+   <div class="card rounded-3" style="border-radius:1rem;">
+       <div class="card-body">
+           <div class="container-fluid">
+            <div class="card shadow-lg bg-body m-auto" style="border-radius:0.7rem;top: -70px;width: 85%;border:0px solid rgba(5, 6, 31, 0.76);">
+                <div class="card-body text-nowrap text-center p-1 rounded-3">
+                    <div class="row ">
+                        <style>
+                            .nav-link{
+                                color: black;
+                                font-size: 12px;
+                            }
+                        </style>
+                        <div class="col m-auto">
+                            <a class="nav-link" href="#"><i class="fa fa-plane fa-2x text-dark" aria-hidden="true"></i>
+                                <p>Flights</p></a>
+                        </div>
+                        <div class="col m-auto">
+                            <a class="nav-link active " href="hotels/index.html" style="border-bottom: 3px solid #007bff !important;"><i class="fa fa-building-o fa-2x text-primary" aria-hidden="true"></i> <p class="text-primary">Hotels</p></a>
+                        </div>
+                        <div class="col mx-auto">
+                            <a class="nav-link" href="#villas"><i class="fa fa-home fa-2x text-dark" aria-hidden="true"></i><p>Villas & Apts</p></a>
+                        </div>
+                        <div class="col mx-auto">
+                            <a class="nav-link" href="#"> <i class="fa fa-building-o fa-2x text-dark" aria-hidden="true"></i> <p>Holidays</p></a>
+                        </div>
+                        <div class="col mx-auto">
+                            <a class="nav-link" href="#"> <i class="fa fa-train fa-2x text-dark" aria-hidden="true"></i> <p>Trains</p></a>
+                        </div>
+                        <div class="col mx-auto">
+                            <a class="nav-link" href="#"> <i class="fa fa-bus fa-2x text-dark" aria-hidden="true"></i> <p>Buses</p></a>
+                        </div>
+                        <div class="col mx-auto">
+                            <a class="nav-link" href="#"> <i class="fa fa-id-badge fa-2x text-dark" aria-hidden="true"></i> <p>Visa</p></a>
+                        </div>
+                        <div class="col mx-auto">
+                            <a class="nav-link" href="#"> <i class="fa fa-taxi fa-2x text-dark" aria-hidden="true"></i> <p>Cabs</p></a>
+                        </div>
+                        <div class="col mx-auto">
+                            <a class="nav-link" href="#"> <i class="fa fa-fighter-jet fa-2x text-dark" aria-hidden="true"></i><p>Charter Flights</p></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+           </div>
+           <h5 class="card-title"></h5>
+           
+           <p class="card-text">
+               <div class="row">
+                   <div class="col-5  border border-dark">
+                       <div style="position: relative;top: 50px;" class="h4 text-wrap"> City/State</div>
+                     
+                        <div class="form-group">
+                            <select name="" style="height: 120px;margin-left:-15px;" id="cities" class="form-control">
+                                
+                            </select>
+                        </div>
+                   </div>
+                   <div class="col-2  border border-dark">
+                        Checkin
+                    </div>
+                    <div class="col-2  border border-dark">
+                        checkout
+                    </div>
+                    <div class="col-3  border border-dark">
+                        rooms & guests
+                    </div>
+               </div>
+           </p>
+       </div>
+    </div>
+    <div class="text-center">
+        <button  style="top: -25px;position:relative;" onclick="hotelsload()" class="btn btn-primary btn-lg rounded-pill px-5 py-2" type="button">Search</button>
+    </div>
+</article>
+
+
+     <!-- Superoffer -->
+     <div id="offer" class="my-5">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header bg-white border border-bottom-0">
+                    <h1 class="font-weight-bold" style="color: black;">Super Offer</h1>
+                </div>
+                <div class="card-body"  style="position:relative;z-index:5;overflow-x: auto;overflow-y: hidden;height: 200px;">
+
+                    <div class=""  style="position: absolute;z-index: 4;flex-wrap: nowrap;display: flex;top: 0%;">
+
+                    
+                    <div class="card d-inline-block m-1 my-3" style="width: 26rem;">
+                        
+                        <img src="img/offer/1.webp" class="card-img-top float-left" alt="..." style="width: 7rem;margin: -20px 20px;">
+                        <h4 class="h5">Give wings to your travel dreams</h4>
+                        <p class="text-muted">Grab 12% OFF</p>
+                     
+                        <div class="card-body">
+                            </div>
+                    </div>
+                   
+                    <div class="card d-inline-block m-1 my-3" style="width: 26rem;">
+                        <img src="img/offer/2.webp" class="card-img-top float-left" alt="..." style="width: 7rem;margin: -20px 20px;">
+                        <h4 class="h5">Give wings to your travel dreams</h4>
+                        <p class="text-muted">Grab 12% OFF</p>
+                     
+                        <div class="card-body">
+                            </div>
+                    </div>
+                    <div class="card d-inline-block m-1 my-3" style="width: 26rem;">
+                        <img src="img/offer/2.webp" class="card-img-top float-left" alt="..." style="width: 7rem;margin: -20px 20px;">
+                        <h4 class="h5">Give wings to your travel dreams</h4>
+                        <p class="text-muted">Grab 12% OFF</p>
+                     
+                        <div class="card-body">
+                            </div>
+                    </div>
+                    <div class="card d-inline-block m-1 my-3" style="width: 26rem;">
+                        <img src="img/offer/2.webp" class="card-img-top float-left" alt="..." style="width: 7rem;margin: -20px 20px;">
+                        <h4 class="h5">Give wings to your travel dreams</h4>
+                        <p class="text-muted">Grab 12% OFF</p>
+                     
+                        <div class="card-body">
+                            </div>
+                    </div>
+                    <div class="card d-inline-block m-1 my-3" style="width: 26rem;">
+                        <img src="img/offer/2.webp" class="card-img-top float-left" alt="..." style="width: 7rem;margin: -20px 20px;">
+                        <h4 class="h5">Give wings to your travel dreams</h4>
+                        <p class="text-muted">Grab 12% OFF</p>
+                     
+                        <div class="card-body">
+                            </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Travel -->
+    <style>
+        #travel .card-body .card:hover{
+            transform: scale(1.1);
+            z-index: 3;
+            box-shadow: -2px 5px 5px 10px rgb(255, 254, 253);
+        }
+    </style>
+    <div id="travel">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header bg-white border border-bottom-0">
+                    <h1 class="font-weight-bold" style="color: black;">Travel Blog</h1>
+                </div>
+                <div class="card-body " style="position:relative;z-index:5;overflow-x: auto;overflow-y: hidden;height: 360px;">
+
+                    <div class=""  style="position: absolute;z-index: 4;flex-wrap: nowrap;display: flex;top: 5%;">
+                       
+                    <div class="card d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  d-inline-block m-1" style="width: 16rem;">
+                        <img src="img/travel/4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- why use? -->
+    <div id="whyus" class="d-none d-lg-block p-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 my-lg-5 my-3">
+                    <h5 class="font-weight-bold">Why MakeMy Trip</h5>
+                    <p class="text-muted">Established in 2000, MakeMyTrip has since positioned itself as one of the leading companies, providing great offers, competitive airfares, exclusive discounts, and a seamless online booking experience to many of its customers. The experience of booking your flight tickets, hotel stay, and holiday package through our desktop site or mobile app can be done with complete ease and no hassles at all. We also deliver amazing offers, such as Instant Discounts, Fare Calendar, MyRewardsProgram, MyWallet, and many more while updating them from time to time to better suit our customers’ evolving needs and demands.</p>
+                </div>
+                <div class="col-lg-4 my-lg-5 my-3">
+                    <h5 class="font-weight-bold">Booking Flights with MakeMyTrip</h5>
+                    <p class="text-muted">At MakeMyTrip, you can find the best of deals and cheap air tickets to any place you want by booking your tickets on our website or app. Being India’s leading website for hotel, flight, and holiday bookings, MakeMyTrip helps you book flight tickets that are affordable and customized to your convenience. With customer satisfaction being our ultimate goal, we also have a 24/7 dedicated helpline to cater to our customer’s queries and concerns. Serving over 5 million happy customers, we at MakeMyTrip are glad to fulfill the dreams of folks who need a quick and easy means to find air tickets. You can get a hold of the cheapest flight of your choice today while also enjoying the other available options for your travel needs with us.</p>
+                </div>
+                <div class="col-lg-4 my-lg-5 my-3">
+                    <h5 class="font-weight-bold">Domestic Flights with MakeMyTrip</h5>
+                    <p class="text-muted">MakeMyTrip is India's leading player for flight bookings, and have a dominant position in the domestic flights sector. With the cheapest fare guarantee, experience great value at the lowest price. Instant notifications ensure current flight status, instant fare drops, amazing discounts, instant refunds and rebook options, price comparisons and many more interesting features.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     <div id="accordion" role="tablist" class="d-lg-none">
+        <div class="card">
+            <div class="card-header" id="heading1">
+               <h5 class="mb-0">
+                   <div href="#collapse1" data-toggle="collapse" data-parent="#accordion">
+                    Why MakeMy Trip
+                   </div>
+                </h5>
+            </div>
+            <div class="collapse" id="collapse1">
+                <div class="card-body">
+                    Established in 2000, MakeMyTrip has since positioned itself as one of the leading companies, providing great offers, competitive airfares, exclusive discounts, and a seamless online booking experience to many of its customers. The experience of booking your flight tickets, hotel stay, and holiday package through our desktop site or mobile app can be done with complete ease and no hassles at all. We also deliver amazing offers, such as Instant Discounts, Fare Calendar, MyRewardsProgram, MyWallet, and many more while updating them from time to time to better suit our customers’ evolving needs and demands.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="heading2">
+               <h5 class="mb-0">
+                   <div href="#collapse2" data-toggle="collapse" data-parent="#accordion">
+                    Booking Flights with MakeMyTrip
+                   </div>
+                </h5>
+            </div>
+            <div class="collapse" id="collapse2">
+                <div class="card-body">
+                    At MakeMyTrip, you can find the best of deals and cheap air tickets to any place you want by booking your tickets on our website or app. Being India’s leading website for hotel, flight, and holiday bookings, MakeMyTrip helps you book flight tickets that are affordable and customized to your convenience. With customer satisfaction being our ultimate goal, we also have a 24/7 dedicated helpline to cater to our customer’s queries and concerns. Serving over 5 million happy customers, we at MakeMyTrip are glad to fulfill the dreams of folks who need a quick and easy means to find air tickets. You can get a hold of the cheapest flight of your choice today while also enjoying the other available options for your travel needs with us.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="heading3">
+               <h5 class="mb-0">
+                   <div href="#collapse3" data-toggle="collapse" data-parent="#accordion">
+                    Domestic Flights with MakeMyTrip
+                   </div>
+                </h5>
+            </div>
+            <div class="collapse" id="collapse3">
+                <div class="card-body">
+                    MakeMyTrip is India's leading player for flight bookings, and have a dominant position in the domestic flights sector. With the cheapest fare guarantee, experience great value at the lowest price. Instant notifications ensure current flight status, instant fare drops, amazing discounts, instant refunds and rebook options, price comparisons and many more interesting features. 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+      
+ 
+    <!-- Footer Section -->
+  
+        <div class="container-fluid bg-dark ">
+            <div class="text-white p-5 row text-center">
+                <div class="col-md-6 pt-3">
+                    <p class="float-md-left"> <i class="fa px-3 fa-twitter fa-2x text-center" aria-hidden="true"></i>
+                        <i class="fa px-3 fa-facebook fa-2x  text-center" aria-hidden="true"></i>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-black float-md-right"> 2020 MAKEMYTRIP PVT. LTD. <br> Country India USA UAE</p>
+                </div>
+            </div>
+        </div>
+    
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+<script>
+if ($(window).width() > 992) {
+
+        $(window).scroll(function()
+        {  
+            if ($(this).scrollTop() > 150 ) {
+                
+                $('#navbar_top').addClass("fixed-top");
+                $('#navbar_top').removeClass("d-none");
+                //$('body').css('padding-top', $('.navbar').outerHeight() + 'px');
+            }
+            else
+            {
+                $('#navbar_top').removeClass("fixed-top");
+                $('#navbar_top').addClass("d-none");
+                // remove padding top from body
+                //$('body').css('padding-top', '0');
+            }   
+        });
+} 
+function hotelsload()
+{
+    window.location.href = "rooms.html?state="+JSON.parse(document.getElementById('cities').value).stateName+"&city="+JSON.parse(document.getElementById('cities').value).cityName;
+}
+console.log(sessionStorage.getItem('user'));
+if(sessionStorage.getItem('user') === null)
+{
+    $('#loggedin').addClass('d-none');
+    $('login').removeClass('d-none');
+}
+else
+{
+    $('login').addClass('d-none');
+    $('#loggedin').removeClass('d-none');
+}
+$(document).ready(function(){
+    getcity = JSON.parse(localStorage.getItem('cities'));
+    getstate = JSON.parse(localStorage.getItem('states'));
+    var optgroup="<option value=''>Select a City</option>";
+
+    for(obj in getstate)
+    {
+      var state = getstate[obj];
+      optgroup += "<optgroup label='"+state+"'>";
+        for(obj2 in getcity)
+        {
+            if(getcity[obj2].stateName === state)
+            {
+                optgroup+="<option value='"+JSON.stringify(getcity[obj2])+"'>"+getcity[obj2].cityName+"</option>";
+            }
+        }
+        optgroup+="</optgroup>";
+    }
+    document.getElementById('cities').innerHTML=optgroup;
+});
+</script>

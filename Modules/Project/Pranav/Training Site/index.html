@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            #bgimg1 {
+                width: 100%;
+                height: 500px;
+                background-image: url("html.jpg"); 
+                background-size: 100% 100%;
+            }
+            #copyrightinfo {
+                margin-top: 120px;
+                padding-left: 625px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="container-fluid">
+            <div class="row">
+                <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+                <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                    <div class="container">
+                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                            <span class="navbar-toggeler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto" id="ul1">
+                                <li class="nav-items">
+                                    <a href="HTML/htmlindex.html" class="nav-link">HTML</a>
+                                </li>
+                                <li class="nav-items">
+                                    <a href="CSS/cssindex.html" class="nav-link">CSS</a>
+                                </li>
+                                <li class="nav-items">
+                                    <a href="Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                                </li>
+                                <li class="nav-items">
+                                    <a href="Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                                </li>
+                                <li class="nav-items">
+                                    <a href="jQuery/jQueryindex.html" class="nav-link">jQuery</a>
+                                </li>
+                                <li>
+                                    <a href="getPocket/Assignment/Assignment.html" target="_blank" class="nav-link">getPocket</a>
+                                </li>
+                                <li>
+                                    <a href="getPocket/Assignment/Admin.html" target="_blank" class="nav-link">getPocket Admin</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div id="bgimg1">
+        </div>
+        <p class="bg-primary text-light" id="copyrightinfo">Copyright 2020. All Rights Reserved</p>
+    </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript examples Arrays,Strings,Date</title>
+        <script>
+            //Array Fundamentals
+            var entries=new Array("Trains","Planes","Automobiles");
+            console.log(entries instanceof Array);
+
+            var entries=new Array('Trains',42,true);
+            console.log(entries instanceof Array);
+
+            var entries=Array("Trains","Planes","Automobiles");
+            console.log(entries instanceof Array);
+
+            var entries=["Trains","Planes","Automobiles"];
+            console.log(entries instanceof Array);
+
+            var entries=["Trains","Planes","Automobiles"];
+            console.log(entries[0]);
+
+            var entries=["Trains","Planes","Automobiles"];
+            console.log(entries[3]);
+
+            var entries=new Array(5);
+            console.log(entries.length);
+
+            var entries=new Array("5");
+            console.log(entries.length);
+
+            var entries=[];
+            console.log(entries.length);
+
+            var entries=[,,,];
+            console.log(entries.length);
+
+            var entries=['Planes','Trains'];
+            entries.length=10;
+            console.log(entries.length);
+
+            var entries=['Planes','Trains'];
+            entries.length=1;
+            console.log(entries[1]);
+
+            var entries=['Planes','Trains','Automobiles'];
+            entries[2]="cars";
+            console.log(entries[2]);
+
+            var entries=['Planes','Trains','Automobiles'];
+            entries[entries.length]="Bicycles";
+            console.log(entries.length);
+
+            var entries=['Planes','Trains','Automobiles'];
+            console.log(entries.toString());
+
+            var ratings=[5,2,4];
+            console.log(ratings.valueOf());
+
+            var ratings=[5,2,4];
+            console.log(ratings.join('/'));
+
+
+
+
+            //Array Features
+            var ratings=[];
+            ratings.push(5);
+            ratings.push(2,4);
+            console.log(ratings.pop());
+
+            var ratings=[];
+            ratings.push(5);
+            ratings.push(2,4);
+            var firstRating=ratings.shift();
+            console.log(firstRating);
+
+            var ratings=[];
+            ratings.push(5);
+            ratings.push(2,4);
+            var newCount=ratings.unshift(3);
+            console.log(ratings[0]);
+            console.log(newCount);
+
+            var ratings=[1,2,3];
+            var newRatings=ratings.concat([4,5,6],7,8);
+            console.log(newRatings.length);
+
+            var ratings=[1,2,3,4];
+            var newRatings=ratings.slice(2);
+            console.log(newRatings.toString());
+
+            var ratings=[1,2,3,4];
+            var newRatings=ratings.slice(1,3);
+            console.log(ratings.toString());
+
+            var ratings=[1,2,3,4];
+            ratings.splice(1,2);
+            console.log(ratings.toString());
+
+            var ratings=[1,2,3,4];
+            var removedRating=ratings.splice(0,1);
+            console.log(removedRating.toString());
+
+            var ratings=[1,2,3,4];
+            ratings.splice(2,0,99);
+            console.log(ratings.toString());
+
+            var ratings=[1,2,3,4];
+            ratings.reverse();
+            console.log(ratings.toString());
+
+            var ratings=[4,1,3,2];
+            ratings.sort();
+            console.log(ratings.toString());
+
+            var ratings=[3,1,4,2,10];
+            ratings.sort(function (value1,value2) { return value1-value2});
+            console.log(ratings.toString());
+
+            var ratings=[1,2,3,4,5,4,3,2,1];
+            console.log(ratings.indexOf(3));
+
+            var ratings=[1,2,3,4,5,4,3,2,1];
+            console.log(ratings.lastIndexOf(1));
+
+            var fruits=["Banana","Kiwi","Apple","Mango"];
+            delete fruits[0];
+            console.log(fruits);
+
+            var friends1=["Pranav","Ravi"];
+            var friends2=["Parth","Dhaval"];
+            var friends=friends1.concat(friends2);
+            console.log(friends);
+            
+
+            
+            
+            //Date Fundamentals
+            var dt=new Date();
+            console.log(dt);
+
+            var dt=new Date(0);
+            console.log(dt);
+
+            var dt1=new Date('7/19/1999');
+            console.log(dt1);
+
+            var dt1=new Date('July 19, 1999');
+            console.log(dt1);
+
+            var dt1=new Date('Welcome');
+            console.log(dt1);
+
+            var dt1=Date.parse('Welcome');
+            console.log(dt1);
+            
+            var dt2=new Date(Date.UTC(2000,0));
+            console.log(dt2);
+
+            var dt2=Date.UTC(2000,0);
+            console.log(dt2);
+
+            var dt2=Date.now();
+            console.log(dt2);
+
+            var dt3=new Date();
+            console.log(dt3.toDateString());
+            console.log(dt3.toTimeString());
+            console.log(dt3.getFullYear());
+
+            var dt2=new Date();
+            dt2.setFullYear(2022);
+            console.log(dt2.getFullYear());
+
+            var dt=new Date();
+            var dt1=new Date();
+            dt1.setFullYear(2022,8,24);
+            if(dt<dt1)
+                console.log("Today is after August 24,2022");
+            else
+                console.log("Today is before August 24,2022");
+
+
+
+            
+            //String methods
+            var str="Android is leading in the world"
+            var str1="IOS"
+            var str2="  Blackberry  "
+
+            var pos=str.search("is");
+            console.log(pos);
+
+            var res=str.substring(7,18);
+            console.log(res);
+
+            var res=str.substr(7);
+            console.log(res);
+
+            var res=str.substr(-4);
+            console.log(res);
+
+            var res=str.replace("Android","IOS");
+            console.log(res);
+
+            var res=str.toUpperCase();
+            console.log(res);
+
+            var res=str.toLowerCase();
+            console.log(res);
+
+            var res=str.concat(" ",str1);
+            console.log(res);
+
+            var res=str.concat(" ",str1);
+            console.log(res);
+
+            alert(str2.trim());
+
+            console.log(str.charAt(1));
+
+            console.log(str.charCodeAt(1));
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

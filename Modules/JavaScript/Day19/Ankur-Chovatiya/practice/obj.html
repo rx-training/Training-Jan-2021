@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice 4</title>
+</head>
+<body>
+    <h1>hello developers!</h1>
+</body>
+<script>
+
+
+    // call is use for call the method which is not a part of a object which we want to access
+
+    let greet = function(){
+        alert("Hello " + emp.name)
+    }
+
+    let emp =  {
+        name : "ankur",
+        address : "Ahmedabad",
+        Designation : "Js Developer"
+    };
+
+
+   greet.call(emp.name);
+
+    // console.log(ans);
+
+</script>
+</html>

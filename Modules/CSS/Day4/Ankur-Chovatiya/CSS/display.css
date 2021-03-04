@@ -1,0 +1,13 @@
+h1{
+    display: inline;
+}
+p{
+    display: inline;
+}
+img.img1{
+    display: block;
+    width: 500px;
+}
+img{
+    display: none;
+}

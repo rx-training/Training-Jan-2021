@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      #nav{
+          border-bottom: 1px solid lightgray;
+      }
+      #sidebar{
+          border-right: 1px solid lightgray;
+          border-bottom: 1px solid lightgrey;
+      }
+  </style>
+    <script>
+        function employeeID(){
+            var a = document.getElementById('EmployeeID').value;
+            if(!a.match(/[0-9]{5}/g)){
+                document.getElementById('EmployeeID').style.border = '1px solid red';
+            }
+            else{
+                document.getElementById('EmployeeID').style.border = '1px solid green';
+            }
+        }
+        function age(){
+            var a = document.getElementById('Age').value;
+            if(isNaN(a)){
+                document.getElementById('Age').style.border = '1px solid red';
+            }
+            else{
+                document.getElementById('Age').style.border = '1px solid green';
+            }
+        }
+        function email(){
+            var a = document.getElementById('Email').value;
+            if(!a.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-]+$/g)){
+              document.getElementById('Email').style.border = '1px solid red';
+            }
+            else{
+              document.getElementById('Email').style.border = '1px solid green';
+            }
+        }
+        function contact(){
+          var a = document.getElementById('Contact').value;
+          if(!a.match(/[1-9]{1}[0-9]{9}/)){
+            document.getElementById('Contact').style.border = '1px solid red';
+          }
+          else{
+            document.getElementById('Contact').style.border = '1px solid green';
+          }
+        }
+        function validate(){
+          var a = true;
+          if(document.getElementById('EmployeeID').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Employee Id field is empty</p>';
+            a=false;
+          }
+          if(document.getElementById('EmployeeName').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Employee Name field is empty</p>';
+            a=false;
+          }
+          if(document.getElementById('Age').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Age field is empty</p>';
+            a=false;
+          }
+          else if(!age()){
+            document.getElementById('Error').innerHTML += '<p>!Age field is not correct</p>';
+            a=false;
+          }
+          if(document.getElementById('Male').checked == false){
+            if(document.getElementById('Female').checked == false){
+              document.getElementById('Error').innerHTML += '<p>!Gender not selected</p>';
+            a=false;
+            }
+          }
+          if(document.getElementById('Designation').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Designation field is empty</p>';
+            a=false;
+          }
+          if(document.getElementById('Salary').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Salary field is empty</p>';
+            a=false;
+          }
+          if(document.getElementById('Location').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Designation field is empty</p>';
+            a=false;
+          }
+          if(document.getElementById('Email').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Email field is empty</p>';
+            a=false;
+          }
+          else if(!email()){
+            document.getElementById('Error').innerHTML += '<p>!Email field is not correct</p>';
+            a=false;
+          }
+          if(document.getElementById('Contact').value == ""){
+            document.getElementById('Error').innerHTML += '<p>!Contact field is empty</p>';
+            a=false;
+          }
+          else if(!contact()){
+            document.getElementById('Error').innerHTML += '<p>!Contact field is not correct</p>';
+            a=false;
+          }
+          return a;
+        }
+    </script>
+</head>
+<body>
+  <nav class="navbar navbar-light navbar-expand-sm" id="nav">
+    <div class="container">
+
+      <a class="navbar-brand" href="#"><img class="m-0 p-0" src="../../../../Assets/Radix.jpg" width="150px"></a>
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+
+          <ul class="navbar-nav collapse navbar-collapse d-sm-flex justify-content-sm-end" id="navbarNav">
+
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="../../../../Html/index_html.html">HTML</a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../../../../CSS-Exercises/index_css.html">CSS</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../../../../Bootstrap-Exercises/index_bootstrap.html">Bootstrap</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../../../index_js.html">Javascript</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="../../../../jQuery/index_jquery.html">jQuery</a>
+            </li>
+          </ul>
+      </div>
+</nav>
+
+<div class="container row" id="main">
+    <div class="col-md-3" id="sidebar">
+        <ul class="my-5">
+            <li>
+                <b>Day15</b>
+                <ul>
+                    <li>
+                        <b>Practice-Exercise</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day15/Chirag-Fabiyani/Practice-Exercise/Practice-1.html">Practice-1</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day15/Chirag-Fabiyani/Practice-Exercise/Practice-2.html">Practice-2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Assignment</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day15/Chirag-Fabiyani/Assignment/Assignment-1.html">Assignment-1</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day15/Chirag-Fabiyani/Assignment/Assignment-2.html">Assignment-2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Day16</b>
+                <ul>
+                    <li>
+                        <b>Practice-Exercise</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day16/Chirag-Fabiyani/Practice-Exercise/Practice-1.html">Practice-1</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day16/Chirag-Fabiyani/Practice-Exercise/Practice-2.html">Practice-2</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day16/Chirag-Fabiyani/Practice-Exercise/Practice-3.html">Practice-3</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day16/Chirag-Fabiyani/Practice-Exercise/Practice-4.html">Practice-4</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day16/Chirag-Fabiyani/Practice-Exercise/Practice-5.html">Practice-5</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Assignment</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day16/Chirag-Fabiyani/Assignment/Assignment.html">Assignment-1</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Day17</b>
+                <ul>
+                    <li>
+                        <b>Practice-Exercise</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../Practice-Exercise/Practice-1.html">Practice-1</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../Practice-Exercise/Practice-2.html">Practice-2</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../Practice-Exercise/Practice-3.html">Practice-3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Assignment</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="./Assignment.html">Assignment-1</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Day18</b>
+                <ul>
+                    <li>
+                        <b>Practice-Exercise</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day18/Chirag-Fabiyani/Practice-Exercise/Practice-1.html">Practice-1</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day18/Chirag-Fabiyani/Practice-Exercise/Practice-2.html">Practice-2</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day18/Chirag-Fabiyani/Practice-Exercise/Practice-3.html">Practice-3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Assignment</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day18/Chirag-Fabiyani/Assignment/Assignment.html">Assignment-1</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Day19</b>
+                <ul>
+                    <li>
+                        <b>Practice-Exercise</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day19/Chirag-Fabiyani/Practice-Exercise/Practice-1.html">Practice-1</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day19/Chirag-Fabiyani/Practice-Exercise/Practice-2.html">Practice-2</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day19/Chirag-Fabiyani/Practice-Exercise/Practice-3.html">Practice-3</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day19/Chirag-Fabiyani/Practice-Exercise/Practice-4.html">Practice-4</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day19/Chirag-Fabiyani/Practice-Exercise/Practice-5.html">Practice-5</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day19/Chirag-Fabiyani/Practice-Exercise/Practice-6.html">Practice-6</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Day20</b>
+                <ul>
+                    <li>
+                        <b>Practice-Exercise</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day20/Chirag-Fabiyani/Practice-Exercise/Practice-1.html">Practice-1</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day20/Chirag-Fabiyani/Practice-Exercise/Practice-2.html">Practice-2</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day20/Chirag-Fabiyani/Practice-Exercise/Practice-3.html">Practice-3</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day20/Chirag-Fabiyani/Practice-Exercise/Practice-4.html">Practice-4</a>
+                            </li>
+                            <li>
+                                <a class="text-dark" href="../../../Day20/Chirag-Fabiyani/Practice-Exercise/Practice-5.html">Practice-5</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Assignment</b>
+                        <ul>
+                            <li>
+                                <a class="text-dark" href="../../../Day20/Chirag-Fabiyani/Assignment/Assignment.html">Assignment-1</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+      <form class="form p-5">
+        <div class="form-group row">
+          <label for="EmployeeID" class="col-sm-2 col-form-label">EmployeeID</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="EmployeeID" placeholder="e.g,170020107018" onkeyup="employeeID()">
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="EmployeeName" class="col-sm-2 col-form-label">EmployeeName</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="EmployeeName" placeholder="e.g,Chirag Fabiyani">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Age" class="col-sm-2 col-form-label">Age</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="Age" placeholder="e.g,21" onkeyup="age()">
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="Male" value="option1">
+                  <label class="form-check-label" for="Male">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="Female" value="option2">
+                  <label class="form-check-label" for="Female">
+                    Female
+                  </label>
+                </div>
+              </div>
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <label for="Designation" class="col-sm-2 col-form-label">Designation</label>
+            <select id="Designation" class="form-control col-sm-10">
+              <option value="" selected>Choose...</option>
+              <option value=".Net">.Net Developer</option>
+              <option value="Php">Php Developer</option>
+              <option value="Node js">Node js Developer</option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <label for="Salary" class="col-sm-2 col-form-label">Salary in Rs:</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="Salary" placeholder="e.g,17000">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Location" class="col-sm-2 col-form-label">Location</label>
+            <select id="Location" class="form-control col-sm-10">
+              <option value="" selected>Choose...</option>
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Vadodara">Vadodara</option>
+              <option value="Rajkot">Rajkot</option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <label for="Email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="Email" placeholder="chiragfabiyani@gmail.com" onchange="email()">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Date" class="col-sm-2 col-form-label">Date of Joining</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="Date">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Contact" class="col-sm-2 col-form-label">Contact Number</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="Contact" placeholder="9773019665" onchange="contact()">
+            </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" onclick="return validate()">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      <div  class="text-center" id="Error"></div>
+    </div>
+  </div>
+
+
+
+    
+</body>
+</html>

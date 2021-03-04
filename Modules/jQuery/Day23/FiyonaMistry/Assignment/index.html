@@ -1,0 +1,56 @@
+<!-- Put a droplist with 5 country name from list object using jquery
+(Eg. India, United Kingdom..). Default value should “Please select”.
+– Bellow droplist all country name which are in the dropdown that should display with Label :
+“Your Selected Country : “.
+– By default all country name should display.
+– Only that country name should appear which are you select from dropdown. All other label should be disappear.
+– When i select ‘Please select’, all countries name should get displayed. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Assignment</title>
+</head>
+<body>
+    <form class="m-5">
+        <div class="form-group">
+            <select class="form-control" name="country" id="country">
+                <option value="all">Please Select</option>
+                <option value="India">India</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Africa">Africa</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="selected">Your Selected Country : </label>
+            <span class="result"></span>
+        </div>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#country option").not("option[value='all']").each(function(index, value){
+                $(".result").append(", " + $(this).val());
+            });
+
+            $("#country").click(function(){
+                if($(this).val() == "all"){
+                    $(".result").text("India, United Kingdom, Canada, Dubai, Africa");
+                }
+                else{
+                $(".result").text($(this).val());
+                }
+            });
+        });
+    </script>
+</body>
+</html>

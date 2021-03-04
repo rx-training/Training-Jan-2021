@@ -1,0 +1,14 @@
+/* cellspacing */
+table tr td {
+    padding: 5px;
+    margin: 5px;
+    text-align: left;
+}
+
+tr {
+    margin-right: 20px;
+}
+
+.btns {
+    text-align: center;
+}

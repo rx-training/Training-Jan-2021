@@ -1,0 +1,412 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SubCategory | Admin</title>
+    <link rel="icon" href="../img/title_img.png">
+    <script src="../js/jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <!-- datatable css -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+  <!-- Font icon css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- sweet alert js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-center" href="#"><img src="../img/logo@2x.png" style="height: 35px;" alt=""></a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="dashboard.html">
+              <i class="fa fa-tachometer" aria-hidden="true"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="state.html">
+              <i class="fa fa-globe" aria-hidden="true"></i>
+                state
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="city.html">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+                City
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">
+              <i class="fa fa-cogs" aria-hidden="true"></i>
+                Our Services
+            </a>
+          </li>
+           <li class="nav-item dropend">
+            <a class="nav-link dropdown-toggle active" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fa fa-check-square-o" aria-hidden="true"></i> Facilites</a>
+        
+            <ul class="collapse multi-collapse mx-1 list-unstyled" id="multiCollapseExample1" style="background-color: rgb(204, 204, 204);">
+                <a class="nav-link" href="facilityCategory.html"><i class="fa fa-chevron-right" aria-hidden="true"></i> Category</a>
+                <a class="nav-link active" href="facilitySubCategory.html"> <i class="fa fa-chevron-right" aria-hidden="true"></i> Sub Category</a>
+            </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hotels.html">
+                <i class="fa fa-building-o" aria-hidden="true"></i>
+                  Hotels
+              </a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Facility Sub Categories</h1>
+        <button type="button" class="btn btn-primary" onclick="openModal()">
+            <i class="fa fa-plus-square" aria-hidden="true"></i> Add
+          </button>
+          <button type="button" class="btn btn-success" onclick="openModal2()">
+            <i class="fa fa-plus-square" aria-hidden="true"></i> Add Multiples
+          </button>
+          <div class="modal fade" id="fSubCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Enter Facility Sub Category</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="myForm">
+                        <div class="row text-center text-danger">
+                            <div class="col">
+                                * Fields are required.
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-6 m-auto">
+                                <div class="form-group">
+                                    <label for="fSubCategoryName" class="col-form-label">Select Category Name<sup class="text-danger"><b>*</b></sup></label><div class="text-danger" id="categoryError"></div>
+                                    <input type="hidden" id="hid" value="-1">
+                                    <select id="categories" class="form-control">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-6 m-auto">
+                                <div class="form-group">
+                                    <label for="fSubCategoryName" class="col-form-label">Enter Sub Category Name<sup class="text-danger"><b>*</b></sup></label><div class="text-danger" id="subCategoryError"></div>
+                                    <input class="form-control" type="text" id="fSubCategoryName" placeholder="Enter Sub Category Name" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="saveButton" class="btn btn-success" onclick="save()">Save changes</button>
+                  <!-- <button type="button" id="updateButton" class="btn btn-success d-none" onclick="update()">Update changes</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal 2 -->
+
+          <div class="modal fade" id="fSubCategoryModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Enter Facility Sub Category</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="myForm2">
+                        <div class="row text-center text-danger">
+                            <div class="col">
+                                * Fields are required.
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-6 m-auto">
+                                <div class="form-group">
+                                    <label for="fSubCategoryName" class="col-form-label">Select Category Name<sup class="text-danger"><b>*</b></sup></label><div class="text-danger" id="categoryError"></div>
+                                    <input type="hidden" id="hid" value="-1">
+                                    <select id="categories2" class="form-control">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary text-nowrap" type="button" onclick="addrow()">Add Row</button>
+                        </div>
+                        <div id="multipleInputs">
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="saveButton" class="btn btn-success" onclick="save2()">Save changes</button>
+                  <!-- <button type="button" id="updateButton" class="btn btn-success d-none" onclick="update()">Update changes</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="container-fluid my-5">
+          <div class="row">
+            <table id="myTable" class="table table-hover table-bordered display">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Sub Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="myTableBody">
+        
+                </tbody>
+            </table>
+          </div>
+      </div>
+   
+    </main>
+<script>
+
+var dataTable=null;
+function openModal()
+{
+    document.getElementById('myForm').reset();
+    document.getElementById('hid').value = -1;  
+    $('#fSubCategoryModal').modal('show');
+}
+function openModal2()
+{
+    document.getElementById('myForm2').reset();
+    //document.getElementById('hid2').value = -1;  
+    $('#fSubCategoryModal2').modal('show');
+}
+var array = [];
+function addrow()
+{
+     var row =  "<div class='row my-2 text-wrap'>"+
+                    "<div class='col-sm-9'>"+
+                        "<input type='text' class='form-control' name='addrow[]'/>"+
+                    "</div>"+
+                    "<div class='col-3'>"+
+                        "<button type='button' class='btn btn-primary' onclick='removerow("+(array.length)+")'>remove</button>"+
+                    "</div>"+
+                "</div>";
+    array.push(row);
+    display();
+}
+function display()
+{
+    document.getElementById('multipleInputs').innerHTML="";
+    for(obj in array)
+    {
+        document.getElementById('multipleInputs').innerHTML+=array[obj];
+    }
+}
+function removerow(i)
+{
+    if(i==0)
+    {
+        array.pop();
+    }
+    else{
+        array.splice(i,1);
+    }
+    document.getElementById('multipleInputs').innerHTML="";
+    display();
+}
+function save2()
+{
+    var categories2 = document.getElementById('categories2');
+    categories2 = categories2.value;
+    var multipleinputs = document.getElementsByName('addrow[]');
+    var fSubCategoryData = JSON.parse(localStorage.getItem('facility_Sub_Category')) || [];
+    for(i=0;i<multipleinputs.length;i++)
+    {
+        fSubCategoryData.push({'fCategoryObj':categories2,'fSubCategoryName':multipleinputs[i].value});
+    }
+    localStorage.setItem('facility_Sub_Category',JSON.stringify(fSubCategoryData));
+    $('#fSubCategoryModal2').modal('hide');
+    dataTable.clear();
+    datas();
+}
+function save()
+{
+    var categories = document.getElementById('categories');
+    categories = categories.value;
+    var fSubCategoryName = document.getElementById('fSubCategoryName').value;
+    var check = true;
+    var hid = parseInt(document.getElementById('hid').value);
+    var fSubCategoryData = JSON.parse(localStorage.getItem('facility_Sub_Category')) || [];
+    if(categories === "")
+    {
+        document.getElementById('categoryError').innerHTML = "Select the Category";
+        return false;
+    }
+    if(fSubCategoryName === "")
+    {
+        document.getElementById('subCategoryError').innerHTML = "Enter the Sub Category Name";
+        return false;
+    }
+    if(check === true)
+    {
+        document.getElementById('subCategoryError').innerHTML = "";
+        if(hid == -1)
+        {
+            fSubCategoryData.push({'fCategoryObj':categories,'fSubCategoryName':fSubCategoryName});
+        }
+        else
+        {
+            fSubCategoryData[hid] = {'fCategoryObj':categories,'fSubCategoryName':fSubCategoryName};
+        }
+        localStorage.setItem('facility_Sub_Category',JSON.stringify(fSubCategoryData));
+        $('#fSubCategoryModal').modal('hide');
+        dataTable.clear();
+        datas();
+    }
+}
+$(document).ready( function () {
+
+    dataTable = $('#myTable').DataTable({
+        "lengthMenu":  [5,10,15,20,25,30],
+    });
+    datas();
+    var getCategory = JSON.parse(localStorage.getItem('facility_Category'));
+    var row = "<option value=''>Select a Category</option>";
+    for(obj in getCategory)
+    {
+         row += "<option value='"+JSON.stringify(getCategory[obj])+"'>"+getCategory[obj].fCategoryName+"</option>";
+    }
+    document.getElementById('categories').innerHTML=row;
+    document.getElementById('categories2').innerHTML=row;
+});
+// print data into the datatable body
+function datas()
+{
+    var Data = JSON.parse(localStorage.getItem('facility_Sub_Category')) || [];
+    if(parseInt(Data.length) == 0)
+    {
+        dataTable.draw(false);
+    }
+    else
+    {
+        for(obj in Data)
+        {
+            dataTable.row.add([
+            JSON.parse(Data[obj].fCategoryObj).fCategoryName,
+            Data[obj].fSubCategoryName,
+            '<a href="javascript:void(0)" onclick="deleteData('+obj+')"><i class="fa fa-trash-o text-danger fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;'+
+            '<a href="javascript:void(0)" onclick="updateData('+obj+')"><i class="fa fa-pencil text-success fa-2x" aria-hidden="true"></i></a>',
+            ]).draw(false);
+        }
+    }
+}
+function updateData(obj)
+{
+    var getdata = JSON.parse(localStorage.getItem('facility_Sub_Category'));
+    document.getElementById('categories').value = getdata[obj].fCategoryObj;
+    document.getElementById('fSubCategoryName').value = getdata[obj].fSubCategoryName;
+    document.getElementById('hid').value = obj;
+    $('#fSubCategoryModal').modal('show');
+}
+function deleteData(obj)
+{
+    swal({
+        title: 'Are you sure?',
+        text: "It will permanently deleted !",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel plx!",
+        closeOnConfirm: false,
+        closeOnCancel: false,
+    },function(isConfirm) {
+        if(isConfirm)
+        {
+            swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+            var getdata = JSON.parse(localStorage.getItem('facility_Sub_Category'));
+            getdata.splice(obj,1);
+            localStorage.setItem('facility_Sub_Category',JSON.stringify(getdata));
+            dataTable.clear();
+            datas();                 
+            }
+        else
+        {
+            swal("Cancelled", "Your Data is safe :)", "error");
+        }
+    })
+}
+</script>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<!-- datatable js -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+<!-- sweetAlert JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script> -->
+  </body>
+</html>
+<script>
+  var a = $('#multiCollapseExample1 a').hasClass('active');
+  if(a)
+  {
+    $('#multiCollapseExample1').addClass('show');
+  }
+  else{
+    $('#multiCollapseExample1').removeClass('show');
+  }
+</script>

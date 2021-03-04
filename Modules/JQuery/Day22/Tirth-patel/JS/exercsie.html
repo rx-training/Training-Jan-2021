@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #color{
+            background-color: green;
+        }
+        #result{
+            margin-left: 100px;
+            text-decoration:underline;
+            background-color: greenyellow;
+        }
+    </style>
+    </head>
+
+<body>
+    <div class="container mt-5">
+        <p class="para lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nesciunt eaque ullam enim at quam nobis
+            tempore unde tempora corporis, illum molestiae aliquid sequi minima repellat debitis esse! Aspernatur, vel.
+        </p>
+        <p class="hover">
+            Lorem ipsum dolor sit amet consectetur
+            <span class="show lead bg-warning">"show"</span>
+            <span class="hide lead bg-warning">"hide"</span>
+            <span id="helpText" class="h2"> HelpText</span>
+            adipisicing elit. Corrupti, nemo.
+        </p>
+        <form>
+            <label for="radio">Please Select your technology</label>
+            <div class="form-group inline">
+                <div class="form-input-group px-3">
+                    <label >
+                <input type="radio" id="1" name="radio" class="radio" value="PHP">PHP</label>
+                
+                
+                <label> <input type="radio" id="2" name="radio" class="radio" value="ASP.NET">ASP.NET</label>
+                
+                <label ><input type="radio" id="3" name="radio"class="radio"  value="ASP">ASP</label>
+               
+                <label > <input type="radio" id="4" name="radio"class="radio"  value="JSP">JSP</label>
+                
+                <label><input type="radio" id="5" name="radio"class="radio"  value="OTHER">OTHER</label>
+            </div>
+                <div id="color">
+                <p>technology selected is: <span id="result"></span></p>
+            </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".para").css({ "background-color": "blue", "color": "white" })
+        $(".hide").hover(function () {
+
+            $("#helpText").hide();
+        })
+        $(".show").hover(function () {
+
+            $("#helpText").show();
+        })
+       var selValue;
+        $(".radio").change(function(){
+        var selValue = $("input[type='radio']:checked").val();
+        $("#result").text(selValue);
+        })
+        
+    })
+</script>
+
+</html>

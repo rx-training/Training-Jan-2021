@@ -1,0 +1,23 @@
+#age:out-of-range {
+    color: red;
+}
+
+#age:in-range {
+    color: green;
+}
+
+#employee_email:invalid {
+    color: red;
+}
+
+#employee_email:valid {
+    color: green;
+}
+
+form *:required {
+    border-color: red;
+}
+
+form *::placeholder {
+    font-style: italic;
+}

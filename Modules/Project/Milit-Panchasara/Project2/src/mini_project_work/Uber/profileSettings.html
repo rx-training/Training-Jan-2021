@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/uber.css">
+        <title>Uber</title>
+        <style>
+            #map {
+                height: 90vh;
+                /* The height is 400 pixels */
+                width: 100%;
+                /* The width is the width of the web page */
+            }
+
+            .dropdown-menu {
+                border-radius: 0;
+                box-shadow: 5px 5px 25px;
+                border-top: 15px solid black;
+            }
+
+            .dropdown-menu a{
+                margin: 15px auto !important;;
+            }
+        </style>
+        <script>
+            if(localStorage.getItem('logged_in_user') == null) {
+                window.location.href = 'index.html';
+            }
+            if(localStorage.getItem('tripStatus') == 1) {
+                window.location.href = 'currentTrip.html';
+            }
+        </script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+            <div class="container-lg container-nav">
+                <a class="navbar-brand mr-5" style="font-size:25px" href="">Uber</a>
+                <div class="nav-item ml-auto mr-3 d-inline-block d-lg-none"><a href="" class=" text-white" data-toggle="modal" data-target="#login-modal"><i
+                    class="fa fa-user"></i></a></div>
+                <div class="nav-item bg-white rounded mr-3  d-inline-block d-lg-none signup-div" style="border-radius: 20px!important ;">
+                    <a href="" class="text-dark" data-toggle="modal" data-target="#signup-modal">Sign
+                        Up</a>
+                    </div>
+                
+                <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class=" navbar-collapse collapse" id="navbarnav1" tabindex="2">
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item order-lg-2"><a href="" class="nav-link">Ride</a></li>
+                        <li class="nav-item order-lg-3"><a href="" class="nav-link">Drive</a></li>
+                        <li class="nav-item order-lg-4"><a href="" class="nav-link">More</a></li>
+                        <li class="nav-item ml-lg-auto d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal">Help</a></li>
+                        <li class="nav-item  d-none d-lg-inline-block  order-lg-7 dropdown">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><span id="user-name"></span></a>
+                            <div class="dropdown-menu">
+                                <a href="" class="dropdown-item">Request A Ride</a>
+                                <a href="" class="dropdown-item">My Trips</a>
+                                <a href="" class="dropdown-item">Wallet</a>
+                                <a href="" class="dropdown-item">Promos</a>
+                                <a href="" class="dropdown-item">Support Messages</a>
+                                <a href="profileSettings.html" class="dropdown-item">Profile Settings</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <aside class="col-3 mt-3">
+                <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Request a ride</a>
+                <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">My trips</a>
+                <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Wallet</a>
+                <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Free rides</a>
+                <a href="profileSettings.html" style="margin-left: 40%; height: 50px; padding-top: 12px; width: auto !important;" class="dropdown-item active">Profile settings</a>
+                <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Tax profile</a>
+            </aside>
+            <div class="col-8 my-3 ml-5 pl-5">
+                <div class="row">
+                    <div class="col-1">
+                        <img class="img-fuild" src="../../img/defaultDP.jpeg" alt="" height="70px" style="border-radius: 50%;">
+                    </div>
+                    <div class="ml-5 col-10">
+                        <h4 id="full-name"></h4>
+                        <p class="" id="contact-number">+91 </p>
+                    </div>
+                </div>
+                
+                <br>
+                <div class="row">
+                    <div class="px-0 col-1">
+                        <p class="">Location</p>
+                    </div>
+                    <div class="ml-5 col-3 pr-5">
+                        <select class="form-control" name="country" id="country">
+                            <option value="india">India</option>
+                            <option value="usa">USA</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="px-0 col-1">
+                        <p class="">Language</p>
+                    </div>
+                    <div class="ml-5 col-3 pr-5">
+                        <select class="form-control" name="country" id="country">
+                            <option value="english">English</option>
+                            <option value="hindi">Hindi</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="px-0 col-1">
+                        <p class="">Invite Code</p>
+                    </div>
+                    <div class="ml-5 col-3 pr-5">
+                        <input type="text" class="form-control" name="" id="" value="militp6ue" disabled>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="px-0 col-1">
+                        <p class="">Email</p>
+                    </div>
+                    <div class="ml-5 col-3 pr-5">
+                        <p id="email"></p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="px-0 col-1">
+
+                    </div>
+                    <div class="ml-5 col-3 pr-5">
+                        <a href="">Add another email</a>
+                    </div>
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+                <br><br>
+                <button type="button" class="btn btn-light text-danger  w-25 ml-5" onclick="userLogOut()">Log Out</button>
+
+            </div>
+        </div>  
+        
+
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/popper.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+
+        <script>
+            $('.dropdown').hover(function(){ 
+                $('.dropdown-toggle', this).trigger('click'); 
+            });
+
+            let userDataStored = localStorage.getItem("logged_in_user_data");
+            userDataStored = JSON.parse(userDataStored);
+            document.getElementById('user-name').innerHTML = userDataStored.name.split(" ")[0];
+            document.getElementById('full-name').innerHTML = userDataStored.name;
+            document.getElementById('contact-number').innerHTML += userDataStored.mobile_number;
+            document.getElementById('email').innerHTML = '<b>'+userDataStored.email+'</b>';
+
+            function userLogOut() {
+                localStorage.removeItem('logged_in_user');
+                localStorage.removeItem('logged_in_user_data');
+                window.location.href = 'index.html';
+            }
+
+        </script>
+    </body>
+</html>

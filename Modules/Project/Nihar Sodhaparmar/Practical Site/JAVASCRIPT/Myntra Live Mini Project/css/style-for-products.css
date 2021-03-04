@@ -1,0 +1,37 @@
+.body {
+  color: #282c3f; }
+
+.card-link {
+  text-decoration: none; }
+
+.card-link:hover {
+  text-decoration: none; }
+
+.card:hover {
+  background: #f8f9fa; }
+
+.brand-header {
+  font-size: 40px;
+  letter-spacing: 5px;
+  text-align: center;
+  font-weight: 700; }
+
+.category-header {
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: 2px; }
+
+.size-button {
+  background: #fff;
+  color: #282c3f;
+  text-align: center;
+  border: 1px solid #bfc0c6;
+  border-radius: 50px;
+  min-width: 50px;
+  height: 50px; }
+
+.size-button:hover {
+  border: 1px solid #ff3f6c; }
+
+#product-images-container {
+  padding: 0 6%; }

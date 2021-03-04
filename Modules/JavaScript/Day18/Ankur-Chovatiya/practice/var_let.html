@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice 2</title>
+</head>
+<body>
+        <h1>Hello Developers!</h1>
+</body>
+<script>
+  
+//    ============================  1  =======================
+    let a = 15;
+    var b = 15;
+    
+    // let a = 25; // error 'a' is already declared
+        // console.log(a);
+    
+    var b = "ankur"; // no give any error
+    // console.log(b); // ankur
+    
+    // =========================  2   ========================
+    
+        // var has global scope and let has block level scope when it define locally
+
+    for( var i =0; i<=4 ; i++){
+        console.log(i);
+    }
+    console.log(i);   // 5 
+
+
+    for( let i =0; i<=4 ; i++){
+        console.log(i);
+    }
+    console.log(i);   // 'i' is not define it because of block level scope
+
+
+</script>
+</html>

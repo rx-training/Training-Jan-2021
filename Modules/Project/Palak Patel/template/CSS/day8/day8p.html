@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css+">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fafafa;
+        }
+
+        .btn-info,
+        .btn-info:active {
+            background-color: rgb(1, 87, 155);
+            border-color: rgb(1, 87, 155);
+        }
+
+        .btn-info:hover {
+            background-color: rgba(1, 87, 155, 0.6);
+
+            border-color: rgb(1, 87, 155);
+        }
+
+        a,
+        a:hover,
+        a:focus {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .navbar {
+            padding: 10px 10px;
+            background: #fff;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 10px;
+            /* box-shadow: 1px 1px 3px rgba(0, 0, 155, 0.1); */
+        }
+
+        .navbar-btn {
+            box-shadow: none;
+            outline: none !important;
+            border: none;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px dashed #ddd;
+            margin: 40px 0;
+        }
+
+        /* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            align-items: stretch;
+        }
+
+        .work-sidebar{
+            width: 100%;
+            height: 100vh;
+        }
+
+        #sidebar {
+            /*min-width: 250px;
+            max-width: 250px;*/
+            width: 250px;
+            margin-left: -30px;
+            background-color: rgba(1, 87, 155, 0.8);
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        #sidebar.active {
+            margin-left: 0px;
+        }
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background-color: rgba(1, 87, 155, 0.8);
+        }
+
+        #sidebar ul.components {
+            /* padding: 20px 0; */
+            border-bottom: 1px solid #47748b;
+        }
+
+        #sidebar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        #sidebar ul li a:hover {
+            color: rgb(1, 87, 155);
+            background: #fff;
+        }
+
+        #sidebar ul li.active>a,
+        a[aria-expanded="true"] {
+            color: #fff;
+            background-color: rgba(1, 87, 155, 0.8);
+        }
+
+        a[data-toggle="collapse"] {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background-color: rgb(1, 87, 155);
+        }
+
+        ul.CTAs {
+            padding: 20px;
+        }
+
+        ul.CTAs a {
+            text-align: center;
+            font-size: 0.9em !important;
+            display: block;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        a.download {
+            background: #fff;
+            color: #7386D5;
+        }
+
+        a.article,
+        a.article:hover {
+            background: #6d7fcc !important;
+            color: #fff !important;
+        }
+
+        /* -------------------------CONTENT STYLE---------------------------------------- */
+
+        #content {
+            width: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+
+        /* ---------------------------MEDIAQUERIES------------------------------------ */
+
+        @media (max-width: 768px) {
+            #sidebar {
+                margin-left: -250px;
+            }
+
+            #sidebar.active {
+                margin-left: 0;
+            }
+
+            #sidebarCollapse span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand pl-4" href="#"><img src="../../../src/img/logo_main.png" alt="" width="80" height="70"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-2"><a class="nav-link" href="../../../index.html"
+                        style="font-size: 20px; font-weight: 500;">Home</a></li>
+                <li class="nav-item mx-2 "><a href="../../HTML/html.html" class="nav-link"
+                        style="font-size: 20px; font-weight: 500;">HTML</a></li>
+                <li class="nav-item mx-2 active"><a href="../css.html" class="nav-link"
+                        style="font-size: 20px; font-weight: 500;">CSS</a>
+                </li>
+                <li class="nav-item mx-2"><a href="../../Bootstrap/bootstrap.html" class="nav-link"
+                        style="font-size: 20px; font-weight: 500;">Bootstrap</a></li>
+                <li class="nav-item mx-2"><a href="../../Javascript/javascript.html" class="nav-link"
+                        style="font-size: 20px; font-weight: 500;">Javascript</a></li>
+                <li class="nav-item mx-2"><a href="../../JQuery/jquery.html" class="nav-link"
+                        style="font-size: 20px; font-weight: 500;">JQuery</a></li>
+                <li class="nav-item mx-2"><a href="../../Bootstrap/Day 14/GSRTC/src/index.html" class="nav-link" style="font-size: 20px; font-weight: 500;">Mini
+                        Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN SECTION -->
+
+    <div class="wrapper">
+        <nav id="sidebar" class="work-sidebar">
+            <div class="sidebar-header">
+
+            </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#day4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 4</a>
+                    <ul class="collapse list-unstyled" id="day4">
+                        <li>
+                            <a href="../day4/day4p.html">Practice Exercise</a>
+                        </li>
+                        <li>
+                            <a href="../day4/assignment/day4a.html">Assignment</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#day5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 5</a>
+                    <ul class="collapse list-unstyled" id="day5">
+                        <li>
+                            <a href="../day5/day5p.html">Practice Exercise</a>
+                        </li>
+                        <li>
+                            <a href="../day5/day5a.html">Assignment</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#day6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 6</a>
+                    <ul class="collapse list-unstyled" id="day6">
+                        <li>
+                            <a href="../day6/day6p.html">Practice Exercise</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#day7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 7</a>
+                    <ul class="collapse list-unstyled" id="day7">
+                        <li>
+                            <a href="../day7/day7p.html">Practice Exercise</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#day8" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 8</a>
+                    <ul class="collapse list-unstyled" id="day8">
+                        <li>
+                            <a href="../day8/day8p.html">Practice Exercise</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>My Work</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </nav>
+            <div class="containt">
+                <header>
+                    <nav class="work-navbar">
+                        <div class="navbar-items">
+                            <div class="logo">Logo Here</div>
+                            <!-- <li><label for="hamburger">&#9776</label>
+                                <input type="checkbox" class="hamburger" />
+                            </li> -->
+                            <div class="nav-item">
+                                <a href="#">HOME</a>
+                                <a href="#">PAGES</a>
+                                <a href="#">BLOG</a>
+                                <a href="#">PORTFOLIO</a>
+                                <a href="#">FEATURES</a>
+                                <a href="#">SHORTCODES</a>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+                <section>
+                    <div class="corosoul">
+                        <img src="assets/img/bg.jpg" alt="Backgrod Image">
+                    </div>
+                    <div class="container">
+                        <div class="text">
+                            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                            <p>
+                                At, earum eaque quae eum dolore fugiat esse debitis natus dignissimos, ipsam iusto? Ea cum quaerat
+                                adipisci distinctio ipsam? Voluptatem, sed delectus?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At, earum eaque quae eum dolore fugiat esse
+                                debitis natus dignissimos.</p>
+                        </div>
+                        <div class="container-button">
+                            <button>
+                                <i class="fa fa-cloud-download" aria-hidden="true"></i>Download Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="container1">
+                        <div class="cards">
+                            <h3>Fully Responsive</h3>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus fuga accusantium quo, sed veniam
+                                ad laudantium. Sint corporis nulla veritatis aspernatur eveniet atque tempore</p>
+                        </div>
+                        <div class="cards">
+                            <h3>HTML + CSS</h3>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus fuga accusantium quo, sed veniam
+                                ad laudantium. Sint corporis nulla veritatis aspernatur eveniet atque tempore</p>
+                        </div>
+                        <div class="cards">
+                            <h3>Launch Ready</h3>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus fuga accusantium quo, sed veniam
+                                ad laudantium. Sint corporis nulla veritatis aspernatur eveniet atque tempore</p>
+                        </div>
+                    </div>
+                    <div class="container2">
+                        <h3>Recent Work</h3>
+                        <div class="main-row">
+                            <div class="row">
+                                <div class="img-card">
+                                    <img src="assets/img/card_img.PNG" alt="Card Img">
+                                    <h6 style="font-weight: 500;">Project One</h6>
+                                    <p>Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare
+                                        odio.
+                                        Maecenas sodales mauris eget neque pulvinar, ac gravida ante lacinia.</p>
+                                </div>
+                                <div class="img-card">
+                                    <img src="assets/img/card_img.PNG" alt="Card Img">
+                                    <h6 style="font-weight: 500;">Project One</h6>
+                                    <p>Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare
+                                        odio.
+                                        Maecenas sodales mauris eget neque pulvinar, ac gravida ante lacinia.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="img-card">
+                                    <img src="assets/img/card_img.PNG" alt="Card Img">
+                                    <h6 style="font-weight: 500;">Project One</h6>
+                                    <p>Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare
+                                        odio.
+                                        Maecenas sodales mauris eget neque pulvinar, ac gravida ante lacinia.</p>
+                                </div>
+                                <div class="img-card">
+                                    <img src="assets/img/card_img.PNG" alt="Card Img">
+                                    <h6 style="font-weight: 500;">Project One</h6>
+                                    <p>Donec a pellentesque turpis. Integer ligula odio, posuere egestas sapien in, ornare ornare
+                                        odio.
+                                        Maecenas sodales mauris eget neque pulvinar, ac gravida ante lacinia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container3">
+                        <div class="block1">
+                            <h3>Welcome to this site</h3>
+                            <div class="cont-block">
+                                <img src="assets/img/card-img2.PNG" alt="Card Img">
+                                <div class="block-text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu magna diam. Phasellus ut
+                                        porttitor urna. Donec lacus
+                                        magna, laoreet quis tempor ac, facilisis sed urna</p>
+                                    <ul type="none">
+                                        <li><span><i class="fa fa-check" aria-hidden="true"></i> </span>Donec aliquet vel massa ut
+                                            venenatis</li>
+                                        <li><span><i class="fa fa-check" aria-hidden="true"></i> </span>Cras eu magna diam</li>
+                                        <li><span><i class="fa fa-check" aria-hidden="true"></i> </span>Aenean non tellus ligula.
+                                        </li>
+                                        <li><span><i class="fa fa-check" aria-hidden="true"></i> </span>Ut sed vulputate nulla</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cont-block2">
+                                <p>Blue Fountain Media is a digital agency in NYC that is founded on the premise that dient results
+                                    and stunning design go hand in hand. They provide 380 degree solutions from strategy and design
+                                    to development and digital marketing services with ROI as their factor for success
+                                    <br><br>-CEO, Jack Bour</p>
+                            </div>
+            
+                        </div>
+                        <div class="block2">
+                            <h3>Latest Shots</h3>
+                            <img src="assets/img/card-img3.PNG" alt="Card Img" >
+                        </div>
+                    </div>
+                    <div class="container4">
+                        <h3>Our Clients</h3>
+                        <div class="flex-container">
+                            <div><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div class="phone"><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div class="phone"><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div class="tab phone"><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div class="tab phone"><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div class="tab phone"><img src="assets/img/logo9.png" alt="logo"></div>
+                            <div class="tab phone"><img src="assets/img/logo9.png" alt="logo"></div>
+            
+                        </div>
+            
+                    </div>
+                </section>
+                <footer>
+                    <div class="main-foot">
+                        <div class="sub-foot1">
+                            <div class="foot1">
+                                <h1><span>Logo Here</span></h1>
+                                <div class="foot1-text">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aliquid! Nostrum fuga
+                                        totam deleniti at saepe dolorem. Doloribus similique labore, quia maiores eveniet beatae
+                                        numquam explicabo qui, delectus nisi amet.</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, aliquid! Nostrum fuga
+                                        totam deleniti at saepe dolorem. Doloribus similique labore, quia maiores eveniet beatae
+                                        numquam explicabo qui, delectus nisi amet.</p>
+                                </div>
+                            </div>
+                            <div class="foot2">
+                                <h4 class="tit">Latest Post</h4>
+                                <div class="ssfoot2">
+                                    <h6>Incredible Content</h6>
+                                    <p>May 8, 2014</p>
+                                </div>
+                                <div class="ssfoot2">
+                                    <h6>Incredible Content</h6>
+                                    <p>May 8, 2014</p>
+                                </div>
+                                <div class="ssfoot2" style="border-bottom: none;">
+                                    <h6>Incredible Content</h6>
+                                    <p>May 8, 2014</p>
+                                </div>
+                            </div>
+                            <div class="foot3">
+                                <h4 class="tit" style="margin-bottom: 10px;">Useful Links</h4>
+                                <div class="ssfoot3">
+                                    <div class="left">
+                                        <p>About Us</p>
+                                    </div>
+                                    <div class="righ">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="ssfoot3">
+                                    <div class="left">
+                                        <p>About Us</p>
+                                    </div>
+                                    <div class="righ">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="ssfoot3">
+                                    <div class="left">
+                                        <p>About Us</p>
+                                    </div>
+                                    <div class="righ">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="ssfoot3">
+                                    <div class="left">
+                                        <p>About Us</p>
+                                    </div>
+                                    <div class="righ">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="ssfoot3">
+                                    <div class="left">
+                                        <p>About Us</p>
+                                    </div>
+                                    <div class="righ">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="foot4">
+                                <h4 class="tit">Useful Links</h4>
+                                <div class="foot4-text">
+                                    <p>30/B Adarsh Society</p>
+                                    <p>Near Kaashi Parekh Complex, </p>
+                                    <p>Swastik Char Rasta, C G Road</p>
+                                    <p>Ahmedabad-380009</p>
+                                    <p>Gujarat - India</p>
+                                    <p>Phone: <span>+91-79-26400685</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-foot2">
+                            <div class="sfoot1">
+                                <p>2015 <i class="fa fa-copyright" aria-hidden="true"></i> All Right Reserved. <span>Privacy
+                                        Policy</span> | <span>Terms of Service</span></p>
+                            </div>
+                            <div class="sfoot2">
+                                <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                <i class="fa fa-pintrest" aria-hidden="true"></i>
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                <i class="fa fa-skype" aria-hidden="true"></i>
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

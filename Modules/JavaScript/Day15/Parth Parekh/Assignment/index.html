@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .container{
+            box-shadow: 17px 25px 20px rgb(94,90,90);
+        }
+    </style>
+    <title>Day15 Assignment</title>
+</head>
+<body id="bgcolor">
+    <div  class="container my-5  text-white" style="background-color: #012b72;">
+        <form >
+        <div class="form-group m-3">
+          <label for="" class="h3 ">Please Enter First Number :</label>
+          <input type="text"  id="num1" class="form-control" placeholder="Enter First Number" required>
+        </div>
+        <div class="form-group m-3">
+            <label for="" class="h3 ">Please Enter Second Number :</label>
+            <input type="text"  id="num2" class="form-control" placeholder="Enter Second Number" required>
+        </div>
+        
+        <div class="form-group  m-3">
+            <label class="form-check-label">
+                <input class="form-check-input ms-2" type="radio" name="radio" id="add"  required> Addition
+            </label>
+        </div>
+        <div class="form-group m-3">
+            <label class="form-check-label">
+                <input class="form-check-input ms-2" type="radio" name="radio" id="sub"  required> Subtraction
+            </label>
+        </div>
+        <div class="form-group m-3">
+            <label class="form-check-label">
+                <input class="form-check-input ms-2" type="radio" name="radio" id="mul"  required> Multiplication
+            </label>
+        </div>
+        <div class="form-group m-3">
+            <label class="form-check-label">
+                <input class="form-check-input ms-2" type="radio" name="radio" id="div" required> Divison
+            </label>
+        </div>
+        <h3  class="my-3 ms-3 "> Result IS : <span id="result"></span> </h3>
+        <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-success ms-3 my-3 btn-lg" type="button" onclick="calc()">Calculate</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-info my-3 ms-3 btn-lg btn-danger" type="reset" >Reset</button>
+        </div>
+        </div>
+        <button class="btn btn-success ms-3 my-3 btn-lg" 
+        type="button" onclick="document.getElementById('bgcolor').style.background='#012b71'">Change Background </button>
+    </form>
+       
+    </div>
+
+    <script type="text/javascript">
+        function calc() {
+             
+            var num1 = parseInt(document.getElementById("num1").value);
+
+            if(isNaN(num1))
+            {
+                alert("Please Enter Valid First Number")
+            }
+            var num2 = parseInt(document.getElementById("num2").value);
+            if (isNaN(num2)) {
+                alert("Please Enter Valid Second Number")
+            }
+            console.log(num1);
+            console.log(num2);
+
+          
+            // Using If 
+            // if (document.getElementById("add").checked)
+            // {
+            //     console.log(num1 + num2);
+            //     document.getElementById("result").innerHTML = num1 + num2;
+            // }
+            // if (document.getElementById("sub").checked) {
+            //     console.log(num1 - num2);
+            //     document.getElementById("result").innerHTML = num1 - num2;
+            // }
+            // if (document.getElementById("mul").checked) {
+            //     console.log(num1 * num2);
+            //     document.getElementById("result").innerHTML = num1 * num2;
+            // }
+            // if (document.getElementById("div").checked) {
+            //     console.log(num1 / num2);
+            //     document.getElementById("result").innerHTML = num1 / num2;
+            // }
+                
+            // Using Switch
+            switch (true) {
+                case (document.getElementById("add").checked):
+                    console.log(num1 + num2);
+                    document.getElementById("result").innerHTML = num1 + num2;
+                    break;
+                case (document.getElementById("sub").checked):
+                    console.log(num1 - num2);
+                    document.getElementById("result").innerHTML = num1 - num2;
+                    break;
+                case (document.getElementById("mul").checked):
+                     console.log(num1 * num2);
+                    document.getElementById("result").innerHTML = num1 * num2;
+                    break;
+                case (document.getElementById("div").checked):
+                      console.log(num1 / num2);
+                      document.getElementById("result").innerHTML = num1 / num2;
+                      break;
+                default:    alert('Choose any options in radio buttons');
+                    break;
+            }
+        }    
+    </script>
+</body>
+</html>

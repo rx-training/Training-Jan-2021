@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <title>Gujarat University</title>
+    </head>
+
+    <body onload="getPostInfoData()" style="background: url('https://gujaratuniversity.ac.in/files/images/header-01.jpg');background-repeat: no-repeat;">
+        <!--Top Header-->
+        <nav class="navbar navbar-expand-sm navbar-dark p-0" id="top-header">
+            <div class="container">
+                <button class="navbar-toggler ml-auto mt-2 mb-2 mr-2" data-toggle="collapse" data-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item px-2 py-2">
+                            <a href="https://gujaratuniversity.ac.in/data/pdfs/static/GU-SWAYAM%20POLICY.pdf" target="_blank" class="btn btn-outline">GU SWAYAM POLICY</a>
+                        </li>
+                        <li class="nav-item px-2 py-2">
+                            <a href="online_services.html" class="btn btn-outline">Online Services</a>
+                        </li>
+                        <li class="nav-item px-2 py-2">
+                            <a href="#" class="btn btn-outline">Admission</a>
+                        </li>
+                        <li class="nav-item px-2 py-2">
+                            <a href="https://gusec.edu.in/apply/" target="_blank" class="btn btn-outline">Startup Support</a>
+                        </li>
+                        <li class="nav-item px-2 py-2">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScvNrjBSlwZM0tzyQ2EZvMKN210Gln7EEY_RS_Yl1iSqUIAeQ/viewform" target="_blank" class="btn btn-outline">Patent Support</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div> 
+        </nav>
+
+        <div class="container">
+            <div id="middle-header">
+                <div class="row">
+                    <div class="col-md-12 col-sm-3 py-3">
+                        <img src="https://gujaratuniversity.ac.in/files/images/gu-logo.png"alt="" class="img-fluid mt-4">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+            <div class="container">
+                <nav class="navbar navbar-expand-sm navbar-dark p-0">
+                    <button class="navbar-toggler ml-auto bg-warning mt-2 mb-2 mr-2" data-toggle="collapse" data-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item px-2">
+                                <a href="index.html" class="nav-link active">
+                                    <i class="fa fa-home"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown px-2">
+                                <a href="#" class="nav-link dropdown-toggle px-2" data-toggle="dropdown">
+                                    <i class="fa fa-university"></i> University
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="overview.html" class="dropdown-item text-warning">Overview</a>
+                                    <a href="student_welfare.html" class="dropdown-item text-warning">Student Welfare Department</a>
+                                    <a href="teaching.html" class="dropdown-item text-warning">Teaching Department</a>
+                                    <a href="administrative.html" class="dropdown-item text-warning">Administrative Department</a>
+                                    <a href="ugc.html" class="dropdown-item text-warning">UGC Center At University</a>
+                                    <a href="#" class="dropdown-item text-warning">Placement Cell</a>
+                                    <a href="#" class="dropdown-item text-warning">GU-MoUs</a>
+                                    <a href="#" class="dropdown-item text-warning">GU_CCC</a>
+                                    <a href="#" class="dropdown-item text-warning">University Election</a>
+                                    <a href="#" class="dropdown-item text-warning">RTI</a>
+                                    <a href="#" class="dropdown-item text-warning">Recruitment</a>
+                                    <a href="#" class="dropdown-item text-warning">Tender</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown px-2">
+                                <a href="#" class="nav-link dropdown-toggle px-2" data-toggle="dropdown">
+                                   <i class="fa fa-graduation-cap"></i> Student
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="examination.html" class="dropdown-item text-warning">Examination</a>
+                                    <a href="adimission.html" class="dropdown-item text-warning">Adimission</a>
+                                    <a href="download.html" class="dropdown-item text-warning">Download</a>
+                                    <a href="examination_shedule.html" class="dropdown-item text-warning">Examination Shedule</a>
+                                    <a href="seating.html" class="dropdown-item text-warning">Seating Arrangement</a>
+                                    <a href="degree_convocation" class="dropdown-item text-warning">Degree Convocation</a>
+                                    <a href="migration.html" class="dropdown-item text-warning">Migration & Eligibility</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown px-2">
+                                <a href="#" class="nav-link dropdown-toggle px-2" data-toggle="dropdown">
+                                    <i class="fa fa-edit"></i> Examination
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="online_services.html" class="dropdown-item text-warning">Online Services</a>
+                                    <a href="candidate_list.html" class="dropdown-item text-warning">Candidate List</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown px-2">
+                                <a href="#" class="nav-link dropdown-toggle px-2" data-toggle="dropdown">
+                                    <i class="fa fa-shield"></i> Result
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="result_show.html" class="dropdown-item text-warning">Online Result</a>
+                                </div>
+                            </li>
+                            <li class="nav-item px-2 ml-2">
+                                <a href="https://gusec.edu.in/" class="nav-link">
+                                    <i class="fa fa-podcast"></i> GU-Startup
+                                </a>
+                            </li>
+                            <li class="nav-item px-2 ml-2">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-certificate"></i> ALUMNI
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown px-2">
+                                <a href="#" class="nav-link dropdown-toggle px-2" data-toggle="dropdown">
+                                    <i class="fa fa-home"></i> LIBRARY
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="e-book.html" class="dropdown-item text-warning">e-Book</a>
+                                </div>
+                            </li>
+                            <li class="nav-item px-2 ml-2">
+                                <a href="index.html" class="nav-link">
+                                    <i class="fa fa-phone-square"></i> CONTACT US
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        <!--Top Header End-->
+
+        <!---New Section-->
+        <section id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 py-1">
+                        <div class="card text-center text-white mb-3" id="image-section">
+                            <div class="card-header">
+                                <h5 class="display-5 text-white"><i class="fa fa-circle"></i> NO TABLE ALUMNI</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                      <div class="carousel-item active">
+                                        <img class="d-block mx-auto rounded-circle" src="img/amit_shah.jpg" alt="First slide">
+                                        <h5 id="name">Shree Amit Shah</h5>
+                                        <p id="name">Hr.Home Minister</p>
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img class="d-block mx-auto rounded-circle" src="img/narendar_modi.jpg" alt="Second slide">
+                                        <h5 id="name">Shree Narendar Modi</h5>
+                                        <p id="name">Hr.Prime Minister</p>
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img class="d-block mx-auto rounded-circle" src="img/himansu_pandya.jpg" alt="Third slide">
+                                        <h5 id="name">Himansu Pandya</h5>
+                                        <p id="name">Hr.Chairman Of Gujarat University</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-white mb-3" id="chairman-info">
+                            <div class="card-header">
+                                <div class="d-flex flex-row">
+                                    <div>
+                                        <i class="fa fa-user-circle"></i>
+                                    </div>
+                                    <div class="ml-2">
+                                        Prof. Himanshu A. Pandya <br>
+                                        Vice Chancellor, GU
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="card-body">
+                                <img src="img/himansu_pandya.jpg" alt="">
+                                <p>
+                                    Namaskar! With the fresh beginning of a promising year ahead, let’s work and contribute for new India. Academic fraternity is sincerely engaging all the stake holders for the desired goals in research and developmental endeavors
+                                </p>
+                                <a href="vcmessage.html" class="btn btn-outline-primary  btn-sm">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="card text-white mb-3" id="event-info">
+                            <div class="card-header">
+                                <div class="d-flex flex-row">
+                                    <div>
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="ml-2 mt-3">
+                                        <h5>EVENTS</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-row">
+                                    <i class="fa fa-calendar" id="event-calender"></i>
+                                    <a href="" class="ml-3">International Youth Symposium,January 29-30, 2021</a>
+                                </div>
+                                <div class=" pt-2">
+                                    <i class="fa fa-map-marker"></i> 
+                                    <a href="#">K. School, Gujarat University</a> 
+                                </div>
+                                <hr>
+                                <div>
+                                    <a href="#" class="btn btn-outline-primary  btn-sm">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8 py-1">
+                        <div class="card text-left mb-3" style="background: transparent;border-bottom: navy 2px solid;">
+                            <div class="card-body" id="uni-info">
+                                <h3>Welcome To <Strong>Gujarat University</Strong></h3>
+                                <p>Established in 1949 under the Gujarat University Act, the Gujarat University is largest and oldest university of the Gujarat state.</p>
+                                <a href="overview.html" class="btn btn-outline-dark btn-sm bg-warning" id="read-more">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header text-white">
+                                <h4>Latest Post</h4>
+                            </div>
+
+                            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block img-fluid" src="img/img1.png" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid" src="img/img2.png" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid" src="img/img3.png" alt="Third slide">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background:#D5DBDB;" class="mt-2 p-2" id="scroll-text">
+                            <marquee direction="left">
+                                Online Admission
+                            </marquee>                                
+                        </div>
+
+                        <div class="row pt-2" id="news-alerts">
+                            <div class="col-md-6">
+                                <div class="card text-white mb-3" id="chairman-info">
+                                    <div class="card-header">
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                <i class="fa fa-bullhorn text-warning"></i>
+                                            </div>
+                                            <div class="ml-2 text-dark" id="news-alerts">
+                                               News & <strong>Alerts</strong>
+                                            </div>
+                                            <div class="ml-2" id="circulars">
+                                                <a href="#" class="text-white">CIRCULARS</a>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-striped table">
+                                            <script>
+                                            function getPostInfoData()
+                                            {
+                                                var str = "";
+                                            
+                                                var get,create,text,i;
+                                                get = localStorage.getItem("post");
+                                                create = JSON.parse(get);
+                                                var temp=0;
+                                                create.reverse().forEach(post => {
+                                                    if(temp < 3)
+                                                    {
+                                                        str += '<tr scope="row">';
+                                                        str += "<td>"+post.title+"</td>";
+                                                        str += "<td>"+post.category+"</td>";
+                                                        str += "<td>"+post.date+"</td>";
+                                                        temp += 1;
+                                                    }
+                                                    
+                                                });
+                                                document.getElementById("post-info").innerHTML = str;
+                                               
+                                            }
+                                            
+                                            </script>
+                                            <tbody id="post-info">
+                                                
+                                            </tbody>
+                                        </table>
+                                       <hr>
+                                       <div>
+                                            <a href="events_info.html" class="btn btn-outline">View All <i class="fa fa-chevron-circle-right text-dark"></i></a>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card text-white mb-3" id="chairman-info">
+                                    <div class="card-header">
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                <i class="fa fa-trophy text-warning"></i>
+                                            </div>
+                                            <div class="ml-2 text-dark" id="news-alerts">
+                                               KEY INITIATIVES
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td><i class="fa fa-chevron-circle-right text-warning"></i></td>
+                                                <td class="text-dark">AIC GUSEC</td>
+                                                <td><button class="btn btn-dark">Jan 23,2001</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fa fa-chevron-circle-right text-warning"></i></td>
+                                                <td class="text-dark">Proud Moment for the Gujarat University</td>
+                                                <td><button class="btn btn-dark">Jan 23,2001</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fa fa-chevron-circle-right text-warning"></i></td>
+                                                <td class="text-dark">Web-Based Research</td>
+                                                <td><button class="btn btn-dark">Jan 23,2001</button></td>
+                                            </tr>
+                                         </table>
+                                        <hr>
+                                        <div>
+                                             <a href="keys_achievments.html" class="btn btn-outline">View All <i class="fa fa-chevron-circle-right text-dark"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <!--New Section End-->
+
+
+        <!--Study Section-->
+            <div class="container">
+                <div class="text-center">
+                    <h3>STUDY @ <strong id="study-section">GUJARAT UNIVERSITY</strong></h3>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-md-3 pt-5" id="study-image-section1">
+                        <h5 class="text-center border border-danger text-white">TEACHING <br> DEPARTMENT <br> <a href="teaching.html"><i class="fa fa-chevron-circle-right text-warning bg-dark"></i></a></h5>
+                    </div>
+                    <div class="col-md-3 pt-5"  id="study-image-section2">
+                        <h5 class="text-center border border-danger text-white">STUDENT <br> WELFARE <br> <a href="student_welfare.html"><i class="fa fa-chevron-circle-right text-warning bg-dark"></i></a></h5>
+                    </div>
+                    <div class="col-md-3 pt-5"  id="study-image-section3">
+                        <h5 class="text-center border border-danger text-white">Administrative <br> DEPARTMENT <br> <a href="administrative.html"><i class="fa fa-chevron-circle-right text-warning bg-dark"></i></a></h5>
+                    </div>
+                    <div class="col-md-3 pt-5"  id="study-image-section4">
+                        <h5 class="text-center border border-danger text-white">UGC Center At <br> University <br> <a href="ugc.html"><i class="fa fa-chevron-circle-right text-warning bg-dark"></i></a></h5>
+                    </div>
+                </div>
+            </div>
+        <!--Study Section End--->
+        
+        <!--Gallery Section Start-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 pt-3">
+                        <div class="card text-left text-white mb-3" id="image-section">
+                            <div class="card-header bg-warning d-flex flex-row">
+                                <h5 class="display-5 text-white pt-2">VIDEO GALLERY</h5>
+                                <a href="video.html" class="btn btn-outline-light ml-auto">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <video class="w-100 h-100" controls>
+                                            <source src="img/movie.mp4" type="video/mp4">
+                                        </video>
+                                          
+                                    </div>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-md-6">
+                                        <video class="w-100 h-100" controls>
+                                            <source src="img/movie.mp4" type="video/mp4">
+                                        </video>
+                                          
+                                    </div>
+                                    <div class="col-md-6">
+                                        <video class="w-100 h-100" controls>
+                                            <source src="img/movie.mp4" type="video/mp4">
+                                        </video>
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pt-3">
+                        <div class="card text-white mb-3" id="image-section">
+                            <div class="card-header bg-warning d-flex flex-row">
+                                <h5 class="display-5 text-white pt-2">PHOTO GALLERY</h5>
+                                <a href="photo_gallary.html" class="btn btn-outline-light ml-auto">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row" id="photo-gallery">
+                                    <div class="col-md-4 col-sm-12 col-xs-12 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                    <div class="col-md-4 col-sm-12 col-xs-12 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                    <div class="col-md-4 col-sm-12 col-xs-12 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                </div>
+                                <div class="row" id="photo-gallery">
+                                    <div class="col-md-4 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                </div>
+                                <div class="row" id="photo-gallery">
+                                    <div class="col-md-4 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <img src="img/img1.jpg" class="img-fluid border border-dark" alt="">
+                                    </div>
+                                </div>
+                               
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--Gallery Section End-->
+
+
+        <!--Project Section-->
+            <div class="container">
+                <div class="row" id="project-section">
+                    <div class="col-md-12">
+                        <div class="card text-white mb-3">
+                            <div class="card-header bg-warning d-flex flex-row">
+                                <h5 class="display-5 text-white pt-2">STARTUP PROJECT</h5>
+                                <a href="#" class="btn btn-outline-light ml-auto">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div id="project-image" class="d-flex flex-row">
+                                            <div>
+                                                <img src="img/img1.jpg" class="ml-2 mt-2 mb-2 img-fluid" alt="">
+                                            </div>
+                                            <div class="mt-4 ml-4">
+                                                <h1 class="text-dark">GUSEC</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="project-image" class="d-flex flex-row">
+                                            <div>
+                                                <img src="img/img1.jpg" class="ml-2 mt-2 mb-2 img-fluid" alt="">
+                                            </div>
+                                            <div class="mt-4 ml-4">
+                                                <h1 class="text-dark">GUSEC</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div id="project-image" class="d-flex flex-row">
+                                            <div>
+                                                <img src="img/img1.jpg" class="ml-2 mt-2 mb-2 img-fluid" alt="">
+                                            </div>
+                                            <div class="mt-4 ml-4">
+                                                <h1 class="text-dark">GUSEC</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="project-image" class="d-flex flex-row">
+                                            <div>
+                                                <img src="img/img1.jpg" class="ml-2 mt-2 mb-2 img-fluid" alt="">
+                                            </div>
+                                            <div class="mt-4 ml-4">
+                                                <h1 class="text-dark">GUSEC</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--Project Section End-->
+        
+        <!---SOCIAL ENGAGEMENT Section-->
+            <section id="social-section">
+                <div class="container">
+                    <h2 class="text-center">SOCIAL ENGAGEMENT</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card text-left text-white mb-3" id="image-section">
+                                <div class="card-header" id="facebook-section">
+                                    <h5 class="display-5 text-dark">FACEBOOK</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="img/logo.png"  class="img-fluid" alt="">
+                                        </div>
+                                        <div class="col-md-9 text-dark">
+                                            <strong> Gujarat University </strong>
+                                            <p>6 Min Ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="text-dark">Time Management being key to Success and much more, WDC and ICC, Gujarat University is pleased to bring before you a national webinar on TIME MANAGEMENT on 29th January, 2021 by Ms Sonia Shah. You along with colleagues, staff and students are invited to join. Please fill the registration form as in below text message by clicking over the registration link.
+                                                <br>
+                                                Online registration link: https://gu-e.co/tt
+                                                Watch live on Facebook https://gu-e.co/facebook
+                                                YouTube: https://gu-e.co/youtube</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-left text-white mb-3" id="image-section">
+                                <div class="card-header" id="facebook-section">
+                                    <h5 class="display-5 text-dark">TWITTER</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="img/logo.png"  class="img-fluid" alt="">
+                                        </div>
+                                        <div class="col-md-9 text-dark">
+                                            <strong> Gujarat University </strong>
+                                            <p>6 Min Ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="text-dark">Time Management being key to Success and much more, WDC and ICC, Gujarat University is pleased to bring before you a national webinar on TIME MANAGEMENT on 29th January, 2021 by Ms Sonia Shah. You along with colleagues, staff and students are invited to join. Please fill the registration form as in below text message by clicking over the registration link.
+                                                <br>
+                                                Online registration link: https://gu-e.co/tt
+                                                Watch live on Facebook https://gu-e.co/facebook
+                                                YouTube: https://gu-e.co/youtube</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-left text-white mb-3" id="image-section">
+                                <div class="card-header" id="facebook-section">
+                                    <h5 class="display-5 text-dark">INSTAGRAM</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="img/logo.png"  class="img-fluid" alt="">
+                                        </div>
+                                        <div class="col-md-9 text-dark">
+                                            <strong> Gujarat University </strong>
+                                            <p>6 Min Ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="text-dark">Time Management being key to Success and much more, WDC and ICC, Gujarat University is pleased to bring before you a national webinar on TIME MANAGEMENT on 29th January, 2021 by Ms Sonia Shah. You along with colleagues, staff and students are invited to join. Please fill the registration form as in below text message by clicking over the registration link.
+                                                <br>
+                                                Online registration link: https://gu-e.co/tt
+                                                Watch live on Facebook https://gu-e.co/facebook
+                                                YouTube: https://gu-e.co/youtube</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </section>
+        
+        <!---SOCIAL ENGAGEMENT Section End-->
+
+
+        <!--Footer Section-->
+        <div class="container">
+            <section id="footer-section" class="bg-dark">
+                <div class="row w-100">
+                    <div class="col-md-3 text-white mt-2">
+                        <h6 class="ml-5 text-warning">QUICK LINKS</h6>
+                        <div class="d-flex flex-row">
+                            <div>
+                                <ul>
+                                    <li>EMRC</li>
+                                    <li>IQAC</li>
+                                    <li>Recruitment</li>
+                                    <li>NIRF</li>
+                                    <li>HRDC</li>
+                                    <li>EMAIL</li>
+                                    <li>Online Education</li>
+                                    <li>ARIIA 2020 Report</li>
+                                </ul>
+                            </div>
+                            <div class="ml-2">
+                                <ul>
+                                    <li>University Song</li>
+                                    <li>WDC & ICC</li>
+                                    <li>List of Holidays</li>
+                                    <li>University Dairy</li>
+                                    <li>Study In GU</li>
+                                    <li>Recruitment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-white mt-2">
+                        <h6 class="ml-5 text-warning">CONTACT US</h6>
+                        <div class="d-flex flex-row ml-3">
+                            <div>
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="ml-2">
+                                <p>Navrangpura Ahmedabad-380009,<br> Gujarat-INDIA</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row ml-3">
+                            <div>
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="ml-2">
+                                <p>GU Office: 079-26301341 , 26300342 , 26300126</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row ml-3">
+                            <div>
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="ml-2">
+                                <p>Helpline No: 079-26300105</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row ml-3">
+                            <div>
+                                <i class="fa fa-envlope"></i>
+                            </div>
+                            <div class="ml-2">
+                                <p>registar@gujaratuniversity.ac.in</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-white mt-2">
+                        <h6 class="ml-5 text-warning">USEFUL LINKS</h6>
+                            <ul>
+                                <li>Lakshmi Portal</li>
+                                <li>Free Online Education-SWAYAM</li>
+                                <li>Digital Gujarat</li>
+                                <li>National Digital Library</li>
+                                <li>National Acadaemic Depository</li>
+                            </ul>
+                    </div>
+                    <div class="col-md-3 text-white mt-2">
+                        <h6 class="ml-5 text-warning">GU DOCUMENTARY FILMS</h6>
+                            <ul>
+                                <li>GU Milestones</li>
+                                <li>Gujarat University Alumani</li>
+                            </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!--Footer Section End-->
+
+
+        <!--Last Footer Section-->
+        <div class="container mt-1" id="last-footer-section"> 
+            <div class="row">
+                <div class="col-md-4 mt-3">
+                    <h6 class="text-center">&copy; 2017 Gujarat University</h6>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <h2 class="text-center"><i class="fa fa-facebook ml-3"></i><i class="fa fa-twitter ml-3"></i><i class="fa fa-instagram ml-3"></i><i class="fa fa-youtube ml-3"></i><i class="fa fa-linkedin ml-3"></i></h2>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <h6 class="text-center">Disclaimer</h6>
+                </div>
+            </div>
+        </div>
+         <!--Last Footer Section End-->
+
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

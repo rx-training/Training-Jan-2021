@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>JavaScript</title>
+    <script type="text/JavaScript">
+
+    function addToCart(item){
+        var list;
+        var itemdata = item;
+             
+                list = JSON.parse(localStorage.getItem('productshow')) || [] ;
+                if(list != []){
+                    alert(list);
+                    console.log(list[0]);
+                }
+                list.push(itemdata);
+                var myJSON = JSON.stringify(list);
+                localStorage.setItem('productshow',myJSON);
+                console.log(itemdata);
+                alert('Added to Cart!')
+    }
+
+    function cartSummary(){
+        alert(localStorage.getItem("productshow"));
+        console.log(localStorage.getItem("productshow"))
+    }
+
+    function item1() {
+        var item = {"ProductId": 1, "ProductName": "Cheese", "Price": 100, "Quantity": 1 };
+        addToCart(item);
+    }
+
+    function item2() {
+        var item = {"ProductId": 2, "ProductName": "Pen", "Price": 150, "Quantity": 2 };
+        addToCart(item);
+    }
+
+    function item3() {
+        var item = {"ProductId": 3, "ProductName": "Butter", "Price": 100, "Quantity": 1 };
+        addToCart(item);
+    }
+
+    function item4() {
+        var item = {"ProductId": 4, "ProductName": "Pencil", "Price": 10, "Quantity": 1 };
+        addToCart(item);
+    }
+
+    
+        
+        
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="bg-light p-3">
+            <table class="table border border-danger">
+            <tr>
+                <th>
+                    ProductID	
+                </th>
+                <th>
+                    ProductName
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    Cheese
+                </td>
+                <td>
+                    100
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    <a href="#" onclick="item1()">Add to Cart</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2
+                </td>
+                <td>
+                    Pen
+                </td>
+                <td>
+                    150
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    <a href="#" onclick="item2()">Add to Cart</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3
+                </td>
+                <td>
+                    Butter
+                </td>
+                <td>
+                    100
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    <a href="#" onclick="item3()">Add to Cart</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4
+                </td>
+                <td>
+                    Pencil
+                </td>
+                <td>
+                    10
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    <a href="#" onclick="item4()">Add to Cart</a>
+                </td>
+            </tr>
+            </table>
+            <br>
+            <button class="btn btn-warning" id="cartSum" onclick="cartSummary()">Cart Summary</button>
+        </div>
+
+        
+    </div>
+    </body>
+
+</html>

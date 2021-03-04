@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Bootstrap Session 2</title>
+  <style>
+    #nav{
+        border-bottom: 1px solid lightgray;
+    }
+    #sidebar{
+        border-right: 1px solid lightgray;
+        border-bottom: 1px solid lightgrey;
+    }
+</style> 
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm" id="nav">
+        <div class="container">
+    
+          <a class="navbar-brand" href="#"><img class="m-0 p-0" src="../../../Assets/Radix.jpg" width="150px"></a>
+    
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    
+              <ul class="navbar-nav collapse navbar-collapse d-sm-flex justify-content-sm-end" id="navbarNav">
+    
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../../../Html/index_html.html">HTML</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link font-weight-bold" href="../../../CSS-Exercises/index_css.html">CSS</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link font-weight-bold" href="../../index_bootstrap.html">Bootstrap</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link font-weight-bold" href="../../../Javascript/index_js.html">Javascript</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../../../jQuery/index_jquery.html">jQuery</a>
+                </li>
+              </ul>
+          </div>
+    </nav>
+    
+    <div class="container row" id="main">
+        <div class="col-md-3" id="sidebar">
+            <ul class="my-5">
+                <li>
+                    <b>Day9</b>
+                    <ul>
+                        <li>
+                            <b>Practice-Exercise</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../Day9/Chirag-Fabiyani/Typography.html">Practice-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Day10</b>
+                    <ul>
+                        <li>
+                            <b>Practice-Exercise</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="./Typography.html">Practice-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Day11</b>
+                    <ul>
+                        <li>
+                            <b>Assignment</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../Day11/Chirag-Fabiyani/Index.html" target="_blank">Assignment-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Day12</b>
+                    <ul>
+                        <li>
+                            <b>Assignment</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../Day12/Chirag-Fabiyani/src/index.html" target="_blank">Assignment-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Day13</b>
+                    <ul>
+                        <li>
+                            <b>Blogen</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../Day13/Chirag-Fabiyani/Blogen/src/index.html" target="_blank">Assignment-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Mizuxe</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../Day13/Chirag-Fabiyani/Mizuxe/src/index.html" target="_blank">Assignment-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Day14</b>
+                    <ul>
+                        <li>
+                            <b>OLX</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../Day14/Chirag-Fabiyani/OLX/src/index.html" target="_blank">Assignment-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <header>
+                <h1 class="display-3 text-center my-4">Grid Alignment</h1>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="dropdown">
+                          <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                              2: Utilities
+                          </button>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="Typography.html">2.2 Basic Typography</a>
+                              <a class="dropdown-item" href="Alignment_and_Display.html">2.3 Text Alignment & Display</a>
+                              <a class="dropdown-item" href="Float_Position.html">2.4 Floats & Position</a>
+                              <a class="dropdown-item" href="Colors_and_Backgrounds.html">2.5: Colors & Background</a>
+                              <a class="dropdown-item" href="Spacing.html">2.6 Spacing</a>
+                              <a class="dropdown-item" href="Sizing.html">2.7 Sizing</a>
+                              <a class="dropdown-item" href="Breakpoints.html">2.8 Breakpoints</a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="dropdown">
+                          <button class="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                              3: CSS Components
+                          </button>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="Buttons.html">3.2 Buttons</a>
+                              <a class="dropdown-item" href="Navbar.html">3.3 Navbar</a>
+                              <a class="dropdown-item" href="List_Groups_Badges.html">3.4 List Groups & Badges</a>
+                              <a class="dropdown-item" href="Forms.html">3.5 Forms</a>
+                              <a class="dropdown-item" href="Input_Groups.html">3.6 Input Groups</a>
+                              <a class="dropdown-item" href="Alerts_and_ProgressBar.html">3.7 Alerts & Progress</a>
+                              <a class="dropdown-item" href="Tables_and_Pagination.html">3.8 Tables & Pagination</a>
+                              <a class="dropdown-item" href="Cards.html">3.9 Cards</a>
+                              <a class="dropdown-item" href="Media_Objects.html">3.10 Media Objects</a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="dropdown">
+                          <button class="btn btn-warning btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                              4: Grid & Flexbox
+                          </button>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="Grid_System.html">4.2 Grid System</a>
+                              <a class="dropdown-item" href="Grid_Alignment.html">4.3 Grid Alignment</a>
+                              <a class="dropdown-item" href="Flexbox.html">4.4 Flexbox</a>
+                              <a class="dropdown-item" href="Auto_Margins_Wrapping_Order.html">4.5 Auto Margins & Wrap</a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="dropdown">
+                          <button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                              5: JavaScript Widgets
+                          </button>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="Carousel.html">5.2 Carousel</a>
+                              <a class="dropdown-item" href="Collapse.html">5.3 Collapse</a>
+                              <a class="dropdown-item" href="Tooltips.html">5.4 Tooltips</a>
+                              <a class="dropdown-item" href="Popovers.html">5.5 Popovers</a>
+                              <a class="dropdown-item" href="Modals.html">5.6 Modals</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+              </header>
+              <div class="container">
+            
+                <div class="container">
+                    <div class="row align-items-start" style="height:200px;border:1px #333 solid">
+                        <div class="col">
+                            Top Aligned Text
+                        </div>
+                        <div class="col">
+                            Top Aligned Text
+                        </div>
+                        <div class="col">
+                            Top Aligned Text
+                        </div>
+                    </div>
+                    <div class="row align-items-center" style="height:200px;border:1px #333 solid">
+                        <div class="col">
+                            Middle Aligned Text
+                        </div>
+                        <div class="col">
+                            Middle Aligned Text
+                        </div>
+                        <div class="col">
+                            Middle Aligned Text
+                        </div>
+                    </div>
+                    <div class="row align-items-end" style="height:200px;border:1px #333 solid">
+                        <div class="col">
+                            Bottom Aligned Text
+                        </div>
+                        <div class="col">
+                            Bottom Aligned Text
+                        </div>
+                        <div class="col">
+                            Bottom Aligned Text
+                        </div>
+                    </div>
+                </div>
+            
+                <br><br>
+            
+            
+                <div class="container">
+                    <div class="row" style="height:200px;border:1px #333 solid">
+                        <div class="col align-self-start">
+                            Top Aligned
+                        </div>
+                        <div class="col align-self-center">
+                            Middle Aligned
+                        </div>
+                        <div class="col align-self-end">
+                            Bottom Aligned
+                        </div>
+                    </div>
+                </div>
+            
+                <br><br>
+            
+                <div class="container">
+                    <div class="row justify-content-start" style="height:200px;border:1px #333 solid">
+                        <div class="col-4">
+                            Left Aligned Text
+                        </div>
+                        <div class="col-4">
+                            Left Aligned Text
+                        </div>
+                    </div>
+            
+                    <div class="row justify-content-center" style="height:200px;border:1px #333 solid">
+                        <div class="col-4">
+                            Center Aligned Text
+                        </div>
+                        <div class="col-4">
+                            Center Aligned Text
+                        </div>
+                    </div>
+            
+                    <div class="row justify-content-end" style="height:200px;border:1px #333 solid">
+                        <div class="col-4">
+                            Right Aligned Text
+                        </div>
+                        <div class="col-4">
+                            Right Aligned Text
+                        </div>
+                    </div>
+                    <div class="row justify-content-around" style="height:200px;border:1px #333 solid">
+                        <div class="col-4">
+                            Content Around
+                        </div>
+                        <div class="col-4">
+                            Content Around
+                        </div>
+                    </div>
+                    <div class="row justify-content-between" style="height:200px;border:1px #333 solid">
+                        <div class="col-4">
+                            Content Between
+                        </div>
+                        <div class="col-4">
+                            Content Between
+                        </div>
+                    </div>
+                </div>
+            
+                <br><br>
+            
+            
+                <div class="row no-gutters">
+                    <div class="col-9">
+                      <div class="card">
+                        <div class="card-body"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, repudiandae!</p></div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="card">
+                        <div class="card-body"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, repudiandae!</p></div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="card">
+                        <div class="card-body"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, repudiandae!</p></div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            
+              <div style="margin-top:500px;"></div>
+        </div>
+    </div>
+
+
+
+  
+
+</body>
+</html>

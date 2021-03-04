@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Day16 Practice Task</title>
+    </head>
+
+    <script>
+
+        /* Task 1 */
+
+        function checkString()
+        {
+            var str = document.getElementById("string").value;
+
+            if(str.length == 0)
+            {
+                alert("Please Enter String");
+            }
+            else
+            {
+                alert("Hello"+ " " + str);
+            }
+        }
+
+
+        /* Task 2 */ 
+        function splitString()
+        {
+            var str2 = document.getElementById("string2").value;
+            var result = str2.split(" ");
+            document.getElementById("result").innerHTML = result;
+           
+        }
+
+        /* Task 3 */
+        function checkString2()
+        {
+            var str3 = document.getElementById("string3").value;
+            var index = document.getElementById("strindex").value;
+            var result2 = str3.substring(index);
+            if(index < str3.length)
+            {
+                document.getElementById("result2").innerHTML = result2;
+            }
+            else
+            {
+                alert("Pleaser Enter range in String");
+            }
+            
+        }
+
+
+        /* Task 4 */
+        function getDate()
+        {
+            var date = new Date();
+            var today = date.getFullYear() + "/" + date.getMonth()+1 + "/" + date.getDate(); 
+            document.getElementById("date").innerHTML = today;
+        }
+
+
+        /* Task 5 */
+
+        
+        var cars = ["Saab", "Volvo", "BMW"];
+        document.getElementById("showResult").innerHTML = cars;
+        function funPush()
+        {
+            var item = document.getElementById("items").value;
+            cars.push(item);
+            document.getElementById("showResult").innerHTML = cars;
+        }
+        function funPop()
+        {
+            var item = document.getElementById("items").value;
+            cars.pop();
+            document.getElementById("showResult").innerHTML = cars;
+        }
+        function funShifting()
+        {
+            var item = document.getElementById("items").value;
+            cars.shift();
+            document.getElementById("showResult").innerHTML = cars;
+        }
+        function funDelete()
+        {
+            var item = document.getElementById("items").value;
+            delete cars[item];
+            document.getElementById("showResult").innerHTML = cars;
+        }
+    </script>
+
+    <body>
+        
+        <div class="container">
+            
+            <!-- Task 1 -->
+            <div class="row mt-5">
+                <div class="col md-12">
+                    <h3>Task 1</h3>
+                    <form action="" class="form-inline">
+                        <div class="form-group">
+                            <label for="string">Enter String</label>
+                            <input type="text" class="form-control ml-4" id="string">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary ml-4" onclick="checkString()" value="Click">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <hr>
+
+            <!--Task 2-->
+
+            <div class="row mt-5">
+                <div class="col md-12">
+                    <h3>Task 2</h3>
+                    <form action="" class="form-inline">
+                        <div class="form-group">
+                            <label for="string">Enter String</label>
+                            <input type="text" class="form-control ml-4" id="string2">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary ml-4" onclick="splitString()" value="Click">
+                        </div>
+                        <h4 id="result"></h4>
+                    </form>
+                </div>
+            </div>
+
+            <!--Task 3-->
+            <hr>
+
+            <div class="row mt-5">
+                <div class="col md-12">
+                    <h3>Task 3</h3>
+                    <form action="" class="form-inline">
+                        <div class="form-group">
+                            <label for="string">Enter String</label>
+                            <input type="text" class="form-control ml-4" placeholder="Enter String" id="string3">
+                        </div>
+                        <div class="form-group">
+                            <label for="string">Enter String Index</label>
+                            <input type="text" class="form-control ml-4" placeholder="Enter String Index" id="strindex">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary ml-4" onclick="checkString2()" value="Click">
+                        </div>
+                        <h4 id="result2"></h4>
+                    </form>
+                </div>
+            </div>
+
+            <hr>
+            <!--Task 4-->
+            <div class="row mt-5">
+                <div class="col">
+                    <h3>Task 4</h3>
+                    <input type="submit" class="btn btn-success" onclick="getDate()">
+                </div>
+                <div class="col">
+                    <h4 id="date"></h4>
+                </div>
+            </div>
+
+            <hr>
+            <!--Task 5-->
+            <div class="row mt-5 mb-5">
+                <div class="col md-12">
+                    <h3>Task 5</h3>
+                    <form action="" class="form-inline">
+                        <div class="form-group">
+                            <label for="string">Enter String</label>
+                            <input type="text" class="form-control ml-4" placeholder="Enter String" id="items">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary ml-4" onclick="funPush()" value="Push">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary ml-4" onclick="funPop()" value="Pop">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary ml-4" onclick="funShifting()" value="Shifting">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary ml-4" onclick="funDelete()" value="Delete">
+                        </div>
+                        <h4 id="showResult"></h4>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

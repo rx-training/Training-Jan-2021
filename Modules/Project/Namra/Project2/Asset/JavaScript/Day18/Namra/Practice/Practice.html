@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="Asset/Script/Practice.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+    <body class="bg-secondary text-center">
+
+        <!-- Practice 1 -->
+
+        <div class="container bg-light my-5">
+            <h1 class="display-4 pt-5">Practice 1</h1>
+            <form class="mt-5">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                            <label for="value" id="value"></label>
+                            <div>
+                                <input type="number" class="mb-3 form-control" id="valNumber" placeholder="Enter Value here">
+                            </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <button class="mb-5 mr-3 btn bg-dark text-white btn-outline-success" onclick="return practice1CallBack()">CallBack</button>
+            </form>
+        </div>
+
+        <!-- Practice 2 -->
+
+        <div class="container bg-light my-5 " >
+            <h1 class="display-4 pt-5 mb-5">Practice 2</h1>
+            <Section class="m-3 border border-dark text-left p-4" id="sectionOne" style="overflow: auto;">
+                function practice2Var(){<br>
+                    &emsp;var colorBack = document.getElementById("backColor").value;<br>
+                    &emsp;if(true){<br>
+                        &emsp;&emsp;//inside code<br>
+                        &emsp;&emsp;var colorBack = document.getElementById("back2Color").value;<br>
+                    &emsp;}<br>
+                    &emsp;document.getElementById("sectionOne").style.backgroundColor=colorBack;<br>
+                
+                    &emsp;return false;<br>
+                
+                }<br>
+                <hr class="bg-dark">
+                function practice2Let(){<br>
+                    &emsp;var colorBack = document.getElementById("backColor").value;<br>
+                    &emsp;if(true){<br>
+                        &emsp;&emsp;//inside code<br>
+                        &emsp;&emsp; let colorBack = document.getElementById("back2Color").value;<br>
+                    &emsp;}<br>
+                    &emsp;document.getElementById("sectionOne").style.backgroundColor=colorBack;<br>
+                    
+                    &emsp;return false;<br>
+                }
+                <hr class="bg-dark">
+                <p>The main difference between let and var is that scope of a variable defined with let is limited to the block in which it is declared while variable declared with var has the global scope. So we can say that var is rather a keyword which defines a variable globally regardless of block scope.</p>
+            </Section>
+        
+            <form>
+                <div class="form-group">
+                    <label for="">Choose color : </label>
+                    <select name="" id="backColor" class="bg-dark text-white btn btn-outline-success">
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                        <option value="green">Green</option>
+                    </select><br><br>
+                    <label for="">Choose color for Inside Code: </label>
+                    <select name="" id="back2Color" class="bg-dark text-white btn btn-outline-success">
+                        <option value="darkcyan">Dark Cyan</option>
+                        <option value="darkgoldenrod">Dark Golden Rod</option>
+                        <option value="greenyellow">Green Yellow</option>
+                    </select>
+                </div>
+                <button class="mb-5 mr-3 btn bg-dark text-white btn-outline-success" onclick="return practice2Var()">Change by Var</button>
+                <button class="mb-5 mr-3 btn bg-dark text-white btn-outline-success" onclick="return practice2Let()">Change by Let</button>
+            </form>
+        </div>
+
+        <!-- Practice 3 -->
+
+        <div class="container bg-light my-5">
+            <h1 class="display-4 pt-5">Practice 3</h1>
+            <form class="mt-5">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                            <label for="value" id="valuePractice3"></label>
+                            <div>
+                                <input type="text" class="mb-3 form-control" id="valPractice3" placeholder="Enter here">
+                            </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <button class="mb-5 mr-3 btn bg-dark text-white btn-outline-success" onclick="return practice3()">Check by Promise</button>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

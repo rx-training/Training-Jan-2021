@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Uber</title>
+        <style>
+            #map {
+                height: 90vh;
+                /* The height is 400 pixels */
+                width: 100%;
+                /* The width is the width of the web page */
+                }
+
+            @media only screen and (max-width: 991px) {
+                #map {
+                    height: 40vh !important;
+                    position: absolute !important;
+                    top: 0;
+                    z-index: -1;
+                }
+
+                .navbar {
+                    background-color: rgba(0, 0, 0, 0) !important;
+                }
+
+                .gm-control-active {
+                    display: none;
+                }
+
+                .card {
+                    width: 100% !important;
+                    height: 60vh;
+                    position:absolute;
+                    top: 40vh;
+                }
+            }
+        </style>
+        <script>
+            if(localStorage.getItem('logged_in_user') == null) {
+                window.location.href = 'index.html';
+            }
+            if(localStorage.getItem('tripStatus') == 1) {
+                window.location.href = 'currentTrip.html';
+            }
+        </script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+            <div class="container-lg container-nav">
+                <a class="navbar-brand mr-5 text-dark" style="font-size:30px" href="">Uber</a>
+                
+                <button class=" navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarnav1"><i class=" fa fa-user text-dark"></i></button>
+                <div class=" navbar-collapse collapse" id="navbarnav1" tabindex="2">
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item order-lg-2 d-none d-lg-inline-block"><a href="" class="nav-link">Ride</a></li>
+                        <li class="nav-item order-lg-3 d-none d-lg-inline-block"><a href="" class="nav-link">Drive</a></li>
+                        <li class="nav-item order-lg-4 d-none d-lg-inline-block"><a href="" class="nav-link">More</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Request A Ride</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">My Trips</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Wallet</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Promos</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="" class="nav-link">Support Messages</a></li>
+                        <li class="nav-item d-block d-lg-none"><a href="profileSettings.html" class="nav-link">Profile Settings</a></li>
+                        <li class="nav-item ml-lg-auto d-none d-lg-inline-block  order-lg-7"><a href="" class="nav-link" data-toggle="modal" data-target="#login-modal">Help</a></li>
+                        <li class="nav-item  d-none d-lg-inline-block  order-lg-7 dropdown">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><span id="user-name"></span></a>
+                            <div class="dropdown-menu">
+                                <a href="" class="dropdown-item">Request A Ride</a>
+                                <a href="" class="dropdown-item">My Trips</a>
+                                <a href="" class="dropdown-item">Wallet</a>
+                                <a href="" class="dropdown-item">Promos</a>
+                                <a href="" class="dropdown-item">Support Messages</a>
+                                <a href="profileSettings.html" class="dropdown-item">Profile Settings</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class=" mx-lg-5 my-lg-4 m-0 card" style="z-index: 1;border-radius: 0;width: 400px; height: 75%;position: absolute;">
+            <div class="card-header bg-primary d-none d-lg-block" style="border-radius: 0;">
+                <h3 id="pickup-txt" class="text-white mt-5">From </h3>
+                <h3 id="destination-txt" class="text-white">To </h3>
+            </div>
+            <div class=" card-body px-0">
+                <ul class="w-100 m-0 p-0" id="rides-list" style="height: 50%;overflow-y: scroll;">
+
+                </ul>
+                <hr> 
+                <p class="mx-3"><i class="fa fa-money text-success" style="background-color: greenyellow;"></i> Cash<i class="fa fa-angle-down float-right font-weight-bold"></i></p>
+                
+                <div class="pb-3 px-3" >
+                    <button class="btn btn-dark btn-black w-100" id="bookRide-btn" disabled onclick="bookRide()"><h4>Request</h4></button>
+                </div>    
+            </div>
+        </div>
+
+        <div id="map"></div>
+
+        
+        
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKYGwoxYBxote1_uo8ktqadMfpT5FhDm8&callback=initMap">
+        </script>
+
+        <script>
+            let userDataStored = localStorage.getItem("logged_in_user_data");
+            userDataStored = JSON.parse(userDataStored);
+            document.getElementById('user-name').innerHTML = userDataStored.name.split(" ")[0];
+
+            var rideData = null;
+            
+            var pickupData = localStorage.getItem('pickup');
+            pickupData = JSON.parse(pickupData);
+            document.getElementById('pickup-txt').innerHTML += pickupData.name.split(",")[0];
+            var pickupMapLat = pickupData.latitude;
+            var pickupMapLon = pickupData.longitude;
+
+            var destinationData = localStorage.getItem('destination');
+            destinationData = JSON.parse(destinationData);
+            document.getElementById('destination-txt').innerHTML += destinationData.name.split(",")[0];
+            var DestMapLat = destinationData.latitude;
+            var DestMapLon = destinationData.longitude;
+
+            var distance = getDistanceFromLatLonInKm(pickupMapLat,pickupMapLon,DestMapLat,DestMapLon)
+
+            async function getItemsFromFile() {
+                var file = await fetch('rideTypes.json');
+                let data = await file.text();
+                
+                rideData = JSON.parse(data);
+
+                var list = document.getElementById('rides-list');
+
+                for(var i=1; i <= rideData.rides.length; i++)
+                {
+                    let image;
+                    if(rideData.rides[i-1].name == 'UberAuto') {
+                        image='auto-icon.png';
+                    }
+                    else if(rideData.rides[i-1].name == 'Moto') {
+                        image='bike-icon.png';
+                    }
+                    else {
+                        image='car-icon.png';
+                    }
+                    var price = (distance*rideData.rides[i-1].pricePerKm).toFixed(2);
+                    list.innerHTML += '<li class="px-3" id="ride_'+rideData.rides[i-1].id+'" onclick="setRideType('+rideData.rides[i-1].id+')">\
+                        <img src="img/'+image+'" class="img-fluid" height="75px" width="75px"><h5 class="d-inline">'
+                        + rideData.rides[i-1].name +' </h5><i class="fa fa-users"></i> '+rideData.rides[i-1].capacity+'<span class="float-right mt-4">'+price+' &#8377;</span></li><hr class="m-0">'
+                }
+            }
+
+            getItemsFromFile();
+
+            function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+                var R = 6371; // Radius of the earth in km
+                var dLat = deg2rad(lat2-lat1);  // deg2rad below
+                var dLon = deg2rad(lon2-lon1); 
+                var a = 
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                 
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                var d = R * c; // Distance in km
+                return d;
+                }
+
+                function deg2rad(deg) {
+                return deg * (Math.PI/180)
+            }
+
+            function setRideType(rideId) {
+                for(var i=1; i <= rideData.rides.length; i++)
+                {
+                    if(rideData.rides[i-1].id == rideId) {
+                        document.getElementById('ride_' + rideData.rides[i-1].id).style.background = 'rgb(224, 235, 255)';
+                        document.getElementById('ride_' + rideData.rides[i-1].id).classList.add("active");
+                        document.getElementById('bookRide-btn').disabled = false;
+
+                    }
+                    else {
+                        document.getElementById('ride_' + rideData.rides[i-1].id).style.background = 'white';
+                        document.getElementById('ride_' + rideData.rides[i-1].id).classList.remove("active");
+                    }
+                }
+            }
+
+            function bookRide() {
+
+                let rideId = $('#rides-list > .active')[0].id.split("_")[1];
+                let ride = rideData.rides[rideId-1];
+
+                var totalRidesCount = localStorage.getItem('totalRidesCount');
+                if(totalRidesCount == null) {
+                    totalRidesCount = 0;
+                }
+
+                totalRidesCount = parseInt(totalRidesCount);
+
+                let currentRide = {
+                    "id" : totalRidesCount+1,
+                    "rider_id" : parseInt(localStorage.getItem('logged_in_user')),
+                    "driver_id" : 1,
+                    "pickup_id" : parseInt(JSON.parse(localStorage.getItem('pickup')).id),
+                    "pickup_coords" : JSON.parse(localStorage.getItem('pickup')).latitude + "," + JSON.parse(localStorage.getItem('pickup')).longitude,
+                    "destination_id" : parseInt(JSON.parse(localStorage.getItem('destination')).id),
+                    "destination_coords" : JSON.parse(localStorage.getItem('destination'))  .latitude + "," + JSON.parse(localStorage.getItem('destination')).longitude,
+                    "ride_type_id" : ride.id,
+                    "start_time" : Date(),
+                    "end_time" : null,
+                    "is_canceled_by_rider" : 0,
+                    "is_canceled_by_driver" : 0,
+                    "trip_cost": (distance * ride.pricePerKm).toFixed(2)
+                };
+
+                let allStoredTrips = localStorage.getItem('userTrips');
+                
+                if(allStoredTrips == null) {
+                    let newTripList = Array(currentRide);
+                    localStorage.setItem('userTrips',JSON.stringify(newTripList));
+                }
+                else {
+                    let newTripList = JSON.parse(allStoredTrips);
+                    newTripList.push(currentRide)
+                    localStorage.setItem('userTrips',JSON.stringify(newTripList));
+                }
+                localStorage.setItem('totalRidesCount',++totalRidesCount);
+                localStorage.setItem('tripStatus',1);
+                localStorage.setItem('currentTripData',JSON.stringify(currentRide));
+                window.open('currentTrip.html','_self');
+            }
+            
+            function initMap() {
+
+                const pickup = { lat: parseFloat(pickupMapLat), lng: parseFloat(pickupMapLon) };
+                const destination = { lat: parseFloat(DestMapLat), lng: parseFloat(DestMapLon) };
+                // The map, centered at pickup
+                const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: pickup,
+                });
+                const marker1 = new google.maps.Marker({
+                position: pickup,
+                map: map,
+                });
+                const marker2 = new google.maps.Marker({
+                position: destination,
+                map: map,
+                });
+                var directionsService = new google.maps.DirectionsService();
+                var start = pickupMapLat + "," + pickupMapLon;
+                var end = DestMapLat + "," + DestMapLon;
+                
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: 'DRIVING'
+                };
+                directionsService.route(request, function(result, status) {
+                    if (status == 'OK') {
+                    directionsRenderer.setDirections(result);
+                    }
+                });
+            }
+
+            async function setDestinationAndRedirect(locationId) {
+                var file = await fetch('locations.json');
+                data = await file.text();
+                data = JSON.parse(data);
+
+                data.locations.forEach(loc => {
+                    if(loc.id == locationId) {
+                        localStorage.setItem('destination',loc);
+                        window.open('chooseRide.html','_self');
+                    }
+                });
+
+
+
+            }
+        </script>
+    </body>
+</html>

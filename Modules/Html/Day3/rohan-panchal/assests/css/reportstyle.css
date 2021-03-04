@@ -1,0 +1,33 @@
+body{
+    align-content: center;
+}
+table{
+    margin-left: 20%;
+    text-align: center; 
+    align-items: center; 
+    width: 50%;
+    background-color: cornsilk;
+    border: 5 auto;
+    box-shadow: 20px 10px 10px 10px rgb(193, 177, 117);
+    font-family: 'Redressed', cursive;
+    font-style: unset;
+    
+}
+.font1{
+    color: tomato;
+}
+.font2{
+    color: blueviolet;
+}
+th{
+    font-weight: 600;
+}
+td{
+    font-weight: 100;
+    padding: 10px;
+}
+.size{
+    font-size: 23px;
+}
+
+

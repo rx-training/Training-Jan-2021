@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB fetch API</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="http://fonts.googleapis.com/css?family=Princess+Sofia" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+
+<script>
+
+    
+
+    getJsonText("info.json");
+    async function getJsonText(file)
+    {
+        let x = await fetch(file);
+        let y = await x.json();
+        console.log(y);
+    }
+
+    function getData()
+    {
+        var name = document.getElementById("proname").value;
+        var price = document.getElementById("proprice").value;
+        var loc = document.getElementById("prolocation").value;
+        
+        var obj = {Name:name,Price:price,Location:loc};
+        localStorage.setItem("key",JSON.stringify(obj));
+        var jsonString = localStorage.getItem("key");
+        var retrive = JSON.parse(jsonString);
+        console.log(retrive);
+    }
+    
+
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <section id="formSection">
+                    <form name="dataForm">
+                        <input type="text" name="" id="proname" class="form-control" placeholder="Enter Product Name"><br>
+                        <input type="text" name="" id="proprice" class="form-control" placeholder="Enter Product Price"><br>
+                        <input type="text" name="" id="prolocation" class="form-control" placeholder="Enter Product Location"><br>
+                        <input type="button" onclick="getData()" value="Click" class="btn btn-success"><br>
+                        
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

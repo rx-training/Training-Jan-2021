@@ -1,0 +1,12 @@
+[
+    {"Heading": "Embedding"},
+    {"Explanation": "On StackBlitz.com, you can create new projects and get the embed code from the 'Share' dropdown link in the top navigation like so:"},
+    {"img1": ""},
+    {"Explanation1": "Then just paste the embed code in an iframe and you're good to go!"},
+    {"img2": ""},
+    {"Explanation2": "Alternatively, you can also use our Javascript SDK methods for easily embedding StackBlitz projects on the page & avoid all the hassles of creating/configuring iframes."},
+    {"SubHeading1": "Embed Options"},
+    {"img3": ""},
+    {"SubHeading2": "Embed on Medium"},
+    {"SubExplanation2": "In your Medium article, simply take your project URL (i.e. https://stackblitz.com/edit/angular) and paste it. After you hit enter, it should automatically become an embed."}
+]
