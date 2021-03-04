@@ -21,7 +21,6 @@ CREATE TABLE CompleteSales
 	CarId Varchar(5) CONSTRAINT fkCarId FOREIGN KEY REFERENCES dbo.CarInventories(carId) ,
 	CarSalesId Varchar(5) CONSTRAINT pkCarSalesId PRIMARY KEY,
 )
-
-Select	 * FROM SalesEmployees
-SELECT * FROM CarInventories
-SELECT  * FROM CompleteSales
+ALTER TABLE CompleteSales 
+ADD SaleAmount float,
+	SaleDate date
