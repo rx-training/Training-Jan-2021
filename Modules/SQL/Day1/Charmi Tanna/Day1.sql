@@ -24,7 +24,7 @@ ALTER TABLE JobHistory ADD Location varchar(20);
 INSERT INTO JobHistory VALUES(1,'2000-12-12','12-12-2000',110,1);
 DROP TABLE JobHistory;
 SELECT * FROM JobHistory;
-DROP TABLE JobHistory;
+
 CREATE TABLE Jobs
 (
 	JobId int PRIMARY KEY,
