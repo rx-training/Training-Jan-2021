@@ -1,0 +1,23 @@
+[
+    {
+        "fname" : "Jhon",
+        "lname" : "Doe",
+        "email" : "jhondoe02@gmail.com",
+        "password" : "jhon123",
+        "active" : 1
+    },
+    {
+        "fname" : "Davil",
+        "lname" : "Millar",
+        "email" : "david55@gmail.com",
+        "password" : "david55",
+        "active" : 0
+    },
+    {
+        "fname" : "Amit",
+        "lname" : "Shah",
+        "email" : "amitshah007@gmail.com",
+        "password" : "amitShah@007",
+        "active" : 1
+    }
+]
