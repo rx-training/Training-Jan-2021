@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+  
+    <script>
+        var orderId = 9001;
+        console.log(orderId);
+
+        var orderId="ORD-9001";
+        console.log(orderId);
+
+        var orderId="ORD-9001";
+        orderId = 1201;
+        console.log(orderId);
+
+        var orderId;
+        console.log(orderId);
+
+        orderId = 9001;
+        console.log(orderId);
+
+        'use strict';
+        orderId = 9001;
+        console.log(orderId);
+
+        var orderId = 9001;
+        console.log(typeof orderId);
+
+        var orderId = 9001.90;
+        console.log(typeof orderId);
+
+        var orderId="ORD-9001";
+        console.log(typeof orderId);
+
+        var isActive = true;
+        console.log(typeof isActive);
+
+        var isActive ;
+        console.log(typeof isActive);
+
+        var order = {
+            orderId: 9001,
+            isActive: true
+        };
+        console.log(typeof order);
+
+        var cancelledOrders = [9001, 9002, 9003];
+        console.log(typeof cancelledOrders);
+
+        var order = null;
+        console.log(typeof order);
+
+        function cancelOrder(orderId) {
+
+        };
+        console.log(typeof cancelOrder);
+    </script>
+
+   
+</body>
+</html>

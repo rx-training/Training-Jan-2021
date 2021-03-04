@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind Method</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h2 class="display-2 text-center">Delegate Method</h2>
+    <b class="text-center lead">when click the secound peregraph All The Peregraph color Is Changed</b>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos rem tempora excepturi molestias minima minus
+        voluptate praesentium quidem cumque consectetur.</p>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, quis non? Totam quasi, error voluptatibus
+            modi iste earum provident. Quo quis odio ea non facilis explicabo repellendus fugit, minus commodi?</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ab eligendi harum, placeat esse recusandae
+        pariatur, quo nobis error odit numquam reiciendis sed autem inventore. Dignissimos molestiae quibusdam hic
+        optio?</p>
+    <script>
+        $(document).ready(function () {
+            $("div").delegate("p", "click", function () {
+                $("p").css("background-color", "yellow");
+            });
+        });
+    </script>
+</body>
+
+</html>

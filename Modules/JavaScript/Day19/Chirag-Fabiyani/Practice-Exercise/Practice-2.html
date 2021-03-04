@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice-2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container my-5 mx-auto text-center">
+        <h4>Find the area of a Rectangle.</h4>
+    </div>
+    <div class="container my-5 mx-auto text-center">
+        <form class="form">
+            <input type="text" id="num1" placeholder="Enter the Height">
+            <input type="text" id="num2" placeholder="Enter the Width">
+            <button class="btn btn-outline-primary btn-lg" onclick="return calculate()">
+                Calculate
+            </button>
+        </form>
+    </div>
+    <div class="container my-5 mx-auto text-center" id="result"></div>
+
+    <script>
+        function Area(num1,num2){
+            this.value1 = num1;
+            this.value2 = num2;
+            this.areaRec = function(){
+               return document.getElementById('result').innerHTML = this.value1*this.value2;
+            }
+        }
+        function calculate(){
+            var a = parseInt(document.getElementById('num1').value);
+            var b = parseInt(document.getElementById('num2').value);
+            var c = new Area(a,b);
+            c.areaRec();
+            return false;
+        }
+    </script>
+</body>
+</html>

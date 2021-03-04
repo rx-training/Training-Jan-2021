@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Practice</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="px-4">
+        <h1>Hello!!</h1>
+        <p id="demo1">Hello!!</p>
+        <p class="demo">Hello!!</p>
+        <ul id="lstFood">
+            <li>Bread</li>
+            <li class="snacks">Biscuit</li>
+            <li class="snacks">Jam</li>
+        </ul>
+        <button class="btn btn-success mb-3" id="btn2">Click Me</button>
+
+        <!--Practice-2-->
+        <p id="demo7">Move mouse over me. There is a text hidden<span id="helpText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci iusto perspiciatis labore, magni quia cumque earum dolores neque ducimus eius rem vitae exercitationem repellat expedita. A eveniet doloribus facilis sit.</span></p>
+        
+        
+        <form>
+            <!--Practice-3-->
+            <label for="rad1">Please select any one:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rad1" value="PHP">
+                <label class="form-check-label" for="rad1">PHP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rad2" value="ASP.NET">
+                <label class="form-check-label" for="rad2">ASP.NET</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rad3" value="ASP">
+                <label class="form-check-label" for="rad3">ASP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rad4" value="JSP">
+                <label class="form-check-label" for="rad4">JSP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rad5" value="Perl">
+                <label class="form-check-label" for="rad5">Perl</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rad6" value="Cold fusion">
+                <label class="form-check-label" for="rad6">Cold Fusion</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rad7" value="Other">
+                <label class="form-check-label" for="rad7">Other</label>
+            </div>
+            <span>You have Selected: <span id="radSpan"></span></span>
+
+
+            <!--Assignment-->
+            <label for="droplist">Please select country:</label>
+            <select class="custom-select countrySelect">
+                <option selected name="country" value="India, UK, US, Canada, China">All</option>
+                <option value="India" name="country">India</option>
+                <option value="UK" name="country">UK</option>
+                <option value="US" name="country">US</option>
+                <option value="Canada" name="country">Canada</option>
+                <option value="China" name="country">China</option>
+            </select>
+            <span>Your Selected Country: <span id="countrySpan">India, UK, US, Canada, China</span></span>
+        </form>
+
+        <!--New row will be added at 1st position in table body-->
+        <table class="table table-bordered mt-4" id="tbl">
+            <thead class="thead-dark">
+                <th>id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+            </thead>
+            <tbody id="tblBody">
+
+            </tbody>
+        </table>
+
+        <!--Practice-1-->
+        <p id="demo6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nostrum esse eius qui perferendis corrupti ex sunt, quae praesentium quos harum nulla voluptate molestiae dolore animi veniam, ad magnam aliquam.</p>
+        <p id="demo2">Lorem ipsum dolor sit amet.</p>
+        <p id="demo4" class="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis recusandae a accusamus id? Consectetur, aut.</p>
+        <p>This is a paragraph.</p>
+        <p class="test">This is p element with class="test".</p>
+        <p class="test">This is p element with class="test".</p>
+        <p class="demo5">This is p element with class="demo5".</p>
+        <button class="btn btn-primary" id="btnDemo">Click Me!</button>
+        
+        <p id="demo3" class="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis recusandae a accusamus id? Consectetur, aut.</p>
+        
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("h1").text("Hello World!!").css("color","blue");
+            $("#demo1").html("<h1>Hello World!!</h1>").css("background-color", "yellow");
+            $(".demo").css("color","red");
+            
+            //Practice -1
+            $("#demo6").css({"background-color": "blue", "color":"white"});
+            $("#lstFood").find("li").css("padding", "10px");
+            $("#lstFood li:first").css("color", "green");
+            $("#lstFood li:last").css("color", "red");
+            $("#lstFood .snacks").css("text-transform", "uppercase");
+            $("#tblBody").append("<tr><td>1</td><td>Rachel</td><td>Green</td></tr>");
+
+            /*New row will be added at 1st position in table body*/
+            $("#tblBody").prepend("<tr><td>2</td><td>Monica</td><td>Geller</td></tr>");
+            $("#tblBody").prepend("<tr><td>3</td><td>Phoebe</td><td>Buffay</td></tr>");
+            $("#tblBody").before("<tr><td>4</td><td>Ross</td><td>Geller</td></tr>");
+            $("#tblBody").after("<tr><td>5</td><td>Chandler</td><td>Bing</td></tr>");
+
+
+            //Practice-3
+            $("input[name='inlineRadioOptions']").click(function(){
+                var radChecked = $('input[name="inlineRadioOptions"]:checked').val();
+                console.log(radChecked);
+                $("#radSpan").text(radChecked);
+            });
+
+
+            //Assignment
+            $(".countrySelect").change(function(){            
+                var countrySelected = $('option[name="country"]:selected').val();
+                console.log(countrySelected);
+                $("#countrySpan").text(countrySelected);       
+            });
+            
+            
+            $("#btnDemo").click(function(){
+                $("#tbl").addClass("table-striped");
+                $("#demo2").toggle(1000).css("color", "green");
+
+                /*New row will be added at 1st position in table body*/
+                $("#tblBody").prepend("<tr><td>3</td><td>Phoebe</td><td>Buffay</td></tr>");
+                $("#demo4").fadeToggle(2000).css({"background":"red", "color":"white", "padding":"20px"});
+                $("p").remove(".test, .demo5");
+            });
+
+            $("#btn2").click(function(){
+                $("li").each(function(){
+                    alert($(this).text())
+                });
+            });
+
+            $("#demo3").on({
+                mouseenter: function(){
+                $(this).css("background-color", "lightgray");
+                },  
+                mouseleave: function(){
+                $(this).css("background-color", "lightblue");
+                }, 
+                click: function(){
+                $(this).css("background-color", "yellow");
+                }  
+            });
+
+
+            //Practice-2
+            $("#helpText").hide();
+            $("#demo7").mouseenter(function(){
+                $("#helpText").show().css({"background-color":"red", "color": "white"});
+            });
+            $("#demo7").mouseleave(function(){
+                $("#helpText").hide().css({"background-color":"red", "color": "white"});
+            });
+        });
+    </script>
+</body>
+</html>

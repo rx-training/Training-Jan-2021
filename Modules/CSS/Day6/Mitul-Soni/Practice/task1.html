@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fleax Demo Task 1</title>
+	
+</head>
+<style type="text/css">
+	.main-container
+	{
+		height:100%;
+		width: 100%;
+		border: 2px solid black;
+		align-items: center;
+		background-color: powderblue;
+
+	}
+	.header
+	{
+		border: 1px solid blue;
+		margin: 5px;
+		background-color: blue;
+		text-align:center;
+		color:white;
+
+	}
+	
+	
+	.first-section
+	{
+		height: 10%;
+		width: 20%;
+		background-color: chartreuse;
+		margin: 10px;
+		float: left;
+	}
+	.flex-container 
+	{
+ 		 display: flex;
+  		 background-color: orange;
+  		 margin:5px;
+	}
+	.flex-container > div
+	{
+		background-color: blue;
+		color: white;
+  		width: 100px;
+  		margin: 10px;
+  		text-align: center;
+  		line-height: 75px;
+  		font-size: 30px;
+	}
+	.hover:hover
+	{
+		flex:1;
+	}
+	.flex 
+	{
+  		flex: 1;
+	}
+	.background
+	{
+		background-color:blue;
+	}
+	.flex-container2
+	{
+		display:flex;
+		background-color:orange;
+		margin:5px;
+		flex-direction: row-reverse;
+
+	}
+	.flex-container2 > div
+	{
+		background-color: blue;
+		color: white;
+  		width: 100px;
+  		margin: 10px;
+  		text-align: center;
+  		line-height: 75px;
+  		font-size: 30px;
+
+	}
+	.flex-container3
+	{
+		display:flex;
+		background-color:orange;
+		margin:5px;
+		flex-wrap:wrap;
+
+	}
+	.flex-container3 > div
+	{
+		background-color: blue;
+		color: white;
+  		width: 100px;
+  		margin: 10px;
+  		text-align: center;
+  		line-height: 75px;
+  		font-size: 30px;
+
+	}
+	@media (max-width: 800px) {
+  	.flex-container 
+  	{
+    	flex-direction:row;
+    	background-color: red;
+  	}
+  	.h1{
+  	 font-size:50px;
+  	}
+  	.flex-container2 
+  	{
+    	flex-direction: column;
+    	background-color:green;
+  	}
+</style>
+<body>
+	<div class="main-container">
+		<div class="header">
+			<h1>This is Flex box item Example</h1>
+		</div>
+		<hr>
+		<div>
+			<h4 style="text-align:center">Flex Item Property</h4>
+		</div>
+
+		<div class="flex-container">
+			<div class="background hover flex">1</div>
+			<div class="background hover flex">2</div>
+			<div class="background hover flex">3</div>
+			<div class="background hover flex">4</div>
+			<div class="background hover flex">5</div>
+		</div>
+		<div>
+			<h4 style="text-align:center">Flex Row-reverse Property</h4>
+		</div>
+
+		<div class="flex-container2">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</div>
+		<div>
+			<h4 style="text-align:center">Flex-Wrap Property</h4>
+		</div>
+		<div class="flex-container3">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+			<div>11</div>
+			<div>12</div>
+			<div>13</div>
+		</div>
+	</div>
+</body>
+</html>

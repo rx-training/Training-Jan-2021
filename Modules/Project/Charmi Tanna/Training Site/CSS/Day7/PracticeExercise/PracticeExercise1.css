@@ -1,0 +1,17 @@
+.class1 {
+    border: 3px solid blue;
+}
+
+.class2 {
+    border: 3px solid blue;
+}
+
+@media screen and (max-width: 500px) {
+    .class1 {
+        border: 3px solid red;
+    }
+
+    .class2 {
+        border: 3px solid red;
+    }
+}

@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../../../css/style.css">
+        <script src="js/myJs.js"> </script>
+        <title>Pracrice</title>    
+    </head>
+
+    <body>
+        <!----------------- navbar ------------------>
+        <din class="container-fluid nav-bar p-0">
+            <div class="navbar navbar-expand-md fixed-top  bg-theme px-4 navbar-light">
+                <!-- NAVBARBRAND -->
+                <a href="../../../../index.html" class="navbar-brand">
+                    <img src="../../../../img/radix.png" height="100px" width="100px" alt="RaidWeb">
+                </a>
+                <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                    <span class="navbar-toggler-icon text-primary"></span>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarnav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item"><a href="../../html/index.html" class="nav-link">Html</a></li>
+                        <li class="nav-item"><a href="../../css/index.html" class="nav-link">Css</a></li>
+                        <li class="nav-item"><a href="../../bootstrap/index.html" class="nav-link">Bootstrap</a></li>
+                        <li class="nav-item"><a href="../../javascript/index.html" class="nav-link active">Javascript</a></li>
+                        <li class="nav-item"><a href="../../jquery/index.html" class="nav-link">Jquery</a></li>  
+                    </ul>
+                </div>
+                <div class="d-md-block d-none">
+                    <h4><i class="fa fa-user"></i> Smit Vadhiya</h4>
+                </div>
+               
+            </div>
+        </din>
+
+        <div class="container-fluid ">
+            <div class="row h-100">
+                <div class="col-12 col-md-3 bg-theme p-3">
+                    <ul style="list-style-type: none;">
+                        <h5>Day 15</h5>
+                        <li>
+                            Pracrice
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day15/Practice Exercise/practice01.html">Practice 01</a></li>    
+                                <li><a href="../Day15/Practice Exercise/practice02.html">Practice 02</a></li>    
+                            </ul>
+                        </li>
+                        <li>
+                            Assignment
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day15/Assignment/calculator.html">Calculator</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 16</h5>
+                        <li>
+                            Practice
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day16/Practice/practice01.html">Practice 01</a></li>    
+                                <li><a href="../Day16/Practice/practice02.html">Practice 02</a></li>    
+                                <li><a href="../Day16/Practice/practice03.html">Practice 03</a></li>    
+                                <li><a href="../Day16/Practice/practice04.html">Practice 04</a></li>    
+                                <li><a href="../Day16/Practice/practice05.html">Practice 05</a></li>    
+                            </ul>
+                        </li>
+                        Assignment
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day16/Assignment/assignment.html">Assignment</a></li>
+                                <li><a href="../Day16/Assignment/change_css.html">Change css</a></li>
+                            </ul>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 17</h5>
+                        <li>
+                            Practice 
+                            <ul style="list-style-type: none;">
+                                <li><a href="#">Practice 1 to 6</a></li>    
+                                <li><a href="../Day17/index.html">Assignment</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 18</h5>
+                        <li>
+                            Practice
+                            <ul style="list-style-type: none;">
+                                <li><a href="#">Practice</a></li>       
+                            </ul>
+                        </li>
+                        <li>
+                            Assignment
+                            <ul style="list-style-type: none;">   
+                                <li><a href="assignment.html">Assignment</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 19</h5>
+                        <li>
+                            Practice
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day19/index.html">Practice</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul style="list-style-type: none;">
+                        <h5>Day 20</h5>
+                        <li>
+                            Assignment
+                            <ul style="list-style-type: none;">
+                                <li><a href="../Day20/index.html">Assignment</a></li>    
+                            </ul>
+                        </li>
+                    </ul>
+
+                    
+                </div>
+                <div class="col-12 col-md-9 p-4">
+                    <div class="container">
+                        <div id="practice01" class="text-center">
+                            <h2>Practice 01</h2>
+                            <h5>Define a function called callback which receives an argument and prints the square of that number.</h5>
+                            <input type="text" class="form-control m-2" id="digit" placeholder="Enter value">
+                            <button class="btn btn-primary m-2" onclick="square(digit.value,myCall)">Square</button>
+                            <h3 id="squareResult"></h3>
+                        </div>
+            
+                        <div id="practice03" class="text-center">
+                            <h2>Practice 03</h2>
+                            
+                            <input type="text" class="form-control m-2" id="str" placeholder="Enter String">
+                            <button class="btn btn-primary m-2" onclick="setTimeout('check(str.value)',500)">check </button>
+                            
+                            <h3 id="checkResult"></h3>
+                        </div>
+                    </div>
+                     
+                </div>
+            </div>
+        </div>
+    
+       
+        <script src="../../../../js/jquery.min.js"></script>
+        <script src="../../../../js/popper.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+    </body>
+</html>

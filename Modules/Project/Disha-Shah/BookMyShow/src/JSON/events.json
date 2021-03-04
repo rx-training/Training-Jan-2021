@@ -1,0 +1,285 @@
+[    
+    {   
+        "Id":1, 
+        "Name": "Snow World Ahmedabad", 
+        "ImgUrls":"images/outdoorevent-1.jpg",
+        "Language":"English,Hindi,Gujarati",
+        "Time": "1h",
+        "AgeGroup": "3+yrs",
+        "Category": "Outdoor",
+        "SubCategory": "Snow Parks",
+        "DateOfEvents": "26 Feb 2021-28 Feb 2021",
+        "Venue": "Snow World: Ahmedabad",
+        "TicketPrice": "Rs.600"
+        
+    },
+    {   
+        "Id":2, 
+        "Name": "Ahmedabad Aerial Tour", 
+        "ImgUrls":"images/outdoorevent-2.jpg",
+        "Language":"English,Hindi",
+        "Time": "30mins",
+        "AgeGroup": "3+yrs",
+        "Category": "Outdoor",
+        "SubCategory": "Unique Tours",
+        "DateOfEvents": "1 Mar 2021-31 Mar 2021",
+        "Venue": "Sardar Vallabhbhai Patel Internationsl Airport",
+        "TicketPrice": "Rs.25,000"
+        
+    },  
+    {   
+        "Id":3, 
+        "Name": "Power Lunch at The Nine (YMCA Ahmedabad)", 
+        "ImgUrls":"images/outdoorevent-3.jpg",
+        "Language":"English,Hindi,Gujarati",
+        "Time": "",
+        "AgeGroup": "All",
+        "Category": "Outdoor",
+        "SubCategory": "Food and Drinks",
+        "DateOfEvents": "26 Feb 2021-27 Feb 2021",
+        "Venue": "YMCA: Ahmedabad",
+        "TicketPrice": "Rs.419"
+        
+    },
+    {   
+        "Id":4, 
+        "Name": "4th Test India Vs England", 
+        "ImgUrls":"images/outdoorevent-4.jpg",
+        "Language":"English,Hindi,Gujarati",
+        "Time": "8h",
+        "AgeGroup": "All",
+        "Category": "Outdoor",
+        "SubCategory": "Test Cricket",
+        "DateOfEvents": "24 Feb 2021-28 Feb 2021",
+        "Venue": "Narendra Modi Stadium",
+        "TicketPrice": "Rs.300 onwards"
+        
+    },
+    {   
+        "Id":5, 
+        "Name": "Love Birds", 
+        "ImgUrls":"images/outdoorevent-5.jpg",
+        "Language":"English,Hindi,Gujarati",
+        "Time": "4h",
+        "AgeGroup": "All",
+        "Category": "Outdoor",
+        "SubCategory": "Candle Light Dinner",
+        "DateOfEvents": "14 Feb 2021",
+        "Venue": "Nikumbh's Restorcafe Ahmedabad",
+        "TicketPrice": "Rs.1000 onwards"
+        
+    }, 
+    {   
+        "Id":6, 
+        "Name": "Bluffmaster Gujjubhai", 
+        "ImgUrls":"images/outdoorevent-6.jpg",
+        "Language":"Gujarati",
+        "Time": "2h 15mins",
+        "AgeGroup": "3+yrs",
+        "Category": "Outdoor",
+        "SubCategory":"Comedy",
+        "DateOfEvents": "28 Feb 2021",
+        "Venue": "Thakorbhai Desai Hall: Ahmedabad",
+        "TicketPrice": "Rs.200 onwards"
+        
+    },
+    {   
+        "Id":7, 
+        "Name": "Excuse Me Brother By Akash Gupta", 
+        "ImgUrls":"images/outdoorevent-7.jpg",
+        "Language":"Hindi",
+        "Time": "1h 15mins",
+        "AgeGroup": "16+yrs",
+        "Category": "Outdoor",
+        "SubCategory":"Comedy",
+        "DateOfEvents": "13 Feb 2021",
+        "Venue": "Temptt Restocafe: Ahmedabad",
+        "TicketPrice": "Rs.500"
+        
+    },
+    {   
+        "Id":8, 
+        "Name": "Valentine's Day Adventure Trip", 
+        "ImgUrls":"images/outdoorevent-8.jpg",
+        "Language":"English,Hindi,Gujarati",
+        "Time": "5h",
+        "AgeGroup": "18+yrs",
+        "Category": "Outdoor",
+        "SubCategory":"Adventure Trip",
+        "DateOfEvents": "13 Feb 2021",
+        "Venue": "Meeting Point Superia-2: Ahmedabad",
+        "TicketPrice": "Rs.2000"
+        
+    },
+    {   
+        "Id":9, 
+        "Name": "Flower Park at Sabarmati Ashram", 
+        "ImgUrls":"images/outdoorevent-9.jpg",
+        "Language":"English,Hindi,Gujarati",
+        "Time": "5h",
+        "AgeGroup": "3+yrs",
+        "Category": "Outdoor",
+        "SubCategory":"Flower Park",
+        "DateOfEvents": "11 Feb 2021",
+        "Venue": "Riverfront: Ahmedabad",
+        "TicketPrice": "Rs.200"
+        
+    },
+    {   
+        "Id":10, 
+        "Name": "Ahmedabad's Cycling & Marathon Event", 
+        "ImgUrls":"images/outdoorevent-10.jpg",
+        "Language":"English,Hindi",
+        "Time": "1h",
+        "AgeGroup": "18+yrs",
+        "Category": "Outdoor",
+        "SubCategory":"Cycling",
+        "DateOfEvents": "27 Feb 2021-28 Feb 2021",
+        "Venue": "Riverfront: Ahmedabad",
+        "TicketPrice": "Rs.590"
+        
+    },
+    {   
+        "Id":11, 
+        "Name": "UNBOX!Creativity & Free Thinking Workshop", 
+        "ImgUrls":"images/popular-1.jpg",
+        "Language":"English",
+        "Time": "1h 30mins",
+        "AgeGroup": "16+yrs",
+        "Category": "Popular",
+        "SubCategory":"Online Streaming Events,Workshop",
+        "DateOfEvents": "28 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":12, 
+        "Name": "Ruskin Bond Teaches Writing", 
+        "ImgUrls":"images/popular-2.jpg",
+        "Language":"English",
+        "Time": "2h",
+        "AgeGroup": "16+yrs",
+        "Category": "Popular",
+        "SubCategory":"Writing",
+        "DateOfEvents": "13 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":13, 
+        "Name": "Raell Padamsee`s Ace - Speech & Drama", 
+        "ImgUrls":"images/popular-3.jpg",
+        "Language":"English",
+        "Time": "1h",
+        "AgeGroup": "13+yrs",
+        "Category": "Popular",
+        "SubCategory":"Education,Upskill",
+        "DateOfEvents": "20 Feb 2021 at 4:00 PM",
+        "Venue": "On Zoom",
+        "TicketPrice": "Rs.4320"
+        
+    },
+    {   
+        "Id":14, 
+        "Name": "Codathon", 
+        "ImgUrls":"images/popular-4.jpg",
+        "Language":"English",
+        "Time": "2h",
+        "AgeGroup": "16+yrs",
+        "Category": "Popular",
+        "SubCategory":"Coding",
+        "DateOfEvents": "15 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.3499"
+        
+    },
+    {   
+        "Id":15, 
+        "Name": "Doodling For Kids", 
+        "ImgUrls":"images/popular-5.jpg",
+        "Language":"English",
+        "Time": "2h",
+        "AgeGroup": "7+yrs",
+        "Category": "Popular",
+        "SubCategory":"Drawing",
+        "DateOfEvents": "13 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":16, 
+        "Name": "Art & Drawing For Kids", 
+        "ImgUrls":"images/popular-6.jpg",
+        "Language":"English",
+        "Time": "2h",
+        "AgeGroup": "7+yrs",
+        "Category": "Popular",
+        "SubCategory":"Art,Drawing",
+        "DateOfEvents": "12 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":17, 
+        "Name": "Master Photoshop", 
+        "ImgUrls":"images/popular-7.jpg",
+        "Language":"English",
+        "Time": "2h",
+        "AgeGroup": "16+yrs",
+        "Category": "Popular",
+        "SubCategory":"Photoshop",
+        "DateOfEvents": "11 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.899"
+        
+    },
+    {   
+        "Id":18, 
+        "Name": "Speak Up!", 
+        "ImgUrls":"images/popular-8.jpg",
+        "Language":"English",
+        "Time": "1h 30mins",
+        "AgeGroup": "16+yrs",
+        "Category": "Popular",
+        "SubCategory":"Upskill",
+        "DateOfEvents": "13 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.499"
+        
+    },
+    {   
+        "Id":19, 
+        "Name": "Raell Padamsee`s Ace - Sherlock Holmes", 
+        "ImgUrls":"images/popular-9.jpg",
+        "Language":"English",
+        "Time": "1h",
+        "AgeGroup": "13+yrs",
+        "Category": "Popular",
+        "SubCategory":"Education,Upskill",
+        "DateOfEvents": "6 Mar 2021 at 4:00 PM",
+        "Venue": "On Zoom",
+        "TicketPrice": "Rs.4320"
+        
+    },
+    {   
+        "Id":20, 
+        "Name": "3 Layer Brush Painting", 
+        "ImgUrls":"images/popular-10.jpg",
+        "Language":"English",
+        "Time": "2h",
+        "AgeGroup": "16+yrs",
+        "Category": "Popular",
+        "SubCategory":"Painting",
+        "DateOfEvents": "27 Feb 2021 at 4:00 PM",
+        "Venue": "Online Streaming",
+        "TicketPrice": "Rs.499"
+        
+    }
+    
+]
+
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+       var value = ! true;
+       document.write("<br>"+value);
+       value = ! false;
+       document.write("<br>"+value);
+       value = ! 99;
+       document.write("<br>"+value);
+       value = ! 0;
+       document.write("<br>"+value);
+       value = ! "";
+       document.write("<br>"+value);
+       value = ! "a";
+       document.write("<br>"+value);
+       value = ! " ";
+       document.write("<br>"+value);
+       value = ! new Object;
+       document.write("<br>"+value);
+       value = ! null;
+       document.write("<br>"+value);
+       value = ! undefined;
+       document.write("<br>"+value);
+       value = ! NaN;
+       document.write("<br>"+value);
+       value = !! false;
+       document.write("<br>"+value);
+       value = true && true;
+       document.write("<br>"+value);
+       value = true && false;
+       document.write("<br>"+value);
+       value = false && true;
+       document.write("<br>"+value);
+       value = false && false;
+       document.write("<br>"+value);
+       var obj ={
+        calc :"Logical AND"
+       };
+       value = obj && 99;
+       document.write("<br>"+value);
+       value = obj && obj;
+       document.write("<br>"+value);
+       value = true && obj;
+       document.write("<br>"+value);
+       value = null && 99;
+       document.write("<br>"+value);
+       value = "2" && null;
+       document.write("<br>"+value);
+       value = "2" && undefined;
+       document.write("<br>"+value);
+       value = "2" && NaN;
+       document.write("<br>"+value);
+       value = false && productId;
+       document.write("<br>"+value);
+       var productID = 5;
+       value = false && ++productId;
+       document.write("<br>"+productID);
+       value = true || true;
+       document.write("<br>"+value);
+       value = false || false;
+       document.write("<br>"+value);
+       value = true || false;
+       document.write("<br>"+value);
+       value = false || true;
+       document.write("<br>"+value);
+       var obj={
+           calc: "Logical OR"
+       };
+       var value = obj || 99;
+       document.write("<br>"+value);
+       var value = false || 99;
+       document.write("<br>"+value);
+
+       var defaultSettings = {
+           who: 'default'
+       };
+       var userSettings = {
+           who: 'user'
+       };
+       var value = userSettings || defaultSettings;
+       console.log(value);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

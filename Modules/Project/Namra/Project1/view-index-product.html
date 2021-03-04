@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <title>Amazon</title>
+    <script type="text/javascript" src="./Asset/Script/view-index-product.js"></script>
+    <link rel="stylesheet" href="./Asset/CSS/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("./Asset/Image/background6.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+
+<body class="bg-white" >
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a href="Index.html"><i class="mx-4 fab fa-amazon text-light h2 "></i></a>
+            <a href="Index.html" class=" location text-light mr-3">
+                <i class="fas fa-map-marker-alt "></i>&ensp; <span class="text-muted">Deliver to </span> India
+            </a>
+            
+            <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav ml-auto text-white">
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"><i class="fas fa-user"></i>&nbsp;<span id="signIn" onclick="return signOut()">Sign In</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Return & Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link"> Cart <i class="fas fa-shopping-cart"></i>&nbsp;<span class="h5"id="cartCount"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1 -->
+    <nav class="navbar  navbar-expand-lg  bg-secondary">
+        <div class="container">
+            <div class="dropdown">
+                <a href="" class="navbar-brand text-white dropdown-toggle" data-toggle="dropdown">All </a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+                        Sign In
+                    </a>
+                    <a href="#" class="dropdown-item">Orders</a>
+                </div>
+            </div>
+            <button class="navbar-toggler navbar-toggler-right btn-outline-light " type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle Navigation">
+                Explore
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-items"><a href="" class="nav-link text-white">Today's Deals</a></li>
+                    <li class="nav-items"><a href="" class="nav-link text-white">Customer Service</a></li>
+                    <li class="nav-items"><a href="" class="nav-link text-white">Gift Cards</a></li>
+                    <li class="nav-items"><a href="" class="nav-link text-white">Sell</a></li>
+                    <li class="nav-items"><a href="" class="nav-link text-white">Registry</a></li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-items font-weight-bold"><a href="" class="nav-link text-white">Amazon's response to
+                            COVID-19</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h2 class="display-4 text-white text-center mt-5" id="productName" style="font-family: 'Lexend Mega', sans-serif;"></h2>
+   
+    <!-- Product detail -->
+
+    <div class="container my-5" id="viewProduct">    
+    
+    </div>
+
+    <hr class="my-2 bg-white">
+    <!-- Similar Product -->
+
+    <div class="container-fluid" id="similarProductList">
+
+    </div>
+    
+    <footer class="container-fluid bg-dark text-white">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-6 col-lg-3">
+                    <p class="mt-5 font-weight-bold">Get to Know Us</p>
+                    <p class="text-muted">Careers</p>
+                    <p class="text-muted">Blog</p>
+                    <p class="text-muted">About Amazon</p>
+                    <p class="text-muted">Investor Relations</p>
+                    <p class="text-muted">Amazon Devices</p>
+                    <p class="text-muted">Amazon Tours</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="mt-5 font-weight-bold">Make Money with Us</p>
+                    <p class="text-muted">Sell products on Amazon</p>
+                    <p class="text-muted">Sell apps on Amazon</p>
+                    <p class="text-muted">Become an Affiliate</p>
+                    <p class="text-muted">Advertise Your Products</p>
+                    <p class="text-muted">Self-Publish with Us</p>
+                    <p class="text-muted">Host an Amazon Hub</p>
+                    <p class="text-muted">See More Make Money with Us</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="mt-5 font-weight-bold">Amazon Payment Products</p>
+                    <p class="text-muted">Amazon Business Card</p>
+                    <p class="text-muted">Shop with Points</p>
+                    <p class="text-muted">Reload Your Balance</p>
+                    <p class="text-muted">Amazon Currency Converter</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="mt-5 font-weight-bold">Let Us Help You</p>
+                    <p class="text-muted">Amazon and COVID-19</p>
+                    <p class="text-muted">Your Account</p>
+                    <p class="text-muted">Your Orders</p>
+                    <p class="text-muted">Shipping Rates & Policies</p>
+                    <p class="text-muted">Returns & Replacements</p>
+                    <p class="text-muted">Manage Your Content and Devices</p>
+                    <p class="text-muted">Amazon Assistant</p>
+                    <p class="text-muted">Help</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Amazon Music</p>
+                    <p class="text-muted">Stream millions of songs</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Amazon Advertising</p>
+                    <p class="text-muted">Find, attract and engage customers</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Amazon drive</p>
+                    <p class="text-muted">Cluod storage from amazon</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">6pm</p>
+                    <p class="text-muted">Score deals on fashion brands</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Home service</p>
+                    <p class="text-muted">Experienced Pros Hapiness Guarantee</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Book Depository</p>
+                    <p class="text-muted">Books with Free Delivery Worlwide</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Amazon Music</p>
+                    <p class="text-muted">Stream millions of songs</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Amazon Advertising</p>
+                    <p class="text-muted">Find, attract and engage customers</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Amazon drive</p>
+                    <p class="text-muted">Cluod storage from amazon</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">6pm</p>
+                    <p class="text-muted">Score deals on fashion brands</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Home service</p>
+                    <p class="text-muted">Experienced Pros Hapiness Guarantee</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-2">
+                    <p class="font-weight-bold">Book Depository</p>
+                    <p class="text-muted">Books with Free Delivery Worlwide</p>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-white">
+        <div class="container-fluid">
+            <section class="text-center text-white pb-3">
+                <a href="#bottom" class="text-decoration-none font-weight-bold text-white">Conditions of Use</a> &emsp;
+                <a href="#bottom" class="text-decoration-none font-weight-bold text-white">Privacy Notice</a>&emsp; <a
+                    href="#bottom" class="text-decoration-none font-weight-bold text-white">Interest-Based</a> &emsp;
+                <span class="text-muted">Ads© 1996-2021, Amazon.com, Inc. or its affiliates</span>
+            </section>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

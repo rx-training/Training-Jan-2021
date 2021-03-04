@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoLocation</title>
+</head>
+<body>
+    <h1>Hello Developers!</h1>
+    Find where you are?<button id="btn">Find Me!</button>
+    <p id="show"></p>
+</body>
+<script>
+
+    let show = document.getElementById("show");
+    let btn = document.getElementById("btn");
+    btn.onclick = function(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showMe);
+        }
+        else{
+            show.innerHTML = "GeoLocation is not supported";
+        }
+    }
+
+    function showMe(position){
+        show.innerHTML = "Latitude : " + position.coords.latitude + 
+        "<br> Longitude :" +  position.coords.longitude ;
+    }
+    
+
+</script>
+</html>

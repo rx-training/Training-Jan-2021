@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>MyWork</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+        <div class="container">
+            <a href="index.html" class="navbar-brand"><img src="img/logo_2500X1875-1536x1152.jpg" width="90" height="80" alt="">
+                <h3 class="d-inline align-middle">Jayesh</h3>
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="navitem">
+                        <a href="html.html" class="nav-link">HTML</a>
+                    </li>
+                    <li class="navitem">
+                        <a href="css.html" class="nav-link active">CSS</a>
+                    </li>
+                    <li class="navitem">
+                        <a href="bootstrap.html" class="nav-link">Bootstrap</a>
+                    </li>
+                    <li class="navitem">
+                        <a href="javascript.html" class="nav-link">Javascript</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="showcase" class="py-5">
+        <div class="primary-overlay text-white">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <table class="table text-center table-striped table-hover">
+                        <thead>
+                            <tr class="bg-warning">
+                                <th class="py-3"><a href="#" onclick="load_home()">HOME</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-success">
+                                <th>
+                                    <a class="text-white" href="#">Assignment</a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day4_a()">Day 4</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day5_a()">Day 5</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day6_a()">Day 6</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day7_a()">Day 7</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day8_a()">Day 8</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-success">
+                                <th>
+                                    <a class="text-white" href="#">Practice</a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day4_p()">Day 4</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day5_p()">Day 5</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day6_p()">Day 6</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day7_p()">Day 7</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" onclick="load_day8_p()">Day 8</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-8 bg-light h-100" style="opacity: 0.7;">
+                    <div id="content"> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer" class="py-5 bg-primary text-white">
+        <div class="container  text-center">
+            <p class="lead">Copyright &copy; 2021</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/navbar-fixed.js"></script>
+    <script>
+        function load_home() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/home.html" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day4_a() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/assignment/4/cv.html" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day5_a() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/assignment/5/index.html" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day6_a() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/assignment/6/index.html" style" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day7_a() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/assignment/7/index.html" style" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day8_a() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/assignment/8/index.html" style" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day4_p() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/practice/4/practice.html" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day5_p() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/practice/5/practice1.html" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day6_p() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/practice/6/flexbox.html" style" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day7_p() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/practice/7/griddemo.html" style" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+
+        function load_day8_p() {
+            document.getElementById("content").innerHTML = '<object type="type/html" data="css3/practice/8/practice.html" style" style="width:100%;height:1000px;opacity:0.8;"></object>';
+        }
+    </script>
+</body>
+
+</html>

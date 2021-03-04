@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogen</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand mx-4" href="#">Blogen</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mr-4 active">
+        <a class="nav-link" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mr-4">
+        <a class="nav-link" href="posts.html">Posts</a>
+      </li>
+      <li class="nav-item mr-4">
+        <a class="nav-link" href="categories.html">Categories</a>
+      </li>
+      <li class="nav-item mr-4">
+        <a class="nav-link" href="users.html">Users</a>
+      </li> 
+    </ul>
+
+    <ul class="navbar-nav mr-5">
+      <li class="nav-item mr-3 dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="profile.html">Profile</a>
+          <a class="dropdown-item" href="settings.html">Settings</a>
+        </div>
+      </li>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="logout.html">Logout</a>
+      </li>
+  	</ul> 
+  </div>
+</nav>
+<div class="container-fluid bg-primary">
+	<div class="container h1 py-2 text-white">Dashboard</div>
+</div>
+<div class="container">
+	<div class="row">
+		<!-- buttons -->
+		<div class="col-9 flex-column">
+			<div class="row mb-4">
+				<div class="col mx-2 py-2 text-center font-weight-bold btn btn-outline-primary" data-toggle="modal" data-target="#postModal">Add Post</div>
+				<div class="col mx-2 py-2 text-center font-weight-bold btn btn-outline-secondary" data-toggle="modal" data-target="#categoyModal">Add Category
+				</div>
+				<div class="col mx-2 py-2 text-center font-weight-bold btn btn-outline-success" data-toggle="modal" data-target="#userModal">Add User</div>
+			</div>
+			<!-- modals -->
+			<div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="postModalLabel">New Post</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group my-0">
+									<label for="title-name" class="col-form-label">Title:</label>
+									<input type="text" class="form-control" id="title-name">
+								</div>
+								<div class="form-group my-0">
+									<label class="col-form-label">Category:</label>
+									<select class="form-control">
+										<option>Web</option>
+										<option>Android</option>
+										<option>Mobile</option>
+									</select>
+								</div>
+								<div class="form-group my-0">
+									<label for="exampleFormControlFile1">Upload Image</label>
+									<input type="file" class="form-control-file" id="exampleFormControlFile1">
+								</div>
+								<div class="form-group">
+									<label for="body" class="">Body</label>
+									<textarea name="editor1" class="form-control"></textarea>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Create Post</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="categoyModal" tabindex="-1" role="dialog" aria-labelledby="categoyModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="categoyModalLabel">New Category</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group my-0">
+									<label for="category-name" class="col-form-label">Title:</label>
+									<input type="text" class="form-control" id="category-name">
+								</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Create Category</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="userModalLabel">New User</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group my-0">
+									<label for="username" class="col-form-label">Username</label>
+									<input type="text" class="form-control" id="username">
+
+									<label for="email" class="col-form-label">Email</label>
+									<input type="email" class="form-control" id="email">
+
+									<label for="password" class="col-form-label">Password</label>
+									<input type="text" class="form-control" id="password">
+									<label for="password1" class="col-form-label">Confirm Password</label>
+									<input type="text" class="form-control" id="password1">
+								</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Create user</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- table -->
+			<div class="col" style="border-radius: 10px;border:3px solid #6c757d;">
+				<h5>Latest Posts</h5>
+				<table class="table table-striped table-hover">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Title</th>
+							<th scope="col">Category</th>
+							<th scope="col">Date</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="col">1</th>
+							<td>Post One</td>
+							<td>Web</td>
+							<td>Jan 1</td>
+							<td><a class="btn btn-secondary" href="post_detail.html">Details</a></td>
+						</tr>
+						<tr>
+							<th scope="col">2</th>
+							<td>Post Two</td>
+							<td>Mobile</td>
+							<td>Jan 2</td>
+							<td><a class="btn btn-secondary" href="post_detail.html">Details</a></td>
+						</tr>
+						<tr>
+							<th scope="col">3</th>
+							<td>Post Three</td>
+							<td>Web</td>
+							<td>Jan 3</td>
+							<td><a class="btn btn-secondary" href="post_detail.html">Details</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- table end -->
+		<!-- Boxes -->
+		<div class="col-3 flex-column">
+			<div class="col">
+				<div class="card mb-3 bg-dark text-center text-white">
+					<div class="card-header h3">Posts
+					</div>
+					<div class="card-body bg-primary">
+						<p class="card-text display-4">6</p>
+						<a class="btn btn-outline-light btn-sm" href="#">View</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card mb-3 bg-dark text-center text-white">
+					<div class="card-header h3">Categories
+					</div>
+					<div class="card-body bg-secondary">
+						<p class="card-text display-4">6</p>
+						<a class="btn btn-outline-light btn-sm" href="#">View</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card mb-3 bg-dark text-center text-white">
+					<div class="card-header h3">Users
+					</div>
+					<div class="card-body bg-success">
+						<p class="card-text display-4">6</p>
+						<a class="btn btn-outline-light btn-sm" href="#">View</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- boxes end -->
+	</div>
+	<!-- row end -->
+</div>
+<div class="container-fluid bg-secondary">
+	<footer class="bg-secondary h2 p-3 text-center mb-0">
+		<p>Blogen</p>
+		<p class="h6">Copyright</p>
+	</footer>
+</div>	
+
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

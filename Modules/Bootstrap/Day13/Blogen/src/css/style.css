@@ -1,0 +1,8 @@
+body {
+  margin-top: 55px; }
+
+#posts-mid-line .input-group, #category-mid-line .input-group, #users-mid-line .input-group {
+  width: 50%; }
+
+#login-module .card {
+  width: 50%; }

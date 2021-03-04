@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../../../css/style.css">
+        <title>Html Page</title>
+        <style>
+            .heightforback{
+                min-height: 600px;
+            }
+        </style>
+        <script>
+            function IsValid(empdetils,id){
+           switch(id){
+            case employid:   
+            var pattern =  /^\d{5}$/g;
+            var emperror = document.getElementById('empId');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case employname:   
+            var pattern =  /^[a-zA-Z]+$/;
+            var emperror = document.getElementById('empname');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case age:  
+            var emperror = document.getElementById('empage');
+            if(empdetils == "" || empdetils < 18 || empdetils > 60 ){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case distination:   
+            var pattern = /^[a-zA-Z]+$/;
+            var emperror = document.getElementById('empdistination');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case salary:   
+            var emperror = document.getElementById('empsalary');
+            if(empdetils == ""){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case datejoin:   
+            var emperror = document.getElementById('empdatejoin');
+            if(empdetils == ""){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case email:   
+            var emperror = document.getElementById('empemail');
+            if(empdetils == ""){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            case contact:   
+            var pattern =  /^\d{10}$/g;
+            var emperror = document.getElementById('empcontact');
+            if(empdetils == "" || (pattern.test(empdetils) == false)){
+                emperror.style.display = "block";
+                return false;
+             }
+             emperror.style.display = "none";
+            break;
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <!-- Navigationbar -->
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <a class="navbar-brand" href="#"><img class="ml-3" src="../../../../img/radix.jpg" style="width: 80px;" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link h5" href="../../../Html/index.html">Html</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link h5" href="../../../Css/index.html">Css</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link h5" href="../../../Bootstrap/index.html">Bootstrap</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link h5" href="#">Javascript</a>
+              </li>
+            </ul>
+            </div>  
+        </nav>
+        <section>
+            <div class="row w-100">
+                <div class="col-4 bg-dark text-white heightforback" >
+                    <div class="text-center h5 py-5">Javascript</div>
+                    <ul>
+                        <li>Niraj_sapra
+                            <ul>
+                                <li>Day 15
+                                    <ul>
+                                        <li>Practice
+                                            <ul>
+                                                <li><a href="../../Practice/Day_15/prectice1.html">Graterthen of Three no</a></li>
+                                                <li><a href="../../Practice/Day_15/prectice2.html">alert</a></li>
+                                                <li><a href="../../Practice/Day_15/video_prectice/function.html">Function</a></li>
+                                                <li><a href="../../Practice/Day_15/video_prectice/variable.html">Variable</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>Assignment
+                                            <ul>
+                                                <li><a href="#">Calculater</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Day 16
+                                    <ul>
+                                        <li>Practice
+                                            <ul>
+                                                <li><a href="../../Practice/Day_16/pre1.html">String blank</a></li>
+                                                <li><a href="../../Practice/Day_16/pre2.html">Array to word</a></li>
+                                                <li><a href="../../Practice/Day_16/pre3.html">Spacify extra char</a></li>
+                                                <li><a href="../../Practice/Day_16/pre4.html">Current date</a></li>
+                                                <li><a href="../../Practice/Day_16/pre5.html">Push-Pop-Shift method</a></li>
+                                                <li><a href="../../Practice/Day_16/video_prectice/Arraymethod.html">Array-method</a></li>
+                                                <li><a href="../../Practice/Day_16/video_prectice/stringmethod.html">String-method</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>Assignment
+                                            <ul>
+                                                <li><a href="../../Assignment/Day_16/index.html">Validate Date</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Day 17
+                                    <ul>
+                                        <li>Practice
+                                            <ul>
+                                                <li><a href="../../Practice/Day_17/pre7.html">location</a></li>
+                                                <li><a href="../../Practice/Day_17/pre8.html">history</a></li>
+                                                <li><a href="../../Practice/Day_17/pre9.html">height&width window ob</a></li>
+                                                <li><a href="../../Practice/Day_17/eventhendler.html">Event Hendler</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>Assignment
+                                            <ul>
+                                                <li><a href="../../Assignment/Day_17/index.html">Employ Detils</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Day 18
+                                    <ul>
+                                        <li>Practice
+                                            <ul>
+                                                <li><a href="../../Practice/Day_18/prac1.html">Squre</a></li>
+                                                <li><a href="../../Practice/Day_18/prec2.html">var & let Diffrence</a></li>
+                                                <li><a href="../../Practice/Day_18/practical-3.html">Promise</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>Assignment
+                                            <ul>
+                                                <li><a href="../../Assignment/Day_18/exam.html">Exam</a></li>
+                                                <li><a href="../../Assignment/Day_18/login.html">Login</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Day 19
+                                    <ul>
+                                        <li>Practice
+                                            <ul>
+                                                <li><a href="../../Practice/Day_19/prac1.html">Area Circle</a></li>
+                                                <li><a href="../../Practice/Day_19/pre2.html">Area of rectangle</a></li>
+                                                <li><a href="../../Practice/Day_19/prac3.html">Function hosting</a></li>
+                                                <li><a href="../../Practice/Day_19/prac4.html">Function Pass object</a></li>
+                                                <li><a href="../../Practice/Day_19/prac5.html">Define Function</a></li>
+                                                <li><a href="../../Practice/Day_19/prac6.html">Function Clouser</a></li>
+                                                <li><a href="../../Practice/Day_19/self-learning.html">self-learning</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>Assignment
+                                            <ul>
+                                                <li><a href="../../Assignment/Day_19/">Calculater</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Day 20
+                                    <ul>
+                                        <li>Practice
+                                            <ul>
+                                                <li><a href="../../Practice/Day_20/prac1.html">Josn Data</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>Assignment
+                                            <ul>
+                                                <li><a href="../../Assignment/Day_20/addtocart.html">Add to cart</a></li>
+                                                <li><a href="../../Assignment/Day_20/trytomargebothtask.html">Marge practical and Assignment</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                            </ul>    
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-8">
+                    <div class="h4 text-center my-5"></div>
+                    <div class="container">
+                        <div class="card w-75 text-center mx-auto my-3">
+                            <div class="card-header"> 
+                                <h1 class="h1 py-2">Employ Details</h1>
+                            </div>
+                            <div class="card-body">
+                                <form class="">
+                                    <div class="form-group my-4">
+                                        <label class="col-lg-4" for="employid">Employ Id :</label>
+                                        <input class="col-lg-6" id="employid" type="text" onblur="return IsValid(this.value,employid)" placeholder="12345"  name="employid">
+                                        <label id="empId" class="text-danger col-lg-9 "
+                                            style="display: none;">Please enter valid Employee ID</label>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="employname">Employ Name :</label>
+                                        <input class="col-lg-6" onblur="return IsValid(this.value,employname)" id="employname" type="text" placeholder="Name" name="employname">
+                                        <label id="empname" class="text-danger col-lg-9 col-form-label pl-0"
+                                            style="display: none;">Please enter valid Employee Name</label>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="age">Age :</label>
+                                        <input class="col-lg-6" onblur="return IsValid(this.value,age)" id="age" type="number" placeholder="18-60" name="age">
+                                        <label id="empage" class="text-danger col-lg-9 col-form-label pl-0"
+                                            style="display: none;">Please enter valid Employee age</label>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <div class="col-lg-6 float-left">
+                                            <label  for="gender">Gender :</label>
+                                        </div>
+                                        <div class="col-lg-6" style="display: flex;">
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label" for="radio1">
+                                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="Male" checked>Male
+                                            </label>
+                                          </div>
+                                          <div class="form-check-inline">
+                                            <label class="form-check-label" for="radio1">
+                                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="FeMale" checked>FeMale
+                                            </label>
+                                          </div>
+                                          <div class="form-check-inline">
+                                            <label class="form-check-label" for="radio1">
+                                              <input type="radio" class="form-check-input" id="radio3" name="optradio" value="Other" checked>Other
+                                            </label>
+                                          </div>
+                                        </div>  
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="distination">Distination :</label>
+                                        <input class="col-lg-6" onblur="return IsValid(this.value,distination)" placeholder="Designation" id="distination" type="text" name="distination" value="">
+                                        <label id="empdistination" class="text-danger col-lg-9 col-form-label pl-0"
+                                            style="display: none;">Please enter valid distonation</label>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="salary">Salary :</label>
+                                        <input class="col-lg-6" onblur="return IsValid(this.value,salary)" id="salary" type="number" placeholder="20000" name="salary" value="">
+                                        <label id="empsalary" class="text-danger col-lg-9 col-form-label pl-0"
+                                            style="display: none;">Please enter valid Employee Salary</label>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="location">Location :</label>
+                                        <select class="col-lg-6"  name="location" id="location">
+                                            <option value="ahemdabad">Ahemdabad</option>
+                                            <option value="surat">Surat</option>
+                                            <option value="rajkot">Rajkot</option>
+                                            <option value="bhavnager">Bhavnager</option>
+                                        </select>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="email">Email ID :</label>
+                                        <input class="col-lg-6" onblur="return IsValid(this.value,email)" placeholder="abc@gmail.com" type="email" id="email" name="emailid">
+                                        <label id="empemail" class="text-danger col-lg-9 col-form-label pl-0"
+                                            style="display: none;">Please enter valid Email Id</label>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="datejoin">Date of Joining  :</label>
+                                        <input class="col-lg-6" onblur="return IsValid(this.value,datejoin)" id="datejoin" type="date" name="datejoin" value="">
+                                        <label id="empdatejoin" class="text-danger col-lg-9 col-form-label pl-0"
+                                            style="display: none;">Please enter valid Date of join</label>
+                                    </div>    
+                                    <div class="my-4 form-group">
+                                        <label class="col-lg-4" for="contactno">Contact Number :</label>
+                                        <input class="col-lg-6" onblur="return IsValid(this.value,contact)" placeholder="1234567890" id="contact" type="tel" name="contactno" value="">
+                                        <label id="empcontact" class="text-danger col-lg-9 col-form-label pl-0"
+                                            style="display: none;">Please enter valid Employee contact no</label>
+                                    </div>
+                                    <div class="my-4 form-group">
+                                        <button class="col-lg-4" onclick="return isvalid()" id="submit"  value="">Submit</button>
+                                        <button class="col-lg-4" onclick="return isvalid()" type="reset" id="reset"  value="">Reset</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </section>
+        <script src="../../../../js/jquery.min.js"></script>
+        <script src="../../../../js/popper.min.js"></script>
+        <script src="../../../../js/bootstrap.min.js"></script>
+    </body>
+</html>

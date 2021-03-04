@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #nav{
+            border-bottom: 1px solid lightgray;
+        }
+        #sidebar{
+            border-right: 1px solid lightgray;
+            border-bottom: 1px solid lightgrey;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+           $("#helpText").mouseenter(function(){
+               $(this).hide();
+           });
+           $("#helpText").mouseleave(function(){
+               $(this).show();
+           });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm" id="nav">
+        <div class="container">
+  
+          <a class="navbar-brand" href="#"><img class="m-0 p-0" src="../../../../Assets/Radix.jpg" width="150px"></a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+  
+              <ul class="navbar-nav collapse navbar-collapse d-sm-flex justify-content-sm-end" id="navbarNav">
+  
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../../../../Html/index_html.html">HTML</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link font-weight-bold" href="../../../../CSS-Exercises/index_css.html">CSS</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link font-weight-bold" href="../../../../Bootstrap-Exercises/index_bootstrap.html">Bootstrap</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link font-weight-bold" href="../../../../Javascript/index_js.html">Javascript</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="./index_jquery.html">jQuery</a>
+                </li>
+              </ul>
+          </div>
+    </nav>
+    
+    <div class="container row" id="main">
+        <div class="col-md-3" id="sidebar">
+            <ul class="my-5">
+                <li>
+                    <b>Day23</b>
+                    <ul>
+                        <li>
+                            <b>Practice-Exercise</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="./Practice-1.html">Practice-1</a>
+                                </li>
+                                <li>
+                                    <a class="text-dark" href="./Practice-2.html">Practice-2</a>
+                                </li>
+                                <li>
+                                    <a class="text-dark" href="./Practice-3.html">Practice-3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Assignment</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../Assignment/Assignment.html">Assignment-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Day24</b>
+                    <ul>
+                        <li>
+                            <b>Practice-Exercise</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../../Day24/Chirag-Fabiyani/Practice-Exercise/Practice-1.html">Practice-1</a>
+                                </li>
+                                <li>
+                                    <a class="text-dark" href="../../../Day24/Chirag-Fabiyani/Practice-Exercise/Practice-2.html">Practice-2</a>
+                                </li>
+                                <li>
+                                    <a class="text-dark" href="../../../Day24/Chirag-Fabiyani/Practice-Exercise/Practice-3.html">Practice-3</a>
+                                </li>
+                                <li>
+                                    <a class="text-dark" href="../../../Day24/Chirag-Fabiyani/Practice-Exercise/Practice-4.html">Practice-4</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Assignment</b>
+                            <ul>
+                                <li>
+                                    <a class="text-dark" href="../../../Day24/Chirag-Fabiyani/Assignment/Assignment.html">Assignment-1</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <h2 class="container my-5 mx-auto text-center" id="helpText">This is demo text.</h2>
+        </div>
+    </div>
+</body>
+</html>

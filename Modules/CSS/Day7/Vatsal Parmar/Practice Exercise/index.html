@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Exercise</title>
+    <style>
+      /* Task - 1 = You have one h1 and one paragraph in your page with blue color border. For all the media screen and query selector (maximum width 500px) it should be change to red color border. */
+      .task-1 {
+        border: 5px blue solid;
+      }
+
+      @media (max-width: 500px) {
+        .task-1 {
+          border: 5px solid red;
+        }
+      }
+
+      /* Task - 2 = Media queries with breakpoint */
+      @media only screen and (min-width: 1200px) {
+        .task-2 {
+          background: pink;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        .task-2 {
+          background: orange;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .task-2 {
+          background: blue;
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        .task-2 {
+          background: green;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .task-2 {
+          background: red;
+        }
+      }
+
+      /* Task - 3 = Hide elements with Media queries */
+      @media only screen and (min-width: 1200px) {
+        #first {
+          visibility: hidden;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        #second {
+          visibility: hidden;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        #third {
+          visibility: hidden;
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        #fourth {
+          visibility: hidden;
+        }
+      }
+
+      /* Task - 4 = Change Font size with Media Queries */
+      @media only screen and (min-width: 600px) {
+        #task-4 {
+          font-size: small;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        #task-4 {
+          font-size: large;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        #task-4 {
+          font-size: larger;
+        }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        #task-4 {
+          font-size: xx-large;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Task - 1 = You have one h1 and one paragraph in your page with blue color border. For all the media screen and query selector (maximum width 500px) it should be change to red color border. -->
+    <h1 class="task-1">Hello</h1>
+    <p class="task-1">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but
+      also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop
+      publishing software like Aldus PageMaker including versions of Lorem
+      Ipsum.
+    </p>
+    <hr />
+
+    <!--Task - 2 = Media queries with breakpoint -->
+    <h2>Hello</h2>
+    <p class="task-2">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but
+      also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop
+      publishing software like Aldus PageMaker including versions of Lorem
+      Ipsum.
+    </p>
+    <hr />
+    <!-- Task - 3 = Hide elements with Media queries -->
+    <p id="first">First Element</p>
+    <p id="second">Second Element</p>
+    <p id="third">Third Element</p>
+    <p id="fourth">Fourth Element</p>
+    <hr />
+
+    <!-- Task - 4 = Change Font size with Media Queries -->
+    <p id="task-4">Hello World</p>
+  </body>
+</html>

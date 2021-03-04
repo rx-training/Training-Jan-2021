@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script type="text/javascript">
+        // Callback without arrow function
+           function add(a,b,callback)
+           {
+               callback(a+b);
+           }
+           function print(c)
+           {
+               console.log(c);
+           }
+           add(10,20,print);
+           // Callback with arrow function
+           function add2 (a,b,callback2)
+           {
+               callback2(a+b);
+           }
+           add2(10,20,(d)=>
+           {
+               console.log(d);
+           }
+           )
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

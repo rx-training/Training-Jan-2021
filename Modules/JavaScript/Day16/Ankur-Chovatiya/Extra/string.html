@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>strings</title>
+</head>
+<body>
+    <h1>Hello Developer!</h1>
+
+
+
+</body>
+    <script>
+        let str = "Hello my name is ankur chovatiya and my hobbies  is .... ";
+        let ans = str.indexOf("name");
+        console.log(ans);     //9
+
+        let ans2 = str.lastIndexOf("my"); 
+        console.log(ans2);    //37
+
+        let ans3 = str.lastIndexOf("my" , 15); 
+        console.log(ans3);    //6
+        
+        let ans4 = str.indexOf("is" , 10); 
+        console.log(ans4);    //14
+
+        let ans5 = str.slice(0 , 5);
+        console.log(ans5); //hello
+
+        let ans6 = str.substring(5 , 8); // not accept the nagative values
+        console.log(ans6); 
+
+        let ans7 = str.substr(15 , 5); // second parameter is indicate the length of the string
+        console.log(ans7); 
+
+        let ans8 = str.replace("Hello" , "hi");
+        console.log(ans8); 
+
+        let ans9 = str.toLowerCase();
+        console.log(ans9); 
+
+        let ans10 = str.concat("" , "play chess");
+        console.log(ans10);
+
+        let ans11 = str.trim();
+        console.log(ans11);
+
+        let ans12 = str.split(" ");
+        console.log(ans12);
+
+
+    </script>
+
+</html>

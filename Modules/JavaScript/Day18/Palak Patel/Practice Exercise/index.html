@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 18 Practice Exercise</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script>
+        function getSquar(countSquare){
+            var num = document.getElementById('number').value.trim();
+            num = countSquare(num);
+            document.getElementById('ans').innerHTML = num;
+            //console.log(num);
+            return false;
+        }
+
+        function q2(){
+            window.location.href = 'explain.txt';
+        }
+
+        function q3(){
+            /*function displayit(result){
+                document.getElementById('res').innerHTML = result;
+            }*/
+
+            let myPromise = new Promise((resolve, reject)=>{
+
+                var successMassage ={
+                    'code': 1,
+                    'message': 'Entered input is String'
+                }
+
+                var errorMessage = {
+                    'code': 0,
+                    'message': 'Entered input is not a string'
+                }
+
+                var string1 = document.getElementById('strng').value.trim();
+
+                if(typeof string1 === 'string'){
+                    console.log(string1.split('').reverse().join(''));
+                    console.log(resolve(successMessage));
+                    setTimeout(()=> resolve(successMessage), 500)
+                }else{
+                    setTimeout(() => reject(errorMessage), 500);
+                }
+            });
+
+            myPromise.then(
+                successMassage => console.log(successMassage.message),
+                errorMessage => console.log(errorMessage.message)
+            );
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="q1 mx-5">
+            <h2 class="h3 mb-3">Calculate square using callback function</h2>
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="number" placeholder="Enter the Number">
+                    <button class="btn btn-success ml-2" onclick="return getSquar((num)=>{num*=num; return num;})">Get Square</button>
+                </div>
+            </form>
+            <div class="border rounded w-25 my-3 p-1" id="ans"></div>
+        </div>
+        <div class="q2 mx-5">
+            <h2 class="h3 mb-3">Difference Between Let and var</h2><br>
+            <button class="btn btn-success mb-5" onclick="return q2()">Explain</button>
+        </div>
+        <div class="q3 mx-5">
+            <h2 class="h3 mb-3">About Promise</h2>
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="strng" placeholder="Enter a string">
+                    <button class="btn btn-success ml-2" onclick="return q3()">Get reverse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+</html>

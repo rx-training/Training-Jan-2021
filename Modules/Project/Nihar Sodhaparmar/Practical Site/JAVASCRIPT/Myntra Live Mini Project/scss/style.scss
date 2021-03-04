@@ -1,0 +1,166 @@
+// Main Sass File
+
+// .navbar-collapse{
+//     ul{
+//         li:hover{
+//             border-bottom: 3px solid palevioletred;
+//         }
+//     }
+// }
+
+
+body{
+    margin-top: 80px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+nav{
+    box-shadow: 1px 1px 5px lightgray;
+    background: #ffffff;
+}
+
+.btn-pink{
+    background-color: #ff3f6c;
+    color: #fff;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.btn-pink:hover{
+    color: #fff;
+    box-shadow: 1px 1px 10px grey;
+}
+
+.btn-wishlist{
+    border: 1px solid grey;    
+    font-weight: 700;;
+}
+
+.btn-wishlist:hover{
+    border: 1px solid black;
+    box-shadow: 1px 1px 10px grey;
+}
+
+.deals_header{
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.search-container2{
+    display: none;
+}
+
+.serach_box
+{
+    width: 50%;
+}
+
+.side-banner{
+    right: 0;
+    position: fixed;
+    bottom: 130px;
+    width: 44px;
+    height: 288px;
+    background-color: #535766;
+    z-index: 6;
+    color: #ffffff;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.side-banner-arrow-collapsed{
+    border-right: 14px solid #fff;
+}
+
+.side-banner-content{
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    width: 36px;
+    padding: 4px;
+    height: 200px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-block-start: 0;
+    color: #fcfcfc;
+    display: inline-block;
+}
+
+.side-banner-arrow{
+    width: 0;
+    height: 0;
+    margin: 24px 16px;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+}
+
+.size-button{
+    background: #fff;
+    color: #282c3f;
+    text-align: center;
+    border: 1px solid #bfc0c6;
+    border-radius: 50px;
+    min-width: 40px;
+    height: 40px;
+}
+
+.size-button:hover{
+    border: 1px solid #ff3f6c;
+}
+
+.category-header{
+    font-size: 35px;
+    letter-spacing: 5px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.footer-links{
+    margin-left: 0;
+}
+
+
+@media only screen and (max-width:768px){
+
+    .btn-pink{
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .footer-links{
+        margin-left: 20px;
+    }
+}
+
+
+@media only screen and (max-width:992px){
+    .search_container{
+        display: none;
+    }
+
+    .search-container2{
+        display: block;
+    }
+}
+
+@media only screen and (max-width:508px){
+
+    .btn-pink{
+        letter-spacing: 0px;
+    }
+
+    .wishlist-and-bag-content{
+        margin-top: 25px;
+    }
+
+    .deals_header{
+        letter-spacing: 3px;
+    }
+
+    .serach_box
+    {
+        width: 25%;
+    }
+}

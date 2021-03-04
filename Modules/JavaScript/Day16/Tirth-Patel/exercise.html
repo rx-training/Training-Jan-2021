@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+        <p id="result"></p>
+       
+        <h3>click below button to add a string and check weatehr below string is empty or not?</h3>
+        <button class="btn-warning" onclick="check()">Click me</button>
+        <button class="btn-warning" onclick="getdate()">Click to get datre</button>
+        <p id="result1">
+
+        </p>
+        <p id="r2"></p>
+        <p id="r1"></p>
+        <p id="r3"></p>
+        <p id="r4"></p>
+        
+    </div>
+
+</body>
+<script>
+    var n1 = 10;
+    var n2 = 20;
+    console.log(n1 + n2);
+    result.innerHTML = 'result is' + (n1 + n2);
+    console.log('hello');
+    document.getElementById('result').style.backgroundColor='green'
+    function check() {
+        var string1 = prompt('enter string');
+
+       if(!! string1){
+           document.getElementById('result1').innerHTML='String is NOT empty'
+       }
+       else{
+           document.getElementById('result1').innerHTML='string is Empty';
+       }
+   
+
+    }
+    function getdate(){
+        var date = new Date();
+        alert("today's date is "+ date);
+    }
+    function checkdate(){
+        var date = document.getElementById("checkdates").value;
+        console.log(date);
+        var string = date.toString();
+        console.log(string);
+
+    }
+var str1="hello my name is xyz'";
+console.log(str1);
+
+document.getElementById('r2').innerHTML='before split"' + str1;
+var str2 =str1.split(" ");
+document.getElementById('r1').innerHTML='split called :"' + str2;
+
+document.getElementById('r3').innerHTML='slicing 0 to 7 elements from string';
+
+    var str3 = str1.slice(0,7);
+    document.getElementById('r4').style.backgroundColor='2px solid red'.innerHTML='slice called :"' + str3;
+    var date= new Date();
+    console.log(date);
+
+    var list=["1:one,2:two,3:three,4:four"]
+    list.push('pushed');
+    console.log(list)
+    list.push('poped');
+    console.log(list)
+    list.pop();
+    console.log(list);
+    
+    var list=[1,2,3,4,5];
+   
+    var shift1=list.shift();
+    console.log(shift1)
+    console.log(list);
+    list.unshift(1);
+  
+    console.log(list);
+    var strings = list.toString();
+    console.log(strings);
+
+    list.push(6);
+    console.log(list);
+    list.pop();
+    console.log(list);
+    
+    list.splice(2,0,"splice1","splice2")
+    console.log(list);
+   list.splice(1,4,'splice1','splice2')
+    console.log(list);
+    var list1=['hello'];
+    var list2=[' how ' , ' are   you?'];
+    var list3 = list1 + list2;
+    console.log(list3);
+    var list4= list3.slice(1,5);
+    console.log(list4);
+    
+
+    </script>
+
+</html>

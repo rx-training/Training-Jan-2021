@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <title>Training Site</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-light mr-5">
+        <a href="https://radixweb.com/" target="_blank" class="navbar-brand">
+            <img class="img-fluid" src="../../../img/logo.png" alt="Radix logo">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item px-3">
+                    <a href="../../../Html/index.html" class="nav-link">Html</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a href="../../../CSS/index.html" class="nav-link">CSS</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a href="../../../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a href="../../../JavaScript/index.html" class="nav-link">JavaScript</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a href="../../../jQuery/index.html" class="nav-link">jQuery</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a href="../../../StackBlitz/index.html" target="_blank" class="nav-link">Mini Project</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SIDE NAV -->
+    <section id="mainContent">
+        <div class="row">
+            <div class="col-2 bg-info">
+                <ol start="1">
+                    <li>Day 23
+                        <ul type="disc">
+                            <li><a href="../Assignment/index.html" class="text-dark"> Assignment</a></li>
+                            <li><a href="#" class="text-dark"> Practice</a></li>
+                        </ul>
+                    </li>
+                    <li>Day 24
+                        <ul type="disc">
+                            <li><a href="../../Day24/Assignment/index.html" class="text-dark"> Assignment</a></li>
+                            <li><a href="../../Day24/Practice/index.html" class="text-dark"> Practice</a></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-10">
+                <p id="firstP" class="m-5"></p>
+                <p id="secondP" class="m-5">(Hover on the text) Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias itaque nulla obcaecati quasi delectus ullam expedita quibusdam. Reiciendis, ipsam repellendus!</p>
+                <form class="form m-5">
+                    <div class="form-group">
+                        <label for="selection">Please select your technology : </label>
+                        <span class="result"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check d-inline px-4">
+                            <label for="PHP" class="form-check-label">
+                                <input type="radio" name="buttonGroup" id="radiobtn1" value="PHP" class="form-check-input"> PHP
+                            </label>
+                        </div>
+                        <div class="form-check d-inline px-4">
+                            <label for="ASP.NET" class="form-check-label">
+                                <input type="radio" name="buttonGroup" id="radiobtn2" value="ASP.NET" class="form-check-input">ASP.NET
+                            </label>
+                        </div>
+                        <div class="form-check d-inline px-4">
+                            <label for="ASP" class="form-check-label">
+                                <input type="radio" name="buttonGroup" id="radiobtn3" value="ASP" class="form-check-input">ASP
+                            </label>
+                        </div>
+                        <div class="form-check d-inline px-4">
+                            <label for="JSP" class="form-check-label">
+                                <input type="radio" name="buttonGroup" id="radiobtn4" value="JSP" class="form-check-input">JSP
+                            </label>
+                        </div>
+                        <div class="form-check d-inline px-4">
+                            <label for="Perl" class="form-check-label">
+                                <input type="radio" name="buttonGroup" id="radiobtn5" value="Perl" class="form-check-input">Perl
+                            </label>
+                        </div>
+                        <div class="form-check d-inline px-4">
+                            <label for="coldfusion" class="form-check-label">
+                                <input type="radio" name="buttonGroup" id="radiobtn6" value="Cold Fusion" class="form-check-input">Cold Fusion
+                            </label>
+                        </div>
+                        <div class="form-check d-inline px-4">
+                            <label for="other" class="form-check-label">
+                                <input type="radio" name="buttonGroup" id="radiobtn7" value="Other" class="form-check-input">Other
+                            </label>
+                        </div>
+                    </div>
+                </form>
+
+                <script>
+                    $(document).ready(function(){
+                        
+                        // 1
+                        $("#firstP").text("Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio architecto labore id.").css("background","blue");
+                        
+                        // 2
+                        $("#secondP").hover(function(){
+                            $("#secondP").toggle();
+                        });
+
+                        // 3
+                        $("input[name='buttonGroup']").click(function(){
+                            $(".result").html($(this).val());
+                        });
+
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="fixed-bottom bg-info py-2">
+        <div class="container">
+            <p class="text-center text-white">Copyright &copy; 2021. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

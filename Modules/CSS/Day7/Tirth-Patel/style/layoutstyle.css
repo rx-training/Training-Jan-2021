@@ -1,0 +1,454 @@
+* {
+    box-sizing: border-box;
+    ;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+h2 {
+    color: black;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.container {
+    min-height: 100vh;
+    ;
+    width: auto;
+    /* border: 2px solid black; */
+    margin: auto;
+}
+
+.logo {
+    background-color: whitesmoke;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    clear: both;
+}
+
+.navbar {
+    background-color: black;
+    height: 40px;
+    width: 100%;
+}
+
+.navbar ul {
+    overflow: auto;
+    margin-left: 300px;
+    list-style-type: none;
+}
+
+.navbar li {
+    margin: auto;
+    float: left;
+    padding: 10px 20px;
+    color: grey;
+}
+
+.navbar a {
+    margin: auto;
+    color: grey;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar a:before {
+    position: absolute;
+    color: white;
+    content: "";
+    left: 0%;
+    top: 100%;
+    height: 5px;
+    width: 0%;
+    background-color: rgb(45, 199, 226);
+}
+
+.navbar a:hover::before {
+    width: 500px;
+}
+
+.banner-section {
+    background-image: url('/Day5/Tirth-Patel/pictures/banner.jpg');
+    height: 400px;
+    width: auto;
+    position: relative;
+}
+
+.banner-content {
+    float: left;
+    position: absolute;
+    /* background-color:black; */
+    color: black !important;
+    opacity: 0.6;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    padding-top: 360px;
+}
+
+.banner-content h3 {
+    color: black;
+}
+
+.icons-selection {
+    padding: 30px 200px;
+    text-align: center;
+    float: left;
+    color: grey;
+    background-color: white;
+}
+
+.icons-selection h3 {
+    color: black;
+}
+
+.img1 {
+    width: 33%;
+    float: left;
+}
+
+.img2 {
+    width: 33%;
+    float: left;
+}
+
+.img3 {
+    width: 33%;
+    float: right;
+}
+
+.header {
+    text-align: center;
+    background-color: rgb(230, 222, 222);
+    padding-top: 140px;
+    text-decoration: none;
+}
+
+.header1 {
+    margin-top: 200px;
+    padding: 30px 0px 30px 0px;
+    color: black;
+    text-decoration: none;
+}
+
+.header2 {
+    padding-top: 90px;
+    color: grey;
+    text-decoration: none;
+}
+
+.things {
+    clear: both;
+    margin: 100px;
+    float: left;
+    background-color: white;
+}
+
+.things h2 {
+    padding-left: 150px;
+    color: black;
+}
+
+.things p {
+    color: grey;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.things img {
+    float: left;
+}
+
+.thing1 {
+    padding: 15px;
+    float: left;
+    width: 50%;
+}
+
+.thing2 {
+    padding: 15px;
+    float: left;
+    width: 50%;
+}
+
+.thing3 {
+    padding: 15px;
+    float: left;
+    width: 50%;
+}
+
+.thing4 {
+    padding: 15px;
+    float: left;
+    width: 50%;
+}
+
+.quest {
+    position: relative;
+    height: 50px;
+    padding: 2px;
+    margin-top: 500px;
+    position: relative;
+    text-align: center;
+    background-color: rgb(21, 172, 218);
+    color: white !important;
+    
+}
+
+.quest>h2>a:link {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 7px 20px;
+}
+
+.logo p {
+    text-align: center;
+    padding: 15px;
+    color: rgb(102, 102, 145);
+}
+
+.footer1 {
+    padding-left: 140px;
+    background-color: lightgrey !important;
+    margin-bottom: 400px;
+    margin-top: 50px;
+    clear: both;
+}
+
+.ul1 {
+    float: left;
+    clear: both;
+}
+
+.ul2 {
+    float: left;
+    padding-left: 20px;
+}
+
+.footer1 li {
+    padding: 5px;
+}
+
+.intouch {
+    float: left;
+}
+
+.footer1>ul1 {
+    list-style-type: none;
+}
+
+li.footer1 {
+    list-style-type: none;
+    color: rgb(131, 128, 128);
+}
+.msg{
+    height: 50px; width: 110px; border-radius: 5px; background-color: rgb(34, 33, 33); color: white;
+}
+
+.form {
+    float: left;
+    padding-left: 20px;
+}
+
+.intouch h3 {
+    color: black !important;
+}
+
+.contact {
+    clear: left;
+    text-align: center;
+    padding-top: 250px;
+    word-spacing: 30px;
+    color: rgb(83, 11, 11);
+}
+
+@media only screen and (min-width :805px) and (max-width:1175px) {
+    /* *{
+        background-color: blue;
+    } */
+    .navbar {
+        width: auto;
+    }
+    .navbar ul {
+        margin-left: 100px;
+    }
+    .icons-selection {
+        padding: 30px 100px;
+        text-align: center;
+    }
+    .things {
+        margin: 40px;
+        float: left;
+        background-color: white;
+    }
+    .things h2 {
+        padding-left: 90px;
+        color: black;
+    }
+    .things img {
+        height: 120px;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* *{
+        background-color: blue;
+    } */
+    .navbar {
+        width: auto;
+    }
+    .navbar ul {
+        margin-left: 0px;
+    }
+    .navbar li {
+        margin-left: 0px;
+        padding: 10px 5px;
+    }
+    .navbar a {
+        font-size: 10px;
+    }
+    .banner-content h3 {
+        font-size: 14px;
+    }
+    .icons-selection {
+        width: auto;
+        padding: 10px 33px;
+    }
+    .icons-selection P{
+        font-size: 12px;
+        text-align: left;
+    }
+    .img1 {
+        width: 33%;
+        height: 33%;
+    }
+    .img2 {
+        width: 33%;
+        height: 33%;
+    }
+    .img3 {
+        width: 33%;
+        height: 33%;
+    }
+
+
+.icon-selection h3 {
+    font-size: 19px;
+    margin-block-start: 3px;
+    margin-block-end: 0px;
+}
+
+.icon-selection p {
+    font-size: 5px;
+    ;
+}
+
+.things {
+        margin: 9px;
+    float: left;
+    background-color: white;
+}
+
+.things h2 {
+    padding-left: 85px;
+    margin: 2px;
+    font-size: 11px;
+}
+
+.things p {
+    margin-left: 81px;
+    font-size: 7px;
+    padding: 4px 1px;
+}
+
+.things img {
+    height: 69px;
+    width: 72px;
+}
+
+
+
+.header1 {
+    font-size: 12px;
+    padding: 38px 7px 0px 7px;
+}
+
+.header1 h4 {
+    margin-top: -7px;
+}
+    .quest{
+        margin-top: 276px;
+    }
+}
+        .quest h2{
+
+            font-size: 12px;
+            padding: 4px 7px 0px 7px;
+        }
+        .footer1{
+            padding-left: 10px;
+        }
+        .footer1 li{
+            font-size: 9px;
+        }
+        .footer1 h3{
+            font-size: 10px;
+            padding-left: 10px;
+        }
+        .form{
+            width: auto;
+            font-size: 10px;
+        }
+        .msg textarea{
+            width: 258px;
+        }
+        #myid{
+            height: 14x;;
+        }
+        #myemail{
+            height: 15px;
+        }
+        .contact{
+            font-size: 7px;
+    padding-top: 110px;
+
+        }
+    
+        @media only screen and (min-device-width: 479px) and (max-device-width: 804px)
+    {       
+
+            .navbar ul{
+                margin-left: -55px;
+            }
+            .icons-selection{
+
+                padding: 29px 37px;
+    text-align: left;
+            }
+            .things{
+                margin: -1px;}
+                .navbar{
+                    height: 24px;;
+                }
+                .navbar li{
+                    padding: 7px 20px;
+                    font-size: 10px;}
+                    .things h2{padding-left: 85px;}
+                    .things img {
+                        height: 75px;
+                        
+                        width: 78px;
+                    }
+            
+
+    }

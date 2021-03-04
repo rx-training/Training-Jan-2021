@@ -1,0 +1,14 @@
+.ab
+{
+    border: 2px blue solid;
+}
+div p h1
+{
+    margin: 25px;
+}
+@media screen and (max-width: 600px) {
+    .ab  {
+            border: solid 2px red;
+     
+        }
+}

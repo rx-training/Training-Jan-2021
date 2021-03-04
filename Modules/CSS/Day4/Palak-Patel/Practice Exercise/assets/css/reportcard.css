@@ -1,0 +1,30 @@
+body {
+    background-color: blue;
+    color: white;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    border: 1px solid white;
+}
+
+.marksTable {
+    text-align: center;
+    display: center;
+    border-color: white;
+}
+
+.details {
+    font-size: 1.1em;
+}
+
+.title {
+    color: white;
+    font-size: larger;
+    background-color: grey;
+    font-weight: bold;
+    padding: 30px;
+    margin: 20px;
+}

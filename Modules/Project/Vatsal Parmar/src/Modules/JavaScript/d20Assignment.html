@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Day 20 Assignment</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">JavaScript</a>
+            </li>
+            <li class="nav-item">
+              <a href="../jQuery/d22PracticeExercise.html" class="nav-link"
+                >jQuery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d15PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Practice Exercise</a
+          >
+          <a
+            href="d15Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Assignment</a
+          >
+          <a
+            href="d16PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Practice Exercise</a
+          >
+          <a
+            href="d16Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Assignment</a
+          >
+          <a
+            href="d17PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Practice Exercise</a
+          >
+          <a
+            href="d17Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Assignment</a
+          >
+          <a
+            href="d18PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Practice Exercise</a
+          >
+          <a
+            href="d18Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Assignment</a
+          >
+          <a
+            href="d19PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Practice Exercise</a
+          >
+          <a
+            href="d19Extras.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Extras</a
+          >
+          <a
+            href="d20Assignment.html"
+            class="list-group-item list-group-item-action active"
+            >Day 20 Assignment</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <div class="container">
+          <h1 class="text-center my-2">Assignment Day-20</h1>
+        </div>
+        <div class="container">
+          <h1 class="display-2 text-center my-3">Welcome to e-cart</h1>
+          <div class="container my-5">
+            <table class="table table-success table-hover table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Qty</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+            <button
+              class="btn btn-success btn-lg"
+              onclick="addToCart()"
+              id="cartBtn"
+            >
+              Add To Cart
+            </button>
+            <button
+              class="btn btn-primary btn-lg ms-3"
+              data-bs-toggle="modal"
+              data-bs-target="#cart"
+              onclick="viewCart()"
+            >
+              View Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="cart">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-light">
+                <h4 class="modal-title text-primary">Cart</h4>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body text-primary">
+                <h5>Your Items :</h5>
+                <ul id="itemList"></ul>
+              </div>
+              <div class="modal-footer bg-light">
+                <p class="text-primary me-3">
+                  <strong id="total">Total : </strong>
+                </p>
+                <button class="btn btn-success" data-bs-dismiss="modal">
+                  Check Out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var products;
+      async function getData(file) {
+        let x = await fetch(file);
+        let y = await x.json();
+
+        products = y.products;
+
+        //showing products in table
+        for (var i = 0; i < products.length; i++) {
+          var tr = document.createElement("tr");
+          var th1 = document.createElement("th");
+
+          var td2 = document.createElement("td");
+          var td3 = document.createElement("td");
+          var td4 = document.createElement("td");
+          var td5 = document.createElement("td");
+
+          var att = document.createAttribute("class");
+          att.value = "form-control";
+          var att2 = document.createAttribute("placeholder");
+          att2.value = "Enter Qty";
+          var att4 = document.createAttribute("id");
+          att4.value = "in" + products[i].id;
+
+          var text1 = document.createTextNode(products[i].id);
+          var text2 = document.createTextNode(products[i].Name);
+          var text3 = document.createTextNode(products[i].Price);
+          var text4 = document.createTextNode(products[i].Location);
+          var tinput = document.createElement("input");
+
+          tinput.setAttributeNode(att);
+          tinput.setAttributeNode(att2);
+          tinput.setAttributeNode(att4);
+          tinput.style.width = "100px";
+
+          th1.appendChild(text1);
+          td2.appendChild(text2);
+          td3.appendChild(text3);
+          td4.appendChild(text4);
+          td5.appendChild(tinput);
+
+          tr.appendChild(th1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tr.appendChild(td5);
+
+          document.getElementById("tableBody").appendChild(tr);
+        }
+      }
+      getData("product.json");
+
+      function addToCart() {
+        let arr = [];
+        for (var i = 0; i < products.length; i++) {
+          let z = document.getElementById("in" + products[i].id).value;
+          let p = {
+            id: products[i].id,
+            Name: products[i].Name,
+            Price: products[i].Price,
+            Location: products[i].Location,
+            Qty: z,
+          };
+          arr.push(p);
+        }
+
+        //setting cart data in local storage
+        let a = JSON.stringify(arr);
+        localStorage.setItem("Items", a);
+      }
+
+      function viewCart() {
+        var pData = localStorage.getItem("Items");
+        var prodData = JSON.parse(pData);
+        document.getElementById("itemList").innerHTML = "";
+        document.getElementById("total").innerHTML = "Grand Total : 0 Rs";
+
+        let arr = [];
+        for (let i = 0; i < prodData.length; i++) {
+          if (prodData[i].Qty != "") {
+            arr.push(prodData[i]);
+            document.getElementById("itemList").innerHTML +=
+              "<li>" +
+              "Name : " +
+              prodData[i].Name +
+              "&nbsp &nbsp" +
+              "Price : " +
+              prodData[i].Price +
+              " Rs " +
+              "&nbsp &nbsp" +
+              "Qty : " +
+              prodData[i].Qty +
+              "</li>";
+          }
+        }
+
+        //showing total price
+        var total = 0;
+        for (let i = 0; i < arr.length; i++) {
+          total = total + arr[i].Qty * arr[i].Price;
+        }
+        document.getElementById("total").innerHTML =
+          "Grand Total : " + total + " Rs";
+      }
+    </script>
+  </body>
+</html>

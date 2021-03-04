@@ -1,0 +1,298 @@
+:root{
+    --main-raduis:5px;
+    --main-padding:5px;
+}
+  .container{
+      display: grid;
+      height: 100vh;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 0.2fr 2.2fr  1.5fr 1.2fr 0.8fr;
+      grid-template-areas: "nav nav nav nav"
+                           "slider slider slider slider"
+                           "main main main main"
+                           "footer footer footer footer"                  
+      ;
+  }
+  nav{
+      grid-area: nav;
+      }
+  main{
+       grid-area: main;
+  }
+  #slider{
+      grid-area: slider;
+  }
+  footer{
+      grid-area: footer;
+  }
+  .header{
+    font-size: 50px;
+   }
+   .headermain{
+    width: 100%;
+    display: table;
+   }
+   .logodiv{
+    width: 30%;
+    float: left;
+    }
+    .menubar{
+    float: right;
+    }
+    .rightmenulist {
+        width: 100%;
+        display: table;
+        font-size: 26px;
+        margin-top: 10px;
+    }
+    .menubar {
+        float: right;
+        width: 49%;
+    }
+    .mobilemenu {
+        display: none;
+    }
+    .logodiv {
+        color: green;
+        padding-left: 18px;
+    }
+    .rightmenulistul {
+        text-decoration: none;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        float: right;
+        color: #767678;
+    }
+    .rightmenulistli {
+        float: left;
+        padding: 0px 10px;
+    }
+    .bannermain{
+        margin: 10px 0px 40px;
+    }
+    .banner {
+        width: 100%;
+    }
+    .bannerclass{
+        width: 100%;
+        height: auto;
+    }
+    .titlebanner{
+        margin: 0 auto;
+        color: #767678;
+        width: 80%;
+        font-size: 58px;
+    }
+    .bannertext {
+        width: 70%;
+        padding-left: 20px;
+        float: left;
+    }
+    .download {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        text-align: center;
+        margin: 40px 40px;
+        font-size: 30px;
+        cursor: pointer;
+    }
+    .bannercontain{
+        border-bottom: 1px solid #767678;
+    }
+    .mainartical{
+        width: 100%;
+        border-bottom: 1px solid #767678;
+    }
+    .articalcontainer {
+        width: 90%;
+        margin: 0 auto;
+        color: #767678;
+        font-size: 36px;
+    }           
+    .subcontainer {
+        width: 29%;
+        margin-top: 25px;
+        padding: 0% 2%;
+        float: left;
+    }
+    .marginusefor {
+        margin: 0px;
+    }
+    .contentartical{
+        font-size: 25px;
+    }
+    .resentmain{
+        width: 100%;
+    }
+    .resentclass{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .headfontsize{
+        font-size: 36px;
+        color:#767678;
+    }
+    .resentwork {
+        margin: 0px 0px 0px 10px;
+    }
+    .containresent {
+        float: left;
+        margin-top: 35px;
+        width: 23%;
+        padding: 0px 1%;
+    }
+    .resentimg{
+        width: 100%; 
+        height: 220px;
+    }
+    .img{
+        width: 100%;
+        height: 220px;}
+    .textfontsize{
+        font-size: 58px;
+        color:#767678;
+    }
+    .projectone{    
+        font-size: 36px;
+        text-align: center;
+        color: #767678;
+    }
+    .projectheading {
+        margin: 10px 0px;
+    }
+    .imgresent{   
+        background-color: #74736f
+    }
+    .mainleftborder{
+        border-left: 4px solid #767678;
+    }
+    .textfontsize {
+        font-size: 23px;
+        color: #767678;
+    }
+    .welcomeimg {
+        width: 100%;
+        height: 220px;
+        background-color: #74736f;
+    }
+    .welcomeclass {
+        width: 70%;
+        float: left;
+    }
+    .imgwelcome {
+        width: 30%;
+        float: left;
+        padding-right: 25px;
+    }
+    .letestshotes {
+        display: table;
+        width: 340px;
+        height: 220px;
+        background-color: #74736f;
+    }
+    .subleftfolder {
+        width: 90%;
+        margin: 0 auto;
+        color: #767678;
+        font-size: 24px;
+    }
+    .img_ourclient {
+        width: 14%;
+        float: left;
+    }
+    .img_ourclient {
+        width: 12%;
+        float: left;
+        margin: 0px 1%;
+    }
+    .ourclientresentimg {
+    width: 100%;
+    height: auto;
+    }
+    .ourclientmain {
+        width: 100%;
+        display: table;
+    }
+    .footermain{
+        width: 100%;
+        margin-top: 2%;
+    }
+    .footerclass {
+        display: table;
+        width: 90%;
+        margin: 0 auto;
+        background-color: black;
+    }
+    .footercontainer{
+        font-size: 35px;
+    }
+    .footcontinerright {
+        float: left;
+        width: 25%;
+    }
+
+    .letestpost {
+        width: 25%;
+        float: left;
+    }
+    .usefullink {
+        width: 25%;
+        float: left;
+    }
+    .footerseccontainer {
+        color: white;
+        font-size: 24px;
+        width: 90%;
+        display: table;
+        padding: 10px 1%;
+    }
+    .footerlogo {
+        color: green;
+        font-size: 40px;
+        margin-bottom: 23px;
+        margin: 10px;
+    }
+    .footercontainertext {
+        padding-bottom: 0%;
+    }
+    .footertext {
+        color: white;
+        width: 100%;
+        display: table;
+        font-size: 23px;
+        padding: 10px 10px;
+    }
+    .letesttext {
+        font-size: 30px;
+    }
+    .uselinkaboutus{
+        font-size: 23px;
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+    .footerseccontainerhedding {
+        border-bottom: 5px dashed white;
+    }
+    .centerfooter {
+        display: table;
+        text-align: center;
+        font-size: 25px;
+        padding: 10px 20px;
+    }
+  @media only screen and (max-width: 550px){
+    .container{
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.4fr 0.4fr 2.2fr  1.2fr 1.2fr 1.2fr 1fr;
+      grid-template-areas:
+                     "nav"
+                     "slider"
+                     "main"
+                     "content1"
+                     "content2"
+                     "content3"
+                     "footer";   
+    }
+  }

@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+  #search {
+    display: none; } }
+
+@media (max-width: 576px) {
+  #login {
+    text-align: center; } }
+
+#app {
+  border-left: 1px solid lightgrey; }

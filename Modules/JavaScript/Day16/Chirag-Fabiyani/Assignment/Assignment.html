@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function validation(){
+            var date = document.getElementById('date').value.trim();
+            if(date == "")
+            {
+                alert('Invalid Date');
+                return true;
+            }
+            var array = date.split('-');
+
+            if(array.length != 3 || array[0].length != 2 || array[1].length != 2 || array[2].length != 4){
+                alert('Invalid Format');
+                return true;
+            }
+
+            var month = parseInt(array[0]);
+            var day = parseInt(array[1]);
+            var year = parseInt(array[2]);
+
+            if(isNaN(month) || isNaN(day) || isNaN(year)){
+                alert("Invalid not a number");
+                return true;
+            }
+
+            if(month < 1 || month > 12){
+                alert("Invalid Month");
+                return true;
+            }
+
+            var count = new Date(year,month,0).getDate();
+            
+            if(day < 1 || day > count){
+                alert("Invalid Date!");
+            }
+
+            alert("Date Validated");
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container m-auto text-center">
+        <form class="form-group mt-5">
+                <label for="date" class="">Enter Date <b>('MM-DD-YYYY')</b>:</label>
+                <input type="text" class="form-control my-2" placeholder="e.g. 02-11-2000" id="date">
+                <button class="btn btn-primary" onclick="return validation()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+ [
+        {
+            "User_Id": 1,
+            "Name": "Harsh",
+            "Password": "harsh@",
+            "Gender" : "Male",
+            "Phone" : 1234567890,
+            "Email" : "abc@gmail.com"
+            
+
+        },
+        {
+            "User_Id": 2,
+            "Name": "Harsh1",
+            "Password": "harsh@1",
+            "Gender" : "Male",
+            "Phone"  : 1234567890,
+            "Email" : "abc1@gmail.com"
+            
+
+        },
+        {
+            "User_Id": 3,
+            "Name": "Harsh12",
+            "Password": "harsh@12",
+            "Gender" : "Male",
+            "Phone"  : 1234567890,
+            "Email" : "abc12@gmail.com"
+            
+
+        },
+        {
+            "User_Id": 4,
+            "Name": "Harsh123",
+            "Password": "harsh@123",
+            "Gender" : "Male",
+            "Phone"  : 1234567890,
+            "Email" : "abc123@gmail.com"
+            
+
+        },
+        {
+            "User_Id": 5,
+            "Name": "Harsh1234",
+            "Password": "harsh@1234",
+            "Gender" : "Male",
+            "Phone"  : 1234567890,
+            "Email" : "abc1234@gmail.com"
+            
+
+        }
+    ]
+
+    
+
+
+
+
+
+

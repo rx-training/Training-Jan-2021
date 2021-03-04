@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+    <h2 class="text-center display-2">Callback Function</h2>
+    <div class="form-group">
+        <label for="">Enter The Number</label>
+        <input type="number" class="form-control" placeholder="Please Enter The Number" id="num">
+    </div>
+    <div>
+        <button class="btn btn-primary" onclick="getnumber()">Click Here</button>
+   </div>
+   <div class="text-center text-success"id="result"></div>
+
+    <script>
+        function getnumber()
+        {
+            var a=document.getElementById("num").value;
+            proc(a,calculation);
+
+
+        }
+        function calculation(num)
+        {
+            document.getElementById("result").innerHTML="the Squre of the given number is:= " +num;
+        }
+        function proc(a,calculation)
+        {
+            var num=a*a;
+            calculation(num);
+        }
+
+    </script>
+</body>
+</html>

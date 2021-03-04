@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .flex-container{
+            display:flex;
+            background-color: skyblue;
+            height: 500px;
+            width: 100%;
+            flex-flow: row-reverse wrap;
+        }
+        .flex-container>div{
+            background-color: tomato;
+            color: yellow;
+            font-size: x-large;
+            font-family: monospace;
+            width: 70px;
+            height: 60px;
+            padding: 20px;
+            margin: 10px;
+
+        }
+    </style>
+
+</head>
+<body>
+    <div class="flex-container">
+        <div style="order:2;">This is 1st Div
+            
+        </div>
+        <div style="order:3;">This is 2nd Div
+            
+        </div>
+        <div style="order:4;">This is 3rd Div
+            
+        </div>
+        
+            
+        
+    </div>
+    
+</body>
+</html>

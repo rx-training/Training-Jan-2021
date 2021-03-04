@@ -1,0 +1,143 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background: #fafafa; */
+    margin-top: 72.3px;
+}
+
+#mainNavbar .navbar{
+    color: black;
+    background: #fff;
+    box-shadow: 1px 1px 5px lightgray;
+}
+
+#mainNavbar .nav-link{
+    color: black !important;
+    letter-spacing: 1px;
+}
+
+#mainNavbar .nav-link:hover{
+    color: gray !important;
+}
+
+#mainNavbar .navbar-brand{
+    padding-left: 20px;
+    color: black;
+    letter-spacing: 3px;
+}
+
+#mainNavbar .navbar-toggler-icon{
+    color: black !important;
+}
+
+#sidebar a,
+#sidebar a:hover,
+#sidebar a:focus{
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+/* Sidebar */
+
+.wrapper{
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar{
+    min-width: 250px;
+    max-width: 250px;
+    background: #fff;
+    color: black;
+    transition: all 0.3s;
+    box-shadow: 1px 1px 5px lightgray;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar ul.components{
+    padding: 20px 0;
+    border-bottom: 1px solid black;
+}
+
+
+#sidebar ul li a
+{
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover{
+    background:lightgray;
+}
+
+#sidebar ul li.active>a,
+#sidebar ul li ul li.active>a,
+a[aria-expanded="true"]{
+    color: #fff;
+    background: rgb(196, 196, 196);
+}
+
+a[data-toggle="collapse"]{
+    position: relative;
+}
+
+.dropdown-toggle::after{
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+}
+
+#sidebar ul ul a{
+    font-size: 1em !important;
+    padding-left: 30px !important;
+    background: rgb(196, 196, 196) ;
+}
+
+#sidebar ul ul ul a{
+    font-size: 0.9em !important;
+    padding-left: 50px !important;
+    background: rgb(196, 196, 196) ;
+}
+
+#content{
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-link-active{
+    background: lightgray;
+}
+
+
+#content .btn-blue{
+    background: #6d7fcc;
+    color: #fff;
+}
+
+#content .btn-blue :hover{
+    background: #6d7fcc;
+    color: #fff;
+}
+
+@media (max-width:768px){
+    #sidebar{
+        margin-left: -250px;
+    }
+
+    #sidebar.active{
+        margin-left: 0;
+    }
+
+    #sidebarCollapse span {
+        display: none;
+    }
+}

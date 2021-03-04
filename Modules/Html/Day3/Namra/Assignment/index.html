@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+        <link rel="stylesheet" href="./asset/style/index.css">
+    </head>
+
+    <body>
+
+      
+        <h2>Registration</h2>
+        <form name="regForm" action="" onsubmit="return validateForm()" method="POST">
+            <table align="center">
+                <tr>
+                    <td>
+                        <label for="name" class="lab1"> Name  </label>
+                    </td>
+                    <td>
+                        <input   type="text" id="name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="age" class="lab1"> Age </label>
+                    </td>
+                    <td>
+                        <input type="number" id="age" min="18" max="50"required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="gender" class="lab1"> Gender </label>
+                    </td>
+                    <td>
+                        
+                        <input  type="radio" id="gender" name="Gender"value="male"><label for="male" required>Male</label>
+                        <input  type="radio" id="gender" name="Gender"value="female"><label for="female">Feale</label>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="designation" class="lab1"> Designation </label>
+                    </td>
+                    <td>
+                        <input    type="text" id="designation" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="salary" class="lab1"> Salary </label>
+                    </td>
+                    <td>
+                        <input    type="text" id="salary"required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="location" class="lab1"> Location </label>
+                    </td>
+                    <td>
+                        <select name="location"  required>
+                            <option value="">Select</option>
+                            <option value="ahmedabad">Ahmedabad</option>
+                            <option value="nadiad">Nadiad</option>
+                            <option value="vadodara">Vadodara</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="mail" class="lab1"> E-mail </label>
+                    </td>
+                    <td>
+                        <input    type="email" id="mail" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="joining_date" class="lab1"> Date of Joining </label>
+                    </td>
+                    <td>
+                        <input  type="date" id="joining_date" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="number" class="lab1"> Contact Number </label>
+                    </td>
+                    <td>
+                        <input    type="text" id="number" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input  type="submit" value="submit">
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </body>
+</html>

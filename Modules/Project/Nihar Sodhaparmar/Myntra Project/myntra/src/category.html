@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style-for-login.css">
+    <script src="./js/category.js"></script>
+    <title>Add Category</title>
+    <link rel="shortcut icon" href="./img/myntra-logo.png" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand"> <img src="./img/myntra-logo.png" alt="Logo" height="50" width="50"> </a>
+
+            <button class="navbar-toggler navbar-toggler-right p-0" type="button" data-toggle="collapse"
+                data-target="#navResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                <ul class="navbar-nav px-3 navbar-left-link-container">
+                    <li class="nav-item px-2"><a href="products.html" class="nav-link">PRODUCTS</a></li>
+                    <li class="nav-item px-2"><a href="category.html" class="nav-link">CATEGORIES</a></li>
+                    <li class="nav-item px-2"><a href="offers.html" class="nav-link">OFFERS</a></li>
+                </ul>
+
+                <div class="search_container ml-auto">
+                    <ul class="navbar-nav" style="font-size: 13px;">
+                        <li class="nav-item mr-3">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-search"></i> </span>
+                                </div>
+                                <input class="form-control d-block form-control" type="search" style="height: 30px;">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container p-5">
+        <a href="#" class="btn login-btn btn-block add-category-btn" data-toggle="modal" data-target="#addCategoryModal">
+            <i class="fa fa-plus"></i> Add Category
+        </a>
+    </div>
+
+
+    <div class="container">
+
+        <h1 class="text-center">Latest Categories</h1>
+
+
+        <table id="categoryTable" class="table table-hover table-bordered text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th style="letter-spacing: 2px;">Category</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <nav class="ml-4">
+            <ul class="pagination">
+                <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
+                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- ---------------------------------- CATEGORY MODAL ---------------------------------- -->
+    <div class="modal fade" id="addCategoryModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-pink text-white">
+                    <h5 class="modal-title">Add Category</h5>
+                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-control-label" for="category">Category Title</label>
+                            <input type="text" class="form-control" id="category">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-pink" onclick="addCategory()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------------- CATEGORY UPDATE MODAL ---------------------------------- -->
+    <div id="updateCategoryModalContainer">
+
+    </div>
+
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title> refer W3school </title>
+  </head>
+  <body>
+
+    <div id="first" >
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <div>
+        first
+        <div>
+            second
+            <div>
+                third
+                <div>
+                    four 
+                    <div id="second">
+                        five
+                        <ul>
+                            <li>one</li>
+                            <li>two</li>
+                            <li>three</li>
+                            <li>four</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width:500px;">div (great-grandparent)
+        <ul>ul (grandparent)  
+          <li>li (direct parent)
+            <span>span</span>
+          </li>
+        </ul>   
+      </div>
+      <div class="descendants" style="width:500px;">div (current element) 
+        <p>p (child)
+          <span>span (grandchild)</span>   
+        </p>
+        <p>p (child)
+          <span>span (grandchild)</span>
+        </p> 
+      </div>
+      <div class="descendants2" style="width:500px;">div (current element) 
+        <p>p (child)
+          <span>span (grandchild)</span>   
+        </p>
+        <p>p (child)
+          <span>span (grandchild)</span>
+        </p> 
+      </div>
+      <!-- siblings -->
+      <div id="sib">div (parent)
+        <p>p</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+        <p>p</p>
+      </div>
+      <div class="third">div third
+        <p>p</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <h6>h6</h6>
+        <p>p</p>
+      </div>
+
+      <div style="border: 1px solid black;">
+        <p>A paragraph in a div.</p>
+        <p>Another paragraph in a div.</p>
+      </div>
+      <br>
+      
+      <div style="border: 1px solid black;">
+        <p>A paragraph in another div.</p>
+        <p>Another paragraph in another div.</p>
+      </div>
+      <br>
+      
+      <div style="border: 1px solid black;">
+        <p>A paragraph in another div.</p>
+        <p class="intro">Another paragraph in another div.</p>
+      </div>
+    <script>
+        $(document).ready(function(){
+            $('#first ul li').parent().css({"color": "red", "border": "2px solid red"});
+            $('#second ul li').parents().css('color','red');
+            $("span").parentsUntil('div').css({"color": "blue", "border": "2px solid red"});
+            $(".descendants").children().css({"color": "red", "border": "2px solid red"});
+            $(".descendants2").find('span').css({"color": "blue", "border": "2px solid red"});
+            $("#sib h2").siblings().css({"color": "green", "border": "2px solid blue"});
+            $("#sib h2").next().css({"color": "yellow", "border": "2px solid blue"});
+            $("#sib h3").nextAll().css({"color": "black", "border": "2px solid red"});
+        
+            $(".third h2").nextUntil("h6").css({"color": "blue", "border": "2px solid green"});
+
+            $("div").first().css("background-color", "yellow");
+            $("div").last().css("background-color", "orange");
+
+            $("div").eq(3).css("background-color", "yellow");
+
+            $("p").filter(".intro").css("background-color", "yellow");
+            $("p").not(".intro").css("background-color", "yellow");
+    });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Traversing</title>
+</head>
+<body>
+    <h1>Hello Developers!</h1>
+
+    <div>
+        <ul>
+            <li>Ankur <span>Chovatiya</span> </li>
+            <li>Anks</li>
+            <li>Anks patel</li>
+        </ul>
+    </div>
+
+</body>
+<script>
+
+    $(document).ready(function(){
+       $("div").children().css({"border":"2px solid red"});
+    });
+
+</script>
+</html>

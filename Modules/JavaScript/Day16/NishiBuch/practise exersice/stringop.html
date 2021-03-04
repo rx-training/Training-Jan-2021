@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practise exersice 5</title>
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        
+
+        function push() {
+            fruits.push("Kiwi,tomato");
+            document.getElementById("op1").innerHTML = fruits;
+        }
+        function pop() {
+            fruits.pop();
+            document.getElementById("op2").innerHTML = fruits;
+        }
+        function shift() {
+            fruits.shift();
+            document.getElementById("op3").innerHTML = fruits;
+        }
+        function slice() {
+           var x= fruits.slice(1,3);
+            document.getElementById("op4").innerHTML = x;
+        }
+        function splice() {
+            fruits.splice(2, 0, "Lemon", "Kiwi");
+            document.getElementById("op5").innerHTML = fruits;
+        }
+    </script>
+</head>
+
+<body>
+    
+    <p>Click to add a new element to the array.</p>
+    <button onclick="push()">PUSH</button>
+    <p id="op1"></p>
+    <p>Clickto delete a one element from the array.</p>
+    <button onclick="pop()">POP</button>
+    <p id="op2"></p>
+    <p>click to remove the first element of the array.</p>
+    <button onclick="shift()">SHIFT</button>
+    <p id="op3"></p>
+    <p>slice.</p>
+    <button onclick="slice()">SLICE</button>
+    <p id="op4"></p>
+    <p>splice.</p>
+    <button onclick="splice()">splice</button>
+    <p id="op5"></p>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../src/css/bootstrap.css">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <title>Practice  Excercise Day 7</title>
+    <style>
+      /* You have one h1 and one paragraph in your page with blue color border. 
+      For all the media screen and query selector (maximum width 500px) it should be change to red color border. */
+      h1,p{ border: 1px solid blue;}
+      @media screen and (max-width:500px)
+      {
+        h1,p{ border: 2px solid red;}
+      }
+      .col-md-4 a:hover{
+            color: blue!important;
+        }
+      /* Media queries with breakpoint */
+      .example {
+      padding: 20px;
+      color: white;
+      }
+      @media  screen and (max-width: 600px) {
+        .example
+        {
+          background: red;
+        }
+        .para1{ visibility: hidden;}
+      }
+      @media  screen and (min-width: 600px) {
+      .example {background: green;}
+      /* change  font-size with meadia queries  */
+      .para1{ font-size: 40px;}
+      }
+      @media  screen and (min-width: 768px) {
+        .example {background: blue;} 
+        .para1 {font-size: 20px;}
+      }  
+
+      @media  screen and (min-width: 992px) {
+      .example {background: orange;}
+      } 
+      @media  screen and (min-width: 1200px) {
+      .example {background: pink;}
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light">
+      <div class="container">
+        <a href="#" class="navbar-brand"> <img src="../src/img/logo.jpg" alt="Logo" height="90px" width="90px">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarnav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../src/index.html">Home</a>
+            </li>
+            <li class="navbar-nav">
+              <a class="nav-link " href="../Html/Day3/PracticeExercise/Article&Nav.html">HTML</a>
+            </li>
+            <li class="navbar-nav">
+              <a class="nav-link active" href="Day4_practiceExercise.html">CSS</a>
+            </li>
+            <li class="navabar-nav">
+              <a class="nav-link" href="../Bootstrap/index.html">Bootstrap</a>
+            </li>
+            <li class="navabar-nav">
+              <a class="nav-link" href="../Javascript/Day15_practiceExercise.html">Javascript</a>
+            </li>
+            <li class="navabar-nav">
+              <a class="nav-link " href="../jQuery/Day22_practiceExercise.html">jQuery</a>
+            </li>
+            <li class="navabar-nav">
+              <a class="nav-link" target="_blank" href="../../../../Modules/Bootstrap/Day14/Parth Parekh/Paytm/src/index.html ">Mini
+                Project</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul class="nav d-flex flex-column justify-content-start">
+            <li class="nav-item">
+              <a class="nav-link  text-muted text-capitalize" href="Day4_practiceExercise.html">Day 4 practice excercise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" target="_blank" href="Resume.html">Day 4 Assignment Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" target="_blank" href="Day5_practiceExercise.html">Day 5 practice
+                excercise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" href="page_layout.html" target="_blank"> Day 5 Assignment Page
+                layout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted"  href="Day6_practiceExercise.html">Day 6 practice
+                excercise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" href="Day6_assign_navbar_Responsive.html">Day 6 Assignment
+                Navbar Responsive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize active"  href="Day7_practiceExercise.html">Day 7 practice
+                excercise</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" href="photo_gallery.html">Day 7 Assignment Photo gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" target="_blank" href="media_query.html">Day 7 Assignment media query</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" target="_blank" href="grid_example.html">Day 8 practice
+                excercise grid example</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize text-muted" target="_blank" href="Grid_layout.html">Day 8 Assignment Grid layout</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-8 mt-5">
+            <h1>Heading 1</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Quod voluptatem in quo earum impedit assumenda optio repudiandae,
+                reiciendis deleniti cumque nisi placeat fuga?</p>
+
+                <p class="example">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                // Media queries .</p>
+                <p class="para1">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  // Hidden Paragraph with <600px  & 768px >  .</p>
+        </div>
+      </div>
+    </div>
+
+
+      <script src="../src/js/jquery.min.js"></script>
+      <script src="../src/js/popper.min.js"></script>
+      <script src="../src/js/bootstrap.min.js"></script>
+</body>
+</html>
