@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Assignment</title>
+</head>
+<body>
+
+    <div class="container">
+
+
+        <h2 class="text-center m-5">Select Country</h2>
+        <select name="country" id="country" class="form-control w-25 mx-auto">
+            <option value="default">Please Select</option>
+            <option value="India">India</option>
+            <option value="Australia">Australia</option>
+            <option value="Canada">Canada</option>
+            <option value="USA">USA</option>
+            <option value="Japan">Japan</option>
+        </select>
+
+        <p class="m-5 text-center" id="selectedCountry"></p>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var countryName = [];
+
+            $("#country_name").each((index, element) => {
+                if (element.value != "default") {
+                    countryName.push('');
+                }
+            });
+
+            $("#selectedCountry").text("Your Selected Country : " + countryName);
+
+            $("#country").change(function (index, element) {
+
+                if ($("#country").val() == 'default') {
+                    $("#selectedCountry").text("Your Selected Country : " + countryName);
+                    return false;
+                }
+                $("#selectedCountry").text("Your Selected Country : " + $("#country").val());
+
+            });
+        });
+    </script>
+</body>
+</html>

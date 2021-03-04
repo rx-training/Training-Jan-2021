@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Training Site</title>
+
+    <style>
+
+        .sidenav {
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 25px;
+                display: block;
+            }
+
+
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            transition: all 0.3s;
+        }
+
+            #sidebar.active {
+                margin-left: -250px;
+            }
+
+            #sidebar .sidebar-header {
+                padding: 20px;
+            }
+
+            #sidebar ul.components {
+                padding: 20px 0;
+                border-bottom: 1px solid #47748b;
+            }
+
+            #sidebar ul p {
+                padding: 10px;
+            }
+
+            #sidebar ul li a {
+                padding: 10px;
+                font-size: 1.1em;
+                display: block;
+            }
+
+        #innerhtml {
+            margin: auto;
+            padding: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--Main Navbar-->
+    <header class="fixed-top mb-5">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-dark m-auto mb-5">
+                <div class="d-flex flex-wrap w-100 m-auto mb-5">
+                    <a class="navbar-brand mr-auto" href="index.html">
+                        <img src="assets/images/radixlogo.jpg" width="50" height="50" alt="RadixWeb Logo" />
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mr-md-2 ml-auto">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="html-projects.html">HTML</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="css-projects.html">CSS</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="bootstrap-projects.html">Bootstrap</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="js-projects.html">JavaScript</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="jquery-projects.html">jquery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <hr />
+    </header>
+
+    <div class="row">
+        <div class="wrapper col">
+            <!-- Sidebar  -->
+            <nav id="sidebar" class="fixed" style="margin-top: 100px ">
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 3</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day3ass">Assignment</p>
+                        <p class="dropdown-item" id="day3pra">Practice</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 4</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day4ass">Assignment</p>
+                        <p class="dropdown-item" id="day4pra1">Practice1</p>
+                        <p class="dropdown-item" id="day4pra2">Practice2</p>
+                        <p class="dropdown-item" id="day4pra3">Practice3</p>
+                        <p class="dropdown-item" id="day4pra4">Practice4</p>
+                        <p class="dropdown-item" id="day4pra5">Practice5</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 5</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day5ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 6</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day6ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 7</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day7ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 8</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day8ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 9</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day9ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 10</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day10ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 11</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day11ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 12</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day12ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 13</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day13ass">Assignment</p>
+                        <p class="dropdown-item" id="day13pra1">Practice1</p>
+                        <p class="dropdown-item" id="day13pra2">Practice2</p>
+                        <p class="dropdown-item" id="day13pra3">Practice3</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 14</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day14ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 15</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day15ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 16</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day16ass">Assignment</p>
+                        <p class="dropdown-item" id="day16pra1">Practice 1</p>
+                        <p class="dropdown-item" id="day16pra2">Practice 2</p>
+                        <p class="dropdown-item" id="day16pra3">Practice 3</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 17</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day17pra1">Practice 1</p>
+                        <p class="dropdown-item" id="day17pra2">Practice 2</p>
+                        <p class="dropdown-item" id="day17pra3">Practice 3</p>
+                        <p class="dropdown-item" id="day17pra4">Practice 4</p>
+                        <p class="dropdown-item" id="day17pra5">Practice 5</p>
+                        <p class="dropdown-item" id="day17pra6">Practice 6</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 18</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day18ass">Assignment</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 19</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="index.html">Assignment</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 20</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" id="day20ass">Assignment</p>
+                        <p class="dropdown-item" id="day20pra1">Practice1</p>
+                        <p class="dropdown-item" id="day20pra2">Practice2</p>
+                        <p class="dropdown-item" id="day20pra3">Practice3</p>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 21</button>
+                    <div class="dropdown-menu">
+                        <p class="dropdown-item" href="Day23/assignment.html">Assignment</p>
+                        <p class="dropdown-item" href="Day23/practice.html">Practice</p>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div class="col m-auto" id="innerhtml">
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#day3ass').click(function () {
+                $('#innerhtml').load("Day3/assignment.html");
+            })
+            $('#day3pra').click(function () {
+                $('#innerhtml').load("Day3/practice.html");
+            })
+            $('#day4ass').click(function () {
+                $('#innerhtml').load("Day4/assignment.html");
+            })
+            $('#day4pra1').click(function () {
+                $('#innerhtml').load("Day4/bluehead.html");
+            })
+            $('#day4pra2').click(function () {
+                $('#innerhtml').load("Day4/bordertask.html");
+            })
+            $('#day4pra3').click(function () {
+                $('#innerhtml').load("Day4/cityblock.html");
+            })
+            $('#day4pra4').click(function () {
+                $('#innerhtml').load("Day4/reportcard.html");
+            })
+            $('#day4pra5').click(function () {
+                $('#innerhtml').load("Day4/uniselector.html");
+            })
+            $('#day5ass').click(function () {
+                $('#innerhtml').load("Day5/assignment.html");
+            })
+            $('#day6ass').click(function () {
+                $('#innerhtml').load("Day6/assignment.html");
+            })
+            $('#day7ass').click(function () {
+                $('#innerhtml').load("Day7/assignment.html");
+            })
+            $('#day8ass').click(function () {
+                $('#innerhtml').load("Day8/assignment.html");
+            })
+            $('#day9ass').click(function () {
+                $('#innerhtml').load("Day9/2-1.html");
+            })
+            $('#day10ass').click(function () {
+                $('#innerhtml').load("Day9/4-1.html");
+            })
+            $('#day11ass').click(function () {
+                $('#innerhtml').load("Day11/assignment.html");
+            })
+            $('#day12ass').click(function () {
+                $('#innerhtml').load("Day14/codementor.html");
+            })
+            $('#day13ass').click(function () {
+                $('#innerhtml').load("Day15/assignment.html");
+            })
+            $('#day13pra1').click(function () {
+                $('#innerhtml').load("Day15/practice1.html");
+            })
+            $('#day13pra2').click(function () {
+                $('#innerhtml').load("Day15/practice2.html");
+            })
+            $('#day13pra3').click(function () {
+                $('#innerhtml').load("Day15/practice3.html");
+            })
+            $('#day14ass').click(function () {
+                $('#innerhtml').load("Day16/assignment.html");
+            })
+            $('#day15ass').click(function () {
+                $('#innerhtml').load("Day17/assignment.html");
+            })
+            $('#day16ass').click(function () {
+                $('#innerhtml').load("Day18/assignment.html");
+            })
+            $('#day16pra1').click(function () {
+                $('#innerhtml').load("Day18/practice1.html");
+            })
+            $('#day16pra2').click(function () {
+                $('#innerhtml').load("Day18/practice2.html");
+            })
+            $('#day16pra3').click(function () {
+                $('#innerhtml').load("Day18/practice3.html");
+            })
+            $('#day17pra1').click(function () {
+                $('#innerhtml').load("Day19/practice1.html");
+            })
+            $('#day17pra2').click(function () {
+                $('#innerhtml').load("Day19/practice2.html");
+            })
+            $('#day17pra3').click(function () {
+                $('#innerhtml').load("Day19/practice3.html");
+            })
+            $('#day17pra4').click(function () {
+                $('#innerhtml').load("Day19/practice4.html");
+            })
+            $('#day17pra5').click(function () {
+                $('#innerhtml').load("Day19/practice5.html");
+            })
+            $('#day17pra6').click(function () {
+                $('#innerhtml').load("Day19/practice6.html");
+            })
+            $('#day19ass').click(function () {
+                $('#innerhtml').load("Day20/assignment.html");
+            })
+            $('#day20ass').click(function () {
+                $('#innerhtml').load("Day22/assignment.html");
+            })
+            $('#day20pra1').click(function () {
+                $('#innerhtml').load("Day22/practice1.html");
+            })
+            $('#day20pra2').click(function () {
+                $('#innerhtml').load("Day22/practice2.html");
+            })
+            $('#day20pra3').click(function () {
+                $('#innerhtml').load("Day22/practice3.html");
+            })
+            $('#day20ass').click(function () {
+                $('#innerhtml').load("Day22/assignment.html");
+            })
+            $('#day21ass').click(function () {
+                $('#innerhtml').load("Day24/assignment.html");
+            })
+        })
+    </script>
+</body>
+</html>
