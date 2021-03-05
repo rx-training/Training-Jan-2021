@@ -1,5 +1,6 @@
 CREATE DATABASE Practicedb;
-
+USE Practicedb;
+GO
 CREATE TABLE Countries
 (
 	CountryId int,

@@ -1,5 +1,6 @@
 CREATE DATABASE Employeesdb;
-
+USE Employeesdb;
+GO
 CREATE TABLE Departments
 (
 	Department_Id int PRIMARY KEY,

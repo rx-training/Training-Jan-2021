@@ -1,5 +1,6 @@
 CREATE DATABASE carsalesdb;
-
+USE carsalesdb;
+GO
 CREATE TABLE Employees
 (
 	Employee_Id int PRIMARY KEY,
@@ -26,7 +27,7 @@ INSERT INTO Carsales(SalesId,Car_Model,CustomerName,SalesDate,Salesperson_Id) VA
 
 CREATE TABLE Salesrecord
 (
-	SalesId int PRIMARY KEY,
+	SalesId int,
 	Employee_Id int NOT NULL,
 	Commission int NOT NULL,
 	CONSTRAINT fksales FOREIGN KEY(Employee_Id) REFERENCES Employees(Employee_Id),

@@ -1,5 +1,5 @@
-
-
+USE Jobdb;
+GO
 CREATE TABLE Jobs
 (
 	JobId int PRIMARY KEY,

@@ -1,5 +1,6 @@
-
 CREATE DATABASE JobHistorydb;
+USE JobHistorydb;
+GO
 CREATE TABLE JobHistory
 (
 	EmployeeId int,
