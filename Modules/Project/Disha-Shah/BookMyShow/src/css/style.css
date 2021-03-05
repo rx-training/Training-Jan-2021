@@ -201,3 +201,14 @@ a[data-toggle="collapse"] {
   color: #dc3545;
   background: #fff;
   text-decoration: none; }
+
+@media (min-width: 912px) {
+  .monsterheader {
+    background-image: url("https://www.belloflostsouls.net/wp-content/uploads/2020/02/monster-hunter-pwsa-movie-feat-800x400.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  #monsterHunterHeader {
+    color: white; } }
+
+#showDate a:link {
+  color: #dc3545; }

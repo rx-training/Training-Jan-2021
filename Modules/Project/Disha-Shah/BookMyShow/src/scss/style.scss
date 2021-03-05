@@ -201,37 +201,39 @@ $tooltipColor: #f3dbf0;
     }
 }
 
-.tooltip-inner {
-    
-    background-color: $tooltipColor !important;
-    
-    color: gray;
-    max-width: 700px !important;
-    margin-left: 200px !important;
-  }
-  
-  .tooltip.top .tooltip-arrow {
-    border-top-color:$tooltipColor;
-  }
-  
-  .tooltip.right .tooltip-arrow {
-    border-right-color:$tooltipColor;
-  }
-  
-  .tooltip.bottom .tooltip-arrow {
-    border-bottom-color:$tooltipColor;
-  }
-  
-  .tooltip.left .tooltip-arrow {
-    border-left-color: $tooltipColor;
-  }
 
-  .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
-.bs-tooltip-bottom .arrow::before {
+    .tooltip-inner {
+        
+        background-color: $tooltipColor !important;
+        
+        color: gray;
+        max-width: 700px !important;
+        margin-left: 200px !important;
+    }
     
-  border-bottom-color: $tooltipColor;
-  
-}
+    .tooltip.top .tooltip-arrow {
+        border-top-color:$tooltipColor;
+    }
+    
+    .tooltip.right .tooltip-arrow {
+        border-right-color:$tooltipColor;
+    }
+    
+    .tooltip.bottom .tooltip-arrow {
+        border-bottom-color:$tooltipColor;
+    }
+    
+    .tooltip.left .tooltip-arrow {
+        border-left-color: $tooltipColor;
+    }
+
+    .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+    .bs-tooltip-bottom .arrow::before {
+        
+    border-bottom-color: $tooltipColor;
+    
+    }
+
 
 .footer-logo{
     span{
@@ -315,3 +317,27 @@ a[data-toggle="collapse"] {
     background: #fff;
     text-decoration: none;
 }
+
+@media (min-width: 912px){
+    .monsterheader{
+    
+        background-image: url('https://www.belloflostsouls.net/wp-content/uploads/2020/02/monster-hunter-pwsa-movie-feat-800x400.jpg'); 
+        background-repeat: no-repeat; 
+        background-size: cover;
+
+
+    }
+
+    #monsterHunterHeader{
+        
+        color: white;
+    
+    }
+}
+
+#showDate{
+    a:link{
+        color: #dc3545;
+    }
+}
+

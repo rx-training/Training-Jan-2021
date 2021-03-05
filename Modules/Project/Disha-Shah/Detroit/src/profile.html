@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Detroit united Bank</title>
+    </head>
+
+    <body>
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container py-3">
+                <a class="navbar-brand" href="index.html">DETROIT UNITED BANK</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav ml-auto">
+                        <div class="m-3 h5"><a href="#" class="text-dark text-decoration-none font-weight-normal">About</a></div>
+                        <div class="m-3 h5"><a href="#" class="text-dark text-decoration-none font-weight-normal">Contact</a></div>
+                        <div id="beforeLogin" class="flex-row w-100 flex-wrap">
+                            <div class="d-flex flex-row w-100">
+                                <div id="homeSignIn"  class="mx-2">
+                                    <form class="form-inline d-none d-lg-block float-left">
+                                        <a class="btn btn-primary mr-3 ml-0 mt-2" data-toggle="modal" data-target="#loginModal">Log In</a>
+                                    </form>
+                                </div>
+
+                                <div id="homeSignUp">
+                                    <form class="form-inline d-none d-lg-block float-left">
+                                        <a class="btn btn-primary mr-3 ml-0 mt-2" data-toggle="modal" data-target="#registerModal">Create Account</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="afterLogin">
+                            <div class="d-flex flex-row w-100">
+                                <div class="m-3 h5"><a href="profile.html" class="text-dark text-decoration-none font-weight-normal">Hi, <span id="Username"></span></a></div>
+
+                                <div id="homeLogout">
+                                    <form class="form-inline d-none d-lg-block float-left">
+                                        <a class="btn btn-primary mr-3 ml-0 mt-2" id="logoutBtn">Logout</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div id="profile-content">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#editProfileModal" id="editModalBtn">Edit Prfile</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#updatePassModal">Update Password</button>
+                    </div>
+                </div>
+                <h3 class="text-center h2 font-weight-normal mt-5">Profile Details</h3>
+                <hr>
+                <div class="row px-5 pt-5 my-3">
+                    <div class="col-md-4">
+                        <h4 class="font-weight-normal">Account Number:</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="font-weight-normal" id="accountNo"></h4>
+                    </div>
+                </div>
+                <div class="row px-5 my-3">
+                    <div class="col-md-4">
+                        <h4 class="font-weight-normal">Account Type:</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="font-weight-normal" id="accountType"></h4>
+                    </div>
+                </div>
+                <div class="row px-5 my-3">
+                    <div class="col-md-4">
+                        <h4 class="font-weight-normal">Name:</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="font-weight-normal" id="name"></h4>
+                    </div>
+                </div>
+                <div class="row px-5 my-3">
+                    <div class="col-md-4">
+                        <h4 class="font-weight-normal">Email:</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="font-weight-normal" id="email"></h4>
+                    </div>
+                </div>
+                <div class="row px-5 my-3">
+                    <div class="col-md-4">
+                        <h4 class="font-weight-normal">Contact Number:</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="font-weight-normal" id="contact"></h4>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Edit Profile Modal -->
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="mb-4">
+                        <div class="form-group">
+                            <label for="username">Name</label>
+                            <input type="text" name="" id="userName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="email" name="" id="userEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userContact">Contact</label>
+                            <input type="number" name="" id="userContact" class="form-control"
+                                maxlength="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountType">Account Type</label>
+                            <div class="d-flex flex-row">
+                                <div class="form-check mr-2 mt-2">
+                                    <input class="form-check-input" type="radio" value="Savings Account" name="accountType" id="Savings Account">
+                                    <label class="form-check-label" for="Savings Account">
+                                    Savings Account
+                                    </label>
+                                </div>
+                                <div class="form-check mr-2 mt-2">
+                                    <input class="form-check-input" type="radio" value="Current Account" name="accountType" id="Current Account">
+                                    <label class="form-check-label" for="Current Account">
+                                    Current Account
+                                    </label>
+                                </div>
+                            </div>   
+                            
+                            
+                        </div>
+                        
+                        
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="editProfileBtn">Update Profile</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Update Password Modal -->
+        <div class="modal fade" id="updatePassModal" tabindex="-1" aria-labelledby="updatePassModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="updatePassModalLabel">Update Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="userPassword">New Password</label>
+                            <input type="password" name="" id="userPassword" class="form-control" placeholder="Enter New Password"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userConfirm">Confirm Password</label>
+                            <input type="password" name="" id="userConfirm" class="form-control" placeholder="Confirm Password"
+                                required>
+                        </div> 
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="updatePassBtn">Update Password</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <script src="js/userLogin.js"></script>
+        <script src="js/profile.js"></script>
+    </body>
+</html>

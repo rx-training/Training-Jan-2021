@@ -4,23 +4,26 @@
     }
     else{
         
-            /*document.getElementById("tblActivities").innerHTML = "";
-            var activitiesArray = JSON.parse(localStorage.getItem("Activities"));
-            for(data in activitiesArray){
-                console.log(activitiesArray[data].Name);
-                
-                    document.getElementById("tblActivities").innerHTML += "<tr><td>" + activitiesArray[data].Id + "</td><td>" 
-                        + activitiesArray[data].Name + "</td><td>"
-                        + "<img src='../" + activitiesArray[data].ImgUrls + "' alt='' class='img-fluid rounded' style='width:70px'>"
-                        + "</td><td>" + activitiesArray[data].Language + "</td><td>" 
-                        + activitiesArray[data].Time + "</td><td>" + activitiesArray[data].AgeGroup
-                        + "</td><td>" + activitiesArray[data].Category + "</td><td>" 
-                        + activitiesArray[data].DateOfGame
-                        + "</td><td>" + activitiesArray[data].Venue + "</td><td>" + activitiesArray[data].TicketPrice + "</td><td>" 
-                        + "<div class='d-md-block d-lg-inline'><a href='#' class='text-dark m-1'><i class='fa fa-2x fa-pencil' id='playEdit-" 
-                        + activitiesArray[data].Id + "'></i></a><a href='#' class='text-dark m-1'><i class='fa fa-2x fa-trash' id='playDelete-" 
-                        + activitiesArray[data].Id + "'></i></a></div>";
-                
-            }*/
+        var moviesArray = JSON.parse(localStorage.getItem("Movies"));
+        var activitiesArray = JSON.parse(localStorage.getItem("Activities"));
+        var playsArray = JSON.parse(localStorage.getItem("Plays"));
+        var comedyArray = JSON.parse(localStorage.getItem("LaughterShows"));
+        var sportsArray = JSON.parse(localStorage.getItem("Sports"));
+        var usersArray = JSON.parse(localStorage.getItem("Users"));
+        var bookingArray = JSON.parse(localStorage.getItem("Booking"));
+        var eventsArray = JSON.parse(localStorage.getItem("Events"));
+        document.getElementById("booking").innerHTML = 0;
+        console.log(eventsArray.length);
+
+        document.getElementById("movies").innerHTML = moviesArray.Movies.length;
+        document.getElementById("activities").innerHTML = activitiesArray.length;
+        document.getElementById("plays").innerHTML = playsArray.length;
+        document.getElementById("comedy").innerHTML = comedyArray.length;
+        document.getElementById("sports").innerHTML = sportsArray.length;
+        document.getElementById("users").innerHTML = usersArray.length;
+        document.getElementById("eventsCount").innerHTML = eventsArray.length;
+        document.getElementById("booking").innerHTML = bookingArray.length;
+       
+        
     }    
         
