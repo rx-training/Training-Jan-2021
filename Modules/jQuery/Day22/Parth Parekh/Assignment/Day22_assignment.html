@@ -13,72 +13,51 @@
 
 <body>
     <div class="container mt-2">
-       
+    
         <div class="form-group">
-          <label for="">Please Select Country</label>
-          <select class="form-control" name="" id="dropdown">
-
-          </select>
+            <label for="">Please Select Country</label>
+            <select class="form-control" name="" id="dropdown">
+                <option value="all">Please select </option>
+                <option value="India">India</option>
+                <option value="Australia">Australia</option>
+                <option value="England">England</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="South Africa">South Africa</option>
+    
+            </select>
         </div>
-        
+    
         <h4 class="text-success">Your Selected Country :</h4>
         <ul id="print">
-
+    
         </ul>
-
-        
-
-
     </div>
-
     <script>
 
-        $(function () {
-            $("#dropdown").append("<option  selected value='1'>Please Select</option>");
-            $("#dropdown").append("<option  value='2'>India</option>");
-            $("#dropdown").append("<option   value='3'>Australia</option>");
-            $("#dropdown").append("<option  value='4'>England</option>");
-            $("#dropdown").append("<option  value='5'>Pakistan</option>");
-            $("#dropdown").append("<option  value='6'>South Africa</option>");
-            
-            var optionText = $("#dropdown option:selected").val();
-            console.log(optionText);
-            if (optionText == 1) {
-
-                $('#print').html("<li>India </li><li>Australia </li><li> England </li><li> Pakistan </li><li> South Africa </li>");
+       $(function () {
+            if ($("#dropdown").val() == "all") {
+                $("#dropdown option").each(function (index, value) {
+                    if (index > 0) {
+                        $("#print").append("<li>" + value.innerHTML + "</li>");
+                    }
+                });
             }
-            
-            $('#dropdown').on('click', function () {
-                var optionText = $("#dropdown option:selected").val();
-                console.log(optionText);
-                if(optionText == 1)
-                {
-                     $('#print').html("<li>India </li><li>Australia </li><li> England </li><li> Pakistan </li><li> South Africa </li>");
+            $("#dropdown").change(function () {
+                if (this.value == "all") {
+                    $("#print").empty();
+                    $("#dropdown option").each(function (index, value) {
+                        if (index > 0) {
+                            $("#print").append("<li>" + value.innerHTML + "</li>");
+                        }
+                    });
                 }
-                if (optionText == 2) {
-                   
-                    $('#print').html("<li>India </li>");
-                }
-                if (optionText == 3) {
-                    
-                    $('#print').html("<li>Australia </li>");
-                }
-                if(optionText == 4)
-                {
-                    
-                    $('#print').html("<li> England </li>");
-                }
-                if (optionText == 5) {
-
-                    $('#print').html("<li> Pakistan </li>");
-                }
-                if (optionText == 6) {
-
-                    $('#print').html("<li> South Africa </li>");
+                else {
+                    $("#print").empty();
+                    var value = $("#dropdown option:selected").val();
+                    $("#print").append("<li>" + value + "</li>");
                 }
             });
-        })
-
+        });  
     </script>
 
 
