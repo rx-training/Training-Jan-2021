@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Detroit United Bank</title>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <!-- NAVBAR -->
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark py-3">
+        <div class="container">
+          <a href="index.html" class="navbar-brand">
+            <!-- <img src="./img/mlogo.png" width="50" height="50" alt="" /> -->
+            <h3 class="d-inline align-middle">Detroit United Bank</h3>
+          </a>
+          <button
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link" onclick="logout()"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a href="index.html" class="nav-link" onclick="logout()"
+                  >Logout</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="register.html" class="nav-link" onclick="logout()"
+                  >Open Account</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Heading -->
+      <div class="container py-3">
+        <h4 class="d-inline">Welcome : <span id="name"></span></h4>
+
+        <h4 class="float-right">
+          Balance : <span id="balance"></span> <i class="fa fa-rupee"></i>
+        </h4>
+        <h4>Account Number : <span id="acno"></span></h4>
+        <h4>Account Type : <span id="type"></span></h4>
+        <h4>Account Status : <span id="status"></span></h4>
+      </div>
+
+      <!-- section 1 -->
+      <div class="container p-2 mb-2">
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-toggle="modal"
+          data-target="#admoneyModal"
+        >
+          Add Money</button
+        ><button
+          class="btn btn-info ml-3"
+          type="button"
+          data-toggle="modal"
+          data-target="#transferModal"
+        >
+          Transfer Money
+        </button>
+      </div>
+
+      <!-- section 2 -->
+      <div class="container">
+        <h4 class="text-center my-3">Transaction History</h4>
+        <table class="table table-success table-hover table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">Transaction Amount</th>
+              <th scope="col">Date (month/date/year)</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <!-- FOOTER -->
+      <div class="container-fluid p-3 bg-dark text-center text-white">
+        <p>&copy; Detroit United Bank</p>
+      </div>
+    </div>
+
+    <!-- Add Money Modal -->
+    <div class="modal fade" id="admoneyModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">Add Money</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="money">Amount You Want To Add :</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="money"
+                  placeholder="Enter Amount"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password :</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter Password"
+                />
+              </div>
+              <button
+                class="btn btn-success"
+                type="button"
+                onclick="addMoney()"
+              >
+                Add Money
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transfer Money Modal -->
+    <div class="modal fade" id="transferModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-info text-white">
+            <h5 class="modal-title">Transfer Money</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="money">Amount You Want To Transfer :</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="transAmount"
+                  placeholder="Enter Amount"
+                />
+              </div>
+              <div class="form-group">
+                <label for="money">Reciver's Account Number :</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="reciver"
+                  placeholder="Enter Account Number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password :</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd2"
+                  placeholder="Enter Password"
+                />
+              </div>
+              <button
+                class="btn btn-info"
+                type="button"
+                onclick="transferMoney()"
+              >
+                Transfer Money
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/account.js"></script>
+  </body>
+</html>
