@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training site</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        #sidebar{
+            background-color: aqua;
+        }
+    </style>
+   
+   <!-- <style>
+    .back{
+        background: teal;
+        color:black;
+    }
+    .highlight{
+        background: yellow;
+    }
+</style> -->
+
+
+</head>
+
+<body>
+
+    <!-- Navbar main  -->
+    <section id="nav">
+        <nav class="navbar navbar-expand-md bg-light ">
+            
+            <div class="container-fluid">
+                <a class="navbar-brand " href="/index.html">
+                    <img src="/img/logo_2500X1875.jpg" height="150px" width="200px" alt="radix-logo"
+                        class="float-left img-fluid ">
+                </a>
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa fa-bars" style="color:rgba(43, 65, 186, 0.679); font-size:28px;"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class=" nav-link active" href="/HTML/index.html">HTML <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link" href="/CSS-/index.html">CSS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link" href="/Bootstrap/index.html">Bootstrap</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class=" nav-link" href="/Java-Script/index.html">Java-script</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link" href="/JQuery/index.html">JQuery</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        </div>
+    </section>
+    
+    <section id="left">
+        <nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3"  id="sidebar">
+                        <ul class="navbar-nav">
+                            <li class="nav-items">
+                                <a href="" class="nav-link">Jquery</a>
+                                <ul class="navbar-nav"> Day23
+                                    <li class="nav-items">
+                                        <a href="/JQuery/Day23/Tirth-patel/JS/exercsie.html" class="nav-link">Excercise</a>
+                                        <a href="/JQuery/Day23/Tirth-patel/JS/assignment.html" class="nav-link">Assignment</a>
+                                       
+                                    </li>
+                                    
+                                  </ul>
+                                <ul class="navbar-nav"> Day24
+                                    <li class="nav-items">
+                                            <a href="/JQuery/Day24/Tirth-Patel/JS/excercise.html" class="nav-link">Excercise</a>
+                                            <a href="/JQuery/Day24/Tirth-Patel/JS/assignment.html" class="nav-link">Assignment</a>
+                                            <a href="/JQuery/Day24/Tirth-Patel/JS/customquery.html" class="nav-link">customer-Query</a>
+                                            <a href="/JQuery/Day24/Tirth-Patel/JS/videos-excercise.html" class="nav-link">video-Excercise</a>
+                                            <a href="/JQuery/Day24/Tirth-Patel/JS/ajax.html" class="nav-link">AJax</a>
+                                       
+                                    </li>
+                                    
+                                  </ul>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="container">
+                            <button id="showPaneButton">Show hidden panels</button>
+                    
+                            <div class="panel d-none">
+                                Panel 1
+                            </div>
+                            <div class="panel " style="visibility: hidden;">
+                                Panel 2
+                            </div>
+                            <div class="panel ">
+                                normal panel
+                            </div>
+                    
+                        </div>
+                        <div class="container">
+                            <span>hello i am span</span>
+                        
+                        <a class="main">google</a></div>
+                    
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section id="foot">
+        <footer class="text-center border-bottom">
+            <p><span>&copy;RadixWeb.com(2020-21)</span></p>
+            <p><span>&copy;Tirth-Patel(Trainee)</span></p>
+        </footer>
+    </section>
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $.extend($.expr[":"], {
+            hiddenPanel: function (pnl) {
+                if (pnl === null) return false;
+                var $pnl = $(pnl);
+    
+    
+                return $pnl.css("visibility") == "hidden" || $pnl.hasClass("d-none");
+            }
+        });
+        $(document).ready(function () {
+            $("#showPaneButton").click(function () {
+                $("div:hiddenPanel")
+                    .removeClass("d-none")
+                    .css({ "visibility":"" });
+    
+            })
+                var link = $("span")
+                if(link.length){
+                    console.log("you have 1 or more then 1 span element")
+                }
+                else{
+                    console.log('no span found')
+                }
+                var link = $("strong")
+                if(link.length){
+                    console.log("you have 1 or more then 1 strong element")
+                }
+                else{
+                    console.log('no strong found')
+                }
+                $("#showPaneButton").on("keypress",function(e){
+                    alert(e.which);
+                })
+                $(".main").attr({
+                    "href":"https://www.google.com",
+                    "title":"google"
+                })
+                $("div").addClass("back")
+                $("div").on("mouseenter mouseleave",function(e){
+                    $(this).toggleClass("highlight", e.type === "mouseenter");
+                })
+        })
+    
+    </script>
+    
+    
+
+    
+    
+
+
+
+
+</body>
+
+</html>
+    
+    
+
+
+
+
+    
+
+
+   
+
+
+
+
+   
+
+   
+
+
+
+    
+
+    
+
+
+
+    
+
+
+
+
+   
+
+
+
+
+    
+
+<script>
+    $.extend($.expr[":"], {
+        hiddenPanel: function (pnl) {
+            if (pnl === null) return false;
+            var $pnl = $(pnl);
+
+
+            return $pnl.css("visibility") == "hidden" || $pnl.hasClass("d-none");
+        }
+    });
+    $(document).ready(function () {
+        $("#showPaneButton").click(function () {
+            $("div:hiddenPanel")
+                .removeClass("d-none")
+                .css({ "visibility":"" });
+
+        })
+            var link = $("span")
+            if(link.length){
+                console.log("you have 1 or more then 1 span element")
+            }
+            else{
+                console.log('no span found')
+            }
+            var link = $("strong")
+            if(link.length){
+                console.log("you have 1 or more then 1 strong element")
+            }
+            else{
+                console.log('no strong found')
+            }
+            $("#showPaneButton").on("keypress",function(e){
+                alert(e.which);
+            })
+            $(".main").attr({
+                "href":"https://www.google.com",
+                "title":"google"
+            })
+            $("div").addClass("back")
+            $("div").on("mouseenter mouseleave",function(e){
+                $(this).toggleClass("highlight", e.type === "mouseenter");
+            })
+    })
+
+</script>
+ 
+</html>
