@@ -102,3 +102,15 @@ SELECT FirstName
 		,ISNULL(MiddleName, 'NOT AVAIABLE')
 		,COALESCE(MiddleName, 'NOT AVAIABLE')
 FROM Person.Person;
+
+SELECT EOMONTH(GETDATE());
+
+SELECT Name + ' costs ' + CAST(ListPrice AS NVARCHAR) AS 'Display' FROM Production.Product WHERE ListPrice > 0;
+SELECT Name + ' costs ' + CONVERT(NVARCHAR, ListPrice) AS 'Display' FROM Production.Product WHERE ListPrice > 0;
+
+SELECT TRY_PARSE('1/100/2021' AS DATE);
+SELECT TRY_CONVERT(DATE, '1/100/2021');
+
+SELECT CHOOSE(3, FirstName, LastName, FirstName + ' ' + LastName) FROM Person.Person;
+
+SELECT IIF(ListPrice > 0, 'Normal Product', 'Internal Component') AS 'Product Info', Name FROM Production.Product;
