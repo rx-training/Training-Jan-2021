@@ -1,4 +1,3 @@
-'use strict'
 var myStorage = window.localStorage;
 var admin = {
     "username": "PalakPatel",
