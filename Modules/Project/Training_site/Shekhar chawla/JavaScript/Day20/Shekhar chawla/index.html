@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Day6</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-dark text-white">
+<div class="container ">
+	<!-- Practice Exercise:
+
+	Store following JSON data into localstorage,read that data and print it into console.
+	{ “products” : [   { “Name”: “Cheese”, “Price” : 2.50, “Location”: “Refrigerated foods”},   { “Name”: “Crisps”, “Price” : 3, “Location”: “the Snack isle”},   { “Name”: “Pizza”, “Price” : 4, “Location”: “Refrigerated foods”},   { “Name”: “Chocolate”, “Price” : 1.50, “Location”: “the Snack isle”},   { “Name”: “Self-raising flour”, “Price” : 1.50, “Location”: “Home baking”},   { “Name”: “Ground almonds”, “Price” : 3, “Location”: “Home baking”} ]}      
+	Keep above JSON Data into a file, using Web Fetch API read that data.
+	
+	Assignment:
+
+	Display Product information in Grid format with AddToCart option. once a user click on AddtoCart button should be stored in local storage. Click on cart summary will display that data into console.
+
+	ProductID	ProductName	Price	Quantity	 	 
+	1	Cheese	100	1	Add to Cart	 
+	2	Pen	150	2	Add to Cart	 
+	3	Butter	100	1	Add to Cart	 
+	4	Pencil	10	1	Add to Cart	 
+	Cart Summary -->
+	<div id="result"></div>
+
+	<div class="row">
+		<div class="col-3">Product Id</div>
+		<div class="col-3">Product Name</div>
+		<div class="col-3">Price</div>
+		<div class="col-3">Quantity</div>
+	</div>
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-3"></div>
+		<div class="col-3"></div>
+		<div class="col-3"></div>
+	</div>
+	<div id="result2"></div>
+
+
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+			Cart Summary
+	</button>
+	<div class="modal fade " id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog " role="document">
+			<div class="modal-content bg-dark text-white">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Cart Items</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="cartModal">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<br><br><br><br><br>
+</div>
+	<script type="text/javascript" src="data.json" ></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript" src="scripts/app.js"></script>
+</body>
+</html>

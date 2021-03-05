@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="">
+<div class="container ">
+	<!-- Practice 1
+	Use the getElementById method to find the <p> element, and change its text to "Hello". -->
+	<p id="demo">hi1</p>
+	
+	<!-- Practice 2
+	Use the getElementsByTagName method to find the first <p> element, and change its text to "Hello". -->
+	<p>hi2</p>
+	
+	<!-- Practice 3
+	Change the text of the first element that has the class name "test". -->
+	<p class="test">hi3</p>
+	<p class="test">hi3</p>
+
+	<!-- Use HTML DOM to change the value of the image's src attribute. -->
+	<img id="image" src="" width="180" height="100" class="my-4"><br>
+
+	<!-- Use HTML DOM to change the value of the input field. -->
+	<input type="text" class="form-control w-50 my-2" id="myText" value="Hello" class="form-control my-4">
+
+	<!-- Change the text color of the <p> element to "red". -->
+	<p id="demo2">red colored</p>
+
+	<!-- Use the CSS display property to hide the p element. -->
+	<p id="demo3">Hidden element</p>
+
+	<!-- Use Window.location object to navigate on another page -->
+	<div class="form-inline my-4">
+		<input class="form-control w-25 mr-4" placeholder="search google or type a url"  id="ipGoogle"></input>
+		<a class="btn btn-light mr-4" onclick="google()">Google</a>
+	
+	<!-- Use Window.history object to move to previous url in the history list -->
+		<a class="btn btn-primary" onclick="back()">Back</a>
+	</div>
+
+	<!-- Try to change windows height and width using Windows object -->
+	<div class="form-inline">
+		<input class="form-control w-25 mr-4" placeholder="width"  id="width" type="number"></input>
+		<input class="form-control w-25 mr-4" placeholder="height"  id="height" type="number"></input>
+		
+		<button class="btn btn-light mr-4" onclick="newWin()">Create a window</button>
+		<button class="btn btn-light" onclick="resizeWin()">Resize a window</button>
+	</div>
+
+	<!-- Assignment
+
+	Design a form for storing employee details. (EmployeeID, Employee name, age, Gender, designation, salary, location, Email ID, Date of Joining and contact number)
+	Validation required
+	EmployeeID should be at least 5 character long. use regular Expression
+	Age should be a number
+	Each field should contain value
+	Email ID should be in proper format
+	Date of joining should be in date format
+	Location should be in the drop down list
+	Use radio buttons for Gender
+	Note: Show error message in summary box. -->
+	
+	<br><br><br><br>
+	
+	<h2 class="my-4" name="jform">Joining Form</h2>
+	<form class="needs-validation" novalidate name="jform">
+		<div class="form-group row">
+			<label for="eId" class="col-2">Employee id</label>
+			<input type="text" class="form-control col-5" id="eId" name="eId" value="34652325" required>
+			<small class="valid-feedback col" id="idSuccess">
+			</small>
+			<small class="invalid-feedback col" id="idError">
+			</small> 
+		</div>
+
+		<div class="form-group row">
+			<label for="eName" class="col-2">Employee Name</label>
+			<input type="text" class="form-control col-5" id="eName" name="name" value="John doe" required>
+			<small class="valid-feedback col" id="nameSuccess">
+			</small>
+			<small class="invalid-feedback col" id="nameError">
+			</small> 
+		</div>
+		
+		<div class="form-group row">
+			<label for="eAge" class="col-2">Age</label>
+			<input type="text" class="form-control col-5" id="eAge" name="age" value="25" required>
+			<small class="valid-feedback col" id="ageSuccess">
+			</small>
+			<small class="invalid-feedback col" id="ageError">
+			</small>
+		</div>
+
+		<div class="form-group row">
+			<label for="eName" class="col-2">Gender</label>
+			<div class="col-5 p-0">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+					<label class="form-check-label" for="male">Male</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="female" value="female">
+					<label class="form-check-label" for="female">Female</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="gender" id="other" value="other">
+					<label class="form-check-label" for="other">Other</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="eRole" class="col-2">Designation</label>
+			<input type="text" class="form-control col-5" id="eRole" name="role" required value="Front end Developer">
+			<small class="valid-feedback col" id="roleSuccess">
+			</small>
+			<small class="invalid-feedback col" id="roleError">
+			</small>
+		</div>
+
+		<div class="form-group row">
+			<label for="eName" class="col-2">Salary</label>
+			<input type="text" class="form-control col-5" id="eSal" name="salary" required value="25000">
+			<small class="valid-feedback col" id="salarySuccess">
+			</small>
+			<small class="invalid-feedback col" id="salaryError">
+			</small>
+		</div>
+
+		<div class="form-group row">
+			<label for="eLocation" class="col-2">Location</label>
+			<select id="eLocation" name="location" class="form-control col-5">
+				<option value="none">Choose...</option>
+				<option value="ahmedabad">Ahmedabad</option>
+				<option value="surat">Surat</option>
+				<option value="bhavnagar">Bhavnagar</option>
+				<option value="valsad">Valsad</option>
+			</select>
+			<small class="valid-feedback col" id="locationSuccess">
+			</small>
+			<small class="invalid-feedback col" id="locationError">
+			</small>
+		</div>
+
+		<div class="form-group row">
+			<label for="eEmail" class="col-2">Email id</label>
+			<input type="email" class="form-control col-5" id="eEmail" name="email" required value="jonDoe@gmail.com">
+			<small class="valid-feedback col" id="emailSuccess">
+			</small>
+			<small class="invalid-feedback col" id="emailError">
+			</small>
+		</div>
+
+		<div class="form-group row">
+			<label for="eDate" class="col-2">Date of joining</label>
+			<input type="text" class="form-control col-5" id="eDate" name="date" value="12/01/2012" required>
+			<small class="valid-feedback col" id="dateSuccess">
+			</small>
+			<small class="invalid-feedback col" id="dateError">
+			</small>
+		</div>
+
+		<div class="row">
+			<button type="submit" class="btn btn-primary my-2 col-7 justify-content-center">Submit</button>
+			<small class="col lead" id="submitError">
+			</small>
+		</div>
+		
+	</form>
+
+
+
+
+
+<!-- 
+
+https://pageclip.co/blog/2018-02-20-you-should-use-html5-form-validation.html
+
+https://www.w3schools.com/js/js_window_location.asp
+
+https://www.w3schools.com/js/js_window_history.asp
+
+https://www.w3schools.com/js/js_window_navigator.asp
+
+https://www.w3schools.com/js/js_window.asp
+
+https://javascript.info/form-elements
+
+ -->
+
+
+	<br><br><br><br><br>
+</div>
+	<script type="text/javascript" src="scripts/app.js"></script>
+</body>
+</html>
