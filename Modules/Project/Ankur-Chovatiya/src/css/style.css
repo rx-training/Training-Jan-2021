@@ -9,7 +9,6 @@
 
 #sideBar {
   background-color: #b1f1f3;
-  width: 250px;
   height: 130vh; }
   #sideBar ul {
     list-style: disc; }
@@ -31,3 +30,12 @@
   width: 400px;
   margin-left: 30%;
   margin-top: 100px; }
+
+@media (max-width: 750px) {
+  #indexImg {
+    height: 200px;
+    width: 200px;
+    margin-left: 30%;
+    margin-top: 60px; }
+  .row .col-2 {
+    display: none; } }
