@@ -3,7 +3,24 @@ let busInfo = JSON.parse(window.localStorage.getItem('buses'));
 let userData = JSON.parse(window.localStorage.getItem('userData'));
 let f = false;
 
+document.getElementById('busRoute').addEventListener('click', function(e){
+    e.preventDefault();
+    let source = document.querySelector('.source').value;
+    let destination = document.querySelector('.dest').value;
+    let onward = document.querySelector('.onward').value;
+    let rtrn = document.querySelector('.return').value;
 
+    const userData = {
+        'source': source,
+        'destination' : destination,
+        'onward': onward,
+        'rtrn': rtrn
+    };
+
+    myStorage.setItem('userData', JSON.stringify(userData));
+
+    window.location.href = 'busRoute.html';
+});
 
 $.each(busInfo, function(i){
     if(busInfo[i].Source.toLowerCase() == userData.source.toLowerCase() && busInfo[i].Destination.toLowerCase() == userData.destination.toLowerCase()){
