@@ -1,11 +1,11 @@
 USE Day1SQl	
 
 CREATE TABLE dbo.JobHistory  
-   (EmployeeId int PRIMARY KEY NOT NULL,
-    StartDate Datetime NOT NULL,
-	EndDate varchar(20) CONSTRAINT chkDate CHECK(EndDate LIKE'[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]'),
-	Job_Id  int NOT NULL,
-    Department_Id  int NOT NULL,
+   (EmployeeId INT PRIMARY KEY NOT NULL,
+    StartDate DATETIME NOT NULL,
+	EndDate VARCHAR(20) CONSTRAINT chkDate CHECK(EndDate LIKE'[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]'),
+	Job_Id  INT NOT NULL,
+    Department_Id  INT NOT NULL,
 	JobId INT CONSTRAINT fkJobs FOREIGN KEY REFERENCES Jobs(JobId));  
 GO
 
