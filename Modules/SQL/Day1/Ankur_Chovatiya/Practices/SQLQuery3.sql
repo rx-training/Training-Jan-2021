@@ -1,9 +1,9 @@
 CREATE TABLE dbo.jobs 
 (
-JobId int NOT NULL,
+JobId INT NOT NULL,
 JobTitle char(20) NOT NULL DEFAULT '' ,
-MinSalary  money NOT NULL DEFAULT '8000',
-MaxSalary Money NULL,
+MinSalary  MONEY NOT NULL DEFAULT '8000',
+MaxSalary MONEY NULL,
 
 )
 

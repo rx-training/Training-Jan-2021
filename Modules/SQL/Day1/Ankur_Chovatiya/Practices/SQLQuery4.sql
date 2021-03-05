@@ -11,5 +11,5 @@ CONSTRAINT fk_department FOREIGN KEY(JobId) REFERENCES jobs(JobId) ,
 Salary money NOT NULL,
 Commission int NOT NULL,
 Manager_Id int NOT NULL,
-DepartmentId int NOT NULL FOREIGN KEY REFERENCES Departments(DepartmentId),
+DepartmentId int NOT NULL FOREIGN KEY REFERENCES Departments(DepartmentId)
 )
