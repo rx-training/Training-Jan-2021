@@ -1,18 +1,19 @@
 CREATE DATABASE Assingmentdb_Day1
+USE Assingmentdb_Day1
 CREATE TABLE Employees(
-Employee_Id int  PRIMARY KEY,
-Employee_Name varchar(20),
-Employee_Department varchar(30),
-Employee_Deparment_Id int,
-Commission int
+Employee_Id Int  PRIMARY KEY,
+Employee_Name Varchar(20),
+Employee_Department Varchar(30),
+Employee_Deparment_Id Int,
+Commission Int
 
 )
 INSERT INTO Employees(Employee_Id,Employee_Name,Employee_Deparment_Id,Commission) VALUES (1,'pqr',501,22)
 INSERT INTO Employees(Employee_Id,Employee_Name,Employee_Deparment_Id,Commission) VALUES (2,'abc',504,20)
 CREATE TABLE Inventory
 (
-	Car_Id int PRIMARY KEY,
-	Car_Name varchar(30),
+	Car_Id Int PRIMARY KEY,
+	Car_Name Varchar(30),
 	Car_Model Varchar(50),
 	Car_Color Varchar(30)
 )
@@ -21,10 +22,10 @@ INSERT INTO Inventory(Car_Id,Car_Name,Car_Model,Car_Color)Values(204,'opq','B6',
 
 CREATE TABLE SALES
 (
-	EmployeeId int,
-	CarId int,
-	Customer_Name varchar(50),
-	Sold_Price int,
+	EmployeeId Int,
+	CarId Int,
+	Customer_Name Varchar(50),
+	Sold_Price Int,
 	CONSTRAINT fkEmployeeId FOREIGN KEY (EmployeeId) REFERENCES  Employees(Employee_Id),
 	CONSTRAINT fkCarId FOREIGN KEY (CarId) REFERENCES Inventory(Car_Id) 
 
