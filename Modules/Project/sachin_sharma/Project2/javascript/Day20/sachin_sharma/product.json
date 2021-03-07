@@ -1,8 +1,0 @@
-{
-    "products" : [
-        {"id":1, "name":"cheese", "price":100, "quanity":1},
-        {"id":2, "name":"Pen", "price":150, "quanity":2},
-        {"id":3, "name":"Butter", "price":100, "quanity":1},
-        {"id":4, "name":"Pencil", "price":10, "quanity":1}
-    ]
-}

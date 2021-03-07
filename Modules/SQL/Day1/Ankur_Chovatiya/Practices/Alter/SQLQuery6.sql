@@ -1,3 +1,0 @@
-ALTER TABLE JobHistory
-ADD CONSTRAINT fk_job_id 
-FOREIGN KEY (Job_Id) REFERENCES jobs(JobId);

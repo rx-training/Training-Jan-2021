@@ -1,2 +1,0 @@
-when you update morethan one file and you want to commit only some file from that so we can stage that file and commit only staged them.
-stash will work as recyclebin, some time you change your file and you want back your last comiit we can creat stash.

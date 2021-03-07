@@ -1,9 +1,0 @@
-Difference between fetch and pull:
-git fetch is used to get updated changes from the remote repository and 
-git pull is used to copy those changes from the remote repository to local repository.
-
-Difference between Stage and stash:
-Stash will move modified files into a stack, so later in the same or another branch, you will be able to bring 
-them back.
-The Stage is the step before making a commit, we add modified files to the staging area to create
-the next commit.
