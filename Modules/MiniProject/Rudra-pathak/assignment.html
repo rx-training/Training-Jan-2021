@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Assignment</title>
+
+</head>
+<body class="text-center">
+
+    <div class="container p-5 my-5">
+        <button id="getJsonData" class="btn btn-warning">Click here to get JSON Data</button>
+
+        <table class="table" id="tableData"></table>
+    </div>
+
+
+    <script>
+        $(document).ready(() => {
+            $("#getJsonData").click(() => {
+                $.getJSON("https://gorest.co.in/public-api/users", (result, status) => {
+                    var str = "<thead><tr>"
+                    for (field in result.data[0]) {
+                        console.log(field.toUpperCase());
+                        str += '<th>' + field.toUpperCase() + '</th>';
+                    }
+                    str += '</tr></thead>';
+                    str += '<tbody>';
+
+                    for (var x in result.data) {
+                        str += '<tr><td>' + result.data[x].id + '</td><td>' + result.data[x].name + '</td><td>' + result.data[x].email + '</td><td>' + result.data[x].gender + '</td><td>' + result.data[x].status + '</td><td>' + result.data[x].created_at + '</td><td>' + result.data[x].updated_at + '</td></tr>';
+                    }
+                    str += '</tbody>';
+                    $("#tableData").html(str);
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

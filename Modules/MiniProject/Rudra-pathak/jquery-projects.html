@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Training Site</title>
+
+    <style>
+
+        .sidenav {
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 25px;
+                display: block;
+            }
+
+
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        #sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            transition: all 0.3s;
+        }
+
+            #sidebar.active {
+                margin-left: -250px;
+            }
+
+            #sidebar .sidebar-header {
+                padding: 20px;
+            }
+
+            #sidebar ul.components {
+                padding: 20px 0;
+                border-bottom: 1px solid #47748b;
+            }
+
+            #sidebar ul p {
+                padding: 10px;
+            }
+
+            #sidebar ul li a {
+                padding: 10px;
+                font-size: 1.1em;
+                display: block;
+            }
+    </style>
+</head>
+<body>
+
+    <!--Main Navbar-->
+    <header class="fixed-top mb-5">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-dark m-auto mb-5">
+                <div class="d-flex flex-wrap w-100 m-auto mb-5">
+                    <a class="navbar-brand mr-auto" href="index.html">
+                        <img src="assets/images/radixlogo.jpg" width="50" height="50" alt="RadixWeb Logo" />
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mr-md-2 ml-auto">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="html-projects.html">HTML</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="css-projects.html">CSS</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="bootstrap-projects.html">Bootstrap</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="js-projects.html">JavaScript</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-dark" href="jquery-projects.html">jquery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <hr />
+    </header>
+
+    <div class="row">
+        <div class="wrapper col">
+            <!-- Sidebar  -->
+            <nav id="sidebar" class="fixed" style="margin-top: 100px ">
+                
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 20</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" id="day20ass">Assignment</a>
+                        <a class="dropdown-item" id="day20pra1">Practice1</a>
+                        <a class="dropdown-item" id="day20pra2">Practice2</a>
+                        <a class="dropdown-item" id="day20pra3">Practice3</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn w-100 btn-light dropdown-toggle" data-toggle="dropdown">Day 21</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="Day23/assignment.html">Assignment</a>
+                        <a class="dropdown-item" href="Day23/practice.html">Practice</a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div class="col m-auto" id="innerhtml">
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $('#day20pra1').click(function () {
+                $('#innerhtml').load("Day22/practice1.html");
+            })
+            $('#day20pra2').click(function () {
+                $('#innerhtml').load("Day22/practice2.html");
+            })
+            $('#day20pra3').click(function () {
+                $('#innerhtml').load("Day22/practice3.html");
+            })
+            $('#day20ass').click(function () {
+                $('#innerhtml').load("Day22/assignment.html");
+            })
+            $('#day21ass').click(function () {
+                $('#innerhtml').load("Day24/assignment.html");
+            })
+
+
+        })
+    </script>
+</body>
+</html>

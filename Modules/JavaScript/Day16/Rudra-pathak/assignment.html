@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Birthdate</title>
+</head>
+<body>
+    <div class="container m-5">
+        <form class="form">
+            <div class=" form-group row">
+                <label for="date" class="col-4 text-right pt-3">Birth Date <mark>('MM-DD-YYYY')</mark>:</label>
+                <input type="text" class="form-control m-2 col" placeholder="e.g. 01-01-1960" id="date">
+            </div>
+        </form><br>
+        <div class="text-center">
+            <button class="btn btn-outline-dark mb-3 d-inline" onclick="checkDate()">Submit</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        function checkDate() {
+            var date = document.getElementById('date').value.trim();
+            if (date == "") {
+                alert('Please insert a date');
+                document.getElementById('date').value = "";
+                return;
+            }
+            var dateComponents = date.split('-');
+
+            if (dateComponents.length != 3 || dateComponents[0].length != 2 || dateComponents[1].length != 2 || dateComponents[2].length != 4) {
+                alert('plz use valid format');
+                document.getElementById('date').value = "";
+                return;
+            }
+
+            var year = dateComponents[2];
+            if (parseInt(year) < 1920 || parseInt(year) > (new Date()).getFullYear() || isNaN(parseInt(year))) {
+                alert('invalid year!');
+                document.getElementById('date').value = "";
+                return;
+            }
+
+            var month = dateComponents[0];
+            if (parseInt(month) < 1 || parseInt(month) > 12 || isNaN(parseInt(month))) {
+                alert('invalid month!');
+                document.getElementById('date').value = "";
+                return;
+            }
+
+            var daysCount = new Date(year, month, 0).getDate();
+            var day = dateComponents[1];
+
+            date = new Date(year, month - 1, day);
+            var currentDate = new Date();
+            if (parseInt(day) < 1 || parseInt(day) > daysCount || isNaN(parseInt(day)) || date > currentDate) {
+                alert('invalid date!');
+                document.getElementById('date').value = "";
+                return;
+            }
+            alert('Perfect !');
+        }
+    </script>
+</body>
+</html>

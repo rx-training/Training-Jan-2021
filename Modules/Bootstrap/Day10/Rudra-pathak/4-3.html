@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width:device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .row-hl {
+            background: #f4f4f4;
+            height: 250px;
+        }
+
+        .item-hl {
+            border: 1px solid #333;
+        }
+    </style>
+
+    <title>Flexbox</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="display-3 text-center my-4">Flexbox</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            2: Utilities
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="2-1.html">2.1 Basic Typography</a>
+                            <a class="dropdown-item" href="2-2.html">2.2 Text Alignment & Display</a>
+                            <a class="dropdown-item" href="2-3.html">2.3 Floats and Fixed Positions</a>
+                            <a class="dropdown-item" href="2-4.html">2.4 Colors & Backgrounds</a>
+                            <a class="dropdown-item" href="2-5.html">2.5 Spacing</a>
+                            <a class="dropdown-item" href="2-6.html">2.6 Sizing and Borders</a>
+                            <a class="dropdown-item" href="2-7.html">2.7 Breakpoints</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-success btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            3: CSS Components
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="3-1.html">3.1 Navbar</a>
+                            <a class="dropdown-item" href="3-2.html">3.2 List Groups & Badges</a>
+                            <a class="dropdown-item" href="3-3.html">3.3 Forms</a>
+                            <a class="dropdown-item" href="3-4.html">3.4 Input Groups & Addons</a>
+                            <a class="dropdown-item" href="3-5.html">3.5 Alerts & Progress Bars</a>
+                            <a class="dropdown-item" href="3-6.html">3.6 Tables & Pagination</a>
+                            <a class="dropdown-item" href="3-7.html">3.7 Cards</a>
+                            <a class="dropdown-item" href="3-8.html">3.8 Media Objects</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-warning btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            4: Grid & Flexbox
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="4-1.html">4.1 Grid System</a>
+                            <a class="dropdown-item" href="4-2.html">4.2 Grid Alignment</a>
+                            <a class="dropdown-item" href="4-3.html">4.3 Flexbox</a>
+                            <a class="dropdown-item" href="4-4.html">4.4 Auto Margin & Padding</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="dropdown">
+                        <button class="btn btn-danger btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                            5: Grid & Flexbox
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="5-1.html">5.1</a>
+                            <a class="dropdown-item" href="5-2.html">5.2</a>
+                            <a class="dropdown-item" href="5-3.html">5.3</a>
+                            <a class="dropdown-item" href="5-4.html">5.4</a>
+                            <a class="dropdown-item" href="5-5.html">5.5</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </header>
+    <div class="container">
+        <!--Flex Row & Flex Items-->
+        <div class="d-flex flex-row row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <!--Flex Row Reverse-->
+        <div class="d-flex flex-row-reverse row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <!--Justify Content-->
+        <div class="d-flex flex-row justify-content-start row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row justify-content-center row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row justify-content-end row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row justify-content-around row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row justify-content-between row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <!--Flex Container/Flex Column-->
+        <div class="d-flex flex-column row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-column-reverse row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <!--Vertical Align Items-->
+        <div class="d-flex flex-row align-items-start row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row align-items-center row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row align-items-end row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row align-items-baseline row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <div class="d-flex flex-row align-items-stretch row-hl">
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+            <div class="p-4 item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <!--Align Self-->
+        <div class="d-flex flex-row row-hl">
+            <div class="p-4 align-self-start item-hl">Flex Item</div>
+            <div class="p-4 align-self-center item-hl">Flex Item</div>
+            <div class="p-4 align-self-end item-hl">Flex Item</div>
+            <div class="p-4 align-self-baseline item-hl">Flex Item</div>
+            <div class="p-4 align-self-stretch item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+        <!--Responsive Align Self-->
+        <div class="d-flex flex-row row-hl">
+            <div class="p-4 align-self-md-start item-hl">Flex Item</div>
+            <div class="p-4 align-self-md-center item-hl">Flex Item</div>
+            <div class="p-4 align-self-md-end item-hl">Flex Item</div>
+            <div class="p-4 align-self-md-baseline item-hl">Flex Item</div>
+            <div class="p-4 align-self-md-stretch item-hl">Flex Item</div>
+        </div>
+
+        <br /><br />
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>JavaScript</title>
+    <style>
+        body {
+            background: #202020;
+            color: white;
+        }
+
+        #stopwatch {
+            font-size: 100px;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+        }
+        .btn {
+            position: absolute;
+            transform: translate(-51%, -55%);
+            top: 100%;
+            left: 50%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="d-flex" id="stopwatch">
+        03:00:00
+        <button class="btn btn-sm btn-success" onclick="startTimer()">Start</button>
+    </div>
+    <div class="d-flex">
+
+    </div>
+
+    <script>
+        const timer = document.getElementById('stopwatch');
+
+        var hr = 1;
+        var min = 01;
+        var sec = 00;
+        var stoptime = true;
+
+        function startTimer() {
+            if (stoptime == true) {
+                stoptime = false;
+                timerCycle();
+            }
+        }
+        function stopTimer() {
+            if (stoptime == false) {
+                stoptime = true;
+            }
+        }
+
+        function timerCycle() {
+            if (stoptime == false) {
+                sec = parseInt(sec);
+                min = parseInt(min);
+                hr = parseInt(hr);
+
+                sec = sec + 1;
+
+                if (sec == 60) {
+                    min = min + 1;
+                    sec = 0;
+                }
+                if (min == 60) {
+                    hr = hr + 1;
+                    min = 0;
+                    sec = 0;
+                }
+                if (hr > 3) {
+                    stoptime = true;
+                    return;
+                }
+
+                timer.innerHTML = (3 - hr) + ':' + (60 - min) + ':' + (60 - sec);
+
+                setTimeout("timerCycle()", 1000);
+            }
+        }
+
+    </script>
+</body>
+</html>

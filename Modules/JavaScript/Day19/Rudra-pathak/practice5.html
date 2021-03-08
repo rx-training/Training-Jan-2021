@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title></title>
+</head>
+<body>
+    <div class="container m-5">
+        <p id="e1"></p>
+        <p id="e2"></p>
+    </div>
+    <script>
+
+        var Employee = {
+            details: function (field, address, designation) {
+                return this.name + " => Field: " + field + ", Address: " + address + ", Designation: " + designation;
+            }
+        }
+
+        var e1 = {
+            name= "x"
+        }
+
+        var e2 = {
+            name="y"
+        }
+
+        document.getElementById("e1").innerHTML = (Employee.details.apply(e1, ["IT", "Ahmedabad", "Develpoer"]));
+        document.getElementById("e2").innerHTML = (Employee.details.apply(e2, ["IT", "Rajkot", "Team Lead"]));
+
+    </script>
+</body>
+</html>

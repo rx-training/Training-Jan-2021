@@ -1,0 +1,265 @@
+﻿* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+#nav-bar-div {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(43, 43, 43);
+}
+
+#logo-div {
+    display: flex;
+    justify-content: center;
+}
+
+#logo-text {
+    color: deepskyblue;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.nav-bar {
+    text-decoration: none;
+    margin: 0;
+    font-size: 15px;
+}
+
+.nav-bar li {
+    display: inline-block;
+    margin: 20px 20px auto 20px;
+    padding-bottom: 20px;
+}
+
+.nav-bar li a {
+    color: rgb(177, 177, 177);
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+#nav-bar-line {
+    height: 10px;
+    margin: 0;
+    background-color: rgb(0, 204, 255);
+    border: none;
+}
+
+.active {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(0, 204, 255);
+    border-top: 10px solid transparent;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.active a {
+    color: white !important;
+}
+
+#banner-text-div {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(34, 33, 33, 0.808);
+    position: absolute;
+    margin-top: 305px;
+    height: 95px;
+    width: 100%;
+    color: rgb(177, 177, 177);
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+#banner-image img {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+}
+
+.btn {
+    border-width: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.blue-button {
+    height: 15px;
+    margin: 30px 0 25px 0;
+    padding: 10px 30px;
+    color: white;
+    background-color: rgb(0, 204, 255);
+}
+
+#section1 {
+    width: 70%;
+    margin: 400px 15% 0 15%;
+}
+
+#content {
+    color: rgb(71, 71, 71);
+}
+
+.important-div {
+    text-align: center;
+    display: inline-block;
+    width: 23%;
+    margin: 90px 5% 90px 5%;
+}
+
+#heading-section {
+    height: 300px;
+    background-image: radial-gradient( white 50%, rgb(233, 233, 233));
+}
+
+.headings {
+    text-align: center;
+    padding-top: 90px;
+}
+
+#things-section {
+    width: 80%;
+    margin: 100px 10% 100px 10%;
+}
+
+.grid-view {
+    width: 100%;
+}
+
+.grid-view div {
+    display: inline-block;
+    width: 45%;
+    margin: 20px;
+}
+
+.grid-view div img {
+float: left;
+}
+
+.grid-view div p {
+    font-size: 15px;
+    margin: auto 20px auto 180px;
+}
+
+.grid-view div h3 {
+    margin-left: 180px;
+}
+
+.question-div {
+    background-color: rgb(33, 166, 228);
+    text-align: center;
+    padding: 60px;
+}
+
+.question-div * {
+    display: inline;
+}
+
+.question-div h2 {
+    color: white;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.white-button, .white-button::after {
+    height: 15px;
+    margin: 25px 0 25px 0;
+    padding: 15px 30px;
+    background-color: white;
+    color: rgb(77, 77, 77);
+}
+
+
+#question-section {
+    height: 150px;
+    margin: 0;
+}
+
+footer {
+    background-color: rgb(243, 243, 243);
+    padding: 100px 10% 100px 10%;
+}
+
+footer #row1 {
+    width: 100%;
+}
+
+footer #row1 div {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    width: 30%;
+}
+
+footer #row1 #right-section {
+    width: 35%;
+}
+
+footer #row1 div div {
+    display: inline-block;
+}
+
+
+.links {
+    width: 20%;
+}
+
+.contact-form {
+    width: 45%;
+}
+
+.links-list {
+    list-style: none;
+}
+
+.links-list li {
+    margin: 20px auto;
+}
+
+.links-list li a, .links-list li a::after {
+    color: rgb(77, 77, 77);
+    text-decoration-style: dotted;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.gray-button {
+    height: 35px;
+    margin: 25px 0 25px 0;
+    padding: 10px 30px;
+    color: white;
+    background-color: rgb(66, 66, 66);
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media a {
+    text-decoration: none;
+    font-size: 30px;
+    margin: 10px 10px;
+    display: inline;
+    color: gray;
+}
