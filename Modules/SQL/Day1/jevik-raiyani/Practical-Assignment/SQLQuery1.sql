@@ -88,7 +88,7 @@ CREATE TABLE dbo.jobs
 (
 	JobId INT CONSTRAINT pkjobId PRIMARY KEY,
 	JobTitle VARCHAR(30) CONSTRAINT chkDefJobTitle DEFAULT '  ',
-	MinSalary INT CHECK (MinSalary> 8000) NOT NULL,
+	MinSalary INT CHECK (MinSalary> 8000) NOT NULL CONSTRAINT chkDefMinSalary  DEFAULT 8000,
 	MaxSalary INT DEFAULT NULL
 )
 DROP TABLE dbo.jobs	
