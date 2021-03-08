@@ -78,7 +78,7 @@
                               <div class="modal-content">
                                 <!-- Modal Header -->
                                 <div class="modal-header">
-                                  <h4 class="modal-title">New user Data</h4>
+                                  <h4 class="modal-title">City Update Data</h4>
                                   <button  onclick="Close('#AddModal')" id ="closes" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <!-- Modal body -->
@@ -89,6 +89,7 @@
                                         </div>
                                         <div class="form-group">
                                           <input type="text" class="form-control" placeholder="Enter City Name" id="citynameup" value="">
+                                          <div id="validcityupdate" class="valdefault text-danger">Enter valid city </div>
                                         </div>
                                           <button onclick="return setupdatedata()" class="btn btn-primary">Submit</button>
                                       </form>
@@ -101,7 +102,7 @@
                               <div class="modal-content">
                                 <!-- Modal Header -->
                                 <div class="modal-header">
-                                  <h4 class="modal-title">New user Data</h4>
+                                  <h4 class="modal-title">New City Data</h4>
                                   <button onclick="Close('#AddCity')" id ="closecity"  class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <!-- Modal body -->
@@ -109,7 +110,7 @@
                                     <form> 
                                         <div class="form-group">
                                           <input type="text" class="form-control" placeholder="Enter name" id="citynamead" value="">
-                                          <label id="name" class="text-denger valdefault">Enter Valid name</label> 
+                                          <div id="validcity" class="valdefault text-danger">Enter valid city </div> 
                                         </div>
                                           <button onclick="return Addnewcity()" class="btn btn-primary">Submit</button>
                                       </form>

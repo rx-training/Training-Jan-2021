@@ -1,0 +1,12 @@
+.listside{
+    list-style-type:none;
+}
+.heightforback{
+    min-height: 600px;    
+}
+.mainrow{
+    margin-left: 0px;
+}
+.bg-primary {
+    background-color: brown !important;
+}

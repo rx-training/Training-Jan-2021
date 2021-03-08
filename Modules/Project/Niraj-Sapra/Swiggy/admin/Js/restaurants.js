@@ -1,14 +1,22 @@
 window.onload = () => {
     citynames();
     show();
+    callauto()
 }
 function logout(){
   location.href = '../../index.html';
   return true;
-}
+}  
 function show(){
- var table = document.getElementById('my_table');
- var list = JSON.parse(localStorage.getItem('reslist'));
+  var list = JSON.parse(localStorage.getItem('reslist')); 
+   if(list == null){
+fetch ("../js/restaurants.json")
+        .then(x => x.text())
+        .then(z =>(localStorage.setItem("reslist", z)));
+  }
+ 
+  var table = document.getElementById('my_table');
+ 
 var str = "";
  for(i = 0; i<list.length ; i++){
    var no = i+1;
@@ -46,6 +54,22 @@ function setupdatedata(){
   reslist[listid].twopersonprice = $("#uprice").val();
   reslist[listid].resoffer1 = $("#uoffer1").val();
   reslist[listid].resoffer2 = $("#uoffer2").val();
+  $(document).ready(function (){
+    $("#unewresname,#ufoodtype").focus(function(){
+      $("#name,#phpneno").hide();
+    });
+  });
+  if(($("#unewresname").val() == "") || ($("#ufoodtype").val() == "")){
+    $("#name,#phpneno").show();
+    return false;
+  }
+   else{
+    $(document).ready(function (){
+     $("#unewresname,#ufoodtype").blur(function(){
+       $("#name,#phpneno").hide();
+     });
+   });
+  }
   localStorage.setItem('reslist',JSON.stringify(reslist));
   alert("Update Restrauants Data Successfully")
   return true;
@@ -71,7 +95,7 @@ function citynames(){
     citynameslist.innerHTML += str;
 }
 function Addnewrestorent(){
-    var reslist;
+  var reslist;
     var file = document.getElementById("file").files;
     file = file[0].name;
     var imagelink = "../../img/Categories/Restaurants/" + file;
@@ -84,10 +108,27 @@ function Addnewrestorent(){
         "resoffer2" : $("#newoffer2").val(),
         "resimg" : imagelink,
     }
+    $(document).ready(function (){
+      $("#newresname,#newfoodtype").focus(function(){
+        $("#name,#phpneno").hide();
+      });
+    });
+    if(($("#newresname").val() == "") || ($("#newfoodtype").val() == "")){
+      $("#name,#phpneno").show();
+      return false;
+    }
+     else{
+      $(document).ready(function (){
+       $("#name,#phpneno").blur(function(){
+         $("#name,#phpneno").hide();
+       });
+     });
+    }
   reslist = JSON.parse(localStorage.getItem('reslist')) || [];
   reslist.push(resdataob);     
   resdataob = JSON.stringify(reslist);
   localStorage.setItem('reslist',resdataob);
   alert("Register New Restorent successfully");
   return true;
-}
+  }
+

@@ -31,10 +31,31 @@ function updaterow(index){
 function setupdatedata(){
   alert("update");
   listid = $("#idup").val();
-  console.log(listid);
+  
   var citylist = JSON.parse(localStorage.getItem('citylist'));
   citylist[listid].cityname = $("#citynameup").val();  
   alert(citylist[listid].cityname);
+  $(document).ready(function (){
+    $("#citynameup").focus(function(){
+      $("#validcityupdate").hide();
+    });
+  });
+  if(($("#citynameup").val() == "")){
+    alert("enter");
+    $("#validcityupdate").show();
+    return false;
+  }
+   else{
+    $(document).ready(function (){
+     $("#citynameup").blur(function(){
+      if(($("#citynameup").val() == "")){
+        alert("enter");
+        $("#validcityupdate").show();
+        return false;
+      }
+     });
+   });
+  }
   localStorage.setItem('citylist',JSON.stringify(citylist));
   alert("Update City Data Successfully")
   return true;
@@ -53,6 +74,27 @@ function Addnewcity(){
   var citylist;
   var cityob = {
     "cityname" : $("#citynamead").val(),
+  }
+  $(document).ready(function (){
+    $("#citynamead").focus(function(){
+      $("#validcity").hide();
+    });
+  });
+  cityname = $("#citynamead").val();
+  
+  if((cityname == "")){
+    $("#validcity").show();
+    return false;
+  }
+   else{
+    $(document).ready(function (){
+     $("#citynamead").blur(function(){
+      if((cityname == "")){
+        $("#validcity").show();
+        return false;
+      }
+     });
+   });
   }
   citylist = JSON.parse(localStorage.getItem('citylist')) || [];
   citylist.push(cityob);     

@@ -8,7 +8,12 @@
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
         <script type="text/javascript" src="../Js/product.json"></script>
         <script type="text/javascript" src="../Js/product.js"></script>
-
+        <style>
+            .valid{
+                display: none;
+            }
+            
+        </style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -85,54 +90,24 @@
                                   <div class="modal-content">
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                      <h4 class="modal-title">Update Restaurant Data</h4>
+                                      <h4 class="modal-title">Update Product Data</h4>
                                       <button type="button" id ="closes" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
                                         <form>
                                             <div class="form-group">
-                                                <input type="hidden" id="uid" value="">
+                                                <input type="hidden" class="form-control" placeholder="uid" id="uid">
                                               </div>
                                             <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="Enter Restaurant Name" id="unewresname" value="">
-                                              <label id="name" class="text-denger valdefault">Enter valid Restaurant Name</label> 
+                                              <input type="text" class="form-control" placeholder="Product Name" id="uproname" value="">
+                                              <label id="proname" class="text-denger valid">Enter valid Product Name</label> 
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Enter category of Food type Item" id="ufoodtype" value="">
-                                                <label id="phpneno" class="text-denger valdefault">Enter Food Veraity</label>
+                                                <input type="number" class="form-control" placeholder="Product Price" id="uproprice" value="">
+                                                <label id="phpneno" class="text-denger valid">Enter Valid Product Price</label>
                                             </div>
-                                            <div class="form-group">
-                                                  <label for="price">Choose Price Two person :</label>
-                                                <select name="forprice" class="form-control w-100" id="uprice">
-                                                    <option value="100">100</option>
-                                                    <option value="200">200</option>
-                                                    <option value="300">300</option>
-                                                    <option value="400">400</option>
-                                                    <option value="500">500</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="price">Choose Offer Of product :</label>
-                                              <select name="forprice" class="form-control w-100" id="uoffer1">
-                                                  <option value="30% off | Use SWIGGYIT">30% off | Use SWIGGYIT</option>
-                                                  <option value="Extra 15% Amazon Pay Cashback">Extra 15% Amazon Pay Cashback</option>
-                                                  <option value="30% off on orders above ₹129">30% off on orders above ₹129</option>
-                                                  <option value="Free Delivery | Use FREEDEL">Free Delivery | Use FREEDEL</option>
-                                                  <option value="20% off | Use SWIGGYIT">20% off | Use SWIGGYIT</option>
-                                              </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="price">Choose Offer Of product :</label>
-                                                <select name="forprice" class="form-control w-100" id="uoffer2">
-                                                    <option value="30% off | Use SWIGGYIT">30% off | Use SWIGGYIT</option>
-                                                    <option value="Extra 15% Amazon Pay Cashback">Extra 15% Amazon Pay Cashback</option>
-                                                    <option value="30% off on orders above ₹129">30% off on orders above ₹129</option>
-                                                    <option value="Free Delivery | Use FREEDEL">Free Delivery | Use FREEDEL</option>
-                                                    <option value="20% off | Use SWIGGYIT">20% off | Use SWIGGYIT</option>
-                                                </select>
-                                            </div>
-                                              <button onclick="return setupdatedata()" class="btn btn-primary">Submit</button>
+                                              <button onclick="return updateproduct()" class="btn btn-primary">Submit</button>
                                           </form>
                                     </div>
                                   </div>
@@ -143,63 +118,25 @@
                                   <div class="modal-content">
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                      <h4 class="modal-title">New Restaurants Data</h4>
+                                      <h4 class="modal-title">New Product Data</h4>
                                       <button type="button" onclick="Close('#Adduser')" id ="closes" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <form>
+                                        <form> 
                                             <div class="form-group">
-                                                <input type="hidden" id="newid" value="">
-                                              </div>
-                                            <div class="form-group">
-                                                <label for="">Choose City :</label>
-                                                <select name="" class="form-control w-100" id="citynameslist">
-                                                </select>
-                                            </div>  
-                                            <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="Enter Restaurant Name" id="newresname" value="">
-                                              <label id="name" class="text-denger valdefault">Enter valid Restaurant Name</label> 
+                                              <input type="text" class="form-control" placeholder="Product Name" id="newproname" value="">
+                                              <label id="proname" class="text-denger valid">Enter valid Product Name</label> 
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Enter category of Food type Item" id="newfoodtype" value="">
-                                                <label id="phpneno" class="text-denger valdefault">Enter Food Veraity</label>
+                                                <input type="text" class="form-control" placeholder="Product Price" id="newproprice" value="">
+                                                <label id="proprice" class="text-denger valid">Enter Product Price</label>
                                             </div>
                                             <div class="form-group">
-                                                  <label for="price">Choose Price Two person :</label>
-                                                <select name="forprice" class="form-control w-100" id="newprice">
-                                                    <option value="100">100</option>
-                                                    <option value="200">200</option>
-                                                    <option value="300">300</option>
-                                                    <option value="400">400</option>
-                                                    <option value="500">500</option>
-                                                </select>
+                                                <input type="file" class="form-control" placeholder="Product Image" id="file" required>
+                                                <label id="prodimgs" class="text-danger valid">Enter Product Image</label>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="price">Choose Offer Of product :</label>
-                                              <select name="forprice" class="form-control w-100" id="newoffer1">
-                                                  <option value="30% off | Use SWIGGYIT">30% off | Use SWIGGYIT</option>
-                                                  <option value="Extra 15% Amazon Pay Cashback">Extra 15% Amazon Pay Cashback</option>
-                                                  <option value="30% off on orders above ₹129">30% off on orders above ₹129</option>
-                                                  <option value="Free Delivery | Use FREEDEL">Free Delivery | Use FREEDEL</option>
-                                                  <option value="20% off | Use SWIGGYIT">20% off | Use SWIGGYIT</option>
-                                              </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="price">Choose Offer Of product :</label>
-                                                <select name="forprice" class="form-control w-100" id="newoffer2">
-                                                    <option value="30% off | Use SWIGGYIT">30% off | Use SWIGGYIT</option>
-                                                    <option value="Extra 15% Amazon Pay Cashback">Extra 15% Amazon Pay Cashback</option>
-                                                    <option value="30% off on orders above ₹129">30% off on orders above ₹129</option>
-                                                    <option value="Free Delivery | Use FREEDEL">Free Delivery | Use FREEDEL</option>
-                                                    <option value="20% off | Use SWIGGYIT">20% off | Use SWIGGYIT</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="file" class="form-control" placeholder="Enter Restaurant Image" id="file" value="">
-                                                <label id="resimgs" class="text-denger valdefault">Enter Restorent Image</label>
-                                            </div>
-                                            <button onclick="return Addnewrestorent()" class="btn btn-primary">Submit</button>
+                                            <button onclick="return Addnewproduct()" class="btn btn-primary">Submit</button>
                                           </form>
                                         </div>
                                     </div>
