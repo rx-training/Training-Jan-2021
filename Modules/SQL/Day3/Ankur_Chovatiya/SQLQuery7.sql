@@ -1,0 +1,1 @@
+SELECT Experience = DATEPART(YY, GETDATE()) - DATEPART(YY,HireDate)  FROM Employees
