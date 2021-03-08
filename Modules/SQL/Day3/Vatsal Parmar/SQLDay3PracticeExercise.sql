@@ -1,0 +1,109 @@
+﻿USE AdventureWorks2012;
+
+/* Practice Exercise */
+
+--ASCII
+SELECT ASCII('A');
+
+--CHAR
+SELECT CHAR(68);
+
+--CHARINDEX
+SELECT CHARINDEX('S','MICROSOFT SQL SERVER',7);
+
+--CONCAT
+SELECT CONCAT('JHON',' ','DOE');
+
+--FORMAT
+DECLARE @d DATETIME='05/03/2021';
+SELECT FORMAT (@d,'d','en-US');
+
+--LEFT
+SELECT LEFT ('MICROSOFT SQL SERVER',4);
+
+--LEN
+SELECT LEN('Jhon Doe');
+
+--LOWER
+SELECT LOWER('VATSAL');
+
+--LTRIM
+SELECT LTRIM ('      VATSAL');
+
+--PATINDEX
+SELECT PATINDEX('%SER%','SQL SERVER');
+
+--REPLACE
+SELECT REPLACE('JHON PARMAR','JHON','VATSAL');
+
+--RTRIM
+SELECT RTRIM('VATSAL     ');
+
+--SOUNDEX
+SELECT SOUNDEX ('Smith'), SOUNDEX ('Smythe');
+
+--SPACE
+USE AdventureWorks2012;   
+SELECT RTRIM(LastName) + ',' + SPACE(2) +  LTRIM(FirstName)  AS Name
+FROM Person.Person  
+ORDER BY LastName, FirstName;
+
+--STR
+SELECT STR(2);
+
+--STUFF
+SELECT STUFF('abcdef', 2, 3, 'ijklmn');
+
+--SUBSTRING
+SELECT x = SUBSTRING('abcdef', 2, 3);
+
+--TRANSLATE
+SELECT TRANSLATE('2*[3+4]/{7-2}', '[]{}', '()()');
+
+--TRIM
+SELECT TRIM( '     test    ') AS Result;
+
+--UNICODE
+DECLARE @nstring NCHAR(12);  
+SET @nstring = N'વી';  
+SELECT UNICODE(@nstring), NCHAR(UNICODE(@nstring));
+
+--REVERSE
+SELECT REVERSE(1234) AS Reversed ;
+
+--RIGHT
+SELECT RIGHT('abcdefg', 2);
+
+--DATE FUNCTION
+SELECT BusinessEntityID, DATENAME(mm,HireDate) + ', ' + CONVERT(VARCHAR, DATEPART(yyyy,HireDate)) AS 'Joining' FROM HumanResources.Employee;
+
+SELECT DATENAME(mm, GETDATE()) + SPACE(1) + CAST(DATEPART(dd, GETDATE()) AS VARCHAR) + ', ' + CAST(DATEPART(YYYY,GETDATE()) AS VARCHAR);
+
+SELECT FirstName,HireDate FROM Employees WHERE HireDate >= '1987-06-01' AND HireDate <='1987-07-30';
+SELECT FirstName,HireDate, DATEDIFF(YEAR,HireDate,GETDATE())[EXPERIENCE] FROM Employees;
+
+--MATH FUNCTION
+SELECT CEILING(9.4);
+
+SELECT EXP(4.5);
+
+SELECT FLOOR(9.5);
+
+SELECT POWER(6,2);
+
+SELECT ROUND(15.6789,2);
+
+USE AdventureWorks2012;
+
+SELECT BusinessEntityID, 'Hourly Pay Rate' = ROUND(Rate,2) FROM HumanResources.EmployeePayHistory;
+
+--SYSTEM FUNCTION
+
+SELECT HOST_ID() AS 'Host Id';
+
+SELECT SYSDATETIME() AS 'System Date Time'
+    ,SYSDATETIMEOFFSET() AS 'System Date Time Offset'
+    ,SYSUTCDATETIME() AS 'System Date Time (UTC)'
+    ,CURRENT_TIMESTAMP AS 'Time Stemp'
+    ,GETDATE() AS 'Date Time'
+    ,GETUTCDATE() AS 'UTC Date';
