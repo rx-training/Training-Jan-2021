@@ -1,19 +1,19 @@
 -- Practice 1
---Write a SQL statement to create a table named countries including columns CountryId, CountryName and RegionId and make sure that no countries except Italy, India and China will be entered in the table. and combination of columns CountryId and RegionId will be unique.
+--Write a SQL statement to create a table named Countries including columns CountryId, CountryName and RegionId and make sure that no Countries except Italy, India and China will be entered in the table. and combination of columns CountryId and RegionId will be unique.
 
-CREATE TABLE countries(
+CREATE TABLE Countries(
     CountryId INT NOT NULL ,
     CountryName VARCHAR(20) NOT NULL , 
     RegionId DOUBLE , 
     CONSTRAINT checkCountry 
-        CHECK ( ( CountryName == "Italy" ) || ( CountryName == "India" ) || ( CountryName == "China" ) ) , 
+        CHECK ( ( CountryName == 'Italy' ) || ( CountryName == 'India' ) || ( CountryName == 'China' ) ) , 
     PRIMARY KEY (CountryId), 
     UNIQUE (RegionId)
  );
  
-INSERT INTO countries VALUES (12, "Italy", 54);
+INSERT INTO Countries VALUES (12, 'Italy', 54);
 
-SELECT * FROM countries;
+SELECT * FROM Countries;
 
 
 
@@ -27,35 +27,36 @@ CREATE TABLE Job_History (
     EmployeeId int PRIMARY KEY NOT NULL,
     JobId INT     NOT NULL,
     StartDate DATE ,
-    EndDate DATE CHECK(EndDate == "") 
+    EndDate DATE NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT convert_Date CHECK( EndDate = CONVERT( DATE , GETDATE() , 103)) 
 
 );
-INSERT INTO Job_History VALUES(1, 23, '2012-12-12', '');
+
 
 
 
 
 
 -- Practice 3
---Write a SQL statement to create a table named jobs including columns JobId, JobTitle, MinSalary and MaxSalary, and make sure that, the default value for JobTitle is blank and MinSalary is 8000 and MaxSalary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
+--Write a SQL statement to create a table named Jobs including columns JobId, JobTitle, MinSalary and MaxSalary, and make sure that, the default value for JobTitle is blank and MinSalary is 8000 and MaxSalary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
-CREATE TABLE jobs(JobId INT NOT NULL , 
+CREATE TABLE Jobs(JobId INT NOT NULL , 
     JobTitle VARCHAR(30) DEFAULT '' , 
     MinSalary INT DEFAULT 8000 , 
     MaxSalary INT DEFAULT NULL
 );
 
-INSERT INTO jobs (JobId) VALUES(5);
-INSERT INTO jobs (JobId) VALUES(6);
-INSERT INTO jobs (JobId) VALUES(7);
+INSERT INTO Jobs (JobId) VALUES(5);
+INSERT INTO Jobs (JobId) VALUES(6);
+INSERT INTO Jobs (JobId) VALUES(7);
 
-SELECT * FROM jobs;
+SELECT * FROM Jobs;
 
 
 
 -- Practice 4
---Write a SQL statement to create a table employees including columns Employee_Id, FirstName, LastName, Email, PhoneNumber, Hire_Date, Job_Id, Salary, Commission, Manager_Id and Department_Id and make sure that, the Employee_Id column does not contain any duplicate value at the time of insertion, and the foreign key column DepartmentId, reference by the column DepartmentId of Departments table, can contain only those values which are exists in the Department table and another foreign key column JobId, referenced by the column JobId of jobs table, can contain only those values which are exists in the jobs table.
-CREATE TABLE employees (
+--Write a SQL statement to create a table Employees including columns Employee_Id, FirstName, LastName, Email, PhoneNumber, Hire_Date, Job_Id, Salary, Commission, Manager_Id and Department_Id and make sure that, the Employee_Id column does not contain any duplicate value at the time of insertion, and the foreign key column DepartmentId, reference by the column DepartmentId of Departments table, can contain only those values which are exists in the Department table and another foreign key column JobId, referenced by the column JobId of Jobs table, can contain only those values which are exists in the Jobs table.
+CREATE TABLE Employees (
     EmployeeId INT         NOT NULL,
     FirstName VARCHAR(20)  NOT NULL ,
     LastName VARCHAR(20)   NOT NULL ,
@@ -69,46 +70,46 @@ CREATE TABLE employees (
     DepartmentId INT,
     
     PRIMARY KEY (EmployeeId),
-    CONSTRAINT fkJobId FOREIGN KEY (JobId) REFERENCES jobs(Id),
-    CONSTRAINT fkDepartmentId FOREIGN KEY (DepartmentId) REFERENCES departments(Id) 
+    CONSTRAINT fkJobId FOREIGN KEY (JobId) REFERENCES Jobs(Id),
+    CONSTRAINT fkDepartmentId FOREIGN KEY (DepartmentId) REFERENCES Departments(Id) 
 );
 
-INSERT INTO employees VALUES (2, 'John', 'Doe', 'johnDoe@gmail.com', 54134545, '2021-12-1', 40, 25000, 3, 1, 99);
-SELECT * FROM employees;
+INSERT INTO Employees VALUES (2, 'John', 'Doe', 'johnDoe@gmail.com', 54134545, '2021-12-1', 40, 25000, 3, 1, 99);
+SELECT * FROM Employees;
 
-CREATE TABLE jobs (
+CREATE TABLE Jobs (
     Id INT                       NOT NULL,
     JobName VARCHAR(20)   NOT NULL,
     JobType VARCHAR(20) ,
     
     PRIMARY KEY (Id)
 );
-INSERT INTO jobs VALUES (40 , "Dotnet", "Development");
-UPDATE jobs SET JobName = "Web developer" , JobType = "Trainee Engineer" WHERE Id = 40;
+INSERT INTO Jobs VALUES (40 , 'Dotnet', 'Development');
+UPDATE Jobs SET JobName = 'Web developer' , JobType = 'Trainee Engineer' WHERE Id = 40;
 
-CREATE TABLE departments (
+CREATE TABLE Departments (
     Id INT                       NOT NULL,
     DepartmentName VARCHAR(20)   NOT NULL,
     DepartmentType VARCHAR(20) ,
     
     PRIMARY KEY (Id)
 );
-INSERT INTO departments VALUES (99 , "Dotnet", "Development");
+INSERT INTO Departments VALUES (99 , 'Dotnet', 'Development');
 
 
 -- Practice 5
 --Alter statement
 
---Write a SQL statement to add a foreign key constraint named fk_job_id on JobId column of JobHistory table referencing to the primary key JobId of jobs table.
+--Write a SQL statement to add a foreign key constraint named fk_job_id on JobId column of JobHistory table referencing to the primary key JobId of Jobs table.
 CREATE TABLE JobHistory (
     JobId INT     NOT NULL,
     StartDate DATE ,
     EndDate DATE ,
     
     CONSTRAINT fk_job_id 
-        FOREIGN KEY (JobId) REFERENCES jobs(Id) 
+        FOREIGN KEY (JobId) REFERENCES Jobs(Id) 
 );
---Write a SQL statement to drop the existing foreign key fk_job_id from JobHistory table on JobId column which is referencing to the JobId of jobs table.
+--Write a SQL statement to drop the existing foreign key fk_job_id from JobHistory table on JobId column which is referencing to the JobId of Jobs table.
 --SQLite doesn't support the ADD CONSTRAINT variant of the ALTER TABLE command (sqlite.org: SQL Features That SQLite Does Not Implement). 
 
 PRAGMA foreign_keys=off;
@@ -139,8 +140,8 @@ SELECT * FROM JobHistory;
 
 
 --Assignment:
---You have been hired to create a relational database to support a car sales business. You need to store information on the business’s employees, inventory, and completed sales. You also need to account for the fact that each salesperson receives a different percentage of their sales in commission. What tables and columns would you create in your relational database, and how would you link the tables?
-CREATE TABLE business_employees (
+--You have been hired to create a relational database to support a car sales business. You need to store information on the business’s Employees, inventory, and completed sales. You also need to account for the fact that each salesperson receives a different percentage of their sales in commission. What tables and columns would you create in your relational database, and how would you link the tables?
+CREATE TABLE Business_Employees (
     Id          INT   ,
     Name        VARCHAR (200) NOT NULL
                            UNIQUE,
@@ -151,25 +152,25 @@ CREATE TABLE business_employees (
     CarName VARCHAR(320) ,
     
     PRIMARY KEY (Id),
-    CONSTRAINT fk_commision FOREIGN KEY (Commision) REFERENCES cars_sales(Commision),
-    CONSTRAINT fk_car FOREIGN KEY (CarName) REFERENCES cars_inventory(Name)
+    CONSTRAINT fk_commision FOREIGN KEY (Commision) REFERENCES Cars_Sales(Commision),
+    CONSTRAINT fk_car FOREIGN KEY (CarName) REFERENCES Cars_inventory(Name)
 );
-INSERT INTO business_employees VALUES (1,  'MohanLal', '2010-05-11', 'Salesman', 48, 3, 'Ferrari');
-select * from business_employees;
+INSERT INTO Business_Employees VALUES (1,  'MohanLal', '2010-05-11', 'Salesman', 48, 3, 'Ferrari');
+select * from Business_Employees;
 
-CREATE TABLE cars_inventory (
+CREATE TABLE Cars_inventory (
     Id    INT NOT NULL,
     Name  VARCHAR(150)    PRIMARY KEY 
                           NOT NULL,
     Price INT DEFAULT (0) 
 );
-INSERT INTO cars_inventory VALUES (4, 'Ferrari', 7800000);
-SELECT * FROM cars_inventory;
+INSERT INTO Cars_inventory VALUES (4, 'Ferrari', 7800000);
+SELECT * FROM Cars_inventory;
 
-CREATE TABLE cars_sales (
+CREATE TABLE Cars_Sales (
     Date      DATE NOT NULL,
     Name      VARCHAR (200) NOT NULL,
     Commision INT PRIMARY KEY
 );
-INSERT INTO cars_sales VALUES ('2012-05-12', 'MohanLal', 3);
-select * from cars_sales;
+INSERT INTO Cars_Sales VALUES ('2012-05-12', 'MohanLal', 3);
+select * from Cars_Sales;
