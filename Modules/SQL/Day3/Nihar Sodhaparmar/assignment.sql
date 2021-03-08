@@ -10,7 +10,7 @@ SELECT FirstName, LEN(FirstName) AS 'Length' FROM Employees WHERE FirstName LIKE
 
 /* 2. Write a query to display the FirstName and Salary for all employees. Format the salary to be 10 characters long, 
 left-padded with the $ symbol. Label the column SALARY.*/
-SELECT FirstName, CONCAT('$ ', dbo.LPAD(Salary, 10, 0)) AS 'Salary' FROM Employees;
+SELECT FirstName, CONCAT('$ ', CONCAT(REPLICATE(0, 10 - LEN(Salary)), Salary)) AS 'Salary' FROM Employees;
 
 
 /* 3. Write a query to display the employees with their code, first name, last name and hire date who hired either on 
@@ -48,10 +48,10 @@ SELECT FirstName, HireDate FROM Employees WHERE HireDate >= '1987-06-01' AND Hir
 /* 10. Write a query to display the current date in the following format.
 Sample output : 12:00 AM Sep 5, 2014 */
 DECLARE @d DATETIME = GETDATE();
-DECLARE @hour VARCHAR(MAX) = dbo.LPAD(IIF(DATEPART(HH, @d) > 12, DATEPART(HH, @d) - 12, DATEPART(HH, @d)), 2, 0);
-DECLARE @minute VARCHAR(MAX) = dbo.LPAD(DATEPART(MI, @d), 2, 0)
+DECLARE @hour VARCHAR(MAX) = IIF(DATEPART(HH, @d) > 12, DATEPART(HH, @d) - 12, DATEPART(HH, @d));
+DECLARE @minute VARCHAR(MAX) = DATEPART(MI, @d);
 
-SELECT CONCAT(@hour, ':', @minute
+SELECT CONCAT(REPLICATE(0, 2 - LEN(@hour)) + @hour , ':', REPLICATE(0, 2 - LEN(@minute)) + @minute
 	, ' ', IIF(DATEPART(HH, @d) > 12, 'PM', 'AM'), ' ', LEFT(DATENAME(MM, @d), 3), ' ', DATEPART(DD, @d), ', ', DATEPART(YY, @d));
 
 
