@@ -168,7 +168,8 @@ UPDATE Employees SET Email = 'not available' WHERE DepartmentID = 80 AND Commiss
 for those employees who belongs to the ‘Accouning’ department.*/
 
 -------Accounting  Department is not Found 
-
+UPDATE Employees SET Email = 'not available' WHERE Department = 'Accounting'
+SELECT * FROM Employees
 -----------------------------------ASSIGNMENT 6----------------------------------
 
 /*Write a SQL statement to change salary of employee to 8000 whose ID is 105, if the
@@ -205,7 +206,11 @@ SET Salary = CASE WHEN DepartmentId = 40 THEN Salary*1.25
 /*Write a SQL statement to increase the minimum and maximum salary of PU_CLERK by 
 2000 as well as the salary for those employees by 20% and commission by 10% .*/
 
-
+UPDATE Employees SET 
+MinimumSalary = MinimumSalary + 2000,
+MaximumSalary = MaximumSalary + 2000,
+Salary = Salary*1.20,
+Commision - Commision*1.10
 
 -------------------------------------SELECT QUERIES--------------------------------------------------
 
