@@ -1,4 +1,5 @@
-----------------------------------------DAY 2-------------------------------------
+----------------------------------------DAY 3-----------------------------------
+
 CREATE TABLE  Employees (
     EmployeeID decimal(6,0) NOT NULL DEFAULT '0',
 	FirstName varchar(20) DEFAULT NULL,
@@ -128,157 +129,117 @@ INSERT INTO Employees (EmployeeID,FirstName,LastName , Email, PhoneNumber, HireD
 ('205', 'Shelley', 'Higgins', 'SHIGGINS', '515.123.8080', '1987-09-30', 'AC_MGR', '12000.00', '0.00', '101', '110'),
 ('206', 'William', 'Gietz', 'WGIETZ', '515.123.8181', '1987-10-01', 'AC_ACCOUNT', '8300.00', '0.00', '205', '110');
 
+
 -----------------------------------ASSIGNMENT 1----------------------------------
 
-/*Write a SQL statement to change the Email column of Employees table with
-ï¿½not availableï¿½ for all employees.*/
-USE Practice
+/*Write a query that displays the FirstName and the length of the FirstName for
+all employees whose name starts with the letters ‘A’, ‘J’ or ‘M’. Give each column
+an appropriate label. Sort the results by the employees’ FirstName*/
 
---TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
-UPDATE Employees SET Email = 'not available' 
+---Method 1
+SELECT FirstName, LEN(FirstName) AS 'Length Of FirstName'  FROM Employees WHERE 
+LEFT(FirstName,1) = 'A' OR 
+LEFT(FirstName,1) = 'J' OR 
+LEFT(FirstName,1) = 'M'
+ORDER BY FirstName
+
+---Method 2
+SELECT FirstName, LEN(FirstName)  AS 'Length Of FirstName' FROM Employees WHERE
+FirstName LIKE 'A%' OR 
+FirstName LIKE 'j%' OR 
+FirstName LIKE 'm%'  
+ORDER BY FirstName
 
 -----------------------------------ASSIGNMENT 2----------------------------------
-	
-/*Write a SQL statement to change the Email and CommissionPct column of employees
-table with ï¿½not availableï¿½ and 0.10 for all employees.*/
 
---TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
-UPDATE Employees SET Email = 'not available', CommissionPct = 0.10
+/*Write a query to display the FirstName and Salary for all employees. 
+Format the salary to be 10 characters long, left-padded with the $ symbol.
+Label the column SALARY.*/
+
+SELECT FirstName, '$' + FORMAT(Salary,'0000000000') AS 'SALARY' FROM Employees
 
 -----------------------------------ASSIGNMENT 3----------------------------------
 
-/*Write a SQL statement to change the Email and CommissionPct column of employees
-table with ï¿½not availableï¿½ and 0.10 for those employees whose DepartmentID is 110.*/
+/*Write a query to display the employees with their code, first name,
+last name and hire date who hired either on seventh day of any month or 
+seventh month in any year.*/
 
---TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
-UPDATE Employees SET Email = 'not available', CommissionPct = 0.10 WHERE DepartmentID = 110
+SELECT EmployeeID, FirstName, LastName , HireDate FROM Employees
+WHERE DATEPART(DD,HireDate) = 07 OR DATEPART(MM,HireDate) = 07
 
 -----------------------------------ASSIGNMENT 4----------------------------------
 
-/*Write a SQL statement to change the Email column of employees table with
-ï¿½not availableï¿½ for those employees whose DepartmentID is 80 and gets a commission is less than 20%*/
+/*Write a query to display the length of first name for employees where last name 
+contains character ‘c’ after 2nd position.*/
 
---TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
-UPDATE Employees SET Email = 'not available' WHERE DepartmentID = 80 AND CommissionPct BETWEEN 0 AND 0.20
+--First name and last name also display for refrence only
+SELECT FirstName, LastName, LEN(FirstName) AS 'Length of first name' FROM Employees 
+WHERE CHARINDEX('c', LastName,3) != 0
 
 -----------------------------------ASSIGNMENT 5----------------------------------
 
+/*Write a query to extract the last 4 character of PhoneNumber.*/
 
-/*Write a SQL statement to change the Email column of employees table with ï¿½not availableï¿½
-for those employees who belongs to the ï¿½Accouningï¿½ department.*/
-
--------Accounting  Department is not Found 
-UPDATE Employees SET Email = 'not available' WHERE Department = 'Accounting'
+SELECT  RIGHT(PhoneNumber,4) AS 'last 4 character of PhoneNumber' FROM Employees
 
 -----------------------------------ASSIGNMENT 6----------------------------------
 
-/*Write a SQL statement to change salary of employee to 8000 whose ID is 105, if the
-existing salary is less than 5000.*/
+/*Write a query to update the portion of the PhoneNumber in the employees table, 
+within the phone number the substring ‘124’ will be replaced by ‘999’.*/
 
-UPDATE Employees 
-	SET Salary = CASE WHEN Salary < 5000 THEN 8000 
-				 ELSE Salary END
-	WHERE EmployeeID = 105
+UPDATE Employees SET PhoneNumber =  REPLACE(PhoneNumber,'124','999') 
+SELECT PhoneNumber FROM Employees
 
 -----------------------------------ASSIGNMENT 7----------------------------------
 
-/*Write a SQL statement to change job ID of employee which ID is 118, to SH_CLERK if
-the employee belongs to department, which ID is 30 and the existing job ID does not start with SH.*/
+/*Write a query to calculate the age in year.*/
 
-UPDATE Employees SET JobId = 'SH_CLERK' WHERE EmployeeID = 118 AND JobId NOT LIKE 'SH%' AND DepartmentID = 30
+--There Is no BirthDate in table so use hire date as birth date
+
+SELECT FirstName, LastName , 
+DATEPART(YYYY,GETDATE()) - DATEPART(YYYY,HireDate) AS 'Age' 
+FROM Employees
 
 -----------------------------------ASSIGNMENT 8----------------------------------
 
-/*Write a SQL statement to increase the salary of employees under the department 
-40, 90 and 110 according to the company rules that, salary will be increased by 25%
-for the department 40, 15% for department 90 and 10% for the department 110 and the
-rest of the departments will remain same.*/
+/*Write a query to get the distinct Mondays from HireDate in employees tables.*/
 
-UPDATE Employees 
-SET Salary = CASE WHEN DepartmentId = 40 THEN Salary*1.25    
-		 WHEN DepartmentId = 90 THEN Salary*1.15
-		 WHEN DepartmentId = 110 THEN Salary*1.10
-		 ELSE Salary 
-		 END
+SELECT DISTINCT HireDate, 'DAY OF WEEK' = DATENAME(dw,HireDate)  FROM Employees
+WHERE  DATENAME(dw,HireDate) = 'Monday'
 
+ 
 -----------------------------------ASSIGNMENT 9----------------------------------
 
-/*Write a SQL statement to increase the minimum and maximum salary of PU_CLERK by 
-2000 as well as the salary for those employees by 20% and commission by 10% .*/
+/*Write a query to get the FirstName and HireDate from Employees table where
+HireDate between ‘1987-06-01’ and ‘1987-07-30’*/
 
-UPDATE Employees SET 
-MinimumSalary = MinimumSalary + 2000,
-MaximumSalary = MaximumSalary + 2000,
-Salary = Salary*1.20,
-Commision = Commision*1.10
+SELECT FirstName, HireDate FROM Employees
+WHERE HireDate BETWEEN '1987-06-01' AND '1987-07-30'
 
--------------------------------------SELECT QUERIES--------------------------------------------------
+-----------------------------------ASSIGNMENT 10----------------------------------
 
-/*1) Get all employee details from the Employee table*/
+/*Write a query to display the current date in the following format.
+Sample output : 12:00 AM Sep 5, 2014*/
 
-SELECT * FROM Employees
+SELECT FORMAT(GETDATE(),'hh:mm tt MMMM dd, yyyy')
 
-/*2) Get FirstName, LastName from Employees table*/
+-----------------------------------ASSIGNMENT 11----------------------------------
 
+/*Write a query to get the FirstName, LastName who joined in the month of June.*/
 
-SELECT FirstName, LastName FROM Employees
+SELECT FirstName, LastName, HireDate FROM Employees
+WHERE DATEPART(MM,HireDate) = 06
 
-/*3) Get FirstName from Employees table using alias name ï¿½Employee Nameï¿½*/
+-----------------------------------ASSIGNMENT 12----------------------------------
 
-SELECT  FirstName AS 'Employee Name' FROM Employees
-SELECT  FirstName 'Employee Name' FROM Employees
-SELECT  'Employee Name' = FirstName  FROM Employees
+/*Write a query to get first name, hire date and experience of the employees.*/
 
-/*4) Get employee details from Employees table whose Employee Name is ï¿½Stevenï¿½*/
+SELECT FirstName, HireDate , 
+'Experiance(In year)' =  DATEPART(YYYY,GETDATE()) - DATEPART(YYYY,HireDate) 
+FROM Employees
 
-SELECT * FROM Employees WHERE FirstName = 'Steven'
+-----------------------------------ASSIGNMENT 13----------------------------------
 
-/*5) Get employee details from Employees table whose Employee Name are ï¿½Neenaï¿½ and ï¿½Lexï¿½*/
+/*Write a query to get first name of employees who joined in 1987.*/
 
-SELECT * FROM Employees WHERE FirstName = 'Neena' OR  FirstName = 'Lex'
-SELECT * FROM Employees WHERE FirstName IN('Neena','Lex')
-
-
-/*6) Get employee details from Employees table whose Employee name are not ï¿½Neenaï¿½ and ï¿½Neenaï¿½*/
-
-SELECT * FROM Employees WHERE FirstName NOT IN('Neena','Lex')
-
-/*7) Get employee details from Employees table whose Salary between 5000 and 8000*/
-
-SELECT * FROM Employees WHERE Salary BETWEEN 5000 AND 8000
-
-
-/*8) Write a query to get the names (FirstName, LastName), Salary, PF of all the Employees (PF is calculated as 12% of salary).*/
-
-SELECT FirstName +' '+ LastName AS 'Name', Salary, Salary*0.12 AS 'PF' FROM Employees
-
-
-/*9) Get employee details from Employees table whose FirstName starts with ï¿½Nï¿½*/
-
-SELECT * FROM Employees WHERE FirstName LIKE('N%')
-
-/*10) Write a query to get unique department ID from Employees table*/
-
-SELECT DISTINCT DepartmentID FROM Employees 
-
-
-/*11) Write a query to get all employee details from the employee table order by FirstName, descending.*/
-
-SELECT * FROM Employees ORDER BY FirstName DESC
-
-
-/*12) Write a query to get the EmployeeID, names (FirstName, LastName), salary in ascending order of salary.*/
-
-SELECT EmployeeID, FirstName +' '+ LastName AS 'Name', Salary FROM Employees ORDER BY Salary 
-
-
-/*13) Select TOP 2 salary from employee table*/
-
-SELECT TOP(2) * FROM Employees 
-
-
-
-
-
-
-
+SELECT FirstName FROM Employees WHERE DATEPART(YYYY,HireDate) = 1987
