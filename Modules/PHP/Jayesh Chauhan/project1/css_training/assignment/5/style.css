@@ -1,0 +1,174 @@
+#content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    background-color: #333;
+}
+
+#contentNav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#contentNav ul li {
+    float: left;
+    width: 16.66%;
+}
+
+#contentNav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#contentNav ul li a:hover {
+    background-color: #111;
+}
+
+.banner img {
+    width: 100%;
+    height: 20vw;
+}
+
+.banner {
+    text-align: center;
+    color: white;
+}
+
+.banner button {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: aqua;
+    color: white;
+    font-style: bold;
+    border-radius: 5px;
+}
+
+article {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left-section,
+.middle-section,
+.right-section {
+    margin: 2vw 0;
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+
+.left-section img,
+.middle-section img,
+.right-section img {
+    width: 60px;
+    height: 60px;
+}
+
+.hsection {
+    clear: left;
+    position: relative;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 10vh;
+    background-color: lightgrey;
+    padding: 1px 0;
+}
+
+hr {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.content div {
+    width: 50%;
+    float: left;
+    margin: 2vw 0;
+}
+
+section.content div img {
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin: 1vw;
+    border-radius: 5px;
+}
+
+.f_heading {
+    clear: left;
+    width: 100%;
+    text-align: center;
+    background-color: cyan;
+    padding: 1px 0;
+    color: white;
+    margin: 1.5vw 0;
+}
+
+.f_heading h2 {
+    display: inline-block;
+}
+
+.f_heading button {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    font-style: bold;
+    border-radius: 5px;
+}
+
+#contentFooter {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: blue;
+}
+
+#contentFooter div {
+    float: left;
+}
+
+.llist1,
+.list2 {
+    width: 25%;
+}
+
+.list1 ul,
+.list2 ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.list1 ul li,
+.list2 ul li {
+    text-align: left;
+}
+
+.message {
+    width: 50%;
+}
+
+td {
+    width: 50%;
+}
+
+table tr td button {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    font-style: bold;
+    border-radius: 5px;
+}

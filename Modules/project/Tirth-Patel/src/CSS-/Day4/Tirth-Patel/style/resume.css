@@ -1,0 +1,88 @@
+*{
+    
+    box-sizing: border-box;
+}
+p{
+    font-size:20px;
+    list-style-type: square;
+}
+h2
+{
+    color: rgb(110, 98, 216);
+    text-shadow: lightslategray;
+    font-size: 30px; 
+
+}
+.container1{
+
+    display: grid;
+    width: 75%;
+    margin:50px auto;
+    border: 1px solid blue;
+     grid-template-rows:max-content;
+    grid-template-columns: 1fr 0.5fr;
+    grid-gap: 20px;
+    background-color: rgb(207, 233, 233);
+}
+
+.heading{
+    text-align: center;
+        
+    /* background-color: red; */
+    grid-column: 1/-1;
+}
+.education{
+    /* background-color:yellow; */
+    grid-row: 2/3;;
+    grid-column:1/3;
+   
+}
+.Tech{
+    /* background-color:tomato; */
+    grid-row: 2/3;
+    grid-column: 2/4;
+    padding-top: 117px;
+}
+    
+.project{
+    /* background-color: springgreen; */
+    grid-row: 3/6;
+}
+.hobbies{
+    /* background-color:violet; */
+    grid-row: 3/4;
+    grid-column: 2/3;;
+}
+.extra{
+    /* background-color: yellowgreen; */
+    grid-row:4/6;
+    grid-column: 2/3;
+}
+.heading>figure{
+    float: right;
+    padding-right: 150px;
+}
+.education>table{
+    border: solid black;
+    border-collapse: collapse;
+    width: 64%;
+}
+th,td{
+    border-collapse: collapse;
+    border: solid grey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 15px;
+}
+.container1 li{
+    padding: 10px;
+    font-size: 20px;
+}
+.project>img{
+    float: right;
+    padding-right: 20px;
+}
+.project>video{
+    float: left;
+    padding-bottom: 50px;
+    padding-left: 20px;
+}

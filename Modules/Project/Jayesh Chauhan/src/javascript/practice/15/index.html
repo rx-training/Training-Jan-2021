@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <title>MyWork</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+        <div class="container">
+            <a href="../../../index.html" class="navbar-brand"><img src="../../../img/logo_2500X1875-1536x1152.jpg" width="90" height="80" alt="">
+                <h3 class="d-inline align-middle">Jayesh</h3>
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="navitem">
+                        <a href="../../../html/index.html" class="nav-link">HTML</a>
+                    </li>
+                    <li class="navitem">
+                        <a href="../../../css3/index.html" class="nav-link">CSS</a>
+                    </li>
+                    <li class="navitem">
+                        <a href="../../../bootstrap4/index.html" class="nav-link">Bootstrap</a>
+                    </li>
+                    <li class="navitem">
+                        <a href="../../../javascript/index.html" class="nav-link active">Javascript</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="showcase" class="py-5">
+        <div class="primary-overlay text-white">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <table class="table text-center table-striped table-hover">
+                        <thead>
+                            <tr class="bg-warning">
+                                <th class="py-3"><a href="../../home.html">HOME</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-success">
+                                <th>
+                                    <a class="text-white" href="#">Assignment</a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../assignment/15/calc.html">Day 15</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../assignment/16/index.html">Day 16</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../assignment/17/index.html">Day 17</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../assignment/18/index.html">Day 18</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../assignment/20/index.html">Day 20</a>
+                                </td>
+                            </tr>
+                            <tr class="bg-success">
+                                <th>
+                                    <a class="text-white" href="#">Practice</a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../practice/15/index.html">Day 15</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../practice/16/index.html">Day 16</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../practice/17/index.html">Day 17</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../practice/18/index.html">Day 18</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../practice/19/index.html">Day 19</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="../../practice/20/index.html">Day 20</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-8 bg-light h-100" style="opacity: 0.7;">
+                    <div id="content">
+                        <div class="container text-dark">
+                            <h3 id="result" class="display-3"></h3>
+                            <h3 id="sum" class="display-3"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer" class="py-5 bg-primary text-white">
+        <div class="container  text-center">
+            <p class="lead">Copyright &copy; 2021</p>
+        </div>
+    </footer>
+
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/popper.min.js"></script>
+    <script src=".../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/navbar-fixed.js"></script>
+    <script>
+        var num1 = parseInt(prompt('Enter number 1'));
+        var num2 = parseInt(prompt('Enter number 2'));
+        var num3 = parseInt(prompt('Enter number 3'));
+        var sum = 0;
+
+        if (num1 > num2 && num1 > num3)
+            document.getElementById('result').innerHTML = num1 + " is greater than others";
+        else if (num2 > num1 && num2 > num3)
+            document.getElementById('result').innerHTML = num2 + " is greater than others";
+        else
+            document.getElementById('result').innerHTML = num3 + " is greater than others";
+
+        if (num1 > 40)
+            sum = sum + num1;
+
+        if (num2 > 40)
+            sum = sum + num2;
+
+        if (num3 > 40)
+            sum = sum + num3;
+
+        document.getElementById('sum').innerHTML = "Sum for greater than 40 numbers is " + sum;
+    </script>
+</body>
+
+</html>

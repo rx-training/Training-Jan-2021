@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Day 15 Practice Exercise</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">JavaScript</a>
+            </li>
+            <li class="nav-item">
+              <a href="../jQuery/d22PracticeExercise.html" class="nav-link"
+                >jQuery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d15PracticeExercise.html"
+            class="list-group-item list-group-item-action active"
+            >Day 15 Practice Exercise</a
+          >
+          <a
+            href="d15Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 15 Assignment</a
+          >
+          <a
+            href="d16PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Practice Exercise</a
+          >
+          <a
+            href="d16Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 16 Assignment</a
+          >
+          <a
+            href="d17PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Practice Exercise</a
+          >
+          <a
+            href="d17Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 17 Assignment</a
+          >
+          <a
+            href="d18PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Practice Exercise</a
+          >
+          <a
+            href="d18Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 18 Assignment</a
+          >
+          <a
+            href="d19PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Practice Exercise</a
+          >
+          <a
+            href="d19Extras.html"
+            class="list-group-item list-group-item-action"
+            >Day 19 Extras</a
+          >
+          <a
+            href="d20Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 20 Assignment</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <div class="container">
+          <h1 class="text-center">Practice Excercise Day-15</h1>
+          <h2>Excercise 1 :</h2>
+          <p>
+            <strong class="text-secondary">
+              Accept three numbers from the user using prompt, find the greater
+              of these the numbers and do the sum of that numbers which are
+              greater than 40.
+            </strong>
+          </p>
+          <p id="maximum" class="text-primary mt-2">
+            <strong> Maximum Number : </strong>
+          </p>
+          <strong class="text-primary" id="sum">The Sum Is :</strong><br />
+          <div class="btn btn-primary mt-3" onclick="clickMe()">
+            Click To Start
+          </div>
+        </div>
+        <div class="container">
+          <h2 class="mt-3">Excercise 2 :</h2>
+          <p>
+            <strong class="text-secondary">
+              Declare array with 5 city names and iterate these values with the
+              help of loop and display it with alert.
+            </strong>
+          </p>
+          <div class="btn btn-success mt-3" onclick="cityNames()">
+            Names Of The City
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+      var SUM = 0;
+
+      function clickMe() {
+        var a = parseInt(prompt("Enter First Number"));
+        var b = parseInt(prompt("Enter Second Number"));
+        var c = parseInt(prompt("Enter Third Number"));
+
+        //checking for maximum number
+        if (a > b) {
+          if (a > c) {
+            document.getElementById("maximum").innerHTML =
+              "<strong>Maximum Number :" + " " + a + "</strong>";
+          } else {
+            document.getElementById("maximum").innerHTML =
+              "<strong>Maximum Number :" + " " + c + "</strong>";
+          }
+        } else {
+          if (b > c) {
+            document.getElementById("maximum").innerHTML =
+              "<strong>Maximum Number :" + " " + b + "</strong>";
+          } else {
+            document.getElementById("maximum").innerHTML =
+              "<strong>Maximum Number :" + " " + c + "</strong>";
+          }
+        }
+
+        //adding number if it is greter then 40
+        if (a > 40) {
+          SUM = SUM + a;
+        }
+        if (b > 40) {
+          SUM = SUM + b;
+        }
+        if (c > 40) {
+          SUM = SUM + c;
+        }
+        document.getElementById("sum").innerHTML = "The Sum Is : " + SUM;
+        SUM = 0;
+      }
+
+      var arr = ["Ahmedabad", "Vadodra", "Jamnagar", "Surat", "Rajkot"];
+      function cityNames() {
+        for (var i = 0; i < arr.length; i++) {
+          alert("Name Of City " + arr[i]);
+        }
+      }
+    </script>
+  </body>
+</html>

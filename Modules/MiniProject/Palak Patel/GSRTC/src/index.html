@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>G S R T C</title>
+    <link rel="icon" href="img/icon.jpg" type="image/x-icon">
+
+    <style>
+        input[type="date"]::before {
+            content: attr(data-placeholder);
+            width: 100%;
+        }
+
+        input[type="date"]:focus::before,
+        input[type="date"]:valid::before {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5" id="top">
+        <!-- <div class="container">  -->
+        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="" class="img-fluid"></a>
+        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="d-block ml-auto">
+            <div class="nav-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="" class="nav-link text-deco" id="loginActivity">GSRTC Login</a></li>
+                    <li class="nav-item"><a href="" class="nav-link text-deco">Bus Enquiry</a></li>
+                    <li class="nav-item"><a href="" class="nav-link text-danger">Toll Free Number: 1800 233 666666 /
+                            07922835000</a></li>
+                    <li class="nav-item"><a href="" class="nav-link chng-clr" data-target="#alertModal"
+                            data-toggle="modal">Alert</a></li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse mr-3" id="navNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a href="" class="nav-link" data-toggle="dropdown">Online User</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Reschedule My Journer</a></li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Refund Complainet</a></li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Refund Enquiry</a></li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">View History</a></li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Print / SMS Ticket</a></li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Cancel Ticket</a></li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Waiting List Ticket Status</a>
+                            </li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Wallet Passbook</a></li>
+                            <li class="dropdown-item"><a class="dropdown-link" href="">Wallet Account</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a href="" class="nav-link" data-toggle="dropdown">Track Bus <sup><i
+                                    class="fa fa-map-marker" style="color: #f73a0d;"></i></sup></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="#" class="dropdown-link">Track Bus</a></li>
+                            <li class="dropdown-item"><a href="#" class="dropdown-link">Vehicles on Routes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a href="" class="nav-link" data-toggle="dropdown">Agent Login</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Agent Login</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">New Agent Register</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Agent Allotment</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Agent List</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">E-Top Status</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a href="" class="nav-link" data-toggle="dropdown">
+                            <p class="chng-clr" style="margin-bottom: -5px;">
+                                Hire a Bus </p>
+                            <p style="font-size: small;">(Casual Contract Bus)</p>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Sharvan tirth Darshan <wbr> Yojna By Gujarat Pavitra Yatradham Vikas Board,
+                                    <wbr>Gandhinagar</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Refund/Status Enquiry</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Hire Bus FAQs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a href="" class="nav-link" data-toggle="dropdown">
+                            <p class="chng-clr" style="margin-bottom: -5px;">
+                                Bus Pass</p>
+                            <p style="font-size: small;">(Commuter)</p>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="" class="dropdown-link">New Commuter Bus Pass</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Renewal Commuter Bus Pass</a>
+                            </li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Application Status</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Refund/Status Enquiry</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">FAQs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown "><a href="" class="nav-link" data-toggle="dropdown">May I Help</a>
+                        <ul class="dropdown-menu mx-auto">
+                            <li class="dropdown-item"><a href="" class="dropdown-link">FAQS</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Pravasi-Helpdesk</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Booking Policies</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Phone Booking</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Link Service</a></li>
+                            <li class="dropdown-item"><a href="" class="dropdown-link">Waiting List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- </div> -->
+    </nav>
+
+    <!-- HEADER -->
+    <header>
+        <img src="img/header-img.jpg" alt="Header Image" class="img-fluid d-block">
+    </header>
+
+    <!-- SECTION -->
+    <div class="mx-2 my-3 " id="section-1">
+        <ul class="nav nav-tabs ml-3">
+            <li class="active"><a class="btn btn-primary mr-1" data-toggle="tab" href="#advanceBooking">Advance
+                    Booking</a></li>
+            <li><a class="btn btn-primary mr-1" data-toggle="tab" href="#divyangBooking">Divyang Booking</a></li>
+            <li><a class="btn btn-primary" data-toggle="tab" href="#sou">Statue Of Unity</a></li>
+        </ul>
+
+        <div class="tab-content rounded" style="background-color: #000033;">
+            <div id="advanceBooking" class="tab-pane active ml-2 px-1 py-4">
+                <form>
+                    <div class="form-row align-items-center">
+                        <div class="col-lg-2">
+                            <!-- <label for="source">Source</label> -->
+                            <input type="text" class="form-control mb-2 source" id="inlineFormInput" placeholder="Source"
+                                required>
+                        </div>
+                        <div class="col-lg-2">
+                            <!-- <label for="source">Source</label> -->
+                            <input type="text" class="form-control mb-2 dest" id="inlineFormInput" placeholder="Destination"
+                                required>
+                        </div>
+                        <div class="col-lg-2 px-3">
+                            <input type="date" class="form-control mb-2 onward" id="inlineFormInput" data-placeholder="Onwards"
+                                required aria-required="true">
+                        </div>
+                        <div class="col-lg-2 px-3">
+                            <input type="date" class="form-control mb-2 return" id="inlineFormInput" data-placeholder="Return"
+                                aria-required="true">
+                        </div>
+                        <div class="col-lg-1">
+                            <select id="inlineFormInput" class="form-control mb-2 seats" required>
+                                <option value="">Seats</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                                <option value="">6</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 d-flex justify-content-center">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox">
+                                <label class="form-check-label text-white" for="autoSizingCheck"
+                                    style="text-align: left;">
+                                    Single Lady
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 d-block">
+                            <a href="busRoute.html" type="submit" class="btn btn-primary mb-2" id="busRoute">Submit</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="divyangBooking" class="tab-pane fade">
+                <div id="advanceBooking" class="tab-pane active ml-2 px-1 py-4">
+                    <form>
+                        <div class="form-row align-items-center">
+                            <div class="col-lg-3">
+                                <!-- <label for="source">Source</label> -->
+                                <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Source">
+                            </div>
+                            <div class="col-lg-3">
+                                <!-- <label for="source">Source</label> -->
+                                <input type="text" class="form-control mb-2" id="inlineFormInput"
+                                    placeholder="Destination">
+                            </div>
+                            <div class="col-lg-2 px-3">
+                                <input type="date" class="form-control mb-2" id="inlineFormInput"
+                                    data-placeholder="Onwards" required aria-required="true">
+                            </div>
+                            <div class="col-lg-2 pr-3">
+                                <input type="date" class="form-control mb-2" id="inlineFormInput"
+                                    data-placeholder="Return" required aria-required="true">
+                            </div>
+                            <div class="col-lg-1">
+                                <select id="inlineFormInput" class="form-control mb-2">
+                                    <option value="">Seats</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-1 d-block">
+                                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="sou" class="tab-pane fade">
+                <div id="advanceBooking" class="tab-pane active ml-2 px-1 py-4">
+                    <form>
+                        <div class="form-row align-items-center">
+                            <div class="col-lg-2">
+                                <!-- <label for="source">Source</label> -->
+                                <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Source">
+                            </div>
+                            <div class="col-lg-2">
+                                <!-- <label for="source">Source</label> -->
+                                <input type="text" class="form-control mb-2" id="inlineFormInput"
+                                    placeholder="STATUE OF UNITY (NAVAGAM)">
+                            </div>
+                            <div class="col-lg-2 px-3">
+                                <input type="date" class="form-control mb-2" id="inlineFormInput"
+                                    data-placeholder="Onwards" required aria-required="true">
+                            </div>
+                            <div class="col-lg-2 px-3">
+                                <input type="date" class="form-control mb-2" id="inlineFormInput"
+                                    data-placeholder="Return" required aria-required="true">
+                            </div>
+                            <div class="col-lg-1">
+                                <select id="inlineFormInput" class="form-control mb-2">
+                                    <option value="">Seats</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 d-flex justify-content-center">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label text-white" for="autoSizingCheck"
+                                        style="text-align: left;">
+                                        Single Lady
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 d-block">
+                                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+
+    <div class="section-2 mx-3">
+        <h3 class="title">GSRTC Growing Numbers</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 p-3 text-center">
+                    <img src="img/androidCount-icon.png" alt="" class="img-fluid">
+                    <p><a class="download-link text-danger" href="#">Android App Downloaded</a></p>
+                    <h3>1993247+</h3>
+                    <p>As on 08/02/2021</p>
+                </div>
+                <div class="col-sm-4 p-3 text-center">
+                    <img src="img/iosCount-icon.png" alt="" class="img-fluid">
+                    <p><a class="download-link text-danger" href="#">IOS App Downloaded</a></p>
+                    <h3>43009+</h3>
+                    <p>As on 08/02/2021</p>
+                </div>
+                <div class="col-sm-4 p-3 text-center">
+                    <img src="img/visitedCount-icon.png" alt="" class="img-fluid">
+                    <p><a class="download-link text-danger" href="#">Visitor Count</a></p>
+                    <h3>111,947,874</h3>
+                    <p> Over GSRTC Happy Customer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container text-white mt-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul type="none">
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>About Us</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Leadership</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Special Services</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Achievements</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Tender</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Activity</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>FAQs</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul type="none">
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>GSRTC Login</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Booking Policies</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Right to Information</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>GSRTC Direct Agents List</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>GSRTC Franchisee List</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Conductor Mitra POS Agents List</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Divisions</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul type="none">
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> Corporate Office</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> Performance</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> Bus Enquiry</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> Recruitment</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> Contact Us</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> Awards</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> India Code</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i> Blacklisted Agencies</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul type="none">
+                        <li>
+                            <i class="fa fa-chevron-circle-right mr-2"></i>
+                            Sharvan Tirth Darshan Yojna By Gujarat Pavitra Yatradham Vikas Board, Gandhinagar
+                        </li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Privacy Policy</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Site Map</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Download</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Pravasi-Helpdesk</li>
+                        <li><i class="fa fa-chevron-circle-right mr-2"></i>Refund Complaint</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="footer-2">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <p>&copy; GSRTC. All Right Reserved.</p>
+                    <p style="margin-top: -15px;">Last Updated: 08/02/2021 4:15pm</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex">
+                        <img class="mr-2" width="30px" height="30px" src="img/android-icon.png" alt=""><a
+                            href="#">Download Android App</a>
+                        <p class="mx-3">|</p>
+                        <img class="mr-2" width="30px" height="30px" src="img/ios-icon.png" alt=""><a href="#">Download
+                            IOS App</a>
+                    </div>
+                    <div class="text-center">
+                        <div class="d-flex" id="number">
+                            <h6 class="mr-2">Toll Free Number:</h6>
+                            <p>1800 233 666666 / 07922835000</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#top"><i class="fa fa-chevron-circle-up text-dark"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3" id="social">
+                    <p class="mb-auto">
+                        Let's socialize
+                    </p>
+                    <img src="img/icon-facebook.png" alt="" class="img-fluid">
+                    <img src="img/icon-twitter.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ALERT MODAL -->
+    <div class="modal fade" id="alertModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">General Advisory</h4>
+                    <button class="close" type="button" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        It is, hereby, informed not to take cognisance of any email or message purportedly sent by any
+                        employee or officer of the <strong>GSRTC</strong> from an Id which does not happen to be the
+                        dully-notified official Id. In case of any doubt, you are requested to get in touch with the
+                        Corporation on Mobile Number: <strong>6359919019</strong> and email id:
+                        <strong>edpgsrtc@gmail.com</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <!-- <script type="text/javascript">
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+
+                var target = this.hash,
+                    $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script> -->
+
+</body>
+
+</html>

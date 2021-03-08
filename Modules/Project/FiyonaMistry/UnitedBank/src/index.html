@@ -49,7 +49,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="login.html" class="nav-link">
+                            <a href="login.html" id="logout" class="nav-link">
                                 <i class="fa fa-user-times"></i> Logout
                             </a>
                         </li>
@@ -226,14 +226,6 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="cardNumber">Card Number</label>
-                                <input type="number" id="withdrawCardNumber" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Card Holder Name</label>
-                                <input type="text" id="withdrawCardHolderName" class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <label for="pin">Pin Number</label>
                                 <input type="number" id="withdrawCardPin" class="form-control">
                             </div>
@@ -264,19 +256,11 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="cardNumber">Card Number</label>
-                                <input type="number" id="depositCardNumber" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Card Holder Name</label>
-                                <input type="text" id="depositCardHolderName" class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <label for="pin">Pin Number</label>
                                 <input type="number" id="depositCardPin" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="amount">Amount to Withdraw</label>
+                                <label for="amount">Amount to Deposit</label>
                                 <input type="number" id="depositAmount" class="form-control">
                             </div>
                         </form>
@@ -302,83 +286,47 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control">
+                                <label for="name">Card Holder Name</label>
+                                <input type="text" id="transactionHolderName" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control">
+                                <label for="number">Card Number</label>
+                                <input type="number" id="transactionCardNumber" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Confirm Password</label>
-                                <input type="password" class="form-control">
+                                <label for="amount">Amount to Transact</label>
+                                <input type="number" id="transactionAmount" class="form-control">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button class="btn btn-warning" type="submit" data-dismiss="modal">Save Changes</button>
+                        <button class="btn btn-warning" id="transactionBTN" type="submit" data-dismiss="modal">Save Changes</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
         
         <script>
-
-            // Withdrawal and deposit 
-            let wallet = 5000;
-            class withdraw_deposit{
-                constructor(amt){
-                    this.amt = amt;
-                }
-                withdraw(){
-                    this.amt = parseInt($("#withdrawAmount").val());
-                    if(this.amt > wallet){
-                        alert("Not enough to withdraw");
-                    }
-                    else{
-                        wallet -= this.amt;
-                        alert("You have withdrawed : " + this.amt + "\nTotal Balance : " + wallet);
-                    }
-                }
-                deposit(){
-                    this.amt = parseInt($("#depositAmount").val());
-                    wallet += this.amt;
-                    alert("You have deposited : " + this.amt + "\nTotal Balance : " + wallet);
-                }
-            }
-            var withdrawDeposit = new withdraw_deposit();
-            console.log(typeof (document.getElementById("#withdrawBTN")));
-            $("#withdrawBTN").click(function(){
-                withdrawDeposit.withdraw();
-            });
-            $("#depositBTN").click(function(){
-                withdrawDeposit.deposit();
-            });
-
-
 
             // Account Details
             $(document).ready(function(){
                 $.getJSON("accountDetails.json", function(data){
                     var flag='';
-                    $.each(data.account, function(key, value){
-                        if(value.emailId == sessionStorage.getItem("email")){
+                    data.account.forEach(value => {
+                        if(value.emailId == sessionStorage.getItem("logged-in")){
+                            
+                            // displaying username on the navbar
+                            $("#username").append(value.name);
+
                             flag += '<tr>';
                             flag += '<td>' + value.name + '</td>';
                             flag += '<td>' + value.cardNumber + '</td>';
                             flag += '<td>' + value.phoneNumber + '</td>';
                             flag += '<td>' + value.emailId + '</td>';
-                            flag += '<td>' + value.balance + '</td>';
+                            flag += '<td>' + localStorage.balance + '</td>';
                             flag += '</td>';
-                            // displaying username on the navbar
-                            $("#username").append(value.name);
+
                         }
                         else{
                             return false;
@@ -386,6 +334,102 @@
                     });
                     $("#accountDetails").append(flag);
                 });
+            });
+                            
+            // Withdrawal and deposit
+            var wallet = parseInt(localStorage.balance);
+            $.getJSON("accountDetails.json", function(data){
+                    data.account.forEach(value => {
+                        if(value.emailId == sessionStorage.getItem("logged-in")){
+
+                            class withdraw_deposit{
+                                constructor(amt){
+                                    this.amt = amt;
+                                }
+                                withdraw(){
+                                    this.amt = parseInt($("#withdrawAmount").val());
+                                    if(this.amt > wallet){
+                                        alert("Not enough to withdraw");
+                                    }
+                                    else{
+                                        var pin = parseInt($("#withdrawCardPin").val());
+                                        if(pin == value.pin){
+                                            wallet -= this.amt;
+                                            localStorage.balance = wallet;
+                                            alert("You have withdrawed : " + this.amt + "\nTotal Balance : " + wallet);
+                                        }
+                                        else{
+                                            alert("Incorrect pin");
+                                        }
+                                    }
+                                }
+                                deposit(){
+                                    var pin = parseInt($("#depositCardPin").val());
+                                    this.amt = parseInt($("#depositAmount").val());
+                                    if(pin == value.pin){
+                                        wallet += this.amt;
+                                        localStorage.balance = wallet;
+                                        alert("You have deposited : " + this.amt + "\nTotal Balance : " + wallet);
+                                    }
+                                    else{
+                                        alert("Incorrect pin");
+                                    }
+                                }
+                            }
+                            var withdrawDeposit = new withdraw_deposit();
+                            $("#withdrawBTN").click(function(){
+                                withdrawDeposit.withdraw();
+                            });
+                            $("#depositBTN").click(function(){
+                                withdrawDeposit.deposit();
+                            });
+                        }
+                    });
+            });
+
+            $(document).ready(function(){
+            $.getJSON("accountDetails.json", function(data){
+                data.account.forEach(value => {
+                    class transaction{
+                        constructor(amt){
+                            this.amt = amt;
+                        }
+                        transact(){
+                            this.amt = parseInt($("#transactionAmount").val());
+                            if(this.amt > wallet){
+                                alert("Not enough to transact");
+                            }
+                            else{
+                                var name = $("#transactionHolderName").val();
+                                var number = parseInt($("#transactionCardNumber").val());
+                                // data.account.forEach(value => {
+                                //     if(name == value.name && number == value.cardNumber){
+
+                                //     }    
+                                // });
+                                if(name == value.name && number == value.cardNumber){
+                                    wallet -= this.amt;
+                                    console.log(wallet);                               
+                                    localStorage.balance = wallet;
+                                    alert("You have transacted : " + this.amt + "\nTotal Balance : " + wallet);
+                                }
+                                else{
+                                    alert("Incorrect name/card number");
+                                }
+                            }
+                        }
+                    }
+                    var objtransaction = new transaction();
+                    $("#transactionBTN").click(function(){
+                        objtransaction.transact();
+                    });
+                });
+            });
+        });
+
+            // logout
+            $("#logout").on("click", function(){
+                sessionStorage.removeItem("logged-in");
             });
 
         </script>
