@@ -174,3 +174,33 @@ SELECT  * from String_Split('Lorem ipsum dolor sit amet.', ' ');
 
 -- IIF Function
 	SELECT IIF(ListPrice > 0,'Normal Product', 'Internal Product') AS ProductInfo, Name FROM Production.Product;
+
+-- System Functions
+
+	--Returns the workstation identification number. The workstation identification number is the process ID (PID) of the application on the client computer that is connecting to SQL Server.
+		SELECT HOST_ID()
+
+	-- Host name // Output : WIN-C0RVVG2N13P
+		SELECT HOST_NAME()
+
+	-- Current request Id // OUTPUT : 0
+		SELECT CURRENT_REQUEST_ID()
+
+	/*MIN_ACTIVE_ROWVERSION is a non-deterministic function that returns the lowest active rowversion value in the current database.
+	A new rowversion value is typically generated when an insert or update is performed on a table that contains a column of type rowversion.
+	If there are no active values in the database, MIN_ACTIVE_ROWVERSION returns the same value as @@DBTS + 1.*/ 
+		SELECT MIN_ACTIVE_ROWVERSION()
+
+	-- Current Transcation ID // Output : 400497
+		SELECT CURRENT_TRANSACTION_ID()
+
+	-- Row Count ID //  OUTPUT :1
+		SELECT ROWCOUNT_BIG()
+
+	-- Database Name : AdventureWorks2012
+		USE AdventureWorks2012;
+		SELECT DB_NAME() [DATABASE NAME]
+
+	-- DATABASE ID // output : 
+		SELECT DB_ID('Day1') -- Output : 5
+		SELECT DB_NAME('5')  -- Day1
