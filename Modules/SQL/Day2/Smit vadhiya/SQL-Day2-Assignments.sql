@@ -131,7 +131,7 @@ INSERT INTO Employees (EmployeeID,FirstName,LastName , Email, PhoneNumber, HireD
 -----------------------------------ASSIGNMENT 1----------------------------------
 
 /*Write a SQL statement to change the Email column of Employees table with
-‘not available’ for all employees.*/
+ï¿½not availableï¿½ for all employees.*/
 USE Practice
 
 --TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
@@ -140,7 +140,7 @@ UPDATE Employees SET Email = 'not available'
 -----------------------------------ASSIGNMENT 2----------------------------------
 	
 /*Write a SQL statement to change the Email and CommissionPct column of employees
-table with ‘not available’ and 0.10 for all employees.*/
+table with ï¿½not availableï¿½ and 0.10 for all employees.*/
 
 --TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
 UPDATE Employees SET Email = 'not available', CommissionPct = 0.10
@@ -148,7 +148,7 @@ UPDATE Employees SET Email = 'not available', CommissionPct = 0.10
 -----------------------------------ASSIGNMENT 3----------------------------------
 
 /*Write a SQL statement to change the Email and CommissionPct column of employees
-table with ‘not available’ and 0.10 for those employees whose DepartmentID is 110.*/
+table with ï¿½not availableï¿½ and 0.10 for those employees whose DepartmentID is 110.*/
 
 --TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
 UPDATE Employees SET Email = 'not available', CommissionPct = 0.10 WHERE DepartmentID = 110
@@ -156,7 +156,7 @@ UPDATE Employees SET Email = 'not available', CommissionPct = 0.10 WHERE Departm
 -----------------------------------ASSIGNMENT 4----------------------------------
 
 /*Write a SQL statement to change the Email column of employees table with
-‘not available’ for those employees whose DepartmentID is 80 and gets a commission is less than 20%*/
+ï¿½not availableï¿½ for those employees whose DepartmentID is 80 and gets a commission is less than 20%*/
 
 --TO EXECUTE THIS QUERY FIRST REMOVE UNIQUE CONSTRAINT FROM EMAIL ID
 UPDATE Employees SET Email = 'not available' WHERE DepartmentID = 80 AND CommissionPct BETWEEN 0 AND 0.20
@@ -164,12 +164,12 @@ UPDATE Employees SET Email = 'not available' WHERE DepartmentID = 80 AND Commiss
 -----------------------------------ASSIGNMENT 5----------------------------------
 
 
-/*Write a SQL statement to change the Email column of employees table with ‘not available’
-for those employees who belongs to the ‘Accouning’ department.*/
+/*Write a SQL statement to change the Email column of employees table with ï¿½not availableï¿½
+for those employees who belongs to the ï¿½Accouningï¿½ department.*/
 
 -------Accounting  Department is not Found 
 UPDATE Employees SET Email = 'not available' WHERE Department = 'Accounting'
-SELECT * FROM Employees
+
 -----------------------------------ASSIGNMENT 6----------------------------------
 
 /*Write a SQL statement to change salary of employee to 8000 whose ID is 105, if the
@@ -210,7 +210,7 @@ UPDATE Employees SET
 MinimumSalary = MinimumSalary + 2000,
 MaximumSalary = MaximumSalary + 2000,
 Salary = Salary*1.20,
-Commision - Commision*1.10
+Commision = Commision*1.10
 
 -------------------------------------SELECT QUERIES--------------------------------------------------
 
@@ -223,23 +223,23 @@ SELECT * FROM Employees
 
 SELECT FirstName, LastName FROM Employees
 
-/*3) Get FirstName from Employees table using alias name “Employee Name”*/
+/*3) Get FirstName from Employees table using alias name ï¿½Employee Nameï¿½*/
 
 SELECT  FirstName AS 'Employee Name' FROM Employees
 SELECT  FirstName 'Employee Name' FROM Employees
 SELECT  'Employee Name' = FirstName  FROM Employees
 
-/*4) Get employee details from Employees table whose Employee Name is “Steven”*/
+/*4) Get employee details from Employees table whose Employee Name is ï¿½Stevenï¿½*/
 
 SELECT * FROM Employees WHERE FirstName = 'Steven'
 
-/*5) Get employee details from Employees table whose Employee Name are “Neena” and “Lex”*/
+/*5) Get employee details from Employees table whose Employee Name are ï¿½Neenaï¿½ and ï¿½Lexï¿½*/
 
 SELECT * FROM Employees WHERE FirstName = 'Neena' OR  FirstName = 'Lex'
 SELECT * FROM Employees WHERE FirstName IN('Neena','Lex')
 
 
-/*6) Get employee details from Employees table whose Employee name are not “Neena” and “Neena”*/
+/*6) Get employee details from Employees table whose Employee name are not ï¿½Neenaï¿½ and ï¿½Neenaï¿½*/
 
 SELECT * FROM Employees WHERE FirstName NOT IN('Neena','Lex')
 
@@ -253,7 +253,7 @@ SELECT * FROM Employees WHERE Salary BETWEEN 5000 AND 8000
 SELECT FirstName +' '+ LastName AS 'Name', Salary, Salary*0.12 AS 'PF' FROM Employees
 
 
-/*9) Get employee details from Employees table whose FirstName starts with ‘N’*/
+/*9) Get employee details from Employees table whose FirstName starts with ï¿½Nï¿½*/
 
 SELECT * FROM Employees WHERE FirstName LIKE('N%')
 
