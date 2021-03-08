@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Day 7 Assignment</title>
+    <!-- Style -->
+    <style>
+      /* Task - 1 = You have one h1 and one paragraph in your page with blue color border. For all the media screen and query selector (maximum width 500px) it should be change to red color border. */
+      .task-1 {
+        border: 5px blue solid;
+      }
+
+      @media (max-width: 500px) {
+        .task-1 {
+          border: 5px solid red;
+        }
+      }
+
+      /* Task - 2 = Media queries with breakpoint */
+      @media only screen and (min-width: 1200px) {
+        .task-2 {
+          background: pink;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        .task-2 {
+          background: orange;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .task-2 {
+          background: blue;
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        .task-2 {
+          background: green;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .task-2 {
+          background: red;
+        }
+      }
+
+      /* Task - 3 = Hide elements with Media queries */
+      @media only screen and (min-width: 1200px) {
+        #first {
+          visibility: hidden;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        #second {
+          visibility: hidden;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        #third {
+          visibility: hidden;
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        #fourth {
+          visibility: hidden;
+        }
+      }
+
+      /* Task - 4 = Change Font size with Media Queries */
+      @media only screen and (min-width: 600px) {
+        #task-4 {
+          font-size: small;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        #task-4 {
+          font-size: large;
+        }
+      }
+
+      @media only screen and (min-width: 992px) {
+        #task-4 {
+          font-size: larger;
+        }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        #task-4 {
+          font-size: xx-large;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="navbar navbar-expand-sm navbar-light mb-3"
+      style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../HTML/Day3/Practice Exercise & Assignment/index.html"
+                class="nav-link"
+                >HTML</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="../JavaScript/d15PracticeExercise.html" class="nav-link"
+                >JavaScript</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="../jQuery/d22PracticeExercise.html" class="nav-link"
+                >jQuery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a
+            href="d4PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 4 Practice Exercise</a
+          >
+          <a
+            href="d4Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 4 Assignment</a
+          >
+          <a
+            href="d5PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 5 Practice Exercise</a
+          >
+          <a
+            href="../../../../../../CSS/Day5/Vatsal Parmar/Assignment/index.html"
+            target="_blank"
+            class="list-group-item list-group-item-action"
+            >Day 5 Assignment</a
+          >
+          <a
+            href="d6PracticeExercise.html"
+            class="list-group-item list-group-item-action"
+            >Day 6 Practice Exercise</a
+          >
+          <a
+            href="d6Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 6 Assignment</a
+          >
+          <a
+            href="d7PracticeExercise.html"
+            class="list-group-item list-group-item-action active"
+            >Day 7 Practice Exercise</a
+          >
+          <a
+            href="d7Assignment.html"
+            class="list-group-item list-group-item-action"
+            >Day 7 Assignment</a
+          >
+          <a
+            href="../../../../../../CSS/Day7/Vatsal Parmar/Assignment/Responsive Layout/index.html"
+            target="_blank"
+            class="list-group-item list-group-item-action"
+            >Day 7 Assignment 2</a
+          >
+          <a
+            href="../../../../../../CSS/Day8/Vatsal Parmar/Grid Layout/index.html"
+            target="_blank"
+            class="list-group-item list-group-item-action"
+            >Day 8 Grid Layout</a
+          >
+          <a
+            href="../../../../../../CSS/Day8/Vatsal Parmar/video-example.html"
+            target="_blank"
+            class="list-group-item list-group-item-action"
+            >Day 8 Video Example</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9 mb-5">
+        <!-- Task - 1 = You have one h1 and one paragraph in your page with blue color border. For all the media screen and query selector (maximum width 500px) it should be change to red color border. -->
+        <h1 class="task-1">Hello</h1>
+        <p class="task-1">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+        <hr />
+
+        <!--Task - 2 = Media queries with breakpoint -->
+        <h2>Hello</h2>
+        <p class="task-2">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+        <hr />
+        <!-- Task - 3 = Hide elements with Media queries -->
+        <p id="first">First Element</p>
+        <p id="second">Second Element</p>
+        <p id="third">Third Element</p>
+        <p id="fourth">Fourth Element</p>
+        <hr />
+
+        <!-- Task - 4 = Change Font size with Media Queries -->
+        <p id="task-4">Hello World</p>
+      </div>
+    </div>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+  </body>
+</html>

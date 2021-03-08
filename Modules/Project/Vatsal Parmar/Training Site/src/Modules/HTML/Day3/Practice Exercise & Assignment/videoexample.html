@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../../../css/style.css" />
+    <title>Video Example</title>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-sm navbar-light mb-3" 
+        style="box-shadow: 2px 2px 5px rgb(172, 171, 171)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            src="../../../../assets/images/radix_logo.jpg"
+            height="60px"
+            width="80px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../../../../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">HTML</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../CSS/d4PracticeExercise.html" class="nav-link">CSS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../Bootstrap/index.html" class="nav-link">Bootstrap</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../JavaScript/d15PracticeExercise.html" class="nav-link">JavaScript</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../jQuery/d22PracticeExercise.html"
+                class="nav-link"
+                >jQuery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../../../../../../../Bootstrap/Day14/Vatsal Parmar/IRCTC/src/index.html"
+                target="_blank"
+                class="nav-link"
+                >Mini Project</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="container-fluid row">
+      <section class="col-md-3">
+        <ul class="list-group mb-5">
+          <a href="index.html" class="list-group-item list-group-item-action"
+            >Artical & NavBar</a
+          >
+          <a
+            href="HRDepartment.html"
+            class="list-group-item list-group-item-action"
+            >HRDepartment</a
+          >
+          <a
+            href="loginform.html"
+            class="list-group-item list-group-item-action"
+            >Login Form</a
+          >
+          <a
+            href="studentReportCard.html"
+            class="list-group-item list-group-item-action"
+            >Student Report Card</a
+          >
+          <a
+            href="videoexample.html"
+            class="list-group-item list-group-item-action active"
+            >VideoExamples</a
+          >
+          <a
+            href="assignment.html"
+            class="list-group-item list-group-item-action"
+            >Assignment</a
+          >
+        </ul>
+      </section>
+
+      <!-- CONTENT AREA -->
+
+      <div class="col-md-9">
+        <header>
+            <h1>Movie Booking</h1>
+        </header>
+            <label>Search</label
+            ><input
+              type="search"
+              name="search"
+              placeholder="Enter Movie Name"
+            /><br /><br />
+            <form>
+              <label>Name</label>
+              <input type="text" name="name" list="my datalist">
+              <datalist id="my datalist">
+                <option>Mr.</option>
+                <option>Mrs.</option>
+              </datalist><br/><br/>
+              <label>Booking Date</label>
+              <input type="date" required name="date" /></br></br>
+              <label for="Time">Time</label>
+              <input type="time" name="time" required/><br/><br/>
+              <label for="price">Price Range:</label>
+              <label>100</label><input type="range" max="1000" min="100" /><label>1000</label><br/><br/>
+              <label for="rating">Movie Rating</label>
+              <meter min="0" max='5' low="2" high="4" value="4"></meter><br/><br/>
+              <label>Booking Progress</label>
+              <progress value="80" max="100"></progress><br/></br>
+              <button type="submit">Submit</button>
+            </form>
+            <footer>
+              <p>Welcome To Movie Booking</p>
+            </footer>
+        
+      </div>
+    </div>
+
+    <script src="../../../../js/jquery.min.js"></script>
+    <script src="../../../../js/popper.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+  </body>
+</html>

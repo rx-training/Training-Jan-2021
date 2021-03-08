@@ -1,0 +1,53 @@
+[
+    {
+        "userId" : "jlt1998",
+        "fullName" : "Jhon Doe",
+        "emailId" : "jhon@doe",
+        "password" : "jhon123",
+        "gender" : "male",
+        "fatherName" : "Levis Doe",
+        "motherName" : "Thea Doe",
+        "dateOfBirth" : "1998-04-22",
+        "mobileNo" : "1234567856",
+        "panNo" : "ABCDE1234E",
+        "idProof" : "Aadhar card",
+        "idProofNo" : "123443234354",
+        "current" : false,
+        "gst" : null,
+        "balance" : 5000
+    },
+    {
+        "userId" : "sks1999",
+        "fullName" : "smith shah",
+        "emailId" : "smith@shah",
+        "password" : "smith123",
+        "gender" : "male",
+        "fatherName" : "kane shah",
+        "motherName" : "sara shah",
+        "dateOfBirth" : "1999-11-23",
+        "mobileNo" : "1265567856",
+        "panNo" : "ABCDE1234S",
+        "idProof" : "Pan card",
+        "idProofNo" : "ABCDE1234C",
+        "current" : true,
+        "gst" : "8675623784",
+        "balance" : 35000
+    },
+    {
+        "userId" : "pgu2000",
+        "fullName" : "prachi modi",
+        "emailId" : "prachi@modi",
+        "password" : "prachi123",
+        "gender" : "female",
+        "fatherName" : "gaurang modi",
+        "motherName" : "urmila modi",
+        "dateOfBirth" : "2000-03-20",
+        "mobileNo" : "1234562345",
+        "panNo" : "ABCDE1234G",
+        "idProof" : "Pan card",
+        "idProofNo" : "ABCDE1234C",
+        "current" : true,
+        "gst" : "2344623784",
+        "balance" : 12000
+    }
+]

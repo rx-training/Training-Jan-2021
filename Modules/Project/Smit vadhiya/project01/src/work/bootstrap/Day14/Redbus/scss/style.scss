@@ -1,0 +1,288 @@
+// Main Sass File
+$theme-color : rgb(230,78,81);
+
+.bg-theme{
+    background: $theme-color;
+    color: white;
+}
+
+#redbus-navbar{
+    background: $theme-color;
+    
+    .ml-4{
+        a:hover {
+            color: lightgrey!important;  
+        }
+    }
+    .active{
+        font-weight: bold;
+        border-bottom: 3px solid white;
+    }
+    .dropdown-menu{
+        border-radius: 0px !important;
+    }
+    #dd-menu{
+        .active{
+            background: white !important;
+            color: gray!important;
+        }
+    }
+    #user-menu{
+        .nav-link{
+            font-size: 25px;
+            margin-top: -7px;
+            color: white;
+        }
+    }
+   
+}
+
+#redbus-carousel{
+    background: $theme-color;
+
+    .carousel-inner{
+        background: white;
+        box-shadow: 0 0 10px 10px rgba(12, 4, 4, 0.377);
+    }
+    .c01{
+        position: absolute;
+        top:40%;
+        left: 20%;
+        width: 60%;
+        .igp{
+            border-radius: 0;
+            border: 0!important; 
+            border-left: 1px solid black!important;
+        }
+        .igp1{
+            border-radius: 0;
+            border: 0!important; 
+        }
+        .form-control{
+            border-radius: 0;
+            border: 0px!important;
+        }
+        .search{
+            background: $theme-color;
+            color: white;
+            font-weight: bold;
+        }
+        .search:hover{
+            background: rgb(226, 101, 103);   
+        }
+    }
+    .seafty{
+        width: 45%;
+        background: rgb(255,245, 229);
+        margin-top: -20px;    
+        color: black;
+        position: absolute;
+        top:89%;
+        font-size: 1;
+        left: 30%;
+        p{
+            font-size: 14px;
+        }
+        .btn{
+            font-size: 12px;
+        }
+        h5{
+            font-size: 14px;
+        }
+    }
+    
+}
+
+#coupan{
+    .Coupan{
+        box-shadow: 0 0 5px 5px rgba(12, 4, 4, 0.144);
+        background: white;
+        height: 100%;
+        h5,p{
+            font-size: 14px;
+        }
+        
+    }
+    .hover{
+        transition: transform .3s;
+        
+    }
+    .hover:hover{
+        transform: scale(1.06);
+    }
+}
+
+
+
+#saftyintro
+{
+    border: 1px solid lightgrey  ;
+        .text-muted{
+            font-size: 25px;
+            a{
+                font-size: 13px;
+                text-decoration: none;
+                color: rebeccapurple;
+                font-weight: bold;
+            }
+        }
+        .lead{
+            font-size: 16px!important;
+            
+            .fa-lightbulb-o{
+                font-size: 20px;
+            }
+            strong{
+                font-weight: bold!important;
+            }
+        }
+        .text-primary{
+            color: darkblue!important;
+        }
+}
+
+
+#track-my-bus{
+    background: rgb(232, 236, 239);
+    .lead{
+        font-size: 16px!important;
+    }
+    hr{
+        border: 1px solid lightgrey;
+    }
+    .text-danger{
+        font-size: 35px;
+    }
+}
+
+#convenience-section{
+    background-image: url('../img/delhi.jpg') ;
+    background-size: cover;
+    background-repeat:  no repeat;
+    line-height: 20px;
+   
+    a{
+        background: gray;
+        border-radius: round($number: 100%);
+        color: white;
+        font-size: 20px;
+    }
+
+}
+
+#promise{
+    background: rgb(237, 237, 237);
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    .bg-white{
+        border: 1px solid lightgrey;
+    }
+}
+
+#awards{
+    a{
+        text-decoration: none;
+        letter-spacing: 2px;
+        color: black;
+    }
+}
+
+#country{
+    background: rgb(241, 241, 241);
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    a{
+        text-decoration: none;
+        letter-spacing: 2px;
+        color: black;
+    }   
+}
+
+#growing-number{
+    .text-danger{
+        font-size: 50px;
+    }
+}
+
+#operators{
+    background: rgb(241, 241, 241);
+    padding: 30px 0px;
+    line-height: 30px;
+    
+    a{
+        color:gray;
+        text-decoration: none;
+    }
+    li, #operator{
+        color:gray;
+        a:hover{
+        color: red;
+        }
+    }
+    .h5{
+        text-align: right;
+    }
+    
+}
+
+#footer{
+    background:  #1b2330;
+    .btn{
+        border: 1px solid white;
+        border-radius: 50%;
+        color: white;
+    }
+    a{
+        color: rgba(255, 255, 255, 0.685);
+        text-decoration: none;
+    }
+    a:hover{
+        color: white;
+    }
+    .fa-facebook{
+        margin: 0px 2px;
+    }
+    .fa-twitter{
+        margin: 0px 0px;
+    }
+    
+}
+
+@media (max-width:768px){
+    #redbus-carousel{
+        .c01{
+            top: 23%;
+            left: 22%;
+        }
+    }
+    .seafty{
+        left: 30%;
+        top:90%;
+    }
+    body{
+        margin-top: 82px;
+    }
+}
+
+#buslist,#admin {
+    margin-top: 78px;
+    .card{
+        width: 300px;
+        height: 200px;
+    }
+}
+.badge {
+    font-size: 15px;
+}
+
+.navLink{
+    font-size: 25px;
+    margin-top: -7px;
+    color: white;
+}
+.busMOdal{
+    max-width: 80%;
+}
+.userModal{
+    max-width: 50%;
+}

@@ -66,19 +66,19 @@ function showData(value) {
     }
     function chooseBrand(){
         var classCat = document.getElementById("categoryInsert").value;
-        if(classCat == "Laptop"){
+        if(classCat == "laptop"){
                 document.getElementById('brandInsert').innerHTML='<option value="dell">DELL</option><option value="hp">HP</option><option value="acer">Acer</option><option value="lenovo">Lenovo</option><option value="samsung">Samsung</option><option value="apple">Apple</option><option value="sony">Sony</option>';
         }
-        else if(classCat == "Shirt"){
+        else if(classCat == "shirt"){
                 document.getElementById('brandInsert').innerHTML='<option value="hrx">HRX</option><option value="arrow">Arrow</option><option value="roadies">Roadies</option><option value="roadster">Roadster</option><option value="lives">Lives</option><option value="buffalo">Buffalo</option>';
         }
-        else if(classCat == "Shoes"){
+        else if(classCat == "shoes"){
                 document.getElementById('brandInsert').innerHTML='<option value="hrx">HRX</option><option value="speed">Speed</option><option value="nike">Nike</option><option value="puma">Puma</option><option value="bata">BATA</option><option value="roadster">Roadster</option><option value="loafer">Loafer</option>';
         }
-        else if(classCat == "Mobile"){
+        else if(classCat == "mobile"){
                 document.getElementById('brandInsert').innerHTML='<option value="apple">Apple</option><option value="samsung">Samsung</option><option value="oneplus">OnePlus</option><option value="google">Google</option><option value="xiaomi">Xiaomi</option><option value="hcl">HCL</option>';
         }
-        else if(classCat == "CareProducts"){
+        else if(classCat == "careProducts"){
                 document.getElementById('brandInsert').innerHTML='<option value="amway">Amway</option><option value="alovera">Alovera</option><option value="fair">Fair & Lovely</option><option value="beardo">Beardo</option><option value="vaseline">Vaseline</option>';
         }
         else{

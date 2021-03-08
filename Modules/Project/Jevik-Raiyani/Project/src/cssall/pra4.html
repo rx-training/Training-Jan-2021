@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand" href="../index.html">
+            <img src="img/logo_2500X1875-1536x1152.jpg" class="ml-5 mr-5" width="140" height="100 " alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="../html.html">HTML</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2 active" href="../css.html">CSS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="../bootstrep.html">BOOTSTREP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="../javascript.html">JAVASCRIPT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="../jquery.html">JQUERY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="../project.html">PROJECT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr class="my-0">
+
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Day4</a>
+        <ul class="list-unstyled">
+            <li>
+                <a href="#">Practical</a>
+                <ol>
+                    <a href="pra1.html" >pra1</a>
+                </ol>
+                <ol>
+                    <a href="pra2.html" >pra2</a>
+                </ol>
+                <ol>
+                    <a href="pra3.html" >pra3</a>
+                </ol>
+                <ol>
+                    <a href="pra4.html" class="table-active">pra4</a>
+                </ol>
+                <ol>
+                    <a href="pra5.html">pra5</a>
+                </ol>
+            </li>
+            <li>
+                <a href="#">Assignment</a>
+                <ol>
+                    <a href="resume.html">resume</a>
+                </ol>
+            </li>
+
+            <a href="#">Day5</a>
+            <li>
+                <a href="#">Practical</a>
+                <ol>
+                    <a href="float.html">float</a>
+                </ol>
+            </li>
+            <li>
+                <a href="#">Assignment</a>
+                <ol>
+                    <a href="assignmentday5.html"  target="_blank">assignment</a>
+                </ol>
+                
+            </li>
+
+            <a href="#">Day6</a>
+            <li>
+                <a href="#">Practical</a>
+                <ol>
+                    <a href="pra.html">pra</a>
+                </ol>
+            </li>
+            <li>
+                <a href="#">Assignment</a>
+                <ol>
+                    <a href="assignmentday6.html" target="_blank">assignment</a>
+                </ol>
+                
+            </li>
+
+            <a href="#">Day7</a>
+            <li>
+                <a href="#">Assignment</a>
+                <ol>
+                    <a href="layout.html" target="_blank">layout</a>
+                </ol>
+            </li>
+
+            <a href="#">Day8</a>
+            <li>
+                <a href="#">Assignment</a>
+                <ol>
+                    <a href="grid.html" target="_blank">grid</a>
+                </ol>
+            </li>
+
+        </ul>
+      </div>
+
+
+    <div id="main">
+        <p style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </p>
+
+
+        <span>
+            hello
+            
+        </span>
+        
+    </div>
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+</body>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

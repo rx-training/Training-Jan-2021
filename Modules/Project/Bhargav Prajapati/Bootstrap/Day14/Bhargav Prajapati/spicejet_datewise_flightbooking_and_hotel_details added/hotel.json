@@ -1,0 +1,15 @@
+{ "hotel" : [   
+    {"id":1, "image":"img/hotel_logo.jpg", "destination": "CHANNAI","date":"28/02/2021","name":"Hayat" ,"address": "S.G. highway","Price":"9000 Per/Day","img1":"img/channai image1.jpg","rating":"4.5/5","popular_dish":"Gulabjambun" ,"opning_date":"19/07/1999"},   
+    { "id":2 ,"image":"img/hotel_logo.jpg", "destination": "CHANNAI","date":"28/02/2021","name":"Courtyard" ,"address": "Thaltej","Price":"5000 Per/Day","img1":"img/channai image2.jpg","rating":"4.6/5","popular_dish":"Halwa","opning_date":"26/05/2002"},   
+    { "id":1 ,"image":"img/hotel_logo.jpg", "destination": "SURAT","date":"01/02/2021","name":"Avadh Utopia" ,"address": "Circle, Dumas Rd","Price":"8000 Per/Day","img1":"img/surat_hotel1.jpg","rating":"4.9/5","popular_dish":"Khaman","opning_date":"29/07/2000"},   
+    { "id":2,"image":"img/hotel_logo.jpg", "destination": "SURAT","date":"01/02/2021","name":"Surat Marriott" ,"address": "Dumas Rd, Opp Airport","Price":"10000 Per/Day","img1":"img/surat_hotel2.jpg","rating":"4.8/5","popular_dish":"Dhokla","opning_date":"19/07/1968"},   
+    { "id":1 ,"image":"img/hotel_logo.jpg", "destination": "HYDRABAD","date":"02/02/2021","name":"Trident Hotel" ,"address": "Survey No.64, Hitech City Main Road Near Cyber Towers","Price":"15000 Per/Day","img1":"img/hydrabad image1.jpg","rating":"4.5/5","popular_dish":"Dhosa","opning_date":"25/02/1967"},   
+    { "id":2 ,"image":"img/hotel_logo.jpg", "destination": "HYDRABAD","date":"02/02/2021","name":"Taj Falaknuma Palace" ,"address": "Engine Bowli, Falaknuma","Price":"25000 Per/Day","img1":"img/hydrabad image2.jpg","rating":"4.4/5","popular_dish":"Dablli","opning_date":"27/03/1950"},
+    {"id":1 ,"image":"img/hotel_logo.jpg",  "destination": "DELHI","date":"02/02/2021","name":"The Leela Palace" ,"address": "Africa Ave, Diplomatic Enclave, Chanakyapuri","Price":"25000 Per/Day","img1":"img/delhi image1.jpg","rating":"4.8/5","popular_dish":"Leela Palace Spicial","opning_date":"23/08/1980"},
+    { "id":2 ,"image":"img/hotel_logo.jpg", "destination": "DELHI","date":"02/02/2021","name":"Taj Palace," ,"address": "2, Sardar Patel Marg, Diplomatic Enclave, Chanakyapuri","Price":"25000 Per/Day","img1":"img/delhi image2.jpg","rating":"4.6/5","popular_dish":"Taj Special","opning_date":"25/09/1990"}
+    
+    
+    ]
+
+    
+}

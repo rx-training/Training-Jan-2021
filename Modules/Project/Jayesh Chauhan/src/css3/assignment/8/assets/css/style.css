@@ -1,0 +1,359 @@
+#container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    grid-template-areas: 'myHeader' 'myBgImg' 'myAbout' 'myDownload' 'myContent' 'myRecentWorks' 'myWelcomeSite' 'myClients' 'myFooter' 'myPrivacyPolicy';
+}
+
+h2 {
+    font-weight: 500;
+}
+
+h3 {
+    font-weight: 500;
+}
+
+
+/*Mobile*/
+
+header {
+    grid-area: myHeader;
+    background-color: ghostwhite;
+    padding: 10px 10px;
+}
+
+.menu {
+    display: none;
+}
+
+#bg-img {
+    grid-area: myBgImg;
+    background-color: black;
+}
+
+.main-content {
+    text-align: left;
+    color: gray;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.about p {
+    grid-area: myAbout;
+    margin-bottom: 30px;
+}
+
+.about a:link {
+    grid-area: myDownload;
+    text-decoration: none;
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+hr {
+    margin: 30px 0;
+    color: gray;
+}
+
+.content p {
+    grid-area: myContent;
+    margin-bottom: 30px;
+}
+
+.recent-works {
+    grid-area: myRecentWorks;
+}
+
+.recent-works-blocks1 img {
+    width: 95%;
+}
+
+.recent-works h2 {
+    border-bottom: 1px dotted gray;
+}
+
+.recent-works-content {
+    text-align: center;
+    padding-bottom: 15px;
+    width: 95%;
+}
+
+.welcome-site {
+    grid-area: myWelcomeSite;
+}
+
+.welcome h2 {
+    border-bottom: 1px dotted gray;
+}
+
+.ceo-msg {
+    border-left: 3px solid gray;
+    padding: 3px 20px;
+}
+
+.latest-shots h2 {
+    border-bottom: 1px dotted gray;
+}
+
+.clients {
+    grid-area: myClients;
+}
+
+.clients h2 {
+    border-bottom: 1px dotted gray;
+}
+
+.clients-img {
+    display: flex;
+    width: 329px;
+    height: 100px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.clients-img1 {
+    display: none;
+}
+
+footer {
+    grid-area: myFooter;
+    background-color: rgb(53, 48, 48);
+    text-align: left;
+    color: white;
+    padding: 60px 15px 20px;
+}
+
+footer h2 {
+    margin-top: 40px;
+    border-bottom: 1px dotted white;
+}
+
+footer>h3 {
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-bottom: -10px;
+    margin-top: 35px;
+}
+
+footer>span {
+    color: gray;
+}
+
+.useful-links h3 {
+    border-bottom: 1px solid gray;
+    color: gray;
+}
+
+.contact-us {
+    text-align: center;
+}
+
+.privacy-policy {
+    grid-area: myPrivacyPolicy;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100px;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.socials {
+    color: gray;
+}
+
+.socials a:link {
+    text-decoration: none;
+    color: gray;
+}
+
+.socials a:visited {
+    text-decoration: none;
+    color: gray;
+}
+
+.socials a {
+    margin-left: 20px;
+}
+
+
+/*Ipad*/
+
+@media only screen and (min-width:768px) {
+    .container {
+        grid-template-areas: 'myHeader myHeader' 'myBgImg myBgImg' 'myAbout myAbout' 'myDownload' 'myContent myContent' 'myRecentWorks myRecentWorks' 'myRecentWorks myRecentWorks' 'myWelcomeSite myWelcomeSite' 'myClients myClients' 'myFooter myFooter' 'myPrivacyPolicy myPrivacyPolicy';
+    }
+    h2 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 20px;
+    }
+    header {
+        display: flex;
+        width: auto;
+        justify-content: space-around;
+    }
+    header img {
+        height: 60px;
+        width: 150px;
+    }
+    .menu {
+        display: block;
+        text-align: right;
+    }
+    .menu a:link {
+        color: gray;
+        text-decoration: none;
+    }
+    .navigations a {
+        margin-right: 20px;
+        text-transform: uppercase;
+    }
+    .recent-works-blocks1 {
+        display: flex;
+        flex: 50%;
+        justify-content: space-around;
+    }
+    .recent-works-content {
+        text-align: left;
+    }
+    .recent-works-content p {
+        width: 350px;
+    }
+    .welcome img {
+        float: left;
+        padding-right: 20px;
+        height: 280px;
+    }
+    .latest-shots img {
+        width: 720px;
+        height: 316px;
+    }
+    .clients-img {
+        padding: 0px 180px 20px;
+    }
+    .clients-img img {
+        width: 100px;
+        height: 80px;
+        margin-left: 30px;
+    }
+    .clients-img1 {
+        display: flex;
+    }
+    .clients-img1 img {
+        width: 100px;
+        height: 80px;
+        margin-left: 30px;
+    }
+    .clients-img2 {
+        display: none;
+    }
+    .footer-links {
+        display: flex;
+        justify-content: space-around;
+    }
+    .contact-us {
+        text-align: left;
+        width: 300px;
+    }
+}
+
+
+/*Desktop & laptop*/
+
+@media only screen and (min-width:992px) {
+    h2 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 15px;
+    }
+    header img {
+        margin-left: -300px;
+    }
+    .menu {
+        margin-right: -300px;
+    }
+    .about {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .about-content {
+        width: 1280px;
+    }
+    .about a {
+        margin-top: 30px;
+        width: 170px;
+        height: 30px;
+    }
+    .content {
+        display: flex;
+        padding: 20px;
+    }
+    .recent-works-blocks {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .welcome-site {
+        display: flex;
+    }
+    .welcome img {
+        float: left;
+        padding-right: 20px;
+        height: 200px;
+    }
+    .latest-shots {
+        margin-left: 20px;
+    }
+    .latest-shots img {
+        width: 538px;
+        height: 316px;
+    }
+    .clients-img {
+        padding: 0px 555px 20px;
+    }
+    .clients-img img {
+        width: 180px;
+        height: 80px;
+    }
+    .clients-img1 img {
+        width: 180px;
+        height: 80px;
+    }
+    .clients-img2 {
+        display: flex;
+    }
+    footer {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+    }
+    .footer-logo {
+        padding-top: 40px;
+        width: 400px;
+    }
+    .latest-posts {
+        width: 300px;
+    }
+    .contact-us {
+        margin-left: 30px;
+    }
+    .privacy-policy {
+        display: flex;
+        justify-content: space-around;
+        height: 60px;
+    }
+    .privacy-policy>h5 {
+        margin-left: -450px;
+    }
+    .socials {
+        margin-top: 15px;
+        margin-right: -450px;
+    }
+}

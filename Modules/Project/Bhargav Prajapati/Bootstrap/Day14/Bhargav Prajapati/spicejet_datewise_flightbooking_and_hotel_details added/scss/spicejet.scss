@@ -1,0 +1,68 @@
+#navbar1
+{
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    .nav-link
+    {
+        color: black;
+    }
+    .nav-link:hover
+    {
+        background-color:rgb(211, 30, 30);
+        color: white;
+    }
+    .dropdown-item
+    {
+        border-bottom: 1px solid white;
+    }
+}
+.accodian_section
+{
+    .card
+    {
+        
+        opacity: 0.6;
+    }
+    .card:hover
+    {
+       opacity: 1;
+       border: 1px solid  darkcyan;
+    }
+    @media only screen and (max-width: 992px) {
+        .card
+        {display: none;}
+    }
+
+
+}
+#section3
+{
+    .for_border
+    {
+    border-right: solid black 1px;
+    }
+    @media only screen and (max-width: 992px)
+     {
+         display: none;
+
+    }
+    }
+    #section4
+    {
+        .row
+        {
+            div
+            {
+                border-right: 1px solid rgb(235, 225, 225);
+                border-top: 1px solid rgb(235, 225, 225);
+                border-bottom: 1px solid rgb(235, 225, 225);
+               
+            }
+        }
+    }
+
+    .modal-dialog{overflow:visible;min-height:100%!important;}
+
+
+
