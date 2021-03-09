@@ -4,9 +4,9 @@
 CREATE TABLE Countries(
     CountryId INT NOT NULL ,
     CountryName VARCHAR(20) NOT NULL , 
-    RegionId DOUBLE , 
+    RegionId FLOAT , 
     CONSTRAINT checkCountry 
-        CHECK ( ( CountryName == 'Italy' ) || ( CountryName == 'India' ) || ( CountryName == 'China' ) ) , 
+        CHECK ( ( CountryName = 'Italy' ) OR ( CountryName = 'India' ) OR ( CountryName = 'China' ) ) , 
     PRIMARY KEY (CountryId), 
     UNIQUE (RegionId)
  );
@@ -18,29 +18,29 @@ SELECT * FROM Countries;
 
 
 
-
 -- Practice 2
 --Write a SQL statement to create a table named JobHistory including columns EmployeeId, StartDate, End_Eate, Job_Id and Department_Id and make sure that the value against column EndDate will be entered at the time of insertion to the format like ‘–/–/—-‘.
---NOT WORKING IN SQLITE ...
 
 CREATE TABLE Job_History (
     EmployeeId int PRIMARY KEY NOT NULL,
     JobId INT     NOT NULL,
     StartDate DATE ,
     EndDate DATE NOT NULL DEFAULT GETDATE(),
-    CONSTRAINT convert_Date CHECK( EndDate = CONVERT( DATE , GETDATE() , 103)) 
+    CONSTRAINT convert_Date CHECK( EndDate = CONVERT( DATE , GETDATE() , 105)) 
 
 );
 
+INSERT INTO Job_History (employeeid , jobid , startdate ) VALUES ( 1 , 101 , '1990-01-28' ) ;
 
-
+SELECT * from Job_History ;
 
 
 
 -- Practice 3
 --Write a SQL statement to create a table named Jobs including columns JobId, JobTitle, MinSalary and MaxSalary, and make sure that, the default value for JobTitle is blank and MinSalary is 8000 and MaxSalary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
-CREATE TABLE Jobs(JobId INT NOT NULL , 
+CREATE TABLE Jobs(
+	JobId INT NOT NULL , 
     JobTitle VARCHAR(30) DEFAULT '' , 
     MinSalary INT DEFAULT 8000 , 
     MaxSalary INT DEFAULT NULL
@@ -56,6 +56,7 @@ SELECT * FROM Jobs;
 
 -- Practice 4
 --Write a SQL statement to create a table Employees including columns Employee_Id, FirstName, LastName, Email, PhoneNumber, Hire_Date, Job_Id, Salary, Commission, Manager_Id and Department_Id and make sure that, the Employee_Id column does not contain any duplicate value at the time of insertion, and the foreign key column DepartmentId, reference by the column DepartmentId of Departments table, can contain only those values which are exists in the Department table and another foreign key column JobId, referenced by the column JobId of Jobs table, can contain only those values which are exists in the Jobs table.
+
 CREATE TABLE Employees (
     EmployeeId INT         NOT NULL,
     FirstName VARCHAR(20)  NOT NULL ,
@@ -97,54 +98,39 @@ CREATE TABLE Departments (
 INSERT INTO Departments VALUES (99 , 'Dotnet', 'Development');
 
 
+
 -- Practice 5
 --Alter statement
-
 --Write a SQL statement to add a foreign key constraint named fk_job_id on JobId column of JobHistory table referencing to the primary key JobId of Jobs table.
+
 CREATE TABLE JobHistory (
     JobId INT     NOT NULL,
     StartDate DATE ,
     EndDate DATE ,
     
-    CONSTRAINT fk_job_id 
-        FOREIGN KEY (JobId) REFERENCES Jobs(Id) 
+    CONSTRAINT fk_job_id FOREIGN KEY (JobId) REFERENCES Jobs(Id) 
 );
+
+
+
 --Write a SQL statement to drop the existing foreign key fk_job_id from JobHistory table on JobId column which is referencing to the JobId of Jobs table.
---SQLite doesn't support the ADD CONSTRAINT variant of the ALTER TABLE command (sqlite.org: SQL Features That SQLite Does Not Implement). 
+ALTER TABLE JobHistory 
+	DROP CONSTRAINT fk_job_id ;
 
-PRAGMA foreign_keys=off;
-
-BEGIN TRANSACTION;
-
-ALTER TABLE JobHistory RENAME TO _JobHistory_old;
-
-CREATE TABLE JobHistory (
-    JobId INT     NOT NULL,
-    StartDate DATE ,
-    EndDate DATE 
-);
-
-INSERT INTO JobHistory SELECT * FROM _JobHistory_old;
-
-COMMIT;
-
-PRAGMA foreign_keys=on;
 
 
 --Write a SQL statement to add a new column named location to the JobHistory table.
 ALTER TABLE JobHistory 
-    ADD COLUMN location text;
-
-SELECT * FROM JobHistory;
+    ADD Location text;
 
 
 
 --Assignment:
 --You have been hired to create a relational database to support a car sales business. You need to store information on the business’s Employees, inventory, and completed sales. You also need to account for the fact that each salesperson receives a different percentage of their sales in commission. What tables and columns would you create in your relational database, and how would you link the tables?
+
 CREATE TABLE Business_Employees (
     Id          INT   ,
-    Name        VARCHAR (200) NOT NULL
-                           UNIQUE,
+    Name        VARCHAR (200) NOT NULL UNIQUE,
     JoiningDate DATE,
     JobType     VARCHAR (100) NOT NULL, 
     Sales       INT, 
@@ -156,7 +142,7 @@ CREATE TABLE Business_Employees (
     CONSTRAINT fk_car FOREIGN KEY (CarName) REFERENCES Cars_inventory(Name)
 );
 INSERT INTO Business_Employees VALUES (1,  'MohanLal', '2010-05-11', 'Salesman', 48, 3, 'Ferrari');
-select * from Business_Employees;
+SELECT * FROM Business_Employees;
 
 CREATE TABLE Cars_inventory (
     Id    INT NOT NULL,
@@ -168,7 +154,7 @@ INSERT INTO Cars_inventory VALUES (4, 'Ferrari', 7800000);
 SELECT * FROM Cars_inventory;
 
 CREATE TABLE Cars_Sales (
-    Date      DATE NOT NULL,
+    BookingDate DATE NOT NULL,
     Name      VARCHAR (200) NOT NULL,
     Commision INT PRIMARY KEY
 );
