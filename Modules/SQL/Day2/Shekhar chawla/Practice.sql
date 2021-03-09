@@ -2,9 +2,6 @@
 ALTER TABLE employees
 DROP CONSTRAINT ukEmail;
 
--- Disabling safety feature
-SET SQL_SAFE_UPDATES = 0;
-
 -- Write a SQL statement to change the Email column of Employees table with ‘not available’ for all employees.
 UPDATE Employees SET Email='not available';
 
@@ -73,8 +70,4 @@ SELECT * FROM Employees ORDER BY FirstName DESC ;
 SELECT EmployeeID ,  FirstName , LastName , Salary FROM Employees ORDER BY Salary ASC ;
 
 -- Select TOP 2 salary from employee table
-SELECT * FROM Employees ORDER BY Salary DESC LIMIT 2;
-
-
--- Enaabling safety feature
-SET SQL_SAFE_UPDATES = 1;
+SELECT TOP 2 * FROM Employees ORDER BY Salary DESC LIMIT 2;
