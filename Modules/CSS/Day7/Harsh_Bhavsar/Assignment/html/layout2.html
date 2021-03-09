@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+        Responsive Layout
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="..\styles\layout2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <header class="menu" id="menu_id">
+        <a href="#" style="color: limegreen;">LOGO HERE</a>
+        <div class="header_right">
+            <a href="#">HOME</a>
+            <a href="#">PAGES</a>
+            <a href="#">BLOG</a>
+            <a href="#">PORTFOLIO</a>
+            <a href="#">FEATURES</a>
+            <a href="#">SHORTCODES</a>
+        </div>
+        <a class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+
+    <script>
+	            function myFunction() {
+	                var x = document.getElementById("menu_id");
+	                if (x.className === "menu") {
+	                    x.className += " res_menu";
+	                } else {
+	                    x.className = "menu";
+	                }
+	            }
+    </script>
+
+    <div class="main_container">
+        <div id="banner_img">
+            <img src="../images/bg.jpg" alt="Banner" height="" width="100%">
+        </div>
+
+        <div class="download">
+            <div class="download_header">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+            <div class="download_desktop">
+                <div class="download_desc">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </div>
+                <div class="download_button_container">
+                    <button class="download_button"><i class="fa fa-download download_icon" style="font-size: 18px;"></i>Download Now</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="technologies_container">
+            <div class="technology">
+                <div class="technology_header">
+                    Fully Responsive
+                </div>
+                <div class="technology_desc">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </div>
+                <div class="footer_hr_line"></div>
+            </div>
+            <div class="technology">
+                <div class="technology_header">
+                    HTML + CSS3
+                </div>
+                <div class="technology_desc">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </div>
+                <div class="footer_hr_line"></div>
+            </div>
+            <div class="technology">
+                <div class="technology_header">
+                    Launch Ready
+                </div>
+                <div class="technology_desc">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </div>
+            </div>
+        </div>
+
+        <div class="projects_container">
+            <div class="projects_header">
+                Recent Work
+            </div>
+            <div class="hr_line">
+
+            </div>
+
+            <div class="projects">
+                <div class="project">
+                    <div class="project_img">
+                        <img src="..\images\logo1.png" alt="320*200" />
+                    </div>
+                    <div class="project_header">
+                        Project One
+                    </div>
+                    <div class="project_desc">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project_img">
+                        <img src="..\images\logo1.png" alt="320*200" />
+                    </div>
+                    <div class="project_header">
+                        Project Two
+                    </div>
+                    <div class="project_desc">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project_img">
+                        <img src="..\images\logo1.png" alt="320*200" />
+                    </div>
+                    <div class="project_header">
+                        Project Three
+                    </div>
+                    <div class="project_desc">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project_img">
+                        <img src="..\images\logo1.png" alt="320*200" />
+                    </div>
+                    <div class="project_header">
+                        Project Four
+                    </div>
+                    <div class="project_desc">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="welcome_and_latest_desktop">
+
+            <div class="welcome_msg_container">
+                <div class="welcome_msg">
+                    Welcome to this site
+                </div>
+
+                <div class="hr_line"></div>
+
+                <div class="welcome_body">
+                    <div class="welcome_img">
+                        <img src="..\images\logo1.png" alt="320*200" />
+                    </div>
+
+                    <div class="welcome_desc">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </div>
+
+                    <ul>
+                        <li>
+                            <icon class="true_sign">&#10003</icon> Tick mark
+                        </li>
+                        <li>
+                            <icon class="true_sign">&#10003</icon> Tick mark
+                        </li>
+                        <li>
+                            <icon class="true_sign">&#10003</icon>Tick mark
+                        </li>
+                        <li>
+                            <icon class="true_sign">&#10003</icon> Tick mark
+                        </li>
+                    </ul>
+
+                    <div class="ceo">
+                        <div class="ceo_msg">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                        </div>
+                        <div class="ceo_name">
+                            - CEO, Jack Bour
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="latest_container">
+                <div class="latest_header">
+                    Latest Shots
+                </div>
+
+                <div class="hr_line"></div>
+
+                <div class="latest_img">
+                    <img src="..\images\logo1.png" alt="320*200" />
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="clients_container">
+            <div class="client_header">
+                Our Clients
+            </div>
+
+            <div class="hr_line"></div>
+
+            <div class="all_client_images">
+                <div class="client_images">
+                    <img src="../images/logo9.png" alt="Logo" height="100px" width="20%">
+                    <img src="../images/logo9.png" alt="Logo" height="100px" width="20%">
+                    <img src="../images/logo9.png" alt="Logo" height="100px" width="20%">
+                    <img src="../images/logo9.png" alt="Logo" height="100px" width="20%">
+                </div>
+                <div class="client_images_ipad">
+                    <img src="../images/logo9.png" alt="Logo" height="100px" width="22%">
+                </div>
+                <div class="client_images_desktop">
+                    <img src="../images/logo9.png" alt="Logo" height="100px" width="22%">
+                    <img src="../images/logo9.png" alt="Logo" height="100px" width="22%">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="footer">
+        <div class="footer_flex_container">
+            <div class="logo_desc_container">
+                <div class="footer_logo">
+                    Logo Here
+                </div>
+                <div class="footer_logo_desc">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </div>
+                <div class="footer_logo_desc">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </div>
+            </div>
+
+            <div class="latest_posts_container">
+                <div class="latest_post_header">
+                    Latest Posts
+                </div>
+                <div class="hr_line_dotted"></div>
+
+                <div class="post_content">
+                    <div class="inc_content">
+                        Incredible Content
+                    </div>
+                    <div class="inc_date">
+                        Jan 13, 2021
+                    </div>
+                    <div class="footer_hr_line"></div>
+                </div>
+
+                <div class="post_content">
+                    <div class="inc_content">
+                        Incredible Content
+                    </div>
+                    <div class="inc_date">
+                        Jan 13, 2021
+                    </div>
+                    <div class="footer_hr_line"></div>
+                </div>
+
+                <div class="post_content">
+                    <div class="inc_content">
+                        Incredible Content
+                    </div>
+                    <div class="inc_date">
+                        Jan 13, 2021
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer_links">
+                <div class="link_header">
+                    Useful Links
+                </div>
+                <div class="hr_line_dotted"></div>
+
+                <div class="link">
+                    <div>
+                        <a href="#">About Us</a>
+                    </div>
+                    <div class="footer_hr_line"></div>
+                </div>
+
+                <div class="link">
+                    <div>
+                        <a href="#">About Us</a>
+                    </div>
+                    <div class="footer_hr_line"></div>
+                </div>
+
+                <div class="link">
+                    <div>
+                        <a href="#">About Us</a>
+                    </div>
+                    <div class="footer_hr_line"></div>
+                </div>
+
+                <div class="link">
+                    <div>
+                        <a href="#">About Us</a>
+                    </div>
+                    <div class="footer_hr_line"></div>
+                </div>
+
+                <div class="link">
+                    <div>
+                        <a href="#">About Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact_container">
+                <div class="contact_header">
+                    Contact Us
+                </div>
+                <div class="hr_line_dotted"></div>
+                <div class="add_container">
+                    <p>30/B Adarsh Society</p>
+                    <p>Near Kahi Park Complex,</p>
+                    <p>Swastik Char Rasta, CG Road,</p>
+                    <p>Ahmedabad - 38009</p>
+                    <p>Gujarat - India</p>
+                    <p>Phone : <span style="color: limegreen;">+91-79-26400685</span></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="copyright_sec">
+            2015 @ All Rights Reserved.
+            <div class="end_nav">
+                <nav>
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms of Service</a>
+                </nav>
+
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>
+

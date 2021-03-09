@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1 class="display-3 text-center my4">Basic Typography</h1>	
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="dropdown mt-4 mx-2">
+		  			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">2: Utilities
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="text-alignment.html">2.1 Text Alignment & Display</a></li>
+							<li><a href="float.html">2.2 Float & Fixed Position</a></li>
+							<li><a href="color.html">2.3 Colors & Background</a></li>
+							<li><a href="margin.html">2.4 Margin & Spacing</a></li>
+							<li><a href="sizing.html">2.5 Sizing & Borders</a></li>
+							<li><a href="breakpoint.html">2.6 CSS Breakpoint</a></li>				
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">3: CSS Components
+		  				<span class="caret"></span>
+		  			</button>
+						<ul class="dropdown-menu">
+							<li><a href="button.html">Buttons & Buttons Group</a></li>
+							<li><a href="navbar.html">Navbar & Nav</a></li>
+							<li><a href="listgroup.html">Listgroup & Badges</a></li>
+							<li><a href="forms.html">Forms & Input</a></li>
+							<li><a href="input.html">Input Groups</a></li>
+							<li><a href="alert.html">Alerts & Progressbar</a></li>
+							<li><a href="table.html">Tables & Pagination</a></li>
+							<li><a href="card.html">Working With Cards</a></li>
+							<li><a href="media.html">Media Objects</a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">4: Grid & Flexbox
+		  				<span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu">
+						<li><a href="grid-alignment.html">Grid Alignment</a></li>
+						<li><a href="flexbox.html">Flexbox Classes</a></li>
+						<li><a href="auto-margin.html">Auto Margin wrap & Ordering</a></li>
+					</ul>
+		  		</div>
+		  	</div>
+		  	<div class="col">
+				<div class="dropdown mt-4">
+		  			<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" id="nav-btn">5: JavaScript Widgets
+		  				<span class="caret"></span>
+		  			</button>
+				</div>
+			</div>
+		</div>	
+		<br><br>
+		<hr>
+        <br>
+        
+        <!--Responsive Grid-->
+
+        <div class="row">
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border:1px solid black">
+                <ul>
+                    <li>6 Column on Small Screen</li>
+                    <li>8 Column on Medium Screen</li>
+                    <li>9 Column on Large Screen</li>
+                    <li>10 Column on xLarge Screen</li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border:1px solid black">
+                <ul>
+                    <li>6 Column on Small Screen</li>
+                    <li>4 Column on Medium Screen</li>
+                    <li>3 Column on Large Screen</li>
+                    <li>2 Column on xLarge Screen</li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Equal Width-->
+        <div class="row">
+            <div class="col" style="border:1px solid black">Equal Width</div>
+            <div class="col" style="border:1px solid black">Equal Width</div>
+            <div class="col" style="border:1px solid black">Equal Width</div>
+            <div class="col" style="border:1px solid black">Equal Width</div>
+        </div>
+
+        <!--Equal Width Multi Rows-->
+        <div class="row">
+            <div class="col" style="border:1px solid black">Equal Width Multi Row</div>
+            <div class="col" style="border:1px solid black">Equal Width Multi Row</div>
+            <div class="w-100"></div>
+            <div class="col" style="border:1px solid black">Equal Width Multi Row</div>
+            <div class="col" style="border:1px solid black">Equal Width Multi Row</div>
+        </div>
+
+        <!--Auto Layout-->
+        <div class="row">
+            <div class="col" style="border:1px solid black">Equal Width Multi Row</div>
+            <div class="col-6" style="border:1px solid black">Equal Width Multi Row</div>
+            <div class="col-4" style="border:1px solid black">Equal Width Multi Row</div>
+        </div>
+
+        <!--Equal Width Stacked-->
+        <div class="row">
+            <div class="col-sm" style="border:1px solid black">Equal Width Stack</div>
+            <div class="col-sm" style="border:1px solid black">Equal Width Stack</div>
+            <div class="col-sm" style="border:1px solid black">Equal Width Stack</div>
+        </div>
+
+        <!--Ordering-->
+        <div class="row">
+            <div class="col order-3" style="border:1px solid black">First</div>
+            <div class="col order-2" style="border:1px solid black">Second</div>
+            <div class="col order-1" style="border:1px solid black">Third</div>
+        </div>
+
+        <!--Offsetting-->
+        <div class="row">
+            <div class="col-md-4" style="border: 1px solid black">4 Col</div>
+            <div class="col-md-4 ml-auto" style="border: 1px solid black">4 Col offset 4</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 ml-auto" style="border: 1px solid black">3 Col offset 3</div>
+            <div class="col-md-3 ml-auto" style="border: 1px solid black">3 Col offset 3</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 m-auto" style="border: 1px solid black">6 Col offset 3</div>
+        </div>
+
+        <!--Nesting-->
+        <div class="row">
+            <div class="col-sm-9" style="border:1px solid black">
+                Level 1: .col-sm-9
+                <div class="row">
+                    <div class="col-sm-6" style="border:1px solid black;">
+                        Level 2: .col-8 .col-sm-6
+                    </div>
+                    <div class="col-sm-6" style="border:1px solid black;">
+                        Level 2: .col-4 .col-sm-6
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+</body> 
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="./Asset/Script/index.js"></script>
+    <style>
+        body {
+            background-image: url("./Asset/Images/background1.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            background-color: burlywood;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            #titleBank {
+                font-size: 40px;
+                text-align: center;
+            }
+
+            body {
+                background-image: url("./Asset/Images/mobile.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+                background-size: cover;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+
+            footer {
+                background-color: rgb(0, 0, 0);
+                color: white;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav style="background-color: rgba(104, 153, 175, 0.692);" class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid ">
+            <span class="h3 text-white" id="loadUserData"><i class="fas fa-university"></i> United Bank</span>
+
+
+            <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon" style="color:rgb(0,0,141)"><i class="fas fa-list-ul"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item ml-3" style="color: rgb(0, 0, 141);">
+                        <a class="nav-link" data-toggle="modal" data-target="#signUpUser"><i
+                                class="fas fa-user"></i>&nbsp;<span id="signIn">Sign Up</span></a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" style="color: rgb(0, 0, 141);"><i class="fas fa-users"></i> 24X7 Customer
+                            Care
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-8 text-center col-sm-12 mb-3">
+                <div class="display-4"><span id="titleBank" style="font-family: 'Reggae One', cursive;">United Detroit
+                        Bank</span></div>
+            </div>
+            <div class="col-md-3 col-sm-12 rounded p-3"
+                style="background-color:rgba(104, 153, 175, 0.692);color: rgb(0, 0, 141);">
+                <form>
+                    <div class="form-group" id="userIDContent">
+                        <label for="ID" class="font-weight-bold">User ID :</label>
+                        <input type="text" id="userID" class="form-control" placeholder="1234564">
+                    </div>
+                    <div class="form-group">
+                        <label for="Password" class="font-weight-bold">Password :</label>
+                        <input type="password" id="userPassword" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="Login" id="validateUser"
+                            class="btn mb-2 btn-outline-primary text-white" style="background-color:rgb(0, 0, 141) ;">
+                    </div>
+                </form>
+
+                <div><a href="" class="text-white">Forgot password ?</a> Don't have an account? <a href=""
+                        class="text-white" data-toggle="modal" data-target="#signUpUser">Sign Up here..</a></div>
+
+            </div>
+
+            <div class="col-md-1 col-sm-12"></div>
+        </div>
+    </div>
+
+    <footer class="fixed-bottom py-2">
+        <div class="container-fluid text-center">
+            <div>Copyright 2020-2021 by RadixWeb Data. All Rights Reserved.<br>
+                Detroit Bank is powered by Namra Patel</div>
+        </div>
+    </footer>
+
+
+    <div class="modal fade" id="signUpUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content"
+                style="background-color:rgba(255, 207, 188, 0.966);box-shadow : 0 4px 8px 0 rgba(255, 207, 188, 0.5), 0 6px 20px 0 rgba(255, 207, 188, 0.19)"
+                ;>
+                <div class="modal-header"style="border-bottom:solid 1px rgb(0, 0, 141);">
+                    <h5 class="modal-title lead" id="exampleModalLabel" style="color: rgb(0, 0, 141);">PUT YOUR INFORMATION</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center" style="border-bottom:solid 1px rgb(0, 0, 141);">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-8 col-sm">
+                                <div class="form-group">
+                                    <label for="Name">Full Name :</label>
+                                    <input type="text" id="userSignUpName" class="form-control"
+                                        placeholder=" Your full name here...">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm">
+                                <div class="form-group">
+                                    <label for="Account">Account Type :</label>
+                                    <select id="" class="form-control">
+                                        <option value="">Select account type</option>
+                                        <option value="Saving">Saving</option>
+                                        <option value="Current">Current</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm">
+                                <div class="form-group">
+                                    <label for="Father">Father Name :</label>
+                                    <input type="text" name="" class="form-control" id="" placeholder="Enter Father name..">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm">
+                                <div class="form-group">
+                                    <label for="Mother">Mother Name :</label>
+                                    <input type="text" name="" class="form-control" id="" placeholder="Enter mother name..">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email ID :</label>
+                                    <input type="text" name="" class="form-control" id="" placeholder="abc@example.com">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Account">Gender :</label>
+                                <select id="" class="form-control">
+                                    <option value="">Select gender type</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="birthdate">Birth Date:</label>
+                                <input type="date" class="form-control" name="" id="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="status">Maritual Status :</label>
+                                    <select id="" class="form-control">
+                                        <option value="">choose status</option>
+                                        <option value="Unmarried">Unmarried</option>
+                                        <option value="Married">Married</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="occupation">Occupation :</label>
+                                    <select name="" class="form-control" id="">
+                                        <option value="">select occupation</option>
+                                        <option value="Job">Job</option>
+                                        <option value="Business">Business</option>
+                                        <option value="Government Employee">Government Employee</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="income">Annual Income</label>
+                                    <input type="number" name="" class="form-control" placeholder="Enter Your Income" id="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password">Password :</label>
+                                    <input type="text" name="" class="form-control" id="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Repassword">Re-Enter Password :</label>
+                                    <input type="text" name="" class="form-control" id="">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn " data-dismiss="modal" data-toggle="modal" data-target="#signUpAddress">Save changes <i
+                            class="fas fa-angle-double-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="signUpAddress" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered " 
+         role="document">
+          <div class="modal-content" style="background-color:rgba(255, 207, 188, 0.966);box-shadow : 0 4px 8px 0 rgba(255, 207, 188, 0.5), 0 6px 20px 0 rgba(255, 207, 188, 0.19)">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"> <i class="fas fa-home"></i> Address Yourself</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Country">Country :</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">select country</option>
+                                <option value="India">India</option>
+                                <option value="IndiaNorth">India North</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="state">State :</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">select state here</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="address">Address :</label>
+                            <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Enter Your Adress here..."></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="city">City :</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">Select city here</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="pincode">Pincode :</label>
+                            <input type="number" name="" class="form-control" id="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn "> <i class="fas fa-user-plus"></i> Create your account</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0%; }
+
+#nav {
+  background-color: #7ebed5; }
+  #nav ul {
+    margin-left: 50px; }
+  #nav li {
+    font-size: 15px;
+    padding: 0 10px; }
+  #nav li a:hover {
+    color: #312fba;
+    background-color: #adc7f0;
+    text-shadow: 0 0 10px #fff;
+    transform: scale(1.5, 2); }
+
+#left ul {
+  transition-property: height, width;
+  transition-delay: 2s; }
+  #left ul li a:hover {
+    color: #37378c;
+    background-color: #7ebed5;
+    height: 40px;
+    width: 200px; }

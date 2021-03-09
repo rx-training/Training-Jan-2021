@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Task 3</title>
+    </head>
+<body>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <form class="form-inline">
+                    <input type="text" placeholder="Enter String" id="str" class="form-control">
+                    <input type="button" onclick="checkStr()" class="btn btn-success" value="click">
+                    <p id="demo"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+function myDisplayer(some) 
+{
+  document.getElementById("demo").innerHTML = some;
+}
+
+function checkStr()
+{
+    var text = document.getElementById("str").value;
+    getStr(text);
+}
+
+function getStr(text)
+{
+    let myPromise = new Promise(function(myResolve, myReject) {
+    if (isNaN(text)) 
+    {
+        var array = [];
+        var len = text.length - 1;
+        for(let i=len;i>=0;i--)
+        {
+            array.push(text[i]);
+        }
+        setTimeout(function()
+        { 
+            myResolve(array.join("")); 
+        }, 5000);
+        
+    } 
+    else 
+    {
+        setTimeout(function()
+        { 
+            myReject("Wrong Input Enter !!"); 
+        }, 5000);
+        
+    }
+    });
+
+    myPromise.then(
+        function(value) {myDisplayer(value);},
+        function(error) {myDisplayer(error);}
+    );
+
+}
+</script>
+
+</body>
+</html>

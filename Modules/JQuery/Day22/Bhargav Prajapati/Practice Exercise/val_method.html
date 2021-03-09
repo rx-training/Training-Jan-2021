@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Val() Method</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Hide Method</title>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="form-group">
+                <label for="name">PLease Enter The Name</label>
+                <input type="text" placeholder="Plese Enter The Name"  class="form-control" id="txt1">
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-primary btn-block" value="click Here" id="btn1"> 
+            </div>
+        </form>
+        
+        <p id="txt2"></p>
+    </div>
+   
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("the Value Enterd :- "+ $("#txt1").val());
+                $("#txt2").val("hello World"); 
+            });
+           
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<html>
+    <head><title>Properties</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body style="margin-top: 100px;">
+        <header>
+            <h1 class="display 3 text-center my-4">Properties</h1>
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <div class="dropdown">
+                                  <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                      2:Utilities
+                                    </button>
+
+                                      <div class="dropdown-menu">
+                                          <a class="dropdown-item" href="#">2.2 Basic typography</a>
+                                          <a class="dropdown-item" href="#">2.3 Text alignment</a>
+                                          <a class="dropdown-item" href="#">2.4 Floats & position</a>
+                                          <a class="dropdown-item" href="#">2.5 Colors background</a>
+                                          <a class="dropdown-item" href="#">2.6 Spacing</a>
+                                          <a class="dropdown-item" href="#">2.7 Floats & Sizing</a>
+                                          <a class="dropdown-item" href="#">2.8 Breakpoints</a>
+                                      </div>
+                                 </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    3:CSS Components
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">3.2  Buttons</a>
+                                        <a class="dropdown-item" href="#">3.3 Nav bar</a>
+                                        <a class="dropdown-item" href="#">3.4 List group badges</a>
+                                        <a class="dropdown-item" href="#">3.5 Forms</a>
+                                        <a class="dropdown-item" href="#">3.6 Input groups</a>
+                                        <a class="dropdown-item" href="#">3.7 Alert progress</a>
+                                        <a class="dropdown-item" href="#">3.8 Tables pagination</a>
+                                        <a class="dropdown-item" href="#">3.9 Cards</a>
+                                        <a class="dropdown-item" href="#">3.10 Media objects</a>
+                                    </div>
+                               </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    4:CSS Grid & flexbox
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="4_2_grid_system.html">4.2  Grid System</a>
+                                        <a class="dropdown-item" href="4_3_grid_alignment.html">4.3 Grid alignment</a>
+                                        <a class="dropdown-item" href="4_4_flexbox.html">4.4 Flexbox</a>
+                                        <a class="dropdown-item" href="4_5_auto_margin_wrap.html">4.5 Auto margin & wrap</a>
+                                    </div>
+                               </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    5:Javascript widgets
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="5_2_carousel.html">5.2  Carousel</a>
+                                        <a class="dropdown-item" href="5_3_collapse.html">5.3 Collapse</a>
+                                        <a class="dropdown-item" href="5_4_tooltips.html">5.4 Tooltips</a>
+                                        <a class="dropdown-item" href="5_5_properties.html">5.5 Properties</a>
+                                        <a class="dropdown-item" href="5_6_modals.html">5.6 Modals</a>
+                                    </div>
+                               </div>
+                        </div>
+                      </div>
+
+        </div>
+
+        <!-- Starts from here-->
+        <div class="container mt-3">
+            
+            <!-- POP OVER-->
+            <button class="btn btn-danger" data-toggle="popover" data-placement="top" title="Popover title" data-content="Lorem ipsum dolor sit amet">
+                Toggle popover
+            </button>
+
+            <button class="btn btn-primary" data-toggle="popover" data-placement="right" title="Popover title" data-content="Lorem ipsum dolor sit amet">
+                Toggle popover
+            </button>
+
+            <button class="btn btn-warning" data-toggle="popover" data-placement="bottom" title="Popover title" data-content="Lorem ipsum dolor sit amet">
+                Toggle popover
+            </button>
+
+            <button class="btn btn-info" data-toggle="popover" data-placement="left   " title="Popover title" data-content="Lorem ipsum dolor sit amet">
+                Toggle popover
+            </button><br/>
+
+            <!-- Dismissable popover-->
+            <button id="myPopover" class="btn btn-info mt-3" data-toggle="popover" data-placement="bottom" title="Popover title" data-content="Lorem ipsum dolor sit amet" data-trigger="focus">
+                Toggle popover
+            </button>
+
+        </div>
+
+        <button class="btn btn-secondary mt-2" onclick="showPopover()" >Show popover</button>
+        <button class="btn btn-secondary mt-2" onclick="hidePopover()" >Hide popover</button>
+        <button class="btn btn-secondary mt-2" onclick="togglePopover()" >Toggle popover</button>
+
+
+        <script>
+            $('[data-toggle="popover"]').popover();
+
+            function showPopover()
+            {
+                $('#myPopover').popover('show');
+            }
+            function hidePopover()
+            {
+                $('#myPopover').popover('hide');
+            }
+            function togglePopover()
+            {
+                $('#myPopover').popover('toggle');
+            }
+
+            //popover events
+            $("#myPopover").on('show.bs.popover',function()
+            {
+                console.log("Popover show");
+            });
+            $("#myPopover").on('shown.bs.popover',function()
+            {
+                console.log("Popover shown");
+            });
+            $("#myPopover").on('hide.bs.popover',function()
+            {
+                console.log("Popover hide");
+            });
+            $("#myPopover").on('hidden.bs.popover',function()
+            {
+                console.log("Popover hidden");
+            });
+        </script>
+    </body>
+</html>

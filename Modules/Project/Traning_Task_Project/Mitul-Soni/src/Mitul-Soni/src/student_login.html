@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Online Services GU</title>
+</head>
+<body>
+    <section id="header">
+        <div class="row mt-2" style="background: lightblue;">
+            <div class="col-md-2 p-3">
+                <img src="../img/logo.png" alt="" class="image-fluid ml-5" alt="logo" style="height: 100px;width:100px;">
+            </div>
+            <div class="col-md-8">
+                <h1 class="text-center mt-4">Gujarat University</h1>
+            </div>
+            <div class="col-md-2">
+                <a href="https://fees.gujaratuniversity.ac.in/download/OnlineServicesDetail.pdf" class="btn btn-success mt-4"><i class="fa fa-stop"></i> HELP</a><br>
+                <a href="#" class="btn btn-primary mt-1"><i class="fa fa-sign-in"></i> Student Login</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function checkData()
+        {
+            
+            var applicationno = document.getElementById("applicationno").value;
+            var password = document.getElementById("password").value;
+            var flage = 0;
+            var get,create,text,i;
+                get = localStorage.getItem("onlineform");
+                create = JSON.parse(get);
+                create.forEach(onlineform => {
+                    if(onlineform.enrollment == applicationno && onlineform.password == password)
+                    {
+                        flage = 1;
+                        i = onlineform.enrollment;
+                        document.getElementById("register-form").reset();
+                    }
+                    else
+                    {
+                        flage = 0;
+                    }
+                });
+            if(flage == 1)
+            {
+                alert("Welcome" + " " + i);
+            }
+            else
+            {
+                alert("Invalid");
+            }
+        }
+        function resetform()
+        {
+            document.getElementById("register-form").reset();
+        }
+    </script>
+
+    <!---Form Section-->
+        <section id="registration-form"> 
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <h5 class="text-white text-center p-3"  style="background:navy;">Student Login</h5>
+                        </div>
+                        <div>
+                            <form id="register-form">
+                                <div class="form-group">
+                                    <label for="applicationno">Application No</label>
+                                    <input type="text" class="form-control" id="applicationno">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                                <div class="text-center"> 
+                                    <button type="button" class="btn btn-primary" onclick="checkData()">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="resetform()">Reset</button>                        
+                                </div> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!--Form Section End-->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

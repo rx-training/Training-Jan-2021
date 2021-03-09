@@ -1,0 +1,60 @@
+<html>
+    <head><title>String functions</title>
+    <script type="text/javascript">
+
+    //finding length of string
+    var str="My name is Nisarg Soni is";
+    var len=str.length;
+    document.write("<h4>Length of the string is:"+len+"</h4>");
+
+    //toLowerCase(),toUpperCase()
+    document.write("<h4>Converting string to uppercase:"+str.toUpperCase());
+
+    //includes,search -returns true or false and search returns index value
+    var incld=str.includes("Nisarg");
+    document.write("<h4>"+incld+"</h4>");
+    incld=str.search("Nisarg");
+    document.write("<h4>"+incld+"</h4>");
+
+    //startsWith(),endsWith()
+    document.write("<h4>"+str.startsWith("M")+"</h4>");
+    document.write("<h5>"+str.endsWith("n")+"</h4>");
+
+    //match()
+    document.write("<h4>"+str.match(/is/));
+
+    //indexOf(),lastIndexOf()
+    document.write("Index of:"+str.indexOf("Nisarg")+"<br/><br/>");
+    document.write("Last index of:"+str.lastIndexOf("is"));
+
+    //replace,trim,charAt,concat,split,slice,toString()
+    var a=str.replace("Nisarg","Dev");
+    document.write("<h4>"+a+"</h4>");
+
+    var b="   qwerty    ";
+    document.write(b.trim()+"<br/>");
+
+    var f=str.charAt(4);
+    document.write(f+"<br/>");
+
+    var c=str.concat(b+"<br/>");
+    document.write("String concatenated:"+c+"<br/>");
+
+    //str split
+    var d="Life is a innovation if you choose a right path way";
+    document.write(d.repeat(5)+"<br/>");
+    var e=d.split(" ");
+    document.write(e+"<br/>");
+    
+    //toString()
+    var y=56;
+    var x=y.toString();
+    document.write(x+"<br/>")
+ 
+    </script>
+    </head>
+    <body>
+
+
+    </body>
+</html>

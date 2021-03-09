@@ -1,0 +1,137 @@
+<html>
+    <head><title>Trying Bootstrap</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body style="margin-top: 100px;">
+        <header>
+            <h1 class="display 3 text-center my-4">Marging-Padding-Spacing</h1>
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <div class="dropdown">
+                                  <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                      2:Utilities
+                                    </button>
+
+                                      <div class="dropdown-menu">
+                                          <a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic typography</a>
+                                          <a class="dropdown-item" href="2_3_text_alignment_display.html">2.3 Text alignment</a>
+                                          <a class="dropdown-item" href="2_4_float_position.html">2.4 Floats & position</a>
+                                          <a class="dropdown-item" href="2_5_background_colors.html">2.5 Colors background</a>
+                                          <a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
+                                          <a class="dropdown-item" href="2_7_sizing.html">2.7 Floats & Sizing</a>
+                                          <a class="dropdown-item" href="2_8_breakpoints.html">2.8 Breakpoints</a>
+                                      </div>
+                                 </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    3:CSS Components
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="3_2_buttons.html">3.2  Buttons</a>
+                                        <a class="dropdown-item" href="3_3_navbar.html">3.3 Nav bar</a>
+                                        <a class="dropdown-item" href="3_4_list_group_badges.html">3.4 List group badges</a>
+                                        <a class="dropdown-item" href="3_5_forms.html">3.5 Forms</a>
+                                        <a class="dropdown-item" href="3_6_input_groups.html">3.6 Input groups</a>
+                                        <a class="dropdown-item" href="3_7_alert_progress.html">3.7 Alert progress</a>
+                                        <a class="dropdown-item" href="3_8_tables_pagination.html">3.8 Tables pagination</a>
+                                        <a class="dropdown-item" href="3_9_cards.html">3.9 Cards</a>
+                                        <a class="dropdown-item" href="3_10_media_object.html">3.10 Media objects</a>
+                                    </div>
+                               </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    4:CSS Grid & flexbox
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">4.2  Grid System</a>
+                                        <a class="dropdown-item" href="#">4.3 Grid alignment</a>
+                                        <a class="dropdown-item" href="#">4.4 Flexbox</a>
+                                        <a class="dropdown-item" href="#">4.5 Auto margin & wrap</a>
+                                    </div>
+                               </div>
+                        </div>
+
+                            
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    5:Javascript widgets
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">5.2  Carousel</a>
+                                        <a class="dropdown-item" href="#">5.3 Collapse</a>
+                                        <a class="dropdown-item" href="#">5.4 Tooltips</a>
+                                        <a class="dropdown-item" href="#">5.5 Properties</a>
+                                        <a class="dropdown-item" href="#">5.6 Modals</a>
+                                    </div>
+                               </div>
+                        </div>
+                      </div>
+
+        </div>
+    </header>
+
+        <!-- Starts from here-->
+    <div class="container">
+        <!-- MB Margin bottom -->
+        <h1 class="bg-success mb-0">Margin bottom 0</h1><!-- mb (margin bottom) -->
+        <h1 class="bg-success mb-1">Margin bottom 1</h1>
+        <h1 class="bg-success mb-2">Margin bottom 2</h1>
+        <h1 class="bg-success mb-3">Margin bottom 3</h1>
+        <h1 class="bg-success mb-4">Margin bottom 4</h1>
+        <h1 class="bg-success mb-5">Margin bottom 5</h1>
+        
+        <br/><br/>
+        <h1 class="bg-success mt-0">Margin top 0</h1><!-- mt (margin top)-->
+        <h1 class="bg-success mt-1">Margin top 1</h1>
+        <h1 class="bg-success mt-2">Margin top 2</h1>
+        <h1 class="bg-success mt-3">Margin top 3</h1>
+        <h1 class="bg-success mt-4">Margin top 4</h1>
+        <h1 class="bg-success mt-5">Margin top 5</h1><br/><br/>
+
+
+        <!-- ML and MR -->
+        <p>Hello everybody<span class="mr-5 bg-success"> Hope</span> you are <span class="ml-5 bg-success">doing well.</span></p>
+
+
+        <!-- MX Marin left right-->
+        <p>Lorem ipsum,<span class="bg-success mx-5">Margin left & right 5.</span>Lorem ipsum</p>
+
+        <!-- MY margin top & bottom-->
+        <p>Lorem ipsum dolor sit amet</p>
+        <p class="my-5 bg-success">Margin top and bottom 5</p>
+        <p>Lorem ipsum dolor sit amet</p><br/><br/>
+
+        <!-- padding bottom-->
+        <h1 class="bg-warning pb-0">Padding bottom 0</h1>
+        <h1 class="bg-warning pb-1">Padding bottom 1</h1>
+        <h1 class="bg-warning pb-2">Padding bottom 2</h1>
+        <h1 class="bg-warning pb-3">Padding bottom 3</h1>
+        <br/><br/><br/>
+        <!-- padding top-->
+        <h1 class="bg-warning pt-0">Padding top 0</h1>
+        <h1 class="bg-warning pt-1">Padding top 1</h1>
+        <h1 class="bg-warning pt-2">Padding top 2</h1>
+        <h1 class="bg-warning pt-3">Padding top 3</h1>
+
+        <!-- padding left and right PL and PR-->
+        <p>Lorem ipsum<span class="bg-success pl-5">set dolor</span> amet <span class="bg-success pr-5">consecutor</span></p>
+        
+    </div>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Day 23</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        $(document).ready(() => {
+            $("#getJsonData").click(() => {
+                $.getJSON("https://gorest.co.in/public-api/users", (result, status) => {
+                    var str = "<thead class = 'bg-dark text-white font-weight-normal'><tr>"
+                    for (field in result.data[0]) {
+                        console.log(field.toUpperCase());
+                        str += '<th>' + field.toUpperCase() + '</th>';
+                    }
+                    str += '</tr></thead>';
+                    str += '<tbody>';
+
+                    for (var x in result.data) {
+                        str += '<tr><td class="bg-dark text-white">' + result.data[x].id + '</td><td>' + result.data[x].name + '</td><td>' + result.data[x].email + '</td><td>' + result.data[x].gender + '</td><td>' + result.data[x].status + '</td><td>' + result.data[x].created_at + '</td><td>' + result.data[x].updated_at + '</td></tr>';
+                    }
+                    str += '</tbody>';
+                    $("#tableData").html(str);
+                });
+            });
+
+        });
+    </script>
+
+</head>
+
+<body class="bg-dark text-center">
+
+    <div class="container p-5 my-5 border border-dark rounded bg-light">
+        <div class="display-4">
+            Assignment
+        </div>
+        <hr class="mt-3 mb-5">
+        <button id="getJsonData" class="btn btn-outline-success mb-5">Click here to get JSON Data</button>
+
+        <table class="table table-responsive-md" id="tableData"></table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

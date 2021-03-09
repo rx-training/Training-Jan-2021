@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>
+            prectice1
+        </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="text-center">    
+        <p id="demo"></p>
+    </div>
+    <script>
+        var x = "We all know \"Sun\" rise \'in \\East.";
+        console.log(x);
+
+        var str1 = "Niraj";
+        var str2 = str1.length;
+
+        console.log("indexof");
+        var str = "start first string methods";
+        var pos = str.indexOf("first");
+        console.log(pos);
+
+        var str = "niraj sapra";
+        var pos = str.lastIndexOf("ra");
+        var res = str.slice(5,8);
+        var naslice = str.slice(-8,-5);
+        var sub = str.substring(1, 5);
+        var n = str.replace("niraj", "nill");
+        console.log(pos);
+        console.log(res);
+        console.log(naslice);
+        console.log(sub+" not negetive number");
+        console.log(n);
+
+
+        var str3 ="smallstring";
+        var str5 = " alldata";
+        var str4=str3.toLowerCase();
+        console.log(str4);
+        var str4=str3.toUpperCase();
+        console.log(str4);
+        console.log(str3.concat(" ", str5));
+        var removestr = "     Remove all space     ";
+        alert(removestr.trim());
+        document.getElementById("demo").innerHTML = "string first : "+ str1 +"<br>"+"String Length "+ str2;
+    </script>
+    </body>
+</html>

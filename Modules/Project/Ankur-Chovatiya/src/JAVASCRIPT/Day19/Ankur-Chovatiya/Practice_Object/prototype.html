@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Prototype</title>
+</head>
+<body>
+    <h1>Hello Developers!</h1>
+</body>
+<script>
+
+    function Person (first , last , age) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = 22;
+    }
+
+    // using prototype we can add a property to the constructor 
+
+    Person.prototype.nationality = "English";
+    // Person.prototype.age = 25; // here we can not change the value
+
+    
+    Person.prototype.intro =function(){
+        return "Hello my name is Ankur Patel."
+    };
+
+    let person1 = new Person("ankur" , "patel" , 22);
+
+    console.log(person1.nationality);
+    console.log(person1.age);
+    console.log(person1.intro());
+
+
+</script>
+</html>

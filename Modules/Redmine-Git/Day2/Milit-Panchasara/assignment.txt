@@ -1,0 +1,3 @@
+1. Using "fetch" command, we can get the information about the changes happened in our remote repository, while using "pull" command, we can actually get all the changes in our local from the remote repository.
+
+2. By stashing changes, we can remove our local changes to avoid the conflicts. Stash can be applied again to restore our changes. By staging, we can commit and push specific files instead of pushing all local changes.

@@ -1,0 +1,50 @@
+<html>
+    <head><title>Call backs</title>Callbacks
+    <script type="text/javascript">
+//Defination:-Passing a function as a parameter in a function parameter is called a callback function.
+      /*1st
+      const funA=()=>
+      {
+          setTimeout(function()
+          {
+                console.log("This is Function A");
+                funB();
+          },3000);
+      }
+      const funB=()=>
+      {
+        console.log("Wlcme Function B");
+      }
+      funA();
+      */
+      //2nd
+
+      const funA=(a,b,c,addFun)=>
+      {
+        let o=a+b+c;
+        console.log(o);
+        addFun(10,20)
+      }
+      const funB=(d,e)=>
+      {
+            let f=d+e;
+            console.log(f);
+      }
+      funA(10,20,30,funB);
+      //3rd
+      const frndA=(message,callfrnd)=>
+      {
+          console.log(`I am busy right now.I am talking t0 ${message}.I will call you back.`);
+          callfrnd();
+      }
+      const frndB=()=>
+      {
+          console.log(`Hey whats up,noticed that I call you back`);
+      }
+      frndA("Vraj",frndB);
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

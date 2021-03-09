@@ -1,0 +1,58 @@
+<html>
+    <head><title>Promises</title>
+    <script type="text/javascript">
+        //Def1-Promises are use to handle asynchronous Operations in javascript.
+        //They are easy to manage when dealing with multiple asynchronous operations where callbacks
+        // can create callback hell leading to ummanageable code.
+
+        //Def2:-Promise is an object that keep track whether a certain event has already happened or
+        //not.
+
+        //Def3:-Determine what happens after the events has happened.
+
+        // 3 stages in promises-
+                //1)Pending-We dont know the output because the time haven't arrived for execution.
+                //2)Resolve(success)-If condition becomes true it will execute.
+                //3)Reject(unsuccess)-If condition becomes false it will not execute. 
+                // ..Promise consume using then keyword and throwing error using catch keyword.
+                //executor
+                //promise produce using then keyword
+                const obj1=new Promise((resolve,reject)=>
+                {
+                    setTimeout(()=>{
+                        let roll_no=[1,2,3,4,5];
+                        resolve(roll_no);
+                        //reject("Error while communicating"); 
+                    },2000);
+                }); 
+                
+                const getBiodata=(indexdata)=>
+                {
+                    return new Promise((resolve,reject)=>
+                    {
+                        setTimeout((indexdata) => {
+                            let biodata=
+                            {
+                                name:'Vinod',
+                                age:26
+                            }
+                            resolve(`My rollno is ${indexdata}.My name is ${biodata.name} and I am ${biodata.age} years old.`);
+                        }, 2000,indexdata);
+                    });
+                }
+                obj1.then((rollno)=>
+                {
+                    console.log(rollno);
+                    return getBiodata(rollno[1]);
+                }).then((ans)=>
+                {
+                    console.log(ans);
+                }).catch((error)=>{
+                    console.log(error);
+                })
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

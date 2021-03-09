@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <script>    
+            
+    </script>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Employee form</h1>
+    <div class="container-fluid form-group w-50 h-50 mt-5">
+        <form method="post">
+            <label>ID</label>
+            <input type="text" class="form-control" pattern="^[0-9][A-Z]{5}$" placeholder="Enter your ID" required/>
+
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="Enter your name" required/>
+
+            <label>Age</label>
+            <input type="number" class="form-control" placeholder="Enter your age" required/>
+            
+            <label>Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" name="gnder" class="form-check-input" value="Male" id="m"/>Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gnder" class="form-check-input" value="Female" id="m"/>Female<br/>
+            
+            <label for="desig">Designation</label>
+            <select class="form-control" id="desig">
+              <option>Jr software engineer</option>
+              <option>Sr software engineer</option>
+              <option>Network engineer</option>
+              <option>Delivery & Head Operations</option>
+              <option>Cyber Security Expert</option>
+              <option>Web designer</option>
+            </select>
+
+            
+            <label for="sal">Salary</label>
+            <input type="number" placeholder="Enter salary"  class="form-control" value="" id="sal"/>
+
+            <label for="loca">Location</label>
+            <select class="form-control" id="loca">
+              <option>Ekyarth</option>
+              <option>Judges Bungalow</option>
+              <option>C.G. Road</option>
+            </select>
+
+            <label for="sal">Email</label>
+            <input type="email" placeholder="sophie@example.com" pattern=".+@gmail.com"  class="form-control" value="" id="sal"/>
+
+            <label for="doj">Date of Joining</label>
+            <input type="date" placeholder="Enter salary"  class="form-control" value="" id="doj"/>
+
+            <label for="sal">Contact Number</label>
+            <input type="number" placeholder="Enter salary"  class="form-control" value="" id="sal"/>
+
+            <input type="submit" class="btn btn-primary mt-3" value="Submit"/>
+        </form>
+       
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

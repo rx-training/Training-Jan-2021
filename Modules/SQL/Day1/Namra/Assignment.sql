@@ -1,0 +1,55 @@
+USE Day1Assignment;
+
+CREATE TABLE Departments
+(
+	DepartmentId INT CONSTRAINT pkDepartmens PRIMARY KEY IDENTITY(1,1),
+	DepartmentName VARCHAR(15) NOT NULL,
+);
+
+CREATE TABLE Employees 
+(
+	EmployeeId INT NOT NULL CONSTRAINT pkEmployees PRIMARY KEY IDENTITY(1,1),
+	ManagerId INT NOT NULL,
+	DepartmentId INT NOT NULL CONSTRAINT fkDepartmentId FOREIGN KEY REFERENCES Departments(DepartmentId),
+	FirstName VARCHAR(15) NOT NULL,
+	LastName VARCHAR(15) NOT NULL,
+	Email VARCHAR(15) NOT NULL,
+	PhoneNumber VARCHAR(10) NOT NULL,
+	HireDate VARCHAR(10) NOT NULL CONSTRAINT chkHireDate CHECK(HireDate LIKE '[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]'),
+	Salary INT NOT NULL,
+);
+CREATE TABLE Cars
+(
+	CarId INT CONSTRAINT pkCars PRIMARY KEY IDENTITY(1,1),
+	CarName VARCHAR(255) NOT NULL,
+	CarModel VARCHAR(50) NOT NULL,
+);
+
+CREATE TABLE Inventories
+(
+	InventoryId INT CONSTRAINT pkInventory PRIMARY KEY IDENTITY(1,1),
+	CarId INT CONSTRAINT fkCarId FOREIGN KEY REFERENCES Cars(CarId),
+	InventoryName VARCHAR(255) NOT NULL,
+	InventoryPrice INT NOT NULL,
+);
+
+CREATE TABLE Customers
+(
+	CustomerId INT CONSTRAINT pkCustomers PRIMARY KEY IDENTITY(1,1),
+	Name VARCHAR(255) NOT NULL,
+	ContactNumber VARCHAR(10) NOT NULL,
+	Address VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Sales
+(
+	SalesId INT CONSTRAINT pkSales PRIMARY KEY,
+	InventoryId INT CONSTRAINT fkInventoryId FOREIGN KEY REFERENCES Inventories(InventoryId),
+	EmployeeId INT CONSTRAINT fkEmployeeId FOREIGN KEY REFERENCES Employees(EmployeeId),
+	CustomerId INT CONSTRAINT fkCustomerId FOREIGN KEY REFERENCES Customers(CustomerId),
+	Commision TINYINT NOT NULL,
+	SalesDate VARCHAR(10) NOT NULL CONSTRAINT chkSalesDate CHECK(SalesDate LIKE '[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]')
+);
+
+DROP TABLE Sales
+DROP TABLE Inventories

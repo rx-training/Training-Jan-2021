@@ -1,0 +1,35 @@
+<!--
+3) Hide elements with Media queries
+https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_mediaquery_breakpoints
+-->
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<title></title>
+	<style type="text/css">
+		.p1
+		{
+			font-style: italic;
+			font-size: 20px;
+			text-align: center;
+		}
+        
+        @media only screen and(min-width: 200px)
+		{
+			.p1
+			{
+         	visibility: none;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<div>
+	<p class="p1">
+		Edgar Allan Poe’s work as a writer and editor were notable in their contribution to world literature.
+	</p>
+</div>
+</body>
+</html>

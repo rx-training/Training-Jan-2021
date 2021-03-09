@@ -1,0 +1,28 @@
+{
+    "products": [
+        {
+            "Name": "Cheese",
+            "Price": 99
+        },
+        {
+            "Name": "Pen",
+            "Price": 15
+        },
+        {
+            "Name": "Butter",
+            "Price": 70
+        },
+        {
+            "Name": "Chocolate",
+            "Price": 80
+        },
+        {
+            "Name": "Pencil",
+            "Price": 10
+        },
+        {
+            "Name": "Ground almonds",
+            "Price": 150
+        }
+    ]
+}

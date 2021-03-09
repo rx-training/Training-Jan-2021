@@ -1,0 +1,32 @@
+<html>
+    <head><title>Regular expressions</title>
+    <script type="text/javascript">
+
+        // regex is used for powerful pattern matching and search and replace functions on text.
+        function validate()
+        {
+            var usname=document.getElementById("uname").value;
+            var regex=/E00/;
+            if(regex.test(usname))
+            {
+                alert("Valid username");
+            }
+            else
+            {
+                alert("Invalid username");
+                document.getElementById("ulabel").style.visibility="visible";
+            }
+        }
+
+    </script>
+    </head>
+    <body>
+
+        <form action="message.html">
+            <input type="text" name="uname" placeholder="Enter your Name" id="uname" required/><br/>
+            <label for="uname" style="color:red;visibility:hidden" id="ulabel">Invalid</label>
+            <input type="button" value="Submit" onclick="validate()"/>
+
+        </form>
+    </body>
+</html>

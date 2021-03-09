@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Login</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container login">
+        <div class="zee-news-logo ">
+            <img src="/img/zeenewslogo_nav.webp" class="img-fluid center" alt="">
+        </div>
+        <form action="#">
+            <div class="form-group">
+                <label for="username">Email</label>
+                <input type="email" name="name" id="AD-username" class="form-control" placeholder="Enter user-Email-Id" required>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" name="pwd" id="AD-password" class="form-control" placeholder="password" required>
+            </div>
+           <button id="login-button" onclick="signup()" class="btn btn-success" type="button">submit</button>
+            <input class="btn btn-danger" type="reset"></input>
+        </form>
+        
+    </div>
+
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- <script src="js/login.js"></script> -->
+<script>
+
+function signup(){
+    
+    var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var admin = [];
+    var adminemail = document.getElementById("AD-username").value;
+    var adminpass = document.getElementById("AD-password").value;
+    console.log(adminemail,adminpass)
+    if (adminemail == "" || adminpass == "") {
+        alert("empty field not allowed")
+       
+    }
+    else if(!(regex.test(adminemail))){
+        alert("check email")
+    }
+    else {
+        var details = {
+            "email": adminemail,
+            "password": adminpass
+        }
+        console.log(details)
+    
+    admin = JSON.parse(localStorage.getItem("admin"))|| [];
+    admin.push(details);
+    details = JSON.stringify(admin)
+    localStorage.setItem("admin", details);
+    window.location.href = "login.html";
+    // window.location.assign('login.html')
+    //window.location.assign('F:\Exercise\Day14\Tirth-Patel\zeeNews\src\login.html')
+    // window.location.replace('login.html')
+    
+
+    }
+}
+</script>
+
+
+</html>

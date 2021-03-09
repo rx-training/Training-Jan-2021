@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Day16 | Practise</title>
+  </head>
+  <body>
+    <section class="p-0 mt-4">
+        <div class="container p-3 bg-secondary">
+            <div class="row my-3">
+                <h1 class="h3 text-white">Practise 1</h1><span class="text-white">Write a JavaScript function to check whether a string is blank or not.</span>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" type="button" onclick="checknull()">Check string is Blank or not?</button>
+                </div>
+                <div class="col-md-3 bg-white border border-5 border-primary rounded-pill">
+                    <div id="result"></div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <h1 class="h3 text-white">Practise 2</h1><span class="text-white">Write a JavaScript function to split a string and convert it into an array of words</span>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="name" id="practise2">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" type="button" onclick="splitstring()">string converts to words</button>
+                </div>
+                <div class="col-md-3 bg-white border border-5 border-primary rounded-pill">
+                    <div id="result2"></div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <h1 class="h3 text-white">Practise 3</h1><span class="text-white">Write a JavaScript function to extract a specified number of characters from a string.</span>
+                <div class="col-md-4">
+                    <label for="start" class="text-white">Enter String</label>
+                    <input class="form-control" type="text" name="name" id="practise3">
+                </div>
+                <div class="col-md-1">
+                    <label for="start" class="text-white">Start Pos</label>
+                    <input class="form-control" type="number" name="" id="start">
+                </div>
+                <div class="col-md-1">
+                    <label for="end" class="text-white">End Pos</label>
+                    <input class="form-control" type="number" name="" id="end">
+                </div>
+                <div class="col-md-3">
+                   
+                    <button class="btn btn-primary" type="button" onclick="slicing()">Extract Characters from String</button>
+                </div>
+                <div class="col-md-3 bg-white border border-5 border-primary rounded-pill">
+                    <div id="result3"></div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <h1 class="h3 text-white">Practise 4</h1><span class="text-white">Write a JavaScript function to get the current date</span>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" type="button" onclick="getdate()">get current date</button>
+                </div>
+                <div class="col-md-6 bg-white border border-5 border-primary rounded-pill">
+                    <div id="result4"></div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <h1 class="h3 text-white">Practise 5</h1><span class="text-white">Try some operation with list like push, pop, shifting, deleting element</span>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" name="name" id="practise5">
+                </div>
+                <div class="col-md-1 d-grid">
+                    <button class="btn btn-primary" type="button" onclick="pusha()">push</button>
+                </div>
+                <div class="col-md-1 d-grid">
+                    <button class="btn btn-primary" type="button" onclick="popa()">pop</button>
+                </div>
+                <div class="col-md-1 d-grid">
+                    <button class="btn btn-primary" type="button" onclick="shifta()">shift</button>
+                </div>
+                <div class="col-md-1 d-grid">
+                    <button class="btn btn-primary" type="button" onclick="deletea()">delete</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+   
+        <script>
+            function checknull()
+            {
+                document.getElementById('result').innerHTML="";
+                if(document.getElementById('name').value =="")
+                {
+                    alert("Blank");
+                }
+                else{
+                        document.getElementById('result').innerHTML=document.getElementById('name').value;
+                }
+            }
+            function splitstring()
+            {
+                var splitwords = document.getElementById('practise2').value.split(' ');
+                document.getElementById('result2').innerHTML=splitwords;
+            }
+            function slicing()
+            {
+                var string1 = document.getElementById('practise3').value;
+                var start = document.getElementById('start').value;
+                var end = document.getElementById('end').value;
+                var result = string1.slice(start,end);
+                document.getElementById('result3').innerHTML=result;
+            }
+            function getdate()
+            {
+                var d = new Date();
+                document.getElementById('result4').innerHTML=d.getDate();   
+            }
+            function pusha()
+            {
+                var ele = prompt("Add element:");
+                var strings =  document.getElementById('practise5').value.split(",");
+                strings.push(ele);
+                document.getElementById('practise5').value=strings;
+            }
+            function popa()
+            {
+                var strings =  document.getElementById('practise5').value;
+                strings = strings.split(',')
+                popped = strings.pop();
+                document.getElementById('practise5').value = strings;
+            }
+            function shifta()
+            {
+                var strings =  document.getElementById('practise5').value;
+                strings = strings.split(',')
+                shifted = strings.shift();
+                document.getElementById('practise5').value = strings;
+            }
+            function deletea()
+            {
+                var ele = prompt("Enter Position:");
+                var strings =  document.getElementById('practise5').value.split(",");
+                var pos = strings.indexOf(strings[ele]);
+                delete strings[ele];
+                var st = strings.toString();
+                document.getElementById('practise5').value=strings;
+            }
+        </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>

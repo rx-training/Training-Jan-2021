@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4485b82de8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">        
+    <title>Reference practice</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="bg-success"> Refrence practice Day 17</h1>
+        <button class="btn btn-success" onclick="openWindow()">open window</button>
+        <button class="btn btn-info" onclick="showConfirm()">Show confirm box</button>
+        <button class="btn btn-dark" onclick="promptBox()">Show prompt box</button> <br>
+        <button class="btn btn-info" onclick="resize()">resize window</button>
+        <div class="alert alert-danger" id="msg"></div>
+        
+
+    </div>
+    <script>
+        function openWindow()
+        {
+        window.open("http://www.youtube.com","_blank" )
+        }
+        function showConfirm()
+        {
+            confirm("are want delete");
+        }
+        function promptBox()
+        {
+            var msg=prompt("enter msg");
+            document.getElementById('msg').innerHTML=msg;
+        }
+       // alert(location.href);
+       // alert(location.host);
+        // alert(location.port);
+      // document.getElementById('msg').innerHTML= document.querySelector('#msg'); 
+        // alert(window.innerWidth);
+        // alert(window.innerHeight);
+         
+    </script>
+</body>
+</html>

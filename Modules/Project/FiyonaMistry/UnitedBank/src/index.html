@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Blogen Admin</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">Detroit United Bank</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-2">
+                            <a href="index.html" class="nav-link active">Account Details</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="withdrawals.html" class="nav-link">Withdrawals</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="deposits.html" class="nav-link">Deposits</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="transactions.html" class="nav-link">Transactions</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown mr-3">
+                            <a href="#" id="username" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i> Welcome 
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="profile.html" class="dropdown-item">
+                                    <i class="fa fa-user-circle"></i> Edit Profile
+                                </a>
+                                <a href="settings.html" class="dropdown-item">
+                                    <i class="fa fa-gear"></i> Settings
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" id="logout" class="nav-link">
+                                <i class="fa fa-user-times"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header id="main-header" class="py-2 bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1><i class="fa fa-gear"></i>Account Details</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ACTIONS -->
+        <section id="action" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#withdrawModal">
+                            <i class="fa fa-plus"></i> Withdraw Money
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#depositModal">
+                            <i class="fa fa-plus"></i> Deposit Money
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#transactionModal">
+                            <i class="fa fa-plus"></i> New Transaction
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POSTS -->
+        <section id="posts">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h4>Latest Posts</h4> -->
+                            <!-- </div> -->
+                            <table class="table table-striped" id="accountDetails">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Card Number</th>
+                                        <th>Phone Number</th>
+                                        <th>Email Id</th>
+                                        <th>Bank Balance</th>
+                                    </tr>
+                                </thead>
+                                <!-- <tbody>
+                                    <tr>
+                                        <td scope="row">1</td>
+                                        <td>Post One</td>
+                                        <td>Health & Wellness</td>
+                                        <td>January 22, 2021</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">2</td>
+                                        <td>Post Two</td>
+                                        <td>Business</td>
+                                        <td>January 12, 2021</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">3</td>
+                                        <td>Post Three</td>
+                                        <td>Web Development</td>
+                                        <td>January 1, 2021</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">4</td>
+                                        <td>Post Four</td>
+                                        <td>Web Development</td>
+                                        <td>December 12, 2020</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">5</td>
+                                        <td>Post Five</td>
+                                        <td>Health & Wellness</td>
+                                        <td>June 1, 2020</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">6</td>
+                                        <td>Post Six</td>
+                                        <td>Tech Gadgets</td>
+                                        <td>July 12, 2020</td>
+                                        <td><a href="details.html" class="btn btn-secondary">
+                                            <i class="fa fa-angle-double-right"></i>Details
+                                        </a></td>
+                                    </tr>
+                                </tbody> -->
+                            </table>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <div class="card text-center bg-primary text-white mb-3">
+                            <div class="card-body">
+                                <h3>Posts</h3>
+                                <h1 class="display-4">
+                                    <i class="fa fa-pencil"></i> 6
+                                </h1>
+                                <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
+                            </div>
+                        </div>
+                        <div class="card text-center bg-success text-white mb-3">
+                            <div class="card-body">
+                                <h3>Categories</h3>
+                                <h1 class="display-4">
+                                    <i class="fa fa-folder-open-o"></i> 4
+                                </h1>
+                                <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+                            </div>
+                        </div>
+                        <div class="card text-center bg-warning text-white mb-3">
+                            <div class="card-body">
+                                <h3>Users</h3>
+                                <h1 class="display-4">
+                                    <i class="fa fa-users"></i> 2
+                                </h1>
+                                <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <footer id="main-footer" class="bg-dark text-white mt-5 p-5 fixed-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead text-center">Copyright &copy; Detroit United Bank
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- POST MODAL -->
+        <div class="modal fade" id="withdrawModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title">Withdraw money</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="pin">Pin Number</label>
+                                <input type="number" id="withdrawCardPin" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Amount to Withdraw</label>
+                                <input type="number" id="withdrawAmount" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary" id="withdrawBTN" type="submit" data-dismiss="modal">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY MODAL -->
+        <div class="modal fade" id="depositModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title">Deposit Money</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="pin">Pin Number</label>
+                                <input type="number" id="depositCardPin" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Amount to Deposit</label>
+                                <input type="number" id="depositAmount" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-success" id="depositBTN" type="submit" data-dismiss="modal">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- USER MODAL -->
+        <div class="modal fade" id="transactionModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title">New Transaction</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Card Holder Name</label>
+                                <input type="text" id="transactionHolderName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="number">Card Number</label>
+                                <input type="number" id="transactionCardNumber" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Amount to Transact</label>
+                                <input type="number" id="transactionAmount" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-warning" id="transactionBTN" type="submit" data-dismiss="modal">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+
+            // Account Details
+            $(document).ready(function(){
+                $.getJSON("accountDetails.json", function(data){
+                    var flag='';
+                    data.account.forEach(value => {
+                        if(value.emailId == sessionStorage.getItem("logged-in")){
+                            
+                            // displaying username on the navbar
+                            $("#username").append(value.name);
+
+                            flag += '<tr>';
+                            flag += '<td>' + value.name + '</td>';
+                            flag += '<td>' + value.cardNumber + '</td>';
+                            flag += '<td>' + value.phoneNumber + '</td>';
+                            flag += '<td>' + value.emailId + '</td>';
+                            flag += '<td>' + localStorage.balance + '</td>';
+                            flag += '</td>';
+
+                        }
+                        else{
+                            return false;
+                        }
+                    });
+                    $("#accountDetails").append(flag);
+                });
+            });
+                            
+            // Withdrawal and deposit
+            var wallet = parseInt(localStorage.balance);
+            $.getJSON("accountDetails.json", function(data){
+                    data.account.forEach(value => {
+                        if(value.emailId == sessionStorage.getItem("logged-in")){
+
+                            class withdraw_deposit{
+                                constructor(amt){
+                                    this.amt = amt;
+                                }
+                                withdraw(){
+                                    this.amt = parseInt($("#withdrawAmount").val());
+                                    if(this.amt > wallet){
+                                        alert("Not enough to withdraw");
+                                    }
+                                    else{
+                                        var pin = parseInt($("#withdrawCardPin").val());
+                                        if(pin == value.pin){
+                                            wallet -= this.amt;
+                                            localStorage.balance = wallet;
+                                            alert("You have withdrawed : " + this.amt + "\nTotal Balance : " + wallet);
+                                        }
+                                        else{
+                                            alert("Incorrect pin");
+                                        }
+                                    }
+                                }
+                                deposit(){
+                                    var pin = parseInt($("#depositCardPin").val());
+                                    this.amt = parseInt($("#depositAmount").val());
+                                    if(pin == value.pin){
+                                        wallet += this.amt;
+                                        localStorage.balance = wallet;
+                                        alert("You have deposited : " + this.amt + "\nTotal Balance : " + wallet);
+                                    }
+                                    else{
+                                        alert("Incorrect pin");
+                                    }
+                                }
+                            }
+                            var withdrawDeposit = new withdraw_deposit();
+                            $("#withdrawBTN").click(function(){
+                                withdrawDeposit.withdraw();
+                            });
+                            $("#depositBTN").click(function(){
+                                withdrawDeposit.deposit();
+                            });
+                        }
+                    });
+            });
+
+            $(document).ready(function(){
+            $.getJSON("accountDetails.json", function(data){
+                data.account.forEach(value => {
+                    class transaction{
+                        constructor(amt){
+                            this.amt = amt;
+                        }
+                        transact(){
+                            this.amt = parseInt($("#transactionAmount").val());
+                            if(this.amt > wallet){
+                                alert("Not enough to transact");
+                            }
+                            else{
+                                var name = $("#transactionHolderName").val();
+                                var number = parseInt($("#transactionCardNumber").val());
+                                // data.account.forEach(value => {
+                                //     if(name == value.name && number == value.cardNumber){
+
+                                //     }    
+                                // });
+                                if(name == value.name && number == value.cardNumber){
+                                    wallet -= this.amt;
+                                    console.log(wallet);                               
+                                    localStorage.balance = wallet;
+                                    alert("You have transacted : " + this.amt + "\nTotal Balance : " + wallet);
+                                }
+                                else{
+                                    alert("Incorrect name/card number");
+                                }
+                            }
+                        }
+                    }
+                    var objtransaction = new transaction();
+                    $("#transactionBTN").click(function(){
+                        objtransaction.transact();
+                    });
+                });
+            });
+        });
+
+            // logout
+            $("#logout").on("click", function(){
+                sessionStorage.removeItem("logged-in");
+            });
+
+        </script>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor1' );
+        </script> -->
+    </body>
+</html>

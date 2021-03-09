@@ -1,0 +1,55 @@
+<!-- Task 1 -->
+<!--
+
+	1) You have one h1 and one paragraph in your page with blue color border. For all the media screen and query selector (maximum width 500px) it should be change to red color border.
+
+-->
+<!-- Task 1 -->
+<!--
+
+	1) You have one h1 and one paragraph in your page with blue color border. For all the media screen and query selector (maximum width 500px) it should be change to red color border.
+
+-->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trying media query selector</title>
+
+<style type="text/css">
+.container
+{
+	border:2px solid blue;
+	background:	lightgray;
+	width:50%;
+	
+}
+.a1
+{
+	text-align:center;
+	font-style:bold;
+}
+.p1
+{
+	text-align: center;
+	margin-top:20px;
+}
+
+@media only screen and (min-width:500px)
+{
+	.container
+	{
+		border:2px solid red;
+	}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1 class="a1">Media query selector</h1>
+<p class="p1">Change the border color  to "red" when the browser window is 500px wide or more:</p>
+</div>
+
+
+</body>
+</html>

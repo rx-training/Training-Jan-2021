@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+<body>
+    <h4>Difference Between on var and let</h4>
+
+    <p>
+        The main difference between let and var is that scope of a variable defined with let is limited to the block in which it is declared while variable declared with var has the global scope. So we can say that var is rather a keyword which defines a variable globally regardless of block scope.
+    </p>
+
+    <p>
+        The scope of let not only limited to the block in which it is defined but variable with let also do not get added with global window object even if it get declared outside of any block. But we can access variable with var from window object if it is defined globally.
+    </p>
+
+    <p>
+        Due to limited scope let variables are usually used when there is limited use of those variables such as in for loops, while loops or inside the scope of if conditions etc while var variable is used when value of variable need to be less change and used to accessed globally.
+    </p>
+
+    <h2>Example of Var And Let Keyword</h2>
+
+    <script>
+        // Var Keyword Example
+        var a = 10;
+        if(true)
+        {
+            var a = 78;
+            console.log(a); // Print output 78 local scop
+        }
+        console.log(a); // Print Output 78 global scop
+
+
+        // Let Keyword Example 
+        var a = 10;
+        if(true)
+        {
+            let a = 78;
+            console.log(a); // Print output 78 local scop
+        }
+        console.log(a); // Print Output 10 global scop
+    </script>
+</body>
+</html>

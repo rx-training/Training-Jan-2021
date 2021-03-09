@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<title>Document</title>
+
+	<script>
+		var productVal=[];
+		function retrieveData(pid,pname,pprice,pqty)
+		{
+			var prod_obj = {"ProductID":pid,"ProductName":pname,"Price":pprice,"Quntity":pqty}
+			productVal.push(JSON.stringify(prod_obj));
+			localStorage.setItem("productKey",productVal);    
+		}
+		function showData()
+		{
+			console.log(localStorage.getItem("productKey"));
+        }
+		fetch("details.json").then (
+			resolve=>{
+				resolve.json().then (
+					products=>{
+                        var flg = "";
+                        for(var i=0;i<products.length;i++) {
+                            flg += "<tr>";// flag
+                            flg += "<td>"+ products[i].ProductID+"</td>";
+                            flg += "<td>"+ products[i].ProductName+"</td>";
+                            flg += "<td>"+ products[i].Price+"</td>";
+                            flg += "<td>"+ products[i].Quantity+"</td>";
+                            flg += '<td><button class="btn btn-danger" onclick="retrieveData('+"'"+products[i].ProductID+"'"+','+"'"+products[i].ProductName+"'"+','+"'"+products[i].Price+"'"+','+"'"+products[i].Quantity+"'"+')">Add Cart</button></td></tr>'
+                        }
+					    document.getElementById("productDetails").innerHTML = flg;
+					}
+				)
+            }
+		);
+	</script>
+</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<table class="table table-stripped">
+						<thead>
+							<th>ProductID</th>
+							<th>ProductName</th>
+							<th>Price</th>
+							<th>Quantity</th>
+						</thead>
+						<tbody id="productDetails"></tbody>
+					</table>
+					<button onclick="showData()" class="btn btn-success">Cart Summary</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

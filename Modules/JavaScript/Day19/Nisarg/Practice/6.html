@@ -1,0 +1,28 @@
+<html>
+    <head><title>Function call</title>
+    <script type="text/javascript">
+        /*
+        Explain Function closure with practical
+        */
+        var salaryUpdater=function(salary)
+        {
+            var currSalary=salary;
+            var generator=function()
+            {
+                currSalary*=2;
+                return currSalary;
+            };
+            return generator;
+        };
+
+        var updateFun=salaryUpdater(50000);
+        updateFun();
+        console.log(updateFun());
+        
+
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>JS Extra practice</title>
+</head>
+<body>
+    <div class="container m-5">
+        <h1>Form 3:</h1>
+        <hr>
+        <form action="" method="get" class="form-inline" id="myForm">
+            <input type="text" class="form-control mr-2" placeholder="number 1" id="number1">
+        </form>
+        <hr>
+        <button class="btn btn-outline-dark" onclick="goToNumeric(1);">Submit and redirect to Numeric 1</button>
+        <button class="btn btn-outline-dark" onclick="goToNumeric(2);">Submit and redirect to Numeric 2</button>
+        <hr>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        function goToNumeric(pageId){
+            var num1 = document.getElementById('number1').value;
+
+            if(num1 == "") {
+                alert("Please enter any numeric value");
+            }
+            else if(isNaN(parseInt(num1))) {
+                alert('Only numeric values are allowed. Please re-enter the value');
+            }
+            else {
+                alert("Entered value is a numeric value");
+                document.getElementById('myForm').action = 'numeric'+pageId+'.html';
+                document.getElementById('myForm').submit();
+            }
+        }
+    </script>
+</body>
+</html>

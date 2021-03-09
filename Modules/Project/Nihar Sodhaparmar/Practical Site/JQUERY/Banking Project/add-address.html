@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/add-address.js"></script>
+    <title>Detroit United Bank</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top bg-light py-3">
+        <div class="container">
+            <a href="#" class="navbar-brand"><img src="./img/united-bank-logo.png" alt="logo" height="40"
+                    width="150"></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="#personal" class="nav-link">Personal</a></li>
+                    <li class="nav-item"><a href="#business" class="nav-link">Business</a></li>
+                    <li class="nav-item"><a href="#insaurance" class="nav-link">Insaurance</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="pt-5"></div>
+
+    <div class="container form-container bg-light rounded">
+
+        <form onsubmit="return (new userAddress).submitUserAddress()">
+
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label class="form-control-label" for="country">Select Country</label>
+                </div>
+                <div class="col-md-9 form-control-container">
+                    <select class="form-control" name="country" id="country">
+                        <option value="select"> Select Country</option>
+                    </select>
+                    <div id="countryError" class="text-danger"></div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label class="form-control-label" for="state">Select State</label>
+                </div>
+                <div class="col-md-9 form-control-container">
+                    <select class="form-control" name="state" id="state">
+                        <option value="select" selected> Select State</option>
+                    </select>
+                    <div id="stateError" class="text-danger"></div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label class="form-control-label" for="city">Select City</label>
+                </div>
+                <div class="col-md-9 form-control-container">
+                    <select class="form-control" name="city" id="city">
+                        <option value="select"> Select City</option>
+                    </select>
+                    <div id="cityError" class="text-danger"></div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label class="form-control-label" for="address">Address</label>
+                </div>
+                <div class="col-md-9 form-control-container">
+                    <textarea class="form-control" name="address" id="address" cols="30" rows="6" required></textarea>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <label class="form-control-label" for="pincode">Pincode</label>
+                </div>
+                <div class="col-md-9 form-control-container">
+                    <input class="form-control" type="number" id="pincode" name="pincode" required>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-3">
+                <div class="col-md-3"></div>
+                <div class="col-md-9 form-control-container">
+                    <input id="create-ac-btn" class="btn btn-success btn-block w-50 mx-auto" type="submit"
+                        value="Create Account">
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <div class="modal fade" id="accountNumberAlertModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Account Created</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="generatedAccountNumber">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="./index.html" class="btn btn-success">OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mt-5"></div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

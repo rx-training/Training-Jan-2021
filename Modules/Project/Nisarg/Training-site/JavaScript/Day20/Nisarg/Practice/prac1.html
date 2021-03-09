@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Practise Exercise Day 20</title>
+        <script>
+
+            //Kept JSON Data into a file, used Web Fetch API read that data.
+            async function getText(file) 
+            {
+                let Object = await fetch(file);
+                let text = await Object.text();
+                document.getElementById("demo").innerHTML=text;
+            }
+
+            //Stored JSON data into localstorage,reading that data and print it into console.
+            function getdata() {
+                if(typeof(Storage)!=="undefined") {
+                    localStorage.setItem("Name", "Cheese");
+                    localStorage.setItem("Price",2.50);
+                    var a=new Array(2);
+                    a[0]=localStorage.getItem("Name");
+                    a[1]=localStorage.getItem("Price");
+                    console.log("Name: " + a[0]);
+                    console.log("Price: " + a[1]);
+                }
+                else {
+                    document.getElementById("demo").innerHTML = "Sorry, your browser does not support Web Storage";
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <!--Kept JSON Data into a file, used Web Fetch API read that data.-->
+        <button onclick="getText('info.json')">Show file Data</button>
+        <button onclick="getdata()">Show Local Storage Data</button>
+        <p id="demo"></p>
+    </body>
+</html>

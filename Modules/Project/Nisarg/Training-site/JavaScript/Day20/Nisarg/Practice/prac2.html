@@ -1,0 +1,33 @@
+<!--Web Geolocation API-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Practise Exercise Day 20</title>
+    </head>
+    <body>
+        <button onclick="showLocation()">Show My Location</button>
+        <p id="ms1"></p>
+        <p id="ms2"></p>
+        <script>
+            function showLocation() {
+                if (navigator.geolocation)
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                     }
+            }
+            function showPosition(position) 
+            {
+                var x = document.getElementById("ms1");
+                var y = document.getElementById("ms2");
+                x.innerHTML = "Latitude: " + position.coords.latitude;
+                y.innerHTML = "Longitude: " + position.coords.longitude;
+            }
+        </script>
+    </body>
+</html>

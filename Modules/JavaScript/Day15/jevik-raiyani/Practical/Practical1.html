@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button onclick="myFunction()">
+        clickMe
+    </button>
+
+    <p id="demo">
+
+    </p>
+
+    <script>
+        function myFunction(){
+            var a = prompt("Enter 1st value");
+            var b = prompt("Enter 2nd value");
+            var c = prompt("Enter 3rd value");
+            var d= parseInt(a)+parseInt(b)+parseInt(c);
+            var max;
+            
+
+
+            
+            if(a > b)
+            {
+                if(a>c)
+                {
+                    max = a;
+                }
+                else
+                {
+                    max = c;
+                }
+            }
+            else
+            {
+                if(b>c)
+                {
+                    max = b;
+                }
+                else
+                {
+                    max = c;
+                }
+            }
+            if(d<=40)
+            {
+                d=0;
+            }
+            document.getElementById("demo").innerHTML = "max no is"+max+"sum is" + d;
+        }
+        
+
+    </script>
+
+</body>
+</html>

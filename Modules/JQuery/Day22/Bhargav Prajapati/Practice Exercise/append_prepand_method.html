@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Append and prepand Menthod</title>
+</head>
+<body>
+    <div class="container">
+    <table class="table table-hover my-5">
+        <thead>
+            <tr class="thead-dark">
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Jenil</td>
+                <td>abc@gmail.com</td>
+            </tr>
+            <tr id="tr2"></tr>
+            <tr id="tr3"></tr>
+            <tr id="tr4"></tr>
+
+        </tbody>
+    </table>
+
+    <ol>
+        <li>Append item</li>
+        <li>prepend item</li>
+    </ol>
+    <input type="button" class="btn btn-danger" value="Append Item" id="append_btn">
+    <input type="button" class="btn btn-warning text-white" value="prepend Item" id="prepand_btn">
+</div>
+    <script>
+        $(document).ready(function()
+        {
+            $("#tr2").append("<td>2</td><td>Bhavik</td><td>def@gmail.com</td>");
+            $("#tr3").append("<td>3</td><td>Aryan</td><td>ghi@gmail.com</td>");
+            $("#tr4").prepend("<td>4</td><td>Parth</td><td>jkl@gmail.com</td>");
+            $("#append_btn").click(function(){
+                $("ol").append("<li>Append Item</li>");
+            });
+            $("#prepand_btn").click(function(){
+                $("ol").prepend("<li>Prepend Item</li>")
+            });
+
+        });
+    </script>
+</body>
+</html>

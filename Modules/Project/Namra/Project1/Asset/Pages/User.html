@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../Script/User.js"></script>
+    <title>Login</title>
+    <style>
+        #logOut {
+            display: none;
+        }
+
+        @media(min-width:768px) {
+            #logOut {
+                display: inline-flex;
+            }
+        }
+
+        @media(max-width:768px) {
+            #choose {
+                display: none;
+            }
+        }
+
+        @media(max-width:576px) {
+            #choose {
+                display: inline-flex;
+            }
+        }
+        
+        
+    </style>
+</head>
+
+<body class="bg-light " style="font-family: 'Work Sans', sans-serif;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="Login.html"><i class=" h2 fab fa-amazon text-light"></i></a>
+            <h2 class="text-white" id="adminName" onclick=" return logOut()"></h2>
+            <button class="btn btn-sm btn-outline-dark text-danger" id="logOut" onclick=" return logOut()">Log
+                out</button>
+        </div>
+    </nav>
+    <!-- Section 1 -->
+    <nav class="navbar  navbar-expand-lg  bg-secondary sticky-top">
+        <div class="container-fluid">
+
+            <a class="navbar-toggler navbar-toggler-right text-white" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle Navigation">
+                Explore <i class="fas fa-user"></i>
+            </a>
+            <Label class=" rounded h3 mr-3" onclick="return showData('6')">Products</Label>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-items"><a href="" class="nav-link text-white" onclick="return showData('1')">Apply
+                            Offer</a></li>
+                    <li class="nav-items"><a href="" class="nav-link text-white" onclick="return showData('2')">Update
+                            Product</a></li>
+                    <li class="nav-items"><a href="" class="nav-link text-white" onclick="return showData('3')">Delete
+                            Products</a></li>
+                    <li class="nav-items"><a href="" class="nav-link text-white" onclick="return showData('4')">Insert
+                            Product</a></li>
+                            
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-items font-weight-bold"><a href="" class="nav-link text-white"
+                            onclick="return showData('5')"><i class="fas fa-user"></i> Users</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h2 class="text-center display-4 mt-3 text-white" style=" background: rgba(0, 128, 0, 0.3)">Users</h2>
+    </div>
+    
+   
+    <div id="user">
+        <div class="container">
+            <table id="userTable" align="center" class="table text-center  my-5 table-responsive-md" >
+            
+            </table>
+        </div>
+    </div>
+
+    <footer class="container-fluid bg-dark text-white ">
+        <div class="container-fluid">
+            <section class="text-center text-white pb-3">
+                <a href="#bottom" class="text-decoration-none font-weight-bold text-white">Conditions of Use</a> &emsp;
+                <a href="#bottom" class="text-decoration-none font-weight-bold text-white">Privacy Notice</a>&emsp; <a
+                    href="#bottom" class="text-decoration-none font-weight-bold text-white">Interest-Based</a> &emsp;
+                <span class="text-muted">Ads© 1996-2021, Amazon.com, Inc. or its affiliates</span>
+            </section>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="showUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content" style="background-color: rgba(99, 104, 99, 0.753);">
+            <div class="modal-header bg-dark text-light">
+              <h5 class="modal-title" id="exampleModalLongTitle">User Information</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <label class="form-control" id='UName'></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <label class="form-control" id='UGender'></label>
+                    </div>
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <label class="form-control" id='UsName'></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <label class="form-control" id='UContact'></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Email ID</label>
+                        <label class="form-control" id='UEmail'></label>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <label class="form-control" id='UPassword'></label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

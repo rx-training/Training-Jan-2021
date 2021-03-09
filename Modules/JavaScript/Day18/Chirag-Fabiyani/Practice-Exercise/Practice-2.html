@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice-2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <script>
+        // var keyword variables
+        //The changes performed in a block of code doesn't reflect on the global declaration and initialization.
+        var a = 10;
+        {
+            var a = 25;
+            console.log(a);
+        }
+        console.log(a);
+
+        //let keyword variables
+        //The changes performed in a block of code does reflect in global declaration and initialization.
+        let b = 10;
+        {
+            let b = 25;
+            console.log(b);
+        }
+        console.log(b);
+    </script>
+    <!-- Output in console window -->
+</body>
+</html>

@@ -1,0 +1,14 @@
+[
+    {"Heading": "Importing Projects"},
+    {"SubHeading": "Upload From Your Computer"},
+    {"SubExplanation": "With your desired StackBlitz project open, simply drag and drop any files and folder you want to import:"},
+    {"img1": ""},
+    {"SubHeading1": "Import from Github"},
+    {"SubExplanation1": "You can run any public repo on Github by providing the username + repo name like so: stackblitz.com/github/{GH_USERNAME}/{REPO_NAME} And you can also optionally specify a branch, tag, or commit:  .../github/{GH_USERNAME}/{REPO_NAME}/tree/{TAG|BRANCH|COMMIT}"},
+    {"SubHeading1.1": "Automatically stays in sync with your repo"},
+    {"SubExplanation1.1": "Whenever you push commits to Github, the corresponding StackBlitz project automatically updates with the latest changes — ensuring Github remains your code’s source of truth."},
+    {"SubHeading1.2": "Supported project types"},
+    {"SubExplanation1.2": "We currently support projects using @angular/cli and create-react-app. Support for Ionic, Vue, and custom webpack configs is coming soon!"},
+    {"SubHeading2": "StackBlitz API"},
+    {"SubExplanation2": "You can create new StackBlitz projects programmatically from any data source using our POST API or the openProject & embedProject methods in our Javascript SDK."}
+]

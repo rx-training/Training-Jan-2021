@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Excercise</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Practice Excercise Day-16</h1>
+      <h2>Excercise 1 :</h2>
+      <p>
+        <strong class="text-secondary">
+          Write a JavaScript function to check whether a string is blank or not.
+        </strong>
+      </p>
+      <form>
+        <div class="form-group my-1">
+          <label class="form-label">Please enter value :</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input1"
+            placeholder="Enter enter value"
+          />
+        </div>
+        <button
+          class="btn btn-primary mt-2"
+          type="button"
+          onclick="checkEmpty(input1.value,ans1)"
+        >
+          Click Me
+        </button>
+        <p class="text-danger mt-2"><strong id="ans1"></strong></p>
+      </form>
+      <h2 class="mt-3">Excercise 2 :</h2>
+      <p>
+        <strong class="text-secondary">
+          Write a JavaScript function to split a string and convert it into an
+          array of words.
+        </strong>
+      </p>
+      <form>
+        <div class="form-group my-1">
+          <label class="form-label">Please enter value :</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input2"
+            placeholder="Enter enter value"
+          />
+        </div>
+        <button
+          class="btn btn-primary mt-2"
+          type="button"
+          onclick="convertInArr()"
+        >
+          Click Me
+        </button>
+        <ul class="text-danger mt-2" id="ans2"></ul>
+      </form>
+      <h2 class="mt-3">Excercise 3 :</h2>
+      <p>
+        <strong class="text-secondary">
+          Write a JavaScript function to extract a specified number of
+          characters from a string.
+        </strong>
+      </p>
+      <form>
+        <div class="form-group my-1">
+          <label class="form-label">Please enter string :</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input3"
+            placeholder="Enter enter string"
+          />
+        </div>
+        <div class="form-group my-1">
+          <label class="form-label">Please enter number :</label>
+          <input
+            type="number"
+            class="form-control"
+            id="input4"
+            placeholder="Enter enter number"
+          />
+        </div>
+        <button
+          class="btn btn-primary mt-2"
+          type="button"
+          onclick="extractString()"
+        >
+          Click Me
+        </button>
+        <p class="text-danger mt-2" id="ans3"></p>
+        <h2 class="mt-3">Excercise 4 :</h2>
+        <p>
+          <strong class="text-secondary">
+            Write a JavaScript function to get the current date.
+          </strong>
+        </p>
+        <button
+          class="btn btn-primary mt-2"
+          type="button"
+          onclick="gateCurrentDate()"
+        >
+          Get Current Date
+        </button>
+        <p class="text-danger mt-2"><strong id="ans4"></strong></p>
+        <h2 class="mt-3">Excercise 5 :</h2>
+        <p>
+          <strong class="text-secondary">
+            Try some operation with list like push, pop, shifting, deleting
+            element.
+          </strong>
+        </p>
+
+        <strong>The List : </strong>
+        <ul class="text-danger mt-2" id="ans5"></ul>
+        <div class="form-group my-1">
+          <label class="form-label">Please enter string :</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input5"
+            placeholder="Enter enter string"
+          />
+        </div>
+        <button
+          class="btn btn-primary mt-2"
+          type="button"
+          onclick="addElement()"
+        >
+          Push Element
+        </button>
+        <button
+          class="btn btn-primary mt-2"
+          type="button"
+          onclick="deleteElement()"
+        >
+          Pop Element
+        </button>
+
+        <p class="text-danger mt-2" id="ans6">
+          <strong>Poped Element : </strong>
+        </p>
+        <h2 class="mt-3">Excercise 6 :</h2>
+        <p>
+          <strong class="text-secondary">
+            Change style with javascript.
+          </strong>
+        </p>
+        <p id="ans7">Hello World</p>
+        <button
+          class="btn btn-primary my-2"
+          type="button"
+          onclick="changeColor()"
+        >
+          Change Color
+        </button>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/JavaScript/index.js"></script>
+  </body>
+</html>

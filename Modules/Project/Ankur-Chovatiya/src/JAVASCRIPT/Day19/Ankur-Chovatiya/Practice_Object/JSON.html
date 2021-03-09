@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>Hello Developers!</h1>
+</body>
+<script>
+
+    let person = {
+        firstName:"ankur",
+        lastName:"chovatiya",
+        age:22,
+        joiningDate :new Date(),
+        skill: ["js","python","Html","css"],
+        greet : function(){
+            return `Hello everyone my name is ${this.firstName} ${this.lastName} and i am from ahmedabad`;
+        }
+    };
+
+   person.greet =  person.greet.toString();
+
+    let mtJSON = JSON.stringify(person);
+    console.log(mtJSON);
+
+
+    
+
+</script>
+</html>

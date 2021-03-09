@@ -1,0 +1,20 @@
+{
+    "Category": [
+        {
+            "categoryId": 1,
+            "categoryName": "Shirt"
+        },
+        {
+            "categoryId": 2,
+            "categoryName": "T-shirt"
+        },
+        {
+            "categoryId": 3,
+            "categoryName": "Shoes"
+        },
+        {
+            "categoryId": 4,
+            "categoryName": "Pant"
+        }
+    ]
+}

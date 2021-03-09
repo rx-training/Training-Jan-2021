@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>JQuery effects</title>
+</head>
+<body>
+    <button>Toggler</button>
+    <h1>Hello Developers</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, dolorem.</p>
+
+    <div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iste pariatur mollitia voluptatum culpa sed perspiciatis odio veritatis quo illo, dicta facere inventore quam. Ab qui, a officiis molestiae magnam dolor ipsam ea laboriosam itaque natus ipsum ipsa fuga iste nesciunt, praesentium corporis eveniet fugiat in dolorum, dignissimos amet. Optio.
+    </div>
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+
+        
+</body>
+<script>
+
+    // toggler
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p").toggle();
+            });
+        });
+
+        // fade in
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("div").fadeIn(3000);
+                $("div").fadeIn("slow");
+                $("div").fadeIn();
+            })
+              
+        });
+
+        // fade toggle
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("div").fadeToggle(3000);
+                $("div").fadeToggle("slow");
+                $("div").fadeToggle();
+            })
+              
+        });
+
+    
+
+</script>
+</html>

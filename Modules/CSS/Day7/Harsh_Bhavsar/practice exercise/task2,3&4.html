@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html >
+<head>
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <title></title>
+    <style>
+        .breakpoint {
+            padding: 20px;
+            
+        }
+       
+        @media only screen and (max-width: 600px) {
+            .breakpoint {
+                border:2px solid red;
+            }
+        }
+
+        
+        @media only screen and (min-width: 600px) {
+            .breakpoint {
+                border: 2px solid green;
+                
+            }
+        }
+
+       
+        @media only screen and (min-width: 768px) {
+            .breakpoint {
+                border: 2px solid blue;
+            }
+        }
+
+        
+        @media only screen and (min-width: 992px) {
+            .breakpoint {
+                border: 2px solid orange;
+              
+            }
+        }
+
+       
+        @media only screen and (min-width: 1200px) {
+            .breakpoint {
+                border: 2px solid pink;
+            }
+        }
+
+        div.hide {
+            background-color: yellow;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            div.hide {
+                display: none;
+            }
+        }
+
+
+        @media screen and (min-width: 600px) {
+            div.changefont {
+                font-size: 50px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            div.changefont {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Media Query with Breakpoints</h1>
+    <p class="breakpoint">A paragraph is a number of sentences grouped together and relating to one topic. Or, a group of related sentences that develop a single point. This definition shows that the paragraphs of compositions are not mere arbitrary divisions.</p>
+    <div class="hide">Hide element when screen size is less than 600px.</div>
+    <div class="changefont">Change the font size when the size more or less than 600px</div>
+</body>
+</html>

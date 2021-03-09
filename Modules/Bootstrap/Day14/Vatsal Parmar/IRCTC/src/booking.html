@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>IRCTC</title>
+  </head>
+
+  <body>
+    <nav id="nav1" class="navbar navbar-light navbar-expand-md mb-n4">
+      <div class="container">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a
+              id="nav-btn"
+              href="#"
+              class="nav-link btn btn-primary btn-sm text-white"
+              data-toggle="modal"
+              data-target="#loginModal"
+              >LOGIN</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="register.html" class="nav-link">REGISTER</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">AGENT LOGIN</a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="#"
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#contactModal"
+              >CONTACT US</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">ASKDISHA</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">ALERTS</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="nav2" class="navbar navbar-light navbar-expand-md pt-0">
+      <div class="container">
+        <a href="#" class="navbar-brand">
+          <img src="./img/secondary-logo.png" width="60" height="60" alt="" />
+        </a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item d-md-none">
+              <a
+                href="#"
+                id="nav-btn-2"
+                class="nav-link btn btn-primary btn-sm text-white"
+                data-toggle="modal"
+                data-target="#loginModal"
+                >LOGIN</a
+              >
+            </li>
+            <li class="nav-item d-md-none">
+              <a
+                href="register.html"
+                id="nav-btn-2"
+                class="nav-link btn btn-primary btn-sm mt-1 text-white"
+                >REGISTER</a
+              >
+            </li>
+            <li class="nav-item d-sm-none d-md-block">
+              <a href="index.html" class="nav-link"
+                ><i class="fa fa-home"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a
+                id="nav-btn"
+                href="#"
+                class="nav-link btn btn-primary btn-sm text-white"
+                >IRCTC EXCLUSIVE</a
+              >
+            </li>
+            <li class="nav-item">
+              <a id="active-link" href="index.html" class="nav-link active"
+                >TRAINS</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">BUSES</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">FLIGHTS</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">HOLYDAYS</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">LOYALTY</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">MEALS</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">PROMOTIONS</a>
+            </li>
+            <li class="nav-item">
+              <a
+                id="nav-btn"
+                href="#"
+                class="nav-link btn btn-primary btn-sm text-white"
+                >PREMIUM PARTNER</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                >MORE</a
+              >
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">IRCTC iMudra</a>
+                <a href="#" class="dropdown-item">Link Your Adhaar</a>
+                <a href="#" class="dropdown-item"
+                  >Counter Ticket Cancellation</a
+                >
+                <a href="#" class="dropdown-item"
+                  >Counter Ticket Boarding Point Change</a
+                >
+                <a href="#" class="dropdown-item">Forgot User ID</a>
+                <a href="#" class="dropdown-item">Forgot PASSWOED</a>
+                <a href="#" class="dropdown-item">AT STATIONS</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="#" class="navbar-brand">
+          <img src="./img/logo.png" width="60" height="60" alt="" />
+        </a>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="container">
+        <h1 class="text-primary display-3 text-center py-2">Ticket Booking</h1>
+      </div>
+      <div id="ticketForm" class="container col-md-6 p-4 my-2 text-primary">
+        <div class="form-group">
+          <label for="name"><strong>Enter Name : </strong></label>
+          <input
+            class="form-control text-primary"
+            id="name"
+            placeholder="Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name"><strong>Enter Number Of Seats : </strong></label>
+          <input
+            class="form-control text-primary"
+            id="num"
+            placeholder="No. Of Seats"
+            type="number"
+          />
+        </div>
+        <p><strong>Train Name : </strong><span id="tName"></span></p>
+        <p><strong>Date : </strong><span id="date"></span></p>
+        <p>
+          <strong>From : </strong><span id="from"></span> &nbsp;&nbsp;
+          <strong>Time : </strong><span id="start"></span>
+        </p>
+        <p>
+          <strong>To : </strong><span id="to"></span> &nbsp;&nbsp;
+          <strong>Time : </strong><span id="stop"></span>
+        </p>
+        <p><strong>Quota : </strong><span id="quota"></span></p>
+        <div class="forn-group">
+          <label><strong>Select Travel Class :</strong></label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="anubhuti"
+              value="Anubhuti"
+            />
+            <label class="form-check-label" for="anubhuti">
+              Anubhuti Class &nbsp;&nbsp; Price : <span id="p1"></span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="1A"
+              value="1A"
+            />
+            <label class="form-check-label" for="1A">
+              AC First Class (1A) &nbsp;&nbsp; Price : <span id="p2"></span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="EC"
+              value="EC"
+            />
+            <label class="form-check-label" for="EC">
+              Exec. Chair Car (EC) &nbsp;&nbsp; Price : <span id="p3"></span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Class"
+              id="AC2"
+              value="AC2"
+            />
+            <label class="form-check-label" for="AC2">
+              AC 2 Tier &nbsp;&nbsp; Price : <span id="p4"></span>
+            </label>
+          </div>
+        </div>
+        <p class="text-success mt-2"><strong id="total">Total : </strong></p>
+        <button
+          class="btn btn-warning mt-2"
+          type="button"
+          data-toggle="modal"
+          data-target="#ticketModal"
+          onclick="ticket()"
+        >
+          Confirm Booking
+        </button>
+      </div>
+
+      <!-- FOOTER -->
+      <section id="footer">
+        <div class="container row py-5">
+          <div class="col-md-3">
+            <div class="navbar">
+              <ul class="nav flex-column">
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >IRCTC Trains</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"
+                      >Ticket Cancellation Rules</a
+                    >
+                    <a href="#" class="dropdown-item">Foreign Tourist T&C</a>
+                    <a href="#" class="dropdown-item">Group Booking T&C</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >General Information</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">FAQs</a>
+                    <a href="#" class="dropdown-item">Terms & Conditions</a>
+                    <a href="#" class="dropdown-item">FTR T&C</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Important Information</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"
+                      >Bank Transaction Charges</a
+                    >
+                    <a href="#" class="dropdown-item">Service Tax Rules</a>
+                    <a href="#" class="dropdown-item">Menu Rates</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Agents</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">IRCTC Authorized</a>
+                    <a href="#" class="dropdown-item">Norms for RTSA</a>
+                    <a href="#" class="dropdown-item">Norms for IATA</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Enquiries</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Reservation Enquiries</a>
+                    <a href="#" class="dropdown-item">PNR Enquiries</a>
+                    <a href="#" class="dropdown-item">Train Enquiries</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="navbar">
+              <ul class="nav flex-column">
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >How To</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Register</a>
+                    <a href="#" class="dropdown-item">Book E-Ticket</a>
+                    <a href="#" class="dropdown-item">Book Tatkal Ticket</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >IRCTC Official App</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">IRCTC Rail Connect</a>
+                    <a href="#" class="dropdown-item">IRCTC iMudra</a>
+                    <a href="#" class="dropdown-item">IRCTC Air App</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Adverties With Us</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Adverties Enquiries</a>
+                    <a href="#" class="dropdown-item">Promotion</a>
+                    <a href="#" class="dropdown-item">Agency</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Refund Rules</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"
+                      >Cancellation of Ticket Refund</a
+                    >
+                    <a href="#" class="dropdown-item">Refund Rules</a>
+                    <a href="#" class="dropdown-item"
+                      >Refund Cancellation Rules</a
+                    >
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Divyangjan Facilities</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"
+                      >Facilities for Divyangjan</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Facilities for Visually Impaired Users</a
+                    >
+                    <a href="#" class="dropdown-item">User Guide</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="navbar">
+              <ul class="nav flex-column">
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >IRCTC eWallet</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">About</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >IRCTC Loyalty Program</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">IRCTC SBI Credit Card</a>
+                    <a href="#" class="dropdown-item"
+                      >Loyalty Account Linking</a
+                    >
+                    <a href="#" class="dropdown-item">Accrual Pf Points</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >About Us</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Awards & Achivement</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >ICRTC Zone</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Jago Yatri Jago</a>
+                    <a href="#" class="dropdown-item">Maharaja’s Express</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >MP/Ex-MP Ticket Booking</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">User Guid</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="navbar">
+              <ul class="nav flex-column">
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >For Newly Migrated Agents</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Login Menual</a>
+                    <a href="#" class="dropdown-item">Application</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Mobile Zone</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">IRCTC Android App</a>
+                    <a href="#" class="dropdown-item">Clear Trip App</a>
+                    <a href="#" class="dropdown-item">Goibibo Mobile App</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Integration Policy</a
+                  >
+                  <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"
+                      >Policy for Direct Debit Card Integration</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >on e-ticketing website-2017.</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Policy for Multiple Payment Provider</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title">Log In</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="email">User Id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userid"
+                  placeholder="Enter Id"
+                />
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter Password"
+                />
+              </div>
+              <button class="btn btn-info" type="button" onclick="auth()">
+                Log In
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div class="modal fade" id="contactModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title">You May Contact Us</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <div>&times;</div>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <strong>Care Numbers :</strong> 0755-6610661, 0755-4090600
+              (Language: Hindi and English)..
+            </p>
+            <p>
+              <strong>For Railway tickets booked through IRCTC</strong><br />
+              <strong>General Information</strong><br />
+              <strong>I-tickets/e-tickets :</strong
+              ><span> care@irctc.co.in</span><br />
+              <strong>Mumbai Suburban Season tickets :</strong>
+              <span> seasontickets@irctc.co.in</span>
+            </p>
+            <p>
+              For IRCTC SBI Card users who do not receive the card within 01
+              month from the date of application kindly call on the Railway SBI
+              Card Helpline nos. at 0124-39021212 or 18001801295 (if calling
+              from BSNL/MTNL line) or send email to
+              <span>customercare@sbicard.com</span>. For other queries on your
+              IRCTC SBI card account, kindly email at
+              <span>loyaltyprogram@irctc.co.in</span>
+            </p>
+            <strong>
+              Registered Office / Corporate Office <br />
+              Indian Railway Catering and Tourism Corporation Ltd., <br />
+              B-148, 11th Floor, Statesman House, <br />
+              Barakhamba Road, New Delhi 110001
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticket Modal -->
+    <div class="modal fade" id="ticketModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-white">
+            <h5 class="modal-title">Your Ticket</h5>
+            <button class="close text-white" data-dismiss="modal">
+              <div>&times;</div>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Name : </strong><span id="Name"></span></p>
+            <p>
+              <strong>Number Of Seats : </strong><span id="numOfSeate"></span>
+            </p>
+            <p><strong>Train Name : </strong><span id="trainName"></span></p>
+            <p><strong>Date : </strong><span id="ticketDate"></span></p>
+            <p>
+              <strong>From : </strong><span id="ticketFrom"></span> &nbsp;&nbsp;
+              <strong>Time : </strong><span id="ticketStart"></span>
+            </p>
+            <p>
+              <strong>To : </strong><span id="ticketTo"></span> &nbsp;&nbsp;
+              <strong>Time : </strong><span id="ticketStop"></span>
+            </p>
+            <p><strong>Quota : </strong><span id="ticketQuota"></span></p>
+            <p>
+              <strong>Travel Class : </strong><span id="ticketClass"></span>
+            </p>
+            <p><strong>Price : </strong><span id="ticketPrice"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/booking.js"></script>
+  </body>
+</html>

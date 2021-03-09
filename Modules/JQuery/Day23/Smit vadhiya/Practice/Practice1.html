@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Practice 01</title>
+</head>
+<body>
+    <div class="container">
+        <div class="bg-dark text-white p-5">
+            <h1 class="text-center">Practice 01</h1>
+            <h6>Create one paragraph, add some dummy text and apply blue background color using jquery</h6>
+        </div>
+    
+        <p> This is P tag <br>
+            Blue color is added using jquery.<br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi repellendus sunt eligendi. Corrupti explicabo eveniet laudantium ea cumque tempore repellat doloremque quia cupiditate, possimus vel facere quisquam. Voluptatem, dolorum quisquam!</p>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("p").css("color","blue")
+        });
+    </script>
+</body>
+</html>

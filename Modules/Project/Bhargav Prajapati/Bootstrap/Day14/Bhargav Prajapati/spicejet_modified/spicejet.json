@@ -1,0 +1,16 @@
+{ "book" : [   
+    { "id":"1", "source": "Ahmedabad", "destination" : "CHANNAI","date":"28/02/2021" ,"depart": "10:30 A.M.","arrive":"12:10 P.M","Price":"3753 INR","BUSINESS_CLASS":"NA","count":1},   
+    { "id":"2","source": "Ahmedabad", "destination" : "CHANNAI","date":"26/02/2021" , "depart": "12:30 P.M.","arrive":"2:10 P.M.","Price":"5500 INR","BUSINESS_CLASS":"AVAILABLE" ,"count":2},   
+    { "id":"1","source": "AJMER", "destination" : "SURAT", "date":"26/02/2021" ,"depart": "3:00 P.M.","arrive":"4:10 P.M","Price":"1500 INR","BUSINESS_CLASS":"NA","count":3},   
+    {"id":"2", "source": "AJMER", "destination" : "SURAT","date":"28/02/2021" , "depart": "8:00 P.M.","arrive":"9:10 P.M","Price":"3000 INR","BUSINESS_CLASS":"AVAILABLE","count":4},   
+    {"id":"1", "source": "GOA", "destination" : "HYDRABAD","date":"28/02/2021", "depart": "6:00 P.M.","arrive":"8:00 P.M","Price":"7000 INR","BUSINESS_CLASS":"NA","count":5},   
+    {"id":"2", "source": "GOA", "destination" : "HYDRABAD","date":"26/02/2021" , "depart": "7:00 A.M.","arrive":"9:00 A.M","Price":"12000 INR","BUSINESS_CLASS":"AVAILABLE","count":6},
+    { "id":"1","source": "MUMBAI", "destination" : "UDAIPUR","date":"28/02/2021" , "depart": "9:00 P.M.","arrive":"12:00 P.M","Price":"15000 INR","BUSINESS_CLASS":"NA","count":7},
+    {"id":"2","source": "MUMBAI", "destination" : "UDAIPUR","date":"26/02/2021" , "depart": "5:00 P.M.","arrive":"8:00 P.M","Price":"30000 INR","BUSINESS_CLASS":"AVAILABLE","count":8},
+    {"id":"1","source": "BENGALURU", "destination" : "DELHI","date":"26/02/2021" , "depart": "7:30 P.M.","arrive":"10:00 P.M","Price":"8000 INR","BUSINESS_CLASS":"NA","count":9},
+    {"id":"2","source": "BENGALURU", "destination" : "DELHI","date":"26/02/2021" , "depart": "6:30 A.M.","arrive":"8:00 A.M","Price":"10000 INR","BUSINESS_CLASS":"AVAILABLE","count":10}
+    
+    ]
+
+    
+}

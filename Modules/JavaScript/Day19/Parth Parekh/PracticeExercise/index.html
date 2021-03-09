@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+    <title>JavaScript Day19 Practice Exercise</title>
+</head>
+
+<body>
+    
+    <div class="container p-3 m-2">
+        <div class="form-group  m-2 p-2">
+          <label for="" class="text-capitalize h3">enter Radius To Find Area of Circle</label>
+          <input type="text" name="" id="num" class="form-control" placeholder="" aria-describedby="helpId">
+          <p class="h3 text-secondary" id="demo" ></p>
+          <button class="btn btn-primary" onclick="x(num.value)">Area of Circle </button>
+        </div>
+
+        <div class="form-group m-2 p-2">
+            <label for="" class="text-capitalize h3">enter length & width find area of  Rectangle</label>
+            <input type="text" name="" id="num1" class="form-control" placeholder="" aria-describedby="helpId">
+            <input type="text" name="" id="num2" class="form-control mt-2" placeholder="" aria-describedby="helpId">
+            <p class="h3 text-secondary" id="demo1"></p>
+            <button class="btn btn-info" onclick="y(num1.value ,num2.value)">Area of Rectangle </button>
+        </div>
+
+
+        <div class="bg-info text-dark text-center p-3 m-2 border ">
+            <p class="h3 "> Employee Details</p>
+            <p id="ename" class="h5 ">Employee Name : </p>
+            <p id="address" class="h5">Employee Address : </p>
+            <p id="des" class="h5">Employee Designation : </p>
+        </div>
+
+        <div class="bg-dark text-white text-center p-2 m-2">
+            <p class="h3 "> Employee Details</p>
+            <p id="yname" class="h5">Employee Name : </p>
+            <p id="yaddress" class="h5">Employee Address : </p>
+            <p id="ydes" class="h5">Employee Designation : </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 ms-2">
+                <button type="button" class="btn btn-danger  btn-block" 
+                style="width: 100%;" onclick="myFunction()">Count!</button>
+            </div>
+            <div class="col-md-2"> <p id="demo2" class="text-secondary h3">0</p></div>
+        </div>  
+    </div>
+
+    <script>
+        const  x =  (num) => { 
+            document.getElementById("demo").innerHTML = (3.14 * num * num).toFixed(2); 
+        }
+        const  y = (a,b) => {
+             console.log(a);
+            console.log(b);
+            var myfun = function (a, b) { return a * b };
+            document.getElementById("demo1").innerHTML = myfun(a, b);  
+        }
+        
+        var h = 5;
+        var a = (h) => {
+            console.log(h);
+        }
+        a(h);  //In this Function hoisting , first you define function and then call function
+
+
+        //Call function
+        var person = {
+            fun:  function() {
+                document.getElementById("ename").innerHTML +=  this.name;
+                document.getElementById("address").innerHTML += this.address;
+                document.getElementById("des").innerHTML +=this.designation;
+            }
+        }
+        var person1 = {
+            name: "Parth",
+            address: "Kasindra",
+            designation : "Traniee Software Engineer"
+        }
+        person.fun.call(person1);
+
+        //apply function
+        var personx = {
+            fun1:  function (a,b){
+                document.getElementById("yname").innerHTML += this.name;
+                document.getElementById("yaddress").innerHTML += a;
+                document.getElementById("ydes").innerHTML += b;
+            }
+        }
+        var person2 = {
+            name: "Parth",
+        }
+        personx.fun1.apply(person1 , ["Kasindra" , "Traniee Software Engineer"]);
+        
+        // Closure 
+        var add = ( () => {
+                var counter = 0;
+                return function () { counter += 1; return counter; }
+        })();
+        var myFunction = () => {
+            document.getElementById("demo2").innerHTML = add();
+        }   
+
+        //Math.max function It Will Return Maximum number 
+        console.log(Math.max(1,2,60,-23));
+    </script>
+
+        
+</body>
+</html>

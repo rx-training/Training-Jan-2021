@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>This keyword</title>
+    <script type="text/javascript">
+        console.log(typeof this); 
+        console.log(this===window);
+
+        var name="Nisarg soni";
+        console.log(this.name);
+
+        /* 2nd */
+        var employee={
+            name:'jeff',
+            updateSalary:function()
+            {
+                console.log(this);
+            }
+        };
+        employee.updateSalary();
+
+         /* 3rd */
+        var Address=function(adrs)
+        {
+            this.adrs=adrs;
+            console.log(this);
+        };
+        var addr=new Address("123 State st.");
+    </script>
+    </head>
+    <body>
+
+    </body>
+    </html>

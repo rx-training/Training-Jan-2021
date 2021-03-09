@@ -1,0 +1,21 @@
+<html>
+    <head><title>Callback Function</title>
+    <script type="text/javascript">
+    //1)Define a function called callback which receives an argument and prints the square of that number.
+    //fat arrow function
+    const funA=(a,fb)=>
+    {
+        let c=a*a;
+        fb(c);
+    }
+    const funB=(d)=>
+    {
+        console.log("Square of a number is:"+d);
+    }
+    funA(10,funB);
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

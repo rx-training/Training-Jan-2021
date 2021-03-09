@@ -1,0 +1,33 @@
+<html>
+    <head><title>Calling function</title>
+    <script type="text/javascript">
+            var updateZipCode=function()
+            {
+                console.log(this);
+            };
+            updateZipCode({zip:'11787'});
+            /*  2nd  */
+            var updateZipCode=function()
+            {
+                console.log(this);
+            };
+            var zipCode={
+                zip:'11787'
+            };
+            updateZipCode.call(zipCode);
+            /* 3rd */
+            var updateZipCode=function(newZip,country)
+            {
+                console.log(newZip+"  "+country);
+            };
+            var zipCode={
+                zip:'11787'
+            };
+            updateZipCode.apply(zipCode,['11888','us']);
+
+     </script>
+    </head>
+    <body>
+
+    </body> 
+</html>

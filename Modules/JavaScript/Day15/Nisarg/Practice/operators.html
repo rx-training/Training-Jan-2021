@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head><title>Operators</title>
+<body>
+<script type="text/javascript">
+    function addition()
+    {
+        var a=10;
+        var b=20;
+        var c=a+b;
+        document.write("Answer through addition is:"+c+"<br/>");
+
+        a=5.5888;
+        b=9.9967;
+        c=a+b;
+        document.write("Answer through floating point addition is:"+c+"<br/>");
+        //toFixed-round the numbers        
+        document.write("Answer through floating point addition is:"+c.toFixed(2)+"<br/>");
+
+        a="XYZ";
+        b="890";
+        c=a+b;
+        document.write("Addition is:"+c+"<br/>");
+
+        a="A"
+        b=90;
+        c=a+b;
+        document.write(c+":");
+        document.write(typeof(c)+"<br/>");
+
+        a=9000;
+        b="500";
+        c=a+b;
+        document.write("C="+c+"<br/>");
+        document.write("Type of:"+typeof(c)+"<br/>");
+
+        a=2000;
+        b=undefined;
+        c=a+b;
+        document.write("Ans is:"+c+"<br/>");
+    }
+    function substraction()
+    {
+        var a=30;
+        var b=20;
+        var c=a-b;
+        document.write("Substraction is:"+c+"<br/>");
+    }
+    function division()
+    {
+        var a=90;
+        var b=45;
+        var c=a/b;
+        document.write("Division 1:"+c+"<br/>");
+        a=9;
+        b=0;
+        c=a/b;
+        document.write("Division 2:"+c+"<br/>");//infinite
+
+        a=90;
+        b="30";
+        c=a/b;
+        document.write("Division 3:"+c+"<br/>");// ans is 3,convert it explicitly
+    }
+    function multiplication()
+    {
+        var a=90;
+        var b=45;
+        var c=a*b;
+        document.write("Ans through multiplication is:"+c+"<br/>");
+
+        a=4;
+        b="XYZ";
+        c=a*b;
+        document.write("Ans through mult is:"+c+"<br/>");
+    }
+    function un()
+    {
+        var a=1;
+        a++;
+        document.write("A="+a+"<br/>");
+        document.write("A="+(++a)+"<br/>");//incremented firstly
+
+        var b=4;
+        b--;
+        document.write("B="+b+"<br/>");
+        document.write("B="+--b+"<br/>");       
+    }
+    function bt()
+    {
+        var a=parseInt('1010');
+        var b=parseInt('1011');
+        var c=a&b;
+        ducument.write("C="+c+"<br/>");
+
+        c=a|b;
+        document.write("C="+c+"<br/>");
+    }
+addition();
+substraction();
+division();
+multiplication();
+un();
+bt();
+</script>
+</head>
+</body>
+</html>

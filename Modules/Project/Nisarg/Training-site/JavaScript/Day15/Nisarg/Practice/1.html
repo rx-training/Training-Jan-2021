@@ -1,0 +1,54 @@
+<!-- Practice task 1-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to demonstrate the prompt box.</p>
+
+<script>
+  function myFunction()
+{
+	var a=prompt("Enter 1st value:","10");
+	var b=prompt("Enter 2nd value:","20");
+	var c=prompt("Enter 3rd value:","30");
+    var x=parseInt(a);
+    var y=parseInt(b);
+    var z=parseInt(c);
+    
+    var d,sum;
+    
+    if(x>y && x>z)
+    {
+    	alert("X is greater then Y and Z");
+        d=x;
+    }
+    else if(y>x && y>z)
+    {
+    	alert("Y is greater then X and Z");
+        d=y;
+    }
+    else
+    {
+    	alert("Z is greater then X and Y");
+        d=z;
+    }
+	if(d>=40)
+	{
+		sum=x+y+z;
+		alert("Addition of three numbers is:"+sum);
+	}
+	else
+	{
+		alert("OOPS addition is  not possible bcz no is not greater then 40");
+	}
+        
+}
+  
+</script>
+<button onclick="myFunction()">Try it</button>
+</body>
+</html>
+
+
+
+

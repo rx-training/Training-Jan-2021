@@ -1,0 +1,174 @@
+<!-- Assignment -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		   <!-- Bootstrap CSS-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+		<script type="text/javascript">
+		function calculation()
+		{
+			var a=parseInt(document.getElementById("num1").value);
+			var b=parseInt(document.getElementById("num2").value);
+			var add=document.getElementById("add");
+			var substract=document.getElementById("sub");
+			var multiply=document.getElementById("mul");
+			var divide=document.getElementById("div");
+		
+
+			if(add.checked==true)
+			{
+				var c=a+b;
+				alert("Addition of 2 no's is:"+c);
+			}
+			else if(substract.checked==true)
+			{
+				var c=a-b;
+				alert("Substraction of 2 no's is:"+c);
+			}
+			else if(multiply.checked==true)
+			{
+				var c=a*b;
+				alert("Multiplication of 2 no's is:"+c);
+			}
+			else if(divide.checked==true)
+			{
+				var c=a/b;
+				alert("Division of 2 no's is:"+c);
+			}
+			else
+			{
+				alert("Wrong input");
+			}	
+		}
+		function reset()
+		{
+
+		}
+		</script>
+		<title>Javascript assignment</title>
+	</head>
+
+	<body>
+
+	<form id="form1" class="container w-50 mt-5">
+		<div class="form-group">
+			<label for="num1">Please enter 1st number:</label>
+			<input type="text"  class="form-control" id="num1" placeholder="Enter 1st no" required>
+			
+			<label for="num2">Please enter 2nd number:</label>
+			<input type="text"  class="form-control" id="num2" placeholder="Enter 2nd no" required><br/>
+
+			<input type="radio" class="form-check-input" name="calc" id="add" value="add">
+			<label>
+				Addition
+			</label><br/>
+			
+			<input type="radio" class="form-check-input" name="calc" id="sub" value="sub">
+			<label>
+				Substraction
+			</label><br/>
+
+			<input type="radio" class="form-check-input" name="calc" id="div" value="div">
+			<label>
+				Division
+			</label><br/>
+
+			<input type="radio" class="form-check-input" name="calc" id="mul" value="mul">
+			<label>
+				Multiplication<br/>
+			</label><br/><br/>
+
+			<input type="button" class="btn btn-primary" value="Calculate" id="calculate" onclick="calculation()"/>
+			<input type="reset" class="btn btn-primary" value="Reset" id="reset" onclick="reset()"/>
+		</div>
+	</form>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	</body>
+</html>
+<!--DOCTYPE html>
+<html>
+<head>
+	<title>Javascript assignment</title>
+	
+</head>
+<body>
+<script type="text/javascript">
+		
+		function calculation()
+		{
+			var a=document.getElementById("number1").value;
+			var b=document.getElementById("number2").value;
+			var add=document.getElementById("add").value;
+			var substract=document.getElementById("substract").value;
+			var multiply=document.getElementById("multiply").value;
+			var divide=document.getElementById("divide");
+
+
+			if(add.checked==true)
+			{
+				var c=a+b;
+				alert("Addition of 2 no's is:"+c);
+			}
+			else if(substract.checked==true)
+			{
+				var c=a-b;
+				alert("Substraction of 2 no's is:"+c);
+			}
+			else if(multiply.checked==true)
+			{
+				var c=a*b;
+				alert("Multiplication of 2 no's is:"+c);
+			}
+			else if(divide.checked==true)
+			{
+				var c=a/b;
+				alert("Division of 2 no's is:"+c);
+			}
+			else
+			{
+				alert("Wrong input");
+			}	
+		}
+		function reset()
+		{
+
+		}
+		
+	</script>
+<form id="form1">
+	<label for="number1">Please enter number 1:</label>
+	<input type="number" name="number1" id="number1" required/><br/><br/>
+
+	<label for="number2">Please enter number 2:</label>
+	<input type="number" name="number2" id="number2" required><br/><br/>
+
+	<label for="choose_operation">Please select the operation you want to perform:</label><br/><br/>
+	<input type="radio" name="selection" id="add" value="add" />Addition<br/><br/>
+	<input type="radio" name="selection" id="substract" value="substract" />Substraction<br/><br/>
+	<input type="radio" name="selection" id="multiply" value="multiply" />Multiplication<br/><br/>
+	<input type="radio" name="selection" id="divide" value="divide" />Division<br/><br/>
+
+	<input type="button"  id="Calculate" onclick="calculation()" value="calculate"/><br/><br/>
+	
+	<input type="button" id="Reset" onclick="reset()" value="reset"><br/>
+</form>
+</body>
+</html>
+-->
+<!--
+	(function (){
+    var radios = document.getElementsByName('choice');
+    console.log(radios);
+    for(var i = 0; i < radios.length; i++){
+        radios[i].onclick = function(){
+            document.getElementById('choiceLabel').innerText = this.value;
+        }
+    }
+})();
+-->

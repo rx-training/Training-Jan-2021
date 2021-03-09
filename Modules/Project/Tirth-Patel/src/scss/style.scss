@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0%;
+}
+#nav{
+    background-color: rgb(126, 190, 213)    ;
+    ul{
+       margin-left:50px;
+    }
+    li{
+       font-size: 15px;
+        padding: 0 10px;
+    }
+    li a:hover{
+        color: rgb(49, 47, 186);
+        background-color: rgb(173, 199, 240);
+        text-shadow: 0 0 10px #fff;
+        transform:scale(1.5,2)
+    }
+}
+#left{
+    ul{
+        transition-property: height, width;
+        transition-delay: 2s;
+    li a:hover{
+        color: rgb(55, 55, 140);
+        background-color: rgb(126, 190, 213);
+        height: 40px;
+        width: 200px;
+        
+
+    }
+    }
+}

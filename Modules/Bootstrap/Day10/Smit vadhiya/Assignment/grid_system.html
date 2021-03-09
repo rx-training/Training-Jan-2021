@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 class="display-3 text-center my-3">Grid system</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown">Utilities</button>
+                    <div class="dropdown-menu">
+                        <a href="basic_typography.html" class="dropdown-item">basic typography</a>
+                        <a href="text_alignment_display.html" class="dropdown-item">Text alignment & display</a>
+                        <a href="float_position.html" class="dropdown-item">Float position</a>
+                        <a href="colours_background.html" class="dropdown-item">colours & background</a>
+                        <a href="spacing.html" class="dropdown-item">Spacing</a>
+                        <a href="sizing.html" class="dropdown-item">Sizing</a>
+                        <a href="breakpoint.html" class="dropdown-item">Breakpoint</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-success btn-block dropdown-toggle" data-toggle="dropdown">CSS component</button>
+                    <div class="dropdown-menu">
+                        <a href="buttons.html" class="dropdown-item">Buttons</a>
+                        <a href="navbar.html" class="dropdown-item">Navbar</a>
+                        <a href="list_group_badge.html" class="dropdown-item">List group & badge</a>
+                        <a href="forms.html" class="dropdown-item">Forms</a>
+                        <a href="input_group.html" class="dropdown-item">Input group</a>
+                        <a href="alert_progress.html" class="dropdown-item">Alet & progress</a>
+                        <a href="table_pagination.html" class="dropdown-item">Table pagination</a>
+                        <a href="cards.html" class="dropdown-item">Cards</a>
+                        <a href="meida_object.html" class="dropdown-item">Media object</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-warning btn-block dropdown-toggle" data-toggle="dropdown">Grid & flexbox</button>
+                    <div class="dropdown-menu">
+                        <a href="grid_system.html" class="dropdown-item">Grid system</a>
+                        <a href="grid_alignment.html" class="dropdown-item">Grid alignment</a>
+                        <a href="flexbox.html" class="dropdown-item">Flexbox</a>
+                        <a href="auto_margin_wrapping.html" class="dropdown-item">Auto margins & wrap</a>
+                    </div>
+                </div>
+                <div class="col-md-3 dropdown">
+                    <button class="btn btn-danger btn-block dropdown-toggle" data-toggle="dropdown">Javascript Widget</button>
+                    <div class="dropdown-menu">
+                        <a href="carousel.html" class="dropdown-item">Carousel</a>
+                        <a href="collapse.html" class="dropdown-item">Collapse</a>
+                        <a href="tooltip.html" class="dropdown-item">Tooltip</a>
+                        <a href="propovers.html" class="dropdown-item">Propovers</a>
+                        <a href="models.html" class="dropdown-item">Models</a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <hr>
+    </header>
+    <div class="container">
+        <!-- RESPONSIVE GRID -->
+        <br>
+        <div class="row">
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10" style="border: 1px solid black;">
+                <ul>
+                    <li>6 column on small screen</li>
+                    <li>8 column on mediam screen</li>
+                    <li>9 column on large screen</li>
+                    <li>10 column on XL screen</li>
+
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" style="border: 1px solid black;">
+                <ul>
+                    <li>6 column on small screen</li>
+                    <li>4 column on mediam screen</li>
+                    <li>3 column on large screen</li>
+                    <li>2 column on XL screen</li>
+                </ul>    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col" style="border: 1px solid black;">Equal width</div>
+            <div class="col" style="border: 1px solid black;">Equal width</div>
+            <div class="col" style="border: 1px solid black;">Equal width</div>
+            <div class="col" style="border: 1px solid black;">Equal width</div>
+        </div>
+
+        <div class="row">
+            <div class="col" style="border: 1px solid black;">Equal width multi</div>
+            <div class="col" style="border: 1px solid black;">Equal width multi</div>
+            <div class="w-100"></div>
+            <div class="col" style="border: 1px solid black;">Equal width multi</div>
+            <div class="col" style="border: 1px solid black;">Equal width multi</div>
+        </div>
+
+        <div class="row">
+            <div class="col" style="border: 1px solid black;">Auto layout</div>
+            <div class="col-6" style="border: 1px solid black;">Auto layout</div>
+            <div class="col-4" style="border: 1px solid black;">Auto layout</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm" style="border: 1px solid black;">Equal width Stack</div>
+            <div class="col-sm" style="border: 1px solid black;">Equal width Stack</div>
+            <div class="col-sm" style="border: 1px solid black;">Equal width Stack</div>
+        </div>
+
+        <div class="row">
+            <div class="col order-3" style="border: 1px solid black;">First</div>
+            <div class="col order-2" style="border: 1px solid black;">Second</div>
+            <div class="col oredr-1" style="border: 1px solid black;">Third</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4" style="border: 1px solid black;">4 col</div>
+            <div class="col-md-4 ml-auto" style="border: 1px solid black;">4 cal offset 4</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 ml-auto" style="border: 1px solid black;">3 col offset-3</div>
+            <div class="col-md-3 ml-auto" style="border: 1px solid black;">3 cal offset 3</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 m-auto" style="border: 1px solid black;">6 col offset-3</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-9" style="border: 1px solid black;">
+                Level 1 : .col-sm-9
+                <div class="row">
+
+                    <div class="col-8 col-sm-6" style="border: 1px solid red;">
+                        Level 2 : .col-8 col-sm-6
+                    </div>
+                    <div class="col-4 col-sm-6" style="border: 1px solid red;">
+                        Level 2 : .col-4 col-sm-6
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</body>
+</html>

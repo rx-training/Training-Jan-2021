@@ -1,0 +1,16 @@
+[    
+    { 
+        "Id": 1, 
+        "Username" : "admin1", 
+        "ContactNo": 7984430171,
+        "Password": "admin123"
+    },
+    { 
+        "Id": 2, 
+        "Username" : "admin2", 
+        "ContactNo": 9428508529,
+        "Password": "admin456"
+    }
+]
+
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>PHP Training Site Layout</title>
+        <style>
+            #img1 {
+                margin-left: 40px;
+            }
+            #navbgcolor {
+                margin-left: 10px;
+                background-color: #86B404;
+            }
+            .sidenav {
+                width: 230px;
+                position: fixed;
+                z-index: 1;
+                top: 100px;
+                left: 10px;
+                background: #eee;
+                overflow-x: hidden;
+                padding: 8px 0;
+            }
+            .sidenav a:hover {
+                color: #064579;
+            }
+            .content1 {
+                margin-top: 50px;
+                background-color: greenyellow;
+            }
+            img.logo {
+                width: 150px;
+                height: 90px;
+                margin-left: 40px;
+                margin-top: 10px;
+            }
+            .sidebar {
+                margin-top: 200px;
+                width: 90%;
+                position:absolute;
+                z-index: 1;
+                top: 30px;
+                left: 30px;
+                background:green;
+                padding: 4px 6px 4px 14px;
+                font-size: 19px;
+                text-align: justify;
+            }
+            h3 {
+                margin-top: 90px;
+                margin-left: 50px;
+            }
+            .firstintro {
+                margin-top: 70px;
+                margin-left: 90px;
+            }
+            p {
+                margin-left: 60px;
+                margin-top: 40px;
+            }
+            .pic {
+                margin-top: 50px;
+                margin-left: 70px;
+                word-spacing: 40px;
+            }
+            footer {
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--NavBar-->
+        <div class="row">
+            <img src="radixweb.jpg" alt="" height="80" width="100" id="img1">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggeler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto" id="ul1">
+                            <li class="nav-items">
+                                <a href="../../../HTML/htmlindex.html" class="nav-link">HTML</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../cssindex.html" class="nav-link">CSS</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Bootstrap/bootstrapindex.html" class="nav-link">Bootstrap</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../Javascript/javascriptindex.html" class="nav-link">Javascript</a>
+                            </li>
+                            <li class="nav-items">
+                                <a href="../../../jQuery/jQueryindex.html" class="nav-link">jQuery</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Assignment.html" target="_blank" class="nav-link">getPocket</a>
+                            </li>
+                            <li>
+                                <a href="../../../getPocket/Assignment/Admin.html" target="_blank" class="nav-link">getPocket Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidenav">
+                        <ul class="list-unstyled">
+                            <li>CSS</li>
+                            <ul>
+                                <li>Day 6</li>
+                                <ul>
+                                    <a href="./Day 6/Assignment/Assignment.html" class="text-dark"><li>Assignment</li></a>
+                                    <a href="../PractiseExercise/PE.html" class="text-dark"><li>Practise Exercise</li></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="content1">
+                        <header>
+                            <center>
+                                <img class="logo" src="logo.jpeg"/>
+                                <h1>
+                                    Welcome to SportsKeeda
+                                </h1>
+                                <h3>
+                                    One Stop destination for all sports related news.
+                                </h3>
+                            </center>
+                        </header>
+                        <nav class="sidebar">
+                            <a href="Assignment.html">Home</a>
+                            <a href="Team.html">About Us</a>
+                            <a href="https://www.youtube.com/channel/UC-eAwfIEu-i6GKze4uCenmg">Youtube</a>
+                            <a href="https://www.sportskeeda.com/contact">Contact Us</a>
+                        </nav>
+                        <h3 class="firstintro">
+                            Sportskeeda is a sports and esports news website that was founded in 2009.Majority stake in the website was acquired
+                            by the gaming firm Nazara Technologies in 2019 at a valuation $10M .The website has news, features, commentary and 
+                            videos on sports like football, cricket, hockey, tennis, basketball, kabaddi etc and also on esports like PUBG Mobile, 
+                            Valorant, CS:GO and League of Legends. Its operations are managed by the incorporated organization Absolute Sports Private Limited.              Contents
+                        </h3>
+                        <p>
+                            Sportskeeda was founded by its current Chief Executive Officer Porush Jain in association with his fellow sports 
+                            enthusiasts Anshu Prasad and Robin Chhabria as well as Srinivas Cuddapah.Sportskeeda’s content is procured from a 
+                            variety of sources; the site accepts and publishes articles contributed by its community of writers. Sportskeeda 
+                            claims to publish around 150 articles every day.<br><br>
+                            Esports and gaming form a significant part of Sportskeeda's content, particularly since the halt in sporting action due to 
+                            the COVID-19 pandemic. Sportskeeda covers several mobile games like PUBG Mobile, Free Fire and COD Mobile. The site also
+                            has content on some of the American games such as Fortnite, GTA and Valorant etc.
+                        </p>
+                        <img class="pic" src="1.jpeg" width="400" height="400">
+                        <img class="pic" src="3.jpeg" width="400" height="400">
+                        <img class="pic" src="2.jpeg" width="400" height="400">
+                        <footer>
+                            <a href="https://www.sportskeeda.com/">To know more</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function printOrder()
+        {
+            document.write("Printing order");
+        }
+        function printOrder2(orderId)
+        {
+            document.write("<br>Printing order: "+orderId);
+        }
+        printOrder();
+        printOrder2('999');
+        printOrder3('9999');
+        function printOrder3(orderId)
+        {
+            document.write("<br>Printing order: "+orderId);
+        }
+        function calcTotalPrice(quantity, price)
+        {
+            document.write("<br> Total Price is:"+(quantity*price));
+        }
+        calcTotalPrice(200,4);
+        function calcCurrency(quantity, price, currency)
+        {
+            document.write("<br>"+currency);
+        }
+        calcCurrency(2,4);
+        function price(quantity, price)
+        {
+            return(quantity*price);
+        }
+        var totalPrice = price(2,8);
+        document.write("<br>"+totalPrice);
+        totalPrice = price(3,6);
+        document.write("<br>"+totalPrice);
+
+        function getOrder()
+        {
+    
+        }
+        var orders = getOrder();
+        document.write("<br>"+orders);
+
+        var placedOrders = function()
+        {
+            document.write("placing orders");
+        }
+        document.write("<br>"+typeof(placedOrders));
+        placedOrders();
+        placedOrders;
+    </script>
+</head>
+<body>
+
+</body>
+</html>

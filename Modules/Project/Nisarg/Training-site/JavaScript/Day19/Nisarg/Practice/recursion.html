@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>
+            Recursions.
+        </title>
+        <script type="text/javascript">
+
+        var orgChart={
+            name:'Michael',subordinates:[
+                {
+                    name:'Andy',subordinates:[
+                        {
+                            name:'Dwight',subordinates:[]
+                        },
+                        {
+                            name:'Kevin',subordinates:[]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        var fn=function(topEmployee)
+        {
+            console.log(topEmployee.name);
+
+            for(var i=0;i<topEmployee.subordinates.length;i++)
+            {
+                fn(topEmployee.subordinates[i]);
+            }
+        };
+
+        var fn2=fn;
+        fn=null;
+        fn2(orgChart);
+
+
+        </script>
+        </head>
+        <body>
+
+        </body>
+        </html>

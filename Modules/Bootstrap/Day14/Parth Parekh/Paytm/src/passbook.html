@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .container {
+            box-shadow: none !important;
+        }
+    </style>
+    <title>Passbook</title>
+</head>
+<body >
+    
+    <ol class="breadcrumb align-items-center small bg-light" style="background-color: #f3f7f8;">
+        <button class="btn btn-sm text-white  ml-4" style="background-color:rgb(231,75,36);">V'day Sale</button>
+        <span class="align-items-middle ml-2 ">Up to 80% Off + Rs. 4,000 Offers</span>
+        <a class="breadcrumb-item text-muted ml-auto" href="#">Paytm Service Agent </a>
+        <a class="breadcrumb-item text-muted" href="#">Accept Payments </a>
+        <a class="breadcrumb-item text-muted" href="#">Food Wallet</a>
+        <a class="breadcrumb-item text-muted" href="#">Track Order</a>
+        <a class="breadcrumb-item text-muted" href="#">Sell on Paytm Mall</a>
+        <a class="breadcrumb-item text-muted" href="#">Paytm Smart Retail</a>
+        <a class="breadcrumb-item text-muted" href="#">KYC</a>
+        <a class="breadcrumb-item text-muted" href="#">24x7 Help</a>
+    </ol>
+    <!-- First Navbar -->
+    <div class="text-right" id="profile"> </div>
+    <div class="row bg-light" id="firstnav">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="index.html"> <img src="./img/download.png" alt="Logo" class="img-fluid"
+                        width="150"></a>
+                <form class="form-inline bg-light">
+                    <input class="form-control mr-sm-2 text-muted" style="width: 400px;" type="text"
+                        placeholder="Search for a Product,Brand or Category">
+                </form>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <li class="nav-item ">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="../src/img/phone.gif" alt="MobileImg">
+                                Play and Win</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark active" href="pay.html">
+                                <img src="../src/img/add_money.svg" alt="Pay" width="20px">Pay </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="passbook.html"> <i class="fa fa-address-book-o "
+                                    aria-hidden="true"></i> Passbook</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark mt-2" id="d1" href="#" data-toggle="modal" data-target="#loginmodal"> <i
+                                    class="fa fa-smile-o h5" aria-hidden="true"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark mt-2" id="d2" href="#" data-toggle="modal" data-target="#signupmodal"> <i
+                                    class="fa fa-smile-o h5" aria-hidden="true"></i> Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container  p-3">
+        
+        <div class="row mt-3 p-2 text-right display-4 text-danger" id="dnone">  <div class="col" > 
+             Wallet <i class="fa fa-id-card-o" aria-hidden="true"></i> : <span id="purse" class="ml-2">0</span></div>
+        </div>
+        <div id="getLoginFirst" ></div>
+        
+        <div class="row mt-3 p-3">
+            <input id="myInput" type="text" class="form-control mb-3 mt-2 text-capitalize " placeholder="Search your Transaction..">
+            <table class="table table-hover mt-3 text-monospace border border-info">
+                <thead class="bg-info ">
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile no </th>
+                        <th>Amount Pay </th>
+                        <th>Remaining Balance </th>
+                        <th>Transaction Date </th>
+                        <th>Transaction Time </th>
+                    </tr>
+                </thead>
+                <tbody id="balance">
+            
+                </tbody>
+            </table>
+        </div>
+        <div class="row mt-3 p-3">
+            <table class="table table-hover text-monospace h5 border border-success">
+                <h1 class="text-monospace text-success mb-3 mt-3"> Payment Received History</h1>
+                <thead class="bg-success">
+                    <tr>
+                        
+                        <th>Sender Name</th>
+                        <th>Amount Received </th>
+                        
+                        <th>Transaction Date </th>
+                        <th>Transaction Time </th>
+                    </tr>
+                </thead>
+                <tbody id="historyTable">
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Sign UP MOdal -->
+    <div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  text-white" style="background-color: #012b72;">
+                    <h5 class="modal-title">Sign Up Page</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form >
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" name="" required id="Name" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" name="" required id="email" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" id="password" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Confirm Password</label>
+                            <input type="password" id="confirmPass" required class="form-control" placeholder="">
+                        </div>
+    
+    
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn text-white"
+                         onclick="signup(Name.value , email.value , password.value , confirmPass.value)" style="background-color: #012b72;">Submit</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- login MOdal -->
+    <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header  text-white" style="background-color: #012b72;">
+                    <h5 class="modal-title">Login Page</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" name="" id="email" required class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" id="password" required class="form-control" placeholder="">
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn text-white" 
+                            onclick="loginCheck(email.value , password.value)"
+                            style="background-color: #012b72;">Submit</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="../src/js/passbook.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

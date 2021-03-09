@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>JQuery</title>
+</head>
+
+<body>
+    <div class="container p-5">
+        <label for="countries">Countries:</label>
+
+        <select name="countries" id="countries" class="form-control w-25">
+            <option value="none">Select a Country</option>
+            <option value="india">India</option>
+            <option value="china">China</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+        </select>
+        <hr>
+        <div>
+            <h4>Selected Country:</h4>
+            <ul id="country-list">
+
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            if($("#countries").val() == "none") {
+                $("#countries option").each(function(index, value){
+                    if (index > 0) {
+                        $("#country-list").append("<li>" + value.innerHTML + "</li>");
+                    }
+                });  
+            }
+
+            $("#countries").change(function () {
+                if(this.value == "none") {
+                    $("#country-list").empty();
+                    $("#countries option").each(function(index, value){
+                        if (index > 0) {
+                            $("#country-list").append("<li>" + value.innerHTML + "</li>");
+                        }
+                    });
+                }
+                else {
+                    $("#country-list").empty();
+                    var value = $("#countries option:selected").text();
+                    $("#country-list").append("<li>" + value + "</li>");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>JavaScript</title>
+    <script>
+        function findGreater() {
+            var num1 = parseInt(prompt("Enter Number1 : ", 0));
+            var num2 = parseInt(prompt("Enter Number2 : ", 0));
+            var num3 = parseInt(prompt("Enter Number3 : ", 0));
+            var total = 0;
+
+            if (num1 > num2 && num1 > num3) {
+                alert("Num1 is Greater : " + num1);
+            }
+            else if (num2 > num1 && num2 > num3) {
+                alert("Num2 is Greater : " + num2);
+            }
+            else {
+                alert("Num3 is Greater : " + num3);
+            }
+
+            if (num1 > 40) {
+                total += num1;
+            }
+
+            if (num2 > 40) {
+                total += num2;
+            }
+
+            if (num3 > 40) {
+                total += num3;
+            }
+
+            alert("Total of numbers which is greater than 40 : " + total);
+        }
+    </script>
+  </head>
+  <body>
+      <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="../../../../assets/logopng.png" alt="logo" height="80px" width="100px"></a>
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../HTML/index.html">HTML</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../CSS/index.html">CSS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../Bootstrap/index.html">Bootstrap</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="../../../index.html">JavaScript</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../JQuery/index.html">JQuery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../../../Bootstrap/Day14/Harsh Shah/src/index.html" target="_blank">Project</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bg-dark text-white">
+              <h6>JavaScript Section</h6>
+              <ul>
+                  <li>
+                      Day15
+                      <ul>
+                          <li>Harsh Shah
+                              <ul>
+                                  <li><a href="exercise1.html">Exercise1</a></li>
+                                  <li><a href="exercise2.html">Exercise2</a></li>
+                                  <li><a href="../Assignment/assignment.html">Assignment</a></li>
+                              </ul>
+                          </li>
+                      </ul>    
+                  </li>
+              </ul>
+              <ul>
+                <li>
+                    Day16
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                                <li><a href="../../../Day16/Harsh Shah/Practice Exercises/exercises.html">Exercises</a></li>
+                                <li><a href="../../../Day16/Harsh Shah/Assignment/assignment.html">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day17
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="../../../Day17/Harsh Shah/Practice Exercises/exercises.html">Exercises</a></li>
+                              <li><a href="../../../Day17/Harsh Shah/Assignment/assignment.html">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day18
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="../../../Day18/Harsh Shah/Practice Exercises/exercises.html">Exercises</a></li>
+                              <li><a href="../../../Day18/Harsh Shah/Assignment/assignment.html" target="_blank">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day19
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="../../../Day19/Harsh Shah/Practice Exercises/exercises.html">Exercises</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Day20
+                    <ul>
+                        <li>Harsh Shah
+                            <ul>
+                              <li><a href="../../../Day20/Harsh Shah/Practice Exercise/index.html">Exercise</a></li>
+                              <li><a href="../../../Day20/Harsh Shah/Assignment/index.html">Assignment</a></li>
+                            </ul>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+                  
+            </div>
+            <div class="col-md-9">
+                <div class="container w-50 text-center bg-light border border-dark mt-5 p-5">
+                    <h1 class="display-4">Exercise1</h1>
+            
+                    <p class="lead">Click below button to Enter Numbers </p>
+            
+                    <button class="btn btn-primary" onclick="findGreater()">Click Here</button>
+                </div>
+            </div>
+          
+
+        </div>
+          
+    </div>
+    
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  </body>
+</html>

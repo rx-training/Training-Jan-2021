@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+        <title>Faculty List</title>
+    </head>
+
+    <body onload="getFacultyInfoData()">
+        <!--Navbar Section-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-0">
+            <div class="container">
+                <a href="index.html" class="navbar-brand px-2">Gujarat University</a>
+                <button class="navbar-toggler mr-3 mt-2 mb-2" data-toggle="collapse" data-target="#navbarNavItem">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavItem">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-2">
+                            <a href="index.html" class="nav-link">Dashbord</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="posts.html" class="nav-link">Posts</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="categories.html" class="nav-link">College</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="users.html" class="nav-link active">Users</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="result.html" class="nav-link">Result</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown mr-3">
+                            <a href="#" class="nav-link dropdown-toggle px-2" data-toggle="dropdown">
+                                <i class="fa fa-user"></i> Welcome Brad
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="profile.html" class="dropdown-item"><i class="fa fa-user-circle"></i> Profile</a>
+                                <a href="setting.html" class="dropdown-item"><i class="fa fa-gear"></i> Setting</a>
+                            </div>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="login.html" class="nav-link"><i class="fa fa-user-times"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </nav>
+
+        <!-- Header-Section -->
+        <header id="main-header" class="py-2 bg-warning text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1><i class="fa fa-users"></i> Users</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--End Header Section-->
+
+        <!--Posts Section-->
+            <section id="posts" class="mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Faculty List</h4>
+                                </div>
+                                <table id="mytable">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Code</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">College Name</th>
+                                            <th scope="col">College Course</th>
+                                            <th scope="col">Exprience</th>
+                                            <th scope="col">Phone No</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="faculty-info">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!--End Posts Section-->
+
+        <!--Footer Section-->
+            <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead text-center">Copyright &copy; 2020 Gujarat University</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>   
+
+        <!--End Footer Section-->
+
+        
+    
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('#mytable').DataTable();
+            } );
+        </script>
+        <script>
+            function getDelete(facultyCode)
+            {
+                var get,create,text,i;
+                get = localStorage.getItem("faculty");
+                create = JSON.parse(get);
+                var i = 0;
+                create.forEach(faculty => {
+                    if(faculty.facultyCode == facultyCode)
+                    {
+                        create.splice(i,1);
+                        var object=JSON.stringify(create);
+                        localStorage.setItem('faculty',object);
+                        var list = document.getElementById("faculty-info");  
+                        list.removeChild(list.childNodes[i]);  
+                        return
+                    }
+                    i=i+1;    
+                });
+            
+            }
+            function getFacultyInfoData()
+            {
+                var str = "";
+                var get,create,text,i;
+                get = localStorage.getItem("faculty");
+                create = JSON.parse(get);
+                create.forEach(faculty => {
+                    str += '<tr scop="row">';
+                    str += "<td>"+faculty.facultyCode+"</td>";    
+                    str += "<td>"+faculty.facultyname+"</td>";    
+                    str += "<td>"+faculty.facultyemail+"</td>";
+                    str += "<td>"+faculty.facultyCollege+"</td>";
+                    str += "<td>"+faculty.facultyCourse+"</td>";
+                    str += "<td>"+faculty.facultyexp+"</td>";
+                    str += "<td>"+faculty.facultyphone+"</td>";
+                    str += '<td><button class="btn btn-danger" onclick="getDelete('+"'"+ faculty.facultyCode +"'"+')">Delete</button></td></tr>';
+                });
+                document.getElementById("faculty-info").innerHTML = str;
+            }
+        </script>
+    </body>
+</html>

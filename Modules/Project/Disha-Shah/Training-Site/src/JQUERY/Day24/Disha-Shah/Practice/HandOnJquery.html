@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3Schools Practice</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+
+    <style>
+        .descendant * { 
+          display: block;
+          border: 2px solid lightgrey;
+          color: lightgrey;
+          padding: 5px;
+          margin: 15px;
+        }
+
+        .siblings * { 
+        display: block;
+        border: 2px solid lightgrey;
+        color: lightgrey;
+        padding: 5px;
+        margin: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--Navbar-->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
+            
+                <a class="navbar-brand" href="../../../../index.html">
+                    <img src="../../../../images/Radixweb.jpg" alt="" class="img-fluid" width="100px" height="100px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../../../../HTML/index.html">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../../../../CSS-Practice/index.html">CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../../../../BOOTSTRAP/index.html">BOOTSTRAP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../../../../JAVASCRIPT/index.html">JAVASCRIPT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 active" href="../../../index.html">JQUERY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="../../../../PROJECTS/index.html">PROJECTS</a>
+                    </li>
+                    
+                </ul>
+                
+                </div>
+            
+        </nav>
+        </div>
+
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                
+                <div class="sidebar-header">
+                    <h3>JQUERY Tasks</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#day22Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day22/23</a>
+                        <ul class="collapse list-unstyled" id="day22Submenu">
+                            
+                            <li>
+                                
+                                        <a href="../../../Day22/Disha-Shah/Practice/Practice.html" class="pl-5">Practice & Assignment</a>
+                                    
+                            </li>
+                            
+                            
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#day24Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day24</a>
+                        <ul class="collapse list-unstyled" id="day24Submenu">
+                            
+                            <li>
+                                <a href="#practiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Practice</a>
+                                <ul class="collapse list-unstyled" id="practiceSubmenu">
+                                    <li>
+                                        
+                                        <a href="HandOnJquery.html" class="pl-5">Practice Task</a>
+                                        <a href="eventDelegation.html" class="pl-5">Event Delegation</a>
+                                        <a href="eventTriggeredbyUser.html" class="pl-5">Event Triggered</a>
+                                        <a href="Namespacing.html" class="pl-5">Namespacing</a> 
+                                        <a href="on&bind.html" class="pl-5">on() & bind()</a> 
+                                        <a href="reuseExistingMethod.html" class="pl-5">Reuse Existing Method</a> 
+                                        <a href="userInput.html" class="pl-5">User Input</a>
+                                        <a href="videosPractice1.html" class="pl-5">Videos Practice-1</a>
+                                        <a href="videosPractice2.html" class="pl-5">Videos Practice-2</a>
+                                        <a href="videosPractice3.html" class="pl-5">Videos Practice-3</a>
+                                        <a href="videosPractice4.html" class="pl-5">Videos Practice-4</a>
+                                        <a href="videosPractice5.html" class="pl-5">Videos Practice-5</a>
+                                            
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignment</a>
+                                <ul class="collapse list-unstyled" id="assignmentSubmenu">
+                                    <li>
+                                        
+                                        <a href="../Assignment/assignment.html" class="pl-5">Assignment Task</a>
+                                            
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            
+                        </ul>
+                    </li>
+                    
+                </ul>
+        
+            </nav>
+            <!-- Page Content -->
+            <div id="content" class="w-100">
+        
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <div class="container-fluid">
+        
+                        <button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="return myFunc()">
+                            <i class="fa fa-bars fa-align-left"></i>
+                            
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="main-content-area p-4">
+                    <!--add()-->
+                    <h1 class="h4">Hello World</h1>
+                    <p>heyyy</p>
+
+                    <!--children()-->
+                    <div class="descendant">body (great-grandparent)
+                        <div style="width:500px;">div (grandparent)
+                        <ul class="childrenUl">ul (direct parent)  
+                            <li>li (child)
+                            <span>span (grandchild)</span>
+                            </li>
+                        </ul>   
+                        </div>
+                    </div>
+
+                    <!--.contents() & .wrap()-->
+                    <div><em>Hello world! What a beautiful day!</em></div>
+
+                    <!--.closest()-->
+                    <div class="descendant">body (great-grandparent)
+                        <div style="width:500px;">div (grandparent)
+                            <ul>(second ancestor)
+                                <ul>ul (first ancestor)  
+                                    <li>li (child)
+                                    <span class="closestSpan">span (grandchild)</span>
+                                    </li>
+                                </ul>   
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--.parents()-->
+                    <div class="descendant">body (great-grandparent)
+                        <div style="width:500px;">div (grandparent)
+                            <ul>(second ancestor)
+                                <ul>ul (first ancestor)  
+                                    <li>li (child)
+                                    <span class="parentsSpan">span (grandchild)</span>
+                                    </li>
+                                </ul>   
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--.parentsUntil()-->
+                    <div class="descendant">body (great-grandparent)
+                        <div style="width:500px;">div (grandparent)
+                            <ul>(second ancestor)
+                                <ul>ul (first ancestor)  
+                                    <li>li (child)
+                                    <span class="parentsUntilSpan">span (grandchild)</span>
+                                    </li>
+                                </ul>   
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--.eq()-->
+                        <h5 class="intro">My name is Donald (index 0).</h5>
+                        <h5 class="intro">Donald Duck (index 1).</h5>
+                        <h5>I live in Duckburg (index 2).</h5>
+                        <h5>My best friend is Mickey (index 3).</h5>
+
+                    <!--.find()-->
+                        <div class="descendant findSpan">body (great-grandparent)
+                            <div style="width:500px;">div (grandparent)
+                                <ul>(second ancestor)
+                                    <ul>ul (first ancestor)  
+                                        <li>li (child)
+                                        <span>span (grandchild)</span>
+                                        </li>
+                                        <li>li (child)
+                                            <span>span (grandchild)</span>
+                                        </li>
+                                        <li>li (child)
+                                            <span>span (grandchild)</span>
+                                        </li>
+                                        <li>li (child)
+                                            <span>span (grandchild)</span>
+                                        </li>
+                                    </ul>   
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--.siblings(), .next(), .nextAll(), .prev(), .prevAll() -->
+                        <div style="width:500px;" class="siblings">
+                            <ul>ul (parent)  
+                            <li>li (the previous sibling of "start")</li>
+                            <li>li (the previous sibling of "start")</li>
+                            <li>li (the previous sibling of "start")</li>
+                            <li>li (the previous sibling of "start")</li>
+                            <li class="start">li (sibling)</li>
+                            <li>li (the next sibling of "start")</li>
+                            <li>li (the next sibling of "start")</li>
+                            <li>li (the next sibling of "start")</li>
+                            <li>li (the next sibling of "start")</li>
+                            <li>li (the next sibling of "start")</li>
+                            </ul>   
+                        </div>
+
+                        <!--Ajax load()-->
+                        <button class="btn btn-primary" id="loadBtn">click to get external data</button>
+                        <h6 id="demo"></h6>
+
+                        <!--.get()-->
+                        <button class="btn btn-primary" id="getBtn">click to get external JSON data using .get()</button>
+                        <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="getTbody">
+
+                                </tbody>
+                        </table>
+
+                        <!--.getJSON()-->
+                        <button class="btn btn-primary" id="getJSONBtn">click to get external JSON data using .getJSON()</button>
+                        <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="getJSONTbody">
+
+                                </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            //add()
+            $("p").add("<span> Welcome</span>").appendTo("p").css("color","blue");
+            $(".main-content-area").css("margin","30px");
+
+            //children()
+            $(".childrenUl").children().css({"color": "red", "border": "2px solid red"});
+
+            //.contents() & .wrap()
+            $("div").contents().filter("em").wrap("<b/>");
+
+            //.closest()
+            $(".closestSpan").closest("ul").css({"color": "red", "border": "2px solid red"});
+
+            //.parents()
+            //$(".parentsSpan").parents().css({"color": "red", "border": "2px solid red"});
+
+            //.parentsUntil()
+            $(".parentsUntilSpan").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+
+            //.eq()
+            $("h5").eq(1).css("background-color", "yellow");
+
+            //.filter()
+            $("h5").filter(".intro").css("color", "black");
+
+            //.not()
+            $("h5").not(".intro").css("color", "pink");
+
+            //.find()
+            $(".findSpan").find("span").css("color", "blue");
+
+            //.first()
+            $(".findSpan li").first().css("color", "green");
+
+            //.last()
+            $(".findSpan li").last().css("color", "green");
+
+            //.siblings(), .next(), .nextAll(), .prev(), .prevAll()
+            $("li.start").siblings().css({"color": "red", "border": "2px solid red"});
+            $("li.start").next().css({"background-color": "gray"});
+            $("li.start").nextAll().css({"border": "4px solid blue"});
+            $("li.start").prev().css({"text-transform": "uppercase"});
+            $("li.start").prevAll().css({"background-color": "pink"});
+
+            //ajax load()
+            $("#loadBtn").click(function(){
+                $("#demo").load("demo.txt", function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "success")
+                    console.log("External content loaded successfully!");
+                if(statusTxt == "error")
+                    console.log("Error: " + xhr.status + ": " + xhr.statusText);
+                });
+            });
+
+            //.get()
+            $("#getBtn").click(function(){
+                $.get("demo.json", function(data, status){
+                    $.each(data, function(index, data){
+                        console.log("Data: "+data+" status: "+status);
+                        console.log(data.Id + " " + data.firstName + " " + data.lastName);
+                        $("#getTbody").append("<tr><td>" + data.Id + "</td><td>" + data.firstName 
+                            + "</td><td>" + data.lastName + "</td></tr>");
+                    })
+                });
+            });
+
+            //.getJSON()
+            $("#getJSONBtn").click(function(){
+                $.getJSON("demo.json", function(data, status){
+                    $.each(data, function(index, data){
+                        console.log("Data: "+data+" status: "+status);
+                        console.log(data.Id + " " + data.firstName + " " + data.lastName);
+                        $("#getJSONTbody").append("<tr><td>" + data.Id + "</td><td>" + data.firstName 
+                            + "</td><td>" + data.lastName + "</td></tr>")
+                    })
+                });
+
+                
+            });
+                        
+        });
+
+        function myFunc() { 
+                var sidebarContent = document.getElementById("sidebar"); 
+                sidebarContent.classList.toggle("active");
+                return false; 
+        } 
+    </script>
+</body>
+</html>

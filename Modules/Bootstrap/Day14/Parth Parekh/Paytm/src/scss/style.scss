@@ -1,0 +1,91 @@
+// Main Sass File
+body{
+        background-color: #eaeff3;
+        overflow-x: hidden;
+       
+}
+#firstnav{
+    margin-top: -14px;
+    
+}
+#secondnavabr{
+    height: 200px;
+    background-color: #012b72;
+    a{
+        text-decoration: none;
+    }
+    span:hover{
+       color: whitesmoke;
+       font-weight: 700;
+      
+    }
+}
+.paytm-bg{
+    color: #012b72;
+}
+.bl{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+    border-radius: none;
+    
+}
+#grocery{
+    img:hover{
+        box-shadow: 7px 6px 5px rgba(0,0,0,0.3);
+    }
+}
+#Paytm-footer{
+     background-color: #012b72;
+}
+#four-column-hover{
+    .col-md-3:hover{
+          box-shadow: 7px 6px 5px rgba(0,0,0,0.3);
+    }
+    ul{
+        li{
+            list-style-type: none;
+        }
+    }
+}
+#Entertainment{
+    
+    .card{
+        max-width: 175px;
+    }
+}
+.card:hover{
+          box-shadow: 7px 6px 5px rgba(0,0,0,0.3);
+}
+.container{
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.mp{
+    margin-top: -120px;
+}
+@media screen and (max-width:1150px)
+{
+    #secondnavabr{
+        height: 280px;
+    }
+    .mp{
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width:576px)
+{
+
+    #Entertainment{
+       .card{
+            margin-left: 170px;
+       }
+    }
+}
+
+
+
+// Register page
+.borderradius{
+    border-radius: 8px;
+}

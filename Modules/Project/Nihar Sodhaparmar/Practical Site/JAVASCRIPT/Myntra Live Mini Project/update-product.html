@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style-for-login.css">
+    <link rel="stylesheet" href="css/style-for-add-product.css">
+    <script src="js/update-product.js"></script>
+    <title>Update Product</title>
+    <link rel="shortcut icon" href="./img/myntra-logo.png" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand"> <img src="./img/myntra-logo.png" alt="Logo" height="50" width="50"> </a>
+
+            <button class="navbar-toggler navbar-toggler-right p-0" type="button" data-toggle="collapse"
+                data-target="#navResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navResponsive" style="font-weight: 600;">
+                <ul class="navbar-nav px-3 navbar-left-link-container">
+                    <li class="nav-item px-2"><a href="products.html" class="nav-link">PRODUCTS</a></li>
+                    <li class="nav-item px-2"><a href="category.html" class="nav-link">CATEGORIES</a></li>
+                    <li class="nav-item px-2"><a href="offers.html" class="nav-link">OFFERS</a></li>
+                </ul>
+
+                <div class="search_container ml-auto">
+                    <ul class="navbar-nav" style="font-size: 13px;">
+                        <li class="nav-item mr-3">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-search"></i> </span>
+                                </div>
+                                <input class="form-control d-block form-control" type="search" style="height: 30px;">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="gradient-container">
+        <div class="container py-3 form-card-container">
+            <div class="card">
+                <div class="card-header">
+                    PRODUCT DETAILS
+                </div>
+                <div class="card-body p-5">
+                    <form onsubmit="return updateProduct()">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="category">Select Category</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <select class="form-control" name="category" id="category">
+                                    <option value="select category"> Select Category</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="brand">Product Brand</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="text" id="brand" name="brand" required>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="name">Product Name</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="text" id="name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="details">Product Details</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <textarea class="form-control" name="details" id="details" cols="30" rows="4" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="price">Product Price</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="number" id="price" name="price" required>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="sizes">Product Sizes</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="form-control" type="text" id="sizes" name="sizes" required>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="pincodes">Deliverable Pincodes</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <textarea class="form-control" name="pincodes" id="pincodes" cols="30" rows="4" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="category">Returnable</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <div class="form-check form-check-inline mt-2">
+                                    <input class="form-check-input" type="radio" name="returnable" value="true" checked>
+                                    <label class="form-check-label" for="">True</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="returnable" value="false">
+                                    <label class="form-check-label" for="">False</label>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <label class="form-control-label" for="category">Product Images</label>
+                            </div>
+                            <div class="col-md-9 form-control-container">
+                                <div class="row">
+                                    <div class="col-sm col-md-6">
+                                        <div class="form-group mt-2 w-50">
+                                            <input type="file" id="images" name="images" multiple>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm col-md-6">
+                                        <div>
+                                            <button class="btn btn-primary btn-sm mt-2" onclick="return addImage()">Add Images</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="product-images-container" class="container mt-3">
+                            
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-9 form-control-container">
+                                <input class="btn login-btn btn-block w-50 mx-auto" type="submit" value="Update Product" style="border-radius: 5px;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

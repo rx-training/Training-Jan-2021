@@ -1,0 +1,31 @@
+#blog a{
+    text-decoration: none;
+    font-size: 50px;
+}
+form{
+    float: right;
+}
+/* #firstCard .card{
+    height: 100px;
+} */
+#firstCard{
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 2px 2px 5px rgb(180, 179, 179);
+}
+#secondCard{
+    margin-left: 100px;
+    margin-right: 650px;
+}
+footer{
+    font-size: 20px;
+}
+footer a{
+    text-decoration: none;
+    font-size: 16px;
+}
+@media (max-width:768px){
+    #blog .text-right{
+        display: none;
+    }
+}

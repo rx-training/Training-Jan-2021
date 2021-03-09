@@ -1,0 +1,13 @@
+#dish{
+    display: inline;
+}
+#dis {
+    display: inline;
+}
+#disi1 .img1{
+    display: block;
+    width: 500px;
+}
+#disi2 {
+    display: none;
+}

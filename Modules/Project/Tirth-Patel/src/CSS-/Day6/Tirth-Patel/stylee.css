@@ -1,0 +1,51 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    border: 2px solid black;
+    display: flex !important;
+   
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+    background-image: url('./picutres/aahar-food-website-template.jpg') !important ;
+    flex-wrap:nowrap;
+
+    
+}
+
+ .item {
+
+    width: auto;
+    height:30px;
+    background-color:rgb(228, 187, 187);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 5px;
+    align-items:center;
+    color: red;
+} 
+#Logo{
+    flex-grow:0.5;
+    color: rgb(157, 60, 60);
+    flex-basis: 200px;
+    text-align: center;
+    font-family: fantasy;
+    font-size: large;
+    flex-shrink: 5;
+  
+}
+#Home{
+    flex-shrink: 2;
+}
+#about{
+    flex-shrink: 1;
+}
+#Menu{
+    flex-shrink: 2;
+}
+#Gallery{
+    flex-shrink: 2;
+}
+#contact{
+    flex-shrink: 4;
+}

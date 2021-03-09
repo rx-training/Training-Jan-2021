@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>
+            IIFES
+        </title>
+        <script type="text/javascript">
+            
+            (function()
+            {
+                console.log('Executed');
+            }());
+
+            (function(){
+                var employeeName='Jill';
+            })();
+
+            console.log(employeeName);
+
+            var app={};
+            (function (ns){
+                ns.name='None';
+            })(app);
+
+            console.log(app.name);
+
+            var app={};
+            var jquery={};
+
+            (function(ns,$)
+            {
+                ns.name='None';
+                console.log($===jquery);
+            })(app,jquery);
+
+
+        </script>
+        </head>
+        <body>
+
+        </body>
+        </html>

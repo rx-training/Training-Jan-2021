@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container p-3">
+        <div class="bg-dark text-white p-3">
+            <h2 class="text-center m-2">Assignment</h2>
+            <p>Use getJSON method access this web api  https://gorest.co.in/public-api/users and display the result in one table.</p>
+        </div>
+
+        <button class="btn btn-primary p-2 m-2" >Click to retrive data</button>
+        <table class="table" > 
+            
+        </table>   
+    </div>
+
+    <script>
+        $("button").click(function(){
+            $.get("https://gorest.co.in/public-api/users",function(data,status){
+                if(status == "success"){
+                    $(".table").append('<thead class="bg-dark text-white"><tr><th>Id</th><th>Name</th><th>Email</th><th>Gender</th><th>Status</th></tr></thead><tbody id="entry"></tbody>');
+                    for(i of data.data){
+                        $("#entry").append("<tr><td>"+i.id+"</td><td>"+i.name+"</td><td>"+i.email+"</td><td>"+i.gender+"</td><td>"+i.status+"</td></tr>")
+                    }
+                    $("button").addClass("d-none");
+                } else {
+                    alert("Error : "+ status);
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

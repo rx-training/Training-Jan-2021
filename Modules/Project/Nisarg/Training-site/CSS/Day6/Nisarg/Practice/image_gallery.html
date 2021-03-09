@@ -1,0 +1,69 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>This is simple image gallery!</title>
+	<style type="text/css">
+		
+		.maincontainer
+		{
+			width: 90%;
+			display: flex;
+			margin: 0 auto;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.img-class
+		{
+			display: block;
+			flex-basis: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		@media only screen and (min-width: 640px)
+		{
+			.img-class
+			{
+				flex-basis: 50%;
+			}
+		}
+
+		
+		@media only screen and (min-width: 960px)
+		{
+			.img-class
+			{
+				flex-basis: 33.33%%;
+			}
+		}
+
+
+		@media only screen and (min-width: 1280px)
+		{
+			.img-class
+			{
+				flex-basis: 25%;
+			}
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="maincontainer">
+		<img src="./assets/a.jpg" class="img-class">
+		<img src="./assets/b.jpg" class="img-class">
+		<img src="./assets/c.jpg" class="img-class">
+		<img src="./assets/d.jpg" class="img-class">
+		<img src="./assets/e.jpg" class="img-class">
+		<img src="./assets/f.jpg" class="img-class">
+		<img src="./assets/g.jpg" class="img-class">
+		<img src="./assets/h.jpg" class="img-class">
+		<img src="./assets/i.jpg" class="img-class">
+		<img src="./assets/j.jpg" class="img-class">
+		<img src="./assets/k.jpg" class="img-class">
+		<img src="./assets/l.jpg" class="img-class">
+		<img src="./assets/m.png" class="img-class">
+		<img src="./assets/k.jpg" class="img-class">
+</body>
+</html>
