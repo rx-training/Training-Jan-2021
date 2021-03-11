@@ -20,15 +20,16 @@ FROM EmployeesNames
 
 
 --Create a View to get the department name and number of employees in the department.
-/*CREATE VIEW Department
+CREATE VIEW DepartmentName
 AS
-SELECT COUNT(DISTINCT e.DepartmentID) AS 'COUNT', e.EmployeeID
+SELECT d.DepartmentName, COUNT(e.DepartmentID) AS 'COUNT'
 FROM Departments AS d
 JOIN Employees AS e
 ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentName
 
 SELECT * 
-FROM Department */
+FROM Department 
 
 
 --Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history.
@@ -38,7 +39,17 @@ WHERE DepartmentID = 90
 
 
 --Write a View to display the department name, manager name, and city.
+CREATE VIEW Ex8
+AS
+SELECT e.FirstName, d.DepartmentName, l.City 
+FROM Employees AS e 
+JOIN Departments AS d 
+ON d.ManagerID = e.EmployeeID 
+JOIN Locations AS l 
+ON l.LocationID = d.LocationID
 
+SELECT * 
+FROM Ex8
 
 --Create a View to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience is more than 15 years.
 CREATE VIEW Experience
@@ -147,9 +158,10 @@ WHERE Salary >
 SELECT FirstName + LastName AS 'Name', Salary
 FROM Employees
 WHERE Salary >
-	(SELECT Salary
+	(SELECT MAX(Salary)
 	FROM Employees
 	WHERE JobId = 'SH_CLERK')
+ORDER BY Salary
 
 
 --12. Write a query to find the names (first_name, last_name) of the employees who are not supervisors. 
@@ -184,46 +196,64 @@ WHERE EmployeeID % 2 = 0
 
 
 --16. Write a query to find the 5th maximum salary in the employees table. 
-SELECT TOP 5 *
+SELECT DISTINCT TOP 1 Salary
 FROM Employees
 WHERE Salary NOT IN
-	(SELECT MAX(Salary)
-	FROM Employees)
+	(SELECT DISTINCT TOP 4 Salary
+	FROM Employees
+	ORDER BY Salary)
+ORDER BY Salary DESC
 
 
 --17. Write a query to find the 4th minimum salary in the employees table. 
-SELECT TOP 4 *
+SELECT DISTINCT TOP 1 Salary
 FROM Employees
 WHERE Salary NOT IN
-	(SELECT MIN(Salary)
-	FROM Employees)
+	(SELECT DISTINCT TOP 3 Salary
+	FROM Employees
+	ORDER BY Salary)
+ORDER BY Salary
 
 
 --18. Write a query to select last 10 records from a table. 
+SELECT TOP 10 * 
+FROM 
+	(SELECT ROW_NUMBER() OVER(ORDER BY EmployeeID) AS Ranks,* 
+	FROM Employees) AS temp 
+ORDER BY Ranks DESC
 
 
 --19. Write a query to list department number, name for all the departments in which there are no employees in the department. 
-SELECT d.DepartmentID, d.DepartmentName
-FROM Employees AS e
-JOIN Departments AS d
-ON e.DepartmentID = d.DepartmentID
-WHERE d.DepartmentID = '0'
+SELECT d.DepartmentID, d.DepartmentName 
+FROM Departments AS d 
+WHERE DepartmentID NOT IN 
+	(SELECT DISTINCT DepartmentID 
+	FROM Employees)
 
-SELECT DepartmentID, DepartmentName
-FROM Departments
-WHERE DepartmentID = 
-	(SELECT DepartmentID
-	FROM Employees
-	WHERE DepartmentID = 0)
 
 --20. Write a query to get 3 maximum salaries. 
+SELECT DISTINCT TOP 3 Salary 
+FROM Employees 
+ORDER BY Salary DESC
 
 
 --21. Write a query to get 3 minimum salaries. 
+SELECT DISTINCT TOP 3 Salary 
+FROM Employees
+ORDER BY Salary
+
 
 
 --22. Write a query to get nth max salaries of employees. 
-
+DECLARE @n int;
+SET @n = 10;
+SELECT DISTINCT TOP 1 Salary 
+FROM Employees 
+WHERE Salary NOT IN 
+	(SELECT DISTINCT TOP (@n) Salary 
+	FROM Employees 
+	ORDER BY Salary DESC ) 
+ORDER BY Salary DESC
 
 
 
@@ -296,32 +326,104 @@ FROM VIEW5
 
 
 --6. Write a query to get the department name and number of employees in the department. 
+CREATE VIEW VIEW6
+AS
+SELECT d.DepartmentName, COUNT(e.EmployeeID) AS 'EmployeeCount' 
+FROM Employees AS e 
+JOIN Departments AS d 
+ON d.DepartmentID = e.DepartmentID 
+GROUP BY DepartmentName
+
+SELECT * 
+FROM VIEW6
 
 
 --7. Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history. 
-CREATE VIEW VIEW6
+CREATE VIEW VIEW7
 AS
 SELECT EmployeeID, JobId, DATEDIFF(DAY, StartDate, EndDate) AS 'DAYDIFF'
 FROM JobHistory
 WHERE DepartmentID = 90
 
 SELECT *
-FROM VIEW6
+FROM VIEW7
 
 
 --8. Write a query to display the department ID, department name and manager first name. 
+CREATE VIEW VIEW8
+AS
+SELECT e.FirstName, d.DepartmentID, d.DepartmentName 
+FROM Employees AS e 
+JOIN Departments AS d 
+ON d.ManagerID = e.EmployeeID
+
+SELECT * 
+FROM VIEW8
 
 
 --9. Write a query to display the department name, manager name, and city. 
+CREATE VIEW VIEW9
+AS
+SELECT e.FirstName AS 'Manager Name', d.DepartmentName, l.City 
+FROM Employees AS e 
+JOIN Departments AS d 
+ON d.ManagerID = e.EmployeeID 
+JOIN Locations AS l ON l.LocationID = d.LocationID
+
+SELECT * 
+FROM VIEW9
 
 
 --10. Write a query to display the job title and average salary of employees. 
+CREATE VIEW VIEW10
+AS
+SELECT e.JobId, AVG(Salary) AS 'Average Salary' 
+FROM Employees AS e 
+GROUP BY JobId
+
+SELECT * 
+FROM VIEW10
 
 
 --11. Display job title, employee name, and the difference between salary of the employee and minimum salary for the job. 
+CREATE VIEW VIEW11
+AS
+SELECT e.FirstName, d.DepartmentName, e.JobId, (e.Salary - 
+	(SELECT MIN(Salary) 
+	FROM Employees AS e2 
+	WHERE e2.JobId = e.JobId)) AS Diff, 
+	(SELECT MIN(Salary) 
+	FROM Employees AS e2 
+	WHERE e2.JobId = e.JobId) AS MinSalary 
+FROM Employees AS e 
+JOIN Departments AS d 
+ON d.DepartmentID = e.DepartmentID 
+
+SELECT * 
+FROM VIEW11
 
 
 --12. Write a query to display the job history that were done by any employee who is currently drawing more than 10000 of salary. 
+CREATE VIEW VIEW12
+AS
+SELECT j.* 
+FROM JobHistory As j 
+JOIN Employees As e 
+ON e.EmployeeID = j.EmployeeID 
+WHERE Salary > 10000
+
+SELECT * 
+FROM VIEW12
 
 
 --13. Write a query to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience is more than 15 years.
+CREATE VIEW VIEW13
+AS
+SELECT e.FirstName + ' ' + e.LastName AS 'Name', d.DepartmentName, e.HireDate, e.Salary
+FROM Employees AS e 
+JOIN Departments AS d 
+ON d.DepartmentID = e.DepartmentID 
+WHERE DATEDIFF(YYYY, HireDate, GETDATE()) > 15
+
+SELECT * 
+FROM VIEW13
