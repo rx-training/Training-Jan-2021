@@ -20,13 +20,13 @@ SELECT * FROM INCENTIVES
 /* 1 . Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table */
 
 SELECT  e.FIRST_NAME ,CONCAT( DATEPART(MM , i.INCENTIVE_DATE) - DATEPART(MM ,  e.JOINING_DATE),' Month') 
-AS 'Differecne By Month'  ,  i.INCENTIVE_DATE ,i.INCENTIVE_DATE  FROM EMPLOYEE e INNER JOIN INCENTIVES i  ON e.EMPLOYEE_ID = i.EMPLOYEE_REF_ID 
+AS 'Differecne By Month'  ,  i.INCENTIVE_DATE  FROM EMPLOYEE e INNER JOIN INCENTIVES i  ON e.EMPLOYEE_ID = i.EMPLOYEE_REF_ID 
 
 /* 2. Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000 */
 
 SELECT e.FIRST_NAME , i.INCENTIVE_AMOUNT FROM EMPLOYEE e INNER JOIN INCENTIVES i ON e.EMPLOYEE_ID = i.EMPLOYEE_REF_ID WHERE  i.INCENTIVE_AMOUNT > 3000
 
-/* 3. Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives.  */
+/* 3. Select first_name, incentive amount from employee and incentives table for all employees even if they didnï¿½t get incentives.  */
 
 SELECT e.FIRST_NAME , i.INCENTIVE_AMOUNT   FROM EMPLOYEE e LEFT OUTER JOIN INCENTIVES i ON e.EMPLOYEE_ID = i.EMPLOYEE_REF_ID  
 
@@ -37,8 +37,8 @@ SELECT e.FIRST_NAME , s.MANAGER_ID FROM EMPLOYEE e , EMPLOYEE s  WHERE e.EMPLOYE
 
 
 /* 5. Select first_name, incentive amount from employee and incentives table
-for all employees even if they didn’t get incentives 
-and set incentive amount as 0 for those employees who didn’t get incentives. */
+for all employees even if they didnï¿½t get incentives 
+and set incentive amount as 0 for those employees who didnï¿½t get incentives. */
 
 SELECT FIRST_NAME ,  ISNULL(b.INCENTIVE_AMOUNT , 0) FROM EMPLOYEE a LEFT OUTER JOIN INCENTIVES b ON a.EMPLOYEE_ID = b.EMPLOYEE_REF_ID
 
