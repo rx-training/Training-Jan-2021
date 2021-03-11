@@ -35,7 +35,7 @@ JOIN Incentives i
 ON e.Employee_Id = i.Employee_Ref_Id
 WHERE i.Incentive_Amount>3000;
 
--- 3 - Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives.
+-- 3 - Select first_name, incentive amount from employee and incentives table for all employees even if they didn't get incentives.
 
 SELECT e.First_Name, i.Incentive_Amount
 FROM Employees e
@@ -44,11 +44,11 @@ ON e.Employee_Id = i.Employee_Ref_Id;
 
 -- 4 - Select EmployeeName, ManagerName from the employee table.
 
-SELECT e.First_Name, b.Manager_Id
-FROM Employees e,Employees b
-WHERE e.Employee_Id= b.Employee_Id;
+SELECT e.First_Name+' '+e.Last_Name 'Employee Name', b.First_Name +' '+b.Last_Name 'Manager Name'
+FROM Employees e 
+LEFT OUTER JOIN Employees b ON b.Employee_Id= e.Manager_Id;
 
--- 5 - Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives and set incentive amount as 0 for those employees who didn’t get incentives.
+-- 5 - Select first_name, incentive amount from employee and incentives table for all employees even if they didn't get incentives and set incentive amount as 0 for those employees who didn't get incentives.
 
 SELECT e.First_Name, ISNULL(i.Incentive_Amount,0)
 FROM Employees e
