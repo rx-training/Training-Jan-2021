@@ -15,47 +15,53 @@ SELECT * FROM Address
 /*2. Write a query to find the names (first_name, last name), department ID and name of all the employees. */
 
 CREATE VIEW EmpData AS
-SELECT e.FirstName,e.LastName,e.DepartmentID,d.DepartmentName 
+SELECT e.FirstName + e.LastName 'Name',e.DepartmentID,d.DepartmentName 
 FROM Employees e LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID 
 
-SELECT FirstName + LastName AS 'Name',DepartmentID,DepartmentName FROM EmpData
+SELECT * FROM EmpData
 
 /*3. Find the names (first_name, last_name), job, department number, and department name of the employees who work in London. */
 
 CREATE VIEW LondonEmp AS
-SELECT e.*,d.DepartmentName,l.* FROM Employees e LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID 
-JOIN Locations l ON d.LocationID = l.LocationID 
+SELECT e.FirstName + e.LastName AS 'Name',e.JobId ,e.DepartmentID, d.DepartmentName FROM Employees e LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID 
+JOIN Locations l ON d.LocationID = l.LocationID WHERE City = 'London'
 
-SELECT FirstName + LastName AS 'Name' ,JobId , DepartmentID,DepartmentName 
-FROM LondonEmp WHERE City = 'London'
+SELECT * FROM LondonEmp
 
 /*4. Write a query to find the employee id, name (last_name) along with their manager_id, manager name (last_name). */
 CREATE VIEW ManagerList AS
 SELECT m.EmployeeID, m.LastName 'EmpLastName',e.EmployeeID 'ManagerId' ,e.LastName 'ManagerLastName'  FROM
 Employees e JOIN Employees m ON e.EmployeeID = m.ManagerID 
 
-select * from ManagerList
+SELECT * from ManagerList
 
 /*5. Find the names (first_name, last_name) and hire date of the employees who were hired after 'Jones'. */
 CREATE VIEW HireDate AS
-SELECT *  FROM Employees WHERE HireDate > (SELECT HireDate FROM Employees WHERE FirstName + LastName LIKE '%jones%')  
+SELECT FirstName + LastName AS 'Name' ,HireDate  FROM
+Employees WHERE HireDate > (SELECT HireDate FROM Employees WHERE FirstName + LastName LIKE '%jones%')  
 
-SELECT FirstName + LastName AS 'Name' ,HireDate FROM HireDate
+SELECT * FROM HireDate
+
 
 /*6. Write a query to get the department name and number of employees in the department. */
 
 CREATE VIEW TotalDepartment AS
-SELECT e.DepartmentID,d.DepartmentName FROM Employees e RIGHT JOIN Departments d ON e.DepartmentID = d.DepartmentID  
+SELECT COUNT(DepartmentID),DepartmentName from 
+(
+SELECT e.DepartmentID,d.DepartmentName FROM 
+Employees e RIGHT JOIN Departments d ON e.DepartmentID = d.DepartmentID
+) AS TBL GROUP BY(DepartmentName) 
 
-SELECT COUNT(DepartmentID),DepartmentName FROM TotalDepartment GROUP BY(DepartmentName)  
+SELECT * FROM TotalDepartment
 
 /*7. Find the employee ID, job title, number of days between ending date and starting date for
 all jobs in department 90 from job history. */
 
 CREATE VIEW DayDiff AS 
-SELECT EmployeeID,JobID,DATEDIFF(DD,StartDate,EndDate) 'Day diffrence' ,DepartmentID   FROM JobHistory 
+SELECT EmployeeID,JobID,DATEDIFF(DD,StartDate,EndDate) 'Day diffrence' ,DepartmentID  FROM JobHistory WHERE DepartmentID = 90
 
-SELECT * FROM DayDiff  WHERE DepartmentID = 90
+SELECT * FROM DayDiff
+
 
 /*8. Write a query to display the department ID, department name and manager first name. */
 
@@ -76,9 +82,9 @@ SELECT DepartmentName,Name,City FROM ManagercITY
 /*10. Write a query to display the job title and average salary of employees. */
 
 CREATE VIEW AVGSalary AS 
-SELECT JobId ,Salary 'Salary' FROM Employees 
+SELECT JobId, AVG(Salary) 'Salary' FROM (SELECT JobId ,Salary 'Salary' FROM Employees) AS TBL  GROUP BY JobId 
 
-SELECT JobId, AVG(Salary) 'Salary' FROM AVGSalary GROUP BY JobId
+SELECT * FROM DayDiff
 
 
 /*11. Display job title, employee name, and the difference between salary of
@@ -93,15 +99,21 @@ FROM Employees e JOIN MINSalary m ON e.JobId = m.JobId
 /*12. Write a query to display the job history that were done by any employee who is 
 currently drawing more than 10000 of salary. */
 
-
-
+CREATE VIEW JobHistory AS 
+SELECT J.* FROM Employees e JOIN JobHistory j ON e.EmployeeID = j.EmployeeID WHERE e.Salary > 10000
 
 /*13. Write a query to display department name, name (first_name, last_name), hire date, 
 salary of the manager for all managers whose experience is more than 15 years. */
 
 
 CREATE VIEW ManagetDetail AS 
-SELECT  e.FirstName + e.LastName 'Name',e.Salary,D.DepartmentName,e.HireDate,DATEDIFF(YYYY,j.StartDate,j.EndDate) 'Experiance'  FROM
-Employees e JOIN Departments d ON e.EmployeeID = d.ManagerID JOIN JobHistory j ON j.DepartmentID = d.DepartmentID
 
-SELECT * FROM ManagetDetail WHERE Experiance > 15
+SELECT * FROM 
+(
+SELECT  e.FirstName + e.LastName 'Name',e.Salary,D.DepartmentName,e.HireDate,
+DATEDIFF(YYYY,j.StartDate,j.EndDate) 'Experiance'  FROM
+(Employees e JOIN Departments d ON e.EmployeeID = d.ManagerID JOIN JobHistory j ON j.DepartmentID = d.DepartmentID)
+) AS TBL WHERE Experiance > 15;
+
+
+SELECT * FROM ManagetDetail

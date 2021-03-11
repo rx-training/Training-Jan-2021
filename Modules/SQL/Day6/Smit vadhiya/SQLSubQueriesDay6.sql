@@ -62,7 +62,7 @@ SELECT FirstName + LastName 'Name', Salary FROM
 whose salary greater than average salary of all department. */
 
 SELECT FirstName + LastName 'Name', Salary FROM Employees
-WHERE Salary  (SELECT AVG(Salary) FROM Employees GROUP BY DepartmentID)
+WHERE Salary >  (SELECT AVG(Salary) as 'avg' FROM Employees) 
 
 /*11. Write a query to find the names (first_name, last_name) and salary
 of the employees who earn a salary that is higher than the salary of all
@@ -85,12 +85,14 @@ Employees e left JOIN Departments D ON e.DepartmentID = d.DepartmentID
 /*14. Write a query to display the employee ID, first name, last names,
 salary of all employees whose salary is above average for their departments. */
 
-SELECT EmployeeID, FirstName , LastName, Salary FROM 
-(SELECT DepartmentID,DENSE_RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary) 'rank' FROM Employees) AS TBL
-WHERE rank = 1
 
-SELECT * FROM (SELECT DepartmentID, AVG(SALARY),DENSE_RANK() OVER (ORDER BY DepartmentID) 'rank' FROM
-Employees GROUP BY DepartmentID) AS tbl1 JOIN Employees e ON tbl1.DepartmentID = e.DepartmentID
+SELECT e.EmployeeID,e.FirstName,e.LastName,e.Salary 
+	FROM 
+	(
+	SELECT DepartmentID, AVG(SALARY) 'avg' FROM Employees GROUP BY DepartmentID
+	) AS tbl1 JOIN 
+	Employees e ON tbl1.DepartmentID = e.DepartmentID 
+	WHERE Salary>avg
 
 /*15. Write a query to fetch even numbered records from employees table. */
 
