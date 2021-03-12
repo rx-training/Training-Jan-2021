@@ -1,0 +1,46 @@
+TRUE / FALSE
+
+1. A primary key can contain NULL values
+-> False
+
+2. A clustered index usually improves performance when inserting data
+-> False
+
+3. A table can contain only one clustered index.
+-> True
+
+// Fill in Blank
+4. The value of a primary key must be Unique.
+
+5. A foreign key works in conjunction with primary key or unique constraints to enforce
+Relation between tables
+
+6. Add an index to one or more columns to speed up data is called indexing.
+
+7. Values in a clustered index are sorted.
+
+------------- MCQ ------------
+1. Which of the following is not a constraint?
+->  INDEX
+
+2. Which of the following things can help speed data retrieval?
+-> A clustered index
+
+3. Which of the following statements are true?
+-> Indexes allow faster data retrieval
+
+4. Which of the following statements is not true with regard to foreign keys?
+-> A table can contain only one foreign key
+
+5. Consider using a clustered index when:
+->  Columns undergo frequent changes
+
+7. Which of the following could not be used as a primary key?
+-> An address
+
+8. How many clustered indexes can you have for a database?
+-> 1
+
+9. What is the name for the situation in which more than one columns act as a primary key? 
+->  Composite primary key
+
