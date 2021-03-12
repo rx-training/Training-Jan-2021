@@ -44,11 +44,11 @@ Multiple Choice:-
 Comparing Clustered and Non-Clustered Indexes:-
 
 	------------------------------------------------|------------------------------------------------
-				Clustered Index						|			None-Clustered Index
+			Clustered Index			|		None-Clustered Index
 	------------------------------------------------|------------------------------------------------
-	-> Does Not Requires Disk Additional Space		|-> Requires Additional Disk Space
-	-> Offers Faster Data Retrival					|-> Slower Comapare to Clustered Index
-	-> Can Contain Only One Clustered Index			|-> Can Contain More One None-Clustered Index
+	-> Does Not Requires Disk Additional Space	|-> Requires Additional Disk Space
+	-> Offers Faster Data Retrival			|-> Slower Comapare to Clustered Index
+	-> Can Contain Only One Clustered Index		|-> Can Contain More One None-Clustered Index
 	------------------------------------------------|------------------------------------------------
 
 ------------------------------------------------------- END ------------------------------------------------------
