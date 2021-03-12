@@ -343,16 +343,81 @@ GROUP BY d.DepartmentID, d.DepartmentName;
 
 --7. Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history. 
 
-
+CREATE VIEW EmployeeView7 AS
+SELECT EmployeeID,
+	JobID,
+	DATEDIFF(DD,StartDate,EndDate) AS 'NumberOfDays'
+FROM JobHistory
+WHERE DepartmentID = 90;
 
 -- 8. Write a query to display the department ID, department name and manager first name. 
 
+CREATE VIEW ManagersOfDepartments AS
+SELECT d.DepartmentID,
+	d.DepartmentName,
+	e.FirstName 'Manager First Name'
+FROM Departments d
+	LEFT JOIN Employees e 
+	ON d.ManagerID = e.EmployeeID;
+
 -- 9. Write a query to display the department name, manager name, and city. 
+
+CREATE VIEW ManagerDepartmentsCities AS
+SELECT d.DepartmentID,
+	d.DepartmentName,
+	e.FirstName+' '+e.LastName [Manager Name],
+	l.City 'City location'
+FROM Departments d
+	LEFT JOIN Employees e
+	ON d.ManagerID = e.EmployeeID
+	LEFT JOIN Locations l
+	ON l.LocationID = d.LocationID;
 
 -- 10. Write a query to display the job title and average salary of employees. 
 
+	CREATE VIEW AverageSalaryJobId 
+	AS 
+	SELECT JobId, AVG(Salary)'AverageSalary'
+	FROM Employees 
+	GROUP BY JobId;
+	
 -- 11. Display job title, employee name, and the difference between salary of the employee and minimum salary for the job. 
 
+CREATE VIEW DifferenceMinSalaryOnJobId
+AS
+SELECT e.JobId, 
+	e.FirstName+' '+e.LastName[EmployeeName],
+	e.Salary -(SELECT DISTINCT MIN(d.Salary) 
+				FROM Employees d 
+				WHERE e.JobId = d.JobId)
+				AS 'MinSalary'
+FROM Employees e;
 -- 12. Write a query to display the job history that were done by any employee who is currently drawing more than 10000 of salary. 
 
+CREATE VIEW EmployeeDrawingMore10000
+AS 
+SELECT e.FirstName+' '+e.LastName[Employee Name],
+	e.Salary,
+	e.JobId,
+	j.StartDate,
+	j.EndDate
+FROM Employees e
+	LEFT JOIN JobHistory j ON j.EmployeeID = e.EmployeeID
+WHERE e.Salary > 10000;
+
 -- 13. Write a query to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience is more than 15 years. 
+
+CREATE VIEW ManagerExperienceMore15 
+AS
+SELECT e.EmployeeID 'ManagerId',
+	e.FirstName +' '+e.LastName [Name],
+	d.DepartmentName,
+	e.HireDate,
+	DATEDIFF(YY, e.HireDate, GETDATE())'Experience',
+	e.Salary
+FROM Employees e
+	INNER JOIN Departments d
+	ON d.DepartmentID = e.DepartmentID
+	INNER JOIN JobHistory j
+	ON e.EmployeeID = j.EmployeeID
+WHERE DATEDIFF(YY,e.HireDate,GETDATE()) > 15;
