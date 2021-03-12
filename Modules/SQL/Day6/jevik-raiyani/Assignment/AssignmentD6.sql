@@ -13,7 +13,7 @@ WHERE First_Name='Roy')
 --Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount
 
 CREATE VIEW D6Assign3 AS
-SELECT e.First_Name,e.Last_Name,e.Salarye,e.Joining_Date,i.Incentive_Date,i.Incentive_Amount
+SELECT e.First_Name,e.Last_Name,e.Salary,e.Joining_Date,i.Incentive_Date,i.Incentive_Amount
 FROM Employees e LEFT OUTER JOIN Incentives i
 ON e.Emp_ID = i.Emp_Ref_ID
 
@@ -133,10 +133,6 @@ WHERE
 Salary >(SELECT AVG(Salary) 'Salary' FROM
 (SELECT AVG(Salary) 'Salary'  FROM Employees1 GROUP BY DepartmentID )new)
 
-SELECT FirstName+' '  + LastName 'NAME',Salary FROM Employees1 
-WHERE 
-Salary > (SELECT AVG(Salary) 'Salary'  FROM Employees1)
-
 --11. Write a query to find the names (first_name, last_name) and salary of the employees
 --who earn a salary that is higher than the salary of all the Shipping Clerk (JOB_ID = 'SH_CLERK'). 
 --Sort the results on salary from the lowest to highest. 
@@ -222,6 +218,12 @@ CREATE VIEW V1 AS
 SELECT * FROM Locations1
 WHERE LocationID IN (
 SELECT LocationID FROM Departments1)
+
+CREATE VIEW V1 AS
+SELECT D.DepartmentID,L.*, C.CountryName FROM Departments1 AS D
+JOIN Locations1 AS L ON D.LocationID = L.LocationID
+JOIN Countries1 AS C ON L.CountryID = C.CountryID
+ORDER BY D.DepartmentID
 
 --2. Write a query to find the names (first_name, last name), department ID and 
 --name of all the employees. 
