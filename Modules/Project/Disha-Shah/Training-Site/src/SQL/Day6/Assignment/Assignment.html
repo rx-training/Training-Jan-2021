@@ -102,7 +102,7 @@
                                 <a href="#practiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Practice</a>
                                 <ul class="collapse list-unstyled" id="practiceSubmenu">
                                     <li>
-                                        <a href="../Practice/Practice.html" class="pl-5">Practice Tasks</a>
+                                        <a href="../../Day2/Practice/Practice.html" class="pl-5">Practice Tasks</a>
                                     </li>
                                     
                                 </ul>
@@ -112,7 +112,7 @@
                                 <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignment</a>
                                 <ul class="collapse list-unstyled" id="assignmentSubmenu">
                                     <li>
-                                        <a href="Assignment.html" class="pl-5">Assignment Tasks</a>
+                                        <a href="../../Day2/Assignment/Assignment.html" class="pl-5">Assignment Tasks</a>
                                     </li>
                                     
                                 </ul>
@@ -197,7 +197,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="#day6Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day6</a>
                         <ul class="collapse list-unstyled" id="day6Submenu">
@@ -206,7 +206,7 @@
                                 <a href="#practiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Practice</a>
                                 <ul class="collapse list-unstyled" id="practiceSubmenu">
                                     <li>
-                                        <a href="../../Day6/Practice/Practice.html" class="pl-5">Practice Tasks</a>
+                                        <a href="../Practice/Practice.html" class="pl-5">Practice Tasks</a>
                                     </li>
                                     
                                 </ul>
@@ -216,7 +216,7 @@
                                 <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignment</a>
                                 <ul class="collapse list-unstyled" id="assignmentSubmenu">
                                     <li>
-                                        <a href="../../Day6/Assignment/Assignment.html" class="pl-5">Assignment Tasks</a>
+                                        <a href="Assignment.html" class="pl-5">Assignment Tasks</a>
                                     </li>
                                     
                                 </ul>
@@ -267,11 +267,70 @@
                 </nav>
 
                 <div class="m-3">
-                    <h4>Assignment Queries</h4>
+                    <h4>Assignment Tasks</h4>
                     <pre>
-                        --Created another DATABASE because SampleDB already have Employees Table
                         USE Day2DB
-                        
+
+                        SELECT * FROM Employees
+
+                        SELECT * FROM Incentives
+
+                        Q 1. Select employee details from employee table if data exists in incentive table ?
+                        Ans.
+
+                        SELECT * 
+                        FROM Employees
+                        WHERE EXISTS (
+                            SELECT EmpRefID
+                            FROM Incentives
+                        )
+
+                        /*SELECT * 
+                        FROM Employees e
+                        WHERE EmployeeID IN (
+                            SELECT EmpRefID
+                            FROM Incentives 
+                            WHERE EmpRefID = e.EmployeeID
+                        )*/
+
+                        Q 2. Find Salary of the employee whose salary is more than Roy Salary
+                        Ans.
+
+                        SELECT FirstName, Salary
+                        FROM Employees
+                        WHERE Salary > (
+                            SELECT Salary
+                            FROM Employees
+                            WHERE FirstName = 'Roy'
+                        )
+
+                        Q 3. Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount
+                        Ans.
+                        CREATE VIEW EmpIncentive AS
+                        SELECT e.FirstName, e.LastName, e.Salary, e.JoiningDate, i.IncentiveDate, i.IncentiveAmount
+                        FROM Employees AS e JOIN Incentives AS i
+                        ON e.EmployeeID = i.EmpRefID
+
+                        SELECT FirstName, LastName, Salary, JoiningDate, IncentiveDate, IncentiveAmount
+                        FROM EmpIncentive
+
+                        Q 4. Create a view to select Select first_name, incentive amount from employee and incentives table for those employees who have incentives and
+                        incentive amount greater than 3000
+                        Ans.
+                        CREATE VIEW EmpIncent AS
+                        SELECT e.FirstName, i.IncentiveAmount
+                        FROM Employees AS e JOIN Incentives AS i
+                        ON e.EmployeeID = i.EmpRefID
+                        WHERE i.IncentiveAmount>3000
+
+                        SELECT FirstName, IncentiveAmount
+                        FROM EmpIncent
+
+
+                        --NEW DATABASE FOR FURTHER QUERIES
+                        CREATE DATABASE Day6DB
+
+                        USE Day6DB
 
                         CREATE TABLE  Employees (
                             EmployeeID decimal(6,0) NOT NULL DEFAULT '0',
@@ -288,7 +347,6 @@
                             CONSTRAINT pkEmployeeID PRIMARY KEY (EmployeeID),
                             CONSTRAINT ukEmail UNIQUE  (Email),
                         )
-                        
 
                         --
                         -- Dumping data for table `employees`
@@ -403,96 +461,516 @@
                         ('205', 'Shelley', 'Higgins', 'SHIGGINS', '515.123.8080', '1987-09-30', 'AC_MGR', '12000.00', '0.00', '101', '110'),
                         ('206', 'William', 'Gietz', 'WGIETZ', '515.123.8181', '1987-10-01', 'AC_ACCOUNT', '8300.00', '0.00', '205', '110');
 
+                        CREATE TABLE Departments (
+                        DepartmentID decimal(4,0) NOT NULL DEFAULT '0',
+                        DepartmentName varchar(30) NOT NULL,
+                        ManagerID decimal(6,0) DEFAULT NULL,
+                        LocationID decimal(4,0) DEFAULT NULL,
+                            PRIMARY KEY (DepartmentID),
+                        )
+
+                        INSERT INTO Departments  VALUES
+                        ('10', 'Administration', '200', '1700'),
+                        ('20', 'Marketing', '201', '1800'),
+                        ('30', 'Purchasing', '114', '1700'),
+                        ('40', 'Human Resources', '203', '2400'),
+                        ('50', 'Shipping', '121', '1500'),
+                        ('60', 'IT', '103', '1400'),
+                        ('70', 'Public Relations', '204', '2700'),
+                        ('80', 'Sales', '145', '2500'),
+                        ('90', 'Executive', '100', '1700'),
+                        ('100', 'Finance', '108', '1700'),
+                        ('110', 'Accounting', '205', '1700'),
+                        ('120', 'Treasury', '0', '1700'),
+                        ('130', 'Corporate Tax', '0', '1700'),
+                        ('140', 'Control And Credit', '0', '1700'),
+                        ('150', 'Shareholder Services', '0', '1700'),
+                        ('160', 'Benefits', '0', '1700'),
+                        ('170', 'Manufacturing', '0', '1700'),
+                        ('180', 'Construction', '0', '1700'),
+                        ('190', 'Contracting', '0', '1700'),
+                        ('200', 'Operations', '0', '1700'),
+                        ('210', 'IT Support', '0', '1700'),
+                        ('220', 'NOC', '0', '1700'),
+                        ('230', 'IT Helpdesk', '0', '1700'),
+                        ('240', 'Government Sales', '0', '1700'),
+                        ('250', 'Retail Sales', '0', '1700'),
+                        ('260', 'Recruiting', '0', '1700'),
+                        ('270', 'Payroll', '0', '1700');
+
+
+                        CREATE TABLE Locations
+                        (
+                        LocationID decimal(4,0) NOT NULL DEFAULT '0',
+                        StreetAddress varchar(40) DEFAULT NULL,
+                        PostalCode varchar(12) DEFAULT NULL,
+                        City varchar(30) NOT NULL,
+                        StateProvince varchar(25) DEFAULT NULL,
+                        CountryID varchar(2) DEFAULT NULL,
+                        PRIMARY KEY (LocationID),
+                        
+                        )
+
+                        INSERT INTO Locations  VALUES
+                        ('1000', '1297 Via Cola di Rie', '989', 'Roma', '', 'IT'),
+                        ('1100', '93091 Calle della Testa', '10934', 'Venice', '', 'IT'),
+                        ('1200', '2017 Shinjuku-ku', '1689', 'Tokyo', 'Tokyo Prefecture', 'JP'),
+                        ('1300', '9450 Kamiya-cho', '6823', 'Hiroshima', '', 'JP'),
+                        ('1400', '2014 Jabberwocky Rd', '26192', 'Southlake', 'Texas', 'US'),
+                        ('1500', '2011 Interiors Blvd', '99236', 'South San Francisco', 'California', 'US'),
+                        ('1600', '2007 Zagora St', '50090', 'South Brunswick', 'New Jersey', 'US'),
+                        ('1700', '2004 Charade Rd', '98199', 'Seattle', 'Washington', 'US'),
+                        ('1800', '147 Spadina Ave', 'M5V 2L7', 'Toronto', 'Ontario', 'CA'),
+                        ('1900', '6092 Boxwood St', 'YSW 9T2', 'Whitehorse', 'Yukon', 'CA'),
+                        ('2000', '40-5-12 Laogianggen', '190518', 'Beijing', '', 'CN'),
+                        ('2100', '1298 Vileparle (E)', '490231', 'Bombay', 'Maharashtra', 'IN'),
+                        ('2200', '12-98 Victoria Street', '2901', 'Sydney', 'New South Wales', 'AU'),
+                        ('2300', '198 Clementi North', '540198', 'Singapore', '', 'SG'),
+                        ('2400', '8204 Arthur St', '', 'London', '', 'UK'),
+                        ('2500', '"Magdalen Centre', ' The Oxford ', 'OX9 9ZB', 'Oxford', 'Ox'),
+                        ('2600', '9702 Chester Road', '9629850293', 'Stretford', 'Manchester', 'UK'),
+                        ('2700', 'Schwanthalerstr. 7031', '80925', 'Munich', 'Bavaria', 'DE'),
+                        ('2800', 'Rua Frei Caneca 1360', '01307-002', 'Sao Paulo', 'Sao Paulo', 'BR'),
+                        ('2900', '20 Rue des Corps-Saints', '1730', 'Geneva', 'Geneve', 'CH'),
+                        ('3000', 'Murtenstrasse 921', '3095', 'Bern', 'BE', 'CH'),
+                        ('3100', 'Pieter Breughelstraat 837', '3029SK', 'Utrecht', 'Utrecht', 'NL'),
+                        ('3200', 'Mariano Escobedo 9991', '11932', 'Mexico City', '"Distrito Federal', '"');
+
+
+
+                        CREATE TABLE Countries (
+                        CountryID varchar(2) NOT NULL,
+                        CountryName varchar(40) DEFAULT NULL,
+                        RegionID decimal(10,0) DEFAULT NULL,
+                        PRIMARY KEY (CountryID),
+
+                        ) 
+
+                        --
+                        -- Dumping data for table `countries`
+                        --
+
+                        INSERT INTO countries  VALUES
+                        ('AR', 'Argentina', '2'),
+                        ('AU', 'Australia', '3'),
+                        ('BE', 'Belgium', '1'),
+                        ('BR', 'Brazil', '2'),
+                        ('CA', 'Canada', '2'),
+                        ('CH', 'Switzerland', '1'),
+                        ('CN', 'China', '3'),
+                        ('DE', 'Germany', '1'),
+                        ('DK', 'Denmark', '1'),
+                        ('EG', 'Egypt', '4'),
+                        ('FR', 'France', '1'),
+                        ('HK', 'HongKong', '3'),
+                        ('IL', 'Israel', '4'),
+                        ('IN', 'India', '3'),
+                        ('IT', 'Italy', '1'),
+                        ('JP', 'Japan', '3'),
+                        ('KW', 'Kuwait', '4'),
+                        ('MX', 'Mexico', '2'),
+                        ('NG', 'Nigeria', '4'),
+                        ('NL', 'Netherlands', '1'),
+                        ('SG', 'Singapore', '3'),
+                        ('UK', 'United Kingdom', '1'),
+                        ('US', 'United States of America', '2'),
+                        ('ZM', 'Zambia', '4'),
+                        ('ZW', 'Zimbabwe', '4');
+
+
+
+                        CREATE TABLE  JobHistory (
+                        EmployeeID decimal(6,0) NOT NULL,
+                        StartDate date NOT NULL,
+                        EndDate date NOT NULL,
+                        JobID varchar(10) NOT NULL,
+                        DepartmentID decimal(4,0) DEFAULT NULL,
+                        PRIMARY KEY (EmployeeID,StartDate),
+
+                        ) 
+
+                        INSERT INTO  JobHistory VALUES
+                        ('102', '1993-01-13', '1998-07-24', 'IT_PROG', '60'),
+                        ('101', '1989-09-21', '1993-10-27', 'AC_ACCOUNT', '110'),
+                        ('101', '1993-10-28', '1997-03-15', 'AC_MGR', '110'),
+                        ('201', '1996-02-17', '1999-12-19', 'MK_REP', '20'),
+                        ('114', '1998-03-24', '1999-12-31', 'ST_CLERK', '50'),
+                        ('122', '1999-01-01', '1999-12-31', 'ST_CLERK', '50'),
+                        ('200', '1987-09-17', '1993-06-17', 'AD_ASST', '90'),
+                        ('176', '1998-03-24', '1998-12-31', 'SA_REP', '80'),
+                        ('176', '1999-01-01', '1999-12-31', 'SA_MAN', '80');
+
                         SELECT * FROM Employees
 
-                        --Update Queries
+                        SELECT * FROM Departments
 
-                        Q. Write a SQL statement to change the Email column of Employees table with �not available� for all employees. 
-                        Ans.ALTER TABLE Employees DROP CONSTRAINT ukEmail
+                        SELECT * FROM Locations
 
-                        UPDATE Employees SET Email='not available'
+                        SELECT * FROM Countries
 
-                        Q. Write a SQL statement to change the Email and CommissionPct column of employees table with �not available� and 0.10 for all employees. 
-                        Ans.UPDATE Employees SET Email='not available', CommissionPct= .10
+                        SELECT * FROM JobHistory
 
-                        Q. Write a SQL statement to change the Email and CommissionPct column of employees table with �not available� and 0.10 for those employees 
-                        whose DepartmentID is 110. 
-                        Ans.UPDATE Employees SET Email='not available', CommissionPct= .10 WHERE DepartmentID=110
+                        Q 5. Create a View to Find the names (first_name, last_name), job, department number, and department name of the employees who work in London
+                        Ans.
+                        CREATE VIEW EmpDepartment AS
+                        SELECT e.FirstName, e.LastName, e.JobId, e.DepartmentID, d.DepartmentName
+                        FROM Employees AS e JOIN Departments as d
+                        ON e.DepartmentID = d.DepartmentID JOIN Locations AS l
+                        ON l.LocationID = d.LocationID
+                        WHERE l.City='London'
 
-                        Q. Write a SQL statement to change the Email column of employees table with �not available� for those employees whose DepartmentID is 80 and 
-                        gets a commission is less than 20% 
-                        Ans.UPDATE Employees SET Email='not available' WHERE DepartmentID = 80 AND CommissionPct < 0.20
+                        Q 6. Create a View to get the department name and number of employees in the department.
+                        Ans.
+                        CREATE VIEW TotalEmpDept AS
+                        SELECT d.DepartmentName, COUNT(e.DepartmentID) AS 'NoOfEmployees'
+                        FROM Employees AS e JOIN Departments as d
+                        ON e.DepartmentID = d.DepartmentID
+                        GROUP BY d.DepartmentName
 
-                        Q. Write a SQL statement to change salary of employee to 8000 whose ID is 105, if the existing salary is less than 5000. 
-                        Ans.UPDATE Employees SET Salary = 8000 WHERE EmployeeID = 105 AND Salary < 5000
+                        Q 7. Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history.
+                        Ans.
+                        CREATE VIEW JobDetails AS
+                        SELECT EmployeeID, JobID, DATEDIFF(DAY, StartDate, EndDate) AS 'NoOfDays'
+                        FROM JobHistory
+                        WHERE DepartmentID=90
 
-                        Q. Write a SQL statement to change job ID of employee which ID is 118, to SH_CLERK if the employee belongs to department, which ID is 30 and 
-                        the existing job ID does not start with SH. 
-                        Ans.UPDATE Employees SET JobId = 'SH_CLERK' WHERE EmployeeID=118 AND DepartmentID=30 AND JobId NOT LIKE 'SH%'
+                        Q 8. Write a View to display the department name, manager name, and city.
+                        Ans.
+                        CREATE VIEW DeptMngrCity AS
+                        SELECT d.DepartmentName, e.FirstName, l.City
+                        FROM Employees As e JOIN Departments AS d
+                        ON e.EmployeeID = d.ManagerID JOIN Locations AS l
+                        ON d.LocationID = l.LocationID
 
-                        Q.Write a SQL statement to increase the salary of employees under the department 40, 90 and 110 according to the company rules that, salary will be
-                        increased by 25% for the department 40, 15% for department 90 and 10% for the department 110 and the rest of the departments will remain same.
-                        Ans.UPDATE Employees 
-                        SET Salary = CASE DepartmentID
-                            WHEN 40 THEN Salary + (Salary * 0.25)
-                            WHEN 90 THEN Salary + (Salary * 0.15)
-                            WHEN 110 THEN Salary + (Salary * 0.10)
-                            ELSE Salary
-                        END
-                        WHERE Salary IS NOT NULL
+                        Q 9.Create a View to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience 
+                        is more than 15 years.
+                        Ans.
+                        CREATE VIEW DeptMngrJob AS
+                        SELECT d.DepartmentName, e.FirstName, e.LastName, e.HireDate, e.Salary
+                        FROM Departments AS d JOIN Employees As e
+                        ON e.EmployeeID = d.ManagerID JOIN JobHistory AS j
+                        ON e.EmployeeID = j.EmployeeID
+                        WHERE DATEDIFF(YY, e.HireDate, j.EndDate)>15
 
-                        Q. Write a SQL statement to increase the minimum and maximum salary of PU_CLERK by 2000 as well as the salary for those employees by 20% and commission by 10% . 
-                        Ans.UPDATE Employees SET Salary = Salary + (Salary * 0.20), CommissionPct = CommissionPct + (CommissionPct * 0.10)
-                        WHERE JobId = 'PU_CLERK' AND Salary IS NOT NULL AND CommissionPct IS NOT NULL
+                        --SUBQQUERIES TASK FILE
 
-                        USE SampleDB
-                        UPDATE Jobs SET MinSalary = MinSalary + 2000, MaxSalary = MaxSalary + 2000 WHERE JobTitle = 'PU_CLERK'
+                        Q 1. Write a query to find the names (first_name, last_name) and salaries of the employees who have higher salary than the employee whose last_name='Bull'. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary > (
+                            SELECT Salary
+                            FROM Employees
+                            WHERE LastName = 'Bull'
+                            )
+
+                        Q 2. Find the names (first_name, last_name) of all employees who works in the IT department. 
+                        Ans.
+                        SELECT FirstName, LastName
+                        FROM Employees
+                        WHERE DepartmentID = (
+                            SELECT DepartmentID
+                            FROM Departments
+                            WHERE DepartmentName = 'IT'
+                        )
+
+                        Q 3. Find the names (first_name, last_name) of the employees who have a manager who works for a department based in United States. 
+                        Ans.
+                        SELECT FirstName, LastName
+                        FROM Employees
+                        WHERE ManagerID IN (
+                            SELECT ManagerID
+                            FROM Departments
+                            WHERE LocationID IN (
+                                SELECT LocationID
+                                FROM Locations
+                                WHERE CountryID = (
+                                    SELECT CountryID
+                                    FROM Countries
+                                    WHERE CountryName = 'United States of America'
+                                )
+                            )
+                        )
+
+                        Q 4. Find the names (first_name, last_name) of the employees who are managers. 
+                        Ans.
+                        SELECT FirstName, LastName
+                        FROM Employees
+                        WHERE EmployeeID IN (
+                            SELECT ManagerID
+                            FROM Departments
+                        )
+
+                        Q 5. Find the names (first_name, last_name), salary of the employees whose salary is greater than the average salary. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary > (
+                            SELECT AVG(Salary)
+                            FROM Employees
+                        )
+
+                        Q 6. Find the names (first_name, last_name), salary of the employees whose salary is equal to the minimum salary for their job grade. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary IN (
+                            SELECT MIN(Salary)
+                            FROM Employees
+                            GROUP BY JobId
+                        )
+
+                        Q 7. Find the names (first_name, last_name), salary of the employees who earn more than the average salary and who works in any of the IT departments. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary > (
+                            SELECT AVG(Salary)
+                            FROM Employees
+                            WHERE DepartmentID IN (
+                                SELECT DepartmentID
+                                FROM Departments
+                                WHERE DepartmentName LIKE 'IT%'
+                            )
+                        )
+
+                        Q 8. Find the names (first_name, last_name), salary of the employees who earn more than Mr. Bell. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary > (
+                            SELECT Salary
+                            FROM Employees
+                            WHERE LastName = 'Bell'
+                            )
+
+                        Q 9. Find the names (first_name, last_name), salary of the employees who earn the same salary as the minimum salary for all departments. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary IN (
+                            SELECT MIN(Salary)
+                            FROM Employees
+                            GROUP BY DepartmentID
+                        )
+
+                        Q 10. Find the names (first_name, last_name), salary of the employees whose salary greater than average salary of all department. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary > ALL (
+                            SELECT AVG(Salary)
+                            FROM Employees
+                            GROUP BY DepartmentID
+                        )
+
+                        Q 11. Write a query to find the names (first_name, last_name) and salary of the employees who earn a salary that is higher than the salary of 
+                        all the Shipping Clerk (JOB_ID = 'SH_CLERK'). Sort the results on salary from the lowest to highest. 
+                        Ans.
+                        SELECT FirstName, LastName, Salary
+                        FROM Employees
+                        WHERE Salary > ALL (
+                            SELECT DISTINCT Salary
+                            FROM Employees
+                            WHERE JobId = 'SH_CLERK'
+                        )
+                        ORDER BY Salary
+
+                        Q 12. Write a query to find the names (first_name, last_name) of the employees who are not supervisors. 
+                        Ans.
+                        SELECT FirstName, LastName
+                        FROM Employees
+                        WHERE EmployeeID NOT IN (
+                            SELECT ManagerID
+                            FROM Departments
+                        )
+
+                        Q 13. Write a query to display the employee ID, first name, last names, and department names of all employees. 
+                        Ans.
+                        SELECT e.EmployeeID, e.FirstName, e.LastName,
+                        (	SELECT DepartmentName
+                            FROM Departments AS d
+                            WHERE e.DepartmentID = d.DepartmentID
+                        ) DepartmentName
+                        FROM Employees AS e
+
+                        Q 14. Write a query to display the employee ID, first name, last names, salary of all employees whose salary is above average for their departments. 
+                        Ans.
+                        SELECT EmployeeID, FirstName, LastName, Salary
+                        FROM Employees AS e
+                        WHERE Salary > (
+                            SELECT AVG(Salary)
+                            FROM Employees
+                            WHERE DepartmentID = e.DepartmentID
+                        )
+
+                        Q 15. Write a query to fetch even numbered records from employees table. 
+                        Ans.
+                        SELECT * 
+                        FROM Employees
+                        WHERE EmployeeID%2 <> 0
+
+                        Q 16. Write a query to find the 5th maximum salary in the employees table. 
+                        Ans.
+                        SELECT Salary FROM 
+                        (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) 'DenseRank' FROM Employees) AS RankTbl
+                        WHERE DenseRank=5
+
+                        Q 17. Write a query to find the 4th minimum salary in the employees table. 
+                        Ans.
+                        SELECT DISTINCT Salary FROM 
+                        (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary) 'DenseRank' FROM Employees) AS RankTbl
+                        WHERE DenseRank=4
+
+                        Q 18. Write a query to select last 10 records from a table. 
+                        Ans.
+                        SELECT * 
+                        FROM (
+                            SELECT TOP(10) *
+                            FROM Employees
+                            ORDER BY EmployeeID DESC
+                        ) AS tblEmp
+                        ORDER BY EmployeeID ASC
+
+                        Q 19. Write a query to list department number, name for all the departments in which there are no employees in the department. 
+                        Ans.
+                        SELECT DepartmentID, DepartmentName
+                        FROM Departments
+                        WHERE ManagerID NOT IN (
+                            SELECT EmployeeID
+                            FROM Employees
+                        )
+
+                        Q 20. Write a query to get 3 maximum salaries. 
+                        Ans.
+                        SELECT DISTINCT Salary FROM 
+                        (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) 'DenseRank' FROM Employees) AS RankTbl
+                        WHERE DenseRank<4
+                        ORDER BY Salary DESC
+
+                        Q 21. Write a query to get 3 minimum salaries. 
+                        Ans.
+                        SELECT DISTINCT Salary FROM 
+                        (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary) 'DenseRank' FROM Employees) AS RankTbl
+                        WHERE DenseRank<4
+                        ORDER BY Salary DESC
+
+                        Q 22. Write a query to get nth max salaries of employees. 
+                        Ans.
+                        -- ASSUME VALUE OF n=4
+                        SELECT Salary FROM 
+                        (SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary DESC) 'DenseRank' FROM Employees) AS RankTbl
+                        WHERE DenseRank=4
 
 
-                        USE Day2DB
-                        --Select Queries
 
-                        Q.Get all employee details from the Employee table
-                        Ans.SELECT * FROM Employees
+                        --VIEWS QUERIES
 
-                        Q.Get FirstName, LastName from Employees table
-                        Ans.SELECT FirstName, LastName FROM Employees
+                        Q 1. Write a query to find the addresses (location_id, street_address, city, state_province, country_name) of all the departments. 
+                        Ans.
+                        CREATE VIEW Addresses AS
+                        SELECT l.LocationID, l.StreetAddress, l.City, l.StateProvince, c.CountryName
+                        FROM Locations AS l JOIN Countries AS c
+                        ON l.CountryID = c.CountryID
 
-                        Q.Get FirstName from Employees table using alias name �Employee Name�
-                        Ans.SELECT FirstName AS 'Employee Name' FROM Employees
+                        Q 2. Write a query to find the names (first_name, last name), department ID and name of all the employees. 
+                        Ans.
+                        CREATE VIEW EmpDept AS
+                        SELECT e.FirstName, e.LastName, d.DepartmentID, d.DepartmentName
+                        FROM Employees AS e JOIN Departments AS d
+                        ON e.DepartmentID = d.DepartmentID
 
-                        Q.Get employee details from Employees table whose Employee Name is �Steven�
-                        Ans.SELECT * FROM Employees WHERE FirstName = 'Steven'
+                        Q 3. Find the names (first_name, last_name), job, department number, and department name of the employees who work in London. 
+                        Ans.
+                        CREATE VIEW EmpDepartment AS
+                        SELECT e.FirstName, e.LastName, e.JobId, e.DepartmentID, d.DepartmentName
+                        FROM Employees AS e JOIN Departments as d
+                        ON e.DepartmentID = d.DepartmentID JOIN Locations AS l
+                        ON l.LocationID = d.LocationID
+                        WHERE l.City='London'
 
-                        Q.Get employee details from Employees table whose Employee Name are �Neena� and �Lex�
-                        Ans.SELECT * FROM Employees WHERE FirstName = 'Neena' OR FirstName = 'Lex'
+                        Q 4. Write a query to find the employee id, name (last_name) along with their manager_id, manager name (last_name). 
+                        Ans.
+                        CREATE VIEW EmpMngr AS
+                        SELECT e1.EmployeeID, e1.LastName AS 'EmployeeName', e2.EmployeeID AS 'ManagerId', e2.LastName AS 'ManagerName'
+                        FROM Employees AS e1 JOIN Employees AS e2
+                        ON e1.ManagerId = e2.EmployeeID
 
-                        Q.Get employee details from Employees table whose Employee name are not �Neena� and �Neena�
-                        Ans.SELECT * FROM Employees WHERE FirstName <> 'Neena' OR FirstName = 'Neena'
+                        Q 5. Find the names (first_name, last_name) and hire date of the employees who were hired after 'Jones'. 
+                        Ans.
+                        CREATE VIEW EmpHire AS
+                        SELECT FirstName, LastName, HireDate
+                        FROM Employees
+                        WHERE HireDate > (
+                            SELECT HireDate
+                            FROM Employees
+                            WHERE LastName='Jones'
+                        )
 
-                        Q.Get employee details from Employees table whose Salary between 5000 and 8000
-                        Ans.SELECT * FROM Employees WHERE Salary BETWEEN 5000 AND 8000
+                        Q 6. Write a query to get the department name and number of employees in the department. 
+                        Ans.
+                        CREATE VIEW TotalEmpDept AS
+                        SELECT d.DepartmentName, COUNT(e.DepartmentID) AS 'NoOfEmployees'
+                        FROM Employees AS e JOIN Departments as d
+                        ON e.DepartmentID = d.DepartmentID
+                        GROUP BY d.DepartmentName
 
-                        Q.Write a query to get the names (FirstName, LastName), Salary, PF of all the Employees (PF is calculated as 12% of salary).
-                        Ans.SELECT FirstName, LastName, Salary, PF = Salary * 0.12 FROM Employees
+                        Q 7. Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history. 
+                        Ans.
+                        CREATE VIEW JobDetails AS
+                        SELECT EmployeeID, JobID, DATEDIFF(DAY, StartDate, EndDate) AS 'NoOfDays'
+                        FROM JobHistory
+                        WHERE DepartmentID=90
 
-                        Q.Get employee details from Employees table whose FirstName starts with �N�
-                        Ans.SELECT * FROM Employees WHERE FirstName LIKE 'N%' 
+                        Q 8. Write a query to display the department ID, department name and manager first name. 
+                        Ans.
+                        CREATE VIEW DeptMngr AS
+                        SELECT d.DepartmentID, d.DepartmentName, e.FirstName AS 'ManagerName'
+                        FROM Departments AS d JOIN Employees AS e
+                        ON d.ManagerID = e.EmployeeID
 
-                        Q.Write a query to get unique department ID from Employees table
-                        Ans.SELECT DISTINCT DepartmentID FROM Employees
+                        Q 9. Write a query to display the department name, manager name, and city. 
+                        Ans.
+                        CREATE VIEW DeptMngrLocation AS
+                        SELECT d.DepartmentName, e.FirstName AS 'ManagerName', l.City
+                        FROM Employees AS e JOIN Departments AS d
+                        ON d.ManagerID = e.EmployeeID JOIN Locations AS l
+                        ON l.LocationID = d.LocationID
 
-                        Q.Write a query to get all employee details from the employee table order by FirstName, descending.
-                        Ans.SELECT * FROM Employees ORDER BY FirstName DESC
+                        Q 10. Write a query to display the job title and average salary of employees. 
+                        Ans.
+                        CREATE VIEW JobAvgSal AS
+                        SELECT JobId, AVG(Salary) AS 'AvgSalary'
+                        FROM Employees
+                        GROUP BY JobId
 
-                        Q.Write a query to get the EmployeeID, names (FirstName, LastName), salary in ascending order of salary.
-                        Ans.SELECT EmployeeID, FirstName, LastName, Salary FROM Employees ORDER BY Salary 
+                        Q 11. Display job title, employee name, and the difference between salary of the employee and minimum salary for the job.
+                        Ans.
+                        CREATE VIEW EmpDiffSal AS
+                        SELECT JobId, FirstName, Salary-(
+                            SELECT MIN(Salary)
+                            FROM Employees AS e2
+                            WHERE e1.JobId = e2.JobId
+                        ) AS MinSal
+                        FROM Employees AS e1
 
-                        Q.Select TOP 2 salary from employee table
-                        Ans.SELECT TOP 2 Salary FROM Employees
+                        Q 12. Write a query to display the job history that were done by any employee who is currently drawing more than 10000 of salary. 
+                        Ans.
+                        CREATE VIEW JobHist AS
+                        SELECT j.*
+                        FROM JobHistory AS j JOIN Employees AS e
+                        ON j.EmployeeID = e.EmployeeID
+                        WHERE e.Salary>10000
 
-
-                    
+                        Q 13. Write a query to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience is more than 15 years. 
+                        Ans.
+                        CREATE VIEW DeptMngrJob AS
+                        SELECT d.DepartmentName, e.FirstName, e.LastName, e.HireDate, e.Salary
+                        FROM Departments AS d JOIN Employees As e
+                        ON e.EmployeeID = d.ManagerID JOIN JobHistory AS j
+                        ON e.EmployeeID = j.EmployeeID
+                        WHERE DATEDIFF(YY, e.HireDate, j.EndDate)>15
+                        
                     </pre>
 
                 </div>
