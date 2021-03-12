@@ -14,7 +14,6 @@ CREATE TABLE HumanResources.Employees (EmployeeID decimal(6,0) NOT NULL DEFAULT 
 	DepartmentID decimal(4,0) DEFAULT NULL,
 );
 
-
 INSERT INTO HumanResources.Employees (EmployeeID,FirstName,LastName , Email, PhoneNumber, HireDate, JobId, Salary, CommissionPct, ManagerID, DepartmentID) VALUES
 ('103', 'Steven', 'King', 'SKING', '515.123.4567', '1987-06-17', 'AD_PRES', '24000.00', '0.00', '0', '90'),
 ('104', 'Neena', 'Kochhar', 'NKOCHHAR', '515.123.4568', '1987-06-18', 'AD_VP', '17000.00', '0.00', '100', '90'),
