@@ -162,7 +162,7 @@ DATENAME(mm,sa.saledate) = 'January';
 /* 13.  List the name, salesperson ID, and total sales amount for each salesperson who has ever sold at least one car. 
 The total sales amount for a salesperson is the sum of the sale prices of all cars ever sold by that salesperson. */
 
-SELECT sp.salespersonid FROM Sale s 
+SELECT sp.salespersonid , sp.name ,SUM(s.saleprice) FROM Sale s 
        JOIN SalesPerson sp  ON s.salespersonid =sp.salespersonid GROUP BY sp.salespersonid , sp.name
 
 /* 14.  Find the names of all customers who bought cars during 2010 who were also salespeople during 2010.
