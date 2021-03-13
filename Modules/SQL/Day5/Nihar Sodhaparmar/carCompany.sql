@@ -7,11 +7,20 @@ CREATE TABLE Cars
 	VIN INT NOT NULL CONSTRAINT ukVINCars UNIQUE, 
 	Make VARCHAR(50) NOT NULL, 
 	Model VARCHAR(50) NOT NULL, 
-	[Year] DATE NOT NULL CONSTRAINT chkYearCars CHECK ([Year] LIKE '[0-9][0-9][0-9][0-9]'),
+	[Year] DATE NOT NULL,
 	Mileage TINYINT NOT NULL, 
 	AskPrice MONEY NOT NULL, 
 	InvoicePrice MONEY NOT NULL
 );
+
+INSERT INTO Cars (VIN, Make, Model, [Year], Mileage, AskPrice, InvoicePrice) VALUES
+	(10000001, 'Toyota', 'Prius', '2010-01-01', 23.91, 4600000, 4500000),
+	(10000002, 'Toyota', 'Camry', '2010-01-01', 19.16, 4100000, 3900000),
+	(10000003, 'Toyota', 'Glanza', '2010-01-01', 21.96, 4100000, 3900000),
+	(10000004, 'Hyundai', 'Verna', '2010-01-01', 25, 1000000, 900000),
+	(10000005, 'Honda', 'Amaze', '2010-01-01', 24.70, 6500000, 6400000);
+
+SELECT * FROM Cars;
 
 -- DEALERSHIPS TABLE
 CREATE TABLE DealerShips 
@@ -23,12 +32,36 @@ CREATE TABLE DealerShips
 	State VARCHAR(50) NOT NULL
 );
 
+INSERT INTO DealerShips (Name, Address, City, State) VALUES
+	('Concept Hyundai', 'SRP Camp', 'Nadiad', 'Gujarat'),
+	('Hero Honda Car World', 'SRP Camp', 'Delhi', 'Delhi'),
+	('Ferrari Sales', 'SRP Camp', 'Delhi', 'Delhi'),
+	('Toyota Performance', 'SRP Camp', 'Nadiad', 'Gujarat');
+
+SELECT * FROM DealerShips;
+
 -- SALESPERSONS TABLE
 CREATE TABLE SalesPersons 
 (
 	SalesPersonId INT CONSTRAINT pkSalesPersons PRIMARY KEY IDENTITY(1,1), 
 	Name VARCHAR(100) NOT NULL
 );
+
+INSERT INTO SalesPersons (Name) VALUES
+	('Adam Smith'),
+	('Nihar Sodhaparmar'),
+	('John Smith'),
+	('Neela Kochhar'),
+	('David Austin'),
+	('Julia Nayer'),
+	('Ki Gee'),
+	('Peter King'),
+	('Lisa Fox'),
+	('Sarah Bell'),
+	('Ronak Sodha'),
+	('James Smith');
+
+SELECT * FROM SalesPersons;
 
 -- CUSTOMERS TABLE
 CREATE TABLE Customers 
@@ -40,6 +73,15 @@ CREATE TABLE Customers
 	State VARCHAR(50) NOT NULL
 );
 
+INSERT INTO Customers (Name, Address, City, State) VALUES
+	( 'Ronak Sodha', 'SG Road', 'Ahmedabad', 'Gujarat'),
+	( 'Mahi Parmar', 'SG Road', 'Ahmedabad', 'Gujarat'),
+	( 'Divya Agrawal', 'Juhu', 'Mumbai', 'Madhya Pradesh'),
+	( 'Stephy Parmar', 'Madailand', 'Mumbai', 'Madhya Pradesh'),
+	( 'Nihal Singh', 'Red Fort', 'Delhi', 'Delhi');
+
+SELECT * FROM Customers;
+
 -- REPORTSTO TABLE
 CREATE TABLE ReportsTo 
 (
@@ -47,6 +89,18 @@ CREATE TABLE ReportsTo
 	SalesPersonId INT NOT NULL CONSTRAINT fkSalesPersonIdReportsToTable FOREIGN KEY REFERENCES SalesPersons(SalesPersonId), 
 	ManagingSalesPersonId INT NOT NULL CONSTRAINT fkmanagingSalesPersonIdReportsToTable FOREIGN KEY REFERENCES Salespersons(SalesPersonId)
 );
+
+INSERT INTO ReportsTo (SalesPersonId, ManagingSalesPersonId) VALUES
+	(3,1),
+	(4,1),
+	(5,1),
+	(6,1),
+	(7,2),
+	(8,2),
+	(9,2),
+	(10,2);
+	
+SELECT * FROM ReportsTo;
 
 -- WORKSAT TABLE
 CREATE TABLE WorksAt
@@ -58,6 +112,22 @@ CREATE TABLE WorksAt
 	BaseSalaryforMonth MONEY NOT NULL
 );
 
+INSERT INTO WorksAt (SalesPersonId, DealerShipId, MonthWorked, BaseSalaryforMonth) VALUES
+	(1, 3, '2010-01-01', 15000),
+	(3, 3, '2010-01-01', 10000),
+	(4, 3, '2010-01-01', 11000),
+	(5, 3, '2010-01-01', 12000),
+	(6, 3, '2010-01-01', 12000),
+	(2, 2, '2010-01-01', 16000),
+	(7, 2, '2010-01-01', 11500),
+	(8, 2, '2010-01-01', 12500),
+	(9, 2, '2010-01-01', 13500),
+	(10, 2, '2010-01-01', 14500),
+	(11, 1, '2010-01-01', 10500),
+	(12, 4, '2010-01-01', 16000);
+
+SELECT * FROM WorksAt
+
 -- INVENTORIES TABLE
 CREATE TABLE Inventories 
 (
@@ -65,6 +135,15 @@ CREATE TABLE Inventories
 	VIN INT NOT NULL CONSTRAINT fkVINInventoriesTable FOREIGN KEY REFERENCES Cars(VIN), 
 	DealersShipId INT NOT NULL CONSTRAINT fkDealerShipIdInventoriesTable FOREIGN KEY REFERENCES DealerShips(DealerShipId),
 );
+
+INSERT INTO Inventories (VIN, DealersShipId) VALUES
+	(10000001, 4),
+	(10000002, 4),
+	(10000003, 4),
+	(10000004, 1),
+	(10000004, 2);
+
+SELECT * FROM Inventories;
 
 -- SALES TABLE
 CREATE TABLE Sales 
@@ -77,6 +156,26 @@ CREATE TABLE Sales
 	SalePrice MONEY NOT NULL, 
 	SaleDate DATE NOT NULL
 );
+
+INSERT INTO Sales (VIN, CustomerId, SalesPersonID, DealerShipId, SalePrice, SaleDate) VALUES
+	(10000004, 1, 11, 1, 1000000 , '2010-01-01'),
+	(10000004, 2, 11, 1, 1000000 , '2010-01-01'),
+	(10000004, 3, 11, 1, 1000000 , '2010-01-01'),
+	(10000004, 4, 11, 1, 1000000 , '2010-01-01'),
+	(10000001, 1, 12, 4, 1000000 , '2010-01-01'),
+	(10000002, 1, 12, 4, 1000000 , '2010-01-01'),
+	(10000003, 1, 12, 4, 1000000 , '2010-01-01'),
+	(10000003, 1, 12, 3, 1000000 , '2010-01-01'),
+	(10000004, 1, 11, 1, 1000000 , '2010-03-01'),
+	(10000004, 2, 11, 1, 1000000 , '2010-03-01'),
+	(10000004, 3, 11, 1, 1000000 , '2010-03-01'),
+	(10000004, 4, 11, 1, 1000000 , '2010-03-01'),
+	(10000001, 1, 12, 4, 1000000 , '2010-03-01'),
+	(10000002, 1, 12, 4, 1000000 , '2010-03-01'),
+	(10000003, 1, 12, 4, 1000000 , '2010-03-01'),
+	(10000003, 1, 12, 3, 1000000 , '2010-03-01');
+
+SELECT * FROM Sales;
 
 
 -- =========================================================================================
@@ -173,7 +272,7 @@ WHERE c.State <> d.State;
 during January 2010. */
 SELECT salesPersonTbl.Name
 FROM ( SELECT s.Name
-			, DENSE_RANK() OVER (ORDER BY w.BaseSalaryforMonth ASC) AS 'BaseSalaryRank'
+			, DENSE_RANK() OVER (ORDER BY w.BaseSalaryforMonth DESC) AS 'BaseSalaryRank'
 		FROM SalesPersons s
 			INNER JOIN WorksAt w ON s.SalesPersonId = w.SalesPersonId
 			INNER JOIN DealerShips d ON d.DealerShipId = w.DealerShipId
@@ -192,7 +291,7 @@ FROM Customers c1
 	INNER JOIN (SELECT DISTINCT c.CustomerId
 				FROM Customers c
 					INNER JOIN Sales s ON c.CustomerId = s.CustomerId
-				WHERE S.SaleDate > '2010-01-01'
+				WHERE S.SaleDate >= '2010-01-01'
 				GROUP BY c.CustomerId HAVING COUNT(*) > 2) c2 ON C1.CustomerId = c2.CustomerId;
 
 SELECT DISTINCT c1.Name
@@ -203,7 +302,7 @@ FROM Customers c1
 WHERE c1.CustomerId IN (SELECT DISTINCT c.CustomerId
 				FROM Customers c
 					INNER JOIN Sales s ON c.CustomerId = s.CustomerId
-				WHERE S.SaleDate > '2010-01-01'
+				WHERE S.SaleDate >= '2010-01-01'
 				GROUP BY c.CustomerId HAVING COUNT(*) > 2);
 
 
@@ -218,7 +317,7 @@ HAVING COUNT(s.SalesPersonID) > 0;
 
 /* 14. Find the names of all customers who bought cars during 2010 who were also salespeople during 2010. 
 For the purpose of this query, assume that no two people have the same name. */
-SELECT c.Name
+SELECT DISTINCT c.Name
 FROM Sales s
 	INNER JOIN Customers c ON s.CustomerId = c.CustomerId
 	INNER JOIN WorksAt w ON s.SalesPersonID = w.SalesPersonId
@@ -228,7 +327,7 @@ WHERE DATEPART(YY,s.SaleDate) = 2010 AND DATEPART(YY,w.MonthWorked) = 2010;
 
 /* 15. Find the name and salesperson ID of the salesperson who sold the most cars for the company at dealerships 
 located in Gujarat between March 1, 2010 and March 31, 2010. */
-SELECT tempTbl.SalesPersonID, tempTbl.Name, MAX(tempTbl.NumberOfCarsSoldInGujarat) AS 'TotalCarsSold'
+SELECT TOP 1 tempTbl.SalesPersonID, tempTbl.Name, MAX(tempTbl.NumberOfCarsSoldInGujarat) AS 'TotalCarsSold'
 FROM ( SELECT COUNT(*) AS 'NumberOfCarsSoldInGujarat', s.SalesPersonID, sp.Name
 		FROM Sales s
 			INNER JOIN DealerShips d ON d.DealerShipId = s.DealerShipId
@@ -236,7 +335,8 @@ FROM ( SELECT COUNT(*) AS 'NumberOfCarsSoldInGujarat', s.SalesPersonID, sp.Name
 		WHERE s.SaleDate BETWEEN '2010-03-01' AND '2010-03-31'
 			AND d.State = 'Gujarat'
 		GROUP BY s.SalesPersonId, sp.Name ) AS tempTbl
-GROUP BY tempTbl.SalesPersonID, tempTbl.Name;
+GROUP BY tempTbl.NumberOfCarsSoldInGujarat,tempTbl.SalesPersonID, tempTbl.Name
+ORDER BY tempTbl.NumberOfCarsSoldInGujarat DESC;
 
 
 /* 16. Calculate the payroll for the month of March 2010.
