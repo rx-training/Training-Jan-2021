@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[PlanetsID](
+[ID] [int] NOT NULL,
+[Item] [int] NOT NULL,
+[Value] [int] NOT NULL
+) ON [PRIMARY]
+GO
+INSERT INTO PlanetsID VALUES (4, 23, 66)
+INSERT INTO PlanetsID VALUES (1, 12, 59)
+INSERT INTO PlanetsID VALUES (3, 66, 24)
+SELECT * FROM PlanetsID
+GO
+
+CREATE CLUSTERED INDEX PK_PID ON dbo.PlanetsID (ID);

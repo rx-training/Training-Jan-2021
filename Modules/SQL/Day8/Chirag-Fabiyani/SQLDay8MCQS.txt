@@ -1,0 +1,32 @@
+1. Which of the following is not a constraint?
+a. CHECK
+b. DEFAULT
+c. UNIQUE
+d. INDEX
+
+ANS:- D
+
+2. Which of the following things can help speed data retrieval?
+a. A DEFAULT constraint
+b. A primary key constraint
+c. A clustered index
+d. A foreign key constraint
+
+ANS:- C
+
+5. Consider using a clustered index when:
+a. Columns contain a large number of distinct values
+b. Columns are accessed sequentially
+c. Columns undergo frequent changes
+d. Queries return large result sets
+
+ANS:- A,B,D
+
+8. How many clustered indexes can you have for a database?
+a. 1
+b. 2
+c. 4
+d. 8
+
+AND:- A
+
