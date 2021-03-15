@@ -138,7 +138,6 @@ SELECT Salary FROM
 
 /*22. Write a query to get nth max salaries of employees. */
 
-
 SELECT Salary FROM 
  (SELECT Salary,DENSE_RANK() OVER ( ORDER BY Salary DESC) 'rank' FROM Employees GROUP BY Salary) AS tbl
  WHERE rank = n

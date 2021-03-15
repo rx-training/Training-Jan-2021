@@ -22,8 +22,8 @@ SELECT * FROM EmpData
 
 /*3. Find the names (first_name, last_name), job, department number, and department name of the employees who work in London. */
 
-CREATE VIEW LondonEmp AS
-SELECT e.FirstName + e.LastName AS 'Name',e.JobId ,e.DepartmentID, d.DepartmentName FROM Employees e LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID 
+ALTER VIEW LondonEmp AS
+SELECT e.FirstName + e.LastName AS 'Name',e.JobId ,e.DepartmentID, d.DepartmentName FROM Employees e  JOIN Departments d ON e.DepartmentID = d.DepartmentID 
 JOIN Locations l ON d.LocationID = l.LocationID WHERE City = 'London'
 
 SELECT * FROM LondonEmp
