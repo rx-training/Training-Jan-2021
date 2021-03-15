@@ -1,4 +1,4 @@
-
+/*
 --Write a query to rank employees based on their salary for a month
 SELECT	FirstName ,
 		Salary ,
@@ -46,9 +46,17 @@ SELECT * FROM ( SELECT DepartmentID,SUM(Salary) as ranking  FROM Employees GROUP
 
 
 
+*/
 
+--Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
 
+--Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
 
+--Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives.
+
+--Select EmployeeName, ManagerName from the employee table.
+
+--Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives and set incentive amount as 0 for those employees who didn’t get incentives.
 
 
 
