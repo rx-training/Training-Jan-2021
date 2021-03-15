@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Home</title>
+
+    <style>
+        td, th {
+            border: 1px solid;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--Employee Form-->
+        <form id="employee">
+            <div class="formgroup my-3">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter name" class="form-control" />
+            </div>
+
+            <div class="formgroup my-3">
+                <label for="contact">Contact Number</label>
+                <input type="number" id="number" placeholder="Enter number" class="form-control" />
+            </div>
+
+            <div class="formgroup my-3">
+                <label for="password">Password</label>
+                <input type="text" id="password" placeholder="Password" class="form-control" />
+            </div>
+
+            <div class="formgroup my-3">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-control">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+
+            <div class="formgroup my-3">
+                <label for="Country">Country</label>
+                <select id="country" class="form-control" name="meal" onclick="changecat(this.value);" onkeyup="changecat(this.value);" onchage="changecat(this.value);">
+                    <option value="India">India</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Canada">Canada</option>
+                    <option value="USA">USA</option>
+                    <option value="Japan">Japan</option>
+                </select>
+            </div>
+
+
+            <div class="formgroup my-3">
+                <label for="State">State</label>
+                <select name="category" id="state" class="form-control">
+                    <option value="" disabled selected>Select</option>
+                </select>
+            </div>
+            <br /><br />
+            <button class="btn btn-primary m-auto" id="submit" type="submit" onclick="AddData()">Submit</button>
+            <button class="btn btn-warning m-auto" id="reset" type="reset" onclick="reset()">Reset</button>
+            <br /><br />
+        </form>
+
+        <div id="tab">
+            <table id="list" text-align="center" style="border: 1px solid black">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Password</th>
+                        <th>City</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var cityByCategory = {
+            India: ["Gujarat", "Maharastra", "Rajasthan", "Madhya Pradesh", "Uttar Pradesh", "Bihar", "Jharkhand", "West Bengal", "Others"],
+            Australia: ["New South Wales", "Queensland", "Queensland", "Tasmania", "Victoria", "Western Australia"],
+            Canada: ["Ontario", "Alberta", "Quebec", "Yukon", "Nunavut", "Montreal", "Regina", "Saskatoon", "Others"],
+            USA: ["California", "New York", "Pennsylvania", "Texas", "Others", "Florida", "Hawaii", "Otherss"],
+            Japan: ["Hokkaido", "Tohoku", "Kanto", "Chubu", "Kinki", "Chugoku", "Others"]
+        }
+
+        function changecat(value) {
+            if (value.length == 0) document.getElementById("state").innerHTML = "<option></option>";
+            else {
+                var catOptions = "";
+                for (categoryId in cityByCategory[value]) {
+                    catOptions += "<option>" + cityByCategory[value][categoryId] + "</option>";
+                }
+                document.getElementById("state").innerHTML = catOptions;
+            }
+        }
+
+        function AddData() {
+            var x = document.getElementById("contact").value;
+            var y = document.getElementById("name").value;
+            var letters = '/^[a-zA-Z]+$/';
+            if ((parseInt(x) != (x)) && (y == parseInt(y))) {
+                alert("Wrong Value Entered");
+            }
+            else {
+                var rows = "";
+                var name = document.getElementById("name").value;
+                var contact = document.getElementById("number").value;
+                var password = document.getElementById("password").value;
+                var gender = document.getElementById("gender").value;
+                var country = document.getElementById("country").value;
+                var state = document.getElementById("state").value;
+
+                rows += "<tr><td>" + name + "</td><td>" + contact + "</td><td>" + password + "</td><td>" + gender + "</td><td>" + country + "</td><td>" + state + "</td></tr>";
+                $(rows).appendTo("#list tbody");
+
+            }
+        }
+
+        function reset() {
+            document.getElementById("employee").reset();
+        }
+
+    </script>
+</body>
+</html>
