@@ -76,12 +76,14 @@ SELECT * FROM Employees WHERE EmployeeID % 2 = 0
 
 /* 16. Write a query to find the 5th maximum salary in the employees table. */ 
 
-SELECT DISTINCT Salary  FROM Employees e1 
-      WHERE 5 = (SELECT COUNT(DISTINCT Salary) FROM Employees e2 WHERE e2.Salary >= e1.Salary)
+SELECT Salary  FROM (SELECT DISTINCT Salary , DENSE_RANK() OVER (ORDER BY Salary DESC) AS 'MaximumSalary' 
+       FROM Employees)AS tb1  WHERE MaximumSalary = 5
+
 
 /* 17. Write a query to find the 4th minimum salary in the employees table. */
-SELECT DISTINCT Salary  FROM Employees e1 
-      WHERE 4 = (SELECT COUNT(DISTINCT Salary) FROM Employees e2 WHERE e2.Salary <= e1.Salary)
+
+SELECT Salary  FROM (SELECT DISTINCT Salary , DENSE_RANK() OVER (ORDER BY Salary) AS 'MinimumSalary' 
+       FROM Employees)AS tb1  WHERE MinimumSalary = 4
 
 /*18. Write a query to select last 10 records from a table.  */
 SELECT TOP 10 * FROM Employees ORDER BY EmployeeID DESC
@@ -91,14 +93,15 @@ SELECT * FROM Departments WHERE DepartmentID NOT IN (SELECT DepartmentID FROM Em
 
 /* 20 .  Write a query to get 3 maximum salaries.  */
 
-SELECT DISTINCT Salary  FROM Employees e1 
-      WHERE 3 >= (SELECT COUNT(DISTINCT Salary) FROM Employees e2 WHERE e2.Salary >= e1.Salary) ORDER BY e1.Salary DESC
+SELECT Salary FROM (SELECT  DISTINCT Salary , DENSE_RANK() OVER (ORDER BY Salary DESC) AS 'Maximum_top_3_Salaries' FROM Employees)
+       AS tb1 WHERE Maximum_top_3_Salaries < 4 ORDER BY Salary DESC
 
 /* 21. Write a query to get 3 minimum salaries.  */
-SELECT DISTINCT Salary  FROM Employees e1 
-      WHERE 3 >= (SELECT COUNT(DISTINCT Salary) FROM Employees e2 WHERE e2.Salary <= e1.Salary) ORDER BY e1.Salary DESC
+
+SELECT Salary FROM (SELECT  DISTINCT Salary , DENSE_RANK() OVER (ORDER BY Salary) AS 'Minimum_top_3_Salaries' FROM Employees)
+       AS tb1 WHERE Minimum_top_3_Salaries < 4 ORDER BY Salary DESC
 
 /* 22. Write a query to get nth max salaries of employees. */
-SELECT * FROM Employees e 
-         WHERE 1 = ( SELECT COUNT(DISTINCT em.Salary) FROM Employees em WHERE em.Salary > e.Salary )
 
+SELECT Salary FROM (SELECT  DISTINCT Salary , DENSE_RANK() OVER (ORDER BY Salary DESC) AS 'nth_max_Salaries' FROM Employees)
+       AS tb1 WHERE nth_max_Salaries = 2 ORDER BY Salary DESC
