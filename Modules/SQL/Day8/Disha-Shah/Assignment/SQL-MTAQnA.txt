@@ -1,0 +1,89 @@
+SQL-MTA Assignment:
+
+3. A primary key can contain NULL values.(T/F)
+Ans. False
+
+4. A clustered index usually improves performance when inserting data.(T/F)
+Ans.True 
+
+5. A table can contain only one clustered index.(T/F)
+Ans. True
+
+2. The value of a primary key must be ___.
+Ans. Unique
+
+3. A foreign key works in conjunction with primary key or unique constraints to enforce 
+____________ between tables.
+Ans.Referential Integrity
+
+4. Add an index to one or more columns to speed up data ____________.
+Ans.Retrieval
+
+5. Values in a clustered index are ____________.
+Ans.Sorted
+
+1. Which of the following is not a constraint?
+a. CHECK
+b. DEFAULT
+c. UNIQUE
+d. INDEX
+Ans. d) INDEX
+
+2. Which of the following things can help speed data retrieval?
+a. A DEFAULT constraint
+b. A primary key constraint
+c. A clustered index
+d. A foreign key constraint
+Ans. c) A clustered index
+
+4. Which of the following statements is not true with regard to foreign keys?
+a. A foreign key is a combination of one or more columns used to establish and enforce 
+a link between the data in two tables.
+b. You can create a foreign key by defining a foreign key constraint when you create or 
+alter a table.
+c. A foreign key enforces referential integrity by ensuring only valid data is stored.
+d. A table can contain only one foreign key.
+Ans. d)A table can contain only one foreign key.
+
+5. Consider using a clustered index when:
+a. Columns contain a large number of distinct values
+b. Columns are accessed sequentially
+c. Columns undergo frequent changes
+d. Queries return large result sets
+Ans. b) Columns are accessed sequentially
+
+7. Which of the following could not be used as a primary key?
+a. A Social Security number
+b. An address
+c. An employee number
+d. The serial number of an electronic component
+Ans. b) An address
+
+8. How many clustered indexes can you have for a database?
+a. 1
+b. 2
+c. 4
+d. 8
+Ans. a) 1
+
+9. What is the name for the situation in which more than one columns act as a primary 
+key?
+a. Composite primary key
+b. Escalating key
+c. Foreign key
+d. Constraint key
+Ans. a) Composite primary key 
+
+Scenario 4-2: Comparing Clustered and Non-Clustered Indexes
+Your boss wants to speed things up on the company’s database server. Therefore, he is thinking of having you create a couple of indexes. He asks you to explain the advantages and disadvantages of creating a clustered index versus a non-clustered index. How should you respond
+Ans. 
+Clustered Index:
+1. Clustered indexes sort and store the data rows in the table based on their key values.
+2. There can be only one clustered index per table
+3. It can be unique 
+
+Non Clustered Index:
+1. A nonclustered index contains the nonclustered index key values and each key value entry has a pointer to the data row that contains the key value.
+2. The pointer from an index row in a nonclustered index to a data row is called a row locator. The structure of the row locator depends on whether the data pages are stored in a heap or a clustered table. For a heap, a row locator is a pointer to the row. For a clustered table, the row locator is the clustered index key.
+3. It can be Unique.
+4. A table can have multiple non-clustered index.
