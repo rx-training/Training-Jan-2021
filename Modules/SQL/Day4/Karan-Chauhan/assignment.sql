@@ -3,6 +3,7 @@ USE Employeesdb;
 /* Write a query to rank employees based on their salary for a month */
 SELECT DENSE_RANK() OVER (ORDER BY Salary) AS RANK,* FROM Employees;
 
+--SELECT * FROM Employees;
 
 /* Select 4th Highest salary from employee table using ranking function */
 SELECT * FROM
