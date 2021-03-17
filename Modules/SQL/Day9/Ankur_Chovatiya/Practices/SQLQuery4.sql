@@ -1,0 +1,8 @@
+SELECT BusinessEntityID , 'Marital Status' = 
+CASE MARITALSTATUS 
+		WHEN 'M' THEN 'MARRIED'
+		WHEN 'S' THEN 'SINGLE'
+		ELSE 'NOT SPECIFIDE'
+END
+FROM HumanResources.Employee
+GO
