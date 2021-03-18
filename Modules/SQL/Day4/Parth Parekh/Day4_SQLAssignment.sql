@@ -2,7 +2,7 @@ SELECT * FROM Employees
 
 /* 1. Write a query to rank employees based on their salary for a month */
 
-SELECT  FirstNAme , LastName , ROW_NUMBER() OVER (ORDER BY Salary DESC) AS 'Ranked' FROM Employees 
+SELECT  FirstNAme , LastName , DENSE_RANK() OVER (ORDER BY Salary DESC) AS 'Ranked' FROM Employees 
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
 
