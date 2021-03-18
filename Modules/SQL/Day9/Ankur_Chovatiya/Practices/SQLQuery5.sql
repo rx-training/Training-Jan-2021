@@ -1,7 +1,7 @@
 DECLARE @VAR1 INT 
 WHILE (SELECT AVG(ListPrice) FROM Production.Product) < 300
 BEGIN
-	PRINT 'ABEY SALLE'
+	PRINT 'HELLO'
  UPDATE Production.Product
 	SET ListPrice = ListPrice *2;
 	SELECT @VAR1 = AVG(LISTPRICE) FROM Production.Product
