@@ -97,7 +97,7 @@ WHERE e.Salary >
 
 -- 15. Write a query to fetch even numbered records from employees table.
 
-SELECT * FROM Employees WHERE EmployeeID%2 = 0;
+SELECT * FROM Employees WHERE EmployeeID%2 != 0;
 
 -- 16. Write a query to find the 5th maximum salary in the employees table.
 
