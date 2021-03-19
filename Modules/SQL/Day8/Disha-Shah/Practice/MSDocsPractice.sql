@@ -154,6 +154,35 @@ SET (
     )
 
 
+--MOVE TO A DIFFERENT FILE GROUP USING TRANSACT SQL
+-- Creates the TransactionsFG1 filegroup on the AdventureWorks2012 database  
+ALTER DATABASE AdventureWorks2012  
+ADD FILEGROUP TransactionsFG1;  
+GO  
+/* Adds the TransactionsFG1dat3 file to the TransactionsFG1 filegroup. Please note that you will have to change the filename parameter in this statement to execute it without errors.  
+*/  
+ALTER DATABASE AdventureWorks2012   
+ADD FILE   
+(  
+    NAME = TransactionsFG1dat3,  
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS01\MSSQL\DATA\TransactionsFG1dat3.ndf',  
+    SIZE = 5MB,  
+    MAXSIZE = 100MB,  
+    FILEGROWTH = 5MB  
+)  
+TO FILEGROUP TransactionsFG1;  
+GO  
+/*Creates the IX_Employee_OrganizationLevel_OrganizationNode index  
+  on the TransactionsPS1 filegroup and drops the original IX_Employee_OrganizationLevel_OrganizationNode index.  
+*/  
+CREATE NONCLUSTERED INDEX IX_Employee_OrganizationLevel_OrganizationNode  
+    ON HumanResources.Employee (OrganizationLevel, OrganizationNode)  
+    WITH (DROP_EXISTING = ON)  
+    ON TransactionsFG1;  
+GO  
+
+
+
 --DISABLE INDEX
 USE AdventureWorks2012;  
 GO  
@@ -329,3 +358,5 @@ WITH (DROP_EXISTING = ON);
 SELECT object_id, index_id, partition_number, row_group_id, delta_store_hobt_id, 
   state, state_desc, total_rows, deleted_rows, size_in_bytes   
 FROM sys.dm_db_column_store_row_group_physical_stats
+
+
