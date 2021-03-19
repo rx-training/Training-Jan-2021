@@ -424,11 +424,7 @@ WHERE ManagerID IN (
 /*Q 4. Find the names (first_name, last_name) of the employees who are managers. 
 Ans.*/
 SELECT FirstName, LastName
-FROM Employees
-WHERE EmployeeID IN (
-	SELECT ManagerID
-	FROM Departments
-)
+FROM Employees WHERE EmployeeID IN (SELECT ManagerID FROM Employees)
 
 /*Q 5. Find the names (first_name, last_name), salary of the employees whose salary is greater than the average salary. 
 Ans.*/
@@ -508,11 +504,7 @@ ORDER BY Salary
 /*Q 12. Write a query to find the names (first_name, last_name) of the employees who are not supervisors. 
 Ans.*/
 SELECT FirstName, LastName
-FROM Employees
-WHERE EmployeeID NOT IN (
-	SELECT ManagerID
-	FROM Departments
-)
+FROM Employees WHERE EmployeeID NOT IN (SELECT ManagerID FROM Employees)
 
 /*Q 13. Write a query to display the employee ID, first name, last names, and department names of all employees. 
 Ans.*/
@@ -537,7 +529,7 @@ WHERE Salary > (
 Ans.*/
 SELECT * 
 FROM Employees
-WHERE EmployeeID%2 <> 0
+WHERE EmployeeID%2 = 0
 
 /*Q 16. Write a query to find the 5th maximum salary in the employees table. 
 Ans.*/

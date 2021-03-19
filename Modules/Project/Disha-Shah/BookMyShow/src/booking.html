@@ -129,7 +129,7 @@
                             </tr>
                         </thead>
                         <tbody id="tblBookings">
-
+                            
                         </tbody>
                     </table>
                 </div>
@@ -150,23 +150,26 @@
         
 
         
-            document.getElementById("tblBookings").innerHTML = "";
+            document.getElementById("tblBookings").innerHTML = '<tr><td colspan="10" class="text-center">Currently no bookings are done.</td></tr>';
             var bookingArray = JSON.parse(localStorage.getItem("Booking"));
-            for(data in bookingArray){
-                //console.log(usersArray[data].Name);
-                
-                    document.getElementById("tblBookings").innerHTML += "<tr><td>" + bookingArray[data].bookingId 
-                        + "</td><td>" + bookingArray[data].bookedByUser 
-                        + "</td><td>" + bookingArray[data].userContact + "</td><td>"
-                        + bookingArray[data].Movie + "</td><td>" 
-                        + bookingArray[data].Language + "</td><td>"
-                        + bookingArray[data].Film + "</td><td>" 
-                        + bookingArray[data].Theatre + "</td><td>"
-                        + bookingArray[data].Time + "</td><td>" 
-                        + bookingArray[data].Seats.join(",") + "</td><td>"
-                        + bookingArray[data].TicketPrice + "</td></tr>";
-                        
-                
+            if(bookingArray){
+                document.getElementById("tblBookings").innerHTML = '';
+                for(data in bookingArray){
+                    //console.log(usersArray[data].Name);
+                    
+                        document.getElementById("tblBookings").innerHTML += "<tr><td>" + bookingArray[data].bookingId 
+                            + "</td><td>" + bookingArray[data].bookedByUser 
+                            + "</td><td>" + bookingArray[data].userContact + "</td><td>"
+                            + bookingArray[data].Movie + "</td><td>" 
+                            + bookingArray[data].Language + "</td><td>"
+                            + bookingArray[data].Film + "</td><td>" 
+                            + bookingArray[data].Theatre + "</td><td>"
+                            + bookingArray[data].Time + "</td><td>" 
+                            + bookingArray[data].Seats.join(",") + "</td><td>"
+                            + bookingArray[data].TicketPrice + "</td></tr>";
+                            
+                    
+                }
             }
         }
 
