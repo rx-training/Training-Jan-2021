@@ -53,10 +53,10 @@ SELECT * FROM
 /* 7. Select department, total salary with respect to a department from employee table
   where total salary greater than 50000 order by TotalSalary descending  */
 
-SELECT DepartmentID , SUM(Salary) 'TotalSalary' FROM Employees GROUP BY DepartmentID HAVING SUM(Salary) > 50000 ORDER BY TotalSalary
+SELECT DepartmentID , SUM(Salary) 'TotalSalary' FROM Employees GROUP BY DepartmentID HAVING SUM(Salary) > 50000 ORDER BY TotalSalary DESC
 
 -- Query Answer Using SubQuery
 SELECT * FROM
-(SELECT DepartmentID  , SUM(Salary) 'Total Salary of Department' FROM Employees GROUP BY  DepartmentID)	AS t1 WHERE [Total Salary of Department] > 50000 ORDER BY [Total Salary of Department]
+(SELECT DepartmentID  , SUM(Salary) 'Total Salary of Department' FROM Employees GROUP BY  DepartmentID)	AS t1 WHERE [Total Salary of Department] > 50000 ORDER BY [Total Salary of Department] DESC
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
