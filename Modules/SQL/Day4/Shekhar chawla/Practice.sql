@@ -1,62 +1,81 @@
-/*
---Write a query to rank employees based on their salary for a month
-SELECT	FirstName ,
-		Salary ,
-		DATENAME(month, HireDate) AS Month ,
-		DENSE_RANK() OVER (PARTITION BY MONTH(HireDate) ORDER BY Salary DESC) AS Rank
-		FROM Employees ;
+
+--Day4
+
+--What to Learn
+
+--Ranking Functions
+--Row_number()
+--Rank()
+--Dense_rank()
+--Aggregate Function
+--SUM/COUNT/AVG/MAX/MIN
+--Group by/Having/ROLLUP
+
+--Practice Exercise:
+--Do the hands on the video provided in tutorial site.
 
 
-
---Select 4th Highest salary from employee table using ranking function
---Selecting Distinct top 4 salaries , then selecting minimum salary(4th) , then displaying all fields for 4th salary
-
-SELECT * FROM Employees WHERE Salary = 
-         (
-            SELECT MIN(Salary) FROM Employees 
-            WHERE  Salary IN (
-                                 SELECT DISTINCT TOP 4
-                                     Salary FROM Employees 
-                                         ORDER BY Salary DESC
-                             )
-        ) ;
+-- Row_number
+SELECT	ROW_NUMBER() OVER ( ORDER BY Salary DESC ) AS Row_Num ,
+		Salary 
+	FROM Employees ;
 
 
-
---Get department, total salary with respect to a department from employee table.
-SELECT DepartmentID , SUM( Salary ) AS TotalSalary FROM Employees GROUP BY DepartmentID ;
-
-
-
---Get department, total salary with respect to a department from employee table order by total salary descending
-SELECT DepartmentID , SUM( Salary ) AS TotalSalary FROM Employees GROUP BY DepartmentID ORDER BY TotalSalary DESC;
+-- Rank
+SELECT	RANK() OVER ( PARTITION BY DepartmentID ORDER BY Salary DESC ) AS 'Rank' ,
+		DepartmentID , Salary 
+	FROM Employees 
+	ORDER BY Salary DESC ;
 
 
---Get department wise maximum salary from employee table order by salary ascending
-SELECT * FROM ( SELECT DENSE_RANK() OVER ( PARTITION BY DepartmentID ORDER BY Salary DESC ) as ranking, DepartmentID ,Salary FROM Employees ) Z  WHERE Z.ranking=1 ORDER BY Salary ASC;
+-- Dense_Rank
+SELECT	DENSE_RANK() OVER ( PARTITION BY DepartmentID ORDER BY Salary DESC ) AS 'Dense_Rank' ,
+		DepartmentID , Salary 
+	FROM Employees 
+	ORDER BY Salary DESC ;
 
 
-
---Get department wise minimum salary from employee table order by salary ascending
-SELECT * FROM ( SELECT DENSE_RANK() OVER ( PARTITION BY DepartmentID ORDER BY Salary ASC ) as ranking, DepartmentID ,Salary FROM Employees ) Z  WHERE Z.ranking=1 ORDER BY Salary ASC;
-
-
---Select department, total salary with respect to a department from employee table where total salary greater than 50000 order by TotalSalary descending
-SELECT * FROM ( SELECT DepartmentID,SUM(Salary) as ranking  FROM Employees GROUP BY DepartmentID) Z WHERE Z.ranking > 5000 ORDER BY Z.ranking DESC;
+-- Ntile
+SELECT	NTILE(3) OVER ( ORDER BY Salary DESC ) AS 'Ntile' ,
+		Salary 
+	FROM Employees ;
 
 
+-- Avg , Count , Sum , Max , Min , Group by , Having
+SELECT DepartmentID , 
+		COUNT( EmployeeID ) AS 'No. of Employees' , 
+		AVG( Salary )Average ,
+		SUM( Salary ) AS 'Sum of Salaries' , 
+		MAX( Salary ) AS 'Max Salary' ,
+		MIN( Salary ) AS 'Min Salary' 
+	FROM Employees 
+	GROUP BY DepartmentID 
+	HAVING SUM(Salary) > 10000
+	ORDER BY DepartmentID ASC ;
 
-*/
-
---Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
-
---Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
-
---Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives.
-
---Select EmployeeName, ManagerName from the employee table.
-
---Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives and set incentive amount as 0 for those employees who didn’t get incentives.
+-- Gives sum where null value is encountered
+SELECT DepartmentID , ISNULL(FirstName, 'TOTAL--------->') , SUM(Salary) AS TotalSales
+FROM Employees 
+GROUP BY ROLLUP(DepartmentID , FirstName  ) ;
 
 
+SELECT DepartmentID , ISNULL(FirstName, 'TOTAL--------->') , SUM(Salary) AS TotalSales
+FROM Employees 
+GROUP BY CUBE( FirstName ,DepartmentID , ) ;
 
+
+SELECT DepartmentID , ISNULL(FirstName, 'TOTAL--------->') , SUM(Salary) AS TotalSales
+FROM Employees 
+GROUP BY GROUPING SETS (  FirstName , DepartmentID , ()  ) ;
+
+
+-- Into
+SELECT * INTO EmployeesTemp FROM Employees ;
+SELECT * FROM EmployeesTemp ;
+
+
+-- Over
+select Salary, DepartmentID
+	, [min]	= min(Salary) over(partition by DepartmentID order by Salary)
+	, [max]	= max(Salary) over(partition by DepartmentID order by Salary)
+from Employees ;
