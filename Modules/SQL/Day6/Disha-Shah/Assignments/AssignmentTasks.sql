@@ -529,7 +529,7 @@ WHERE Salary > (
 Ans.*/
 SELECT * 
 FROM Employees
-WHERE EmployeeID%2 = 0
+WHERE EmployeeID%2 <> 0
 
 /*Q 16. Write a query to find the 5th maximum salary in the employees table. 
 Ans.*/
