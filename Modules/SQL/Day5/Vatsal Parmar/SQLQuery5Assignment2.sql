@@ -227,6 +227,6 @@ FROM Salespersons sp
 LEFT JOIN Sales s ON s.SalespersonId = sp.SalespersonId
 LEFT JOIN Cars c ON c.vin = s.vin
 RIGHT JOIN Worksat w ON w.SalespersonId = sp.SalespersonId
-WHERE DATENAME(MM, s.CustomerId) = 'March' AND YEAR(s.Saledate) = 2010
+WHERE DATENAME(MM, s.Saledate) = 'March' AND YEAR(s.Saledate) = 2010
 GROUP BY sp.SalespersonId, sp.[Name]
 ORDER BY sp.SalespersonId;
