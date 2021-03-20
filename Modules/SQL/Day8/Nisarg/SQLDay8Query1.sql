@@ -1,55 +1,45 @@
 
 /*
-  1)
-CREATE TABLE STUDENT (
-	NAME NVARCHAR(20),
-	ROLL_NO INT,
-	MARKS INT
-)
--- CLUSTERED INDEX
+  --Create a batch Select Banking as ‘Bank Dept’, Insurance as ‘Insurance Dept’ and Services as ‘Services Dept’ from employee table
+DECLARE @BankDept varchar(50) = 'Finance'
+DECLARE @HRDept varchar(50) = 'Human Resources'
+DECLARE @SalesDept varchar(50) = 'Sales'
+SELECT d.DepartmentID, CASE
+	WHEN d.DepartmentName = @BankDept THEN 'Banking Dept'
+	WHEN d.DepartmentName = @HRDept THEN 'HR Dept'
+	WHEN d.DepartmentName = @SalesDept THEN 'Sales Dept'
+	ELSE d.DepartmentName
+END AS 'Department Name'
+FROM Departments AS d
+JOIN Employees AS e
+ON d.DepartmentID = e.DepartmentID
+GO
 
-CLUSTERED INDEX IX_STU ON STUDENT (ROLL_NO) -- IT SHOUD PRIMARY KEY 
 
--- NON CLUSTERED INDEX
-CREATE INDEX NIX_STU ON STUDENT (ROLL_NO) -- IT IS USE TO MAKE UNIQUE KEY 
+--5 Students Name, Address, City, DOB, Standard need to be inserted in the student table, need to fetch these result from json variable. and select output in the json format
+DECLARE @json VARCHAR(MAX)
+SET @json = '[
+	{"Id" : "1", "Name" : "Aaa", "Address" : "Adalaj", "City" : "Ahmedabad", "DOB" : "1998-11-22", "Standard" : "12"},
+	{"Id" : "2", "Name" : "Bbb", "Address" : "Maninagar", "City" : "Ahmedabad", "DOB" : "1999-11-25", "Standard" : "11"},
+	{"Id" : "3", "Name" : "Ccc", "Address" : "Thaltej", "City" : "Ahmedabad", "DOB" : "2000-11-22", "Standard" : "10"},
+	{"Id" : "4", "Name" : "Ddd", "Address" : "Katargam", "City" : "Surat", "DOB" : "1998-11-30", "Standard" : "12"},
+	{"Id" : "5", "Name" : "Eee", "Address" : "Bhestan", "City" : "Surat", "DOB" : "2000-12-23", "Standard" : "10"}
+	]'
+
+SELECT * INTO Students
+FROM OPENJSON(@json)
+WITH
+	(Id INT '$.Id',
+	Name VARCHAR(50) '$.Name',
+	Address VARCHAR(150) '$.Address',
+	City VARCHAR(50) '$.City',
+	DOB DATE '$.DOB',
+	Standard INT '$.Standard')
 
 
-SELECT * FROM STUDENT WHERE ROLL_NO = 1245
-
-2)
-
-CREATE TABLE student
-(
-    id INT NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    gender VARCHAR(50) NOT NULL,
-    DOB datetime NOT NULL,
-    total_score INT NOT NULL,
-    city VARCHAR(50) NOT NULL
- )
- 
-
- EXECUTE sp_helpindex student
-
- INSERT INTO student
- 
-VALUES  
-(6, 'Kate', 'Female', '03-JAN-1985', 500, 'Liverpool'), 
-(2, 'Jon', 'Male', '02-FEB-1974', 545, 'Manchester'),
-(9, 'Wise', 'Male', '11-NOV-1987', 499, 'Manchester'), 
-(3, 'Sara', 'Female', '07-MAR-1988', 600, 'Leeds'), 
-(1, 'Jolly', 'Female', '12-JUN-1989', 500, 'London'),
-(4, 'Laura', 'Female', '22-DEC-1981', 400, 'Liverpool'),
-(7, 'Joseph', 'Male', '09-APR-1982', 643, 'London'),  
-(5, 'Alan', 'Male', '29-JUL-1993', 500, 'London'), 
-(8, 'Mice', 'Male', '16-AUG-1974', 543, 'Liverpool'),
-(10, 'Elis', 'Female', '28-OCT-1990', 400, 'Leeds');
- 
-SELECT * FROM student
-
-SELECT * FROM NonClusteredIndex-20210312-173542
-
-select * FROM students WHERE  name = 'jon' 
+SELECT *
+FROM Students
+FOR JSON PATH
 
 
 

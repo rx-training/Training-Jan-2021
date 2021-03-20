@@ -1,16 +1,16 @@
 use CompanyTraining;
 --select * from Employees;
 ----------------------String functions------------------
---     1)select ASCII('A');
---	   2)select	CHAR(98);
+--     1)SELECT ASCII('A');
+--	   2)SELECT	CHAR(98);
  
 /*     3)Loop
-Declare @start int
-Set @start=97
-while(@start<=122)
-Begin 
-	Print CHAR(@start)
-	Set @start=@start+1
+DECLARE @start int
+SET @start=97
+WHILE(@start<=122)
+BEGIN 
+	PRINT CHAR(@start)
+	SET @start=@start+1
 End
 */
 
