@@ -125,17 +125,17 @@ CREATE TABLE  Employees (
 ('206', 'William', 'Gietz', 'WGIETZ', '515.123.8181', '1987-10-01', 'AC_ACCOUNT', '8300.00', '0.00', '205', '110');
 
 SELECT * FROM Employees;
--->1
-SELECT *,RANK() OVER(ORDER BY Salary DESC)  'RankOfSalary' FROM Employees;
--->2
-SELECT * FROM(SELECT Salary,RANK() OVER(ORDER BY Salary DESC)  'RankOfSalary' FROM Employees ) tbl WHERE RankOfSalary=4;
--->3
+-->1 Write a query to rank employees based on their salary for a month
+SELECT *,RANK() OVER(ORDER BY Salary)  'RankOfSalary' FROM Employees;
+-->2 Select 4th Highest salary from employee table using ranking function
+SELECT * FROM(SELECT Salary,DENSE_RANK() OVER(ORDER BY Salary DESC)  'RankOfSalary' FROM Employees ) tbl WHERE RankOfSalary=4;
+-->3 Get department, total salary with respect to a department from employee table.
 SELECT DepartmentID,SUM(Salary) AS 'Sum Of Salary' FROM Employees GROUP BY DepartmentID ORDER BY DepartmentID;
--->4
+-->4 Get department, total salary with respect to a department from employee table order by total salary descending
 SELECT DepartmentID,SUM(Salary) AS 'Sum Of Salary' FROM Employees GROUP BY DepartmentID ORDER BY SUM(Salary) DESC;
--->5
+-->5 Get department wise maximum salary from employee table order by salary ascending
 SELECT MAX(Salary) AS 'Maximum Salary' FROM Employees GROUP BY DepartmentID ORDER BY MAX(Salary) ASC;
--->6
+-->6 Get department wise minimum salary from employee table order by salary ascending
 SELECT MIN(Salary) AS 'Minimum Salary' FROM Employees GROUP BY DepartmentID ORDER BY MIN(Salary) ASC;
--->7
+-->7 Select department, total salary with respect to a department from employee table where total salary greater than 50000 order by TotalSalary descending
 SELECT DepartmentID,SUM(Salary) As 'Total Salary' FROM Employees GROUP BY DepartmentID  HAVING SUM(Salary) > 50000 ORDER BY SUM(Salary) DESC;
