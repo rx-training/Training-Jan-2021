@@ -1,0 +1,54 @@
+-------------------------------------------- SQL Day 8 Assignment ------------------------------------------------
+
+TRUE FALSE:-
+
+	3. A primary key can contain NULL values.
+	Ans- FALSE
+	4. A clustered index usually improves performance when inserting data.
+	Ans- FALSE
+	5. A table can contain only one clustered index.
+	Ans- TRUE
+
+Fill in the Blank:-
+
+	2. The value of a primary key must be ____________.
+	Ans- Unique And Not Null
+	3. A foreign key works in conjunction with primary key or unique constraints to enforce
+	 ____________ between tables.
+	Ans- Relations
+	4. Add an index to one or more columns to speed up data ____________.
+	Ans- Indexing
+	5. Values in a clustered index are ____________.
+	Ans- Shorted
+	
+Multiple Choice:-
+
+	1. Which of the following is not a constraint?
+	Ans- d. INDEX
+	2. Which of the following things can help speed data retrieval?
+	Ans- c. A clustered index
+	3. Which of the following statements are true?
+	Ans- c. Indexes allow faster data retrieval.
+	4. Which of the following statements is not true with regard to foreign keys?
+	Ans- d. A table can contain only one foreign key.
+	5. Consider using a clustered index when:
+	Ans- c. Columns undergo frequent changes
+	7. Which of the following could not be used as a primary key?
+	Ans- b. An address
+	8. How many clustered indexes can you have for a database?
+	Ans- a. 1
+	9. What is the name for the situation in which more than one columns act as a primary
+	key?
+	Ans- a. Composite primary key
+
+Comparing Clustered and Non-Clustered Indexes:-
+
+	------------------------------------------------|------------------------------------------------
+			Clustered Index			|		None-Clustered Index
+	------------------------------------------------|------------------------------------------------
+	-> Does Not Requires Disk Additional Space	|-> Requires Additional Disk Space
+	-> Offers Faster Data Retrival			|-> Slower Comapare to Clustered Index
+	-> Can Contain Only One Clustered Index		|-> Can Contain More One None-Clustered Index
+	------------------------------------------------|------------------------------------------------
+
+------------------------------------------------------- END ------------------------------------------------------
