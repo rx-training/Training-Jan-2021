@@ -378,10 +378,10 @@ SELECT (FirstName+' '+LastName) AS Name, Salary FROM Employees WHERE Salary > (S
 SELECT (FirstName+' '+LastName) AS Name, Salary FROM Employees WHERE Salary > (SELECT Salary FROM Employees WHERE LastName = 'Bell')
 
 --9. Find the names (first_name, last_name), salary of the employees who earn the same salary as the minimum salary for all departments. 
-SELECT (FirstName+' '+LastName) AS Name, Salary FROM Employees WHERE Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY JobId)
+SELECT (FirstName+' '+LastName) AS Name, Salary FROM Employees WHERE Salary IN (SELECT MIN(e.Salary) FROM Employees e JOIN Departments d ON e.DepartmentID=d.DepartmentID GROUP BY d.DepartmentID)
 
 --10. Find the names (first_name, last_name), salary of the employees whose salary greater than average salary of all department. 
-SELECT (FirstName+' '+LastName) AS Name, Salary FROM Employees WHERE Salary IN (SELECT AVG(Salary) FROM Employees GROUP BY JobId)
+SELECT (FirstName+' '+LastName) AS Name, Salary FROM Employees WHERE Salary IN (SELECT AVG(e.Salary) FROM Employees e JOIN Departments d ON e.DepartmentID=d.DepartmentID GROUP BY d.DepartmentID)
 
 --11. Write a query to find the names (first_name, last_name) and salary of the employees who earn a salary that is higher 
 --than the salary of all the Shipping Clerk (JOB_ID = 'SH_CLERK'). Sort the results on salary from the lowest to highest. 
@@ -393,8 +393,11 @@ SELECT (FirstName+' '+LastName) AS Name FROM Employees WHERE EmployeeID NOT IN (
 --13. Write a query to display the employee ID, first name, last names, and department names of all employees. 
 SELECT  e.EmployeeId, e.FirstName, e.LastName, d.DepartmentName FROM Employees e JOIN Departments d ON e.DepartmentID=d.DepartmentID
 
---14. Write a query to display the employee ID, first name, last names, salary of all employees whose salary is above average for their departments. 
-SELECT EmployeeID, FirstName, LastName, Salary FROM Employees e1 WHERE Salary > (SELECT AVG(Salary) FROM Employees e2 WHERE e2.JobId = e1.JobId GROUP BY JobId)
+--14. Write a query to display the employee ID, first name, last names, salary of all employees 
+--whose salary is above average for their departments. 
+SELECT (e.FirstName+' '+e.LastName) AS Name, e.Salary FROM Employees e 
+	JOIN (SELECT AVG(Salary) AS 'AvgSalary', d.DepartmentID FROM Employees e JOIN Departments d ON e.DepartmentID=d.DepartmentID GROUP BY d.DepartmentID) AS tbl ON e.DepartmentID=tbl.DepartmentID
+	WHERE e.Salary>tbl.AvgSalary
 
 --15. Write a query to fetch even numbered records from employees table. 
 SELECT * FROM Employees WHERE (EmployeeID % 2) = 0
