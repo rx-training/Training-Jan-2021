@@ -90,6 +90,18 @@ AS
 	END
 GO
 
+/* Disable Trigger */
+
+DISABLE TRIGGER HumanResources.trgInsertShift 
+ON HumanResources.Shift
+GO
+
+/* Enable Trigger */
+
+ENABLE TRIGGER HumanResources.trgInsertShift 
+ON HumanResources.Shift
+GO
+
 /* Deleting a Trigger */
 
 DROP TRIGGER HumanResources.trgInsertShift
