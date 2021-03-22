@@ -226,7 +226,7 @@ CREATE TABLE Incentives(
 )
 
 --Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
-SELECT e.FirstName, CONVERT(DATE, e.JoiningDate) AS JoiningDate, i.IncentiveDate FROM Employees1 e JOIN Incentives i ON e.EmployeeID=i.Employee_Ref_ID
+SELECT e.FirstName, DATEDIFF(DAY,CONVERT(DATE, e.JoiningDate),i.IncentiveDate ) ,CONVERT(DATE, e.JoiningDate) AS JoiningDate, i.IncentiveDate FROM Employees1 e JOIN Incentives i ON e.EmployeeID=i.Employee_Ref_ID
 	--Using CTE
 	WITH tbl1 (Name, JoinDate, EmployeeID) AS
 	(
@@ -236,7 +236,7 @@ SELECT e.FirstName, CONVERT(DATE, e.JoiningDate) AS JoiningDate, i.IncentiveDate
 	(
 		SELECT IncentiveDate, Employee_Ref_ID FROM Incentives
 	)
-	SELECT tbl1.Name, tbl1.JoinDate, tbl2.IncentiveDate FROM tbl1 JOIN tbl2 ON tbl1.EmployeeID=tbl2.EmployeeID
+	SELECT tbl1.Name, DATEDIFF(DAY,CONVERT(DATE, tbl1.JoinDate),tbl2.IncentiveDate) , tbl1.JoinDate, tbl2.IncentiveDate FROM tbl1 JOIN tbl2 ON tbl1.EmployeeID=tbl2.EmployeeID
 
 --Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
 SELECT e.FirstName, i.IncentiveAmount FROM Employees1 e JOIN Incentives i ON e.EmployeeID=i.Employee_Ref_ID WHERE i.IncentiveAmount > 3000
