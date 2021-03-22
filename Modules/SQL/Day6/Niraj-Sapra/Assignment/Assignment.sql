@@ -305,9 +305,14 @@ FROM Employees AS  e JOIN Incentives AS i  on  e.EmployeeID = i.EMPLOYEE_REF_ID;
 SELECT * From NEWViews;
 /*Assignment 4:-Create a view to select Select first_name, incentive amount
 from employee and incentives table for those employees whohave incentives and incentive amount greater than 3000 */
+
+/*
 CREATE VIEW SecViews As SELECT e.FirstName,e.LastName,e.Salary,e.HireDate,i.INCENTIVE_AMOUNT 
 FROM Employees AS  e JOIN Incentives AS i  on  i.INCENTIVE_AMOUNT>3000;
+*/
 
-SELECT * From SecViews;
+CREATE VIEW secView As SELECT e.FirstName,e.Salary,e.HireDate,i.INCENTIVE_AMOUNT 
+FROM Employees AS  e JOIN Incentives AS i  on e.EmployeeID= i.EMPLOYEE_REF_ID
+WHERE i.INCENTIVE_AMOUNT>3000;
 
-SELECT * From EmpViewfirst;
+SELECT * From SecView;

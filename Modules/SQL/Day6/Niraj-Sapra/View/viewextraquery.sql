@@ -50,9 +50,9 @@ SELECT * FROM ViewEmpHistory
 
 CREATE VIEW ViewAfterJones
 AS
-SELECT e.FirstName,e.LastName,e.HireDate
-FROM Employees e
-LEFT OUTER JOIN Employees em ON e.HireDate > em.HireDate WHERE em.FirstName = 'Luis';
+SELECT e.FirstName+e.LastName As 'names',e.HireDate 
+FROM Employees e where e.HireDate > (SELECT HireDate From Employees Where FirstName = 'Jones')  
+
 
 SELECT * FROM ViewAfterJones;
 -- 6. Write a query to get the department name and number of employees in the department.
@@ -80,7 +80,7 @@ CREATE VIEW ViewDepartment
 AS
 SELECT d.DepartmentID,d.DepartmentName,e.FirstName AS 'Manager Names'
 FROM Departments d
-LEFT OUTER JOIN Employees e ON e.EmployeeID = d.ManagerID;
+ JOIN Employees e ON e.EmployeeID = d.ManagerID;
 
 SELECT * FROM ViewDepartment;
 
@@ -91,7 +91,7 @@ AS
 SELECT d.DepartmentName,e.FirstName AS 'Manager Name',l.City
 FROM Departments d
 JOIN Locations l ON d.LocationID = l.LocationID
-LEFT OUTER JOIN Employees e ON e.EmployeeID = d.ManagerID
+ JOIN Employees e ON e.EmployeeID = d.ManagerID
 ;
 
 SELECT * FROM viewmanager;
@@ -112,6 +112,7 @@ SELECT FirstName,LastName,JobId,Salary-(SELECT MIN(e.Salary) FROM Employees e WH
 FROM Employees em;
 
 SELECT * FROM ViewSalaryDiff;
+
 -- 12. Write a query to display the job history that were done by any employee who is 
 --currently drawing more than 10000 of salary.
 

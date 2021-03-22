@@ -36,29 +36,33 @@ VALUES ('1','01-FEB-13','5000'),
 ('1','01-FEB-13','4500'),
 ('2','01-FEB-13','3500');  
 
-/*Assignment 1:-Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table*/
+/*Assignment 
+QUERY 1:-Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table*/
 
 SELECT FIRST_NAME, ABS(DATEDIFF( dd , INCENTIVE_DATE ,  JOINING_DATE)) As DIffrancedata FROM Employees a INNER JOIN 
 Incentives B on A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID;
 
-/*Assignment 2:-Select first_name, incentive amount from employee and incentives table for those employees who have
+/*Assignment
+QUERY 2:-Select first_name, incentive amount from employee and incentives table for those employees who have
  incentives and incentive amount greater than 3000*/
 
 SELECT FIRST_NAME,INCENTIVE_AMOUNT FROM Employees a INNER JOIN 
 Incentives B on A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID Where B.INCENTIVE_AMOUNT > 3000;
 
-/*Assignment 3:-Select first_name, incentive amount from employee and incentives table for all 
-employees even if they didn’t get incentives.*/
+/*Assignment 
+QUERY 3:-Select first_name, incentive amount from employee and incentives table for all 
+employees even if they didnâ€™t get incentives.*/
 
 SELECT FIRST_NAME,LAST_NAME,DEPARTMENT,INCENTIVE_AMOUNT FROM Employees a LEFT OUTER JOIN 
 Incentives B on A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID
 
-/*Assignment 4:-Select EmployeeName, ManagerName from the employee table.*/
+/*Assignment 
+QUERY 4:-Select EmployeeName, ManagerName from the employee table.*/
 
-SELECT FIRST_NAME,LAST_NAME,DEPARTMENT, MANAGER_ID FROM Employees;
+SELECT FIRST_NAME+' '+LAST_NAME As EMPName,DEPARTMENT, MANAGER_ID FROM Employees;
 
 /*Assignment 5:-Select first_name, incentive amount from employee and incentives table for all employees
-even if they didn’t get incentives and set incentive amount as 0 for those employees who didn’t get incentives.*/
+even if they didnâ€™t get incentives and set incentive amount as 0 for those employees who didnâ€™t get incentives.*/
 
 SELECT FIRST_NAME,ISNULL(INCENTIVE_AMOUNT,0) FROM Employees a FULL OUTER JOIN 
 Incentives B on A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID;

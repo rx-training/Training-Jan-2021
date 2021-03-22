@@ -285,27 +285,30 @@ SELECT e.firstName,e.lastName,e.JobId FROM Employees e WHERE e.DepartmentID = (S
 based in United States. 
 Hint : Write single-row and multiple-row subqueries */
 
-SELECT e.firstName,e.lastName,e.JobId FROM Employees e  WHERE e.DepartmentID = (SELECT d.de FROM Departments d );
+SELECT e.firstName+' '+e.lastName As names,e.JobId FROM Employees e  
+WHERE e.DepartmentID = (SELECT d.DepartmentID FROM Departments d );
 /*check*/
 /*Prac 4. Find the names (first_name, last_name) of the employees who are managers.  */
-SELECT FirstName,LastName From  Employees WHERE ManagerID != 0;
+SELECT FirstName+' '+LastName As names From  Employees WHERE ManagerID != 0;
                 
 /*Prac 5. Find the names (first_name, last_name), salary of the employees whose salary is greater than the average salary.  */
 
-SELECT FirstName,LastName,Salary From  Employees WHERE Salary > (SELECT  AVG(Salary) FROM Employees);
+SELECT FirstName+' '+LastName As names,Salary From  Employees WHERE Salary > (SELECT  AVG(Salary) FROM Employees);
 
 /*Prac 6. Find the names (first_name, last_name), salary of the employees whose salary is equal to the minimum salary 
 for their job grade.  */
-SELECT FirstName + ' ' + LastName 'Name',Salary
-FROM Employees WHERE Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY JobId);
+/*SELECT FirstName +' '+LastName 'Name',Salary
+FROM Employees WHERE Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY JobId);*/
 
+SELECT FirstName + LastName 'Name' FROM Employees
+WHERE Salary = (SELECT MIN(Salary) FROM Employees)
 
 /*SELECT FirstName,LastName,Salary From  Employees WHERE Salary = (SELECT  MIN(Salary) FROM Employees);*/
 
 
 /*Prac 7. Find the names (first_name, last_name), salary of the employees who earn more than the
  average salary and who works in any of the IT departments.  */
- SELECT FirstName + ' ' + LastName 'Name',Salary
+ SELECT FirstName +' '+LastName As 'Name',Salary
 
  SELECT FirstName,LastName,Salary FROM Employees WHERE Salary > (SELECT  AVG(Salary) FROM Employees)AND
  DepartmentID = (SELECT d.DepartmentID FROM Departments d WHERE d.DepartmentName = 'IT');
@@ -339,12 +342,23 @@ FROM Employees e WHERE NOT EXISTS(SELECT * FROM Employees emp WHERE emp.ManagerI
 SELECT e.EmployeeID,e.FirstName,e.LastName,(SELECT d.DepartmentName FROM Departments d WHERE e.DepartmentID=d.DepartmentID) 'Department'
 FROM Employees e ORDER BY Department;
 
-/*Prac 14. Write a query to display the employee ID, first name, last names, salary of all employees whose salary is above average for their departments.  */
+/*Prac 14. Write a query to display the employee ID, first name, last names, salary of all employees whose
+salary is above average for their departments.  */
 
-SELECT EmployeeID,FirstName,LastName,Salary
+/*SELECT EmployeeID,FirstName,LastName,Salary ,DepartmentID
 FROM Employees 
 WHERE Salary > 
-(SELECT AVG(Salary) FROM Employees em WHERE em.DepartmentID = DepartmentID);
+(SELECT AVG(em.Salary) FROM Employees em  Join Departments d on em.DepartmentID=d.DepartmentID  WHERE em.DepartmentID=DepartmentID   Group by DepartmentID);*/
+
+SELECT e.EmployeeID,e.FirstName,e.LastName,e.Salary
+    FROM
+    (
+        SELECT DepartmentID, AVG(SALARY) 'avg'
+        FROM Employees
+        GROUP BY DepartmentID
+    ) AS tbl1 JOIN Employees e
+    ON tbl1.DepartmentID = e.DepartmentID
+    WHERE Salary>avg
 
 /*Prac 15. Write a query to fetch even numbered records from employees table.  */
 

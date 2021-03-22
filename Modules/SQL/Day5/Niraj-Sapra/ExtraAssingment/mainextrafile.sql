@@ -154,10 +154,11 @@ SELECT c.VIN, c.Make, c.Model, c.Year, c.Mileage, d.Name FROM
 		where d.Name = 'Hero Honda Car World'
 		
 /*prac 4:-List names of all customers who have ever bought cars from the dealership named "Concept Hyundai".*/
-SELECT c.Name,d.Name FROM
+/*SELECT c.Name,d.Name FROM
 		Sales s JOIN DealerShips d ON s.DealerShipID = d.DealerShipID JOIN Customers c ON s.CustomerID=c.CustomerId 
-		WHERE d.Name = 'Concept Hyundai';
+		WHERE d.Name = 'Concept Hyundai';*/
 
+SELECT c.Name FROM Customers c join DealerShips d on c.CustomerId=d.DealerShipID  WHERE d.Name = 'Concept Hyundai';
 
 /*prac 5:-For each car in the inventory of any dealership, list the VIN, make, model, and year of the car,
 along with the name, city, and state of the dealership whose inventory contains the car.
