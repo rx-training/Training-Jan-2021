@@ -449,7 +449,7 @@ SELECT e.EmployeeID, e.LastName AS Name, e.ManagerID, e1.LastName AS 'Manager Na
 SELECT (FirstName+' '+LastName) AS Name, HireDate FROM Employees WHERE HireDate > (SELECT HireDate FROM Employees WHERE LastName='Jones')
 
 --6. Write a query to get the department name and number of employees in the department. 
-SELECT d.DepartmentName, COUNT(e.EmployeeID) FROM Employees e JOIN Departments d ON e.DepartmentID=d.DepartmentID GROUP BY d.DepartmentName
+SELECT d.DepartmentName, COUNT(e.EmployeeID) FROM Employees e RIGHT OUTER JOIN Departments d ON e.DepartmentID=d.DepartmentID GROUP BY d.DepartmentName
 
 --7. Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history. 
 SELECT EmployeeID, JobID AS 'Job Title', DATEDIFF(DAY,StartDate,EndDate) AS 'Number of Days' FROM JobHistory WHERE DepartmentID = 90
