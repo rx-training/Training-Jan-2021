@@ -1,0 +1,49 @@
+1. Which of the following is not a constraint?
+a. CHECK
+b. DEFAULT
+c. UNIQUE
+d. INDEX <--ANS 
+
+
+2. Which of the following things can help speed data retrieval?
+a. A DEFAULT constraint
+b. A primary key constraint
+c. A clustered index <--ANS
+d. A foreign key constraint
+
+
+3. Which of the following statements is not true with regard to foreign keys?
+a. A foreign key is a combination of one or more columns used to establish and enforce
+a link between the data in two tables.
+b. You can create a foreign key by defining a foreign key constraint when you create or alter a table.
+c. A foreign key enforces referential integrity by ensuring only valid data is stored.
+d. A table can contain only one foreign key. <--ANS
+
+
+4. Consider using a clustered index when:
+a. Columns contain a large number of distinct values
+b. Columns are accessed sequentially <--ANS
+c. Columns undergo frequent changes
+d. Queries return large result sets
+
+
+5. Which of the following could not be used as a primary key?
+a. A Social Security number
+b. An address  <--ANS
+c. An employee number
+d. The serial number of an electronic component
+
+
+6. How many clustered indexes can you have for a database?
+a. 1  <--ANS
+b. 2
+c. 4
+d. 8
+
+
+7. What is the name for the situation in which more than one columns act as a primary key?
+a. Composite primary key <--ANS
+b. Escalating key
+c. Foreign key
+d. Constraint key
+
