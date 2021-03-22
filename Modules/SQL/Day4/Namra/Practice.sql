@@ -20,7 +20,7 @@
 SELECT * FROM HumanResources.Employee ORDER BY SickLeaveHours
 SELECT BusinessEntityID,JobTitle, SickLeaveHours FROM HumanResources.Employee ORDER BY JobTitle,SickLeaveHours
 
--- to get top 4 sickleave hours enployees
+-- to get top 4 sickleave hours employees
 SELECT TOP(4) SickLeaveHours, JobTitle FROM HumanResources.Employee ORDER BY SickLeaveHours;
 
 -- Getting top 10 using nested select statement
