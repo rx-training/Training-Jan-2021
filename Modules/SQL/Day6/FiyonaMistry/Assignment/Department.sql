@@ -84,8 +84,8 @@ WHERE d.DepartmentName = 'IT'
 --3. Find the names (first_name, last_name) of the employees who have a manager who works for a department based in United States. Hint : Write single-row and multiple-row subqueries
 SELECT FirstName + LastName AS 'Name'
 FROM Employees
-WHERE DepartmentID IN
-	(SELECT DepartmentID
+WHERE ManagerID IN
+	(SELECT ManagerID
 	FROM Departments
 	WHERE LocationID IN
 		(SELECT LocationID
@@ -124,8 +124,11 @@ SELECT FirstName + LastName AS 'Name', Salary
 FROM Employees
 WHERE Salary > 
 	(SELECT AVG(Salary)
-	FROM Employees
-	WHERE JobId = 'IT_PROG')
+	FROM Employees)
+AND DepartmentID = 
+	(SELECT DepartmentID
+	FROM Departments
+	WHERE DepartmentName = 'IT')
 
 
 --8. Find the names (first_name, last_name), salary of the employees who earn more than Mr. Bell. 
@@ -175,18 +178,17 @@ WHERE EmployeeID NOT IN
 --13. Write a query to display the employee ID, first name, last names, and department names of all employees. 
 SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
 FROM Employees AS e
-FULL OUTER JOIN Departments AS d
+JOIN Departments AS d
 ON e.DepartmentID = d.DepartmentID
 
 
 --14. Write a query to display the employee ID, first name, last names, salary of all employees whose salary is above average for their departments. 
-SELECT DISTINCT d.DepartmentID, e.EmployeeID, e.FirstName, e.LastName, e.Salary
+SELECT DISTINCT e.EmployeeID, e.FirstName, e.LastName, e.Salary
 FROM Employees AS e
-JOIN Departments AS d
-ON e.DepartmentID = d.DepartmentID
 WHERE Salary > 
 	(SELECT AVG(Salary)
-	FROM Employees)
+	FROM Employees AS e2
+	WHERE e.DepartmentID = e2.DepartmentID)
 
 
 --15. Write a query to fetch even numbered records from employees table. 
@@ -201,7 +203,7 @@ FROM Employees
 WHERE Salary NOT IN
 	(SELECT DISTINCT TOP 4 Salary
 	FROM Employees
-	ORDER BY Salary)
+	ORDER BY Salary DESC)
 ORDER BY Salary DESC
 
 
@@ -301,11 +303,11 @@ FROM VIEW3
 
 
 --4. Write a query to find the employee id, name (last_name) along with their manager_id, manager name (last_name). 
-CREATE VIEW VIEW4
+CREATE OR ALTER VIEW VIEW4
 AS
 SELECT e.EmployeeID AS 'Manager ID', e.LastName AS 'Manager Name', mgr.EmployeeID, mgr.LastName
 FROM  Employees AS mgr, Employees AS e
-WHERE e.EmployeeID = mgr.DepartmentID
+WHERE e.EmployeeID = mgr.ManagerID
 
 SELECT *
 FROM VIEW4
@@ -326,11 +328,11 @@ FROM VIEW5
 
 
 --6. Write a query to get the department name and number of employees in the department. 
-CREATE VIEW VIEW6
+CREATE OR ALTER VIEW VIEW6
 AS
 SELECT d.DepartmentName, COUNT(e.EmployeeID) AS 'EmployeeCount' 
 FROM Employees AS e 
-JOIN Departments AS d 
+RIGHT JOIN Departments AS d 
 ON d.DepartmentID = e.DepartmentID 
 GROUP BY DepartmentName
 
