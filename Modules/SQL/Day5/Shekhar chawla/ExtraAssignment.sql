@@ -1,3 +1,148 @@
+--=========================================================================================
+--QUERIES :
+--=========================================================================================
+
+--1. Find the names of all salespeople who have ever worked for the company at any dealership.
+SELECT  SalesPersons.Name AS 'Salesperson Name' ,
+		Dealership.Name AS 'Dealership Name' 
+		FROM	SalesPeopleWorksAt , SalesPersons , Dealership
+		WHERE	SalesPeopleWorksAt.SalespersonId = SalesPersons.Id AND
+				SalesPeopleWorksAt.DealershipId = Dealership.Id ;
+
+--2. List the Name, Street Address, and City of each customer who lives in Ahmedabad.
+SELECT Customers.Name, Customers.Addr , Customers.City FROM Customers WHERE Customers.City = 'Ahmedabad' ;
+
+
+--3. List the VIN, make, model, year, and mileage of all cars in the inventory of the dealership named "Hero Honda Car World".
+SELECT Car.Vin , Car.Make , Car.Model , Car.Mileage 
+		FROM	Inventory , Dealership , Car
+		WHERE	Inventory.CarVin = Car.Vin AND
+				Inventory.DealershipId = Dealership.Id AND
+				Dealership.Name = 'Hero Honda Car World' ;
+
+
+--4. List names of all customers who have ever bought cars from the dealership named "Concept Hyundai".
+SELECT Customers.Name FROM Sales , Dealership , Customers
+		WHERE	Sales.CustomerId = Customers.Id AND
+				Sales.DealershipId = Dealership.Id AND 
+				Dealership.Name = 'Concept Hyundai' ;
+
+
+--5. For each car in the inventory of any dealership, list the VIN, make, model, and year of the car, along with the name, city, and state of the dealership whose inventory contains the car.
+SELECT Car.Vin , Car.Make , Car.Model , Car.LaunchYear , Dealership.Name , Dealership.City , Dealership.StateName
+		FROM Car , Dealership , Inventory
+		WHERE	Inventory.CarVin = Car.Vin AND
+				Inventory.DealershipId = Dealership.Id ;
+
+
+--6. Find the names of all salespeople who are managed by a salesperson named "Adam Smith".
+SELECT SalesPersons.Name FROM SalesPersons JOIN SalesPeopleManagers 
+	ON	SalesPeopleManagers.SalespersonId = SalesPersons.Id AND 
+		SalesPeopleManagers.ManagerName = 'Adam Smith' ;
+
+
+--7. Find the names of all salespeople who do not have a manager.
+SELECT SalesPersons.Name , SalesPeopleManagers.ManagerName 
+	FROM	SalesPersons LEFT JOIN SalesPeopleManagers 
+	ON		SalesPersons.Id = SalesPeopleManagers.SalespersonId 
+	WHERE	SalesPersons.Id NOT IN ( SELECT SalesPeopleManagers.SalespersonId FROM SalesPeopleManagers) ;
+
+
+
+--8. Find the total number of dealerships.
+SELECT COUNT( Dealership.Id ) FROM Dealership ;
+
+
+--9. List the VIN, year, and mileage of all "Toyota Camrys" in the inventory of the dealership named "Toyota Performance". (Note that a "Toyota Camry" is indicated by the make being "Toyota" and the model being "Camry".)
+SELECT Car.Vin , Car.Make + ' ' + Car.Model AS 'Car Name' , Car.LaunchYear , Car.Mileage 
+		FROM	Inventory
+		JOIN	Car			ON Inventory.CarVin = Car.Vin
+		JOIN	Dealership	ON Inventory.DealershipId = Dealership.Id AND Dealership.Name = 'Toyota Performance' ;
+
+
+--10. Find the name of all customers who bought a car at a dealership located in a state other than the state in which they live.
+SELECT Customers.Name , Customers.City AS 'Living City' , Dealership.City AS 'Buying City'
+		FROM	Sales
+		JOIN	Customers	ON	Sales.CustomerId = Customers.Id 
+		JOIN	Dealership	ON	Sales.DealershipId = Dealership.Id 
+		WHERE	Customers.City	!=	Dealership.City ;
+
+
+--11. Find the name of the salesperson that made the largest base salary working at the dealership named "Ferrari Sales" during January 2010.
+SELECT  TOP 1	SalesPersons.Name AS 'Sales Person Name', Dealership.Name AS 'Dealership Name', (SalesPeopleWorksAt.BaseSalary), SalesPeopleWorksAt.MonthWorked
+		FROM SalesPeopleWorksAt
+		JOIN SalesPersons	ON SalesPeopleWorksAt.SalespersonId = SalesPersons.Id
+		JOIN Dealership		ON SalesPeopleWorksAt.DealershipId = Dealership.Id
+		WHERE	Dealership.Name = 'Ferrari Sales'			AND 
+				MONTH(SalesPeopleWorksAt.MonthWorked)=1		AND
+				Year(SalesPeopleWorksAt.MonthWorked)=2010		
+		ORDER BY SalesPeopleWorksAt.BaseSalary DESC ;	
+		
+
+
+--12. List the name, street address, city, and state of any customer who has bought more than two cars from all dealerships combined since January 1, 2010.
+SELECT Customers.Name , Customers.Addr , Customers.City , Customers.StateName 
+		FROM Sales
+		JOIN Customers	ON Sales.CustomerId = Customers.Id
+		WHERE Sales.SaleDate > '2010-01-01' AND 
+		Customers.Id IN (SELECT CustomerId FROM Sales GROUP BY CustomerId HAVING COUNT(CustomerId) > 2 );
+
+
+
+--13. List the name, salesperson ID, and total sales amount for each salesperson who has ever sold at least one car. The total sales amount for a salesperson is the sum of the sale prices of all cars ever sold by that salesperson.
+SELECT SalesPersons.Name  , SUM(Sales.Saleprice) AS 'Total Sales Amount'
+		FROM Sales
+		JOIN SalesPersons ON Sales.SalespersonId = SalesPersons.Id
+		GROUP BY SalesPersons.Name ;
+
+
+--14. Find the names of all customers who bought cars during 2010 who were also salespeople during 2010. For the purpose of this query, assume that no two people have the same name.
+SELECT Customers.Name AS 'Cutomer Name' , SalesPersons.Name AS 'Sales Person Name'
+		FROM Sales
+		JOIN Customers		ON Sales.CustomerId = Customers.Id
+		JOIN SalesPersons	ON Sales.SalespersonId = SalesPersons.Id 
+		WHERE	Customers.Name = SalesPersons.Name AND 
+				Sales.SaleDate > '2010-01-01' ;
+		;
+-- Comment WHERE Clause and see the change in 12th row 
+
+
+--15. Find the name and salesperson ID of the salesperson who sold the most cars for the company at dealerships located in Gujarat between March 1, 2010 and March 31, 2010.
+SELECT TOP 1 SalesPersons.Name , SalesPersons.Id , COUNT(Sales.Vin) AS 'Total Cars'
+		FROM Sales
+		JOIN SalesPersons	ON Sales.SalespersonId = SalesPersons.Id
+		JOIN Dealership		ON Sales.DealershipId = Dealership.Id 
+		WHERE Dealership.StateName = 'Gujarat'
+		GROUP BY (SalesPersons.Name), (SalesPersons.Id) 
+		;
+
+
+--16. Calculate the payroll for the month of March 2010.
+--	* The payroll consists of the name, salesperson ID, and gross pay for each salesperson who worked that month.
+
+--        * The gross pay is calculated as the base salary at each dealership employing the salesperson that month, along with the total commission for the salesperson that month.
+--        * The total commission for a salesperson in a month is calculated as 5% of the profit made on all cars sold by the salesperson that month.
+--        * The profit made on a car is the difference between the sale price and the invoice price of the car. (Assume, that cars are never sold for less than the invoice price.)
+
+SELECT DISTINCT SalesPersons.Id, SalesPersons.Name , SUM(Sales.Saleprice - Car.InvoicePrice) AS 'Profit' ,
+		(SUM(Sales.Saleprice - Car.InvoicePrice)*5/100) AS 'Total Commision' ,
+		(SalesPersons.Salary + SUM(Sales.Saleprice - Car.InvoicePrice)*5/100) AS 'Gross Pay'
+		FROM Sales
+		JOIN SalesPersons	ON Sales.SalespersonId = SalesPersons.Id
+		JOIN Car			ON Sales.Vin = Car.Vin
+		WHERE MONTH(Sales.SaleDate) = 1
+		GROUP BY SalesPersons.Name , SalesPersons.Salary , SalesPersons.Id
+		;
+
+
+
+
+
+
+
+
+-- dumping data
+
 USE [master]
 GO
 /****** Object:  Table [dbo].[Car]    Script Date: 3/12/2021 3:23:39 PM ******/
@@ -360,143 +505,4 @@ INSERT INTO Sales VALUES
 INSERT INTO Sales VALUES
     (12,2222, '223344590', 206, 106, 9300.00, '2010-01-19');
 SELECT * FROM Sales ;
-
-
-
---=========================================================================================
---QUERIES :
---=========================================================================================
-
---1. Find the names of all salespeople who have ever worked for the company at any dealership.
-SELECT  SalesPersons.Name AS 'Salesperson Name' ,
-		Dealership.Name AS 'Dealership Name' 
-		FROM	SalesPeopleWorksAt , SalesPersons , Dealership
-		WHERE	SalesPeopleWorksAt.SalespersonId = SalesPersons.Id AND
-				SalesPeopleWorksAt.DealershipId = Dealership.Id ;
-
---2. List the Name, Street Address, and City of each customer who lives in Ahmedabad.
-SELECT Customers.Name, Customers.Addr , Customers.City FROM Customers WHERE Customers.City = 'Ahmedabad' ;
-
-
---3. List the VIN, make, model, year, and mileage of all cars in the inventory of the dealership named "Hero Honda Car World".
-SELECT Car.Vin , Car.Make , Car.Model , Car.Mileage 
-		FROM	Inventory , Dealership , Car
-		WHERE	Inventory.CarVin = Car.Vin AND
-				Inventory.DealershipId = Dealership.Id AND
-				Dealership.Name = 'Hero Honda Car World' ;
-
-
---4. List names of all customers who have ever bought cars from the dealership named "Concept Hyundai".
-SELECT Customers.Name FROM Sales , Dealership , Customers
-		WHERE	Sales.CustomerId = Customers.Id AND
-				Sales.DealershipId = Dealership.Id AND 
-				Dealership.Name = 'Concept Hyundai' ;
-
-
---5. For each car in the inventory of any dealership, list the VIN, make, model, and year of the car, along with the name, city, and state of the dealership whose inventory contains the car.
-SELECT Car.Vin , Car.Make , Car.Model , Car.LaunchYear , Dealership.Name , Dealership.City , Dealership.StateName
-		FROM Car , Dealership , Inventory
-		WHERE	Inventory.CarVin = Car.Vin AND
-				Inventory.DealershipId = Dealership.Id ;
-
-
---6. Find the names of all salespeople who are managed by a salesperson named "Adam Smith".
-SELECT SalesPersons.Name FROM SalesPersons JOIN SalesPeopleManagers 
-	ON	SalesPeopleManagers.SalespersonId = SalesPersons.Id AND 
-		SalesPeopleManagers.ManagerName = 'Adam Smith' ;
-
-
---7. Find the names of all salespeople who do not have a manager.
-SELECT SalesPersons.Name , SalesPeopleManagers.ManagerName 
-	FROM	SalesPersons LEFT JOIN SalesPeopleManagers 
-	ON		SalesPersons.Id = SalesPeopleManagers.SalespersonId 
-	WHERE	SalesPersons.Id NOT IN ( SELECT SalesPeopleManagers.SalespersonId FROM SalesPeopleManagers) ;
-
-
-
---8. Find the total number of dealerships.
-SELECT COUNT( Dealership.Id ) FROM Dealership ;
-
-
---9. List the VIN, year, and mileage of all "Toyota Camrys" in the inventory of the dealership named "Toyota Performance". (Note that a "Toyota Camry" is indicated by the make being "Toyota" and the model being "Camry".)
-SELECT Car.Vin , Car.Make + ' ' + Car.Model AS 'Car Name' , Car.LaunchYear , Car.Mileage 
-		FROM	Inventory
-		JOIN	Car			ON Inventory.CarVin = Car.Vin
-		JOIN	Dealership	ON Inventory.DealershipId = Dealership.Id AND Dealership.Name = 'Toyota Performance' ;
-
-
---10. Find the name of all customers who bought a car at a dealership located in a state other than the state in which they live.
-SELECT Customers.Name , Customers.City AS 'Living City' , Dealership.City AS 'Buying City'
-		FROM	Sales
-		JOIN	Customers	ON	Sales.CustomerId = Customers.Id 
-		JOIN	Dealership	ON	Sales.DealershipId = Dealership.Id 
-		WHERE	Customers.City	!=	Dealership.City ;
-
-
---11. Find the name of the salesperson that made the largest base salary working at the dealership named "Ferrari Sales" during January 2010.
-SELECT  TOP 1	SalesPersons.Name AS 'Sales Person Name', Dealership.Name AS 'Dealership Name', (SalesPeopleWorksAt.BaseSalary), SalesPeopleWorksAt.MonthWorked
-		FROM SalesPeopleWorksAt
-		JOIN SalesPersons	ON SalesPeopleWorksAt.SalespersonId = SalesPersons.Id
-		JOIN Dealership		ON SalesPeopleWorksAt.DealershipId = Dealership.Id
-		WHERE	Dealership.Name = 'Ferrari Sales'			AND 
-				MONTH(SalesPeopleWorksAt.MonthWorked)=1		AND
-				Year(SalesPeopleWorksAt.MonthWorked)=2010		
-		ORDER BY SalesPeopleWorksAt.BaseSalary DESC ;	
-		
-
-
---12. List the name, street address, city, and state of any customer who has bought more than two cars from all dealerships combined since January 1, 2010.
-SELECT Customers.Name , Customers.Addr , Customers.City , Customers.StateName 
-		FROM Sales
-		JOIN Customers	ON Sales.CustomerId = Customers.Id
-		WHERE Sales.SaleDate > '2010-01-01' AND 
-		Customers.Id IN (SELECT CustomerId FROM Sales GROUP BY CustomerId HAVING COUNT(CustomerId) > 2 );
-
-
-
---13. List the name, salesperson ID, and total sales amount for each salesperson who has ever sold at least one car. The total sales amount for a salesperson is the sum of the sale prices of all cars ever sold by that salesperson.
-SELECT SalesPersons.Name  , SUM(Sales.Saleprice) AS 'Total Sales Amount'
-		FROM Sales
-		JOIN SalesPersons ON Sales.SalespersonId = SalesPersons.Id
-		GROUP BY SalesPersons.Name ;
-
-
---14. Find the names of all customers who bought cars during 2010 who were also salespeople during 2010. For the purpose of this query, assume that no two people have the same name.
-SELECT Customers.Name AS 'Cutomer Name' , SalesPersons.Name AS 'Sales Person Name'
-		FROM Sales
-		JOIN Customers		ON Sales.CustomerId = Customers.Id
-		JOIN SalesPersons	ON Sales.SalespersonId = SalesPersons.Id 
-		WHERE	Customers.Name = SalesPersons.Name AND 
-				Sales.SaleDate > '2010-01-01' ;
-		;
--- Comment WHERE Clause and see the change in 12th row 
-
-
---15. Find the name and salesperson ID of the salesperson who sold the most cars for the company at dealerships located in Gujarat between March 1, 2010 and March 31, 2010.
-SELECT TOP 1 SalesPersons.Name , SalesPersons.Id , COUNT(Sales.Vin) AS 'Total Cars'
-		FROM Sales
-		JOIN SalesPersons	ON Sales.SalespersonId = SalesPersons.Id
-		JOIN Dealership		ON Sales.DealershipId = Dealership.Id 
-		WHERE Dealership.StateName = 'Gujarat'
-		GROUP BY (SalesPersons.Name), (SalesPersons.Id) 
-		;
-
-
---16. Calculate the payroll for the month of March 2010.
---	* The payroll consists of the name, salesperson ID, and gross pay for each salesperson who worked that month.
-
---        * The gross pay is calculated as the base salary at each dealership employing the salesperson that month, along with the total commission for the salesperson that month.
---        * The total commission for a salesperson in a month is calculated as 5% of the profit made on all cars sold by the salesperson that month.
---        * The profit made on a car is the difference between the sale price and the invoice price of the car. (Assume, that cars are never sold for less than the invoice price.)
-
-SELECT DISTINCT SalesPersons.Id, SalesPersons.Name , SUM(Sales.Saleprice - Car.InvoicePrice) AS 'Profit' ,
-		(SUM(Sales.Saleprice - Car.InvoicePrice)*5/100) AS 'Total Commision' ,
-		(SalesPersons.Salary + SUM(Sales.Saleprice - Car.InvoicePrice)*5/100) AS 'Gross Pay'
-		FROM Sales
-		JOIN SalesPersons	ON Sales.SalespersonId = SalesPersons.Id
-		JOIN Car			ON Sales.Vin = Car.Vin
-		WHERE MONTH(Sales.SaleDate) = 1
-		GROUP BY SalesPersons.Name , SalesPersons.Salary , SalesPersons.Id
-		;
-
 
