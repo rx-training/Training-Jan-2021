@@ -140,7 +140,7 @@ WHERE DATEDIFF(YY,e.HireDate,GETDATE()) > 15;\
 	SELECT FirstName+' '+LastName[Names],
 		Salary 
 	FROM Employees 
-	WHERE Salary > (SELECT MIN(Salary) 
+	WHERE Salary = (SELECT MIN(Salary) 
 				FROM Employees);
 
 -- 7. Find the names (first_name, last_name), salary of the employees who earn more than the average salary and who works in any of the IT departments. 
@@ -311,7 +311,7 @@ FROM Employees e
     LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID;
 
 -- 3. Find the names (first_name, last_name), job, department number, and department name of the employees who work in London. 
-CREATE VIEW EmployeeInLondon AS
+ALTER VIEW EmployeeInLondon AS
 SELECT e.FirstName+ ' ' +e.LastName[Names]
     , e.JobId
     , e.DepartmentID
@@ -319,8 +319,7 @@ SELECT e.FirstName+ ' ' +e.LastName[Names]
 FROM Employees e
     INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
     INNER JOIN Locations l ON d.LocationID = l.LocationID
-    INNER JOIN Countries c ON l.CountryID = c.CountryID
-WHERE c.CountryName = 'London';
+WHERE l.City = 'London';
 
 -- 4. Write a query to find the employee id, name (last_name) along with their manager_id, manager name (last_name).  
 CREATE VIEW EmployeeManager AS
