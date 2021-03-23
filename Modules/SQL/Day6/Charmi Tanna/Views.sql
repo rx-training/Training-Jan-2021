@@ -269,41 +269,42 @@ INSERT INTO  JobHistory VALUES('200', '1987-09-17', '1993-06-17', 'AD_ASST', '90
 INSERT INTO  JobHistory VALUES('176', '1998-03-24', '1998-12-31', 'SA_REP', '80')
 INSERT INTO  JobHistory VALUES('176', '1999-01-01', '1999-12-31', 'SA_MAN', '80')
 
--->1
-CREATE VIEW INFO AS SELECT l.StateProvince,l.StreetAddress,l.City,c.CountryName FROM Locations l join Countries c ON l.CountryID = c.CountryID;
+-->1  Write a query to find the addresses (location_id, street_address, city, state_province, country_name) of all the departments. 
+CREATE OR ALTER VIEW INFO AS SELECT d.DepartmentName,l.LocationID,l.StateProvince,l.StreetAddress,l.City,c.CountryName FROM Locations l join Countries c ON l.CountryID  = c.CountryID JOIN Departments d ON d.LocationID = l.LocationId;
 SELECT * FROM INFO;
--->2
-CREATE VIEW INFOEMPLOYEE AS SELECT FirstName,LastName,DepartmentID FROM Employees ;
+-->2 Write a query to find the names (first_name, last name), department ID and name of all the employees. 
+CREATE OR ALTER VIEW INFOEMPLOYEE AS SELECT e.FirstName,e.LastName,d.DepartmentID,d.DepartmentName  FROM Employees e JOIN Departments d ON d.DepartmentID = e.DepartmentID;
 SELECT * FROM INFOEMPLOYEE;
--->3
+-->3 Find the names (first_name, last_name), job, department number, and department name of the employees who work in London. 
 CREATE VIEW LOCATION AS SELECT e.FirstName,e.LastName,e.DepartmentID,e.JobId,d.DepartmentName FROM Departments d JOIN Locations l ON d.LocationID = l.LocationID JOIN Employees e ON e.DepartmentID = d.DepartmentID WHERE l.City='London';
 SELECT * FROM LOCATION;
--->4
+-->4  Write a query to find the employee id, name (last_name) along with their manager_id, manager name (last_name).
 CREATE VIEW MANGER AS SELECT m.LastName,m.ManagerID,e.EmployeeId,e.LastName AS LNAME FROM Employees e JOIN Employees m ON e.ManagerID = m.EmployeeID;
 SELECT * FROM MANGER;
--->5
+-->5 Find the names (first_name, last_name) and hire date of the employees who were hired after 'Jones'. 
 CREATE VIEW EMP AS SELECT HireDate,FirstName,LastName FROM Employees WHERE HireDate > (SELECT HireDate FROM Employees WHERE LastName ='Jones');
 SELECT * FROM EMP;
--->6
+-->6 Write a query to get the department name and number of employees in the department.
 CREATE VIEW DEPT AS SELECT d.DepartmentName,COUNT(e.EmployeeID) AS emp FROM Departments d JOIN Employees e ON d.DepartmentID = e.DepartmentID GROUP BY DepartmentName;
 SELECT * FROM DEPT;
--->7
+-->7 Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history.
 CREATE VIEW DAYSDIFF AS SELECT j.JobID,j.EmployeeID,j.DepartmentID,DATEDIFF(DAY,j.StartDate,j.EndDate)AS Days FROM Employees e JOIN JobHistory j ON e.DepartmentID = j.DepartmentID WHERE j.DepartmentID =90;
 SELECT * FROM DAYSDIFF;
--->8
-CREATE VIEW MANGERANDEMPLOYEES AS SELECT m.DepartmentID,d.DepartmentName ,m.FirstName AS FNAME FROM Employees e JOIN Employees m ON e.ManagerID = m.EmployeeID JOIN Departments d ON m.EmployeeID = d.DepartmentID;
+-->8 Write a query to display the department ID, department name and manager first name.
+CREATE OR ALTER  VIEW MANGERANDEMPLOYEES AS SELECT d.DepartmentID,d.DepartmentName,e.FirstName FROM Departments d LEFT JOIN Employees e ON e.EmployeeID = d.ManagerID;
 SELECT * FROM MANGERANDEMPLOYEES;
--->9
-CREATE VIEW DEPARTMENTLOCATION AS SELECT d.DepartmentName ,m.FirstName,l.City AS FNAME FROM Employees e JOIN Employees m ON e.ManagerID = m.EmployeeID JOIN Departments d ON m.EmployeeID = d.DepartmentID JOIN Locations l ON d.LocationID = l.LocationID ;
+-->9 Write a query to display the department name, manager name, and city.
+CREATE OR ALTER  VIEW DEPARTMENTLOCATION AS SELECT d.DepartmentName ,e.FirstName,l.City FROM Departments d JOIN Locations l ON d.LocationID = l.LocationID LEFT OUTER JOIN Employees e ON e.EmployeeID = d.ManagerID
 SELECT * FROM DEPARTMENTLOCATION ;
--->10
+-->10 Write a query to display the job title and average salary of employees.
 CREATE VIEW AVERAGESALARY AS SELECT JobId,SUM(Salary)/COUNT(EmployeeID) AS Average FROM Employees GROUP BY JobId;
 SELECT * FROM AVERAGESALARY;
--->11
-SELECT Salary FROM Employees WHERE Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY JobId);
--->12
-CREATE VIEW JOB AS SELECT e.EmployeeID,e.Salary FROM Employees e JOIN JobHistory j ON e.EmployeeID = j.EmployeeID;
+-->11 Display job title, employee name, and the difference between salary of the employee and minimum salary for the job.
+CREATE OR ALTER VIEW MinSalary AS SELECT JobID,Salary-(SELECT MIN(Salary)  FROM Employees) AS 'Min Salary' FROM Employees ;
+SELECT * FROM MinSalary;
+-->12  Write a query to display the job history that were done by any employee who is currently drawing more than 10000 of salary.
+CREATE OR ALTER VIEW JOB AS SELECT j.* FROM Employees e JOIN JobHistory j ON e.EmployeeID = j.EmployeeID WHERE e.Salary>10000;
 SELECT * FROM JOB;
--->13
-CREATE VIEW HIRE AS SELECT DISTINCT m.FirstName,m.LastName,DATEDIFF(YEAR,m.HireDate,GETDATE()) AS exp FROM Employees e JOIN  Employees m ON m.EmployeeID = e.ManagerID WHERE DATEDIFF(YEAR,m.HireDate,GETDATE())>15; 
+-->13 Write a query to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience is more than 15 years. 
+CREATE OR ALTER  VIEW HIRE AS SELECT d.DepartmentName,e.FirstName,e.LastName,e.HireDate ,e.Salary FROM Departments d JOIN Employees e ON e.EmployeeID = d.ManagerID JOIN JobHistory j ON j.EmployeeID = d.ManagerID WHERE DATEDIFF(yy,j.StartDate,j.EndDate) > 15;
 SELECT * FROM HIRE;
