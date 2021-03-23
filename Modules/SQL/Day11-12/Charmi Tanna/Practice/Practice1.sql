@@ -1,0 +1,86 @@
+CREATE DATABASE PRACTICEDAY11
+USE PRACTICEDAY11
+-->CREATING CUSTOMER TABLE
+CREATE TABLE Customer
+(
+CName VARCHAR(19) CONSTRAINT PK_Customer_CName PRIMARY KEY,
+City VARCHAR(18)
+);
+SELECT * FROM Customer
+DROP TABLE Customer
+INSERT INTO Customer VALUES('Anil','Kolkata');
+INSERT INTO Customer VALUES('Sunil','Delhi');
+INSERT INTO Customer VALUES('Mehul','Baroda');
+INSERT INTO Customer VALUES('Mandar','Patna');
+INSERT INTO Customer VALUES('Madhuri','Nagpur');
+INSERT INTO Customer VALUES('Pramod','Nagpur');
+INSERT INTO Customer VALUES('Sandip','Surat');
+INSERT INTO Customer VALUES('Shivani','Mumbai');
+INSERT INTO Customer VALUES('Kranti','Mumbai');
+INSERT INTO Customer VALUES('Naren','Mumbai');
+-->TRY CATCH
+BEGIN
+TRY
+INSERT INTO Customer VALUES('Naren','Surat');
+END TRY
+BEGIN CATCH
+PRINT ERROR_LINE()
+PRINT ERROR_MESSAGE()
+PRINT'This is wrong input'
+END CATCH
+-->RAISE ERROR
+BEGIN TRY
+DECLARE @Num1 INT,@Num2 INT,@Num3 INT
+SET @Num2 =0
+SET @Num1=10
+IF @Num2=0
+RAISERROR('Denominator can not be ZERO',10,1)
+ELSE
+SET @Num3=@Num1/@num2
+PRINT @Num3
+END TRY
+BEGIN CATCH
+PRINT ERROR_MESSAGE()
+END CATCH
+GO
+-->
+CREATE TABLE test
+(name VARCHAR(40))
+DROP TABLE test
+ALTER PROCEDURE spProcedure @JSON NVARCHAR(MAX)
+AS 
+BEGIN
+DECLARE @name VARCHAR(80)
+SELECT @name = Name FROM OPENJSON(@JSON)
+WITH(Name VARCHAR(40) '$.Name')
+INSERT INTO test VALUES (@name)
+RETURN @@IDENTITY
+END
+DECLARE @json NVARCHAR(MAX), @id int
+SET @JSON='[{"Name":"Rita"}]'
+EXECUTE @id = spProcedure @json
+PRINT @id
+GO
+SELECT * FROM test
+-->
+SELECT * FROM test2
+CREATE TABLE test2
+(name VARCHAR(40),amount INT)
+DROP TABLE test2
+ALTER PROCEDURE spProcedure2 @JSON NVARCHAR(MAX)
+AS 
+BEGIN
+
+INSERT INTO test2
+SELECT * FROM OPENJSON(@JSON2) 
+WITH(Name VARCHAR(20) '$.name', 
+Amount INT '$.amount')
+END
+DECLARE @json2 NVARCHAR(MAX)
+SET @JSON2='[{"Name":"Rita","Amount":1000}]'
+spProcedure2 @json2
+EXECUTE @id = spProcedure2 @json2
+
+PRINT @id 
+GO
+SELECT * FROM test2
