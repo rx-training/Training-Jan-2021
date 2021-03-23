@@ -61,7 +61,6 @@ BEGIN
 	UPDATE Students SET RemainingAmt=RemainingAmt + @RemainingAmt WHERE StudentId = (SELECT StudentId FROM Inserted)
 END
 
-
 INSERT INTO CourseEnrolled VALUES (1, 1)
 INSERT INTO CourseEnrolled VALUES (2, 3)
 INSERT INTO CourseEnrolled VALUES (2, 3)
