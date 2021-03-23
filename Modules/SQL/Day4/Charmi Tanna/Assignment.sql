@@ -126,7 +126,7 @@ CREATE TABLE  Employees (
 
 SELECT * FROM Employees;
 -->1 Write a query to rank employees based on their salary for a month
-SELECT *,RANK() OVER(ORDER BY Salary)  'RankOfSalary' FROM Employees;
+SELECT *,DENSE_RANK() OVER(ORDER BY Salary)  'RankOfSalary' FROM Employees;
 -->2 Select 4th Highest salary from employee table using ranking function
 SELECT * FROM(SELECT Salary,DENSE_RANK() OVER(ORDER BY Salary DESC)  'RankOfSalary' FROM Employees ) tbl WHERE RankOfSalary=4;
 -->3 Get department, total salary with respect to a department from employee table.
