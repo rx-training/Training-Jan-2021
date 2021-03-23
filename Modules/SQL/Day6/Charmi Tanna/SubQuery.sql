@@ -207,8 +207,7 @@ INSERT INTO Locations  VALUES
 ('3100', 'Pieter Breughelstraat 837', '3029SK', 'Utrecht', 'Utrecht', 'NL'),
 ('3200', 'Mariano Escobedo 9991', '11932', 'Mexico City', '"Distrito Federal', '"');
 
-
-
+SELECT * FROM Locations
 CREATE TABLE Countries (
   CountryID varchar(2) NOT NULL,
   CountryName varchar(40) DEFAULT NULL,
@@ -247,7 +246,7 @@ INSERT INTO countries  VALUES
 ('ZM', 'Zambia', '4'),
 ('ZW', 'Zimbabwe', '4');
 
-
+SELECT * FROM countries
 
 CREATE TABLE  JobHistory (
    EmployeeID decimal(6,0) NOT NULL,
@@ -269,49 +268,50 @@ INSERT INTO  JobHistory VALUES('200', '1987-09-17', '1993-06-17', 'AD_ASST', '90
 INSERT INTO  JobHistory VALUES('176', '1998-03-24', '1998-12-31', 'SA_REP', '80')
 INSERT INTO  JobHistory VALUES('176', '1999-01-01', '1999-12-31', 'SA_MAN', '80')
 
--->1
+-->1 Write a query to find the names (first_name, last_name) and salaries of the employees who have higher salary than the employee whose last_name='Bull'. 
 SELECT FirstName,LastName,Salary  FROM Employees WHERE Salary >(Select Salary FROM Employees WHERE LastName='BULL');
--->2
-SELECT e.FirstName,e.LastName,d.DepartmentName FROM Employees e JOIN Departments d ON e.DepartmentID= d.DepartmentID WHERE d.DepartmentName='IT';
--->3
+-->2 Find the names (first_name, last_name) of all employees who works in the IT department. 
+SELECT FirstName,LastName FROM Employees WHERE DepartmentID = (SELECT DepartmentID FROM Departments WHERE DepartmentName ='IT')
+/*3. Find the names (first_name, last_name) of the employees who have a manager who works for a department based in United States. 
+Hint : Write single-row and multiple-row subqueries*/
 SELECT FirstName,LastName FROM Employees WHERE ManagerID IN (SELECT ManagerID FROM Departments WHERE DepartmentID IN(SELECT DepartmentID FROM Locations WHERE CountryID IN(SELECT CountryID FROM Countries WHERE CountryID = Locations.CountryID AND CountryName='United States of America'))); 
--->4
+-->4 Find the names (first_name, last_name) of the employees who are managers. 
 SELECT FirstName,LastName FROM Employees WHERE EmployeeID IN (SELECT ManagerID FROM Employees);
--->5
+-->5  Find the names (first_name, last_name), salary of the employees whose salary is greater than the average salary. 
 SELECT FirstName,LastName,Salary FROM Employees WHERE Salary > (SELECT SUM(Salary)/COUNT(EmployeeID) FROM Employees);
--->6
-SELECT FirstName,LastName,Salary FROM Employees WHERE Salary = (SELECT MIN(Salary) FROM Employees WHERE DepartmentID IN (SELECT DepartmentID FROM DEPARTMENTS WHERE DepartmentID = Employees.DepartmentID));
--->7
+-->6 Find the names (first_name, last_name), salary of the employees whose salary is equal to the minimum salary for their job grade. 
+SELECT FirstName,LastName,Salary FROM Employees WHERE Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY JobId);
+-->7 Find the names (first_name, last_name), salary of the employees who earn more than the average salary and who works in any of the IT departments.
 SELECT FirstName,LastName,Salary FROM Employees WHERE Salary > (SELECT SUM(Salary)/COUNT(EmployeeID) FROM Employees WHERE DepartmentID IN(SELECT DepartmentID FROM Departments WHERE DepartmentName ='IT'));
--->8
+-->8 Find the names (first_name, last_name), salary of the employees who earn more than Mr. Bell.
 SELECT Salary  FROM Employees WHERE Salary >(Select Salary FROM Employees WHERE LastName='Bell');
--->9
-SELECT FirstName,LastName,Salary FROM Employees WHERE Salary = (SELECT MIN(Salary) FROM Employees);
--->10
-SELECT FirstName,LastName,Salary FROM Employees WHERE Salary > (SELECT SUM(Salary)/COUNT(EmployeeID) FROM Employees WHERE DepartmentID IN(SELECT DepartmentID FROM Departments));
--->11
-SELECT FirstName,LastName,Salary FROM Employees WHERE Salary > (SELECT SUM(Salary) FROM Employees WHERE JobId ='SH_CLERK') ORDER BY Salary DESC;
--->12
-SELECT FirstName,LastName FROM Employees WHERE EmployeeID NOT IN(SELECT ManagerID FROM Employees);
--->13
-SELECT EmployeeID,FirstName,LastName FROM Employees WHERE DepartmentID = (SELECT DepartmentID FROM Departments WHERE DepartmentID = Employees.DepartmentID) 
--->14
- SELECT FirstName,LastName,Salary  FROM Employees WHERE Salary >(SELECT SUM(Salary) /COUNT(EmployeeID) FROM Employees );
--->15
+-->9 Find the names (first_name, last_name), salary of the employees who earn the same salary as the minimum salary for all departments.
+SELECT FirstName,LastName,Salary FROM Employees WHERE Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY DepartmentID) ;
+-->10 Find the names (first_name, last_name), salary of the employees whose salary greater than average salary of all department.
+SELECT FirstName,LastName,Salary FROM Employees WHERE Salary > (SELECT AVG(Salary) FROM Employees WHERE DepartmentID IN(SELECT DepartmentID FROM Departments));
+-->11.Write a query to find the names (first_name, last_name) and salary of the employees who earn a salary that is higher than the salary of all the Shipping Clerk (JOB_ID = 'SH_CLERK'). Sort the results on salary from the lowest to highest. 
+SELECT FirstName,LastName,Salary FROM Employees WHERE Salary > ALL(SELECT Salary FROM Employees WHERE JobId ='SH_CLERK') ORDER BY Salary DESC;
+-->12 Write a query to find the names (first_name, last_name) of the employees who are not supervisors. 
+SELECT e.FirstName ,e.LastName FROM Employees e WHERE NOT EXISTS(SELECT * FROM Employees m WHERE m.ManagerID = e.EmployeeID);
+-->13 Write a query to display the employee ID, first name, last names, and department names of all employees.
+SELECT EmployeeID,FirstName,LastName,(SELECT d.DepartmentName FROM Departments d WHERE e.DepartmentID=d.DepartmentID) FROM Employees e;
+-->14  Write a query to display the employee ID, first name, last names, salary of all employees whose salary is above average for their departments. 
+SELECT FirstName,LastName,Salary  FROM Employees WHERE Salary >(SELECT AVG(Salary)FROM Employees e WHERE e.DepartmentID = Employees.DepartmentID);
+-->15 Write a query to fetch even numbered records from employees table.
 Select * from Employees where EmployeeID % 2 = 0 
--->16
+-->16 Write a query to find the 5th maximum salary in the employees table. 
 SELECT Salary FROM(SELECT DENSE_RANK() OVER  (ORDER BY SALARY DESC) [d_rank],* FROM Employees ) [tbl_temp] WHERE d_rank=5; 
--->17
+-->17 Write a query to find the 4th minimum salary in the employees table.
 SELECT Salary FROM(SELECT DENSE_RANK() OVER  (ORDER BY SALARY ) [d_rank],* FROM Employees ) [tbl_temp] WHERE d_rank=4; 
--->18
+-->18  Write a query to select last 10 records from a table.
 SELECT TOP 10 * FROM Employees ORDER BY EmployeeID DESC;
--->19
-SELECT DepartmentID FROM Employees WHERE DepartmentID = (SELECT DepartmentID FROM Employees WHERE FirstName=' ');
--->20
+-->19  Write a query to list department number, name for all the departments in which there are no employees in the department.
+SELECT * FROM Departments WHERE DepartmentID NOT IN (SELECT DepartmentID FROM Employees);
+-->20 Write a query to get 3 maximum salaries. 
 SELECT Salary FROM(SELECT DENSE_RANK() OVER  (ORDER BY SALARY DESC) [d_rank],* FROM Employees ) [tbl_temp] WHERE d_rank=1 OR d_rank=2 OR d_rank=3; 
--->21
-SELECT Salary FROM(SELECT ROW_NUMBER() OVER  (ORDER BY SALARY DESC) [d_rank],* FROM Employees ) [tbl_temp] WHERE d_rank=107 OR d_rank=106 OR d_rank=105
--->22
+-->21 Write a query to get 3 minimum salaries. 
+SELECT DISTINCT e.Salary FROM Employees e WHERE 3>= (SELECT COUNT(DISTINCT em.Salary) FROM Employees em WHERE em.Salary >= e.Salary) ORDER BY e.Salary DESC;
+-->22 Write a query to get nth max salaries of employees. 
 SELECT Salary FROM(SELECT DENSE_RANK() OVER  (ORDER BY SALARY DESC) [d_rank],* FROM Employees ) [tbl_temp] WHERE d_rank=1; 
 
 
