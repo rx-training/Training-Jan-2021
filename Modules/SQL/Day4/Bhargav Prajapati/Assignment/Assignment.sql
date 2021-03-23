@@ -135,55 +135,35 @@ SELECT * FROM Employees
 SELECT FirstName,LastName ,Salary,DENSE_RANK() OVER(ORDER BY SALARY) AS 'Rank Of Salary' FROM Employees
 
 
-
 /*2. Select 4th Highest salary from employee table using ranking function*/
 SELECT * FROM 
 (SELECT FirstName,LastName,Salary,DENSE_RANK() OVER(ORDER BY SALARY DESC) AS 'RankOfSalary' FROM Employees) AS table1
 WHERE RankOfSalary = 4
 
 /*3. Get department, total salary with respect to a department from employee table.*/
-SELECT JobId,SUM(Salary) AS 'Total Salary'  FROM Employees  GROUP BY ROLLUP(JobId)
+SELECT DepartmentID,SUM(Salary) AS 'Total Salary'  FROM Employees  GROUP BY ROLLUP(DepartmentID)
 
 
 /*4. Get department, total salary with respect to a department from employee table order by total salary descending*/
 
-    ----Method 1---
- SELECT JobId,SUM(Salary) AS 'Total Salary'  FROM Employees  GROUP BY JobId ORDER BY SUM(Salary) DESC
-
-    ----Method 2---
- SELECT * FROM
-(SELECT JobId,SUM(Salary) AS 'SUMSalary' FROM Employees GROUP BY JobId ) AS table5  ORDER BY SUMSalary  DESC 
-
-
+   SELECT * FROM
+(SELECT DepartmentID,SUM(Salary) AS 'SumSalary' FROM Employees GROUP BY DepartmentID ) AS table5  ORDER BY SumSalary  DESC 
 
 
  /*5. Get department wise maximum salary from employee table order by salary ascending*/
- SELECT * FROM Employees
- 
- ----Method 1---
- SELECT JobId,MAX(Salary) AS 'Maximum Salary' FROM Employees GROUP BY JobId  ORDER BY Max(Salary)
- 
- ----Method 2---
  SELECT * FROM
-(SELECT JobId,MAX(Salary) AS 'MaximumSalary' FROM Employees GROUP BY JobId ) AS table2  ORDER BY MaximumSalary  
-
-
+(SELECT DepartmentID,MAX(Salary) AS 'MaximumSalary' FROM Employees GROUP BY DepartmentID ) AS table2  ORDER BY MaximumSalary ASC  
 
 
 
  /*6. Get department wise minimum salary from employee table order by salary ascending*/
- 
- ----Method 1---
-  SELECT JobId,MIN(Salary)  AS 'Minimum Salary' FROM Employees GROUP BY JobId  ORDER BY MIN(Salary)
- 
- ----Method 2---
  SELECT * FROM
-(SELECT JobId,MIN(Salary) AS 'MinimumSalary' FROM Employees GROUP BY JobId ) AS table3  ORDER BY MinimumSalary
+(SELECT DepartmentID,MIN(Salary) AS 'MinimumSalary' FROM Employees GROUP BY DepartmentID ) AS table3  ORDER BY MinimumSalary ASC
 
 
+  /*7. Select department, total salary with respect to a department from employee table where total salary greater 
+  than 50000 order by TotalSalary descending*/
+  
+  SELECT * from 
+ (SELECT DepartmentID,SUM(Salary) As'totelsalary' FROM Employees GROUP BY DepartmentID) AS tbl4 WHERE totelsalary>50000
 
-
-
-
-  /*7. Select department, total salary with respect to a department from employee table where total salary greater than 50000 order by TotalSalary descending*/
-  SELECT JobId,SUM(Salary)AS'Salary Grater then 50000' FROM Employees  GROUP BY JobId  HAVING SUM(Salary)>50000  ORDER BY SUM(Salary) DESC
