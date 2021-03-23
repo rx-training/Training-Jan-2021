@@ -62,6 +62,7 @@ INSERT INTO SalesPerson VALUES(117,'Ramesh');
 INSERT INTO SalesPerson VALUES(118,'Riya');
 INSERT INTO SalesPerson VALUES(119,'Magan');
 INSERT INTO SalesPerson VALUES(120,'Bhumi');
+INSERT INTO SalesPerson VALUES(121,'Adam Smith');
 
 SELECT * FROM SalesPerson;
 
@@ -82,24 +83,25 @@ INSERT INTO Customer VALUES(203,'Komal','Sankalp Bunglows ,Near Star Bazar,Thalt
 INSERT INTO Customer VALUES(204,'Kiran','Mangal Flats,Near Ganshyam Sweets,Thaltej','Ahmedabad','Gujarat');
 INSERT INTO Customer VALUES(205,'Banasari','Mangal Appartment,Near Ganshyam Sweets,Thaltej','Ahmedabad','Gujarat');
 INSERT INTO Customer VALUES(206,'Bhakti','Mangal Appartment,Near Ganshyam Sweets,Thaltej','Ahmedabad','Gujarat');
+INSERT INTO Customer VALUES(207,'Neha','Abhay Appartment,Near Ganshyam Sweets,Thaltej','Ahmedabad','Gujarat');
 
 DROP TABLE Customer;
 
 CREATE TABLE ReportSto 
 (ReportStoID INT PRIMARY KEY , 
 SalesPersonID INT FOREIGN KEY REFERENCES SalesPerson(SalesPersonID),
-ManagingSalesPersonID INT,
-ManagingSalesPersonName VARCHAR(20));
+ManagingSalesPersonID INT);
 
-INSERT INTO ReportSto  VALUES(1,110,1,'Adam Smith');
-INSERT INTO ReportSto  VALUES(2,111,2,'Smith John');
-INSERT INTO ReportSto  VALUES(3,112,3,'Manish Dubey');
-INSERT INTO ReportSto  VALUES(4,113,NULL,NULL);
-INSERT INTO ReportSto  VALUES(5,114,NULL,NULL);
-INSERT INTO ReportSto  VALUES(6,115,3,'Manish Dubey');
-INSERT INTO ReportSto  VALUES(7,116,4,'Mansi Shah');
-INSERT INTO ReportSto  VALUES(8,117,5,'Pooja Shah');
-INSERT INTO ReportSto  VALUES(9,118,5,'Pooja Shah');
+INSERT INTO ReportSto  VALUES(1,110,121);
+INSERT INTO ReportSto  VALUES(2,111,121);
+INSERT INTO ReportSto  VALUES(3,112,11);
+INSERT INTO ReportSto  VALUES(4,113,NULL);
+INSERT INTO ReportSto  VALUES(5,114,NULL);
+INSERT INTO ReportSto  VALUES(6,115,111);
+INSERT INTO ReportSto  VALUES(7,116,112);
+INSERT INTO ReportSto  VALUES(8,117,112);
+INSERT INTO ReportSto  VALUES(9,118,121);
+INSERT INTO ReportSto  VALUES(10,121,NULL);
 
 SELECT * FROM ReportSto ;
 
@@ -139,7 +141,6 @@ DROP TABLE Inventory;
 
 INSERT INTO Inventory VALUES(150,'ABC128',1005);
 INSERT INTO Inventory VALUES(151,'ABC129',1004);
-INSERT INTO Inventory VALUES(152,'ABC130',1006);
 INSERT INTO Inventory VALUES(153,'ABC132',1008);
 
 SELECT * FROM Inventory;
@@ -161,42 +162,46 @@ INSERT INTO Sale VALUES(14,'ABC126',200,116,1002,9000000,'2010-01-17');
 INSERT INTO Sale VALUES(15,'ABC125',204,116,1003,800000,'2010-01-20');
 INSERT INTO Sale VALUES(16,'ABC131',205,117,1007,900000,'2010-03-17');
 INSERT INTO Sale VALUES(17,'ABC133',206,118,1007,1550000,'2010-03-20');
+INSERT INTO Sale VALUES(18,'ABC130',207,120,1006,9000000,'2010-01-20');
 
 DROP TABLE Sale;
 SELECT * FROM Sale;
 
--->1
+-->1.Find the names of all salespeople who have ever worked for the company at any dealership.
 SELECT sp.Name FROM SalesPerson sp JOIN Sale s ON s.SalesPersonId = sp.SalesPersonId WHERE s.DealershipId IS NOT NULL;
--->2
+-->2.List the Name, Street Address, and City of each customer who lives in Ahmedabad.
 SELECT Name,Address,City FROM Customer WHERE City = 'Ahmedabad';
--->3
+-->3.List the VIN, make, model, year, and mileage of all cars in the inventory of the dealership named "Hero Honda Car World".
 SELECT i.VIN,c.Make,c.Model,c.Mileage FROM Inventory i JOIN Car c ON i.VIN = c.VIN  JOIN Dealership d ON i.DealershipId = d.DealershipId WHERE d.Name='Hero Honda Car World';
--->4
+-->4.List names of all customers who have ever bought cars from the dealership named "Concept Hyundai".
 SELECT c.Name FROM Customer c JOIN Sale s ON c.CustomerID = s.CustomerID JOIN  Dealership d ON s.DealershipId = d.DealershipId WHERE d.Name='Concept Hyundai';
--->5
+-->5.For each car in the inventory of any dealership, list the VIN, make, model, and year of the car, along with the name, city, and state of the dealership whose inventory contains the car.
 SELECT c.VIN,c.Make,c.Model,c.Mileage,c.Year,d.Name,d.City,d.State FROM Car c JOIN  Inventory i ON c.VIN = i.VIN JOIN Dealership d ON d.DealershipID = i.DealershipID
--->6
-SELECT s.Name FROM SalesPerson s JOIN ReportSto r ON s.SalesPersonID = r.SalesPersonID WHERE ManagingSalesPersonName='Adam Smith';
--->7
-SELECT s.Name FROM SalesPerson s JOIN ReportSto r ON s.SalesPersonID = r.SalesPersonID WHERE ManagingSalesPersonName IS NULL;
--->8
-SELECT COUNT(DealershipID) FROM Dealership ORDER BY COUNT(DealershipID);
--->9
-SELECT c.VIN,c.Year,c.Mileage FROM Inventory i JOIN  Dealership d ON i.DealershipID = d.DealershipID JOIN Car c   ON c.VIN = i.VIN WHERE d.Name = 'Toyota Performance';
--->10
+-->6.Find the names of all salespeople who are managed by a salesperson named "Adam Smith".
+SELECT e.Name , m.Name FROM ReportsTo r JOIN SalesPerson m on r.ManagingSalesPersonID = m.SalesPersonID JOIN SalesPerson e ON r.SalesPersonID = e.SalesPersonID WHERE m.Name = 'Adam Smith';
+-->7.Find the names of all salespeople who do not have a manager.
+SELECT sp.Name FROM SalesPerson sp JOIN ReportsTo r ON sp.SalesPersonID = r.SalesPersonID AND r.ManagingSalesPersonID IS NULL; 
+-->8.Find the total number of dealerships.
+SELECT COUNT(DealershipID) FROM Dealership;
+-->9.List the VIN, year, and mileage of all "Toyota Camrys" in the inventory of the dealership named "Toyota Performance". (Note that a "Toyota Camry" is indicated by the make being "Toyota" and the model being "Camry".)
+SELECT c.VIN,c.Year,c.Mileage FROM Inventory i JOIN  Dealership d ON i.DealershipID = d.DealershipID JOIN Car c   ON c.VIN = i.VIN WHERE d.Name = 'Toyota Performance'	OR c.Make='Toyota Carmys';
+-->10.Find the name of all customers who bought a car at a dealership located in a state other than the state in which they live.
 SELECT c.Name FROM Customer c JOIN Sale s ON c.CustomerId = s.CustomerId JOIN Dealership d ON s.DealershipID = d.DealershipID WHERE c.State <> d.State; 
--->11
-SELECT MAX(w.BaseSalaryForMonth),sp.Name FROM SalesPerson sp JOIN WorkSat w ON sp.SalesPersonID = w.SalesPersonID JOIN Dealership d ON d.DealershipID = w.DealershipID  WHERE d.Name ='Ferrari Sales' GROUP BY  sp.Name ORDER BY MAX(w.BaseSalaryForMonth) ;
--->12
-SELECT c.Name,c.State,c.Address,c.City FROM Customer c FULL OUTER JOIN Sale s ON c.CustomerId = s.CustomerId WHERE s.SaleDate >= '2010-01-01' ;
--->13
+-->11.Find the name of the salesperson that made the largest base salary working at the dealership named "Ferrari Sales" during January 2010.
+SELECT MAX(w.BaseSalaryForMonth),sp.Name FROM SalesPerson sp JOIN WorkSat w ON sp.SalesPersonID = w.SalesPersonID JOIN Dealership d ON d.DealershipID = w.DealershipID  JOIN Sale s ON s.DealershipID = d.DealershipID WHERE d.Name ='Ferrari Sales' AND s.SaleDate BETWEEN '2010-01-01' AND '2010-01-31' GROUP BY  sp.Name ORDER BY MAX(w.BaseSalaryForMonth) ;
+-->12. List the name, street address, city, and state of any customer who has bought more than two cars from all dealerships combined since January 1, 2010.
+SELECT c.Name,c.Address,c.City,c.State FROM (SELECT DENSE_RANK() OVER (PARTITION BY CustomerId ORDER BY SaleId ASC)[d_rank],*FROM Sale)[tb] JOIN Customer c ON tb.CustomerId = c.CustomerId WHERE d_rank >= 2 AND Saledate >= '2010-01-01';
+-->13. List the name, salesperson ID, and total sales amount for each salesperson who has ever sold at least one car. The total sales amount for a salesperson is the sum of the sale prices of all cars ever sold by that salesperson.
 SELECT sp.Name,sp.SalesPersonID,SUM(S.SalePrice) FROM SalesPerson sp JOIN Sale s ON sp.SalesPersonID = s.SalesPersonID GROUP BY sp.Name,sp.SalesPersonID;
--->14
-SELECT sp.Name,sp.SalesPersonID,c.CustomerID,c.Name FROM Sale s JOIN SalesPerson sp ON s.SalesPersonID = sp.SalesPersonID JOIN  Customer c ON c.CustomerID = s.CustomerID WHERE sp.Name <>c.Name;
-SELECT 
--->15
-SELECT sp.Name,sp.SalesPersonID, COUNT(s.SalesPersonID) FROM  Sale s JOIN SalesPerson sp ON s.SalesPersonID = sp.SalesPersonID JOIN Dealership d ON  s.DealershipID = d.DealershipID WHERE s.SaleDate BETWEEN '2010-03-01' AND '2010-03-31' GROUP BY sp.Name,sp.SalesPersonID ;  
--->16
+-->14. Find the names of all customers who bought cars during 2010 who were also salespeople during 2010. For the purpose of this query, assume that no two people have the same name.
+SELECT c.Name FROM Customer c JOIN Salesperson sp  ON c.Name = sp.Name JOIN Sale s  ON s.SalespersonId = sp.SalespersonId WHERE YEAR(s.Saledate) = 2010;
+-->15. Find the name and salesperson ID of the salesperson who sold the most cars for the company at dealerships located in Gujarat between March 1, 2010 and March 31, 2010.
+SELECT sp.Name,sp.SalesPersonID, COUNT(s.SalesPersonID) FROM  Sale s JOIN SalesPerson sp ON s.SalesPersonID = sp.SalesPersonID JOIN Dealership d ON  s.DealershipID = d.DealershipID WHERE s.SaleDate BETWEEN '2010-03-01' AND '2010-03-31' AND d.State='Gujarat' GROUP BY sp.Name,sp.SalesPersonID ;  
+/*16. Calculate the payroll for the month of March 2010.
+	* The payroll consists of the name, salesperson ID, and gross pay for each salesperson who worked that month.
+        * The gross pay is calculated as the base salary at each dealership employing the salesperson that month, along with the total commission for the salesperson that month.
+        * The total commission for a salesperson in a month is calculated as 5% of the profit made on all cars sold by the salesperson that month.
+        * The profit made on a car is the difference between the sale price and the invoice price of the car. (Assume, that cars are never sold for less than the invoice price.)*/
 
 SELECT sp.salespersonid, sp.name,
 SUM(ISNULL(w.basesalaryformonth, 0) + ISNULL(((c.askprice - c.invoiceprice) * 5 / 100), 0)) [Gross Pay]

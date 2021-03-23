@@ -34,15 +34,16 @@ INSERT INTO Incentives VALUES(1,'2013-01-01',4500);
 INSERT INTO Incentives VALUES(2,'2013-01-01',3500);
 DROP TABLE Incentives
 SELECT * FROM Incentives;
--->1
+-->1 Select employee details from employee table if data exists in incentive table ?
 SELECT * FROM  Employee WHERE EXISTS (SELECT EmployeeRefID FROM Incentives WHERE  EmployeeID = Incentives.EmployeeRefID );
--->2
+-->2 Find Salary of the employee whose salary is more than Roy Salary
 SELECT Salary FROM Employee WHERE Salary >(Select Salary FROM Employee WHERE FirstName='Roy');
--->3
+-->3 Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount
 CREATE VIEW EmployeeView AS SELECT e.FirstName,e.LastName,e.Salary,e.JoiningDate,i.IncentiveDate,i.IncentiveAmount FROM Employee e JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID ;
 SELECT * FROM EmployeeView
--->4
- SELECT e.FirstName,i.IncentiveAmount FROM Employee e JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID WHERE i.IncentiveAmount>3000;
+-->4 Create a view to select Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+CREATE VIEW Emp AS SELECT e.FirstName,i.IncentiveAmount FROM Employee e JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID WHERE i.IncentiveAmount>3000;
+SELECT * FROM Emp
 SELECT * FROM EmpView
 
 CREATE TABLE  Employees (
@@ -312,18 +313,19 @@ INSERT INTO  JobHistory VALUES('200', '1987-09-17', '1993-06-17', 'AD_ASST', '90
 INSERT INTO  JobHistory VALUES('176', '1998-03-24', '1998-12-31', 'SA_REP', '80')
 INSERT INTO  JobHistory VALUES('176', '1999-01-01', '1999-12-31', 'SA_MAN', '80')
 
--->1
+-->1 Create a View to Find the names (first_name, last_name), job, department number, and department name of the employees who work in London
 CREATE VIEW LOCATIONFIND AS SELECT e.FirstName, e.LastName,d.DepartmentID,l.City,d.DepartmentName FROM Departments d JOIN Locations l ON d.LocationID = l.LocationID JOIN Employees e ON D.DepartmentID = e.DepartmentID WHERE l.City='London';
 SELECT * FROM LOCATIONFIND;
--->2
+-->2 Create a View to get the department name and number of employees in the department.
 CREATE VIEW DEPARTMENTINFO AS  SELECT d.DepartmentName,COUNT(e.EmployeeID)AS eid FROM Departments d JOIN Employees e ON D.DepartmentID = e.DepartmentID GROUP BY d.DepartmentName ;
 SELECT * FROM DEPARTMENTINFO;
--->3
-CREATE VIEW DIFFERNTDATES AS SELECT e.EmployeeID,e.JobId,DATEDIFF(DAY,j.StartDate,j.EndDate) AS Days FROM Employees e JOIN JobHistory j ON e.EmployeeID = j.EmployeeID;
+-->3 Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history.
+CREATE OR ALTER  VIEW DIFFERNTDATES AS SELECT e.EmployeeID,e.JobId,DATEDIFF(DAY,j.StartDate,j.EndDate) AS Days FROM Employees e JOIN JobHistory j ON e.EmployeeID = j.EmployeeID WHERE e.DepartmentID =90;
 SELECT * FROM DIFFERNTDATES ;
--->4
+-->4 Write a View to display the department name, manager name, and city.
 CREATE VIEW MANAGERS AS  SELECT m.FirstName,l.City,d.DepartmentName FROM Employees e JOIN Employees m ON m.EmployeeID = e.ManagerID JOIN Departments d ON d.DepartmentID = m.DepartmentID JOIN Locations l ON d.LocationID = l.LocationID;
 SELECT * FROM MANAGERS;
--->5
-CREATE VIEW EXPERIENCE AS SELECT d.DepartmentName,e.FirstName,e.LastName,DATEDIFF(YEAR,e.HireDate,GETDATE()) AS diff,e.Salary FROM Departments d JOIN Employees e ON d.DepartmentID = e.DepartmentID WHERE DATEDIFF(YEAR,e.HireDate,GETDATE())>15;
+
+-->5 Create a View to display department name, name (first_name, last_name), hire date, salary of the manager for all managers whose experience is more than 15 years.
+CREATE OR ALTER VIEW EXPERIENCE AS SELECT d.DepartmentName,e.FirstName,e.LastName ,e.Salary FROM Departments d JOIN Employees e ON d.DepartmentID = e.DepartmentID JOIN JobHistory j ON e.EmployeeID = j.EmployeeID WHERE DATEDIFF(YEAR,e.HireDate,j.EndDate)>15;
 SELECT * FROM EXPERIENCE;

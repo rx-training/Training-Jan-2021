@@ -32,15 +32,21 @@ INSERT INTO Incentives VALUES(2,'2013-02-01',3000);
 INSERT INTO Incentives VALUES(3,'2013-02-01',4000);
 INSERT INTO Incentives VALUES(1,'2013-01-01',4500);
 INSERT INTO Incentives VALUES(2,'2013-01-01',3500);
+DROP TABLE Employee
 SELECT * FROM Incentives;
--->1
+DROP TABLE Incentives
+-->1 Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
 SELECT *, DATEDIFF(DAY,e.JoiningDate ,i.IncentiveDate) AS DATEDIFFERNCE FROM Employee e FULL OUTER JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID;
--->2
+-->2 Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
 SELECT e.FirstName,i.IncentiveAmount FROM Employee e RIGHT JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID WHERE i.IncentiveAmount > 3000;
--->3
+-->3 Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives.
 SELECT e.FirstName,i.IncentiveAmount FROM Employee e LEFT JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID;
--->4
+-->4 Select EmployeeName, ManagerName from the employee table.
 SELECT M.EmployeeID,M.FirstName,E.EmployeeID,E.FirstName FROM Employee M JOIN Employee E ON M.EmployeeID = E.ManagerID
--->5
-SELECT  ISNULL(i.IncentiveAmount,0) FROM Incentives i JOIN Employee e ON e.EmployeeID = i.EmployeeRefID ;
+-->5 Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives and set incentive amount as 0 for those employees who didn’t get incentives.
+SELECT  ISNULL(i.IncentiveAmount,0),* FROM Incentives i RIGHT JOIN Employee e ON e.EmployeeID = i.EmployeeRefID ;
+
+
+
+
 
