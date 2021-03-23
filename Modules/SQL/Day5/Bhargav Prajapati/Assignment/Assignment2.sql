@@ -106,60 +106,59 @@ INSERT INTO Sale(SaleId,Vin,CustomerId,SalesPersonId,DealerShipId,SalePrice,Sale
 																							(5,17181920,5,5,5,1200000,'03-Mar-2020')
 INSERT INTO Sale(SaleId,Vin,CustomerId,SalesPersonId,DealerShipId,SalePrice,SaleDate) VALUES(6,21222324,1,6,6,500000,'01-Jan-2020')
 
-/*Find the names of all salespeople who have ever worked for the company at any dealership*/
+/*1 Find the names of all salespeople who have ever worked for the company at any dealership*/
 SELECT * FROM SalesPerson
 SELECT * FROM DealerShip
-SELECT S.Name FROM SalesPerson s JOIN DealerShip w ON s.SalesPersonId=w.DealerShipId
+SELECT s.Name FROM  SalesPerson s JOIN WorkSet w ON s.SalesPersonId=w.SalesPersonId
 
-
-/* List the Name, Street Address, and City of each customer who lives in Ahmedabad*/
+/*2 List the Name, Street Address, and City of each customer who lives in Ahmedabad*/
 SELECT Name,Address AS'Street',City FROM Customers WHERE City='AHMEDABAD'
 
 
-/*List the VIN, make, model, year, and mileage of all cars in the inventory of the dealership
+/*3 List the VIN, make, model, year, and mileage of all cars in the inventory of the dealership
 named "Toyota AutoWorld"*/
-SELECT c.Vin,c.Make,c.Model,c.Year,c.Mileage FROM Car c JOIN Inventory i ON c.CarId=i.InventoryId JOIN DealerShip d ON i.InventoryId=d.DealerShipId WHERE d.Name='Toyota AutoWorld'
-
-/*List names of all customers who have ever bought cars from the dealership named "Concept Hyundai"*/
+SELECT c.vin,c.Make,c.Model,c.Year,c.Mileage FROM Car c
+JOIN Inventory i ON c.Vin=i.Vin
+JOIN DealerShip d ON i.DealerShipId=d.DealerShipId
+/*4 List names of all customers who have ever bought cars from the dealership named "Concept Hyundai"*/
 SELECT * FROM Customers
 SELECT * FROM DealerShip
 SELECT * FROM Sale
 SELECT c.Name FROM Customers c JOIN Sale s ON c.CustomerId =s.CustomerId JOIN DealerShip d ON s.DealerShipId=d.DealerShipId WHERE d.Name='Toyota AutoWorld'
-/*For each car in the inventory of any dealership, list the VIN, make, model, and year of the 
+
+/*5 For each car in the inventory of any dealership, list the VIN, make, model, and year of the 
 car, along with the name, city, and state of the dealership whose inventory contains the car.
 */
-SELECT c.Vin,c.Make,c.Year, d.Name,d.City,d.City FROM Car c JOIN  Inventory i ON c.CarId=i.InventoryId JOIN DealerShip d ON i.DealerShipId=d.DealerShipId
+SELECT c.Vin,c.Make,c.Model,c.Year, d.Name,d.City,d.State FROM Car c JOIN DealerShip d ON c.CarId=d.DealerShipId
 
-/*Find the names of all salespeople who are managed by a salesperson named "Adam Smith".
+/*6 Find the names of all salespeople who are managed by a salesperson named "Adam Smith".
 */
 SELECT s.Name FROM SalesPerson s JOIN ReportSto r ON s.SalesPersonId=r.SalesPersonId JOIN SalesPerson a ON r.ManagingSalesPersonId=a.SalesPersonId WHERE a.Name='Adam Smith'
 
-/*Find the names of all salespeople who do not have a manager.
+/*7 Find the names of all salespeople who do not have a manager.
 */
 SELECT s.Name FROM SalesPerson s JOIN ReportSto r ON s.SalesPersonId=r.SalesPersonId JOIN SalesPerson a ON r.ManagingSalesPersonId=a.SalesPersonId WHERE a.Name IS NULL
 
-/*Find the total number of dealerships.
+/* 8 Find the total number of dealerships.
 */
 SELECT COUNT(Name) AS 'COUNT' FROM DealerShip GROUP BY Name
  
- /*List the VIN, year, and mileage of all "Toyota Camrys" in the inventory of the dealership named "Toyota Performance". 
+ /*9 List the VIN, year, and mileage of all "Toyota Camrys" in the inventory of the dealership named "Toyota Performance". 
  (Note that a "Toyota Camry" is indicated by the make being "Toyota" and the model being "Camry".)
 */
- SELECT c.Vin,c.Year,c.Mileage FROM Inventory i JOIN Car c ON i.Vin=c.vin JOIN DealerShip d ON c.CarId=d.DealerShipId WHERE d.Name ='Jeep AutoWorld' AND c.Model='Compass' AND c.Make='Jeep'
+ 
+ SELECT c.Vin,c.Mileage,c.Year FROM Car c JOIN Inventory i ON c.Vin =i.Vin
+ JOIN DealerShip d ON i.DealerShipId=d.DealerShipId WHERE d.Name='Honda AutoWorld' AND c.Make='HONDA' AND c.Model='I20'
 
- /*Find the name of all customers who bought a car at a dealership located in a 
+ /*10 Find the name of all customers who bought a car at a dealership located in a 
  state other than the state in which they live.
 */
-SELECT c.Name FROM Customers c JOIN Sale s ON c.CustomerId=s.CustomerId JOIN DealerShip d ON s.DealerShipId=d.DealerShipId WHERE d.State !=d.State
-
-/*List the name, salesperson ID, and total sales amount for each salesperson who has ever sold at 
-least one car. The total sales amount for a salesperson is the sum of the sale prices of all cars ever 
-sold by that salesperson.
-*/
-SELECT sl.SalesPersonId,sl.Name,SUM(s.SalePrice) AS'Totle Price'  FROM Sale s JOIN SalesPerson sl ON s.SaleId=sl.SalesPersonId GROUP BY sl.SalesPersonId,sl.Name
+SELECT c.Name FROM Customers c JOIN Sale s ON c.CustomerId=s.CustomerId
+JOIN DealerShip d ON d.DealerShipId=s.DealerShipId WHERE d.State !=d.State
 
 
-/*Find the name of the salesperson that made the largest base salary working at the dealership 
+
+/*11 Find the name of the salesperson that made the largest base salary working at the dealership 
 named "Ferrari Sales" during January 2010.*/
 SELECT Name FROM(SELECT DENSE_RANK() OVER (ORDER BY w.BaseSalaryForMonth DESC)[d_Rank],s.SalesPersonId,s.Name,w.WorksetId,w.MonthWorked,w.BaseSalaryForMonth,w.DealerShipId,d.Name[d.Name],d.Address,d.State 
 FROM SalesPerson s JOIN WorkSet w ON s.SalesPersonId=w.SalesPersonId JOIN DealerShip d ON d.DealerShipId=w.DealerShipId
@@ -167,16 +166,39 @@ WHERE d.Name='Honda AutoWorld'
 ) AS TABLE1 JOIN Sale s ON s.SalesPersonId=TABLE1.SalesPersonId WHERE d_Rank=1 AND YEAR(s.SaleDate)= 2010 AND DATENAME(MM,s.SaleDate)='Jan'
 
 
-/*List the name, street address, city, and state of any customer who has bought more than 
+/*12 List the name, street address, city, and state of any customer who has bought more than 
 two cars from all dealerships combined since January 1, 2010.
 */
 SELECT c.Name ,c.Address,c.City,c.State FROM (
 SELECT DENSE_RANK()OVER (PARTITION BY CustomerId ORDER BY SaleId) AS d_Rank,* FROM Sale
 ) AS TABLE1 JOIN Customers c ON TABLE1.CustomerId=c.CustomerId WHERE d_Rank>=2 AND SaleDate>='2010-01-01'
 
-/*Find the name and salesperson ID of the salesperson who sold the most cars for the company at
+/*13 List the name, salesperson ID, and total sales amount for each salesperson who has ever sold at 
+least one car. The total sales amount for a salesperson is the sum of the sale prices of all cars ever 
+sold by that salesperson.
+*/
+SELECT sl.SalesPersonId,sl.Name,SUM(s.SalePrice) AS'Totle Price'  FROM Sale s JOIN SalesPerson sl ON s.SaleId=sl.SalesPersonId GROUP BY sl.SalesPersonId,sl.Name
+
+/*14. Find the names of all customers who bought cars during 2010 who were also salespeople during 2010.
+For the purpose of this query, assume that no two people have the same name.
+*/
+SELECT c.Name AS 'Customer_Name' FROM Customers c JOIN SalesPerson sp ON c.Name=sp.Name JOIN Sale s ON s.SalesPersonId=sp.SalesPersonId
+WHERE YEAR(s.SaleDate)=2010
+/* 15 Find the name and salesperson ID of the salesperson who sold the most cars for the company at
 dealerships located in Gujarat between March 1, 2010 and March 31, 2010.
 */
+SELECT sp.*FROM SalesPerson sp JOIN Sale s ON s.SalesPersonId=sp.SalesPersonId
+JOIN  DealerShip d ON d.DealerShipId=s.DealerShipId WHERE sp.SalesPersonId IN (SELECT SalesPersonId  FROM Sale GROUP BY SalesPersonId )
+
+/*16. Calculate the payroll for the month of March 2010.
+	* The payroll consists of the name, salesperson ID, and gross pay for each salesperson who worked that month.
+        * The gross pay is calculated as the base salary at each
+		dealership employing the salesperson that month, along with the total commission for the 
+		salesperson that month.
+        * The total commission for a salesperson in a month is calculated as 5% of the 
+		profit made on all cars sold by the salesperson that month.
+        * The profit made on a car is the difference between the sale price and the 
+		invoice price of the car. (Assume, that cars are never sold for less than the invoice price.)*/
 SELECT sp.salespersonid, sp.name,
         SUM(ISNULL(w.Basesalaryformonth, 0) + ISNULL(((c.AskPrice - c.InvoicePrice) * 5 / 100), 0)) [Gross Pay]
     FROM salesperson sp
