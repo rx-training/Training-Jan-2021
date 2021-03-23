@@ -1,11 +1,11 @@
 ------------------Proficiency Assessment-----------------------
 
 /*You are a database administrator for the AdventureWorks Corporation. You recently created
-some databases, and you’ve just realized how large the databases will become in the future.
+some databases, and youï¿½ve just realized how large the databases will become in the future.
 Therefore, you need to create a new clustered index to help with overall performance.*/
 USE AdventureWorks2012
 SELECT * FROM HumanResources.Employee
-CREATE CLUSTERED INDEX cl_Employee_performance  ON HumanResources.Employee(performance DESC)
+CREATE CLUSTERED INDEX cl_Employee_performance  ON HumanResources.Employee(Name)
 
 
 
