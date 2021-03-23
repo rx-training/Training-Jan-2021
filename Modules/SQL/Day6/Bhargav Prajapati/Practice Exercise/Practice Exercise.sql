@@ -25,8 +25,7 @@ SELECT DepartmentID FROM HumanResources.EmployeeDepartmentHistory WHERE Business
 SELECT * FROM HumanResources.Employee 
 SELECT * FROM Person.BusinessEntity
 -------Correleted SubQuery-----------
-SELECT * FROM Emps WHERE Salary=(SELECT MAX(Salary) FROM Emps)
-
+SELECT * FROM Emps e WHERE Salary=(SELECT MAX(Salary) FROM EmpDetails WHERE DEparmentNo=e.DEparmentNo) 
 --------- VIEW---------
 CREATE VIEW HumanResources.MyView AS 
 SELECT p.FirstName,p.LastName,e.HireDate FROM HumanResources.Employee AS e JOIN Person.Person AS p ON e.BusinessEntityID=p.BusinessEntityID

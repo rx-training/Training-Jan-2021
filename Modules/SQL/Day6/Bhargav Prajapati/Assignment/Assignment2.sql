@@ -274,43 +274,44 @@ SELECT*FROM Countries
 select * from JobHistory
 
 
-/*Create a View to Find the names (first_name, last_name), job, department number, and department name of 
+/*1 Create a View to Find the names (first_name, last_name), job, department number, and department name of 
 the employees who work in London*/
 
-CREATE VIEW CombinationOfData AS
-SELECT e.FirstName,e.LastName,e.JobId ,d.DepartmentID,d.DepartmentName FROM Employees e JOIN Departments d ON e.DepartmentID=d.DepartmentID JOIN Locations l ON d.LocationID=l.LocationID WHERE l.StateProvince='London'
-SELECT * FROM CombinationOfData
+CREATE VIEW CombinationOfDataaa AS
+SELECT e.FirstName,e.LastName,e.JobId,d.DepartmentID,d.DepartmentName FROM Employees e 
+ JOIN Departments d ON e.DepartmentID=d.DepartmentID
+JOIN Locations l ON d.LocationID=l.LocationID WHERE l.City='London'
 
 
-/*Create a View to get the department name and number of employees in the department.*/
+/*2 Create a View to get the department name and number of employees in the department.*/
 CREATE VIEW CombinationOfData1 AS
-SELECT d.DepartmentName , COUNT(e.EmployeeID) AS'Number Of Employee' FROM Departments d JOIN  Employees e ON d.DepartmentID=e.DepartmentID GROUP BY d.DepartmentName
+SELECT d.DepartmentName , COUNT(e.EmployeeID) AS'Number Of Employee' FROM 
+Departments d JOIN  Employees e ON d.DepartmentID=e.DepartmentID GROUP BY d.DepartmentName
 
 SELECT * FROM CombinationOfData1
 
-/*Find the employee ID, job title, number of days between ending date and starting date for all jobs
+/*3 Find the employee ID, job title, number of days between ending date and starting date for all jobs
 in department 90 from job history.*/
-SELECT e.EmployeeID,e.JobId,DATEDIFF(DAY,j.StartDate,j.EndDate)AS 'NUMBER OF DAYS' FROM Employees e JOIN JobHistory j ON e.DepartmentID=j.DepartmentID WHERE j.DepartmentID=90 
 
-/*Write a View to display the department name, manager name, and city.*/
-CREATE VIEW CombinationOfData2 AS 
-SELECT d.DepartmentName,d.DepartmentID,l.City FROM Departments d JOIN Locations l ON d.LocationID=l.LocationID
-SELECT * FROM CombinationOfData2
+SELECT  EmployeeID,JobID,DATEDIFF(DD,StartDate,EndDate) AS 'Days' FROM JobHistory Where DepartmentID=90
+/*4 Write a View to display the department name, manager name, and city.*/
+CREATE VIEW CombinationOfData2
+AS 
+SELECT d.DepartmentName,e.FirstName AS 'Manager',l.City  FROM Departments d JOIN  Locations l ON d.LocationID=l.LocationID
+LEFT OUTER JOIN Employees e ON d.ManagerID=e.EmployeeID
 
 
-/*Create a View to display department name, name (first_name, last_name), hire date, salary of 
+/*5 Create a View to display department name, name (first_name, last_name), hire date, salary of 
 the manager for all managers whose experience is more than 15 years.*/
 CREATE VIEW CombinationOfData3 AS
-SELECT d.DepartmentName,CONCAT(e.FirstName,e.LastName) AS'Name',DATEDIFF(YEAR,e.HireDate,GETDATE())AS 'Experience',e.HireDate,e.Salary FROM Departments d JOIN Employees e ON d.DepartmentID=e.DepartmentID 
-Where Salary IN(SELECT Salary FROM Employees WHERE DATEDIFF(YEAR,HireDate,GETDATE())>15)
-SELECT * FROM CombinationOfData3
+SELECT emp.EmployeeID,CONCAT(emp.FirstName,SPACE(1),emp.LastName) AS 'Full Name',dep.DepartmentName,emp.HireDate,emp.Salary FROM Employees emp 
+JOIN Departments dep ON emp.EmployeeID=dep.DepartmentID JOIN JobHistory job ON emp.EmployeeID=job.EmployeeID
+WHERE DATEDIFF(YYYY,job.StartDate,job.EndDate) > 15
 
 --------------------------------SUBQUERYES TASK------------------------------------------------
 /*1. Write a query to find the names (first_name, last_name) and salaries of the employees who have higher salary 
 than the employee whose last_name='Bull'. */
 SELECT CONCAT(FirstName,SPACE(2),LastName) AS 'Full Name',Salary FROM Employees WHERE Salary>(SELECT Salary FROM Employees WHERE LastName='Bull')
-/*SELECT SALARY FROM Employees WHERE LastName='Bull'*/
-
 
 /*2. Find the names (first_name, last_name) of all employees who works in the IT department. */
 SELECT  CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE DepartmentID IN(SELECT DepartmentID FROM Departments WHERE  DepartmentName='IT')
@@ -319,87 +320,109 @@ SELECT  CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE De
 /*3 Find the names (first_name, last_name) of the employees who have a manager who works for 
 a department based in United States. 
 */
-SELECT  CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE DepartmentID IN(SELECT DepartmentID FROM Departments WHERE LocationID IN(SELECT LocationID FROM Locations WHERE CountryID IN(SELECT CountryID FROM Countries WHERE CountryName='United States of America')))
+SELECT  CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE ManagerID IN (SELECT ManagerID FROM Departments
+WHERE LocationID IN (SELECT LocationID FROM 
+Locations WHERE CountryID=(SELECT CountryID FROM Countries WHERE CountryName='United States of America')))
 
-/*Find the names (first_name, last_name) of the employees who are managers*/
-SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE DepartmentID IN(SELECT d.DepartmentID FROM Departments d JOIN Departments e ON d.DepartmentID=e.DepartmentID)
 
-/*Find the names (first_name, last_name), salary of the employees whose salary is greater than the average salary.*/
+/*4 Find the names (first_name, last_name) of the employees who are managers*/
+	SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE EmployeeID 
+	IN (SELECT DISTINCT ManagerID FROM Employees) 
+
+/*5 Find the names (first_name, last_name), salary of the employees whose salary is greater than the average salary.*/
 SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE Salary>(SELECT AVG(Salary) FROM Employees)
 
-/*Find the names (first_name, last_name), salary of the employees whose salary is equal to
+/*6 Find the names (first_name, last_name), salary of the employees whose salary is equal to
 the minimum salary for their job grade.*/
-SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE Salary=(SELECT Min(Salary) FROM Employees)
 
-/*Find the names (first_name, last_name), salary of the employees who earn more than the average salary and 
+SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name',Salary FROM Employees
+WHERE Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY JobId )
+
+
+/*7 Find the names (first_name, last_name), salary of the employees who earn more than the average salary and 
 who works in any of the IT departments. 
 */
-SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE Salary>(SELECT AVG(Salary) FROM Employees WHERE DepartmentID=(SELECT DepartmentID FROM Departments WHERE DepartmentName='IT'))
 
-/*Find the names (first_name, last_name), salary of the employees who earn more than Mr. Bell. 
+SELECT * FROM(
+SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name',Salary FROM Employees 
+WHERE DepartmentID IN (SELECT DepartmentID FROM Departments WHERE DepartmentName LIKE 'IT%')) AS tbl1
+WHERE Salary> (SELECT AVG(Salary) FROM Employees)
+
+SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name',Salary FROM Employees 
+WHERE DepartmentID IN(SELECT DepartmentID FROM Departments WHERE DepartmentName LIKE 'IT%')
+AND Salary> (SELECT AVG(Salary) FROM Employees)
+
+
+/*8  Find the names (first_name, last_name), salary of the employees who earn more than Mr. Bell. 
 */
 SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE Salary>(SELECT Salary FROM Employees WHERE FirstName='Mr. Bell')
 
-/*Find the names (first_name, last_name), salary of the employees 
+/*9 Find the names (first_name, last_name), salary of the employees 
 who earn the same salary as the minimum salary for all departments. 
 */
 SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE  Salary IN (SELECT MIN(Salary) FROM Employees GROUP BY DepartmentID)
 
-/*Find the names (first_name, last_name), salary of the employees whose salary greater than average 
+/* 10 Find the names (first_name, last_name), salary of the employees whose salary greater than average 
 salary of all department. 
 */
 SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE Salary> ALL(SELECT AVG(Salary) FROM Employees GROUP BY DepartmentID)
 
-/*Write a query to find the names (first_name, last_name) and salary of the employees who earn a salary
+/*11 Write a query to find the names (first_name, last_name) and salary of the employees who earn a salary
 that is higher than the salary of all the Shipping Clerk (JOB_ID = 'SH_CLERK'). Sort the results 
 on salary from the lowest to highest. 
 */
 
 SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name',Salary FROM Employees WHERE Salary>(SELECT MAX(Salary) FROM  Employees WHERE JobId='SH_CLERK') ORDER BY Salary
 
-/*Write a query to find the names (first_name, last_name) of the employees who are not supervisors. 
+/*12 Write a query to find the names (first_name, last_name) of the employees who are not supervisors. 
 */
-SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees WHERE DepartmentID NOT IN(SELECT d.DepartmentID FROM Departments d JOIN Departments e ON d.DepartmentID=e.DepartmentID)
+SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name' FROM Employees e1
+WHERE NOT EXISTS (SELECT * FROM Employees e2 WHERE e2.ManagerID=e1.EmployeeID)
+
+/*13 Write a query to display the employee ID, first name, last names, and department names of all employees.*/
+SELECT e.EmployeeID,e.FirstName,e.LastName,d.DepartmentName FROM Employees e
+LEFT OUTER JOIN  Departments d ON e.DepartmentID=d.DepartmentID
+
+---USING SUBQUERY-----------------
+SELECT EmployeeID,FirstName,LastName,(SELECT DepartmentName FROM Departments d WHERE d.DepartmentID=e.DepartmentID) AS'Department Name'
+FROM Employees e
 
 
-/* Write a query to display the employee ID, first name, last names, and department names of all employees.*/
-SELECT e.EmployeeID,e.FirstName,e.LastName,d.DepartmentName FROM Employees e LEFT OUTER JOIN  Departments d ON e.DepartmentID=d.DepartmentID
-
-/*Write a query to display the employee ID, first name, last names, salary of all employees whose salary is above 
+/*14 Write a query to display the employee ID, first name, last names, salary of all employees whose salary is above 
 average for their departments. 
 */
-SELECT EmployeeID,FirstName,LastName,Salary FROM Employees WHERE Salary>( SELECT SUM(Salary) AS 'SUM 'FROM Departments  GROUP BY DepartmentName)
-
-/*Write a query to fetch even numbered records from employees table*/
+SELECT EmployeeID,FirstName,LastName,Salary FROM Employees e1 WHERE Salary>(SELECT AVG(Salary)FROM Employees e2 WHERE e1.DepartmentID=e2.DepartmentID)
+/*15 Write a query to fetch even numbered records from employees table*/
 
 SELECT * FROM Employees WHERE (EmployeeID%2)=1
-/*Write a query to find the 5th maximum salary in the employees table. 
+/*16 Write a query to find the 5th maximum salary in the employees table. 
 */
 SELECT * FROM 
-(SELECT FirstName,LastName,Salary,DENSE_RANK() OVER(ORDER BY SALARY DESC) AS 'RankOfSalary' FROM Employees) AS table1
+(SELECT DISTINCT Salary, DENSE_RANK() OVER(ORDER BY SALARY DESC) AS 'RankOfSalary' FROM Employees) AS table1
 WHERE RankOfSalary = 5
 
-/* Write a query to find the 4th minimum salary in the employees table. 
+/*17  Write a query to find the 4th minimum salary in the employees table. 
 */
 SELECT * FROM 
-(SELECT FirstName,LastName,Salary,DENSE_RANK() OVER(ORDER BY SALARY DESC) AS 'RankOfSalary' FROM Employees) AS table1
+(SELECT DISTINCT Salary,DENSE_RANK() OVER(ORDER BY SALARY ) AS 'RankOfSalary' FROM Employees) AS table1
 WHERE RankOfSalary = 4
 
-/*Write a query to select last 10 records from a table*/
+/*18  Write a query to select last 10 records from a table*/
 SELECT TOP 10 * FROM Employees ORDER BY EmployeeID DESC
 
-/*Write a query to list department number, name for all the departments in
+/*19 Write a query to list department number, name for all the departments in
 which there are no employees in the department. */
-SELECT CONCAT(FirstName,SPACE(2),LastName)AS'Full Name',Salary FROM Employees e WHERE NOT EXISTS(SELECT *FROM Employees a WHERE a.ManagerID=a.EmployeeID)
-/*Write a query to get 3 maximum salaries. */
+SELECT * FROM Departments WHERE DepartmentID NOT IN(SELECT DepartmentID FROM Employees)
+
+/*20Write  a query to get 3 maximum salaries. */
 SELECT  * 
 FROM employees a WHERE 3 >= (SELECT COUNT(DISTINCT salary) FROM employees b WHERE b.salary >= a.salary) 
 ORDER BY a.salary DESC;
-/*Write a query to get 3 minimum salaries. 
+/* 21 Write a query to get 3 minimum salaries. 
 */
 SELECT DISTINCT * FROM employees a WHERE  3 >= (SELECT COUNT(DISTINCT salary) FROM employees b WHERE b.salary <= a.salary) 
 ORDER BY a.salary DESC;
-/*Write a query to get nth max salaries of employees. 
+/*22  Write a query to get nth max salaries of employees. 
 */
 SELECT *
 FROM Employees e1
@@ -419,14 +442,14 @@ JOIN Countries c ON l.CountryID=c.CountryID
 JOIN Departments d ON l.LocationID=d.LocationID
 SELECT * FROM CombinaionData6
 
-/* Write a query to find the names (first_name, last name), department ID and name of all the employees. 
+/*2 Write a query to find the names (first_name, last name), department ID and name of all the employees. 
 */
 CREATE VIEW CombinaionData7
 AS
 SELECT e.FirstName,e.LastName,d.DepartmentID FROM Employees e LEFT OUTER JOIN 
 Departments d ON e.DepartmentID=d.DepartmentID
 SELECT * FROM CombinaionData7
-/*Find the names (first_name, last_name), job, department number, and department name of the 
+/*3Find the names (first_name, last_name), job, department number, and department name of the 
 employees who work in London.*/
 CREATE VIEW CombinaionData8
 AS
@@ -436,7 +459,7 @@ SELECT e.FirstName,e.LastName,e.JobId,d.DepartmentID,d.DepartmentName FROM Emplo
 DROP VIEW CombinaionData8
 SELECT * FROM CombinaionData8
 
-/* Write a query to find the employee id, name (last_name) along with their manager_id, manager name (last_name). 
+/*4 Write a query to find the employee id, name (last_name) along with their manager_id, manager name (last_name). 
 */
 CREATE VIEW CombinaionData9 AS
 SELECT e1.EmployeeID,e1.LastName,d.ManagerID,e2.LastName AS 'Manager Name' FROM Employees e1 
@@ -444,7 +467,7 @@ JOIN Employees e2 ON e1.DepartmentID=e2.ManagerID
 JOIN Departments d ON e1.DepartmentID=d.DepartmentID 
 SELECT * FROM CombinaionData9
 DROP VIEW CombinaionData9
-/*Find the names (first_name, last_name) and hire date of the employees who were hired after 'Jones'. 
+/*5 Find the names (first_name, last_name) and hire date of the employees who were hired after 'Jones'. 
 */
 
 CREATE VIEW CombinaionData10 AS
@@ -453,58 +476,60 @@ HireDate>(SELECT HireDate FROM Employees WHERE LastName='Jones')
 SELECT * FROM CombinaionData10
 
 
-/*Write a query to get the department name and number of employees in the department. 
+/*6 Write a query to get the department name and number of employees in the department. 
 */
 CREATE VIEW CombinaionData11 AS
-SELECT d.DepartmentID,d.DepartmentName FROM Departments d JOIN Employees e ON d.DepartmentID=e.DepartmentID
+SELECT d.DepartmentName,e.EmployeeID AS 'Employee Number' FROM Departments d  JOIN Employees e ON d.DepartmentID=e.DepartmentID ORDER BY DepartmentName 
 SELECT * FROM CombinaionData11
 DROP VIEW CombinaionData11
-/*Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 
+/*7 Find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 
 from job history. 
 */
 CREATE VIEW CombinaionData12 AS
-SELECT e.EmployeeID,e.JobId,DATEDIFF(DAY,j.StartDate,j.EndDate) AS'Day',e.DepartmentID FROM Employees e 
-LEFT OUTER JOIN  JobHistory j ON e.EmployeeID=j.EmployeeID WHERE e.DepartmentID=90
+SELECT  EmployeeID,JobID,DATEDIFF(DD,StartDate,EndDate) AS 'Days' FROM JobHistory Where DepartmentID=90
 
 SELECT * FROM CombinaionData12
 
-/*Write a query to display the department ID, department name and manager first name.*/
+/*8 Write a query to display the department ID, department name and manager first name.*/
 CREATE VIEW CombinaionData13 AS
 SELECT d.DepartmentID,d.DepartmentName,e.FirstName AS 'Manager Name'  FROM Departments d  
 LEFT OUTER JOIN Employees e ON d.ManagerID=e.EmployeeID 
 
 SELECT * FROM CombinaionData13
 
-/* Write a query to display the department name, manager name, and city. 
+/*9  Write a query to display the department name, manager name, and city. 
 */
 CREATE VIEW CombinaionData14  AS
-SELECT d.DepartmentID,d.DepartmentName,e.FirstName AS 'Manager Name' FROM Departments d 
+SELECT d.DepartmentID,d.DepartmentName,e.FirstName AS 'Manager Name',l.City FROM Departments d 
 JOIN Locations l ON d.LocationID=l.LocationID LEFT OUTER JOIN Employees e ON d.ManagerID=e.EmployeeID
 
 SELECT * FROM CombinaionData14
 
-/*Write a query to display the job title and average salary of employees. 
+/*10 Write a query to display the job title and average salary of employees. 
 */
 CREATE VIEW CombinaionData15  AS
 SELECT JobId,AVG(Salary) AS'DEPARTMENT WISE AVERAGE SALARY' FROM Employees GROUP BY JobId
 
 SELECT * FROM CombinaionData15
 
+/*11. Display job title, employee name, and the difference between 
+salary of the employee and minimum salary for the job. 
+*/
+CREATE VIEW CombinaionDataq11  AS
+SELECT JobId,CONCAT(FirstName,SPACE(2),LastName)AS'Full Name',Salary-(SELECT MIN(Salary) FROM Employees e2 WHERE e1.JobId=e2.JobId) AS 'Difference of Salary' FROM Employees e1
+SELECT *FROM CombinaionDataq11
 
-/*Write a query to display the job history that were done by any employee who is currently drawing more than 
+/*12 Write a query to display the job history that were done by any employee who is currently drawing more than 
 10000 of salary. 
 */
 CREATE VIEW CombinaionData17  AS
 SELECT j.* FROM JobHistory j JOIN Employees e ON j.EmployeeID=e.EmployeeID WHERE Salary>10000
  SELECT * FROM CombinaionData17
 
- /*Write a query to display department name, name (first_name, last_name), hire date, salary of the manager 
+ /*13 Write a query to display department name, name (first_name, last_name), hire date, salary of the manager 
  for all managers whose experience is more than 15 years. 
 */
 CREATE VIEW CombinaionData18  AS
-SELECT d.DepartmentName,d.DepartmentID,e.FirstName,e.LastName,e.HireDate,e.Salary,DATEDIFF(YEAR,HireDate,GETDATE()) AS'experience' FROM Departments d 
-JOIN  Employees e ON d.ManagerID=e.EmployeeID WHERE 15<DATEDIFF(YEAR,HireDate,GETDATE())  
-
-
-
-
+SELECT dep.DepartmentName,CONCAT(emp.FirstName,SPACE(2),emp.LastName)AS'Full Name',emp.HireDate,emp.Salary FROM Departments dep JOIN Employees emp 
+ON emp.EmployeeID=dep.ManagerID
+JOIN JobHistory job ON emp.EmployeeID=job.EmployeeID WHERE DATEDIFF(YEAR,job.StartDate,job.EndDate)>15
