@@ -7,7 +7,7 @@ FROM Employees
 
 
 --Select 4th Highest salary from employee table using ranking function
-SELECT EmployeeID, FirstName,Salary, DENSE_RANK() OVER(ORDER BY Salary DESC) AS 'Rank'
+SELECT DISTINCT TOP 4 EmployeeID, FirstName,Salary, DENSE_RANK() OVER(ORDER BY Salary DESC) AS 'Ranks'
 FROM Employees
 
 
@@ -40,4 +40,4 @@ SELECT DepartmentID, SUM(Salary) AS 'Total Salary'
 FROM Employees
 GROUP BY DepartmentID
 HAVING SUM(Salary) > 50000
-ORDER BY SUM(Salary)
+ORDER BY SUM(Salary) DESC
