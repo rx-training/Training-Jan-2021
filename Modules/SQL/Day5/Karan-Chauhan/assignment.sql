@@ -1,0 +1,55 @@
+CREATE DATABASE Empdb;
+USE Empdb;
+
+CREATE TABLE Employees
+(
+	EMPLOYEE_ID int PRIMARY KEY,
+	FIRST_NAME varchar(30) NOT NULL,
+	LAST_NAME varchar(30) NOT NULL,
+	SALARY int NOT NULL,
+	JOINING_DATE date NOT NULL,
+	DEPARTMENT varchar(20) NOT NULL,
+	MANAGER_ID int
+)
+
+/*DROP TABLE Employees;*/
+
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (1,'John','Abraham',1000000,'01-JAN-13','Banking',NULL);
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (2,'Michael','Clarke',800000,'01-JAN-13','Insurance',1);
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (3,'Roy','Thomas',700000,'01-FEB-13','Banking',1);
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (4,'Tom','Jose',600000,'01-FEB-13','Insurance',2);
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (5,'Jerry','Pinto',650000,'01-FEB-13','Insurance',3);
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (6,'Philip','Mathew',750000,'01-JAN-13','Services',3);
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (7,'TestName1','123',650000,'01-JAN-13','Services',2);
+INSERT INTO Employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT, MANAGER_ID) VALUES (8,'TestName2','Lname%',600000,'01-FEB-13','Insurance',2);
+
+
+CREATE TABLE Incentives
+(
+	EMPLOYEE_REF_ID int NOT NULL,
+	INCENTIVE_DATE date NOT NULL,
+	INCENTIVE_AMOUNT int NOT NULL
+)
+
+INSERT INTO Incentives (EMPLOYEE_REF_ID, INCENTIVE_DATE, INCENTIVE_AMOUNT) VALUES(1,'01-FEB-13',5000);
+INSERT INTO Incentives (EMPLOYEE_REF_ID, INCENTIVE_DATE, INCENTIVE_AMOUNT) VALUES(2,'01-FEB-13',3000);
+INSERT INTO Incentives (EMPLOYEE_REF_ID, INCENTIVE_DATE, INCENTIVE_AMOUNT) VALUES(3,'01-FEB-13',4000); 																		   
+INSERT INTO Incentives (EMPLOYEE_REF_ID, INCENTIVE_DATE, INCENTIVE_AMOUNT) VALUES(1,'01-JAN-13',4500); 																		   
+INSERT INTO Incentives (EMPLOYEE_REF_ID, INCENTIVE_DATE, INCENTIVE_AMOUNT) VALUES(2,'01-JAN-13',3500); 																		   
+
+
+/* Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table */
+SELECT FIRST_NAME, DATEDIFF(YEAR,JOINING_DATE,INCENTIVE_DATE) FROM Employees A INNER JOIN Incentives B ON A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID;
+
+/* Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000 */
+SELECT FIRST_NAME, INCENTIVE_AMOUNT FROM Employees A INNER JOIN Incentives B ON A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID AND INCENTIVE_AMOUNT>3000;
+
+/* Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives. */
+SELECT FIRST_NAME, INCENTIVE_AMOUNT FROM Employees A LEFT JOIN Incentives B ON A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID;
+
+/* Select EmployeeName, ManagerName from the employee table. */
+SELECT FIRST_NAME, MANAGER_ID FROM Employees;
+
+/* Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives and set incentive amount as 0 
+for those employees who didn’t get incentives. */
+SELECT FIRST_NAME, ISNULL(INCENTIVE_AMOUNT,0) FROM Employees A LEFT JOIN Incentives B ON A.EMPLOYEE_ID = B.EMPLOYEE_REF_ID;
