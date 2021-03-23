@@ -119,18 +119,20 @@ SELECT Name,Address AS'Street',City FROM Customers WHERE City='AHMEDABAD'
 named "Toyota AutoWorld"*/
 SELECT c.vin,c.Make,c.Model,c.Year,c.Mileage FROM Car c
 JOIN Inventory i ON c.Vin=i.Vin
-JOIN DealerShip d ON i.DealerShipId=d.DealerShipId
+JOIN DealerShip d ON i.DealerShipId=d.DealerShipId WHERE d.Name='Honda AutoWorld'
 /*4 List names of all customers who have ever bought cars from the dealership named "Concept Hyundai"*/
 SELECT * FROM Customers
 SELECT * FROM DealerShip
 SELECT * FROM Sale
-SELECT c.Name FROM Customers c JOIN Sale s ON c.CustomerId =s.CustomerId JOIN DealerShip d ON s.DealerShipId=d.DealerShipId WHERE d.Name='Toyota AutoWorld'
+SELECT c.Name FROM Customers c JOIN Sale s ON c.CustomerId =s.CustomerId JOIN DealerShip d ON s.DealerShipId=d.DealerShipId 
+WHERE d.Name='Toyota AutoWorld'
 
 /*5 For each car in the inventory of any dealership, list the VIN, make, model, and year of the 
 car, along with the name, city, and state of the dealership whose inventory contains the car.
 */
-SELECT c.Vin,c.Make,c.Model,c.Year, d.Name,d.City,d.State FROM Car c JOIN DealerShip d ON c.CarId=d.DealerShipId
-
+SELECT c.Vin,c.Make,c.Model,c.Year, d.Name,d.City,d.State FROM Car c 
+JOIN Inventory i ON c.Vin=i.Vin
+JOIN DealerShip d ON i.DealerShipId=d.DealerShipId
 /*6 Find the names of all salespeople who are managed by a salesperson named "Adam Smith".
 */
 SELECT s.Name FROM SalesPerson s JOIN ReportSto r ON s.SalesPersonId=r.SalesPersonId JOIN SalesPerson a ON r.ManagingSalesPersonId=a.SalesPersonId WHERE a.Name='Adam Smith'
@@ -187,8 +189,11 @@ WHERE YEAR(s.SaleDate)=2010
 /* 15 Find the name and salesperson ID of the salesperson who sold the most cars for the company at
 dealerships located in Gujarat between March 1, 2010 and March 31, 2010.
 */
-SELECT sp.*FROM SalesPerson sp JOIN Sale s ON s.SalesPersonId=sp.SalesPersonId
-JOIN  DealerShip d ON d.DealerShipId=s.DealerShipId WHERE sp.SalesPersonId IN (SELECT SalesPersonId  FROM Sale GROUP BY SalesPersonId )
+SELECT sp.* FROM SalesPerson sp JOIN Sale s ON s.SalesPersonId=s.DealerShipId JOIN DealerShip d ON d.DealerShipId=s.DealerShipId
+WHERE sp.SalesPersonId IN(SELECT SalesPersonId FROM Sale GROUP BY SalesPersonId HAVING COUNT(SalesPersonId)=
+(SELECT MAX(CountId) FROM (SELECT COUNT(SalesPersonId) CountId FROM Sale GROUP BY SalesPersonId)
+TBL1)
+) AND d.State='Gujarat' AND s.SaleDate>='2010-03-01' AND s.SaleDate<='2010-03-31'
 
 /*16. Calculate the payroll for the month of March 2010.
 	* The payroll consists of the name, salesperson ID, and gross pay for each salesperson who worked that month.
