@@ -1,0 +1,128 @@
+Index Assignment As Per Book:-
+True OR False:-
+1.A clustered index usually improves performance when inserting data:True
+A table can contain only one clustered index:True
+Fill In The Blank:-
+1.Add an index to one or more columns to speed up data _Retrival.
+2.Values in a clustered index are __Sorted.
+MCQ:-
+1.Which of the following is not a constraint?
+a. CHECK
+b. DEFAULT
+c. UNIQUE
+d. INDEX
+ANS:D-Index.
+2.Which of the following things can help speed data retrieval?
+a. A DEFAULT constraint
+b. A primary key constraint
+c. A clustered index
+d. A foreign key constraint
+ANS:C-A clustered index.
+3.Which of the following statements are true?
+a. A greater number of narrow tables (with fewer columns) is a characteristic of a
+normalized database.
+b. A few wide tables (with more columns) are characteristic of a normalized database.
+c. Indexes allow faster data retrieval.
+d. Optimal database performance can be achieved by indexing every column in a table
+ANS:C-Indexes allow faster data retrieval..
+4.Consider using a clustered index when:
+a. Columns contain a large number of distinct values
+b. Columns are accessed sequentially
+c. Columns undergo frequent changes
+d. Queries return large result sets
+ANS:B-Columns are accessed sequentially.
+5.How many clustered indexes can you have for a database?
+a. 1
+b. 2
+c. 4
+d. 8
+ANS:A-1.
+
+Scenario 4-2: Comparing Clustered and Non-Clustered Indexes
+Your boss wants to speed things up on the company’s database server. Therefore, he is thinking of having you create a couple of indexes. He asks you to explain the advantages and disadvantages of creating a clustered index versus a non-clustered index. How should you respond?
+Answerr:-
+Advantages of creating Clustered Index Versus Non Clustered Index:-
+1.Clustered Index can be created to sort the record of table in one order.Where as in non clustered index data would not be sorted according to the non clustered index.
+2.There does require an extra space for storing using clustered index.There does require an extra space for storing the non clustered index.
+3.Retrival of data using clustered index is faster than non clustered index.
+4.If the data inserted into the table having clustered index in unordered manner then it would automatically stored in the ordered manner.But in non clustered index data would be stored in the way it has inserted.
+5.Non clustered index would be stored seprately and whenever query is fired the data would be fetched by looking at to the nonclustered index that would point to the actual data row number would be fetched from the non clustered index and according to that data would be retrived.
+Disadvantages:-
+1.There can only be one clustered index for a table.There can be multiple non clustered index for a table.
+2.If the data is large and if we drop the clustered index then we have to drop non clustered index also and rebuilt the non clustered index and will take more time.
+3.If we want to sort the data using 2 or more columns we cannot do it in clustered index like sorting the data like phone book by considering the first nad last name.But that can be done using non clustered index.
+
+Scenario 4-3: Creating a Clustered Index
+You are a database administrator for the AdventureWorks Corporation. You recently created
+some databases, and you’ve just realized how large the databases will become in the future.
+Therefore, you need to create a new clustered index to help with overall performance.
+Using the SSMS interface, what steps would you use to create a new clustered index on the
+name column for the AdventureWorks database?
+Answer:-
+1.Connect Instance of SQL Server. 
+2.Expand Database Folder
+3.Expand AdventureWorks 2012 database.
+4.Expand Tables Folder.
+5.Go to the table and expand the folder.
+6.Right Click on the index folder.
+7.Select New Index.
+8.Select New Clustered Index.
+7.Click on to the Add button .
+8.Check the name field and click  Ok.
+9.Change the soring filter like ascending to decending.
+10.Change the name of index  and click ok.
+Scenario 4-4: Creating a Clustered Index Using Transact-SQL
+As a database administrator, you need to increase the performance of the PlanetsID table, so
+you decide to create a clustered index. But instead of using SSMS, you decide to use queries
+to perform this task. Therefore, you create a new PlanetsID database using the following
+commands within SMMS:
+IF EXISTS (SELECT * FROM sys.objects
+WHERE object_id = OBJECT_ID(N’[dbo] . [PlanetsID]
+AND type in (N’U’))
+USE AdventureWorks2008
+DROP TABLE [dbo].[PlanetsID]
+GO
+USE [AdventureWorks2008]
+GO
+CREATE TABLE [dbo].[PlanetsID](
+[ID] [int] NOT NULL,
+[Item] [int] NOT NULL,
+[Value] [int] NOT NULL
+) ON [PRIMARY]
+GO
+INSERT INTO PlanetsID VALUES (4, 23, 66)
+INSERT INTO PlanetsID VALUES (1, 12, 59)
+INSERT INTO PlanetsID VALUES (3, 66, 24)
+SELECT * FROM PlanetID
+GO
+You should now see the following output in the results pane (below the Query Editor
+Window):
+ID Item Value
+4 23 66
+1 12 59
+3 66 24
+Now that you have a database with data, what steps would you use to create a clustered index
+based on the ID column?
+Answer:-
+CREATE TABLE [dbo].[PlanetsID](
+[ID] [int] NOT NULL,
+[Item] [int] NOT NULL,
+[Value] [int] NOT NULL
+) ON [PRIMARY]
+GO
+INSERT INTO PlanetsID VALUES (4, 23, 66)
+INSERT INTO PlanetsID VALUES (1, 12, 59)
+INSERT INTO PlanetsID VALUES (3, 66, 24)
+SELECT * FROM PlanetsID
+
+CREATE CLUSTERED INDEX IK_PlanetsID_ID ON PlanetsID(ID ASC)
+
+
+
+
+
+
+
+
+
+
