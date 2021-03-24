@@ -1,5 +1,6 @@
-CREATE DATABASE PRACTICE7;
-USE PRACTICE7;
+CREATE DATABASE DAY7ASSIGNMENT
+USE DAY7ASSIGNMENT
+
 CREATE TABLE  Employees (
     EmployeeID decimal(6,0) NOT NULL DEFAULT '0',
 	FirstName varchar(20) DEFAULT NULL,
@@ -15,6 +16,7 @@ CREATE TABLE  Employees (
 	CONSTRAINT pkEmployeeID PRIMARY KEY (EmployeeID),
 	CONSTRAINT ukEmail UNIQUE  (Email),
  )
+
  INSERT INTO Employees (EmployeeID,FirstName,LastName , Email, PhoneNumber, HireDate, JobId, Salary, CommissionPct, ManagerID, DepartmentID) VALUES
 ('100', 'Steven', 'King', 'SKING', '515.123.4567', '1987-06-17', 'AD_PRES', '24000.00', '0.00', '0', '90'),
 ('101', 'Neena', 'Kochhar', 'NKOCHHAR', '515.123.4568', '1987-06-18', 'AD_VP', '17000.00', '0.00', '100', '90'),
@@ -125,107 +127,198 @@ CREATE TABLE  Employees (
 ('206', 'William', 'Gietz', 'WGIETZ', '515.123.8181', '1987-10-01', 'AC_ACCOUNT', '8300.00', '0.00', '205', '110');
 
 SELECT * FROM Employees;
--->Derived Tables
--->ROW NUMBER
-SELECT Salary FROM 
-(SELECT *,ROW_NUMBER() OVER(ORDER BY Salary) [d_row] FROM Employees)[tbl-Row] WHERE d_row =3;
--->RANK
-SELECT Salary FROM (
-SELECT *,RANK() OVER(ORDER BY Salary) [d_rank] FROM Employees) [tbl-Rank] WHERE d_rank=2;
--->DENSE RANK
-SELECT Salary FROM (
-SELECT *,DENSE_RANK() OVER(ORDER BY Salary) [d_drank] FROM Employees) [tbl-Drank] WHERE d_drank=2;
--->SUM
-SELECT d_Sum FROM (
-SELECT SUM(Salary) [d_Sum] FROM Employees) [tbl-Sum] ;
--->COUNT
-SELECT d_Count FROM (
-SELECT COUNT(Salary) [d_Count]  FROM Employees) [tbl-Couunt];
--->AVG
-SELECT d_Avg FROM (
-SELECT AVG(Salary) [d_Avg] FROM Employees) [tbl-Average];
--->MIN
-SELECT d_Min FROM (
-SELECT MIN(Salary) [d_Min] FROM Employees) [tbl-Minimum];
--->MAX
-SELECT d_Max FROM (
-SELECT MAX(Salary) [d_Max] FROM Employees) [tbl-Maximum];
--->GROUP BY
-SELECT d_Sum FROM (
-SELECT DepartmentID,SUM(Salary) [d_Sum] FROM Employees GROUP BY DepartmentID) [tbl-GroupBy];
--->ROLL UP
-SELECT d_Sum FROM (
-SELECT DepartmentID,SUM(Salary) [d_Sum] ,FirstName FROM Employees GROUP BY ROLLUP(DepartmentID,FirstName))[tbl-RollUP]; 
+
+-->Derived Table
+
+-->1 Write a query to rank employees based on their salary for a month
+SELECT * FROM
+(
+SELECT *,DENSE_RANK() OVER(ORDER BY Salary)  'RankOfSalary' FROM Employees
+) AS tbl
+
+-->2 Select 4th Highest salary from employee table using ranking function
+SELECT * FROM
+(SELECT Salary,DENSE_RANK() OVER(ORDER BY Salary DESC)  'RankOfSalary' FROM Employees ) AS tbl WHERE RankOfSalary=4;
+-->3 Get department, total salary with respect to a department from employee table.
+SELECT * FROM
+(
+SELECT DepartmentID,SUM(Salary) AS 'Sum Of Salary' FROM Employees GROUP BY DepartmentID 
+) AS SumOfSalary
+ORDER BY DepartmentID
+-->4 Get department, total salary with respect to a department from employee table order by total salary descending
+SELECT * FROM 
+(SELECT DepartmentID,SUM(Salary) AS 'SumOfSalary' FROM Employees GROUP BY DepartmentID) AS Salaries
+ORDER BY SumOfSalary DESC;
+-->5 Get department wise maximum salary from employee table order by salary ascending
+SELECT * FROM
+(
+SELECT MAX(Salary) AS 'MaximumSalary' FROM Employees GROUP BY DepartmentID 
+) AS MaxSalary
+ORDER BY MaximumSalary ASC
+
+-->6 Get department wise minimum salary from employee table order by salary ascending
+SELECT * FROM
+(
+SELECT MIN(Salary) AS 'MinimumSalary' FROM Employees GROUP BY DepartmentID 
+)AS MinSalary
+ORDER BY MinimumSalary ASC;
+-->7 Select department, total salary with respect to a department from employee table where total salary greater than 50000 order by TotalSalary descending
+SELECT * FROM
+(
+SELECT DepartmentID,SUM(Salary) As 'TotalSalary' FROM Employees GROUP BY DepartmentID  HAVING SUM(Salary) > 50000 
+)AS TotalSalary
+ORDER BY TotalSalary DESC
 
 -->CTE
--->ROW NUMBER
-WITH Employees_CTE(eid,FName,LName,Email,Phone,HireDate,JID,Salary,Commission ,MID,DID,Rownum)
+-->1 Write a query to rank employees based on their salary for a month
+WITH SRank(EmployeeID,FirstName,LastName,Email,PhoneNumber,HireDate,JobId,Salary,CommissionPd,ManagerID,DepartmentID,RankOfSalary)
 AS
 (
-SELECT *,ROW_NUMBER() OVER(ORDER BY Salary) AS 'Row Number' FROM Employees
+SELECT *,DENSE_RANK() OVER(ORDER BY Salary)  'RankOfSalary' FROM Employees
 )
-SELECT (Rownum) AS 'Row Number' FROM Employees_CTE;
--->RANK
-WITH EmployeesSalary_CTE(eid,FName,LName,Email,Phone,HireDate,JID,Salary,Commission ,MID,DID,RankEmp)
+SELECT * FROM SRank
+-->2 Select 4th Highest salary from employee table using ranking function
+WITH SalRank(Salary,RankOfSalary)
 AS
-(
-SELECT *,DENSE_RANK() OVER(ORDER BY Salary) AS 'Dense Rank' FROM Employees
-)
-SELECT (RankEmp) AS 'Employee Rank Based On Salary' FROM EmployeesSalary_CTE;
--->DENSE RANK
-WITH EmployeesDenseRank_CTE(eid,FName,LName,Email,Phone,HireDate,JID,Salary,Commission ,MID,DID,DenseRankEmp)
-AS
-(
-SELECT *,DENSE_RANK() OVER(ORDER BY Salary) AS 'Dense Rank' FROM Employees
-)
-SELECT (DenseRankEmp) AS 'Employee Dense Rank Based On Salary' FROM EmployeesDenseRank_CTE;
--->SUM
-WITH EmployeesSalarySum_CTE(SalarySum)
-AS
-(
-SELECT SUM(Salary) AS 'Total Salary' FROM Employees
-)
-SELECT (SalarySum) AS 'Sum Of Salary' FROM EmployeesSalarySum_CTE;
--->COUNT
-WITH EmployeesCount_CTE(SalaryCount)
-AS
-(
-SELECT COUNT(Salary) AS 'Count' FROM Employees
-)
-SELECT (SalaryCount) AS 'Count Of Salary' FROM EmployeesCount_CTE;
--->AVG
-WITH EmployeesSalaryAvg_CTE(SalaryAvg)
-AS
-(
-SELECT AVG(Salary) AS 'Avergae Salary' FROM Employees
-)
-SELECT (SalaryAvg) AS 'Average Of Salary' FROM EmployeesSalaryAvg_CTE;
--->MIN
-WITH EmployeesMinSalary_CTE(MinSalary)
-AS
-(
-SELECT MIN(Salary) AS 'Minimum Salary' FROM Employees
-)
-SELECT (MinSalary) AS 'Minimum Salary' FROM EmployeesMinSalary_CTE;
--->MAX
-WITH EmployeesMaxSalary_CTE(MaxSalary)
-AS
-(
-SELECT MAX(Salary) AS 'Maximum Salary' FROM Employees
-)
-SELECT (MaxSalary) AS 'Maximum Salary' FROM EmployeesMaxSalary_CTE;
--->GROUP BY
-WITH EmployeesSalaryGroupBy_CTE(Did,SalarySum)
-AS
-(
-SELECT DepartmentID,SUM(Salary) AS 'Total Salary' FROM Employees GROUP BY DepartmentID
-)
-SELECT (SalarySum) AS 'Total Salary' FROM EmployeesSalaryGroupBy_CTE;
+	(
+		SELECT Salary, DENSE_RANK() OVER(ORDER BY Salary DESC) AS 'RankOfSalary' FROM Employees
+	)
+SELECT * FROM SalRank WHERE RankOfSalary = 4;
 
--->ROLL UP
-WITH EmployeesSalaryRollUp_CTE(Did,Fname,SalarySum)
+-->3 Get department, total salary with respect to a department from employee table.
+WITH dept(DeptId,SumOfSalary)
 AS
 (
-SELECT DepartmentID,SUM(Salary),FirstName FROM Employees GROUP BY ROLLUP(DepartmentID,FirstName)
+SELECT DepartmentID,SUM(Salary) AS 'Sum Of Salary' FROM Employees GROUP BY DepartmentID 
 )
-SELECT (SalarySum) AS 'Sum Of Salary' FROM EmployeesSalaryRollUp_CTE;
+SELECT * FROM dept ORDER BY DeptId
+-->4 Get department, total salary with respect to a department from employee table order by total salary descending
+WITH deptOrder(DeptId,SumOfSalary)
+AS
+(
+SELECT DepartmentID,SUM(Salary) AS 'SumOfSalary' FROM Employees GROUP BY DepartmentID 
+)
+SELECT * FROM deptOrder ORDER BY SumOfSalary DESC
+-->5 Get department wise maximum salary from employee table order by salary ascending
+WITH MinSalary(MaximumSalary)
+AS
+(
+SELECT MAX(Salary) AS 'MaximumSalary' FROM Employees GROUP BY DepartmentID 
+)
+SELECT * FROM MinSalary ORDER BY MaximumSalary ASC
+-->6 Get department wise minimum salary from employee table order by salary ascending
+WITH MinSalary(MinimumSalary)
+AS
+(
+SELECT MIN(Salary) AS 'MinimumSalary' FROM Employees GROUP BY DepartmentID 
+)
+SELECT * FROM MinSalary ORDER BY MinimumSalary ASC
+-->7 Select department, total salary with respect to a department from employee table where total salary greater than 50000 order by TotalSalary descending
+WITH DeptSalary(DeptID,Salary)
+AS
+(
+SELECT DepartmentID,SUM(Salary) As 'TotalSalary' FROM Employees GROUP BY DepartmentID  HAVING SUM(Salary) > 50000 
+)
+SELECT * FROM DeptSalary ORDER BY Salary DESC
+
+USE PRACTICE8;
+CREATE TABLE Employee
+(
+	EmployeeID INT PRIMARY KEY,
+	FirstName VARCHAR(20) DEFAULT NULL,
+	LastName VARCHAR(20) DEFAULT NULL,
+	Salary NUMERIC DEFAULT NULL,
+	JoiningDate DATETIME DEFAULT NULL,
+	Department VARCHAR(20) DEFAULT NULL,
+	ManagerID INT DEFAULT NULL
+);
+DROP TABLE Employee;
+CREATE TABLE Incentives
+(
+	EmployeeRefID INT FOREIGN KEY REFERENCES Employee(EmployeeID),
+	IncentiveDate DATE,
+	IncentiveAmount NUMERIC
+);
+DROP TABLE Incentives;
+INSERT INTO Employee VALUES(1,'John','Abraham',1000000,'2013-01-01 00:00:00','Banking',NULL);
+INSERT INTO Employee VALUES(2,'Michale','Clarke',800000,'2013-01-01 00:00:00','Insurance',1);
+INSERT INTO Employee VALUES(3,'Roy','Thomas',700000,'2013-02-01 00:00:00','Banking',1);
+INSERT INTO Employee VALUES(4,'Tom','Jose',600000,'2013-02-01 00:00:00','Insurance',2);
+INSERT INTO Employee VALUES(5,'Jerry','Pinto',650000,'2013-02-01 00:00:00','Insurance',3);
+INSERT INTO Employee VALUES(6,'Philip','Mathew',750000,'2013-01-01 00:00:00','Service',3);
+INSERT INTO Employee VALUES(7,'TestName1','123',650000,'2013-01-01 00:00:00','Service',2);
+INSERT INTO Employee VALUES(8,'TestName2','Lname%',600000,'2013-02-01 00:00:00','Insurance',2);
+SELECT * FROM Employee;
+INSERT INTO Incentives VALUES(1,'2013-02-01',5000);
+INSERT INTO Incentives VALUES(2,'2013-02-01',3000);
+INSERT INTO Incentives VALUES(3,'2013-02-01',4000);
+INSERT INTO Incentives VALUES(1,'2013-01-01',4500);
+INSERT INTO Incentives VALUES(2,'2013-01-01',3500);
+DROP TABLE Employee
+SELECT * FROM Incentives;
+DROP TABLE Incentives
+-->1 Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
+SELECT* FROM(
+SELECT *, DATEDIFF(DAY,e.JoiningDate ,i.IncentiveDate) AS DATEDIFFERNCE FROM Employee e FULL OUTER JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID
+) tblEmp
+-->2 Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+SELECT* FROM(
+SELECT e.FirstName,i.IncentiveAmount FROM Employee e RIGHT JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID WHERE i.IncentiveAmount > 3000
+) incentive
+-->3 Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives.
+SELECT* FROM(
+SELECT e.FirstName,i.IncentiveAmount FROM Employee e LEFT JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID
+) EmployeeIncentive
+
+-->4 Select EmployeeName, ManagerName from the employee table.
+SELECT* FROM(
+SELECT e.FirstName,m.FirstName 'Manager Name'
+	FROM Employees e 
+	LEFT OUTER JOIN Employees m ON m.EmployeeID= e.ManagerID
+) tbl
+
+-->5 Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives and set incentive amount as 0 for those employees who didn’t get incentives.
+SELECT * FROM(SELECT FirstName,ISNULL(IncentiveAmount,0) AS IncentiveAmount FROM Employees e FULL OUTER JOIN 
+Incentives i on e.EmployeeID = i.EmployeeRefID)tbl
+
+
+-->CTE
+
+-->1 Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
+WITH inc(EId,FName,LName,Sal,Jdate,DId,MId,ErfId,IDate,Iamt,Datediff)
+AS
+(
+SELECT *, DATEDIFF(DAY,e.JoiningDate ,i.IncentiveDate) AS DATEDIFFERNCE FROM Employee e FULL OUTER JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID
+)
+SELECT * FROM inc
+-->2 Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+WITH Emp(FName,IAmt)
+AS
+(
+SELECT e.FirstName,i.IncentiveAmount FROM Employee e RIGHT JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID 
+)
+SELECT * FROM Emp WHERE IAmt > 3000
+-->3 Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives.
+WITH IncEmp(FName,IAmt)
+AS
+(
+SELECT e.FirstName,i.IncentiveAmount FROM Employee e LEFT JOIN Incentives i ON e.EmployeeID = i.EmployeeRefID
+)
+SELECT * FROM IncEmp
+-->4 Select EmployeeName, ManagerName from the employee table.
+WITH Emp
+AS
+(
+	SELECT e.FirstName,m.FirstName 'Manager Name'
+	FROM Employees e 
+	LEFT OUTER JOIN Employees m ON m.EmployeeID= e.ManagerID
+)
+SELECT * FROM Emp;
+-->5 Select first_name, incentive amount from employee and incentives table for all employees even if they didn’t get incentives and set incentive amount as 0 for those employees who didn’t get incentives.
+WITH EmployeeInc
+AS
+(
+SELECT FirstName,ISNULL(IncentiveAmount,0) AS IncentiveAmount FROM Employees e FULL OUTER JOIN 
+Incentives i on e.EmployeeID = i.EmployeeRefID
+)
+SELECT * FROM EmployeeInc
