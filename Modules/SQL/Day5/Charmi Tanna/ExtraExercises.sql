@@ -184,7 +184,7 @@ SELECT sp.Name FROM SalesPerson sp JOIN ReportsTo r ON sp.SalesPersonID = r.Sale
 -->8.Find the total number of dealerships.
 SELECT COUNT(DealershipID) FROM Dealership;
 -->9.List the VIN, year, and mileage of all "Toyota Camrys" in the inventory of the dealership named "Toyota Performance". (Note that a "Toyota Camry" is indicated by the make being "Toyota" and the model being "Camry".)
-SELECT c.VIN,c.Year,c.Mileage FROM Inventory i JOIN  Dealership d ON i.DealershipID = d.DealershipID JOIN Car c   ON c.VIN = i.VIN WHERE d.Name = 'Toyota Performance'	OR c.Make='Toyota Carmys';
+SELECT c.VIN,c.Year,c.Mileage FROM Inventory i JOIN  Dealership d ON i.DealershipID = d.DealershipID JOIN Car c   ON c.VIN = i.VIN WHERE d.Name='Toyota Performance' AND c.Make='Toyota'AND c.Model = 'Camry';
 -->10.Find the name of all customers who bought a car at a dealership located in a state other than the state in which they live.
 SELECT c.Name FROM Customer c JOIN Sale s ON c.CustomerId = s.CustomerId JOIN Dealership d ON s.DealershipID = d.DealershipID WHERE c.State <> d.State; 
 -->11.Find the name of the salesperson that made the largest base salary working at the dealership named "Ferrari Sales" during January 2010.
