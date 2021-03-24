@@ -1,0 +1,54 @@
+SELECT * FROM HumanResources.Employee
+
+SET TRANSACTION ISOLATION LEVEL
+READ UNCOMMITTED
+SELECT * FROM HumanResources.Employee WHERE BusinessEntityID=3
+
+SET TRANSACTION ISOLATION LEVEL
+READ COMMITTED
+SELECT * FROM HumanResources.Employee WHERE BusinessEntityID=3
+
+BEGIN TRAN Tr1
+SET TRANSACTION ISOLATION LEVEL
+REPEATABLE READ
+SELECT * FROM HumanResources.Employee WHERE BusinessEntityID=3
+
+SELECT * FROM HumanResources.Employee WHERE BusinessEntityID=3
+
+ROLLBACK TRANSACTION Tr1
+
+
+BEGIN TRAN Tr1
+SET TRANSACTION ISOLATION LEVEL
+SERIALIZABLE
+SELECT * FROM HumanResources.Employee WHERE JobTitle='abc4'
+
+SELECT * FROM HumanResources.Employee WHERE JobTitle='abc4'
+
+ROLLBACK TRANSACTION Tr1
+
+ALTER DATABASE AdventureWorks2012 SET ALLOW_SNAPSHOT_ISOLATION ON ALTER DATABASE AdventureWorks2012 SET READ_COMMITTED_SNAPSHOT ON
+
+BEGIN TRAN Tr1
+SET TRANSACTION ISOLATION LEVEL
+SNAPSHOT
+SELECT * FROM HumanResources.Employee WHERE JobTitle='abc4'
+
+SELECT * FROM HumanResources.Employee WHERE JobTitle='abc4'
+
+UPDATE HumanResources.Employee SET Gender='S' WHERE BusinessEntityID=4
+
+ROLLBACK TRANSACTION Tr1
+
+COMMIT TRANSACTION Tr1
+
+SELECT CASE transaction_isolation_level
+WHEN 0 THEN 'Unspecified'
+WHEN 1 THEN 'ReadUncommitted'
+WHEN 2 THEN 'ReadCommitted'
+WHEN 3 THEN 'Repeatable'
+WHEN 4 THEN 'Serializable'
+WHEN 5 THEN 'Snapshot' END AS TRANSACTION_ISOLATION_LEVEL
+FROM sys.dm_exec_sessions
+where session_id = @@SPID
+

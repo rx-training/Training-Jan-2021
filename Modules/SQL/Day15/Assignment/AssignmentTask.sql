@@ -78,8 +78,6 @@ EXECUTE prcCreateDetroitAccount 'Savings', 'Meena', 40000
 
 EXECUTE prcCreateDetroitAccount 'Savings', 'Reema', 60000
 
-EXECUTE prcCreateDetroitAccount 'Savings', 'Tina', 50000
-
 
 --TRANSFER AMOUNT FROM FIXED DEPOSIT ACCOUNT TO SAVINGS ACCOUNT FOR A CUSTOMER IN DETROIT BANK
 CREATE PROCEDURE prcTransferAmountDetroit
@@ -97,17 +95,21 @@ AS
 		SELECT @CurBalance = Balance FROM DetroitFixedDepositAccount WHERE Name=@Name
 		IF @Balance > @CurBalance
 		BEGIN
+			ROLLBACK TRANSACTION
 			RAISERROR('Amount is greater than amount present in account', 10, 1)
 		END
 		ELSE 
 		BEGIN
-			UPDATE DetroitFixedDepositAccount
-			SET Balance = Balance - @Balance
-			WHERE Name=@Name
+			IF (@Name IN (SELECT Name FROM DetroitFixedDepositAccount))	AND (@Name IN (SELECT Name FROM DetroitSavingsAccount))
+			BEGIN
+				UPDATE DetroitFixedDepositAccount
+				SET Balance = Balance - @Balance
+				WHERE Name=@Name
 
-			UPDATE DetroitSavingsAccount
-			SET Balance = Balance + @Balance
-			WHERE Name=@Name
+				UPDATE DetroitSavingsAccount
+				SET Balance = Balance + @Balance
+				WHERE Name=@Name
+			END
 
 			PRINT @TranCounter;
 			IF @TranCounter = 0    
@@ -138,7 +140,9 @@ GO
 
 EXECUTE prcTransferAmountDetroit 'Reena', 500000
 
-EXECUTE prcTransferAmountDetroit 'Meena', 10000
+EXECUTE prcTransferAmountDetroit 'Reema', 1000
+
+EXECUTE prcTransferAmountDetroit 'Tiya', 10000
 
 
 /*Q 2. At AdventureWorks, Inc., an employee named Sidney Higa, who is currently working as Production Technician – WC10 has been promoted as
@@ -164,11 +168,12 @@ BEGIN TRY
 
 	SELECT @DeptId = DepartmentID FROM HumanResources.Department WHERE Name='Marketing'
 
-	UPDATE HumanResources.Employee SET JobTitle = 'Marketing Manager' WHERE BusinessEntityID = @EmpId;
+	UPDATE HumanResources.Employee SET JobTitle = 'Marketing Manager', ModifiedDate = GETDATE() WHERE BusinessEntityID = @EmpId;
 	
-	UPDATE HumanResources.EmployeeDepartmentHistory SET DepartmentID = @DeptId WHERE BusinessEntityID = @EmpId;
-
+	UPDATE HumanResources.EmployeeDepartmentHistory SET DepartmentID = @DeptId, ModifiedDate = GETDATE() WHERE BusinessEntityID = @EmpId;
+	
 	PRINT 'TRANSACTION EXECUTED'
+	COMMIT TRANSACTION Tr
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION Tr
