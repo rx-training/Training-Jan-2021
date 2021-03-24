@@ -41,4 +41,4 @@ CLOSE hike_salary
 DEALLOCATE hike_salary
 SET NOCOUNT OFF
 
-SELECT * FROM Employees
+SELECT * FROM Employees 
