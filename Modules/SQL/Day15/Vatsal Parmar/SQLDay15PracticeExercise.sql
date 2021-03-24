@@ -1,0 +1,53 @@
+/*** Day 15 Practice Exercise ***/
+
+-- Implicit Transaction
+
+SET IMPLICIT_TRANSACTIONS ON
+INSERT INTO Employees VALUES (8,'G')
+INSERT INTO Employees VALUES (9,'H')
+COMMIT TRANSACTION;
+
+SET IMPLICIT_TRANSACTIONS OFF
+
+-- Explicit Transaction
+
+BEGIN TRAN myTran
+UPDATE Sales
+SET Salary = Salary-5000
+WHERE Id=1 AND Salary=10000
+
+UPDATE Sales
+SET Salary = Salary + 5000
+WHERE Id=1 AND Salary=5000
+COMMIT TRAN myTran
+GO
+
+-- Rollback
+
+BEGIN TRANSACTION myTran
+BEGIN TRY
+	UPDATE Employees SET Id = 5 WHERE Id = 9
+	UPDATE Sales SET Salary = 10000 WHERE Id = 5
+	COMMIT TRANSACTION myTran
+	SELECT 'Transaction Executed'
+END TRY
+BEGIN CATCH
+	ROLLBACK TRANSACTION myTran
+	SELECT 'Transaction Rollback',ERROR_LINE(),ERROR_MESSAGE()
+END CATCH
+
+-- Impliment Isolation Level
+
+SET TRANSACTION ISOLATION LEVEL
+READ COMMITTED
+BEGIN TRANSACTION myTran
+BEGIN TRY
+	UPDATE Employees SET Id = 5 WHERE Id = 9
+	UPDATE Sales SET Salary = 10000 WHERE Id = 5
+	COMMIT TRANSACTION myTran
+	SELECT 'Transaction Executed'
+END TRY
+BEGIN CATCH
+	ROLLBACK TRANSACTION myTran
+	SELECT 'Transaction Rollback',ERROR_LINE(),ERROR_MESSAGE()
+END CATCH
