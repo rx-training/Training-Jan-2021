@@ -1,6 +1,6 @@
-USE SampleDB
+﻿USE SampleDB
 
-/*Q. Detroit Bank need to implement the transaction whenever the amount is transferred from one account to the another account.
+/*Q 1. Detroit Bank need to implement the transaction whenever the amount is transferred from one account to the another account.
 Ans.*/
 CREATE TABLE DetroitFixedDepositAccount(
 	FixedDepositActId INT CONSTRAINT DetroitFixedDepositAccount_FixedDepositActId_PK PRIMARY KEY IDENTITY(1, 1),
@@ -139,3 +139,39 @@ GO
 EXECUTE prcTransferAmountDetroit 'Reena', 500000
 
 EXECUTE prcTransferAmountDetroit 'Meena', 10000
+
+
+/*Q 2. At AdventureWorks, Inc., an employee named Sidney Higa, who is currently working as Production Technician – WC10 has been promoted as
+Marketing Manager. The employee ID of Sidney is 13. As a database developer, you need to update his records. This involves updating the
+title in the Employee table and updating the department history details.​ You need to ensure that all the changes take effect.
+In addition, you need to ensure that no other transaction should be able to view the data being modified by the current transaction.
+Ans.*/
+SELECT * FROM HumanResources.Employee WHERE BusinessEntityID = 1069 OR BusinessEntityID = 50
+SELECT * FROM HumanResources.EmployeeDepartmentHistory WHERE BusinessEntityID = 50
+SELECT * FROM HumanResources.Department
+SELECT * FROM Person.Person WHERE FirstName='Sidney' AND LastName ='Higa'
+
+
+SET TRANSACTION ISOLATION LEVEL
+READ COMMITTED
+BEGIN TRANSACTION Tr
+BEGIN TRY
+	DECLARE @EmpId INT, @DeptId INT;
+
+	SELECT @EmpId = BusinessEntityID FROM HumanResources.Employee WHERE BusinessEntityID IN (
+			SELECT BusinessEntityID FROM Person.Person WHERE FirstName = 'Sidney' AND LastName = 'Higa'
+	)
+
+	SELECT @DeptId = DepartmentID FROM HumanResources.Department WHERE Name='Marketing'
+
+	UPDATE HumanResources.Employee SET JobTitle = 'Marketing Manager' WHERE BusinessEntityID = @EmpId;
+	
+	UPDATE HumanResources.EmployeeDepartmentHistory SET DepartmentID = @DeptId WHERE BusinessEntityID = @EmpId;
+
+	PRINT 'TRANSACTION EXECUTED'
+END TRY
+BEGIN CATCH
+	ROLLBACK TRANSACTION Tr
+	PRINT 'TRANSACTION ROLLBACKED'
+END CATCH
+
