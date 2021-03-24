@@ -1,0 +1,158 @@
+
+
+USE day5
+SELECT * FROM Employees
+
+DECLARE cur1 CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH FIRST FROM cur1
+FETCH LAST FROM cur1
+FETCH NEXT FROM cur1
+FETCH PRIOR FROM cur1
+FETCH ABSOLUTE 4 FROM cur1
+FETCH RELATIVE 4 FROM cur1
+CLOSE cur1
+DEALLOCATE cur1
+
+DECLARE cur1 CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH NEXT FROM cur1
+WHILE @@FETCH_STATUS = 0  
+   BEGIN  
+      FETCH NEXT FROM cur1;  
+   END; 
+CLOSE cur1
+DEALLOCATE cur1
+GO
+
+DECLARE cur1 SCROLL CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH FIRST FROM cur1
+CLOSE cur1
+DEALLOCATE cur1
+GO
+DECLARE cur1 SCROLL CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH LAST FROM cur1
+CLOSE cur1
+DEALLOCATE cur1
+GO
+DECLARE cur1 SCROLL CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH NEXt FROM cur1
+CLOSE cur1
+DEALLOCATE cur1
+GO
+DECLARE cur1 SCROLL CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH PRIOR FROM cur1
+CLOSE cur1
+DEALLOCATE cur1
+GO
+DECLARE cur1 SCROLL CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH ABSOLUTE 4 FROM cur1
+CLOSE cur1
+DEALLOCATE cur1
+GO
+DECLARE cur1 SCROLL CURSOR FOR
+SELECT * FROM Employees
+OPEN cur1
+FETCH RELATIVE -4 FROM cur1
+CLOSE cur1
+DEALLOCATE cur1
+GO
+
+DECLARE new_cur CURSOR FOR
+SELECT * FROM Employees1
+OPEN new_cur
+FETCH NEXT FROM new_cur
+WHILE @@FETCH_STATUS = 0
+BEGIN 
+FETCH NEXT FROM new_cur
+END
+CLOSE new_cur
+DEALLOCATE new_cur
+
+DECLARE @id NVARCHAR(50)
+DECLARE @name NVARCHAR(50)
+DECLARE new_cur CURSOR FOR
+SELECT EmployeeID,FirstName FROM Employees1
+OPEN new_cur
+FETCH NEXT FROM new_cur INTO @id,@name
+SELECT @id,@name
+CLOSE new_cur
+DEALLOCATE new_cur
+
+DECLARE new_cur CURSOR FOR
+SELECT * FROM Employees1
+OPEN new_cur
+FETCH NEXT FROM new_cur
+WHILE @@FETCH_STATUS = 0
+BEGIN 
+UPDATE Employees1
+SET Salary = 5000
+FETCH NEXT FROM new_cur
+END
+CLOSE new_cur
+DEALLOCATE new_cur
+
+DECLARE new_cur CURSOR FOR
+SELECT * FROM Employees1
+OPEN new_cur
+FETCH NEXT FROM new_cur
+WHILE @@FETCH_STATUS = 0
+BEGIN 
+UPDATE Employees1
+SET Salary = 25000 WHERE DepartmentID =110
+FETCH NEXT FROM new_cur
+END
+CLOSE new_cur
+DEALLOCATE new_cur
+
+SELECT * FROM Employees1
+
+CREATE TABLE Employee2
+(
+ EmpID int PRIMARY KEY,
+ EmpName varchar (50) NOT NULL,
+ Salary int NOT NULL,
+ Address varchar (200) NOT NULL,
+)
+GO
+INSERT INTO Employee2(EmpID,EmpName,Salary,Address) VALUES(1,'Mohan',12000,'Noida')
+INSERT INTO Employee2(EmpID,EmpName,Salary,Address) VALUES(2,'Pavan',25000,'Delhi')
+INSERT INTO Employee2(EmpID,EmpName,Salary,Address) VALUES(3,'Amit',22000,'Dehradun')
+INSERT INTO Employee2(EmpID,EmpName,Salary,Address) VALUES(4,'Sonu',22000,'Noida')
+INSERT INTO Employee2(EmpID,EmpName,Salary,Address) VALUES(5,'Deepak',28000,'Gurgaon')
+GO
+SELECT * FROM Employee2
+
+SET NOCOUNT ON
+DECLARE @Id int
+DECLARE @name varchar(50)
+DECLARE @salary int
+ DECLARE cur_emp CURSOR
+STATIC FOR 
+SELECT EmpID,EmpName,Salary from Employee2
+OPEN cur_emp
+IF @@CURSOR_ROWS > 0
+ BEGIN 
+ FETCH NEXT FROM cur_emp INTO @Id,@name,@salary
+ WHILE @@Fetch_status = 0
+ BEGIN
+ PRINT 'ID : '+ convert(varchar(20),@Id)+', Name : '+@name+ ', Salary : '
+ +convert(varchar(20),@salary)
+ FETCH NEXT FROM cur_emp INTO @Id,@name,@salary
+ END
+END
+CLOSE cur_emp
+DEALLOCATE cur_emp
+SET NOCOUNT OFF
