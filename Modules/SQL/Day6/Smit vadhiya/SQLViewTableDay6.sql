@@ -6,8 +6,8 @@ of all the departments. */
 
 --FIRST CREATE VIEW FOR THIS DATA
 CREATE VIEW Address AS
-(SELECT l.LocationID,l.StreetAddress,l.City,l.StateProvince,c.CountryName 
-FROM Locations l JOIN Countries c ON l.CountryID = c.CountryID)
+(SELECT d.DepartmentName,l.LocationID,l.StreetAddress,l.City,l.StateProvince,c.CountryName 
+FROM Locations l JOIN Countries c ON l.CountryID = c.CountryID JOIN Departments d ON d.LocationID = l.LocationID)
 
 --SELECT DATA
 SELECT * FROM Address
@@ -45,8 +45,8 @@ SELECT * FROM HireDate
 
 /*6. Write a query to get the department name and number of employees in the department. */
 
-CREATE VIEW TotalDepartment AS
-SELECT COUNT(DepartmentID),DepartmentName from 
+ALTER VIEW TotalDepartment AS
+SELECT COUNT(DepartmentID) 'EMP',DepartmentName from 
 (
 SELECT e.DepartmentID,d.DepartmentName FROM 
 Employees e RIGHT JOIN Departments d ON e.DepartmentID = d.DepartmentID
@@ -66,48 +66,47 @@ SELECT * FROM DayDiff
 /*8. Write a query to display the department ID, department name and manager first name. */
 
 CREATE VIEW ManagerData AS
-SELECT d.LocationID, d.DepartmentID, d.DepartmentName,e.FirstName + e.LastName 'Name' 
+SELECT  d.DepartmentID, d.DepartmentName,e.FirstName + e.LastName 'Name' 
 FROM Employees e JOIN Departments d ON e.EmployeeID = d.ManagerID  
 
-SELECT DepartmentID,DepartmentName,Name FROM ManagerData
+SELECT * FROM ManagerData
 
 /*9. Write a query to display the department name, manager name, and city. */
 
 --USE MANAGERDATA VIEW IN THIS
-CREATE VIEW ManagerCity AS
-SELECT m.*,l.City FROM ManagerData m JOIN Locations l ON m.LocationID = l.LocationID
+ALTER VIEW ManagerCity AS
+SELECT  d.DepartmentName,e.FirstName + e.LastName 'Name',l.City 
+FROM Employees e JOIN Departments d ON e.EmployeeID = d.ManagerID JOIN Locations l ON D.LocationID =  l.LocationID
 
-SELECT DepartmentName,Name,City FROM ManagercITY
-
+SELECT * FROM ManagerCity
 /*10. Write a query to display the job title and average salary of employees. */
 
 CREATE VIEW AVGSalary AS 
-SELECT JobId, AVG(Salary) 'Salary' FROM (SELECT JobId ,Salary 'Salary' FROM Employees) AS TBL  GROUP BY JobId 
+SELECT JobId, AVG(Salary) 'Salary' FROM Employees  GROUP BY JobId 
 
-SELECT * FROM DayDiff
+SELECT * FROM AVGSalary
 
 
 /*11. Display job title, employee name, and the difference between salary of
 the employee and minimum salary for the job. */
 
 CREATE VIEW MINSalary AS 
-SELECT JobId, MIN(Salary) 'MINSalary' FROM Employees GROUP BY JobId
-
 SELECT e.JobId, e.FirstName + e.LastName 'Name' ,'Diffrence in salary' = Salary - MINSalary 
-FROM Employees e JOIN MINSalary m ON e.JobId = m.JobId
+FROM Employees e JOIN (SELECT JobId, MIN(Salary) 'MINSalary' FROM Employees GROUP BY JobId) m ON e.JobId = m.JobId
 
+SELECT * FROM MINSalary
 /*12. Write a query to display the job history that were done by any employee who is 
 currently drawing more than 10000 of salary. */
 
-CREATE VIEW JobHistory AS 
+CREATE VIEW VJobHistory AS 
 SELECT J.* FROM Employees e JOIN JobHistory j ON e.EmployeeID = j.EmployeeID WHERE e.Salary > 10000
 
+SELECT * FROM VJobHistory
 /*13. Write a query to display department name, name (first_name, last_name), hire date, 
 salary of the manager for all managers whose experience is more than 15 years. */
 
 
 CREATE VIEW ManagetDetail AS 
-
 SELECT * FROM 
 (
 SELECT  e.FirstName + e.LastName 'Name',e.Salary,D.DepartmentName,e.HireDate,

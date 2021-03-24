@@ -181,22 +181,16 @@ SELECT DepartmentID,SUM(SALARY) 'TotalSalary' FROM Employees
 /*Get department wise maximum salary from employee table order by salary ascending*/
 
 
---By taking jobid as department
-SELECT JobId, MAX(SALARY) 'TotalSalary' FROM Employees GROUP BY (JobId)
-
 --by taking department id as diffrenet department
-SELECT DepartmentID,MAX(SALARY) 'TotalSalary' FROM Employees GROUP BY (DepartmentID) 
+SELECT DepartmentID,MAX(SALARY) 'TotalSalary' FROM Employees GROUP BY (DepartmentID) ORDER BY TotalSalary ASC
 
 ----------------------------------------------------ASSIGNMENT 6-----------------------------------------------
 
 /*Get department wise minimum salary from employee table order by salary ascending*/
 
 
---By taking jobid as department
-SELECT JobId, MIN(SALARY) 'TotalSalary' FROM Employees GROUP BY (JobId) 
-
 --by taking department id as diffrenet department
-SELECT DepartmentID,MIN(SALARY) 'TotalSalary' FROM Employees GROUP BY (DepartmentID) 
+SELECT DepartmentID,MIN(SALARY) 'TotalSalary' FROM Employees GROUP BY (DepartmentID) ORDER BY TotalSalary ASC
 
 ----------------------------------------------------------ASSIGNMENT 7----------------------------------------------
 
