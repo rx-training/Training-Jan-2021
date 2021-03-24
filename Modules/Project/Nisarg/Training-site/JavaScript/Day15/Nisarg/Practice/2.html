@@ -1,0 +1,27 @@
+<!-- Practice task 2-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click here to view the list of cities.</p>
+
+<script>
+  function myFunction()
+{
+	var cities=["Ahmedabad","Surat","Baroda","Gandhinagar","Surendranagar"];
+    var len=cities.length;
+	var i;
+	var text=""; 
+  	
+	for(i=0;i<len;i++)
+	{
+		text+=cities[i];
+		alert("City name is:"+text);
+        text="";
+	}
+
+}
+</script>
+<button onclick="myFunction()">Try it</button>
+</body>
+</html>

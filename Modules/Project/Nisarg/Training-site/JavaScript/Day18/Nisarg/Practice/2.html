@@ -1,0 +1,32 @@
+<html>
+    <head><title>VAR and LET Keyword</title>
+    <script type="text/javascript">
+    let a=90;
+    //cant declare again it will give error let a=90;
+    var b=38;
+    console.log("Value of B="+b);
+    var b=36;
+    function let_keyword()
+    {
+        a=91;
+        console.log("Value of A="+a);
+        a=67;
+        console.log("Value of updated A=",a);
+    }
+    function var_keyword()
+    {
+        console.log("Value of B="+b);
+        b=45;
+        console.log("Value of B="+b);
+        b=22;
+        console.log("Value of updated B=",b);
+    }
+    
+    let_keyword();
+    var_keyword();
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

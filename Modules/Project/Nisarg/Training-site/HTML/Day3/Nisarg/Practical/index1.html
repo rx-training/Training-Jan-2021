@@ -1,0 +1,217 @@
+
+
+<html>
+<head>
+<title>LOGIN FORM</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style type="text/css">
+	#div1
+	{
+		background-image: url("./bg.jpeg");
+   		height: 200px;
+  		width: 100%;
+	}
+	#img1 
+	{
+        margin-left: 40px;
+    }
+    #navbgcolor 
+	{
+        margin-left: 10px;
+        background-color: #86B404;
+    }
+    .sidenav 
+	{
+            width: 230px;
+            position: fixed;
+            z-index: 1;
+            top: 100px;
+            left: 10px;
+            background: #eee;
+            overflow-x: hidden;
+            padding: 8px 0;
+    }
+    .sidenav a:hover 
+	{
+            color: #064579;
+    }
+    #m2
+    {
+            margin-left: 135px;
+    }
+</style>
+<script type="text/javascript">
+	
+	function validateForm() 
+	{
+		var un=document.forms["myForm"]["uname"].value;
+		var up=document.forms["myForm"]["upassword"].value;
+
+		if(un=="Admin" && up=="Admin@#123")
+		{
+			return true;
+		}
+		else
+		{
+			alert("Wrong ID and password");
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<div class="row">
+        <img src="radixweb.png" alt="" height="80" width="100" id="img1">
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+            <div class="container">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggeler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto" id="ul1">
+                        <li class="nav-items">
+                            <a href="i_html.html" class="nav-link">HTML</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="i_css.html" class="nav-link">CSS</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="i_bootstrp.html" class="nav-link">Bootstrap</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="#" class="nav-link">Javascript</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="#" class="nav-link">PHP</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="#" class="nav-link">PHP Functions</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">PHP OOPS</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">PHP File Upload</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">PHP File Handling</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">PHP AJAX</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">PHP Cookie Session</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">PHP Extra</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="" class="nav-link">PHP Database</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+
+    <div class="container-fluid" id="m2">
+        <div class="row">
+        <div class="mt-5 col-3" style="background-color: #9fc0c9;">
+                <p class="lead text-center">&nbsp;&nbsp;&nbsp;HTML</p><br/><br/><br/>  
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">&nbsp;&nbsp;&nbsp;<h5>Day-3</h5></li>
+                        <ul class="navbar-nav">
+                            <li class="">Practice</li>
+                            <ul>
+                               <li><a href="#_self">Login</a></li>
+                               <li><a href="HR_OL_UL_list.html">HR</a></li>
+                               <li><a href="Student_report.html">Student Report</a></li>
+                            </ul>
+                        </ul>
+
+                        <ul class="navbar-nav">
+                            <li class="">Assignment</li>
+                            <ul>
+                               <li><a href="../Assignment/employee.html">Employee</a></li>
+                            </ul>
+                        </ul>
+                    </li>
+                </ul>     
+            </div>
+
+            <div class="mt-5 col-9">
+                <div class="container-fluid mt-5" id="div1">
+                    <h3 style="color:white;margin-top: 10px;">LOG IN</h3>
+                    <form name="myForm" action="index2.html" onsubmit="return validateForm()" method="post">
+                    <table style="text-align:center";>
+                    
+                    <tr>
+                    <td><input type="text" name="uname" placeholder="Enter your name" required></td>
+                    </tr>
+                    
+                    
+                    <tr>
+                    <td><input type="password" name="upassword" placeholder="Enter your password" required></td>
+                    </tr>
+                    
+                    <tr>
+                    <td><centre><input type="submit" value="submit" onclick="validateForm()" /></centre></td>
+                    </tr>
+                    
+                    <tr>
+                    </tr>
+                    
+                    </table>
+                    </form>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+	
+
+</body>
+</html>
+
+
+<!--
+
+<html>
+<head>
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
+
+	-->

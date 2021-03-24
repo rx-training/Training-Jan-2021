@@ -1,0 +1,53 @@
+<html>
+    <head><title>Callback Function</title>
+    <script type="text/javascript">
+    //3)Make a function that takes in a single parameter and returns a new promise. 
+    //  using setTimeout, after 500 milliseconds, the promise will either resolove or reject. 
+    //if the input is a string, the promise resolves with that reverse string . if the input is 
+    // /anything but a string it rejects with that same input call the function wrong Input
+   
+
+   const funA=(a)=>
+   {
+       return new Promise((resolve,reject)=>
+       {
+            setTimeout(()=>
+            {
+                let str=a;
+                let s_msg={
+                    status:'Success',
+                    message:'Founded string'
+                };
+                let f_msg={
+                    status:'Error',
+                    message:'OOps there is some error'
+                };
+                if(typeof(str)==="string")
+                {
+                    resolve(s_msg);
+                }
+                else
+                {
+                    reject(f_msg);
+                }
+            },500);
+       })
+   }
+
+   funA("123").then(
+       (s_msg)=>
+       {
+            document.write(s_msg.status+" ");
+            document.write(s_msg.message);
+       }).catch((f_msg)=>
+       {
+            document.write(f_msg.status+" ");
+            document.write(f_msg.message);
+       }
+   );
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

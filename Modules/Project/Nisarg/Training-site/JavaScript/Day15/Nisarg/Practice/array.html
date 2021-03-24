@@ -1,0 +1,32 @@
+<html>
+    <head><title>Array</title>
+    <script type="text/javascript">
+        var cars=["BMW","Porsche","Ferrari","Mercedez"];
+        document.write(cars[0]+"<br/>");
+        document.write(cars[2]+"<br/>");
+        document.write(cars[3]+"<br/>");
+        document.write(cars[4]+"<br/>");
+
+        var entries1=new Array(5);
+        document.write(entries1.length); //5
+        
+        var entries2=new Array("5");
+        document.write(entries2.length); //1
+
+        var entries3=["Cars","Two-wheelers"];
+        entries.length=10;  
+        document.write(entries3.length); //10
+
+        var entries4=['Planes','Traines','Auto-mobiles'];
+        entries[42]='Cars';
+        document.write(entries4.length);
+
+        var ratings=[10,20,30,40,50];
+        var newRatings=ratings.slice(1,3);
+        document.write(newRatings.toString());
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

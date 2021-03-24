@@ -1,0 +1,407 @@
+<html>
+    <head><title>Text-alignment </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body style="margin-top: 100px;">
+        <header>
+            <h1 class="display 3 text-center my-4">Tables and pagination</h1>
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <div class="dropdown">
+                                  <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                      2:Utilities
+                                    </button>
+
+                                      <div class="dropdown-menu">
+                                          <a class="dropdown-item" href="2_2_basic_typography.html">2.2 Basic typography</a>
+                                          <a class="dropdown-item" href="2_3_text_alignment_display.html">2.3 Text alignment</a>
+                                          <a class="dropdown-item" href="2_4_float_position.html">2.4 Floats & position</a>
+                                          <a class="dropdown-item" href="2_5_background_colors.html">2.5 Colors background</a>
+                                          <a class="dropdown-item" href="2_6_spacing.html">2.6 Spacing</a>
+                                          <a class="dropdown-item" href="2_7_sizing.html">2.7 Floats & Sizing</a>
+                                          <a class="dropdown-item" href="2_8_breakpoints.html">2.8 Breakpoints</a>
+                                      </div>
+                                 </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    3:CSS Components
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="3_2_buttons.html">3.2  Buttons</a>
+                                        <a class="dropdown-item" href="3_3_navbar.html">3.3 Nav bar</a>
+                                        <a class="dropdown-item" href="3_4_list_group_badges.html">3.4 List group badges</a>
+                                        <a class="dropdown-item" href="3_5_forms.html">3.5 Forms</a>
+                                        <a class="dropdown-item" href="3_6_input_groups.html">3.6 Input groups</a>
+                                        <a class="dropdown-item" href="3_7_alert_progress.html">3.7 Alert progress</a>
+                                        <a class="dropdown-item" href="3_8_tables_pagination.html">3.8 Tables pagination</a>
+                                        <a class="dropdown-item" href="3_9_cards.html">3.9 Cards</a>
+                                        <a class="dropdown-item" href="3_10_media_object.html">3.10 Media objects</a>
+                                    </div>
+                               </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    4:CSS Grid & flexbox
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">4.2  Grid System</a>
+                                        <a class="dropdown-item" href="#">4.3 Grid alignment</a>
+                                        <a class="dropdown-item" href="#">4.4 Flexbox</a>
+                                        <a class="dropdown-item" href="#">4.5 Auto margin & wrap</a>
+                                    </div>
+                               </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                    5:Javascript widgets
+                                  </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">5.2  Carousel</a>
+                                        <a class="dropdown-item" href="#">5.3 Collapse</a>
+                                        <a class="dropdown-item" href="#">5.4 Tooltips</a>
+                                        <a class="dropdown-item" href="#">5.5 Properties</a>
+                                        <a class="dropdown-item" href="#">5.6 Modals</a>
+                                    </div>
+                               </div>
+                        </div>
+                      </div>
+
+        </div>
+
+        <!-- Starts from here-->
+       <div class="container mt-2">
+          
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jdoe@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Will</td>
+                    <td>Johnasson</td>
+                    <td>will@yahoo.com</td>
+                </tr>
+                    
+                
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Shannon</td>
+                    <td>Williams</td>
+                    <td>shanon@williams@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Table inverse-->
+        
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jdoe@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Will</td>
+                    <td>Johnasson</td>
+                    <td>will@yahoo.com</td>
+                </tr>
+                    
+                
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Shannon</td>
+                    <td>Williams</td>
+                    <td>shanon@williams@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- table head inverse-->
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jdoe@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Will</td>
+                    <td>Johnasson</td>
+                    <td>will@yahoo.com</td>
+                </tr>
+                    
+                
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Shannon</td>
+                    <td>Williams</td>
+                    <td>shanon@williams@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Stripped table-->
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jdoe@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Will</td>
+                    <td>Johnasson</td>
+                    <td>will@yahoo.com</td>
+                </tr>
+                    
+                
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Shannon</td>
+                    <td>Williams</td>
+                    <td>shanon@williams@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+          <!--  Table bordered-->
+          <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jdoe@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Will</td>
+                    <td>Johnasson</td>
+                    <td>will@yahoo.com</td>
+                </tr>
+                    
+                
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Shannon</td>
+                    <td>Williams</td>
+                    <td>shanon@williams@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--  Table hoverable-->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jdoe@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Will</td>
+                    <td>Johnasson</td>
+                    <td>will@yahoo.com</td>
+                </tr>
+                    
+                
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Shannon</td>
+                    <td>Williams</td>
+                    <td>shanon@williams@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        
+        <!--  Table small-->
+        <table class="table table-sm table-hover table-stripped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jdoe@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Will</td>
+                    <td>Johnasson</td>
+                    <td>will@yahoo.com</td>
+                </tr>
+                    
+                
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Shannon</td>
+                    <td>Williams</td>
+                    <td>shanon@williams@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <nav>
+            <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+        
+
+        <!-- Pagination centered -->
+        <nav>
+            <ul class="pagination  justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+        
+        <!-- Pagination right -->
+        <nav>
+            <ul class="pagination  justify-content-end">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+        
+        <!-- Pagination large -->
+        <nav>
+            <ul class="pagination  pagination-lg">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+        
+        <!-- Pagination small -->
+        <nav>
+            <ul class="pagination  pagination-sm">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+        
+
+        </div>
+</body>
+</html>

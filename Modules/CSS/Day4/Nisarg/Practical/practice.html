@@ -1,0 +1,118 @@
+<!--
+Practice Exercise:-
+Provide text alignment to center to student Report Card which is created  in Day1 assignment
+Provide Border to one paragraph and write some dummy text into it
+Create city list in horizontal order(using display properties)
+Provide universal selector and apply blue color to a page
+Suppose html markup below, apply all h1 and h2 blue color.
+
+-->
+
+<html>
+<head><title>Student Report Card</title>
+<style type="text/css">
+
+	body
+	{
+		background: lightblue;
+	}
+
+	h1,h2
+	{
+		text-align: center;
+		font-style: italic;
+		color: blue;
+	}
+
+	h4
+	{
+		text-align: center;
+	}
+
+	p
+	{
+		border: 3px solid blue;
+	}
+
+	nav
+	{
+		background-color: black;
+		color: white; 
+		display: inline-flex;
+	}
+
+	form
+	{
+		margin-top: 50px;
+		margin-left:520px;
+	}
+		
+</style>
+</head>
+<body>
+
+
+<nav>
+	<a>Ahmedabad</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a>Surat</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a>Vadodra</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a>Bhavnagar</a>
+</nav>
+<form>
+<table border="2">
+<tr>
+	<th colspan="2"><h3>Student Report Card</h3></th>
+</tr>
+
+<tr>
+	<td><h4>Name:</h4></th>
+	<td><input type="text" name="sname" width="100" height="100" id="sname" required/></td>
+</tr>
+
+<tr>
+	<th><h4>Roll No:</h4></th>
+	<td><input type="number" name="srollno" width="100" id="srollno" min="1" max="100" required></td>
+</tr>
+
+<tr>
+	<th colspan="2"><h3>Enter your Subject marks</h3></th>
+</tr>
+
+<tr>
+	<td><h4>Maths</h4></td>
+	<td><input type="number" name="MA" min="1" max="100" id="smathsmarks" required/></td>
+</tr>
+
+<tr>
+	<td><h4>Science</h4></td>
+	<td><input type="number" name="SC" id="ssciencemarks" min="1" max="100" required/></td>
+</tr>
+
+<tr>
+	<td><h4>English</h4></td>
+	<td><input type="number" name="EN" id="senglishmarks" min="1" max="100" required/></td>
+</tr>
+
+<tr>
+	<td><h4>SS</h4></td>
+	<td><input type="number" name="SS" min="1" id="sssmarks" max="100" required/></td>
+</tr>
+
+<tr>
+<th colspan="2">
+	<input type="button" name="Submit" value="Submit"></th>
+</tr>
+
+<tr>
+	<th colspan="2">
+		<p>
+			<marquee>This is student marks portal.</marquee>
+		</p>
+	</th>
+</tr>
+</table>
+</form>
+<h1><marquee scrollamount="30">Thanks for Visiting this webpage</marquee></h1>
+<h2>Hope to see you again!.</h2>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple web page</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<style type="text/css">
+
+		body
+		{
+			margin: 0;
+			background-color: white;
+		}
+		.nav-bar
+		{
+			width:100%;
+			height: 36px;
+			background-color: black;
+
+		}
+
+	.nav-bar a 
+		{
+		margin-left: 50px;
+  		float: left;
+  		padding: 12px;
+		color: gray;
+		font-style: bold;
+		font-size:20px;
+		width: 10%; 
+		}
+
+		.nav-bar a:hover
+		{
+			background-color: white;
+		}
+		.navbar a:active 
+		{
+ 		 background-color: #4CAF50;
+		}	
+		.container {
+  			 position: relative;
+ 			 color: white;
+		}
+		#con1
+		{
+			
+			border: 1px solid gray;
+ 			 background-color:lightgray;
+		}
+
+		.bottom-text {
+  			position: absolute;
+  			bottom: 8px;
+  			margin-left: 45px;
+
+		}
+
+		.div1
+		{
+			background-color: #000000;
+		}
+		.div2
+		{
+			width: 100%;
+			height: 170px;
+			background-color: white;
+		}
+		.div3
+		{
+			background-color:  #f2f2f2;
+			width: 100%;
+			height: 250px;
+			text-align: center;
+		}
+		.div4
+		{
+			background-color:#FFFFFF;
+			width: 100%;
+			height: 350px;
+		}
+		h4
+		{
+		 	color:#999999;
+		}
+		h5
+		{
+			float: left;
+			margin-left: 250px;
+		}
+		
+	.fourth-sidebar
+	{
+		height: 100px;
+		width: 30%;
+		background-color: white;
+		margin: 20px;
+		margin-left: 12%;
+		float: left;	
+
+		
+	}
+	.img-first
+	{
+		float: left;
+		margin-left: 10%;
+	}
+		
+
+	.last-section
+	{
+		height: 50%;
+		width: 20%;
+		margin: 10px;
+		margin-left: 2%;
+		background-color: white;
+		float: left;
+		
+	}
+	.last-sub-section
+	{
+		height: 50%;
+		width: 20%;
+		margin: 10px;
+		margin-left:2%;
+		background-color: white;
+		float: left;
+		
+	}
+	.last-sub-section-form
+	{
+		height: 50%;
+		width: 50%;
+		margin: 10px;
+		margin-left: 2%;
+		background-color: white;
+		float: left;	
+	}
+
+	.last
+	{
+		float: left;
+		margin-left: 630px;
+	}
+	
+	#img1 
+	{
+        margin-left: 40px;
+    }
+        
+	#navbgcolor 
+	{
+        margin-left: 10px;
+        background-color: #86B404;
+    }
+    .sidenav 
+	{
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 100px;
+            left: 10px;
+            background: #eee;
+            overflow-x: hidden;
+            padding: 8px 0;
+    }
+    .sidenav a:hover 
+	{
+            color: #064579;
+    }
+    #m2
+    {
+            margin-left: 135px;
+            height: 950px;
+    }
+	</style>
+</head>
+<body>
+
+	
+
+<div class="row">
+	<img src="radixweb.png" alt="" height="80" width="100" id="img1">
+	<nav class="navbar navbar-expand-lg navbar-light" id="navbgcolor">
+		<div class="container">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggeler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto" id="ul1">
+					<li class="nav-items">
+						<a href="../../../../i_html.html" class="nav-link">HTML</a>
+					</li>
+					<li class="nav-items">
+						<a href="../../../../i_css.html" class="nav-link">CSS</a>
+					</li>
+					<li class="nav-items">
+						<a href="../../../../i_bootstrp.html" class="nav-link">Bootstrap</a>
+					</li>
+					<li class="nav-items">
+						<a href="#" class="nav-link">Javascript</a>
+					</li>
+					<li class="nav-items">
+						<a href="#" class="nav-link">PHP</a>
+					</li>
+					<li class="nav-items">
+						<a href="#" class="nav-link">PHP Functions</a>
+					</li>
+					<li class="nav-items">
+						<a href="" class="nav-link">PHP OOPS</a>
+					</li>
+					<li class="nav-items">
+						<a href="" class="nav-link">PHP File Upload</a>
+					</li>
+					<li class="nav-items">
+						<a href="" class="nav-link">PHP File Handling</a>
+					</li>
+					<li class="nav-items">
+						<a href="" class="nav-link">PHP AJAX</a>
+					</li>
+					<li class="nav-items">
+						<a href="" class="nav-link">PHP Cookie Session</a>
+					</li>
+					<li class="nav-items">
+						<a href="" class="nav-link">PHP Extra</a>
+					</li>
+					<li class="nav-items">
+						<a href="" class="nav-link">PHP Database</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+
+
+
+
+
+<div class="container" id="m2">
+	<div class="row">
+		<div class="col-3 h-75 mt-5" style="background-color: #9fc0c9;">
+			<p class="lead text-center">&nbsp;&nbsp;&nbsp;CSS</p><br/><br/><br/>  
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">&nbsp;&nbsp;&nbsp;<h5>Day-4</h5></li>
+					<ul class="navbar-nav">
+						<li class="">Practice</li>
+						<ul>
+						   <li><a href="../../../Day4/Nisarg/Practical/practice.html" >Practice 1</a></li>
+						</ul>
+					</ul>
+					<ul class="navbar-nav">
+						<li class="">Assignment</li>
+						<ul>
+						   <li><a href="../../../Day4/Nisarg/Assignment/index.html">Employee</a></li>
+						</ul>
+					</ul>
+					
+				<li class="nav-item">&nbsp;&nbsp;&nbsp;<h5>Day-5</h5></li>
+					<ul class="navbar-nav">
+					   <li class="">Practice</li>
+						 <ul>
+							<li><a href="../Practice/index.html" >Practice 1</a></li>
+						 </ul>
+					</ul>
+				  <ul class="navbar-nav">
+				  <li class="">Assignment</li>
+						 <ul>
+						   <li><a href="#_self" target="_blank">Webpage</a></li>
+						</ul>
+				  </ul>
+				</li>
+
+				
+				<li class="nav-item">&nbsp;&nbsp;&nbsp;<h5>Day-6</h5></li>
+					<ul class="navbar-nav">
+					   <li class="">Practice</li>
+						 <ul>
+							<li><a href="../../../Day6/Nisarg/Practice/index.html">Practice 1</a></li>
+						 </ul>
+					</ul>
+				  <ul class="navbar-nav">
+				  <li class="">Assignment</li>
+						 <ul>
+						   <li><a href="../../../Day6/Nisarg/Assignment/index.html" target="_blank">Webpage</a></li>
+						</ul>
+				  </ul>
+				</li>
+
+				<li class="nav-item">&nbsp;&nbsp;&nbsp;<h5>Day-7</h5></li>
+				<ul class="navbar-nav">
+				   <li class="">Practice</li>
+					 <ul>
+						<li><a href="../../../Day7/Nisarg/practice/index.html">Practice 1</a></li>
+					 </ul>
+				</ul>
+			  <ul class="navbar-nav">
+			  <li class="">Assignment</li>
+					 <ul>
+					   <li><a href="../../../Day7/Nisarg/Assignment/index.html" target="_blank">Webpage</a></li>
+					</ul>
+			  </ul>
+			</li>
+
+			<li class="nav-item">&nbsp;&nbsp;&nbsp;<h5>Day-8</h5></li>
+			  <ul class="navbar-nav">
+			  <li class="">Assignment</li>
+					 <ul>
+					   <li><a href="../../../Day8/Nisarg/Assignment/responsive_img_gallery.html">Responsive Image Gallery</a></li>
+					</ul>
+			  </ul>
+			</li>
+				
+			</ul>   
+		</div>
+		<div class="col-9">
+
+	<div class="div1">
+		<centre>
+			<img src="./assets/icon1.png"  height="30px" width="30px"/>
+		</centre>
+	</div>
+
+	<nav class="nav-bar">
+		<centre>
+		<a href="#">Home</a>
+		<a href="#">Dropdown</a>
+		<a href="#">Leftside bar</a>
+		<a href="#">Rightside bar</a>
+		<a href="#">Two sidebar</a>
+		<a href="#">No sidebar</a>
+		</centre>
+	</nav>
+
+	<div class="container" id="con1">
+	<img src="./assets/banner.jpg" height="300px" width="100%" />
+			<div class="bottom-text"><centre><strong style="font-color:white";>Arcana:</strong> A responsive site template by HTML5 UP &nbsp;&nbsp;<a href="">Learn more</a></centre>
+			</div>
+	</div>
+
+
+	<div class="div2">
+		<div>
+		<img style="margin-left: 250px;  margin-top: 20px" src="./assets/icon1.png"  height="100px" width="100px"/>
+		<img style="margin-left: 250px; margin-top: 20px" src="./assets/icon2.png"  height="100px" width="100px"/>
+		<img style="margin-left: 250px; margin-top: 20px" src="./assets/icon4.png"  height="100px" width="100px"/>
+		</div>
+			<h5>Why so important!</h5>
+			<h5>Also important</h5>
+			<h5>Probably important!</h5>
+	</div>
+
+	<div class="div3">
+		<br/><br/><br/><h1>A gigantic heading you can use for whatever</h1><hr/>
+		<h4>With a much smaller subtitle hanging out just below it!</h4>
+	</div>
+	
+	<section>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="./assets/pic01.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The First thing!</b><br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!
+				</p>
+			</div>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="./assets/pic02.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The Second thing!</b><br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!
+				</p>
+			</div>
+		</section>
+		<section>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="./assets/pic03.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The Third Thing</b><br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!
+				</p>
+			</div>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="./assets/pic04.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The Fourth Thing</b><br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!<br>
+						&nbsp&nbsp Excellent!
+				</p>
+			</div>
+		</section>
+
+		<section>
+
+			<section>
+			<br><br>
+			<div class="last-section">
+				<p style="font-size: 20px;">
+					<b>Links of stuff</b>
+				</p>
+				<p>
+					Mattis et quis rutrum<br><br>
+					Suspendisse amet varius<br><br>
+					Sed at dapibus quis<br><br>
+					Retrum accumsan dolor<br><br>
+					Mattis ruturm accumsan<br><br>
+					Suspendisse varius nibh<br><br>
+					Sed et dapibus mattis
+				</p>
+			</div>
+			<div class="last-sub-section">
+				<p style="font-size: 20px;">
+					<b>More links of stuff</b>
+				</p>
+				<p>
+					Mattis et quis rutrum<br><br>
+					Suspendisse amet varius<br><br>
+					Sed at dapibus quis<br><br>
+					Retrum accumsan dolor<br><br>
+					Mattis ruturm accumsan<br><br>
+					Suspendisse varius nibh<br><br>
+					Sed et dapibus mattis
+				</p>
+			</div>
+			<div class="last-sub-section-form">
+				<p style="font-size: 20px;">
+					<b>Get in Touch</b>
+				</p>
+				<p>
+					<input type="text" name="name" maxlength="50" placeholder="Name">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<input type="text" name="email" maxlength="20" placeholder="Email"><br><br>
+					<textarea cols="60" rows="10"></textarea><br><br>
+					<button style="background-color: black"  class="btn btn-primary">
+						<h4 style="font-color:black">Send Message</h4>
+					</button>
+				</p>
+			</div>
+		</section>
+
+		<div class="last">
+			
+			<img src="./assets/gplus.jpg" height="20px" width="20px"/>
+			<img src="./assets/twitter.jpg" height="20px" width="20px"/>
+			<img src="./assets/facebook.png" height="20px" width="20px"/>
+		
+		</div>
+
+	</div>
+</div>
+</div>
+	
+</body>
+</html>
+
+<!--
+
+	[8:12 PM, 1/11/2021] Mitul Soni: .fourth-sidebar
+	{
+		height: 100px;
+		width: 30%;
+		background-color: white;
+		margin: 20px;
+		margin-left: 12%;
+		float: left;	
+		
+	}
+	.img-first
+	{
+		float: left;
+		margin-left: 10%;
+	}
+[8:13 PM, 1/11/2021] Mitul Soni: <section>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="images/pic01.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The First Thing</b><br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd 
+				</p>
+			</div>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="images/pic02.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The Second Thing</b><br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd
+				</p>
+			</div>
+		</section>
+		<section>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="images/pic03.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The Third Thing</b><br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd
+				</p>
+			</div>
+			<div class="fourth-sidebar">
+				<p>
+					<img src="images/pic04.jpg" height="100" width="100" class="img-first">
+					<b>&nbsp&nbsp The Fourth Thing</b><br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd<br>
+						&nbsp&nbsp sdksklfsd jsbfjkdsbfjksd
+				</p>
+			</div>
+		</section>
+		<section>
+
+			-->

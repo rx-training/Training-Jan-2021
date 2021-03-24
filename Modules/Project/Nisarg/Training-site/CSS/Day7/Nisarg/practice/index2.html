@@ -1,0 +1,64 @@
+<!--
+2) Media queries with breakpoint
+https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_mediaquery_breakpoints
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Trying media query breakpoints!</title>
+	<style type="text/css">
+		.container
+		{
+			border: 2px solid gray;
+			background-color: green;
+		}
+
+		@media only screen and(max-width: 500px)
+		{
+			.container
+			{
+				background-color: red;
+			}
+		}
+
+		@media only screen and(min-width: 200px)
+		{
+			.container
+			{
+				background-color: blue;
+			}
+		}
+		@media only screen and(min-width: 400px)
+		{
+			.container
+			{
+				background-color: red;
+			}
+		}
+		@media only screen and(min-width: 600px)
+		{
+			.container
+			{
+				background-color: yellow;
+			}
+		}
+		
+		
+	</style>
+</head>
+<body>
+
+<h1>Media queries is quite easy to understand!</h1>
+<div class="container">
+<p class="p1">
+	A great deal of the poetry produced since we started putting our thoughts on paper drowns itself out in complex metaphors, indecipherable decades after they were written. 
+</p>
+
+<p class="p2">
+	Or, contains language that has fallen out of common use or is a better example of a poet’s desire to sound educated, through the twisting and manipulating of syntax, than it is an expression of any theme worth delving into. 
+	</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+    <head><title>Array functions</title>
+    <script type="text/javascript">
+    
+    var arr=["BMW","Mercedez","Porsche","Rolls royce","Ferrari"];
+    document.write("<h3>Array is:"+arr+"</h3>");
+
+    //length of an array
+    var len=arr.length;
+    document.write("<h3>Length of an array is:"+len+"</h3>");
+
+    // sort-sorting
+    var st=arr.sort();
+    document.write("<h3>Sorted array is:"+st+"</h3>");
+    
+    //push -add the element in aray
+    arr.push("Toyota");
+    document.write("<h3>Added element in array is:"+arr+"</h3>");
+
+    //pop-removes the element from an array
+    var rm=arr.pop();
+    document.write("<h3>Removed element from array is:"+rm+"</h3>");
+
+    //shift-removes first element from an array
+    document.write("<h3>"+arr.shift()+"</h3>");
+
+    //unshift-adds the element at the starting of array.
+    var u=arr.unshift("Maruti Suzuki");
+    document.write("<h3>"+u+"</h3>");
+    
+    //reverse-reverses the whole array
+    var rev=arr.reverse();
+    document.write("<h3>Reversed array is:"+rev+"</h3>");
+
+    //checking whether array or not
+    var chk=Array.isArray(arr);
+    document.write("<h3>"+chk+"</h3>");
+
+    //concat
+    var arr2=["Hyundai","TATA"];
+    var ua=arr.concat(arr2);
+    document.write("<h3>Updated array is:"+ua+"</h3>");
+
+    //indexOf
+    var indx=arr.indexOf("Mercedez");
+    document.write("<h3>Index is:"+indx+"</h3>");
+    </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

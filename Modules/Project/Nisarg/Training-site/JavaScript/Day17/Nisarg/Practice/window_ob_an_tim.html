@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Window objects</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script type="text/javascript">
+        function clickHere()
+        {
+            window.open("","","height=100,width=100");
+        }
+        function checkSeconds()
+        {
+            document.write(new Date().getSeconds());
+        }
+        function checkAlert()
+        {
+            alert("Hello world!!");
+        }
+        function checkConfirm()
+        {
+            if(confirm("Delete everything!"))
+            {
+                document.write("You asked for it!");
+            }
+            else
+            {
+                document.write("Maybe next time!"); 
+            }
+        }
+        function checkPrompt()
+        {
+            var a=prompt("Enter value1:");
+            var b=prompt("Enter value2:");
+            var c=parseInt(a)+parseInt(b);
+            alert("Value after addition is:"+c);
+            
+        }
+        function loc1()
+        {
+            document.write("Location Path:"+location.href+"<br/>");
+            document.write("Host name"+location.host+"<br/>");
+            document.write("Port name:"+location.port+"<br/>");
+            document.write("Protocol"+location.protocol+"<br/>");
+            
+            setTimeout(function() 
+            {
+                  loc2();  
+            },4000);
+            function loc2()
+            {
+                window.location.assign("https://www.pluralsight.com");
+                
+               // window.location="https://www.w3schools.com";
+               // window.open("https://www.w3schools.com");
+            }
+         
+        }
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+        <label for="btn" class="h6">Click here to redirect on another page.</label><br/>
+        <input type="button" class="btn btn-primary mt-3 ml-1" value="Click here!" onclick="clickHere()" id="btn"/><br/>
+        
+        <label for="btn2" class="h6 mt-5">Click here to check seconds.</label><br/>
+        <input type="button" class="btn btn-primary mt-3 ml-1" value="Check!" onclick="checkSeconds()" id="btn2"/><br/>
+
+        
+        <label for="" class="h6 mt-7">Click here to perform window actions.</label><br/>
+        <input type="button" class="btn btn-primary mt-3 ml-1" value="Alert" onclick="checkAlert()"/>
+        <input type="button" class="btn btn-primary mt-3 ml-1" value="Prompt" onclick="checkPrompt()"/>
+        <input type="button" class="btn btn-primary mt-3 ml-1" value="Confirm" onclick="checkConfirm()"/>
+      <br/>
+
+        <label for="btn4" class="h6 mt-9">Location properties.</label><br/>
+        <input type="button" class="btn btn-primary mt-3 ml-1" value="Loc properties" id="btn4" onclick="loc1()"/>
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

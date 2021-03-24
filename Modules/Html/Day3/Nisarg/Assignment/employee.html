@@ -1,0 +1,106 @@
+
+
+<html>
+<head><title>HTML Web page</title></head>
+<body>
+<h1 align="center">Radix Employee Details</h1>
+<form align="center" style="margin-top:20px">
+
+<table border="1">
+<tr>
+<td>Name</td>
+<td><input type="text" name="ename" id="enmame" required></td>
+</tr>
+
+<tr>
+<td>Age</td>
+<td><input type="number" name="eage" id="eage" width="100" required min="1" max="100"></td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td>Male<input type="radio" value="male" name="gen"/>
+	Female<input type="radio" value="female" name="gen"/>
+    </td>
+</tr>
+
+<tr>
+<td>Designation</td>
+<td>
+<select name="designation" id="designation">
+  <option value="Sales Manager">Sales manager</option>
+  <option value="Product">Project manager</option>
+  <option value="Software engineer">Software enginner</option>
+</select>
+</td>
+</tr>
+
+
+<tr>
+<td>Location</td>
+<td>
+	<select name="location" id="location">
+  	<option value="C.G. Road">C.G. Road</option>
+  	<option value="Ekyearth">Ekyearth</option>
+	</select>
+</td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td><input type="email" name="email" pattern=""[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$></td>
+</tr>
+
+
+<tr>
+<td>Date of joining</td>
+<td><input type="date"></td>
+</tr>
+
+
+<tr>
+<td>Phone no</td>
+<td><input type="tel" id="number" name="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/></td>
+</tr>
+
+<tr>
+<th colspan="2"><input type="submit" value="Submit"></th>
+</table>
+</form>
+</body>
+</html>
+
+
+------------------------------------------------LOGIN FORM-------------------------------------------------------------------
+
+
+
+<html>
+<head>
+<title>LOGIN FORM</title>
+</head>
+
+<body>
+<form>
+<table>
+
+<tr>
+<td><input type="text" name="uname"></td>
+</tr>
+
+
+<tr>
+<td><input type="password" name="upassword" required></td>
+</tr>
+
+<tr>
+<td><input type="button" onclick="validate()" value="LOG IN"/></td>
+</tr>
+
+<tr>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

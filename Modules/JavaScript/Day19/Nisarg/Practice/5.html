@@ -1,0 +1,25 @@
+<html>
+    <head><title>Function call</title>
+    <script type="text/javascript">
+        /*
+            Using Function Apply pass employee object to a function defined in the function.
+        */
+        var updateEmp=function(empName,empField,designation)
+            {
+                
+                document.write(empName+"<br/><br/>"+empField+"<br/><br/>"+designation);
+                console.log(empName+"  "+empField+"  "+designation);
+            };
+            var emp={
+                empName:'Aakash',
+                empField:'Computer science',
+                designation:'Jr software engineer'
+            };
+            updateEmp.apply(emp,['Vraj','Computer science','Senior software engineer']);
+
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>

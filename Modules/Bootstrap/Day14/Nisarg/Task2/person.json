@@ -1,0 +1,27 @@
+{
+    "firstName": "Duke",
+    "lastName": "Java",
+    "age": 18,
+    "streetAddress": "100 Internet Dr",
+    "city": "JavaTown",
+    "state": "JA",
+    "postalCode": "12345",
+    "phoneNumbers": [
+       { "Mobile": "111-111-1111" },
+       { "Home": "222-222-2222" }
+    ]
+ }
+
+ {
+    "firstName": "Duke2",
+    "lastName": "Duke3",
+    "age": 20,
+    "streetAddress": "200 Internet Dr",
+    "city": "c++Town",
+    "state": "cpp",
+    "postalCode": "123456",
+    "phoneNumbers": [
+       { "Mobile": "333-444-5555" },
+       { "Home": "666-777-8888" }
+    ]
+ }

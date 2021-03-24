@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Input Groups and addons</title>
+</head>
+<body style="margin: 50px;">
+    <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" id="name" class="form-control" placeholder="Username">
+    </div>
+    <br>
+    <div class="input-group">
+        <input type="text" id="email" class="form-control" placeholder="Email">
+        <span class="input-group-addon">@xyz.com</span>
+    </div>
+    <br>
+    <label for="profile-URL">Choose Profile URL</label>
+    <div class="input-group">
+        <span class="input-group-addon">https://abc.com/xyz/</span>
+        <input type="text" id="url" class="form-control" id="profile-URL">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <input type="radio">
+        </span>
+        <span class="input-group-addon">$67</span>
+        <input type="text" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">Search</button>
+        </span>
+    </div>
+</body>
+</html>
