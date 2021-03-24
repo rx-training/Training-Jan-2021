@@ -1,0 +1,88 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #292929;
+    font: 90% sans-serif;
+    font-weight: 300;
+}
+
+p {
+    padding: 0 10px;
+    line-height: 1.8;
+}
+
+h3 {
+    padding: 5px 20px;
+    margin: 0;
+}
+
+div#header {
+    position: relative;
+}
+
+div#header h1 {
+    height: 80px;
+    line-height: 80px;
+    margin: 0;
+    padding-left: 10px;
+    background: #ccc;
+}
+
+div#header a {
+    position: absolute;
+    right: 0;
+    top: 23px;
+    padding: 10px;
+}
+
+div#navigation {
+    background: #a9f;
+}
+
+div#extra {
+    background: #c9f;
+}
+
+div#footer {
+    background: #aaa;
+    color: #fff;
+}
+
+div#footer p {
+    padding: 20px 10px;
+}
+
+div#wrapper {
+    float: left;
+    width: 100%;
+}
+
+div#content {
+    width: 48%;
+    margin: auto;
+    background-color: #e8a;
+}
+
+div#navigation {
+    float: left;
+    width: 25%;
+    margin: 1% 0 1% -25%;
+}
+
+div#extra {
+    margin: 1% 0 0 -100%;
+    float: left;
+    width: 25%;
+}
+
+div#footer {
+    clear: left;
+    width: 100%;
+}
+
+strong {
+    font-weight: bold;
+}

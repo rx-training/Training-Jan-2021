@@ -1,0 +1,9 @@
+.techListItem {
+	display: inline;
+	margin: 0 10px;
+}
+
+body {
+	background-color: black;
+	color: white;
+}

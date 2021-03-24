@@ -1,0 +1,122 @@
+<html> 
+    <head> 
+        <script> 
+            function form() { 
+                var name =  
+                    document.forms["RegForm"]["Name"]; 
+                var email =  
+                    document.forms["RegForm"]["EMail"]; 
+                var phone =  
+                    document.forms["RegForm"]["Telephone"]; 
+                var what =  
+                    document.forms["RegForm"]["Subject"]; 
+                var password =  
+                    document.forms["RegForm"]["Password"]; 
+                var address =  
+                    document.forms["RegForm"]["Address"]; 
+  
+                if (name.value == "") { 
+                    window.alert("Please enter your name."); 
+                    name.focus(); 
+                    return false; 
+                } 
+  
+                if (address.value == "") { 
+                    window.alert("Please enter your address."); 
+                    address.focus(); 
+                    return false; 
+                } 
+  
+                if (email.value == "") { 
+                    window.alert( 
+                      "Please enter a valid e-mail address."); 
+                    email.focus(); 
+                    return false; 
+                } 
+  
+                if (phone.value == "") { 
+                    window.alert( 
+                      "Please enter your phone number."); 
+                    phone.focus(); 
+                    return false; 
+                } 
+  
+                if (age.value == "") { 
+                    window.alert("Please enter your age"); 
+                    password.focus(); 
+                    return false; 
+                } 
+  
+                if (what.selectedIndex < 1) { 
+                    alert("Please enter your location."); 
+                    what.focus(); 
+                    return false; 
+                } 
+  
+                return true; 
+            } 
+        </script> 
+  
+        <style> 
+            div { 
+                box-sizing: border-box; 
+                width: 100%; 
+                border: 100px solid black; 
+                float: left; 
+                align-content: center; 
+                align-items: center; 
+            } 
+  
+            form { 
+                margin: 0 auto; 
+                width: 600px; 
+            } 
+        </style> 
+    </head> 
+  
+    <body> 
+        <h1 style="text-align: center;">REGISTRATION FORM</h1> 
+        <form name="RegForm" action="/submit.php" 
+              onsubmit="return form()" method="post"> 
+            <p>Name: <input type="text" size="65" name="Name" /></p> 
+            <br /> 
+            <p>Address: <input type="text size="65" name="Address" /> 
+          </p> 
+            <br /> 
+            <p>Salary: <input type="text size="65" name="Salary" /></p> 
+            <br /> 
+            <p>E-mail Address: <input type="text size="65" name="EMail" /></p> 
+            <br /> 
+            <p>Contact: <input type="text" size="65" name="Contact" /></p> 
+            <br /> 
+
+            <label for="date-input">Add your Joining-Date</label>
+            <input type="date" id="date-input"/>
+            <p> 
+                SELECT YOUR Location 
+                <select type="text" value="" name="Location"> 
+                    <option>Nehrunagar</option> 
+                    <option>Bopal</option> 
+                    <option>Gota</option> 
+                    <option>Maninagar</option> 
+                    <option>Naroda</option> 
+                </select> 
+            </p> 
+            <br /> 
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br/>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label> <br/>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+            
+            <br /> 
+            
+                <input type="submit" 
+                       value="send" name="Submit" /> 
+                
+            </p> 
+        </form> 
+    </body> 
+</html> 
+  
