@@ -1,0 +1,74 @@
+---------------------------------------------------------True or False----------------------------------------------------
+
+1. A primary key can contain NULL values.        
+	ANS:- FALSE
+     	-> Primary Key Contain the  Unique  Value  IN  ROW
+
+
+2. A clustered index usually improves performance when inserting data.
+	ANS :- False
+	-> Clustered Index Improve The Perfomance When The Retrival Of The Data
+
+
+
+3. 5. A table can contain only one clustered index.
+	ANS:- TRUE
+	-> Clustered Index Only One Per Table But Multiple Non Clustered Index In The Table
+
+
+
+-----------------------------------------------------Fill in the Blank----------------------------------------------------
+
+1. The value of a primary key must be ____________.
+	ANS:- UNIQUE
+
+
+2.Add an index to one or more columns to speed up data ____________.
+	ANS:- Data Retrival
+
+
+3. Values in a clustered index are ____________.
+	ANS:- ORDERED FROM
+
+----------------------------------------------Multiple Choice-----------------------------------------------------
+
+
+1. Which of the following is not a constraint?
+	ANS:- INDEX
+	      DEFAULT
+
+
+2. Which of the following things can help speed data retrieval?
+	ANS:- A clustered index
+
+
+3. Consider using a clustered index when:
+	ANS:-Queries return large result sets
+	     Columns contain a large number of distinct values
+
+
+4.How many clustered indexes can you have for a database?
+	ANS:- 1
+
+
+
+-----------------------------------------Scenario 4-2: Comparing Clustered and Non-Clustered Indexes------------------------
+
+Your boss wants to speed things up on the company’s database server. Therefore, he is thinking
+of having you create a couple of indexes. He asks you to explain the advantages and disadvantages
+of creating a clustered index versus a non-clustered index. How should you respond?
+
+-------->clustred  INDEX are phycially sorted table accoding those column we can choose for clustring ,IN The 
+	Non clustere Index the data are sorted  in another table and those table index are pointing to the original table
+
+------------> Required less memory for cluster index because its sort the data in physicall table ,in the non clustered
+		Index require more mamory because its sorted data in logically
+-----------> Cluster index is faster , non clustered index are little bit slower then cluster index
+---------> we can use the indexes for the improving efficiancy the data retrival    
+	
+
+
+
+
+
+
