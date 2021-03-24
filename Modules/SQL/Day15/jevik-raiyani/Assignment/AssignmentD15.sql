@@ -1,6 +1,5 @@
 USE day5
 
-
 --Detroit Bank need to implement the transaction whenever the amount is transferred 
 --from one account to the another account.
 
@@ -54,3 +53,40 @@ EXEC FUNDSTRANSFER 1,5, 5000 --failed acc. 5 is not avaliable
 EXEC FUNDSTRANSFER 1,3, 45000 -- failed more money transfer from avaliable
 
 SELECT * FROM BANKING1
+
+--At AdventureWorks, Inc., an employee named Sidney Higa, who is currently 
+--working as Production Technician – WC10 has been promoted as Marketing Manager. 
+--The employee ID of Sidney is 13. As a database developer, you need to 
+--update his records. This involves updating the title in the Employee table 
+--and updating the department history details.
+	
+--You need to ensure that all the changes take effect. In addition, 
+--you need to ensure that no other transaction should be able to view 
+--the data being modified by the current transaction.
+
+SET TRANSACTION ISOLATION LEVEL
+SERIALIZABLE
+BEGIN TRAN t1
+BEGIN TRY
+	UPDATE Humanresources.employee 
+	SET jobtitle='Marketing Manager'
+	WHERE businessentityID=48
+
+	UPDATE Humanresources.employeedepartmenthistory 
+	SET Departmentid =(SELECT Departmentid 
+	FROM Humanresources.department WHERE Name='Marketing')
+	WHERE businessentityID=48
+
+	COMMIT TRAN t1
+	SELECT	'TRANSACTION EXCECUTED'
+END TRY
+BEGIN CATCH
+	ROLLBACK TRAN t1
+	SELECT	'TRANSACTION EXCECUTED'
+END CATCH
+
+SELECT * FROM Humanresources.employee
+SELECT * FROM Humanresources.employeedepartmenthistory
+SELECT * FROM Humanresources.department
+
+USE AdventureWorks2012
