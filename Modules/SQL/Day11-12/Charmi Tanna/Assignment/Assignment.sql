@@ -1,5 +1,7 @@
 CREATE DATABASE PRACTICE12
 USE PRACTICE12
+CREATE DATABASE PRACTICES12
+USE PRACTICES12
 CREATE TABLE Branch
 (
 	Bname VARCHAR(18) CONSTRAINT PK_Branch_Bname PRIMARY KEY,
@@ -28,26 +30,26 @@ INSERT INTO DATES VALUES('10-mar-2000')
 SELECT REPLACE(CONVERT(VARCHAR,HDate,106),' ','-')FROM DATES
 
 -->CREATING CUSTOMER TABLE
-CREATE TABLE Customers
+CREATE TABLE Customer
 (
 CName VARCHAR(19) CONSTRAINT PK_Customer_CName PRIMARY KEY,
 City VARCHAR(18)
 );
-SELECT * FROM Customers
-DROP TABLE Customers
-INSERT INTO Customers VALUES('Anil','Kolkata');
-INSERT INTO Customers VALUES('Sunil','Delhi');
-INSERT INTO Customers VALUES('Mehul','Baroda');
-INSERT INTO Customers VALUES('Mandar','Patna');
-INSERT INTO Customers VALUES('Madhuri','Nagpur');
-INSERT INTO Customers VALUES('Pramod','Nagpur');
-INSERT INTO Customers VALUES('Sandip','Surat');
-INSERT INTO Customers VALUES('Shivani','Mumbai');
-INSERT INTO Customers VALUES('Kranti','Mumbai');
-INSERT INTO Customers VALUES('Naren','Mumbai');
-INSERT INTO Customers VALUES('Naman','Mumbai');
+SELECT * FROM Customer
+DROP TABLE Customer
+INSERT INTO Customer VALUES('Anil','Kolkata');
+INSERT INTO Customer VALUES('Sunil','Delhi');
+INSERT INTO Customer VALUES('Mehul','Baroda');
+INSERT INTO Customer VALUES('Mandar','Patna');
+INSERT INTO Customer VALUES('Madhuri','Nagpur');
+INSERT INTO Customer VALUES('Pramod','Nagpur');
+INSERT INTO Customer VALUES('Sandip','Surat');
+INSERT INTO Customer VALUES('Shivani','Mumbai');
+INSERT INTO Customer VALUES('Kranti','Mumbai');
+INSERT INTO Customer VALUES('Naren','Mumbai');
+INSERT INTO Customer VALUES('Naman','Mumbai');
 
-DROP TABLE Customers
+DROP TABLE Customer
 -->CREATING BORROW TABLE
 CREATE TABLE Borrow
 (
@@ -94,6 +96,8 @@ BEGIN
 SELECT c.CName FROM Customer c JOIN Deposit d ON c.CName = d.CName JOIN Branch b ON b.BName = d.BName WHERE b.City IN(SELECT City FROM Branch WHERE BName IN(SELECT BName FROM Deposit WHERE CName =@Name))
 END
 spByCustomerCityName 'Kranti'
+
+
 -->Q2: Create a Store Procedure which will accept name of the customer as input parameter and produce the following output List in JSON format, All the Depositors Having Depositors Having Deposit in All the Branches where input parameter customer is Having an Account
 CREATE PROCEDURE spByCustomerName1
 @Name VARCHAR(19)
@@ -118,13 +122,15 @@ BEGIN
 SELECT d.CName AS 'Customer Name' FROM Deposit d JOIN Branch b ON b.BName = d.BName JOIN Customer c ON  d.CName = c.CName WHERE c.City =@City AND (b.City = 'Delhi' OR b.City='Mumbai') FOR JSON PATH
 END
 spByCustomerCity2 'Baroda'
+
 -->Q5: Count the Number of Customers Living in the City where Branch is Located
-CREATE PROCEDURE spByCountCustomer
+CREATE OR ALTER PROCEDURE spByCountCustomer   @BranchName VARCHAR(50)
 AS
 BEGIN
-SELECT COUNT(CName) FROM Customer WHERE CName IN(SELECT CName FROM Deposit WHERE BName IN (SELECT BName FROM Branch WHERE City = Customer.City))
+SELECT COUNT(CName) FROM Customer WHERE City IN( SELECT City FROM Branch WHERE City = Customer.City AND BName =@BranchName)
 END
-spByCountCustomer
+spByCountCustomer 'Powai'
+
 -->Q6: Create a Procedure which will accept input in JSON parameter CustomerName,City, ACTNO,Branch,amount  
 -->And insert these record in the Deposit table. Before inserting some validation should be done like amount should be greater than 10Rs. and date should always be current date.
 
