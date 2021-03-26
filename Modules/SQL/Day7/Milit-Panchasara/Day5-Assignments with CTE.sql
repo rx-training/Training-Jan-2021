@@ -1,3 +1,5 @@
+--USE SQLDay5
+
 --1. CTE
 WITH CTE1 (EmployeeID, JoiningDate, IncentiveDate, Difference)
 AS
@@ -22,9 +24,8 @@ AS
 (
 SELECT E.FirstName, I.IncentiveDate, I.IncentiveAmount FROM Employees AS E 
 LEFT JOIN Incentives AS I ON E.EmployeeID = I.EmployeeRefID 
-WHERE I.IncentiveAmount IS NULL
 )
-SELECT * FROM CTE3;
+SELECT * FROM CTE3 WHERE IncentiveAmount IS NULL;
 
 
 --4. CTE

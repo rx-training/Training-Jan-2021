@@ -41,8 +41,8 @@ DECLARE @studentsData varchar(MAX) = N'[
     ]'
 
 --DROP TABLE Students;
-SELECT * INTO Students
-FROM OPENJSON(@studentsData)
+INSERT INTO Students (StudentID, Name, Address, City, DateOfBirth, Standard)
+(SELECT * FROM OPENJSON(@studentsData)
 WITH (
 	StudentID int '$.id',
 	Name varchar(100)  '$.name',
@@ -50,7 +50,7 @@ WITH (
 	City varchar(100) '$.city',
 	DateOfBirth varchar(100) '$.dob',
 	Standard int '$.standard'
-)
+))
 
 -- default format
 SELECT 

@@ -2,7 +2,7 @@
 WITH CTE1 (SalaryRank, EmployeeID, FirstName, LastName, Salary)
 AS
 (
-SELECT DENSE_RANK() OVER(ORDER BY Salary) AS SalaryRank, EmployeeID, FirstName, LastName, Salary FROM Employees
+SELECT DENSE_RANK() OVER(ORDER BY Salary DESC) AS SalaryRank, EmployeeID, FirstName, LastName, Salary FROM Employees
 )
 SELECT * FROM CTE1;
 
@@ -10,11 +10,9 @@ SELECT * FROM CTE1;
 WITH CTE2 (SalaryRank, EmployeeID, FirstName, LastName, Salary)
 AS
 (
-SELECT SalaryRank, EmployeeID, FirstName, LastName, Salary FROM 
-(SELECT DENSE_RANK() OVER(ORDER BY Salary DESC) AS SalaryRank,* FROM Employees) AS A 
-WHERE SalaryRank = 4
+SELECT DENSE_RANK() OVER(ORDER BY Salary DESC) AS SalaryRank, EmployeeID, FirstName, LastName, Salary FROM Employees
 )
-SELECT * FROM CTE2;
+SELECT * FROM CTE2 WHERE SalaryRank = 4;
 
 --3
 WITH CTE3 (DepartmentID, TotalSalary)
@@ -54,6 +52,5 @@ AS
 (
 SELECT DepartmentID, SUM(Salary) AS TotalSalary FROM Employees 
 GROUP BY DepartmentID 
-HAVING SUM(Salary) > 50000
 )
-SELECT * FROM CTE7 ORDER BY TotalSalary DESC;
+SELECT * FROM CTE7 WHERE TotalSalary > 50000 ORDER BY TotalSalary DESC;

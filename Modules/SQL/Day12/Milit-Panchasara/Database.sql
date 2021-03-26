@@ -72,74 +72,74 @@ CREATE TABLE dbo.OrderLine (
 --DROP TABLE Position
 --DROP TABLE Campus
 
-INSERT INTO dbo.Campus VALUES ('IUPUI','425 University Blvd.','Indianapolis', 'IN','46202', '317-274-4591',.08);
-INSERT INTO dbo.Campus VALUES ('Indiana University','107 S. Indiana Ave.','Bloomington', 'IN','47405', '812-855-4848',.07);
-INSERT INTO dbo.Campus VALUES ('Purdue University','475 Stadium Mall Drive','West Lafayette', 'IN','47907', '765-494-1776',.06);
+INSERT INTO dbo.Campus VALUES ('IUPUI','425 University Blvd.','Indianapolis', 'IN','46202', '317-274-4591',.08),
+('Indiana University','107 S. Indiana Ave.','Bloomington', 'IN','47405', '812-855-4848',.07),
+('Purdue University','475 Stadium Mall Drive','West Lafayette', 'IN','47907', '765-494-1776',.06);
 
-INSERT INTO dbo.Position VALUES ('Lecturer', 1050.50);
-INSERT INTO dbo.Position VALUES ('Associate Professor', 900.50);
-INSERT INTO dbo.Position VALUES ('Assistant Professor', 875.50);
-INSERT INTO dbo.Position VALUES ('Professor', 700.75);
-INSERT INTO dbo.Position VALUES ('Full Professor', 500.50);
+INSERT INTO dbo.Position VALUES ('Lecturer', 1050.50),
+('Associate Professor', 900.50),
+('Assistant Professor', 875.50),
+('Professor', 700.75),
+('Full Professor', 500.50);
 
-INSERT INTO dbo.Members VALUES ('Ellen','Monk','009 Purnell', '812-123-1234', '2', '5', 12);
-INSERT INTO dbo.Members VALUES ('Joe','Brady','008 Statford Hall', '765-234-2345', '3', '2', 10);
-INSERT INTO dbo.Members VALUES ('Dave','Davidson','007 Purnell', '812-345-3456', '2', '3', 10);
-INSERT INTO dbo.Members VALUES ('Sebastian','Cole','210 Rutherford Hall', '765-234-2345', '3', '5', 10);
-INSERT INTO dbo.Members VALUES ('Michael','Doo','66C Peobody', '812-548-8956', '2', '1', 10);
-INSERT INTO dbo.Members VALUES ('Jerome','Clark','SL 220', '317-274-9766', '1', '1', 12);
-INSERT INTO dbo.Members VALUES ('Bob','House','ET 329', '317-278-9098', '1', '4', 10);
-INSERT INTO dbo.Members VALUES ('Bridget','Stanley','SI 234', '317-274-5678', '1', '1', 12);
-INSERT INTO dbo.Members VALUES ('Bradley','Wilson','334 Statford Hall', '765-258-2567', '3', '2', 10);
+INSERT INTO dbo.Members VALUES ('Ellen','Monk','009 Purnell', '812-123-1234', '2', '5', 12),
+('Joe','Brady','008 Statford Hall', '765-234-2345', '3', '2', 10),
+('Dave','Davidson','007 Purnell', '812-345-3456', '2', '3', 10),
+('Sebastian','Cole','210 Rutherford Hall', '765-234-2345', '3', '5', 10),
+('Michael','Doo','66C Peobody', '812-548-8956', '2', '1', 10),
+('Jerome','Clark','SL 220', '317-274-9766', '1', '1', 12),
+('Bob','House','ET 329', '317-278-9098', '1', '4', 10),
+('Bridget','Stanley','SI 234', '317-274-5678', '1', '1', 12),
+('Bradley','Wilson','334 Statford Hall', '765-258-2567', '3', '2', 10);
 
-INSERT INTO dbo.Prices VALUES ('Beer/Wine', 5.50);
-INSERT INTO dbo.Prices VALUES ('Dessert', 2.75);
-INSERT INTO dbo.Prices VALUES ('Dinner', 15.50 );
-INSERT INTO dbo.Prices VALUES ('Soft Drink', 2.50 );
-INSERT INTO dbo.Prices VALUES ('Lunch', 7.25);
+INSERT INTO dbo.Prices VALUES ('Beer/Wine', 5.50),
+('Dessert', 2.75),
+('Dinner', 15.50 ),
+('Soft Drink', 2.50 ),
+('Lunch', 7.25);
 
-INSERT INTO dbo.FoodItems VALUES ('10001','Lager', '1');
-INSERT INTO dbo.FoodItems VALUES ('10002','Red Wine', '1');
-INSERT INTO dbo.FoodItems VALUES ('10003','White Wine', '1');
-INSERT INTO dbo.FoodItems VALUES ('10004','Coke', '4');
-INSERT INTO dbo.FoodItems VALUES ('10005','Coffee', '4');
-INSERT INTO dbo.FoodItems VALUES ('10006','Chicken a la King', '3');
-INSERT INTO dbo.FoodItems VALUES ('10007','Rib Steak', '3');
-INSERT INTO dbo.FoodItems VALUES ('10008','Fish and Chips', '3');
-INSERT INTO dbo.FoodItems VALUES ('10009','Veggie Delight', '3');
-INSERT INTO dbo.FoodItems VALUES ('10010','Chocolate Mousse', '2');
-INSERT INTO dbo.FoodItems VALUES ('10011','Carrot Cake', '2');
-INSERT INTO dbo.FoodItems VALUES ('10012','Fruit Cup', '2');
-INSERT INTO dbo.FoodItems VALUES ('10013','Fish and Chips', '5');
-INSERT INTO dbo.FoodItems VALUES ('10014','Angus Beef Burger', '5');
-INSERT INTO dbo.FoodItems VALUES ('10015','Cobb Salad', '5');
+INSERT INTO dbo.FoodItems VALUES ('10001','Lager', '1'),
+('10002','Red Wine', '1'),
+('10003','White Wine', '1'),
+('10004','Coke', '4'),
+('10005','Coffee', '4'),
+('10006','Chicken a la King', '3'),
+('10007','Rib Steak', '3'),
+('10008','Fish and Chips', '3'),
+('10009','Veggie Delight', '3'),
+('10010','Chocolate Mousse', '2'),
+('10011','Carrot Cake', '2'),
+('10012','Fruit Cup', '2'),
+('10013','Fish and Chips', '5'),
+('10014','Angus Beef Burger', '5'),
+('10015','Cobb Salad', '5');
 
-INSERT INTO dbo.Orders VALUES ('9', '2015-03-05');
-INSERT INTO dbo.Orders VALUES ('8', '2015-03-05');
-INSERT INTO dbo.Orders VALUES ('7', '2015-03-05');
-INSERT INTO dbo.Orders VALUES ('6', '2015-03-07');
-INSERT INTO dbo.Orders VALUES ('5', '2015-03-07');
-INSERT INTO dbo.Orders VALUES ('4', '2015-03-10');
-INSERT INTO dbo.Orders VALUES ('3', '2015-03-11');
-INSERT INTO dbo.Orders VALUES ('2', '2015-03-12');
-INSERT INTO dbo.Orders VALUES ('1', '2015-03-13');
+INSERT INTO dbo.Orders VALUES ('9', '2015-03-05'),
+('8', '2015-03-05'),
+('7', '2015-03-05'),
+('6', '2015-03-07'),
+('5', '2015-03-07'),
+('4', '2015-03-10'),
+('3', '2015-03-11'),
+('2', '2015-03-12'),
+('1', '2015-03-13');
 
-INSERT INTO dbo.OrderLine VALUES ('1','10001',1);
-INSERT INTO dbo.OrderLine VALUES ('1','10006',1);
-INSERT INTO dbo.OrderLine VALUES ('1','10012',1);
-INSERT INTO dbo.OrderLine VALUES ('2','10004',2);
-INSERT INTO dbo.OrderLine VALUES ('2','10013',1);
-INSERT INTO dbo.OrderLine VALUES ('2','10014',1);
-INSERT INTO dbo.OrderLine VALUES ('3','10005',1);
-INSERT INTO dbo.OrderLine VALUES ('3','10011',1);
-INSERT INTO dbo.OrderLine VALUES ('4','10005',2);
-INSERT INTO dbo.OrderLine VALUES ('4','10004',2);
-INSERT INTO dbo.OrderLine VALUES ('4','10006',1);
-INSERT INTO dbo.OrderLine VALUES ('4','10007',1);
-INSERT INTO dbo.OrderLine VALUES ('4','10010',2);
-INSERT INTO dbo.OrderLine VALUES ('5','10003',1);
-INSERT INTO dbo.OrderLine VALUES ('6','10002',2);
-INSERT INTO dbo.OrderLine VALUES ('7','10005',2);
-INSERT INTO dbo.OrderLine VALUES ('8','10005',1);
-INSERT INTO dbo.OrderLine VALUES ('8','10011',1);
-INSERT INTO dbo.OrderLine VALUES ('9','10001',1);
+INSERT INTO dbo.OrderLine VALUES ('1','10001',1),
+('1','10006',1),
+('1','10012',1),
+('2','10004',2),
+('2','10013',1),
+('2','10014',1),
+('3','10005',1),
+('3','10011',1),
+('4','10005',2),
+('4','10004',2),
+('4','10006',1),
+('4','10007',1),
+('4','10010',2),
+('5','10003',1),
+('6','10002',2),
+('7','10005',2),
+('8','10005',1),
+('8','10011',1),
+('9','10001',1);
