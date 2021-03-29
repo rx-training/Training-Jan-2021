@@ -9,7 +9,7 @@ each theatre contains many showtimes
 each showtime can be present in many theatres
 each showtime contains many screen for different theatres
 each screen contains many showtimes
-each screen contains many category of seats and only one movie to display
+each screen contains many category of seats and only one movie to display at a time, but it can display different movies after certain time period
 each category of seats can be present in many screens
 each movie can have many screens by displaying in different theatres
 each category of seats contains many seat nos
