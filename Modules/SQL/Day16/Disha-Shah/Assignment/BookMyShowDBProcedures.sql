@@ -529,7 +529,7 @@ EXECUTE prcCertificationInfo N'
 						"Certification": "A"
 					}
 				]';
-		
+				
 --PROCEDURE FOR STORING MOVIES INFORMATION
 CREATE PROCEDURE prcMovieInfo @jsonMovie NVARCHAR(MAX)
 AS
@@ -538,11 +538,12 @@ BEGIN
 	BEGIN TRY
 		IF(ISJSON(@jsonMovie)>0)
 		BEGIN
-			INSERT INTO Movies(Name, Time, CertificationId, DateOfRelease, About)
-			SELECT Name, Time, CertificationId, DateOfRelease, About
+			INSERT INTO Movies(Name, Image, Time, CertificationId, DateOfRelease, About)
+			SELECT Name, Image, Time, CertificationId, DateOfRelease, About
 			FROM OPENJSON(@jsonMovie)
 			  WITH (
 				Name VARCHAR(50) '$.Name',
+				Image VARCHAR(1000) '$.Image',
 				Time VARCHAR(20) '$.Time',
 				CertificationId INT '$.CertificationId',
 				DateOfRelease DATE '$.DateOfRelease',
@@ -562,6 +563,7 @@ EXECUTE prcMovieInfo N'
 					  [    
 						{   
 							"Name": "Monster Hunter", 
+							"Image": "images\recommendedmovie-1.jpg",
 							"Time": "1h 40m",     
 							"CertificationId": 1,
 							"DateOfRelease": "2021/02/05",
@@ -570,7 +572,7 @@ EXECUTE prcMovieInfo N'
 						},
 						{        
 							"Name": "Vijay The Master",
-							      
+							"Image": "images\recommendedmovie-2.jpg",  
 							"Time": "1h 45m",       
 							"CertificationId": 1,
 							"DateOfRelease": "2021/02/12",
@@ -578,6 +580,7 @@ EXECUTE prcMovieInfo N'
 						},   
 						{   
 							"Name": "Tenet", 
+							"Image": "images\recommendedmovie-3.jpg",
 							    
 							"Time": "2h 5m",      
 							"CertificationId": 1,
@@ -586,6 +589,7 @@ EXECUTE prcMovieInfo N'
 						},
 						{           
 							"Name": "Raamprasad Ki Tehrvi", 
+							"Image": "images\recommendedmovie-4.jpg",
 							       
 							"Time": "2h",        
 							"CertificationId": 2,
@@ -593,7 +597,8 @@ EXECUTE prcMovieInfo N'
 							"About": "After Ramprasads death, his family is forced to live together for 13 days until the Tehrvi is performed. Amidst all the drama they must come to terms with some crucial truths about life."
 						},
 						{          
-							"Name": "Wonder Woman 1984", 
+							"Name": "Wonder Woman 1984",
+							"Image": "images\recommendedmovie-5.jpg",
 							      
 							"Time": "1h 55m",
 							"CertificationId": 1,
@@ -602,6 +607,7 @@ EXECUTE prcMovieInfo N'
 						}, 
 						{          
 							"Name": "Tom & Jerry", 
+							"Image": "images\recommendedmovie-6.jpg",
 							     
 							"Time": "1h 40m",       
 							"CertificationId": 2,
@@ -609,7 +615,8 @@ EXECUTE prcMovieInfo N'
 							"About": "Infamous frenemies Tom and Jerry move to the city to start life anew. When Jerry moves into New York`s finest hotel, the event manager Kayla teams up with Tom to evict the mouse so that the `wedding of the century` can go off without a hitch."
 						}, 
 						{      
-							"Name": "Baaki maathi Baadbaaki", 
+							"Name": "Baaki maathi Baadbaaki",
+							"Image": "images\recommendedmovie-7.jpg",
 							     
 							"Time": "1h 50m",      
 							"CertificationId": 1,
@@ -618,6 +625,7 @@ EXECUTE prcMovieInfo N'
 						},
 						{   
   							"Name": "Chakra ka Rashak", 
+							"Image": "images\recommendedmovie-8.jpg",
 							     
 							"Time": "2h 10m",       
 							"CertificationId": 1,
@@ -625,7 +633,8 @@ EXECUTE prcMovieInfo N'
 							"About": "Chakra Ka Rakshak is a cyber-crime thriller where an officer is set on a mission to take down a bunch of goons who practise evil acts on the internet."
 						},
 						{        
-							"Name": "Tikkhi Mitthi Life", 
+							"Name": "Tikkhi Mitthi Life",
+							"Image": "images\recommendedmovie-9.jpg",
 							     
 							"Time": "1h 45m",       
 							"CertificationId": 1,
@@ -633,7 +642,8 @@ EXECUTE prcMovieInfo N'
 							"About": "Hansaben, on her death-bed, writes a letter to her husband Purushottam Parikh and son Amey Parikh; who don`t get along. As her last wish, she gives them a few tasks to complete. Will the father-son duo get along enough to finish all tasks?"
 						},
 						{           
-							"Name": "War", 
+							"Name": "War",
+							"Image": "images\recommendedmovie-10.jpg",
 							    
 							"Time": "1h 49m",       
 							"CertificationId": 1,
@@ -744,6 +754,978 @@ EXECUTE prcEventVenueInfo N'
 					}
 				]';
 		
+
+--PROCEDURE FOR STORING EVENT TYPES INFORMATION
+CREATE PROCEDURE prcEventTypeInfo @jsonEventType NVARCHAR(MAX)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+		IF(ISJSON(@jsonEventType)>0)
+		BEGIN
+			INSERT INTO EventTypes(EventType)
+			SELECT EventType
+			FROM OPENJSON(@jsonEventType)
+			  WITH (
+				EventType VARCHAR(50) '$.EventType'
+			  );
+		END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcEventTypeInfo N'
+					  [    
+					{  
+						"EventType": "Live Concert"
+					},
+					{  
+						"EventType": "Exhibition"
+					},
+					{  
+						"EventType": "Online Streaming"
+					},
+					{  
+						"EventType": "Play"
+					},
+					{  
+						"EventType": "Workshops"
+					},
+					{  
+						"EventType": "Standup Comedy"
+					},
+					{  
+						"EventType": "Amusement Parks"
+					},
+					{  
+						"EventType": "City Tours/Unique Tours"
+					},
+					{  
+						"EventType": "Night Life/Club Events"
+					},
+					{  
+						"EventType": "Adventure/Trekking/Camping"
+					},
+					{  
+						"EventType": "Tourist Attractions"
+					},
+					{  
+						"EventType": "Gaming Zone/Arcade"
+					},
+					{  
+						"EventType": "Food & Drinks"
+					},
+					{  
+						"EventType": "Festivals/New Year/Holi/Navratri/Valentines"
+					},
+					{  
+						"EventType": "Sporting Event"
+					},
+					{  
+						"EventType": "E-Sports"
+					}
+				]';
+		
+--PROCEDURE FOR STORING EVENTS INFORMATION
+CREATE PROCEDURE prcEventInfo @jsonEvent NVARCHAR(MAX)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+		IF(ISJSON(@jsonEvent)>0)
+		BEGIN
+			INSERT INTO Events(Name, Image, Time, EventTypeId, DateOfEvent, EventVenueShowTimingId, TicketPrice)
+			SELECT Name, Image, Time, EventTypeId, DateOfEvent, EventVenueShowTimingId, TicketPrice
+			FROM OPENJSON(@jsonEvent)
+			  WITH (
+				Name VARCHAR(50) '$.Name',
+				Image VARCHAR(100) '$.Image',
+				Time VARCHAR(20) '$.Time',
+				EventTypeId INT '$.EventTypeId',
+				DateOfEvent DATE '$.DateOfEvent',
+				EventVenueShowTimingId INT '$.EventVenueShowTimingId',
+				TicketPrice MONEY '$.TicketPrice'
+			  );
+		END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcEventInfo N'
+					  [    
+					{   
+               
+                "Name": "Sunday Brunch at the Nine Restaurant", 
+				"Image": "images\funactivity-1.jpg",
+                "Time": "1h",
+              
+                "EventTypeId": 13,
+                "DateOfEvent": "2021-02-14",
+                "EventVenueShowTimingId": 1,
+                "TicketPrice": 2000
+                
+            },
+            {   
+               
+                "Name": "One Day Picnic at Neonz Resort & Club", 
+				"Image": "images\funactivity-2.jpg",
+                
+                "Time": "12h",
+                
+                "EventTypeId": 13,
+                "DateOfEvent": "2021-02-11",
+                "EventVenueShowTimingId": 3,
+                "TicketPrice": 1174
+                
+            },  
+            {   
+               
+                "Name": "Mission Black Terror", 
+				"Image": "images\funactivity-3.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 12,
+                "DateOfEvent": "2021-02-10",
+                "EventVenueShowTimingId": 5,
+                "TicketPrice": 199
+                
+            },
+            {   
+               
+                "Name": "Money Heist by Mystery Rooms", 
+				"Image": "images\funactivity-4.jpg",
+               
+                "Time": "1h",
+             
+                "EventTypeId": 12,
+                "DateOfEvent": "2021-02-11",
+                "EventVenueShowTimingId": 7,
+                "TicketPrice": 700
+                
+            },
+            {   
+               
+                "Name": "Sudarshan Chakra", 
+				"Image": "images\funactivity-5.jpg",
+               
+                "Time": "1h",
+                
+                "EventTypeId": 12,
+                "DateOfEvent": "2021-02-25",
+                "EventVenueShowTimingId": 12,
+                "TicketPrice": 550
+                
+            },
+            {   
+               
+                "Name": "Secret Mansion by The Hidden Hour",
+				"Image": "images\funactivity-6.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 12,
+                "DateOfEvent": "2021-02-10",
+                "EventVenueShowTimingId": 9,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Oh Hello - A Stand-up Comedy Show by Rahul Dua",
+				"Image": "images\laughter-1.jpg",
+               
+                "Time": "1h 15m",
+               
+                "EventTypeId": 6,
+                "DateOfEvent": "2021-03-19",
+                "EventVenueShowTimingId": 10,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Vijay Yadav",
+				"Image": "images\laughter-2.jpg",
+               
+                "Time": "1h 30m",
+               
+                "EventTypeId": 6,
+                "DateOfEvent": "2021-03-05",
+                "EventVenueShowTimingId": 11,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Sonali & Devanshi", 
+				"Image": "images\laughter-3.jpg",
+               
+                "Time": "1h 15m",
+               
+                "EventTypeId": 6,
+                "DateOfEvent": "2021-02-28",
+                "EventVenueShowTimingId": 15,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Offbeat Jokes", 
+				"Image": "images\laughter-4.jpg",
+               
+                "Time": "1h 15m",
+               
+                "EventTypeId": 6,
+                "DateOfEvent": "2021-02-14",
+                "EventVenueShowTimingId": 17,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Laugh O Matic",
+				"Image": "images\laughter-5.jpg",
+               
+                "Time": "1h 15m",
+               
+                "EventTypeId": 6,
+                "DateOfEvent": "2021-02-28",
+                "EventVenueShowTimingId": 12,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Starnight by Garv Malik", 
+				"Image": "images\laughter-6.jpg",
+               
+                "Time": "1h 15m",
+               
+                "EventTypeId": 6,
+                "DateOfEvent": "2021-02-17",
+                "EventVenueShowTimingId": 18,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Snow World Ahmedabad", 
+				"Image": "images\outdoorevent-1.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 7,
+                "DateOfEvent": "2021-02-26",
+                "EventVenueShowTimingId": 10,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Ahmedabad Aerial Tour",
+				"Image": "images\outdoorevent-2.jpg",
+               
+                "Time": "30m",
+               
+                "EventTypeId": 8,
+                "DateOfEvent": "2021-03-03",
+                "EventVenueShowTimingId": 20,
+                "TicketPrice": 25000
+                
+            },
+			{   
+               
+                "Name": "Valentines Day adventure trip", 
+				"Image": "images\outdoorevent-8.jpg",
+               
+                "Time": "5h",
+               
+                "EventTypeId": 10,
+                "DateOfEvent": "2021-02-14",
+                "EventVenueShowTimingId": 21,
+                "TicketPrice": 2000
+                
+            },
+			{   
+               
+                "Name": "Flower Park at Sabarmati ashram", 
+				"Image": "images\outdoorevent-9.jpg",
+               
+                "Time": "3h",
+               
+                "EventTypeId": 11,
+                "DateOfEvent": "2021-02-11",
+                "EventVenueShowTimingId": 22,
+                "TicketPrice": 200
+                
+            },
+			{   
+               
+                "Name": "Ahmedabads cycling & Marathon Event", 
+				"Image": "images\outdoorevent-10.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 8,
+                "DateOfEvent": "2021-02-27",
+                "EventVenueShowTimingId": 23,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "4th Test India VS England",
+				"Image": "images\outdoorevent-4.jpg",
+               
+                "Time": "8h",
+               
+                "EventTypeId": 15,
+                "DateOfEvent": "2021-02-24",
+                "EventVenueShowTimingId": 24,
+                "TicketPrice": 300
+                
+            },
+			{   
+               
+                "Name": "Unbox! creativity and free thinking workshop", 
+				"Image": "images\popular-1.jpg",
+               
+                "Time": "1h 30",
+               
+                "EventTypeId": 5,
+                "DateOfEvent": "2021-02-28",
+                "EventVenueShowTimingId": 25,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Ruskin bond teaches writing", 
+				"Image": "images\popular-2.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 5,
+                "DateOfEvent": "2021-02-13",
+                "EventVenueShowTimingId": 26,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Raell Padmasee Ace-Speech & Drama",
+				"Image": "images\popular-3.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 5,
+                "DateOfEvent": "2021-02-20",
+                "EventVenueShowTimingId": 27,
+                "TicketPrice": 4320
+                
+            },
+			{   
+               
+                "Name": "Doodling for kids",
+				"Image": "images\popular-5.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 5,
+                "DateOfEvent": "2021-02-13",
+                "EventVenueShowTimingId": 28,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Art & Drawing for kids", 
+				"Image": "images\popular-6.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 5,
+                "DateOfEvent": "2021-02-12",
+                "EventVenueShowTimingId": 28,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Master Photoshop", 
+				"Image": "images\popular-7.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 5,
+                "DateOfEvent": "2021-02-11",
+                "EventVenueShowTimingId": 29,
+                "TicketPrice": 500
+                
+            },
+			{   
+               
+                "Name": "Tholu Bommata",
+				"Image": "images\plays-1.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 4,
+                "DateOfEvent": "2021-02-14",
+                "EventVenueShowTimingId": 30,
+                "TicketPrice": 30
+                
+            },
+			{   
+               
+                "Name": "Tholu Bommata",
+				"Image": "images\plays-2.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 4,
+                "DateOfEvent": "2021-02-14",
+                "EventVenueShowTimingId": 29,
+                "TicketPrice": 30
+                
+            },
+			{   
+               
+                "Name": "Tholu Bommata", 
+				"Image": "images\plays-3.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 4,
+                "DateOfEvent": "2021-02-22",
+                "EventVenueShowTimingId": 31,
+                "TicketPrice": 30
+                
+            },
+			{   
+               
+                "Name": "Tholu Bommata", 
+				"Image": "images\plays-4.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 4,
+                "DateOfEvent": "2021-02-15",
+                "EventVenueShowTimingId": 32,
+                "TicketPrice": 30
+                
+            },
+			{   
+               
+                "Name": "Tholu Bommata", 
+				"Image": "images\plays-5.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 4,
+                "DateOfEvent": "2021-02-23",
+                "EventVenueShowTimingId": 33,
+                "TicketPrice": 30
+                
+            },
+			{   
+               
+                "Name": "Tholu Bommata",
+				"Image": "images\plays-6.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 4,
+                "DateOfEvent": "2021-02-25",
+                "EventVenueShowTimingId": 34,
+                "TicketPrice": 30
+                
+            },
+			{   
+               
+                "Name": "The Valley Run", 
+				"Image": "images\games-1.jpg",
+               
+                "Time": "1h",
+               
+                "EventTypeId": 15,
+                "DateOfEvent": "2021-02-13",
+                "EventVenueShowTimingId": 35,
+                "TicketPrice": 5000
+                
+            },
+			{   
+               
+                "Name": "CS Go",
+				"Image": "images\games-3.jpg",
+               
+                "Time": "24h",
+               
+                "EventTypeId": 16,
+                "DateOfEvent": "2021-02-15",
+                "EventVenueShowTimingId": 36,
+                "TicketPrice": 40
+                
+            },
+			{   
+               
+                "Name": "Simulation 1.0 by Gureilla Gaming",
+				"Image": "images\games-5.jpg",
+               
+                "Time": "24h",
+               
+                "EventTypeId": 16,
+                "DateOfEvent": "2021-02-25",
+                "EventVenueShowTimingId": 37,
+                "TicketPrice": 40
+                
+            },
+			{   
+               
+                "Name": "Indian chess league", 
+				"Image": "images\games-6.jpg",
+               
+                "Time": "8h",
+               
+                "EventTypeId": 16,
+                "DateOfEvent": "2021-02-11",
+                "EventVenueShowTimingId": 20,
+                "TicketPrice": 100
+                
+            },
+			{   
+               
+                "Name": "Free Fire", 
+				"Image": "images\games-8.jpg",
+               
+                "Time": "24h",
+               
+                "EventTypeId": 16,
+                "DateOfEvent": "2021-02-14",
+                "EventVenueShowTimingId": 22,
+                "TicketPrice": 120
+                
+            },
+			{   
+               
+                "Name": "Corporate FIFA2020 Championship", 
+				"Image": "images\games-10.jpg",
+               
+                "Time": "24h",
+               
+                "EventTypeId": 16,
+                "DateOfEvent": "2021-02-12",
+                "EventVenueShowTimingId": 24,
+                "TicketPrice": 180
+                
+            }
+				]';
+	
+--PROCEDURE FOR ADDING MOVIE
+CREATE PROCEDURE prcAddMovie @Name VARCHAR(50), @Time VARCHAR(20), @Image VARCHAR(1000), @DateOfRelease DATE, @About VARCHAR(100), @Certification VARCHAR(20), @IsRecommended BIT, @IsPremiere BIT
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @Name NOT IN (SELECT Name FROM Movies)
+			BEGIN
+				DECLARE @CertificationId INT
+				SELECT @CertificationId=CertificationId FROM Certifications WHERE Certification=@Certification
+
+				INSERT INTO Movies VALUES (@Name, @Time, @Image, @DateOfRelease, @About, @CertificationId, @IsRecommended, @IsPremiere)
+				PRINT 'Movie added successfully'
+			END
+			ELSE
+			BEGIN
+				PRINT 'Movie is already present'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcAddMovie 'Money Heist', '2h', 'images\recommendedmovie-1.jpg', '2021-02-05', 'Based on a video game, the story follows Lt. Artemis and her loyal soldiers as they get accidentally', 'UA', 1, 1
+
+--PROCEDURE FOR UPDATING MOVIE
+CREATE PROCEDURE prcUpdateMovie @Name VARCHAR(50), @Time VARCHAR(20), @Image VARCHAR(1000), @DateOfRelease DATE, @About VARCHAR(100), @Certification VARCHAR(20), @IsRecommended BIT, @IsPremiere BIT
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @Name IN (SELECT Name FROM Movies)
+			BEGIN
+				DECLARE @CertificationId INT
+				SELECT @CertificationId=CertificationId FROM Certifications WHERE Certification=@Certification
+
+				UPDATE Movies SET Time=@Time, Image=@Image, DateOfRelease=@DateOfRelease, About=@About, CertificationId=@CertificationId, IsRecommended=@IsRecommended, IsPremiere=@IsPremiere WHERE Name=@Name
+				PRINT 'Movie updated successfully'
+			END
+			ELSE
+			BEGIN
+				PRINT 'Movie is not present'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcUpdateMovie 'Money Heist', '1h 55m', 'images\recommendedmovie-2.jpg', '2021-02-05', 'Based on a video game, the story follows Lt. Artemis and her loyal soldiers as they get accidentally', 'U', 1, 1
+
+--PROCEDURE FOR DELETING MOVIE
+CREATE PROCEDURE prcDeleteMovie @Name VARCHAR(50)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @Name NOT IN (SELECT Name FROM Movies)
+			BEGIN
+				PRINT 'Movie is not present'
+			END
+			ELSE
+			BEGIN
+				DELETE FROM Movies WHERE Name = @Name
+				PRINT 'Movie deleted successfully'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcDeleteMovie 'Money Heist'
+
+--PROCEDURE FOR ADDING EVENT INFORMATION
+CREATE PROCEDURE prcAddEvent @Name VARCHAR(50), @TicketPrice MONEY, @Image VARCHAR(1000), @Time VARCHAR(20), @DateOfEvent DATE, @EventVenue VARCHAR(50), @ShowTime TIME, @EventType VARCHAR(50)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @Name NOT IN (SELECT Name FROM Events)
+			BEGIN
+				DECLARE @EventVenueShowTimingId INT, @EventTypeId INT
+
+				SELECT @EventVenueShowTimingId=evs.EventVenueShowTimingId
+				FROM EventVenues AS ev JOIN EventVenueShowTimings AS evs
+				ON ev.EventVenueId = evs.EventVenueId JOIN ShowTimings AS s
+				ON evs.ShowTimingId=s.ShowTimingId
+				WHERE ev.Name=@EventVenue AND s.ShowTime=@ShowTime
+
+				SELECT @EventTypeId=EventTypeId
+				FROM EventTypes
+				WHERE EventType=@EventType
+
+				INSERT INTO Events VALUES (@Name, @TicketPrice, @Image, @Time, @DateOfEvent, @EventVenueShowTimingId, @EventTypeId)
+				PRINT 'Event added successfully'
+			END
+			ELSE
+			BEGIN
+				PRINT 'Event is already present'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcAddEvent 'Money Heist', 2000, 'images\recommendedmovie-1.jpg', '1h', '2021-02-14', 'Snow World: Ahmedabad', '3:00 PM', 'Food & Drinks'
+
+--PROCEDURE FOR UPDATING EVENT INFORMATION
+CREATE PROCEDURE prcUpdateEvent @Name VARCHAR(50), @TicketPrice MONEY, @Image VARCHAR(1000), @Time VARCHAR(20), @DateOfEvent DATE, @EventVenue VARCHAR(50), @ShowTime TIME, @EventType VARCHAR(50)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @Name IN (SELECT Name FROM Events)
+			BEGIN
+				DECLARE @EventVenueShowTimingId INT, @EventTypeId INT
+
+				SELECT @EventVenueShowTimingId=evs.EventVenueShowTimingId
+				FROM EventVenues AS ev JOIN EventVenueShowTimings AS evs
+				ON ev.EventVenueId = evs.EventVenueId JOIN ShowTimings AS s
+				ON evs.ShowTimingId=s.ShowTimingId
+				WHERE ev.Name=@EventVenue AND s.ShowTime=@ShowTime
+
+				SELECT @EventTypeId=EventTypeId
+				FROM EventTypes
+				WHERE EventType=@EventType
+
+				UPDATE Events SET TicketPrice=@TicketPrice, Image=@Image, Time=@Time, DateOfEvent=@DateOfEvent, EventVenueShowTimingId=@EventVenueShowTimingId, EventTypeId=@EventTypeId
+				PRINT 'Event updated successfully'
+			END
+			ELSE
+			BEGIN
+				PRINT 'Event is not present'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcUpdateEvent 'Money Heist', 5000, 'images\recommendedmovie-3.jpg', '1h 30m', '2021-02-14', 'Snow World: Ahmedabad', '3:00 PM', 'Food & Drinks'
+
+--PROCEDURE FOR DELETING EVENT
+CREATE PROCEDURE prcDeleteEvent @Name VARCHAR(50)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @Name NOT IN (SELECT Name FROM Events)
+			BEGIN
+				PRINT 'Event is not present'
+			END
+			ELSE
+			BEGIN
+				DELETE FROM Events WHERE Name = @Name
+				PRINT 'Event deleted successfully'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcDeleteEvent 'Money Heist'
+
+--PROCEDURE FOR REGISTERING USER
+CREATE PROCEDURE prcAddUser @FName VARCHAR(50), @Lname VARCHAR(50), @ContactNo CHAR(10), @Password VARCHAR(10)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @ContactNo NOT IN (SELECT ContactNo FROM Users)
+			BEGIN
+				INSERT INTO Users VALUES (@FName, @Lname, @ContactNo, @Password)
+				PRINT 'You have successfully registered'
+			END
+			ELSE
+			BEGIN
+				PRINT 'You already have an account'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcAddUser 'Virti', 'Shah', '9429410249', 'virti123'
+
+--PROCEDURE FOR SEARCHING MOVIE OR EVENT
+CREATE PROCEDURE prcSearch @Name VARCHAR(50)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+			IF @Name IN (SELECT Movie FROM vTheatresMovies)
+			BEGIN
+				SELECT * FROM vTheatresMovies WHERE Movie=@Name
+			END
+			ELSE IF @Name IN (SELECT Event FROM vEvents)
+			BEGIN
+				SELECT * FROM vEvents WHERE Event=@Name
+			END
+			ELSE
+			BEGIN
+				PRINT 'Not available'
+			END
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcSearch 'Monster Hunter'
+
+EXECUTE prcSearch 'Sunday Brunch at the Nine Restaurant'
+
+--PROCEDURE FOR BOOKING MOVIE
+CREATE PROCEDURE prcBook @jsonBook NVARCHAR(MAX)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+		DECLARE @BookingDate DATE, @Movie VARCHAR(50), @UserContact CHAR(10), @Theatre VARCHAR(50), @ShowTiming TIME, @Seat VARCHAR(50);  
+  
+		DECLARE SeatCursor CURSOR FOR  
+		SELECT BookingDate, Movie, UserContact, Theatre, ShowTiming, Seat
+			FROM OPENJSON(@jsonBook)  
+			  WITH (
+				BookingDate DATE '$.BookingDate',
+				Movie VARCHAR(50) '$.Movie',
+				UserContact CHAR(10) '$.UserContact',
+				Theatre VARCHAR(50) '$.Theatre',
+				ShowTiming TIME '$.ShowTiming',
+				SeatNo NVARCHAR(MAX) '$.SeatNo' AS JSON
+			  )
+			OUTER APPLY OPENJSON(SeatNo)
+			  WITH (Seat NVARCHAR(50) '$')
+  
+		OPEN SeatCursor;  
+  
+		FETCH NEXT FROM SeatCursor  
+		INTO @BookingDate, @Movie, @UserContact, @Theatre, @ShowTiming, @Seat;  
+		 
+		WHILE @@FETCH_STATUS = 0  
+		BEGIN  
+		     
+		   PRINT 'Seat No: ' + @Seat
+		   IF @UserContact IN (SELECT ContactNo FROM Users)
+			BEGIN
+				IF @BookingDate = (DATENAME(YY, GETDATE()) + '-' + CAST(DATEPART(MM, GETDATE()) AS VARCHAR(50)) + '-' + DATENAME(DD, GETDATE()))
+				BEGIN
+					IF @Seat IN (SELECT [Seat No] FROM vTheatresMovies WHERE Theatre=@Theatre AND ShowTime=@ShowTiming AND Movie=@Movie)
+					BEGIN
+						IF @Seat NOT IN (SELECT SeatNo FROM MovieBookings)
+						BEGIN
+							PRINT 'Seat Available for booking'
+						
+							DECLARE @Screen INT, @TotalAmount MONEY;
+							SELECT @Screen=ScreenId FROM vTheatresMovies WHERE Theatre=@Theatre AND ShowTime=@ShowTiming AND Movie=@Movie AND [Seat No]=@Seat
+						
+							PRINT @Screen
+
+							SELECT @TotalAmount = sc.Price
+							FROM vTheatresMovies AS tm JOIN SeatsCategories AS sc
+							ON tm.SeatsCategoryId = sc.SeatsCategoryId
+						
+							INSERT INTO MovieBookings VALUES (@BookingDate, @Movie, @UserContact, @Seat, @Theatre, @ShowTiming, @TotalAmount, @Screen) 
+						END
+						ELSE
+						BEGIN
+							PRINT 'Seats Not Available'
+						END
+					END
+					ELSE
+					BEGIN
+						PRINT 'Seats not available'
+					END
+				END
+				ELSE
+				BEGIN
+					PRINT 'Enter correct date'
+				END
+			END
+			ELSE
+			BEGIN
+				PRINT 'Please create your account'
+			END  
+		   FETCH NEXT FROM SeatCursor  
+		   INTO @BookingDate, @Movie, @UserContact, @Theatre, @ShowTiming, @Seat;  
+		END  
+  
+		CLOSE SeatCursor;  
+		DEALLOCATE SeatCursor;  
+
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcBook N'{  
+						"BookingDate": "2021-3-30",
+						"Movie": "Monster Hunter",
+						"UserContact": "9429410249",
+						"SeatNo": ["C1", "C2"],
+						"Theatre": "Cineplex",
+						"ShowTiming": "3:00 PM"
+					}'; 
+
+--PROCEDURE FOR BOOKING EVENT
+CREATE PROCEDURE prcEventBook @jsonBook NVARCHAR(MAX)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+		DECLARE @BookingDate DATE, @TicketCount TINYINT, @Event VARCHAR(50), @UserContact CHAR(10), @EventVenue VARCHAR(50), @ShowTiming TIME;  
+
+		SELECT @BookingDate=BookingDate, @TicketCount=TicketCount, @Event=Event, @UserContact=UserContact, @EventVenue=EventVenue, @ShowTiming=ShowTiming
+		FROM OPENJSON(@jsonBook)
+		WITH (
+			BookingDate DATE '$.BookingDate',
+			TicketCount TINYINT '$.TicketCount',
+			Event VARCHAR(50) '$.Event',
+			UserContact CHAR(10) '$.UserContact',
+			EventVenue VARCHAR(50) '$.EventVenue',
+			ShowTiming TIME '$.ShowTiming'
+			);
+
+		IF @UserContact IN (SELECT ContactNo FROM Users)
+			BEGIN
+				IF @BookingDate = (DATENAME(YY, GETDATE()) + '-' + CAST(DATEPART(MM, GETDATE()) AS VARCHAR(50)) + '-' + DATENAME(DD, GETDATE()))
+				BEGIN
+					DECLARE @Tickets TINYINT, @TicketPrice MONEY
+					SELECT @Tickets=TotalTickets, @TicketPrice=TicketPrice FROM vEvents WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming
+					IF @Tickets > @TicketCount
+					BEGIN
+						DECLARE @Total MONEY
+						SET @Total = @TicketCount * @TicketPrice
+						INSERT INTO EventBookings VALUES (@BookingDate, @TicketCount, @Event, @UserContact, @EventVenue, @ShowTiming, @Total)
+						UPDATE vEvents SET TotalTickets = TotalTickets-@TicketCount WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming
+  
+					END
+					ELSE
+					BEGIN
+						PRINT 'Tickets not available'
+					END
+				END
+				ELSE
+				BEGIN
+					PRINT 'Enter correct date'
+				END
+			END
+			ELSE
+			BEGIN
+				PRINT 'Please create your account'
+			END 
+	
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcEventBook N'{  
+						"BookingDate": "2021-3-30",
+						"TicketCount": "2",
+						"Event": "Sunday Brunch at the Nine Restaurant",
+						"UserContact": "9429410249",
+						"EventVenue": "Snow World: Ahmedabad",
+						"ShowTiming": "3:00 PM"
+					}'; 
+
+
 SELECT * FROM Admins
 SELECT * FROM Users
 SELECT * FROM Regions
@@ -765,3 +1747,15 @@ SELECT * FROM ScreenShowTimings
 SELECT * FROM ScreenSeatsCategories
 SELECT * FROM ScreensMovies
 SELECT * FROM MovieLanguages
+SELECT * FROM MovieFilmCategories
+SELECT * FROM MovieGenres
+SELECT * FROM EventTypes
+SELECT * FROM Events
+SELECT * FROM vMovies
+SELECT * FROM vEvents
+SELECT * FROM EventBookings
+SELECT * FROM vTheatresMovies
+SELECT * FROM MovieBookings
+SELECT SUM(TotalAmount) AS 'Total' FROM MovieBookings GROUP BY UserContact, BookingDate, Movie
+
+

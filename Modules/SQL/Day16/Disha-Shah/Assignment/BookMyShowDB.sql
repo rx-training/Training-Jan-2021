@@ -174,19 +174,23 @@ CREATE TABLE EventLanguages(
 CREATE TABLE MovieBookings(
 	MovieBookingId INT CONSTRAINT MovieBookings_MovieBookingId_PK PRIMARY KEY IDENTITY(1,1),
 	BookingDate DATE CONSTRAINT MovieBookings_BookingDate_DF DEFAULT GETDATE() NOT NULL,
-	MovieId INT CONSTRAINT Movies_MovieId_FK FOREIGN KEY REFERENCES Movies(MovieId) NOT NULL,
-	UserId INT CONSTRAINT MovieBookings_Users_UserId_FK FOREIGN KEY REFERENCES Users(UserId) NOT NULL,
-	SeatsId INT CONSTRAINT Seats_SeatsId_FK FOREIGN KEY REFERENCES Seats(SeatsId) NOT NULL,
-	TheatreShowTimingId INT CONSTRAINT MovieBookings_TheatreShowTimings_TheatreShowTimingId_FK FOREIGN KEY REFERENCES TheatreShowTimings(TheatreShowTimingId) NOT NULL
+	Movie VARCHAR(50) NOT NULL,
+	UserContact CHAR(10) NOT NULL,
+	SeatNo VARCHAR(50) NOT NULL,
+	Theatre VARCHAR(50) NOT NULL,
+	ShowTiming TIME NOT NULL,
+	TotalAmount MONEY CONSTRAINT MovieBookings_TotalAmount_DF DEFAULT 0
 )
 
 CREATE TABLE EventBookings(
 	EventBookingId INT CONSTRAINT EventBookings_EventBookingId_PK PRIMARY KEY IDENTITY(1,1),
 	BookingDate DATE CONSTRAINT EventBookings_BookingDate_DF DEFAULT GETDATE() NOT NULL,
 	TicketCount TINYINT NOT NULL,
-	EventId INT CONSTRAINT Events_EventId_FK FOREIGN KEY REFERENCES Events(EventId) NOT NULL,
-	UserId INT CONSTRAINT EventBookings_Users_UserId_FK FOREIGN KEY REFERENCES Users(UserId) NOT NULL,
-	EventVenueShowTimingId INT CONSTRAINT EventBookings_EventVenueShowTimings_EventVenueShowTimingId_FK FOREIGN KEY REFERENCES EventVenueShowTimings(EventVenueShowTimingId) NOT NULL
+	Event VARCHAR(50) NOT NULL,
+	UserContact CHAR(10) NOT NULL,
+	EventVenue VARCHAR(50) NOT NULL,
+	ShowTiming TIME NOT NULL,
+	TotalAmount MONEY CONSTRAINT EventBookings_TotalAmount_DF DEFAULT 0
 )
 
 ALTER TABLE ShowTimings DROP COLUMN StartDate
@@ -195,4 +199,10 @@ ALTER TABLE ShowTimings DROP COLUMN EndDate
 ALTER TABLE Movies ADD IsRecommended BIT
 ALTER TABLE Movies ADD IsPremiere BIT
 ALTER TABLE Movies ALTER COLUMN Time VARCHAR(20) NOT NULL
-ALTER TABLE Movies ALTER COLUMN Image VARBINARY(MAX)
+ALTER TABLE Movies ALTER COLUMN Image VARCHAR(1000)
+
+ALTER TABLE Events ALTER COLUMN Time VARCHAR(20) NOT NULL
+ALTER TABLE Events ALTER COLUMN Image VARCHAR(1000)
+
+ALTER TABLE MovieBookings ADD Screen INT
+
