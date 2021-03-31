@@ -34,6 +34,7 @@ CREATE TABLE Train_Status(
 	,Wait_seat INT NOT NULL DEFAULT '0'
 	,Booked_seat INT NOT NULL DEFAULT '0'
 	,[Date] DATE NOT NULL
+	,Price INT NOT NULL DEFAULT '0'
 )
 GO
 
@@ -175,15 +176,16 @@ CREATE PROCEDURE uspAddTrainDetails
 	@StationId INT,
 	@Class VARCHAR(10),
 	@AvailSeat INT,
-	@Date DATE
+	@Date DATE,
+	@Price INT
 AS
 	SET NOCOUNT ON;
 	IF @TrainId IN (SELECT Train_id FROM Trains)
 	BEGIN
 		IF @Class NOT IN (SELECT Class_type FROM Train_Status WHERE Train_id = @TrainId AND Station_id = @StationId)
 		BEGIN
-		INSERT INTO Train_Status(Train_id,Station_id,Class_type,Avail_seat,Date) 
-		VALUES(@TrainId,@StationId,@Class,@AvailSeat,@Date)
+		INSERT INTO Train_Status(Train_id,Station_id,Class_type,Avail_seat,Date,Price) 
+		VALUES(@TrainId,@StationId,@Class,@AvailSeat,@Date,@Price)
 		PRINT 'Train details added sucessfuly'
 		END
 		ELSE
@@ -319,6 +321,40 @@ AS
 	(SELECT Train_id FROM Routes WHERE Station_id IN 
 	(SELECT Station_id FROM Stations WHERE Station_name = @From OR Station_name = @To) GROUP by Train_id)
 	AND ts.Station_id = (SELECT Station_id FROM Stations WHERE Station_name = @From)
+	END
+	ELSE
+	BEGIN
+	PRINT 'Opps, Train Not Available'
+	END
+	SET NOCOUNT OFF
+GO
+
+/* To Calculate Price */
+
+CREATE PROCEDURE uspPrice
+	@From VARCHAR(20)
+	,@To VARCHAR(20)
+	,@Train INT
+	,@class VARCHAR(10)
+AS
+	SET NOCOUNT ON
+	DECLARE @Price INT
+		,@unitPrice INT
+		,@stations INT
+	IF @From IN (SELECT Station_name FROM Stations) AND @To IN (SELECT Station_name FROM Stations)
+	BEGIN
+		IF @class IN (SELECT Class_type FROM Train_Status WHERE Train_id = @Train)
+		BEGIN
+		SELECT @unitPrice = Price FROM Train_Status WHERE Station_id = (SELECT Station_id FROM Stations WHERE Station_name = @From) AND Class_type = @class
+		SET @stations = (SELECT Stop_no FROM Routes WHERE Train_id = @Train AND Station_id = (SELECT Station_id FROM Stations WHERE Station_name = @To)) - 
+		(SELECT Stop_no FROM Routes WHERE Train_id = @Train AND Station_id = (SELECT Station_id FROM Stations WHERE Station_name = @From))
+		SET @Price = @unitPrice * @stations
+		PRINT @Price
+		END
+		ELSE
+		BEGIN
+		PRINT 'Class is not available'
+		END
 	END
 	ELSE
 	BEGIN
