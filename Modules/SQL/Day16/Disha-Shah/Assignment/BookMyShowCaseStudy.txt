@@ -105,7 +105,7 @@ Admin->Movie => N:N
 4.Cities-> Name
 5.Theatres-> Name, Address
 6.Event Venues-> Name, Address, TotalTickets
-7.ShowTiming-> StartDate, EndDate, ShowTime
+7.ShowTiming-> ShowTime
 8.Screens-> 
 9.SeatCategory-> Name, Price
 10.Seats-> RowNo, SeatNo

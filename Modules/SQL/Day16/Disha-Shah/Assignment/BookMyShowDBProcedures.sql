@@ -1541,9 +1541,9 @@ AS
 SET NOCOUNT ON;
 BEGIN
 	BEGIN TRY
-			IF @Name IN (SELECT Movie FROM vTheatresMovies)
+			IF @Name IN (SELECT Movie FROM TheatresMovies)
 			BEGIN
-				SELECT * FROM vTheatresMovies WHERE Movie=@Name
+				SELECT * FROM TheatresMovies WHERE Movie=@Name
 			END
 			ELSE IF @Name IN (SELECT Event FROM vEvents)
 			BEGIN
@@ -1566,22 +1566,33 @@ EXECUTE prcSearch 'Monster Hunter'
 EXECUTE prcSearch 'Sunday Brunch at the Nine Restaurant'
 
 --PROCEDURE FOR BOOKING MOVIE
-CREATE PROCEDURE prcBook @jsonBook NVARCHAR(MAX)
+ALTER PROCEDURE prcBook @jsonBook NVARCHAR(MAX)
 AS
 SET NOCOUNT ON;
 BEGIN
 	BEGIN TRY
-		DECLARE @BookingDate DATE, @Movie VARCHAR(50), @UserContact CHAR(10), @Theatre VARCHAR(50), @ShowTiming TIME, @Seat VARCHAR(50);  
-  
+		DECLARE @BookingDate DATE, @Movie VARCHAR(50), @UserContact CHAR(10), @Theatre VARCHAR(50), @ShowTiming TIME, 
+		@City VARCHAR(50), @Language VARCHAR(50), @FilmCategory VARCHAR(50), @DateToWatch DATE, @Seat VARCHAR(50),
+		@TotalSeats INT, @FinalSeats VARCHAR(MAX), @SeatCategoryId VARCHAR(MAX), @TotalAmount INT, @Flag INT;  
+		SET @TotalSeats = 0
+		SET @FinalSeats = ''
+		SET @SeatCategoryId = ''
+		SET @TotalAmount = 0
+		SET @Flag = 1
+		SET @BookingDate = (DATENAME(YY, GETDATE()) + '-' + CAST(DATEPART(MM, GETDATE()) AS VARCHAR(50)) + '-' + DATENAME(DD, GETDATE()))
+
 		DECLARE SeatCursor CURSOR FOR  
-		SELECT BookingDate, Movie, UserContact, Theatre, ShowTiming, Seat
+		SELECT Movie, UserContact, Theatre, ShowTiming, City, Language, FilmCategory, DateToWatch, Seat
 			FROM OPENJSON(@jsonBook)  
 			  WITH (
-				BookingDate DATE '$.BookingDate',
 				Movie VARCHAR(50) '$.Movie',
 				UserContact CHAR(10) '$.UserContact',
 				Theatre VARCHAR(50) '$.Theatre',
 				ShowTiming TIME '$.ShowTiming',
+				City VARCHAR(50) '$.City',
+				Language VARCHAR(50) '$.Language',
+				Filmcategory VARCHAR(50) '$.FilmCategory',
+				DateToWatch DATE '$.DateToWatch',
 				SeatNo NVARCHAR(MAX) '$.SeatNo' AS JSON
 			  )
 			OUTER APPLY OPENJSON(SeatNo)
@@ -1590,58 +1601,98 @@ BEGIN
 		OPEN SeatCursor;  
   
 		FETCH NEXT FROM SeatCursor  
-		INTO @BookingDate, @Movie, @UserContact, @Theatre, @ShowTiming, @Seat;  
+		INTO @Movie, @UserContact, @Theatre, @ShowTiming, @City, @Language, @FilmCategory, @DateToWatch, @Seat;  
 		 
 		WHILE @@FETCH_STATUS = 0  
-		BEGIN  
-		     
-		   PRINT 'Seat No: ' + @Seat
-		   IF @UserContact IN (SELECT ContactNo FROM Users)
-			BEGIN
-				IF @BookingDate = (DATENAME(YY, GETDATE()) + '-' + CAST(DATEPART(MM, GETDATE()) AS VARCHAR(50)) + '-' + DATENAME(DD, GETDATE()))
-				BEGIN
-					IF @Seat IN (SELECT [Seat No] FROM vTheatresMovies WHERE Theatre=@Theatre AND ShowTime=@ShowTiming AND Movie=@Movie)
-					BEGIN
-						IF @Seat NOT IN (SELECT SeatNo FROM MovieBookings)
-						BEGIN
-							PRINT 'Seat Available for booking'
-						
-							DECLARE @Screen INT, @TotalAmount MONEY;
-							SELECT @Screen=ScreenId FROM vTheatresMovies WHERE Theatre=@Theatre AND ShowTime=@ShowTiming AND Movie=@Movie AND [Seat No]=@Seat
-						
-							PRINT @Screen
+		BEGIN   
+		    PRINT 'Seat No: ' + @Seat
+		    SET @TotalSeats = @TotalSeats + 1;
+		   
+			SET @FinalSeats = @FinalSeats + ',' + @Seat
 
-							SELECT @TotalAmount = sc.Price
-							FROM vTheatresMovies AS tm JOIN SeatsCategories AS sc
-							ON tm.SeatsCategoryId = sc.SeatsCategoryId
-						
-							INSERT INTO MovieBookings VALUES (@BookingDate, @Movie, @UserContact, @Seat, @Theatre, @ShowTiming, @TotalAmount, @Screen) 
-						END
-						ELSE
-						BEGIN
-							PRINT 'Seats Not Available'
-						END
-					END
-					ELSE
-					BEGIN
-						PRINT 'Seats not available'
-					END
-				END
-				ELSE
-				BEGIN
-					PRINT 'Enter correct date'
-				END
+			SELECT @SeatCategoryId = SeatsCategoryId
+			FROM TheatresMovies
+			WHERE [Seat No] = @Seat AND Theatre=@Theatre AND ShowTime=@ShowTiming AND Movie=@Movie AND City=@City 
+			AND Language=@Language AND FilmCategory=@FilmCategory
+
+			SELECT @TotalAmount = @TotalAmount + Price
+			FROM SeatsCategories
+			WHERE SeatsCategoryId=@SeatCategoryId
+
+			PRINT @SeatCategoryID
+			PRINT @TotalAmount
+
+			IF @Seat NOT IN (SELECT [Seat No] FROM TheatresMovies WHERE Theatre=@Theatre AND ShowTime=@ShowTiming AND Movie=@Movie AND City=@City AND Language=@Language AND FilmCategory=@FilmCategory)
+			BEGIN
+				PRINT @Seat + ' is not present in this Screen'
+				SET @Flag=0
+			END
+
+			IF 1 = (SELECT DISTINCT IsBooked FROM TheatresMovies WHERE [Seat No] = @Seat AND Theatre=@Theatre AND ShowTime=@ShowTiming AND Movie=@Movie AND City=@City AND Language=@Language AND FilmCategory=@FilmCategory)
+			BEGIN
+				PRINT @Seat + ' is already booked!'
+				SET @Flag=0
+			END
+
+		   FETCH NEXT FROM SeatCursor  
+		   INTO @Movie, @UserContact, @Theatre, @ShowTiming, @City, @Language, @FilmCategory, @DateToWatch, @Seat;  
+		END  
+  
+		CLOSE SeatCursor;  
+		DEALLOCATE SeatCursor;
+		
+		IF @Flag=1
+		BEGIN
+			IF @UserContact IN (SELECT ContactNo FROM Users)
+			BEGIN
+				DECLARE @Screen INT;
+				SELECT @Screen=ScreenId FROM TheatresMovies WHERE Theatre=@Theatre AND ShowTime=@ShowTiming 
+				AND Movie=@Movie AND City=@City AND Language=@Language AND FilmCategory=@FilmCategory
+
+				PRINT @Screen
+
+				DECLARE @SelectedSeats VARCHAR(MAX)
+				SET @SelectedSeats = SUBSTRING(@FinalSeats, 2, LEN(@FinalSeats))
+
+				INSERT INTO MovieBookings VALUES (@BookingDate, @Movie, @UserContact, @SelectedSeats, @Theatre, @ShowTiming, @TotalAmount, @Screen, @City, @Language, @FilmCategory, @DateToWatch, @TotalSeats) 
+
+				DECLARE @SeatNo VARCHAR(50); 
+  
+				DECLARE SeatNoCursor CURSOR FOR
+				SELECT value FROM string_split(@SelectedSeats, ',')  
+					
+				OPEN SeatNoCursor;  
+  
+				FETCH NEXT FROM SeatNoCursor  
+				INTO @SeatNo;  
+    
+				WHILE @@FETCH_STATUS = 0  
+				BEGIN 
+								
+					UPDATE TheatresMovies SET IsBooked=1 WHERE Theatre=@Theatre AND Movie=@Movie AND ShowTime=@ShowTiming AND [Seat No]=@SeatNo AND City=@City AND Language=@Language AND FilmCategory=@FilmCategory
+					PRINT 'Update'
+					PRINT @Theatre
+					PRINT @Movie
+					PRINT @ShowTiming
+					PRINT @SeatNo
+					PRINT @City
+					PRINT @Language
+					PRINT @FilmCategory
+
+				    FETCH NEXT FROM SeatNoCursor  
+				    INTO @SeatNo;  
+				END  
+  
+				CLOSE SeatNoCursor;  
+				DEALLOCATE SeatNoCursor;  
+							
+					
 			END
 			ELSE
 			BEGIN
 				PRINT 'Please create your account'
-			END  
-		   FETCH NEXT FROM SeatCursor  
-		   INTO @BookingDate, @Movie, @UserContact, @Theatre, @ShowTiming, @Seat;  
-		END  
-  
-		CLOSE SeatCursor;  
-		DEALLOCATE SeatCursor;  
+			END 
+		END
 
 	END TRY
 	BEGIN CATCH
@@ -1652,61 +1703,72 @@ BEGIN
 END
 
 EXECUTE prcBook N'{  
-						"BookingDate": "2021-3-30",
 						"Movie": "Monster Hunter",
 						"UserContact": "9429410249",
-						"SeatNo": ["C1", "C2"],
+						"SeatNo": ["C1", "C2", "B1"],
 						"Theatre": "Cineplex",
-						"ShowTiming": "3:00 PM"
-					}'; 
+						"ShowTiming": "3:00 PM",
+						"City": "Ahmedabad",
+						"Language": "Hindi",
+						"FilmCategory": "2D",
+						"DateToWatch": "2021-04-05"
+					}';
+					
+SELECT * FROM MovieBookings
+
+DELETE FROM MovieBookings
+
+SELECT * FROM TheatresMovies
+
+SELECT * FROM SeatsCategories
+
+SELECT * FROM Seats
 
 --PROCEDURE FOR BOOKING EVENT
-CREATE PROCEDURE prcEventBook @jsonBook NVARCHAR(MAX)
+ALTER PROCEDURE prcEventBook @jsonBook NVARCHAR(MAX)
 AS
 SET NOCOUNT ON;
 BEGIN
 	BEGIN TRY
-		DECLARE @BookingDate DATE, @TicketCount TINYINT, @Event VARCHAR(50), @UserContact CHAR(10), @EventVenue VARCHAR(50), @ShowTiming TIME;  
+		DECLARE @BookingDate DATE, @TicketCount TINYINT, @Event VARCHAR(50), @UserContact CHAR(10), @EventVenue VARCHAR(50),
+		@ShowTiming TIME, @EventType VARCHAR(50), @DateOfEvent DATE;  
 
-		SELECT @BookingDate=BookingDate, @TicketCount=TicketCount, @Event=Event, @UserContact=UserContact, @EventVenue=EventVenue, @ShowTiming=ShowTiming
+		SELECT @TicketCount=TicketCount, @Event=Event, @UserContact=UserContact, @EventVenue=EventVenue, @ShowTiming=ShowTiming,
+		@EventType=EventType, @DateOfEvent=DateOfEvent
 		FROM OPENJSON(@jsonBook)
 		WITH (
-			BookingDate DATE '$.BookingDate',
 			TicketCount TINYINT '$.TicketCount',
 			Event VARCHAR(50) '$.Event',
 			UserContact CHAR(10) '$.UserContact',
 			EventVenue VARCHAR(50) '$.EventVenue',
-			ShowTiming TIME '$.ShowTiming'
+			ShowTiming TIME '$.ShowTiming',
+			EventType VARCHAR(50) '$.EventType',
+			DateOfEvent DATE '$.DateOfEvent'
 			);
 
+		SET @BookingDate=(DATENAME(YY, GETDATE()) + '-' + CAST(DATEPART(MM, GETDATE()) AS VARCHAR(50)) + '-' + DATENAME(DD, GETDATE()))
+
 		IF @UserContact IN (SELECT ContactNo FROM Users)
+		BEGIN
+			DECLARE @Tickets TINYINT, @TicketPrice MONEY
+			SELECT @Tickets=TotalTickets, @TicketPrice=TicketPrice FROM vEvents WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming AND EventType=@EventType AND DateOfEvent=@DateOfEvent
+			IF @Tickets > @TicketCount
 			BEGIN
-				IF @BookingDate = (DATENAME(YY, GETDATE()) + '-' + CAST(DATEPART(MM, GETDATE()) AS VARCHAR(50)) + '-' + DATENAME(DD, GETDATE()))
-				BEGIN
-					DECLARE @Tickets TINYINT, @TicketPrice MONEY
-					SELECT @Tickets=TotalTickets, @TicketPrice=TicketPrice FROM vEvents WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming
-					IF @Tickets > @TicketCount
-					BEGIN
-						DECLARE @Total MONEY
-						SET @Total = @TicketCount * @TicketPrice
-						INSERT INTO EventBookings VALUES (@BookingDate, @TicketCount, @Event, @UserContact, @EventVenue, @ShowTiming, @Total)
-						UPDATE vEvents SET TotalTickets = TotalTickets-@TicketCount WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming
-  
-					END
-					ELSE
-					BEGIN
-						PRINT 'Tickets not available'
-					END
-				END
-				ELSE
-				BEGIN
-					PRINT 'Enter correct date'
-				END
-			END
+				DECLARE @Total MONEY
+				SET @Total = @TicketCount * @TicketPrice
+				INSERT INTO EventBookings VALUES (@BookingDate, @TicketCount, @Event, @UserContact, @EventVenue, @ShowTiming, @Total, @EventType, @DateOfEvent)
+				UPDATE vEvents SET TotalTickets = TotalTickets-@TicketCount WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming AND EventType=@EventType AND DateOfEvent=@DateOfEvent
+  			END
 			ELSE
 			BEGIN
-				PRINT 'Please create your account'
-			END 
+				PRINT 'Tickets not available'
+			END
+		
+		END
+		ELSE
+		BEGIN
+			PRINT 'Please create your account'
+		END 
 	
 	END TRY
 	BEGIN CATCH
@@ -1717,14 +1779,41 @@ BEGIN
 END
 
 EXECUTE prcEventBook N'{  
-						"BookingDate": "2021-3-30",
 						"TicketCount": "2",
 						"Event": "Sunday Brunch at the Nine Restaurant",
 						"UserContact": "9429410249",
 						"EventVenue": "Snow World: Ahmedabad",
-						"ShowTiming": "3:00 PM"
+						"ShowTiming": "3:00 PM",
+						"EventType": "Food & Drinks",
+						"DateOfEvent": "2021-02-14"
 					}'; 
 
+SELECT * FROM EventBookings
+
+DELETE FROM EventBookings
+
+--PROCEDURE FOR VIEWING BOOKING HISTORY OF A PARTICULAR USER
+CREATE PROCEDURE prcBookingHistoryInfo @UserContact CHAR(10)
+AS
+SET NOCOUNT ON;
+BEGIN
+	BEGIN TRY
+		SELECT Movie AS 'Movie/Event', DateToWatch AS 'DateOfShow', ShowTiming, Theatre AS 'Venue', Screen, SeatNo, TotalTickets
+		FROM MovieBookings
+		WHERE UserContact=@UserContact
+		UNION ALL
+		SELECT Event, DateOfEvent, ShowTiming, EventVenue, '', '' , TicketCount
+		FROM EventBookings
+		WHERE UserContact=@UserContact	
+	END TRY
+	BEGIN CATCH
+		SELECT ERROR_NUMBER() AS 'ERRORNUMBER',
+				ERROR_MESSAGE() AS 'ERRORMESSAGE',
+				ERROR_LINE() AS 'ERRORLINE';
+	END CATCH
+END
+
+EXECUTE prcBookingHistoryInfo '9429410249';
 
 SELECT * FROM Admins
 SELECT * FROM Users
@@ -1753,9 +1842,9 @@ SELECT * FROM EventTypes
 SELECT * FROM Events
 SELECT * FROM vMovies
 SELECT * FROM vEvents
+SELECT * FROM TheatresMovies
 SELECT * FROM EventBookings
-SELECT * FROM vTheatresMovies
 SELECT * FROM MovieBookings
-SELECT SUM(TotalAmount) AS 'Total' FROM MovieBookings GROUP BY UserContact, BookingDate, Movie
+SELECT SUM(TotalAmount) AS 'Total' FROM MovieBookings
 
 

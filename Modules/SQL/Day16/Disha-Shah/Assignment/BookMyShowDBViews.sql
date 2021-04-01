@@ -54,17 +54,25 @@ ON ts.ShowTimingId=s.ShowTimingId
 
 CREATE VIEW vSeatCategorySeats
 AS
-SELECT sc.SeatsCategoryId, sc.Name AS 'Seat Category', sc.Price, CAST(s.RowNo AS VARCHAR(20)) + '' + CAST(s.SeatNo AS VARCHAR(20)) AS 'Seat No', s.SeatsId
+SELECT sc.SeatsCategoryId, sc.Name AS 'Seat Category', sc.Price,
+CAST(s.RowNo AS VARCHAR(20)) + '' + CAST(s.SeatNo AS VARCHAR(20)) AS 'Seat No', s.SeatsId, s.IsBooked
 FROM SeatsCategories AS sc JOIN Seats AS s
 ON sc.SeatsCategoryId = s.SeatsCategoryId
 
+SELECT * FROM vSeatCategorySeats
+DROP VIEW vSeatCategorySeats
+
 CREATE VIEW vTheatresScreensSeats
 AS
-SELECT ts.TheatreId, ts.Theatre, ts.Address, ts.CityId, ts.City, ts.ShowTimingId, ts.ShowTime, s.ScreenId, ssc.ScreenSeatsCategoryId, ssc.SeatsCategoryId, scs.[Seat Category], scs.[Seat No], scs.Price, scs.SeatsId
+SELECT ts.TheatreId, ts.Theatre, ts.Address, ts.CityId, ts.City, ts.ShowTimingId, ts.ShowTime, s.ScreenId,
+ssc.ScreenSeatsCategoryId, ssc.SeatsCategoryId, scs.[Seat Category], scs.[Seat No], scs.Price, scs.SeatsId, scs.IsBooked
 FROM vTheatresShowtimes AS ts JOIN Screens AS s
 ON ts.TheatreId=s.TheatreId JOIN ScreenSeatsCategories AS ssc
 ON s.ScreenId = ssc.ScreenId JOIN vSeatCategorySeats AS scs
 ON ssc.SeatsCategoryId = scs.SeatsCategoryId
+
+SELECT * FROM vTheatresScreensSeats
+DROP VIEW vTheatresScreensSeats
 
 CREATE VIEW vMovies
 AS
@@ -78,20 +86,12 @@ ON mfc.MovieId = m.MovieId JOIN FilmCategories AS fc
 ON mfc.FilmCategoryId=fc.FilmCategoryId JOIN Certifications AS c
 ON c.CertificationId = m.CertificationId
 
-CREATE VIEW vTheatresMovies
-AS
-SELECT tss.*, m.Name AS 'Movie', m.Image, m.About, m.DateOfRelease, m.Time, m.IsRecommended, m.IsPremiere, m.CertificationId, m.Certification, m.LanguageId, m.Language, m.GenreId, m.Genre, m.FilmCategoryId, m.FilmCategory
-FROM vTheatresScreensSeats AS tss JOIN ScreensMovies AS sm
-ON tss.ScreenId = sm.ScreenId JOIN vMovies AS m
-ON sm.MovieId = m.MovieId
-
 CREATE VIEW vEventVenuesCities
 AS
 SELECT ev.EventVenueId, ev.Name AS 'Event Venue', ev.Address, ev.TotalTickets, c.Name AS 'City', c.CityId, c.RegionId, r.Name AS 'Region'
 FROM EventVenues AS ev JOIN Cities AS c
 ON c.CityId = ev.CityId JOIN Regions AS r
 ON c.RegionId = r.RegionId
-
 
 CREATE VIEW vEventVenuesShowtimes
 AS
@@ -110,3 +110,45 @@ ON e.EventVenueShowTimingId = evs.EventVenueShowTimingId JOIN vEventVenuesShowti
 ON evs.EventVenueId = vevs.EventVenueId JOIN EventLanguages AS el
 ON e.EventId = el.EventId JOIN Languages AS l
 ON el.LanguageId = l.LanguageId
+
+--Fun Activities
+CREATE VIEW Activities
+AS
+SELECT *
+FROM vEvents
+WHERE EventType IN ('Food & Drinks', 'Gaming Zone/Arcade')
+
+--Laughter Shows
+CREATE VIEW Comedys
+AS
+SELECT *
+FROM vEvents
+WHERE EventType IN ('Standup Comedy')
+
+--Outdoor Events
+CREATE VIEW Outdoors
+AS
+SELECT *
+FROM vEvents
+WHERE EventType IN ('Standup Comedy', 'Amusement Parks', 'City Tours/Unique Tours', 'Adventure/Trekking/Camping', 'Tourist Attractions', 'Sporting Event')
+
+--Popular Events
+CREATE VIEW Populars
+AS
+SELECT *
+FROM vEvents
+WHERE EventType IN ('Workshops')
+
+--Plays
+CREATE VIEW Plays
+AS
+SELECT *
+FROM vEvents
+WHERE EventType IN ('Play')
+
+--Sports
+CREATE VIEW Sports
+AS
+SELECT *
+FROM vEvents
+WHERE EventType IN ('Sporting Event', 'E-Sports')

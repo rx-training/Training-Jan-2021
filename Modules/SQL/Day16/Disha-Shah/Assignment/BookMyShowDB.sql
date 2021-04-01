@@ -206,3 +206,31 @@ ALTER TABLE Events ALTER COLUMN Image VARCHAR(1000)
 
 ALTER TABLE MovieBookings ADD Screen INT
 
+ALTER TABLE MovieBookings ADD City VARCHAR(50) NOT NULL
+
+ALTER TABLE MovieBookings ADD Language VARCHAR(50) NOT NULL
+
+ALTER TABLE MovieBookings ADD FilmCategory VARCHAR(50) NOT NULL
+
+ALTER TABLE MovieBookings ADD DateToWatch DATE NOT NULL
+
+ALTER TABLE MovieBookings ADD TotalTickets TINYINT NOT NULL
+
+ALTER TABLE Seats ADD IsBooked BIT
+
+UPDATE Seats SET IsBooked=0
+
+ALTER TABLE EventBookings ADD EventType VARCHAR(50) NOT NULL
+
+ALTER TABLE EventBookings ADD DateOfEvent DATE NOT NULL
+
+SELECT tss.*, m.Name AS 'Movie', m.Image, m.About, m.DateOfRelease, m.Time, m.IsRecommended, m.IsPremiere, 
+m.CertificationId, m.Certification, m.LanguageId, m.Language, m.GenreId, m.Genre, m.FilmCategoryId, m.FilmCategory
+INTO TheatresMovies
+FROM vTheatresScreensSeats AS tss JOIN ScreensMovies AS sm
+ON tss.ScreenId = sm.ScreenId JOIN vMovies AS m
+ON sm.MovieId = m.MovieId
+
+SELECT * FROM TheatresMovies
+
+
