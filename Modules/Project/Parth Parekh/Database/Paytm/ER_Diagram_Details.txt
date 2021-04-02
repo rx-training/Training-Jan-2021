@@ -1,0 +1,39 @@
+Step 1 : Identify the Entities
+ - User
+ - Transaction 
+ - Products
+ - Passbook 
+ - Order
+ - OrderHistory
+
+Step 2 : Find the Relationship 
+ - User can Placed  Many Order ( One to Many )
+ - Order has many Products and same products can be in  many orders ( Many to Many)
+ - User can do transaction ( One to One )
+ - User can Have One passbook ( One to One )
+ - One User can Pay Mutliple order bills ( One to Many )
+ - One Order has one OrderHistory ( One to One )
+ 
+
+Step 3 : Identify the Key Attributes
+ - UserId is Key Attribute for the Entity User ,
+ - ProductId is Key Attribute for the Entity Products , 
+ - TransactionId is Key Attribute for the Entity Transaction ,
+ - OrderId is Key Attribute for the Entity Order , 
+	 
+Step 4 : Identify Other Relevent Attributes
+ - For User , relevent attributes Name,MobileNo, Password , EmailId
+ - For Transaction , relevent attributes Balance, TransactionType 
+ - For Products, relevent attributes ProductName , ProductPrice , ProductType 
+ - For Order , relevent attributes Quantity , TotalAmount
+ - For OrderHistory , relevent attributes OrderId , UserId ,Name , ProductName , ProductPrice 
+                    , Quantity , TotalPrice , Payment , PaymentDate
+
+--All Tables 
+ User ( #UserId , Name , MobileNo , Password )
+ Transaction ( #transactionId  ,SenderId  , RecevierId , TransactionDate , Amount)
+ Passbook (  UserId ,transactionId , Balance, TransactionType )
+ Prodcuts ( #ProductId , ProductName , ProductType ,ProductPrice )
+ Order ( #OderId  , UserId , ProductId , Quantity, TotalAmount )
+ OrderHistory (OrderId , UserId ,Name , ProductName , ProductPrice , Quantity , TotalPrice , Payment , PaymentDate)
+ 
