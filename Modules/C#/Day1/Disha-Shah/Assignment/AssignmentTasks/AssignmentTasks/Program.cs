@@ -14,7 +14,7 @@ namespace AssignmentTasks
     {
         static void Main(string[] args)
         {
-            //1. Print sum of all the even numbers
+            // 1. Print sum of all the even numbers
             int n, sum=0;
             Console.WriteLine("Enter a number:");
             n = Convert.ToInt32(Console.ReadLine());
@@ -27,7 +27,7 @@ namespace AssignmentTasks
             }
             Console.WriteLine($"Sum of all even numbers till {n} = {sum}");
 
-            //2.Store your name in one string and find out how many vowel characters are there in your name.
+            // 2.Store your name in one string and find out how many vowel characters are there in your name.
             string name = "Disha Shah";
             int vowels = 0;
             char letter;
@@ -41,7 +41,7 @@ namespace AssignmentTasks
             }
             Console.WriteLine($"Total vowels in {name} are {vowels}");
 
-            //3.Create a weekday enum and accept week day number and display week day.
+            // 3.Create a weekday enum and accept week day number and display week day.
             int weekdayno;
             Console.WriteLine("Enter a weekday number between [0-4] to get weekday:");
             weekdayno = Convert.ToInt32(Console.ReadLine());
@@ -67,8 +67,8 @@ namespace AssignmentTasks
                     break;
             }
             
-            /*4. Accept 10 student Name,Address,Hindi,English,Maths Marks ,do the total and compute Grade. Note do it with Array
-            and display the result in grid format*/
+            // 4. Accept 10 student Name,Address,Hindi,English,Maths Marks ,do the total and compute Grade. Note do it with Array
+            // and display the result in grid format
             string[,] student = new string[10,7];
             string studname, studaddress, hindi, english, maths;
             string grade = "";
@@ -128,8 +128,8 @@ namespace AssignmentTasks
                 Console.WriteLine();
             }
 
-            /*5. Accept Age from user, if age is more than 18 eligible for vote otherwise it should be displayed as not
-                 eligible. Do it with ternary operator*/
+            // 5. Accept Age from user, if age is more than 18 eligible for vote otherwise it should be displayed as not
+            // eligible. Do it with ternary operator
             int age;
             Console.WriteLine("Enter your age:");
             age = Convert.ToInt32(Console.ReadLine());
