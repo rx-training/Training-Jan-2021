@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CalculatorLibrary;
 
 namespace PPT_Videos_Msdn_Practice
 {
@@ -16,38 +17,38 @@ namespace PPT_Videos_Msdn_Practice
         Weekend = Saturday | Sunday
     }
 
-    class Calculator
-    {
-        public static double DoOperation(double num1, double num2, string op)
-        {
-            double result = double.NaN; // Default value is "not-a-number" which we use if an operation, such as division, could result in an error.
+    //class Calculator
+    //{
+    //    public static double DoOperation(double num1, double num2, string op)
+    //    {
+    //        double result = double.NaN; // Default value is "not-a-number" which we use if an operation, such as division, could result in an error.
 
-            // Use a switch statement to do the math.
-            switch (op)
-            {
-                case "a":
-                    result = num1 + num2;
-                    break;
-                case "s":
-                    result = num1 - num2;
-                    break;
-                case "m":
-                    result = num1 * num2;
-                    break;
-                case "d":
-                    // Ask the user to enter a non-zero divisor.
-                    if (num2 != 0)
-                    {
-                        result = num1 / num2;
-                    }
-                    break;
-                // Return text for an incorrect option entry.
-                default:
-                    break;
-            }
-            return result;
-        }
-    }
+    //        // Use a switch statement to do the math.
+    //        switch (op)
+    //        {
+    //            case "a":
+    //                result = num1 + num2;
+    //                break;
+    //            case "s":
+    //                result = num1 - num2;
+    //                break;
+    //            case "m":
+    //                result = num1 * num2;
+    //                break;
+    //            case "d":
+    //                // Ask the user to enter a non-zero divisor.
+    //                if (num2 != 0)
+    //                {
+    //                    result = num1 / num2;
+    //                }
+    //                break;
+    //            // Return text for an incorrect option entry.
+    //            default:
+    //                break;
+    //        }
+    //        return result;
+    //    }
+    //}
 
     class Program
     {
@@ -682,12 +683,17 @@ namespace PPT_Videos_Msdn_Practice
 
                 try
                 {
-                    Calcresult = Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                    Calculator calculator = new Calculator();
+                    Calcresult = calculator.DoOperation(cleanNum1, cleanNum2, op);
                     if (double.IsNaN(Calcresult))
                     {
                         Console.WriteLine("This operation will result in a mathematical error.\n");
                     }
                     else Console.WriteLine("Your result: {0:0.##}\n", Calcresult);
+
+                    // And call to close the JSON writer before return
+                    calculator.Finish();
+                    return;
                 }
                 catch (Exception e)
                 {
@@ -701,6 +707,7 @@ namespace PPT_Videos_Msdn_Practice
                 if (Console.ReadLine() == "n") endApp = true;
 
                 Console.WriteLine("\n"); // Friendly linespacing.
+
             }
 
 
