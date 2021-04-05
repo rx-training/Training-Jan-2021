@@ -1,0 +1,34 @@
+
+*******************************  UDF LIMITATIONS **************************************
+
+ => UDF can not be used for modify database.
+ => UDF can not return multiple result set.
+        =>Stored procedure return multiple set.
+ => Does not support try...catch block or @raiserror.
+ => Table variable are allwed so we can store table in it insted of create temp tables.
+ => Nesting in allowed in UDF upto 32 level. If maximum limit is exceed then whole calling 
+    function chain fail.
+ => can not use set statement in UDF.
+
+*******************************  TRIGGER LIMITATIONS ************************************
+
+ => One trigger can apply only one table.
+ => Trigger can be created in current database only,however it can use refrence object 
+    from out side of database.
+ => We can use more them one action in same trigger (ex. insert and update).
+ => INSTED OF DELETE/UPDATE can not be define on table which has foreign key constraint.
+ => TRUNCATE TABLE is delete rows from table but delete trigger will not fire on truncate 
+    because it does not track individual row.
+ => Following statement not allowed in trigger
+	CREATE DATABASE
+	ALTER DATABASE
+	DROP DATABASE
+	RESTORE DATABSE
+	RESTORE LOG
+	RECONFIGURE
+
+ => When we use trigger for any table or view, this operations are not allowed
+	CREATE INDEX
+	ALTER INDEX
+	DROP INDEX
+	DROP TABLE
