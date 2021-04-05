@@ -69,62 +69,53 @@ namespace AssignmentTasks
             
             // 4. Accept 10 student Name,Address,Hindi,English,Maths Marks ,do the total and compute Grade. Note do it with Array
             // and display the result in grid format
-            string[,] student = new string[10,7];
-            string studname, studaddress, hindi, english, maths;
-            string grade = "";
-            double totalperc, total;
+            string[,] student = new string[2, 3];
+            double[,] marks = new double[2, 4];
+            double totalperc;
 
-            for(int i=0; i<10;i++)
+            for(int i=0; i<2;i++)
             {
                 Console.WriteLine("Enter Student Name:");
-                studname = Console.ReadLine();
+                student[i, 0] = Console.ReadLine();
 
                 Console.WriteLine("Enter Address:");
-                studaddress = Console.ReadLine();
+                student[i, 1] = Console.ReadLine();
 
                 Console.WriteLine("Enter Hindi Marks(out of 100):");
-                hindi = Console.ReadLine();
+                marks[i, 0] = Convert.ToDouble(Console.ReadLine());
 
                 Console.WriteLine("Enter English Marks(out of 100):");
-                english = Console.ReadLine();
+                marks[i, 1] = Convert.ToDouble(Console.ReadLine());
 
                 Console.WriteLine("Enter Maths Marks(out of 100):");
-                maths = Console.ReadLine();
+                marks[i, 2] = Convert.ToDouble(Console.ReadLine());
 
-                total = Convert.ToDouble(hindi) + Convert.ToDouble(english) + Convert.ToDouble(maths);
+                marks[i, 3] = marks[i, 0] + marks[i, 1] + marks[i, 2];
 
-                totalperc = total / 3;    
+                totalperc = marks[i, 3] / 3;    
 
                 if(totalperc>=90)
                 {
-                    grade = "A";
+                    student[i, 2] = "A";
                 }
                 else if(totalperc > 75)
                 {
-                    grade = "B";
+                    student[i, 2] = "B";
                 }
                 else if(totalperc > 60)
                 {
-                    grade = "C";
+                    student[i, 2] = "C";
                 }
-                student[i, 0] = studname;
-                student[i, 1] = studaddress;
-                student[i, 2] = hindi;
-                student[i, 3] = english;
-                student[i, 4] = maths;
-                student[i, 5] = Convert.ToString(total);
-                student[i, 6] = grade;
 
             }
 
             Console.WriteLine("Name\tAddress\tHindi\tEnglish\tMaths\tTotal\tGrade");
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for (int j = 0; j < 7; j++)
-                {
-                    Console.Write(student[i, j] + "\t");
-                }
+
+                Console.Write($"{student[i, 0]}\t{student[i, 1]}\t{marks[i, 0]}\t{marks[i, 1]}\t{marks[i, 2]}\t{marks[i, 3]}\t{student[i, 2]}");
+                
                 Console.WriteLine();
             }
 
