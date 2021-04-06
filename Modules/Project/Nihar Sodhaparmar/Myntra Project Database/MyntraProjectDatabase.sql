@@ -1,0 +1,125 @@
+USE MyntraDB;
+
+CREATE TABLE Brands
+(
+	BrandId INT CONSTRAINT pkBrands PRIMARY KEY IDENTITY(1,1),
+	BrandName VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE Categories
+(
+	CategoryId INT CONSTRAINT pkCategories PRIMARY KEY IDENTITY(1,1),
+	CategoryName VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE Products
+(
+	ProductId INT CONSTRAINT pkProducts PRIMARY KEY IDENTITY(1,1),
+	ProductName VARCHAR(255) NOT NULL,
+	BrandId INT CONSTRAINT fkBrandIdInProductsTable FOREIGN KEY REFERENCES Brands(BrandId) NOT NULL,
+	CategoryId INT CONSTRAINT fkCategoryIdInProductsTable FOREIGN KEY REFERENCES Categories(CategoryId) NOT NULL,
+	Details VARCHAR(MAX) NOT NULL,
+	Price MONEY NOT NULL,
+	Offer TINYINT DEFAULT 0,
+	Returnable VARCHAR(10) NOT NULL,
+	Pincodes VARCHAR(1024) NOT NULL,
+	Sizes VARCHAR(255) NOT NULL,
+	ImgUrls VARCHAR(MAX) NOT NULL
+)
+
+CREATE TABLE Countries
+(
+	CountryId INT CONSTRAINT pkCountries PRIMARY KEY IDENTITY(1,1),
+	CountryName VARCHAR(25) NOT NULL
+)
+
+CREATE TABLE States
+(
+	StateId INT CONSTRAINT pkStates PRIMARY KEY IDENTITY(1,1),
+	StateName VARCHAR(25) NOT NULL,
+	CountryId INT CONSTRAINT fkCountryIdInStatesTable FOREIGN KEY REFERENCES Countries(CountryId) NOT NULL
+)
+
+CREATE TABLE Cities
+(
+	CityId INT CONSTRAINT pkCities PRIMARY KEY IDENTITY(1,1),
+	CityName VARCHAR(255) NOT NULL,
+	StateId INT CONSTRAINT fkStateIdInCitiesTable FOREIGN KEY REFERENCES States(StateId)
+)
+
+CREATE TABLE Addresses
+(
+	AddressId INT CONSTRAINT pkAddresses PRIMARY KEY IDENTITY(1,1),
+	AddressLine1 VARCHAR(255),
+	AddressLine2 VARCHAR(255),
+	Pincode VARCHAR(10) NOT NULL,
+	CityId INT CONSTRAINT fkCityIdInAddressesTable FOREIGN KEY REFERENCES Cities(CityId)
+)
+
+CREATE TABLE Sellers
+(
+	SellerId INT CONSTRAINT pkSellers PRIMARY KEY IDENTITY(1,1),
+	SellerName VARCHAR(255) NOT NULL,
+	Email VARCHAR(255) NOT NULL CONSTRAINT unqSellerEmail UNIQUE,
+	ContactNumber VARCHAR(15) NOT NULL CONSTRAINT unqSellerContactNumber UNIQUE,
+	DOB DATE NOT NULL,
+	Gender VARCHAR(6) NOT NULL,
+	Password VARCHAR(50) NOT NULL,
+)
+
+CREATE TABLE SellerAddress
+(
+	SellerAddressId INT CONSTRAINT pkSellerAddress PRIMARY KEY IDENTITY(1,1),
+	SellerId INT CONSTRAINT fkSellerIdInSellerAddressTable FOREIGN KEY REFERENCES Sellers(SellerId) NOT NULL,
+	AddressId INT CONSTRAINT fkAddressIdInSellerAddressTable FOREIGN KEY REFERENCES Addresses(AddressId) NOT NULL
+)
+
+CREATE TABLE Customers
+(
+	CustomerId INT CONSTRAINT pkCustomers PRIMARY KEY IDENTITY(1,1),
+	CustomerName VARCHAR(255) NOT NULL,
+	Email VARCHAR(255) NOT NULL CONSTRAINT unqCustomerEmail UNIQUE,
+	ContactNumber VARCHAR(15) NOT NULL CONSTRAINT unqCustomerContactNumber UNIQUE,
+	DOB DATE NOT NULL,
+	Gender VARCHAR(6) NOT NULL,
+	Password VARCHAR(50),
+)
+
+CREATE TABLE CustomerAddress
+(
+	CustomerAddressId INT CONSTRAINT pkCustomerAddress PRIMARY KEY IDENTITY(1,1),
+	CustomerId INT CONSTRAINT fkCustomerIdInCustomerAddressTable FOREIGN KEY REFERENCES Customers(CustomerId) NOT NULL,
+	AddressId INT CONSTRAINT fkAddressIdInCustomerAddressTable FOREIGN KEY REFERENCES Addresses(AddressId) NOT NULL
+)
+
+CREATE TABLE Wishlist
+(
+	ProductId INT CONSTRAINT fkProductIdInWishlistTable FOREIGN KEY REFERENCES Products(ProductId) NOT NULL,
+	CustomerId INT CONSTRAINT fkCustomerIdInWishlistTable FOREIGN KEY REFERENCES Customers(CustomerId) NOT NULL
+)
+
+CREATE TABLE Bag
+(
+	ProductId INT CONSTRAINT fkProductIdInBagTable FOREIGN KEY REFERENCES Products(ProductId) NOT NULL,
+	CustomerId INT CONSTRAINT fkCustomerIdInBagTable FOREIGN KEY REFERENCES Customers(CustomerId) NOT NULL,
+	Size VARCHAR(5) NOT NULL,
+	Quantity TINYINT NOT NULL
+)
+
+CREATE TABLE Orders
+(
+	OrderId INT CONSTRAINT pkOrders PRIMARY KEY IDENTITY(1,1),
+	CustomerId INT CONSTRAINT fkCustomerIdInOrdersTable FOREIGN KEY REFERENCES Customers(CustomerId) NOT NULL,
+	OrderDate DATE NOT NULL
+)
+
+CREATE TABLE OrderDetails
+(
+	OrderDetailsId INT CONSTRAINT pkOrdersDetails PRIMARY KEY IDENTITY(1,1),
+	OrderId INT CONSTRAINT fkOrderIdInOrderDetailsTable FOREIGN KEY REFERENCES Orders(OrderId),
+	ProductId INT CONSTRAINT fkProductIdInOrderDetailsTable FOREIGN KEY REFERENCES Products(ProductId) NOT NULL,
+	Size VARCHAR(5) NOT NULL,
+	Quantity TINYINT NOT NULL,
+	SalePrice MONEY NOT NULL,
+	TotalPrice MONEY NOT NULL
+)
