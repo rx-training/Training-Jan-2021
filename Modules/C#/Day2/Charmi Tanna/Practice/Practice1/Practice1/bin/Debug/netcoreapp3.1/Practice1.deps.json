@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Practice1/1.0.0": {
+        "dependencies": {
+          "StudentInfo": "1.0.0.0"
+        },
+        "runtime": {
+          "Practice1.dll": {}
+        }
+      },
+      "StudentInfo/1.0.0.0": {
+        "runtime": {
+          "StudentInfo.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Practice1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StudentInfo/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
