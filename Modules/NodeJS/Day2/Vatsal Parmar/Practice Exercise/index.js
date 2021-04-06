@@ -42,16 +42,21 @@ fs.writeFile("demo.txt", content, { flag: "w+" }, (err) => {
   }
 });
 
-async function read() {
-  await fs.readFile("person.txt", "utf8", (err, data) => {
+const readData = async (x) => {
+  fs.readFile(x, "utf8", (err, data) => {
+    if (err) {
+      console.log(chalk.red(err));
+    }
     console.log(chalk.green(data));
   });
-  await fs.readFile("demo.txt", "utf8", (err, data) => {
-    console.log(chalk.green(data));
-  });
+};
+
+async function read(x, y) {
+  await readData(x);
+  await readData(y);
 }
 
-read();
+read("demo.txt", "test.txt");
 
 // 5. Write your address in one txt file and find out how many consonants are there.
 
@@ -90,7 +95,8 @@ try {
 } catch (e) {
   console.log(chalk.red(err));
 }
-// 7. Create one folder files and move person.txt in that file.
+
+//7. Create one folder files and move person.txt in that file.
 
 const folderName = "./Test";
 
