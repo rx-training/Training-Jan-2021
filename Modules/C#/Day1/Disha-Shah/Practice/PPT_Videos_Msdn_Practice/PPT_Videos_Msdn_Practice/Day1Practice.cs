@@ -50,7 +50,7 @@ namespace PPT_Videos_Msdn_Practice
     //    }
     //}
 
-    class Program
+    class Day1Practice
     {
         public static void TestIfElse(int n)
         {
@@ -595,14 +595,14 @@ namespace PPT_Videos_Msdn_Practice
             int num;
             Console.WriteLine("Enter a number:");
             num = Convert.ToInt32(Console.ReadLine());
-            Program.TestIfElse(num);
+            Day1Practice.TestIfElse(num);
 
             //function having switch statement, returns a value 
             char opr;
             float result;
             Console.WriteLine("Enter Operator:");
             opr = Convert.ToChar(Console.ReadLine());
-            result = Program.TestSwitch(number1, number2, opr);
+            result = Day1Practice.TestSwitch(number1, number2, opr);
             Console.WriteLine("Result: {0}", result);
 
             //while loop
@@ -633,7 +633,7 @@ namespace PPT_Videos_Msdn_Practice
                 Console.WriteLine("The value of i = {0}", i);
             }
 
-            Console.WriteLine("Factorial ans is : {0}", Program.Factorial(5));
+            Console.WriteLine("Factorial ans is : {0}", Day1Practice.Factorial(5));
 
             /*-------------CALCULATOR-------------*/
 

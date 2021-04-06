@@ -110,8 +110,7 @@ namespace PPT_Videos_MSDN_Practice
         private string firstName;
 
         public string FirstName2 { get; private set; }
-        // remaining implementation removed from listing
-
+        
         public string LastName { get; set; }
 
         public string FullName { get { return $"{FirstName} {LastName}"; } }

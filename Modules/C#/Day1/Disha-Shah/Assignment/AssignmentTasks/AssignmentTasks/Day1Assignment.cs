@@ -10,7 +10,7 @@ namespace AssignmentTasks
         Thursday = 3,
         Friday = 4
     }
-    class Program
+    class Day1Assignment
     {
         static void Main(string[] args)
         {
