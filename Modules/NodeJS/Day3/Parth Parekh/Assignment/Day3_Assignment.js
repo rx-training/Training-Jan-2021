@@ -31,14 +31,17 @@ class Mobike {
     }
 
     compute() {
+        const fiveDaysCharges = 500;
+        const nextFiveDaysCharges = 400;
+        const restOftheDaysCharges = 200;
         if (this.Days >= 0 && this.Days <= 5) {
-            this.charges = this.Days * 500;
+            this.charges = this.Days * fiveDaysCharges;
         } else if (this.Days > 5 && this.Days <= 10) {
             this.charges = 2500;
-            this.charges += (this.Days - 5) * 400;
+            this.charges += (this.Days - 5) * nextFiveDaysCharges;
         } else if (this.Days > 10) {
             this.charges = 4500;
-            this.charges += (this.Days - 10) * 200;
+            this.charges += (this.Days - 10) * restOftheDaysCharges;
         }
     }
     display() {
