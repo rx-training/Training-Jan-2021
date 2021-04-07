@@ -18,7 +18,7 @@ namespace Assignment3
              static void Main(string[] args)
             {
                 Console.WriteLine("Enter Week day:");
-                int number = Convert.ToInt32(Console.ReadLine());
+            int number = Convert.ToInt32(Console.ReadLine());
                 switch (number)
                 {
                     case 1:
