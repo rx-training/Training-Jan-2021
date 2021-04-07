@@ -6,13 +6,49 @@ namespace AssignmentTasks
     {
         static void Main(string[] args)
         {
-            Employee emp1 = new PartTime();
-            emp1.Get();
-            emp1.Display();
+            bool empMore = true;
+            while (empMore)
+            {
 
-            Employee emp2 = new FullTime();
-            emp2.Get();
-            emp2.Display();
+                Employee emp;
+
+                Console.WriteLine("Select from below options:");
+                Console.WriteLine("Enter p : PartTime Employee information");
+                Console.WriteLine("Enter f : FullTime Employee information");
+                char e = Convert.ToChar(Console.ReadLine());
+                switch (e)
+                {
+                    case 'p':
+                        emp = new PartTime();
+                        EmployeeDisplay(emp);
+                        break;
+                    case 'f':
+                        emp = new FullTime();
+                        EmployeeDisplay(emp);
+                        break;
+                    default:
+                        Console.WriteLine("Select valid choice");
+                        break;
+                }
+
+                Console.WriteLine("Want to see information of more employees? (Y/N)");
+                char ans = Convert.ToChar(Console.ReadLine());
+                if (ans == 'Y')
+                {
+                    empMore = true;
+                }
+                else
+                {
+                    empMore = false;
+                }
+            }
+
+        }
+
+        static void EmployeeDisplay(Employee emp)
+        {
+            emp.Get();
+            emp.Display();
         }
     }
 }
