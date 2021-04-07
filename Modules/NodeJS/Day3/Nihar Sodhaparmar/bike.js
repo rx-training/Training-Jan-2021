@@ -41,16 +41,20 @@ class MoBike
     }
 
     compute(){
+        
         let charge;
+        let chargeForFirstFiveDays = 500;
+        let chargeForSecondFiveDays = 400;
+        let chargeForRemainingDays = 200;
 
         if(this.days > 10){
-            charge = (5 * 500) + (5* 400) + ((this.days-10) * 200);
+            charge = (5 * chargeForFirstFiveDays) + (5 * chargeForSecondFiveDays) + ((this.days-10) * chargeForRemainingDays);
         }
         else if(this.days > 5){
-            charge = (5 * 500) + ((this.days-5) * 400);
+            charge = (5 * chargeForFirstFiveDays) + ((this.days-5) * chargeForSecondFiveDays);
         }
         else{
-            charge = this.days * 500;
+            charge = this.days * chargeForFirstFiveDays;
         }
 
         return charge;

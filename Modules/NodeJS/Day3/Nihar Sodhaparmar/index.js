@@ -32,7 +32,8 @@ console.log();
 console.log('-------------------- Assignment --------------------')
 var { MoBike } = require('./bike');
 
-var bike1 = new MoBike('Nihar', 'GJ07', '7202016399', 11);
+var args = process.argv.slice(2);
+var bike1 = new MoBike(args[0], args[1], args[2], parseInt(args[3]));
 
 console.log(`Bike No. : ${bike1.getBikeNumber()}
 Phone No. : ${bike1.getPhoneNumber()}
