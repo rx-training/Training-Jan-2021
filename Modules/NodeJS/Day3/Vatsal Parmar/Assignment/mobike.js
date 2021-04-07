@@ -7,14 +7,17 @@ class Mobike {
   }
   compute() {
     var rent = 0;
+    let rentFive = 500;
+    let rentAfterFive = 400;
+    let rentAfterTen = 200;
     if (this.Days >= 0 && this.Days <= 5) {
-      rent = this.Days * 500;
+      rent = this.Days * rentFive;
     } else if (this.Days > 5 && this.Days <= 10) {
-      rent = 2500;
-      rent += (this.Days - 5) * 400;
+      rent = 5 * rentFive;
+      rent += (this.Days - 5) * rentAfterFive;
     } else if (this.Days > 10) {
-      rent = 4500;
-      rent += (this.Days - 10) * 200;
+      rent = 5 * rentFive + 5 * rentAfterFive;
+      rent += (this.Days - 10) * rentAfterTen;
     } else {
       rent = "Invalid Number Of Days";
     }
