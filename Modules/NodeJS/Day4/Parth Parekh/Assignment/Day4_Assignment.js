@@ -21,6 +21,8 @@ const url = require("url");
 const querystring = require("querystring");
 
 http.createServer((req, res) => {
+    const myURL = new URL("http://localhost:3001" + req.url);
+    console.log(myURL.pathname);
     if (req.url === "/") {
         fs.readFile("./person.json", "utf8", (err, data) => {
             if (err) {
@@ -32,10 +34,7 @@ http.createServer((req, res) => {
             res.end();
         });
     }
-
-    const myURL = new URL("http://localhost:3001" + req.url);
-    console.log(myURL.pathname);
-    if (myURL.pathname == "/product") {
+    else if (myURL.pathname == "/product") {
         let sum = 0;
         let param1 = parseInt(myURL.searchParams.get("param1"));
         let param2 = parseInt(myURL.searchParams.get("param2"));
@@ -45,7 +44,7 @@ http.createServer((req, res) => {
         res.end();
     }
 
-    if (myURL.pathname == "/vowefind") {
+    else if (myURL.pathname == "/vowefind") {
         let input = myURL.searchParams.get("input");
         let data = input.toLowerCase().split("");
         console.log(data);
@@ -64,13 +63,25 @@ http.createServer((req, res) => {
         }
         res.end();
     }
-
-    if (myURL.pathname == "/upload") {
+    else if (myURL.pathname == "/upload") {
         fs.readFile("./index.html", "utf8", (err, data) => {
             if (err) {
                 console.error(err);
             }
             console.log(data);
+            fs.mkdir(__dirname+"/demo",  (err) => {
+                if (err) throw err;
+                else {
+                    console.log('Folder Created');   
+                }
+            });
+            fs.writeFile(__dirname+"/demo/person.txt", data, { flag: "w+" }, (err) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                console.log("File Created");
+            });
             res.write(data);
             res.end();
         });
