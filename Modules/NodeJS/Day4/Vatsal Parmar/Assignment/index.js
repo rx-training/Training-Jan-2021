@@ -1,19 +1,18 @@
 const http = require("http");
 const fs = require("fs");
-const querystring = require("querystring");
+var portNum = 3001;
+var uri = "http://localhost:" + portNum;
 
 const server = http.createServer((req, res) => {
-  // Checking for query
   var q = req.url.indexOf("?");
-  if (q == -1) {
-    u = req.url;
-  } else {
-    var u = req.url.substring(0, q);
-  }
+
+  //Creating URL Instance
+
+  var myUrl = new URL(uri + req.url);
 
   //1.Write a Nodejs server that listen on port 3001 and which will read person.json and return a
   //response in JSON format.
-  if (u === "/") {
+  if (myUrl.pathname === "/") {
     fs.readFile("person.json", "utf-8", (err, data) => {
       if (err) {
         console.log(err);
@@ -27,10 +26,11 @@ const server = http.createServer((req, res) => {
 
   /* 2. Write a Nodejs server that serves as a RESTFUL API that takes two parameters in a GET call 
   and produces their sum. http://localhost:3001/product?param1=5&param2=10 */
-  if (u === "/product") {
+  if (myUrl.pathname === "/product") {
     if (q != -1) {
-      let query = querystring.parse(req.url.slice(q + 1));
-      let product = parseInt(query.param1) + parseInt(query.param2);
+      let product =
+        parseInt(myUrl.searchParams.get("param1")) +
+        parseInt(myUrl.searchParams.get("param2"));
       res.write("Sum = " + product);
     } else {
       res.write("Find Sum");
@@ -41,10 +41,10 @@ const server = http.createServer((req, res) => {
   /* 3. Write a Nodejs server that serves as a RESTFUL API that accepts a string as an input name and 
   returns the first vowel character from the string.
   http://localhost:3001/vowefind?input=rita */
-  if (u === "/vowefind") {
+  if (myUrl.pathname === "/vowefind") {
     if (q != -1) {
-      let query = querystring.parse(req.url.slice(q + 1));
-      let arr = query.input.split("");
+      let query = myUrl.searchParams.get("input");
+      let arr = query.split("");
       let vovel;
       for (let i = 0; i < arr.length; i++) {
         if (
@@ -75,8 +75,12 @@ const server = http.createServer((req, res) => {
   }
 
   /* 4. Write a Nodejs server that serve as a RESTFUL API that accepts a file content and 
-  writes them to the disk. http://localhost:3001/upload */
-  if (u === "/upload") {
+  writes them to the disk.
+  for upload functionality. you need to keep one html file in your local system and then you need to
+  read that file with the help of fs and send the response to the server in another folder
+  http://localhost:3001/upload */
+
+  if (myUrl.pathname === "/upload") {
     fs.readFile("content.html", "utf-8", (err, data) => {
       if (err) {
         console.log(err);
@@ -88,5 +92,5 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(3001);
-console.log("Listening on 3001");
+server.listen(portNum);
+console.log("Listening on " + portNum);
