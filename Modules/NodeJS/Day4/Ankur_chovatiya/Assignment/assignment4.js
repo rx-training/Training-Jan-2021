@@ -11,7 +11,7 @@ http.createServer((req , res)=>{
 
     if(req.url == '/upload')
     {
-        fs.readFile('./index.js' ,'utf8', (err , data)=>{
+        fs.readFile('./index.html' ,'utf8', (err , data)=>{
             if(err) throw err;
             console.log(data);
             res.write(data);
