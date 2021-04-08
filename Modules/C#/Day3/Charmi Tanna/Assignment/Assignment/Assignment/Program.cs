@@ -69,7 +69,7 @@ namespace Assignment
         }
         public override int Salary()
         {
-            salary = 0;
+
             salary = Basic + DA + HRA + TA;
             return salary;
         }
@@ -83,14 +83,27 @@ namespace Assignment
     {
         static void Main(string[] args)
         {
-            PartTime p = new PartTime();
-            p.Get();
-            p.Salary();
-            p.Display();
-            FullTime f = new FullTime();
-            f.Get();
-            f.Salary();
-            f.Display();
+            static void info(Employee emp)
+            {
+                emp.Get();
+                emp.Salary();
+                emp.Display();
+            }
+
+            int choice;
+            Console.WriteLine("Enter choice between 1 for part time employee and 2 for full time employee");
+            choice = Convert.ToInt32(Console.ReadLine());
+            switch(choice)
+            {
+                case 1:
+                    Employee emp = new PartTime();
+                    info(emp);
+                    break;
+                case 2:
+                    emp = new FullTime();
+                    info(emp);
+                    break;
+            }            
         }
     }
 }
