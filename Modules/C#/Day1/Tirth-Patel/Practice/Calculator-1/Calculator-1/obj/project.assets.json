@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "CalculatorLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/CalculatorLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CalculatorLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CalculatorLibrary/1.0.0": {
+      "type": "project",
+      "path": "C:\\Users\\tirth\\source\\repos\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj",
+      "msbuildProject": "C:\\Users\\tirth\\source\\repos\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "CalculatorLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\tirth\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\tirth\\source\\repos\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj": {
+              "projectPath": "C:\\Users\\tirth\\source\\repos\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

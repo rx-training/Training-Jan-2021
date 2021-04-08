@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankApplication", "BankApplication\BankApplication.csproj", "{109CA2D9-A4E3-45DC-8E9B-9D850E37AC37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0AE45CA-CB64-4B89-924B-258A809E3CA6}"
+	ProjectSection(SolutionItems) = preProject
+		BankAccount.cs = BankAccount.cs
+		Transaction.cs = Transaction.cs
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator-1", "F:\day4\Modules\C#\Day1\Tirth-Patel\Practice\Calculator-1\Calculator-1\Calculator-1.csproj", "{018A04BD-2EE3-4360-A165-B6F633973E22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{109CA2D9-A4E3-45DC-8E9B-9D850E37AC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{109CA2D9-A4E3-45DC-8E9B-9D850E37AC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{109CA2D9-A4E3-45DC-8E9B-9D850E37AC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{109CA2D9-A4E3-45DC-8E9B-9D850E37AC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{018A04BD-2EE3-4360-A165-B6F633973E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{018A04BD-2EE3-4360-A165-B6F633973E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{018A04BD-2EE3-4360-A165-B6F633973E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{018A04BD-2EE3-4360-A165-B6F633973E22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13057A73-9484-451D-9434-7A097B9F1354}
+	EndGlobalSection
+EndGlobal

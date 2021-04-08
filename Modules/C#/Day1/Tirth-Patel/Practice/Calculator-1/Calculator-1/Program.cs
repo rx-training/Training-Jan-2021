@@ -1,41 +1,9 @@
 ﻿using System;
+using CalculatorProgram;
 
 namespace Calculator_1
 {
-    class Calculator_1
-    {
-        public static double DoOperation(double num1, double num2, String op)
-        { Double result = Double.NaN;
-             switch(op)
-                {
-                case "a":
-                    result = num1 + num2;
-                break;
-
-                case "s":
-                    result = num1 - num2;
-                    break;
-                case "m":
-                    result = num1 * num2;
-                    break;
-                case "d":
-                    if(num2 != 0)
-                    {
-                        result = num1 / num2;
-                    }
-                    break;
-                default:
-                    Console.WriteLine("enter valid option");
-                        break;
-
-            }
-            return result;
-
-
-
-        }
-    
-    }
+   
     class program
     {
         static void Main(string[] args)
@@ -76,8 +44,8 @@ namespace Calculator_1
                 String op = Console.ReadLine();
                 try
                 {
-                    result = Calculator_1.DoOperation(cleanNum1, cleanNum2, op);
-                    if(double.IsNaN(result))
+                    result =Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                    if (double.IsNaN(result))
                     {
                         Console.WriteLine("this will end in mathematical error");
 
