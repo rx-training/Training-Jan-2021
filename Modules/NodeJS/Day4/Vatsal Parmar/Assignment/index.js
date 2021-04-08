@@ -22,11 +22,9 @@ const server = http.createServer((req, res) => {
       }
       res.end();
     });
-  }
-
-  /* 2. Write a Nodejs server that serves as a RESTFUL API that takes two parameters in a GET call 
-  and produces their sum. http://localhost:3001/product?param1=5&param2=10 */
-  if (myUrl.pathname === "/product") {
+  } else if (myUrl.pathname === "/product") {
+    /* 2. Write a Nodejs server that serves as a RESTFUL API that takes two parameters in a GET call 
+    and produces their sum. http://localhost:3001/product?param1=5&param2=10 */
     if (q != -1) {
       let product =
         parseInt(myUrl.searchParams.get("param1")) +
@@ -36,12 +34,10 @@ const server = http.createServer((req, res) => {
       res.write("Find Sum");
     }
     res.end();
-  }
-
-  /* 3. Write a Nodejs server that serves as a RESTFUL API that accepts a string as an input name and 
-  returns the first vowel character from the string.
-  http://localhost:3001/vowefind?input=rita */
-  if (myUrl.pathname === "/vowefind") {
+  } else if (myUrl.pathname === "/vowefind") {
+    /* 3. Write a Nodejs server that serves as a RESTFUL API that accepts a string as an input name and 
+    returns the first vowel character from the string.
+    http://localhost:3001/vowefind?input=rita */
     if (q != -1) {
       let query = myUrl.searchParams.get("input");
       let arr = query.split("");
@@ -72,22 +68,35 @@ const server = http.createServer((req, res) => {
       res.write("Find Vovel");
     }
     res.end();
-  }
-
-  /* 4. Write a Nodejs server that serve as a RESTFUL API that accepts a file content and 
-  writes them to the disk.
-  for upload functionality. you need to keep one html file in your local system and then you need to
-  read that file with the help of fs and send the response to the server in another folder
-  http://localhost:3001/upload */
-
-  if (myUrl.pathname === "/upload") {
+  } else if (myUrl.pathname === "/upload") {
+    /* 4. Write a Nodejs server that serve as a RESTFUL API that accepts a file content and 
+    writes them to the disk.
+    for upload functionality. you need to keep one html file in your local system and then you need to
+    read that file with the help of fs and send the response to the server in another folder
+    http://localhost:3001/upload */
     fs.readFile("content.html", "utf-8", (err, data) => {
       if (err) {
         console.log(err);
+        res.end();
       } else {
-        res.write(data);
+        let file = data;
+        const folderName = "./Uploads";
+        try {
+          if (!fs.existsSync(folderName)) {
+            fs.mkdirSync(folderName);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+        fs.writeFile("./Uploads/upload.txt", file, { flag: "w+" }, (err) => {
+          if (err) {
+            console.log(err);
+            res.end();
+          }
+          res.write("File Upladed Successfully");
+          res.end();
+        });
       }
-      res.end();
     });
   }
 });
