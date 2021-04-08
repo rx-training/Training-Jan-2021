@@ -166,8 +166,8 @@ namespace Day4Practice
             string[] s13 = { "Apple", "Guava", "Banana" };
             string[] s14 = new string[s13.Length];
             s13.CopyTo(s14, 0);
-            Array.Sort(s14);
-            foreach (var item in s14)
+            Array.Sort(s13);
+            foreach (var item in s13)
             {
                 Console.WriteLine(item);
             }
