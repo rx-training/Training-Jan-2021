@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Transaction">
-      <HintPath>..\Transaction\bin\Debug\netstandard2.0\Transaction.dll</HintPath>
+    <Reference Include="BankAccount">
+      <HintPath>..\BankAccount\bin\Debug\netcoreapp3.1\BankAccount.dll</HintPath>
     </Reference>
   </ItemGroup>
 
