@@ -37,10 +37,10 @@ class Mobike {
         if (this.Days >= 0 && this.Days <= 5) {
             this.charges = this.Days * fiveDaysCharges;
         } else if (this.Days > 5 && this.Days <= 10) {
-            this.charges = 2500;
+            this.charges = fiveDaysCharges * 5;
             this.charges += (this.Days - 5) * nextFiveDaysCharges;
         } else if (this.Days > 10) {
-            this.charges = 4500;
+            this.charges = (fiveDaysCharges * 5) + (nextFiveDaysCharges * 5);
             this.charges += (this.Days - 10) * restOftheDaysCharges;
         }
     }
