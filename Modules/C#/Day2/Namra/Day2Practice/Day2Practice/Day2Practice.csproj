@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="stuentInfo">
+      <HintPath>..\stuentInfo\bin\Debug\netstandard2.0\stuentInfo.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
