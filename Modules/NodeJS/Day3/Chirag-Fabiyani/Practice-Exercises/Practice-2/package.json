@@ -1,0 +1,14 @@
+{
+  "name": "practice-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Display.js",
+  "scripts": {
+    "test": "nodemon Display.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

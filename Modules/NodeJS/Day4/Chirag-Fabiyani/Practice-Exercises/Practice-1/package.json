@@ -1,0 +1,15 @@
+{
+  "name": "practice-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Practice-1.js",
+  "scripts": {
+    "test": "nodemon Practice-1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.7",
+    "url-join": "^4.0.1"
+  }
+}
