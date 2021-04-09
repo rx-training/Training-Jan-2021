@@ -1,0 +1,17 @@
+{
+  "name": "rentcal",
+  "version": "1.0.0",
+  "description": "Rent Calculator For Rambo Rental Bikes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "serve": "nodemon index"
+  },
+  "author": "Vatsal",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "nodemon": "^2.0.7"
+  }
+}
