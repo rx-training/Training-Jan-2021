@@ -1,0 +1,10 @@
+Scenario 4-2: Comparing Clustered and Non-Clustered Indexes
+
+1.only one clustered index per table is allowed where as you can have more than one non clustered index.
+
+2.Clustered index is faster than non clustered index , because the clustered index has top refer back to 
+	the table , if select column is not present in the index
+
+3. Clustered index determines the storage order of rows in table and hence doesnt require addintional 
+	diskspace but where as Non clustered index is stored speratelty from table so additional 
+	Storage space is required.

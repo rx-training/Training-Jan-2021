@@ -32,9 +32,10 @@ WHERE DAY(HireDate) =7 OR MONTH(HireDate) = 7
 
 SELECT LastName,
 	LEN(FirstName) AS'LENGTH OF NAME'
+
 	
 	FROM Employees
-	WHERE LastName LIKE ('__C%')
+	WHERE  CHARINDEX('c',LastName) > 2
 
 	--Write a query to extract the last 4 character of PhoneNumber
 

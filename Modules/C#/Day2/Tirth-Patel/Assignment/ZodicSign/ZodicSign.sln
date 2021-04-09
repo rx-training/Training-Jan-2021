@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZodicSign", "ZodicSign\ZodicSign.csproj", "{B0883321-5FAC-4B05-AF29-44825316EFBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment", "..\Assignment\Assignment.csproj", "{C90FF269-1312-4DD0-8190-A118C3B0BE74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0883321-5FAC-4B05-AF29-44825316EFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0883321-5FAC-4B05-AF29-44825316EFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0883321-5FAC-4B05-AF29-44825316EFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0883321-5FAC-4B05-AF29-44825316EFBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C90FF269-1312-4DD0-8190-A118C3B0BE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C90FF269-1312-4DD0-8190-A118C3B0BE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C90FF269-1312-4DD0-8190-A118C3B0BE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C90FF269-1312-4DD0-8190-A118C3B0BE74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8EC3614-B044-4481-8B93-7B53049855A2}
+	EndGlobalSection
+EndGlobal

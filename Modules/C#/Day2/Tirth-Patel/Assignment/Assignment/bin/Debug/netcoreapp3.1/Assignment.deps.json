@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Assignment/1.0.0": {
+        "dependencies": {
+          "ZodicSign": "1.0.0"
+        },
+        "runtime": {
+          "Assignment.dll": {}
+        }
+      },
+      "ZodicSign/1.0.0": {
+        "runtime": {
+          "ZodicSign.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Assignment/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ZodicSign/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
