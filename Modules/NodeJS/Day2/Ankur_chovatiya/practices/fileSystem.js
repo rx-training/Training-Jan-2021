@@ -65,7 +65,7 @@ async function fread() {
                 console.error(err)
                 return
               }
-            setTimeout(() => {res(data)}, 3000)
+            setTimeout(() => {res(data)}, 5000)
         });
     });
 
