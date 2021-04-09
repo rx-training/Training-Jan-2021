@@ -1,0 +1,14 @@
+DECLARE @find VARCHAR(30); -- ONE VARIABLE AT A TIME 
+DECLARE @VAR1 INT , @VAR2 INT -- TWO VARIABLE AT A TIME 
+
+SET @VAR1 = 10;
+SET @VAR2 = 20;
+
+PRINT @VAR1;
+PRINT @VAR2;
+
+
+SET @find = 'Man%';
+
+SELECT FirstName , LastName FROM Person.Person WHERE LastName LIKE @find
+GO
