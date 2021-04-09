@@ -48,6 +48,7 @@ SET @json = N'[
 	{"id":5, "info":{"Name":"Philip", "Address":"Alkapuri", "City":"Vadodara", "DOB":"26/07/2003", "Standard":"9"}}
 ]';
 
+
 --Converting JSON data into row set
 SELECT * FROM OPENJSON(@json)
 	WITH (
