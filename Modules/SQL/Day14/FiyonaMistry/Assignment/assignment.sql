@@ -9,7 +9,7 @@ BEGIN
 	SET TotalFees = 5000
 	WHERE StudentID IN
 		(SELECT StudentID
-		FROM CoursesEnrolled)
+		FROM inserted)
 END
 
 
