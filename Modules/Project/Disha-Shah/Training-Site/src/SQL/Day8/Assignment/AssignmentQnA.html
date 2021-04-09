@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../../../css/font-awesome.min.css">
         <link rel="stylesheet" href="../../../css/bootstrap.css">
         <link rel="stylesheet" href="../../../css/style.css">
-        <title>Practice</title>
+        <title>Assignment</title>
     </head>
 
     <body>
@@ -102,7 +102,7 @@
                                 <a href="#practiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Practice</a>
                                 <ul class="collapse list-unstyled" id="practiceSubmenu">
                                     <li>
-                                        <a href="Practice.html" class="pl-5">Practice Tasks</a>
+                                        <a href="../../Day2/Practice/Practice.html" class="pl-5">Practice Tasks</a>
                                     </li>
                                     
                                 </ul>
@@ -112,7 +112,7 @@
                                 <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignment</a>
                                 <ul class="collapse list-unstyled" id="assignmentSubmenu">
                                     <li>
-                                        <a href="../Assignment/Assignment.html" class="pl-5">Assignment Tasks</a>
+                                        <a href="../../Day2/Assignment/Assignment.html" class="pl-5">Assignment Tasks</a>
                                     </li>
                                     
                                 </ul>
@@ -197,7 +197,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="#day6Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day6</a>
                         <ul class="collapse list-unstyled" id="day6Submenu">
@@ -258,7 +258,7 @@
                                 <a href="#practiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Practice</a>
                                 <ul class="collapse list-unstyled" id="practiceSubmenu">
                                     <li>
-                                        <a href="../../Day8/Practice/Practice.html" class="pl-5">Practice Tasks</a>
+                                        <a href="../Practice/Practice.html" class="pl-5">Practice Tasks</a>
                                     </li>
                                     
                                 </ul>
@@ -268,10 +268,10 @@
                                 <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignment</a>
                                 <ul class="collapse list-unstyled" id="assignmentSubmenu">
                                     <li>
-                                        <a href="../../Day8/Assignment/Assignment.html" class="pl-5">Assignment Tasks</a>
+                                        <a href="Assignment.html" class="pl-5">Assignment Tasks</a>
                                     </li>
                                     <li>
-                                        <a href="../../Day8/Assignment/AssignmentQnA.html" class="pl-5">SQL MTA QnA</a>
+                                        <a href="AssignmentQnA.html" class="pl-5">SQL MTA QnA</a>
                                     </li>
                                     
                                 </ul>
@@ -296,186 +296,97 @@
                 </nav>
 
                 <div class="m-3">
-                    <h4>PPT & Videos Practice</h4>
+                    <h4>Assignment QnA</h4>
                     <pre>
-                        USE AdventureWorks2012
+                        SQL-MTA Assignment:
+
+                        3. A primary key can contain NULL values.(T/F)
+                        Ans. False
                         
-
-                        --Created Table Employees from SSMS UI
-                        SELECT * FROM Employees
+                        4. A clustered index usually improves performance when inserting data.(T/F)
+                        Ans.True 
                         
-
-                        INSERT INTO Employees (EmpId, EmpName, EmpDesignation, Address) VALUES (1, 'Reena', '.NET', 'Ahmedabad')
+                        5. A table can contain only one clustered index.(T/F)
+                        Ans. True
                         
-
-                        INSERT INTO Employees (EmpId, EmpDesignation, EmpName) VALUES (2,'PHP', 'Reema')
+                        2. The value of a primary key must be ___.
+                        Ans. Unique
                         
-
-                        INSERT INTO Employees VALUES (3,'Rita','NODEJS','Mumbai')
+                        3. A foreign key works in conjunction with primary key or unique constraints to enforce 
+                        ____________ between tables.
+                        Ans.Referential Integrity
                         
-
-                        INSERT INTO Employees VALUES (4,'Rima','ReactJS',NULL)
+                        4. Add an index to one or more columns to speed up data ____________.
+                        Ans.Retrieval
                         
-
-                        INSERT INTO Employees (EmpId, EmpDesignation, EmpName) VALUES (5,'QA', 'Meena'),
-                                                                                    (6,'.NET','Minal')
-                                                                                    
-
-                        UPDATE Employees SET Address='Ahmedabad'
+                        5. Values in a clustered index are ____________.
+                        Ans.Sorted
                         
-
-
-                        UPDATE Employees SET Address='Mumbai', EmpDesignation='.NET'
+                        1. Which of the following is not a constraint?
+                        a. CHECK
+                        b. DEFAULT
+                        c. UNIQUE
+                        d. INDEX
+                        Ans. d) INDEX
                         
-
-                        UPDATE Employees SET Address='Ahmedabad' WHERE EmpName LIKE 'M%'
+                        2. Which of the following things can help speed data retrieval?
+                        a. A DEFAULT constraint
+                        b. A primary key constraint
+                        c. A clustered index
+                        d. A foreign key constraint
+                        Ans. c) A clustered index
                         
-
-
-                        UPDATE Employees SET Address='Bangalore' WHERE EmpName LIKE 'Ri_a'
+                        4. Which of the following statements is not true with regard to foreign keys?
+                        a. A foreign key is a combination of one or more columns used to establish and enforce 
+                        a link between the data in two tables.
+                        b. You can create a foreign key by defining a foreign key constraint when you create or 
+                        alter a table.
+                        c. A foreign key enforces referential integrity by ensuring only valid data is stored.
+                        d. A table can contain only one foreign key.
+                        Ans. d)A table can contain only one foreign key.
                         
-
-                        SELECT * FROM Person.Address
+                        5. Consider using a clustered index when:
+                        a. Columns contain a large number of distinct values
+                        b. Columns are accessed sequentially
+                        c. Columns undergo frequent changes
+                        d. Queries return large result sets
+                        Ans. b) Columns are accessed sequentially
                         
-
-                        UPDATE Person.Address SET ModifiedDate = GETDATE();
+                        7. Which of the following could not be used as a primary key?
+                        a. A Social Security number
+                        b. An address
+                        c. An employee number
+                        d. The serial number of an electronic component
+                        Ans. b) An address
                         
-
-                        SELECT * FROM Sales.SalesPerson
+                        8. How many clustered indexes can you have for a database?
+                        a. 1
+                        b. 2
+                        c. 4
+                        d. 8
+                        Ans. a) 1
                         
-
-                        UPDATE Sales.SalesPerson SET Bonus=6000, CommissionPct= .10, SalesQuota=NULL
+                        9. What is the name for the situation in which more than one columns act as a primary 
+                        key?
+                        a. Composite primary key
+                        b. Escalating key
+                        c. Foreign key
+                        d. Constraint key
+                        Ans. a) Composite primary key 
                         
-
-                        SELECT * FROM Production.Product
+                        Scenario 4-2: Comparing Clustered and Non-Clustered Indexes
+                        Your boss wants to speed things up on the company’s database server. Therefore, he is thinking of having you create a couple of indexes. He asks you to explain the advantages and disadvantages of creating a clustered index versus a non-clustered index. How should you respond
+                        Ans. 
+                        Clustered Index:
+                        1. Clustered indexes sort and store the data rows in the table based on their key values.
+                        2. There can be only one clustered index per table
+                        3. It can be unique 
                         
-
-                        UPDATE Production.Product SET Color=N'Metallic Red' WHERE Name LIKE N'Road-250%' AND Color=N'Red'
-                        
-
-                        UPDATE Production.Product SET ListPrice=ListPrice*2
-                        
-
-                        SELECT * FROM HumanResources.Employee
-                        
-
-                        SELECT BusinessEntityID, JobTitle, BirthDate, Gender INTO HumanResources.Emp FROM HumanResources.Employee WHERE BusinessEntityID<21
-                        
-
-                        SELECT * FROM HumanResources.Emp
-                        
-
-                        SELECT BusinessEntityId AS 'BusinessID', JobTitle AS 'Designation' FROM HumanResources.Emp
-                        
-
-                        SELECT BusinessEntityId AS 'BusinessID', JobTitle AS 'Designation', 'learning' AS 'Learning' FROM HumanResources.Emp
-                        
-
-                        SELECT BusinessEntityID, 'Designation: ', LoginID FROM HumanResources.Employee
-                        
-
-                        SELECT 'snow' + 'ball'
-                        
-
-
-                        SELECT BusinessEntityID, 'Designation: ' + LoginID AS 'DesignationID' FROM HumanResources.Employee
-                        
-
-                        SELECT * FROM HumanResources.Department
-                        
-
-                        SELECT Name + ' department comes under ' + GroupName + ' group' AS Department FROM HumanResources.Department
-                        
-
-                        SELECT * FROM HumanResources.EmployeePayHistory
-                        
-
-                        SELECT BusinessEntityID, Rate, PayFrequency, TotalPay = Rate * PayFrequency FROM HumanResources.EmployeePayHistory
-                        
-
-                        SELECT * FROM HumanResources.Department
-                        
-
-                        SELECT * FROM HumanResources.Department WHERE GroupName = 'Manufacturing' OR GroupName = 'Quality Assurance'
-                        
-
-                        SELECT BusinessEntityID, VacationHours FROM HumanResources.Employee WHERE VacationHours BETWEEN 20 AND 50
-                        
-
-
-                        SELECT BusinessEntityID, VacationHours FROM HumanResources.Employee WHERE VacationHours NOT BETWEEN 20 AND 50
-                        
-
-                        SELECT * FROM HumanResources.Employee
-                        
-
-                        SELECT BusinessEntityID, JobTitle, LoginID FROM HumanResources.Employee WHERE JobTitle IN ('Engineering Manager', 'Design Engineer')
-                        
-
-                        SELECT * FROM HumanResources.Department
-                        
-
-                        SELECT * FROM HumanResources.Department WHERE Name LIKE 'Pro%'
-                        
-
-                        SELECT * FROM HumanResources.EmployeeDepartmentHistory
-                        
-
-                        SELECT BusinessEntityID, EndDate FROM HumanResources.EmployeeDepartmentHistory WHERE EndDate IS NULL
-                        
-
-                        SELECT GroupName, DepartmentID, Name FROM HumanResources.Department ORDER BY GroupName
-                        
-
-
-                        SELECT GroupName, DepartmentID, Name FROM HumanResources.Department ORDER BY GroupName, DepartmentID
-                        
-
-
-                        SELECT GroupName, DepartmentID, Name FROM HumanResources.Department ORDER BY GroupName DESC
-                        
-
-
-                        SELECT GroupName, DepartmentID, Name FROM HumanResources.Department ORDER BY GroupName, DepartmentID DESC
-                        
-
-                        SELECT TOP 10 * FROM HumanResources.Department
-                        
-
-
-                        SELECT TOP 10 GroupName, DepartmentID, Name FROM HumanResources.Department ORDER BY GroupName DESC
-                        
-
-                        SELECT DISTINCT JobTitle FROM HumanResources.Employee WHERE JobTitle LIKE '%Designer'
-                        
-
-
-                        SELECT * 
-                        FROM HumanResources.EmployeeDepartmentHistory
-                        WHERE EndDate = NULL
-                        
-
-
-                        SELECT * 
-                        FROM HumanResources.EmployeeDepartmentHistory
-                        WHERE NOT (EndDate = NULL)
-                        
-
-
-                        SELECT * 
-                        FROM HumanResources.EmployeeDepartmentHistory
-                        WHERE EndDate IS NULL
-                        
-
-
-                        SELECT * 
-                        FROM HumanResources.EmployeeDepartmentHistory
-                        WHERE EndDate IS NOT NULL
-                        
-
-                        DELETE FROM Employees WHERE Address='Bangalore'
-
-                        
+                        Non Clustered Index:
+                        1. A nonclustered index contains the nonclustered index key values and each key value entry has a pointer to the data row that contains the key value.
+                        2. The pointer from an index row in a nonclustered index to a data row is called a row locator. The structure of the row locator depends on whether the data pages are stored in a heap or a clustered table. For a heap, a row locator is a pointer to the row. For a clustered table, the row locator is the clustered index key.
+                        3. It can be Unique.
+                        4. A table can have multiple non-clustered index.                         
                     </pre>
 
                 </div>

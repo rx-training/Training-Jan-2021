@@ -1,0 +1,122 @@
+BOOKMYSHOW CASE STUDY:
+
+Website contains many regions
+each region contains many cities
+each city contains many theatres and event venues
+
+--MOVIES
+each theatre contains many showtimes
+each showtime can be present in many theatres
+each showtime contains many screen for different theatres
+each screen contains many showtimes
+each screen contains many category of seats and only one movie to display at a time, but it can display different movies after certain time period
+each category of seats can be present in many screens
+each movie can have many screens by displaying in different theatres
+each category of seats contains many seat nos
+each movie can have many languages to watch in
+each language can have many movies
+each movie can have many film categories(2D, 3D, 4DX..)
+each film category can have many movies
+each movie can have many genres
+each genre can have many movies
+each movie can have only one cerification(UA,U,A)
+each certification can have many movies
+
+--EVENTS
+each event has one showtime
+each shotime can have many events on different venues
+each event has one event venue
+each event venue can have many events on different showtimes
+
+--USER & ADMIN
+customer, movie and selected seats information is used to make a movie booking
+customer and event information is used to make a event booking
+admin manages movies and events
+
+--ENTITIES
+1.Customer
+2.Admin
+3.Regions
+4.Cities
+5.Theatres
+6.Event Venues
+7.ShowTiming
+8.Screens
+9.SeatCategory
+10.Seats
+11.Movies
+12.Language
+13.FilmCategory
+14.Genre
+15.Certification
+16.EventTypes
+17.Event
+18.Movie Booking
+19.Event Booking
+
+--RELATIONSHIPS
+region->city => 1:N
+City->Theatre => 1:N
+City->Event Venue => 1:N
+Theatre->Show Timing => N:N
+Event venue->Show Timing => N:N
+Show Timing -> Screen => N:N
+Show Timing -> Event => 1:N
+Screen -> Movie => N:1
+Movie -> Language => N:N
+Movie -> Film Category => N:N
+Movie -> Genre => N:N
+Movie -> Certification => N:1
+Screen -> SeatCategory => N:N
+SeatCategory -> Seats => 1:N
+Event -> Event Type => N:1
+Customer -> Event => N:N
+Customer -> Movie => N:N
+Customer -> Seats => 1:N
+Admin ->Event => N:N
+Admin->Movie => N:N
+
+--KEY ATTRIBUTES
+1.Customer -> CustomerId
+2.Admin -> AdminId
+3.Regions-> RegionId
+4.Cities-> CityId, RegionId(FK)
+5.Theatres-> TheatreId, CityId(FK)
+6.Event Venues-> EventVenueId, CityId(FK)
+7.ShowTiming-> ShowTimingId
+8.Screens-> ScreenId, TheatreId(FK), MovieID(FK)
+9.SeatCategory-> SeatCategoryId
+10.Seats-> SeatsId, SeatCategoryId(FK)
+11.Movies-> MoviesId, TheatreId(FK), ShowTimingId(FK), CertificationId(FK), LanguageId(FK), FilmCategoryId(FK), GenreId(FK)
+12.Language-> LanuageId
+13.FilmCategory-> FilmCategoryId
+14.Genre-> GenreId
+15.Certification-> CertificationId
+16.EventTypes-> EventTypesId
+17.Event-> EventId, EventTypeId(FK)
+18.Movie Booking-> MovieBookingId, MovieId(FK), SeatsId(FK), CustomerId(FK)
+19.Event Booking-> EventBookingId, CustomerId(FK), EventId(FK)
+
+
+--NON-KEY ATTRIBUTES
+1.Customer -> Username, ContactNo, Password
+2.Admin ->  Username, ContactNo, Password
+3.Regions-> Name
+4.Cities-> Name
+5.Theatres-> Name, Address
+6.Event Venues-> Name, Address, TotalTickets
+7.ShowTiming-> ShowTime
+8.Screens-> 
+9.SeatCategory-> Name, Price
+10.Seats-> RowNo, SeatNo
+11.Movies-> Name, Time, Image, DateOfRelease, About
+12.Language-> Language
+13.FilmCategory-> FilmCategory
+14.Genre-> Genre
+15.Certification-> Certification
+16.EventTypes-> EventTypes
+17.Event-> Name, TicketPrice, Image, Time, DateOfEvent
+18.Movie Booking-> BookingDate, TotalAmount
+19.Event Booking->BookingDate, TotalAmount, TicketCount
+
+
