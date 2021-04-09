@@ -87,12 +87,12 @@ along with the name, city, and state of the dealership whose inventory contains 
 
 
 	SELECT sp2.Name 'EmployeeName', sp.Name 'ManagerName'  
-	FROM ReportsTo s JOIN SalesPersons sp on s.ManagingSalesPersonId = sp.SalesPersonId AND sp.Name = 'Adam Smith'
+	FROM ReportsTo s JOIN SalesPersons sp on s.ManagingSalesPersonId = sp.SalesPersonId AND sp.Name = 'virat'
 	JOIN SalesPersons sp2 ON s.SalesPersonId = sp2.SalesPersonId
-
+select * from SalesPersons
 /*7. Find the names of all salespeople who do not have a manager.*/
 
-	SELECT sp.Name FROM ReportsTo s JOIN SalesPersons sp ON s.SalesPersonId = sp.SalesPersonId AND s.ManagingSalesPersonId IS NULL 
+	SELECT sp.Name,* FROM ReportsTo s JOIN SalesPersons sp ON s.SalesPersonId = sp.SalesPersonId AND s.ManagingSalesPersonId IS NULL 
 
 
 /*8. Find the total number of dealerships.*/
@@ -156,7 +156,17 @@ WHERE  CoustomerName = SalsPersonName
 /*15. Find the name and salesperson ID of the salesperson who sold the most cars for the company at dealerships 
 located in Gujarat between March 1, 2010 and March 31, 2010.*/
 
-
+SELECT TOP 1 temp.SalesPersonID, temp.Name 
+FROM Dealers AS d 
+JOIN 
+	(SELECT s.DealershipID, sp.Name, sp.SalesPersonID, MAX(s.SalePrice) AS 'SalePrice' 
+	FROM Sales AS S 
+	JOIN SalesPersons AS sp 
+	ON s.SalesPersonID = sp.SalesPersonID 
+	GROUP BY s.DealershipID, sp.Name, sp.SalesPersonID) AS temp 
+ON temp.DealershipID = d.DealershipID 
+WHERE State = 'Gujarat' 
+ORDER BY SalePrice DESC
 
 /*16. Calculate the payroll for the month of March 2010.
 		* The payroll consists of the name, salesperson ID, and gross pay for 
@@ -170,4 +180,14 @@ located in Gujarat between March 1, 2010 and March 31, 2010.*/
 
         * The profit made on a car is the difference between the sale price and the invoice price of the car.
 			(Assume, that cars are never sold for less than the invoice price.)*/
-			
+	SELECT sp.SalesPersonID, sp.Name, SUM(ISNULL(w.BaseSalaryForMonth, 0) + ISNULL(((c.AskPrice - c.InvoicePrice) * 5 / 100), 0)) AS 'Gross Pay'
+	FROM SalesPersons AS sp
+	LEFT JOIN Sales AS s 
+	ON s.SalesPersonID = sp.SalesPersonID
+	LEFT JOIN Cars AS c 
+	ON c.VIN = s.VIN
+	RIGHT JOIN WorkSets AS w 
+	ON w.SelsePersonId = sp.SalesPersonID
+	WHERE DATENAME(MM, s.SaleDate) = 'March' AND YEAR(s.saledate) = 2010
+	GROUP BY sp.SalesPersonID, sp.Name
+	ORDER BY sp.SalesPersonID

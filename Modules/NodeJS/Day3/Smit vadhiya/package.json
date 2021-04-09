@@ -1,0 +1,16 @@
+{
+  "name": "smit-vadhiya",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nodeman": "^1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve" : "nodemon --inspect ./index.js 80"
+  },
+  "author": "",
+  "license": "ISC"
+}

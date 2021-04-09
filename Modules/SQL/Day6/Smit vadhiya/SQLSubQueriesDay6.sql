@@ -36,10 +36,10 @@ WHERE Salary = (SELECT MIN(Salary) FROM Employees)
 
 /*7. Find the names (first_name, last_name), salary of the employees who earn more than the
 average salary and who works in any of the IT departments. */
-
+select * from depart
 SELECT FirstName + LastName 'Name' FROM Employees 
 WHERE Salary > (SELECT AVG(Salary) FROM Employees) AND
-DepartmentID =  (SELECT DepartmentID FROM Departments WHERE DepartmentName = 'it')
+DepartmentID IN  (SELECT DepartmentID FROM Departments WHERE DepartmentName LIKE '%it%')
 
 /*8. Find the names (first_name, last_name), salary of the employees who earn more than Mr. Bell. */
 
@@ -81,6 +81,7 @@ and department names of all employees. */
 SELECT EmployeeID, FirstName, LastName, d.DepartmentName FROM
 Employees e left JOIN Departments D ON e.DepartmentID = d.DepartmentID
 
+SELECT e.*,d.DepartmentName FROM Employees e,Departments d where e.DepartmentID=d.DepartmentID
 
 /*14. Write a query to display the employee ID, first name, last names,
 salary of all employees whose salary is above average for their departments. */
@@ -89,9 +90,11 @@ salary of all employees whose salary is above average for their departments. */
 SELECT e.EmployeeID,e.FirstName,e.LastName,e.Salary 
 	FROM 
 	(
-	SELECT DepartmentID, AVG(SALARY) 'avg' FROM Employees GROUP BY DepartmentID
-	) AS tbl1 JOIN 
-	Employees e ON tbl1.DepartmentID = e.DepartmentID 
+		SELECT DepartmentID, AVG(SALARY) 'avg' 
+		FROM Employees 
+		GROUP BY DepartmentID
+	) AS tbl1 JOIN Employees e 
+	ON tbl1.DepartmentID = e.DepartmentID 
 	WHERE Salary>avg
 
 /*15. Write a query to fetch even numbered records from employees table. */
@@ -100,6 +103,7 @@ SELECT e.* FROM
  (SELECT EmployeeID,ROW_NUMBER() OVER ( ORDER BY EmployeeID) 'rank' FROM Employees) AS TBL
  JOIN Employees e ON TBL.EmployeeID = e.EmployeeID 
  WHERE TBL.rank % 2 = 0
+
 
 /*16. Write a query to find the 5th maximum salary in the employees table. */
 

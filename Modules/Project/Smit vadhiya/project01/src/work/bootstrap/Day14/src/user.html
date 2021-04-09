@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <title>Book Bus Travels, AC Volvo Bus, rPool & Bus Hire - redbus India</title>
+        <script src="js/user.js"></script>
+    </head>
+
+    <body>
+        
+        <!-- NABIGATION BAR -->
+
+        <div  id="redbus-navbar" class="navbar py-0 navbar-expand-md navbar-dark  fixed-top">
+            <div class="container-fluid" >
+                <a href="#" class="navbar-brand mr-0">
+                    <img src="img/redbus-logo.png" alt="" >
+                </a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse ml-4 navbar-collapse mr-auto"  id="navbarnav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">BUS TICKETS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">rPool<sup>NEW</sup></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">BUS HIRE</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse " id="navbarnav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Help</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage Booking</a>
+                            <div class="dropdown-menu" id="dd-menu">
+                                <a href="#" class="dropdown-item active">Bus tickets</a>
+                                <a href="#" class="dropdown-item">Cancel</a>
+                                <a href="#" class="dropdown-item">Reshedule</a>
+                                <a href="#" class="dropdown-item">Show my ticket</a>
+                                <a href="#" class="dropdown-item">Email/SMS</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" id="user-menu">
+                            <a href="#" class="nav-link" data-toggle="dropdown"><i class="fa fa-user-circle-o"> </i>  <span id="userName"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right mr-0">
+                                <a href="index.html" class="dropdown-item">Logout</a>  
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+     
+
+        <!-- CAROUSEL -->
+        
+        <div id="redbus-carousel" class="carousel slide p-4" data-ride="carousel">
+            <div class="carousel-inner p-2" role="listbox">
+                <div class="carousel-item active">
+                    <img src="img/img-01.jpg" class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img-02.jpg"  class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/img-03.jpg"  class="d-block w-100" alt="">
+                </div>
+            </div>
+            <div class="c01 carousel-caption align-self-center">
+                <div class="container">
+                    <div class="row">
+                        <form action="buslist.html" class="form-inline">
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend igp1 input-group-text bg-white"><i class="fa fa-building"></i></span>
+                                        <input type="text" id="source" class="form-control" placeholder="From">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend igp input-group-text bg-white"><i class="fa fa-building"></i></span>
+                                        <input type="text" id="destination" class="form-control" placeholder="To">
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend igp input-group-text bg-white"><i class="fa fa-calendar"></i></span>
+                                        <input type="date" id="date" class="form-control" placeholder="Date">
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 px-0 ">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <input type="button" id="busSearch" class="btn search form-control" value="Search Buses" placeholder="Name">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+            <div class=" container ">
+                <div class="seafty row p-2">
+                    <div class="col-3 col-md-2 d-none d-md-block">
+                        <img src="img/safety.png" alt="" class=" img-fluid d-block w-100 ">
+                    </div>
+                    <div class="col-9 col-md-7 p-2">
+                        <h5>Introducing Safety+ Program</h5>
+                        
+                        <p class="lead d-none d-lg-block">A unique certification program to ensure safety in all buses</p>
+                    </div>
+                    <div class="col-12 col-md-3 mt-auto mb-3">
+                        <button class="btn btn-danger btn-block">KNOW MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- COUPANS -->
+       
+        <div id="coupan" class="bg-light p-5">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-4 m-2 hover text-center">
+                        <div class="Coupan p-3">
+                            <h5 class="text-muted">Save up to RS 150 bus ticket</h5>
+                            <img src="img/coupan01.png" alt="" class="img-fluid">
+                            <h5>Use code FIRST</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 m-2 hover text-center">
+                        <div class="Coupan p-3">
+                            <h5 class="text-muted">Win RS 10 to RS 300 on minimum purchase of Rs 300</h5>
+                            <img src="img/coupan02.png" alt="" class="img-fluid">
+                            <h5>AMAZON pay offer</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTRODUCING SAFTY -->
+
+        <div class="container my-5" id="saftyintro">
+            <div class="row">
+                <div class="col-12 col-md-1 px-0 py-4  text-center">
+                    <img src="img/SaftySection.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-12 col-md-11 p-4 ">
+
+                    <h2 class="text-dark">Introducing Safety+</h2>
+                    <p class="text-muted">Opt to Travel Safe with redBus <a href="#">KNOW MORE</a></p>
+                    <p class="my-4 lead"> <i class="fa fa-lightbulb-o  text-warning"></i> Look for buses with <i class="fa fa-shield"></i> <strong>Safety+</strong> tag while booking your journey</p>
+                    <div class="row mr-5">
+                        <div class="col-12 col-md-4 ">
+                            <h5 class="text-primary">Sanitized Bus</h5>
+                            <p class="lead">All Safety+ buses are sanitized and disinfected before and after every trip.</p>
+                        </div>
+                        <div class="col-12 col-md-4 ">
+                            <h5 class="text-primary">Mandatory masks</h5>
+                            <p class="lead">Proper masks are mandatory for all passengers and bus staff.</p>
+                        </div>
+                        <div class="col-12 col-md-4 ">
+                            <h5 class="text-primary">Thermal Screening</h5>
+                            <p class="lead">All passengers will undergo thermal screening. Temperature checks for bus drivers and service staff are done before every trip.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACK MY BUS -->
+
+        <div class="container  border p-5" id="track-my-bus">
+            <div class="row ">
+                <div class="col-12 col-md-6">
+                    <img src="img/trackBus.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-12 col-md-6">
+                    <h4>TRACK MY BUS - Smarter Way To Travel</h4>
+                    <p class="lead py-3">
+                        Track your bus with our ‘Track My Bus’ feature and know the exact location in real-time.Stay informed and keep your family informed!
+                    </p>
+                    <button class="btn btn-outline-primary">KNOW MORE</button>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-column flex-md-row align-content-around text-center">
+                <div class="m-3 px-5">
+                    <div class="lead">BUSES</div>
+                    <div class="text-danger">10,000</div>
+                    <div>Total buses currently being tracked</div>
+                </div>
+                <div class="m-3 px-5">
+                    <div class="lead">ROUTES</div>
+                    <div class="text-danger">60,000</div>
+                    <div>Total routes covered by live tracking</div>
+                </div>
+                <div class="m-3 px-5">
+                    <div class="lead">USERS</div>
+                    <div class="text-danger">40,000</div>
+                    <div>Total users using Track My Bus feature</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- convenience-section -->
+        <div id="convenience-section">
+            <div class="container ">
+                <div class="row p-5">
+                    <div class=" col-12 col-md-6 p-3">
+                        <h3 class="mb-4">CONVENIENCE ON-THE-GO.</h3>
+                        <p>
+                            Exclusive features on mobile include<br><br>
+                            redBus NOW - when you need a bus in the next couple of hours. Board a bus on its way.<br><br>
+                            Boarding Point Navigation - Never lose your way while travelling to your boarding point!<br><br>
+                            1-click Booking- Save your favourite payment options securely on redBus, and more.<br>
+                            Download the app.<br>
+                            Enter your mobile number below to download the redBus mobile app.<br><br>
+                            <select name="" id="Country-code" class="w-25 mr-4">
+                                <option selected value="1" >91</option>
+                                <option value="2">92</option>
+                                <option value="2">94</option>
+                                <option value="2">924</option>
+                                <option value="2">42</option>
+                                <option value="2">235</option>
+                                <option value="2">654</option>
+                                <option value="2">75</option>
+                            </select> 
+                            <input type="text" placeholder="Enter your mobile number"><br><br>
+                            <button class="btn btn-danger">SMS me the link</button><br><br>
+                            <a href="" class="p-2 px-3"><i class="fa fa-apple"></i></a>
+                            <a href="" class="p-2 px-3"><i class="fa fa-play"></i></a>   
+                        </p>
+                    </div>
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-md-4 d-none d-md-block">
+                        <img src="img/phone.png" alt="" class="img-fluid">
+                    </div>
+                </div>    
+            </div>
+        </div>
+
+        <!-- PROMIsE -->
+
+        <div id="promise" class="">
+            <div class="container-fluid px-5 pb-5">
+                <div class="row p-0 mx-2  text-center ">
+                    <div class="col-12 my-4">
+                        <img src="img/promise.png" alt="" class="img-fluid">
+                        <h2>WE PROMISE TO DELIVER</h2>
+                    </div>
+                    <div class="col-12 bg-white my-1 col-sm-6 col-lg-3">
+                        <img src="img/promise01.png" alt="" class="img-fluid m-2">
+                        <p class="m-3">SAFETY+</p>
+                        <p class="m-3 p-4">With Safety+ we have brought in a set of measures like Sanitized buses, mandatory masks etc. to ensure you travel safely.+</p>
+                    </div>
+                    <div class="col-12 bg-white my-1 col-sm-6 col-lg-3">
+                        <img src="img/promise02.png" alt="" class="img-fluid m-2">
+                        <p class="m-3">SUPERIOR CUSTOMER SERVICE</p>
+                        <p class="m-3 p-4">We put our experience and relationships to good use and are available to solve your travel issues.</p>
+                    </div>
+                    <div class="col-12 bg-white my-1 col-sm-6 col-lg-3">
+                        <img src="img/promise03.png" alt="" class="img-fluid m-2">
+                        <p class="m-3">LOWEST PRICES</p>
+                        <p class="m-3 p-4">We always give you the lowest price with the best partner offers.</p>
+                    </div>
+                    <div class="col-12 bg-white my-1 col-sm-6 col-lg-3">
+                        <img src="img/promise04.png" alt="" class="img-fluid m-2">
+                        <p class="m-3">UNMATCHED BENEFITS</p>
+                        <p class="m-3 p-4">We take care of your travel beyond ticketing by providing you with innovative and unique benefits.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- AWARDS -->
+
+        <div class="container text-center py-5" id="awards">
+            <div class="">
+                <h2>AWARDS & RECOGNITION</h2>
+            </div>
+            <div class="row">            
+                <div class="col-12 col-md-4">
+                    <a href="#"><img src="img/award01.png" alt="" class="img-fluid">
+                    <p class="lead">Most Innovative Company</p>
+                    </a>    
+                </div>
+                <div class="col-12 col-md-4">
+                    <a href="#"><img src="img/award02.png" alt="" class="img-fluid">
+                        <p class=" lead">Most Trusted Brand</p>
+                        </a>
+                </div>
+                <div class="col-12 col-md-4">
+                    <a href="#"><img src="img/award03.png" alt="" class="img-fluid">
+                        <p class="lead">Mobile Innovation Award</p>
+                        </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- COUNTRY -->
+
+        <div id="country" class="">
+            <div class="container-fluid px-5 ">
+                <div class="row  mx-5  text-center ">
+                    <div class=" col-12 my-4">
+                        <h2>OUR GLOBAL PRESENCE</h2>
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-4">
+                        <a href="">
+                            <img src="img/country1.png" alt="" class="img-fluid ">
+                            <p class="mb-3 lead">COLOMBIA</p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-4">
+                        <a href="">
+                            <img src="img/country2.png" alt="" class="img-fluid ">
+                            <p class="mb-3 lead">INDIA</p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-4">
+                        <a href="">
+                            <img src="img/country3.png" alt="" class="img-fluid ">
+                            <p class="mb-3 lead">INDONESIA</p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-4">
+                        <a href="">
+                            <img src="img/country4.png" alt="" class="img-fluid ">
+                            <p class="mb-3 lead"> MALAYSIA</p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-4">
+                        <a href="">
+                            <img src="img/country5.png" alt="" class="img-fluid ">
+                            <p class="mb-3 lead">PERU</p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-4">
+                        <a href="">
+                            <img src="img/country6.png" alt="" class="img-fluid ">
+                            <p class="mb-3 lead"> SINGAPORE</p>
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5" id="growing-number">   
+            <div class="text-center">
+                <h2>THE NUMBERS ARE GROWING!</h2>
+            </div>
+            <div class="d-flex flex-column flex-md-row align-content-around text-center">
+                <div class="m-3 ">
+                    <div class="lead">CUSTOMERS</div>
+                    <div class="text-danger">23 M</div>
+                    <div>redBus is trusted by over 23 million happy customers globally</div>
+                </div>
+                <div class="m-3 px-5">
+                    <div class="lead">OPERATORS</div>
+                    <div class="text-danger">2600</div>
+                    <div>network of over 2600 bus operators worldwide</div>
+                </div>
+                <div class="m-3 px-5">
+                    <div class="lead">BUS TICKETS</div>
+                    <div class="text-danger">180+ M</div>
+                    <div>Over 180 million trips booked using redBus</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="operators">
+            <div class="container">
+                <div class="row text-dark mt-4">
+
+                    <div class="col-6 mb-3 col-sm-8 col-lg-3">
+                        <h5>Top Bus Routes</h5>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">Hyderabad to Bangalore Bus</a>
+                            </li>
+                            <li>
+                                <a href="#">Bangalore to Chennai Bus</a>
+                            </li>
+                            <li>
+                                <a href="#">Pune to Bangalore Bus</a>
+                            </li>
+                            <li>
+                                <a href="#">Mumbai to Bangalore Bus</a>
+                            </li>
+                        </ul>
+                        <a href="">More <i class="fa fa-arrow-right"></i></a>  
+                    </div>
+
+                    <div class="col-6 mb-3 col-sm-4 col-lg-2">
+                        <h5>Top Cities</h5>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">Hyderabad Bus Tickets</a>
+                            </li>
+                            <li>
+                                <a href="#">Bangalore Bus Tickets</a>
+                            </li>
+                            <li>
+                                <a href="#">Chennai Bus Tickets</a>
+                            </li>
+                            <li>
+                                <a href="#">Pune Bus Tickets</a>
+                            </li>
+                        </ul>
+                        <a href="">More <i class="fa fa-arrow-right"></i></a>  
+                    </div>
+
+                    <div class="col-6 mb-3 col-sm-4 col-lg-2">
+                        <h5>Top RTC's</h5>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">APSRTC</a>
+                            </li>
+                            <li>
+                                <a href="#">MSRTC</a>
+                            </li>
+                            <li>
+                                <a href="#">HRTC</a>
+                            </li>
+                            <li>
+                                <a href="#">UPSRTC</a>
+                            </li>
+                        </ul>
+                        <a href="">More <i class="fa fa-arrow-right"></i></a>  
+                    </div>
+
+                    <div class="col-6 mb-3 col-sm-4 col-lg-2">
+                        <h5>Other</h5>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">GSRTC</a>
+                            </li>
+                            <li>
+                                <a href="#">RSRTC</a>
+                            </li>
+                            <li>
+                                <a href="#">KTCL</a>
+                            </li>
+                            <li>
+                                <a href="#">PEPSU</a>
+                            </li>
+                        </ul>
+                        <a href="">More <i class="fa fa-arrow-right"></i></a>  
+                    </div>
+
+                    <div class="col-12 mb-3 col-sm-4 col-lg-3">
+                        <h5>Tempo Traveller in Cities</h5>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">Tempo traveller in Bangalore</a>
+                            </li>
+                            <li>
+                                <a href="#">Tempo traveller in Chennai</a>
+                            </li>
+                            <li>
+                                <a href="#">Tempo traveller in Mumbai</a>
+                            </li>
+                            <li>
+                                <a href="#">Tempo traveller in Hyderabad</a>
+                            </li>
+                            <li>
+                                <a href="#">Tempo traveller in aHMEDABAD</a>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+                <hr>
+                <div class="my-4 mx-1" id="operator">
+                    <div><h5 class="text-dark">Top Operators</h5></div>
+                    <a href="#">SRS Travels</a> |
+                    <a href="#">Evacay Bus</a> | 
+                    <a href="#">Kallada Travels</a> |
+                    <a href="#">KPN Travels</a> |
+                    <a href="#">Orange Travels</a> | 
+                    <a href="#">Parveen Travels</a> |
+                    <a href="#">Rajdhani Express</a> |
+                    <a href="#">VRL Travels</a> | 
+                    <a href="#">Chartered Speed Bus</a> |
+                    <a href="#">Bengal Tiger</a> |
+                    <a href="#">SRM Travels</a> | 
+                    <a href="#">Infant Jesus</a> |
+                    <a href="#">Patel Travels</a> |
+                    <a href="#">JBT Travels</a> | 
+                    <a href="#">Shatabdi Travels</a> |
+                    <a href="#">Eagle Travels</a> |
+                    <a href="#">Kanker Roadways</a> | 
+                    <a href="#">Komitla</a> |
+                    <a href="#">Sri Krishna Travels</a> |
+                    <a href="#">Humsafar Travels</a> | 
+                    <a href="#">Mahasagar Travels</a> |
+                    <a href="#">Raj Express</a> |
+                    <a href="#">Sharma Travels</a> | 
+                    <a href="#">Shrinath Travels</a> |
+                    <a href="#">Universal Travels</a> |
+                    <a href="#">Verma Travels</a> | 
+                    <a href="#">Gujarat Travels</a> |
+                    <a href="#">Madurai Radha Travels</a> |
+                    <a href="#">Patel Tours and Travels</a> | 
+                    <a href="#">Paulo Travels</a> |
+                    <a href="#">Royal Travels</a> |
+                    <a href="#">Amarnath Travels</a> | 
+                    <a href="#">Vaibhav Travels</a> |
+                    <a href="#">Ganesh Travels</a> |
+                    <a href="#">Jabbar Travels</a> | 
+                    <a href="#">Jain Travels</a> |
+                    <a href="#">Manish Travels</a> |
+                    <a href="#">Pradhan Travels</a> | 
+                    <a href="#">YBM Travels</a> |
+                    <a href="#">Hebron Transports</a> |
+                    <a href="#">Mahalaxmi travels</a> | 
+                    <a href="#">MR Travels</a> |
+                    <a href="#">Vivegam Travels</a> |
+                    <a href="#">VST Travels</a> | 
+                    <a href="#">Jakhar Travels</a> |
+                    <a href="#">Kaleswari Travels</a> |
+                    <a href="#">Mahendra Travels</a> | 
+                    <a href="#">Neeta Tours and Travels</a> |
+                    <a href="#">Yamani Travels</a> |
+                    <a href="#">Arthi Travels</a>
+                </div>
+                <h5 class="h5 text-dark"><a href="#" class="text-dark">All operators <i class="fa fa-arrow-right"></i> </a> </h5>
+            </div>
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer id="footer" class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 text-secondary mb-3 col-md-2">
+                        <p>About redbus</p>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Mobile Version</a>
+                            </li>
+                            <li>
+                                <a href="#">redBus on Mobile</a>
+                            </li>
+                            <li>
+                                <a href="#">Sitemap</a>
+                            </li>
+                            <li>
+                                <a href="#">Offers</a>
+                            </li>
+                            <li>
+                                <a href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a href="#">Values</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-3 text-secondary mb-3 col-md-2">
+                        <p>Info</p>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">T & C</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Agent Registration</a>
+                            </li>
+                            <li>
+                                <a href="#">Insurance Partner</a>
+                            </li>
+                            <li>
+                                <a href="#">User Agreement</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-3 text-secondary mb-3 col-md-2">
+                        <p>Global Sites</p>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">India</a>
+                            </li>
+                            <li>
+                                <a href="#">Singapore</a>
+                            </li>
+                            <li>
+                                <a href="#">Malaysia</a>
+                            </li>
+                            <li>
+                                <a href="#">Indonesia</a>
+                            </li>
+                            <li>
+                                <a href="#">Peru</a>
+                            </li>
+                            <li>
+                                <a href="#">Colombia</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 text-secondary mb-3 col-md-2">
+                        <p>Our partners</p>
+                        <ul class="list-unstyled m-0">
+                            <li>
+                                <a href="#">Goibibo</a>
+                            </li>
+                            <li>
+                                <a href="#">Makemytrip</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-4 my-4 my-md-0  text-white order-first order-md-last">
+                        <img src="img/footer-image01.png" alt="" class="">
+                        <p class="p-2 text-muted">
+                            redBus is the world's largest online bus ticket booking service trusted by 
+                            over 18 million happy customers globally. redBus offers bus ticket booking 
+                            through its website,iOS and Android mobile apps for all major routes.
+                        </p>
+                        <a href="#" class="btn ml-2"><i class="fa fa-facebook"></i></a> 
+                        <a href="#" class="btn ml-3"><i class="fa fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="text-center text-white"> &copy; 2020 ibibogroup All rights reserved</div>
+            </div>
+        </footer>
+
+      
+    </body>
+</html>
