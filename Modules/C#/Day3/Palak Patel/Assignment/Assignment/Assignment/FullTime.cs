@@ -26,7 +26,7 @@ namespace Assignment
             
         }
 
-        public string salary()
+        private string salary()
         {
             return $"{Basic + HRA + TA + DA} INR";
         }
