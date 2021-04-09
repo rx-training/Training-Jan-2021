@@ -390,7 +390,6 @@ SELECT DepartmentID,DepartmentName FROM Departments WHERE DepartmentID NOT IN (S
 
 
 /*Prac 20. Write a query to get 3 maximum salaries.  */
-
 SELECT DISTINCT E.Salary FROM Employees E
 WHERE 3>= (SELECT COUNT(DISTINCT em.Salary) 
 FROM Employees em WHERE em.Salary >= E.Salary) ORDER BY E.Salary DESC;
