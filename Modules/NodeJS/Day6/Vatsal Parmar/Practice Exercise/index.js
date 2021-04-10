@@ -50,7 +50,7 @@ app.post("/customer", (req, res) => {
       console.log(err);
       res.end();
     } else {
-      console.log(data);
+      //console.log(data);
       res.send("New Record Added");
     }
   });

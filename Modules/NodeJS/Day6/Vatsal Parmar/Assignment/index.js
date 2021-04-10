@@ -21,6 +21,7 @@ app.get("/students", (req, res) => {
 http://localhost:3000/students/1 */
 app.get("/students/:studentId", (req, res) => {
   let id = req.params.studentId;
+  //checking if record available
   let isAvail = false;
   for (let i = 0; i < data.length; i++) {
     if (id == data[i].ID) {
@@ -44,6 +45,7 @@ http://localhost:3000/students/1/fees */
 
 app.get("/students/:studentId/fees", (req, res) => {
   let id = req.params.studentId;
+  //checking if record available
   let isAvail = false;
   for (let i = 0; i < data.length; i++) {
     if (id == data[i].ID) {
@@ -67,6 +69,7 @@ http://localhost:/3000/students/1/result */
 
 app.get("/students/:studentId/result", (req, res) => {
   let id = req.params.studentId;
+  //checking if record available
   let isAvail = false;
   for (let i = 0; i < data.length; i++) {
     if (id == data[i].ID) {
@@ -87,12 +90,14 @@ app.get("/students/:studentId/result", (req, res) => {
 
 /* 5. Create a RESTFUL API which will update a result of result of student id 1. Update the marks for 
 English Subject. 
-http://localhost:/3000/students/1/result/Eng */
+http://localhost:/3000/students/1/result/eng */
 
 app.put("/students/:studentId/result/:subject", (req, res) => {
   let id = req.params.studentId;
   let sub = req.params.subject;
   let marks = req.body.marks;
+
+  //checking if record available
   let isAvail = false;
   for (let i = 0; i < data.length; i++) {
     if (id == data[i].ID) {
@@ -100,10 +105,13 @@ app.put("/students/:studentId/result/:subject", (req, res) => {
       break;
     }
   }
+
+  //updating record if available
   if (isAvail) {
     for (let i = 0; i < data.length; i++) {
       if (id == data[i].ID) {
-        if (sub == data[i].Result.Eng) {
+        //updating marks for english
+        if (sub == "eng") {
           data[i].Result.Eng = marks;
           data[i].Result.Total =
             parseInt(data[i].Result.Eng) +
@@ -119,6 +127,7 @@ app.put("/students/:studentId/result/:subject", (req, res) => {
           } else {
             data[i].Result.Grade = "C";
           }
+          //writing changes in json file
           fs.writeFile(
             "students.json",
             JSON.stringify(data),
@@ -132,7 +141,8 @@ app.put("/students/:studentId/result/:subject", (req, res) => {
               }
             }
           );
-        } else if (sub == data[i].Result.Hindi) {
+        } else if (sub == "hindi") {
+          // updating marks for hindi
           data[i].Result.Hindi = marks;
           data[i].Result.Total =
             parseInt(data[i].Result.Eng) +
@@ -145,6 +155,7 @@ app.put("/students/:studentId/result/:subject", (req, res) => {
           } else {
             data[i].Result.Grade = "C";
           }
+          //writing changes in json file
           fs.writeFile(
             "students.json",
             JSON.stringify(data),
@@ -158,7 +169,8 @@ app.put("/students/:studentId/result/:subject", (req, res) => {
               }
             }
           );
-        } else if (sub == data[i].Result.Math) {
+        } else if (sub == "math") {
+          //updating marks for math
           data[i].Result.Math = marks;
           data[i].Result.Total =
             parseInt(data[i].Result.Eng) +
@@ -174,6 +186,7 @@ app.put("/students/:studentId/result/:subject", (req, res) => {
           } else {
             data[i].Result.Grade = "C";
           }
+          //writing changes in json file
           fs.writeFile(
             "students.json",
             JSON.stringify(data),
@@ -187,6 +200,8 @@ app.put("/students/:studentId/result/:subject", (req, res) => {
               }
             }
           );
+        } else {
+          res.send("Subject Not Available");
         }
         break;
       }
