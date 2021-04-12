@@ -1,0 +1,14 @@
+{
+  "persons": [
+    {
+      "PersonAddress": "Ahmedabad",
+      "PersonID": 1,
+      "PersonName": "Rita"
+    },
+    {
+      "PersonAddress": "Calcutta",
+      "PersonID": 2,
+      "PersonName": "Reema"
+    }
+  ]
+}
