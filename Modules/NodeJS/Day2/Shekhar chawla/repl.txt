@@ -1,0 +1,22 @@
+10 + 3
+10 - 22
+x = (num) => num*num ;
+console.log(x(2))
+Math.
+
+
+
+
+Math.floor(10.1234)
+Math.ceil(10.23)
+Math.round(10.6)
+Math.sqrt(15)
+Math.pow(2,5)
+var arr = [1, 'two', null ]
+arr.forEach( i => 
+    console.log(`-> ${i}`)
+)
+
+typeof x
+process
+process.env
