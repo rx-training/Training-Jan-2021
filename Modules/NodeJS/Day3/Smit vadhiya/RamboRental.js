@@ -1,19 +1,22 @@
 var UserData = class User{
     constructor(BikeNumber,PhoneNumber ,Name ,Days){
-        this.BikeNumber = BikeNumber,
-        this.PhoneNumber = PhoneNumber,
-        this.Name = Name,
-        this.Days = Days ,
+        this.BikeNumber = BikeNumber
+        this.PhoneNumber = PhoneNumber
+        this.Name = Name
+        this.Days = Days 
+        this.lessThanFive = 500
+        this.fiveToTen = 400
+        this.afterTen = 200
         this.charge = this.calculate(this.Days)
     }
-
+    
     calculate(Days){
         if(Days<=5) {
-            return Days*500
+            return Days*this.lessThanFive
         } else if(Days>5 && Days<=10) {
-           return (2500 + (Days-5)*400)
+           return (5*this.lessThanFive + (Days-5)*this.fiveToTen)
         } else {
-            return (4500 + (Days-10)*200)
+            return (5*this.lessThanFive + 5*this.fiveToTen + (Days-10)*this.afterTen)
         }
     }
     Compute(){
