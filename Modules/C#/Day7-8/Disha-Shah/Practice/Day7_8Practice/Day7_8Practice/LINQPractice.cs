@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
+using System.Linq.Expressions;
 
 namespace Day7_8Practice
 {
@@ -966,6 +967,141 @@ namespace Day7_8Practice
             {
                 Console.WriteLine(item.StudentName);
             }
+
+            Console.WriteLine();
+
+            // Expression
+            Console.WriteLine("Expression, Checking age of student:");
+            Expression<Func<Student, bool>> isTeenAgerExpr = s => s.Age > 12 && s.Age < 20;
+
+            //compile Expression using Compile method to invoke it as Delegate
+            Func<Student, bool> isTeenAger = isTeenAgerExpr.Compile();
+
+
+            //Invoke
+            bool result11 = isTeenAger(new Student() { StudentID = 1, StudentName = "Steve", Age = 18 });
+            Console.WriteLine(result11);
+
+            Console.WriteLine();
+
+            // Expression Tree
+            Console.WriteLine("Expression Tree:");
+            ParameterExpression pe = Expression.Parameter(typeof(Student), "s");
+            MemberExpression me = Expression.Property(pe, "Age");
+            ConstantExpression constant = Expression.Constant(18, typeof(int));
+            BinaryExpression body = Expression.GreaterThanOrEqual(me, constant);
+            var ExpressionTree = Expression.Lambda<Func<Student, bool>>(body, new[] { pe });
+
+            Console.WriteLine("Expression Tree: {0}", ExpressionTree);
+
+            Console.WriteLine("Expression Tree Body: {0}", ExpressionTree.Body);
+
+            Console.WriteLine("Number of Parameters in Expression Tree: {0}", ExpressionTree.Parameters.Count);
+
+            Console.WriteLine("Parameters in Expression Tree: {0}", ExpressionTree.Parameters[0]);
+
+
+            // Sample Questions
+
+            Console.WriteLine();
+            Console.WriteLine("Multiple Select & where operator:");
+            var studentNames = studentArray.Where(s => s.Age > 18)
+                              .Select(s => s)
+                              .Where(st => st.StandardID > 0)
+                              .Select(s => s.StudentName);
+
+            foreach (var item in studentNames)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("LINQ Query to return collection of objects:");
+            var teenStudentsName = from s in studentArray
+                                   where s.Age > 12 && s.Age < 20
+                                   select new { StudentName = s.StudentName };
+
+            teenStudentsName.ToList().ForEach(s => Console.WriteLine(s.StudentName));
+
+            Console.WriteLine();
+            Console.WriteLine("Groupby on Standard wise students:");
+            var studentsGroupByStandard = from s in studentArray
+                                          group s by s.StandardID into sg
+                                          orderby sg.Key
+                                          select new { sg.Key, sg };
+
+
+            foreach (var group in studentsGroupByStandard)
+            {
+                Console.WriteLine("StandardID {0}:", group.Key);
+
+                group.sg.ToList().ForEach(st => Console.WriteLine(st.StudentName));
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Include only those students who have standard assigned to them:");
+            var studentsGroupByStandard1 = from s in studentArray
+                                          where s.StandardID > 0
+                                          group s by s.StandardID into sg
+                                          orderby sg.Key
+                                          select new { sg.Key, sg };
+
+            foreach (var group in studentsGroupByStandard1)
+            {
+                Console.WriteLine("StandardID {0}:", group.Key);
+
+                group.sg.ToList().ForEach(st => Console.WriteLine(st.StudentName));
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Left outer join on Standard:");
+            var studentsGroup = from stad in standardList
+                                join s in studentArray
+                                on stad.StandardID equals s.StandardID
+                                    into sg
+                                select new
+                                {
+                                    StandardName = stad.StandardName,
+                                    Students = sg
+                                };
+
+            foreach (var group in studentsGroup)
+            {
+                Console.WriteLine(group.StandardName);
+
+                group.Students.ToList().ForEach(st => Console.WriteLine(st.StudentName));
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Perform sorting:");
+            var studentsWithStandard = from stad in standardList
+                                       join s in studentArray
+                                       on stad.StandardID equals s.StandardID
+                                       into sg
+                                       from std_grp in sg
+                                       orderby stad.StandardName, std_grp.StudentName
+                                       select new
+                                       {
+                                           StudentName = std_grp.StudentName,
+                                           StandardName = stad.StandardName
+                                       };
+
+
+            foreach (var group in studentsWithStandard)
+            {
+                Console.WriteLine("{0} is in {1}", group.StudentName, group.StandardName);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Nested Query:");
+            var nestedQueries = from s in studentArray
+                                where s.Age > 18 && s.StandardID ==
+                                    (from std in standardList
+                                     where std.StandardName == "Standard 1"
+                                     select std.StandardID).FirstOrDefault()
+                                select s;
+
+            nestedQueries.ToList().ForEach(s => Console.WriteLine(s.StudentName));
 
         }
     }

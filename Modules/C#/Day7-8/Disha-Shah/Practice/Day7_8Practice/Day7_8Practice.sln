@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day7_8Practice", "Day7_8Practice\Day7_8Practice.csproj", "{5640028F-C8D0-41CF-AC71-2EB65BC1D2F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day7_8Practice", "Day7_8Practice\Day7_8Practice.csproj", "{5640028F-C8D0-41CF-AC71-2EB65BC1D2F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day7_8AssignmentTask", "..\..\Assignment\Day7_8AssignmentTask\Day7_8AssignmentTask.csproj", "{B33258DB-F3E6-44E4-8930-4712DD21CBDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleQueries", "..\..\..\..\..\..\..\..\Radixweb-Daily Entry\C#\Day7-8\LINQ - Sample Queries\C#\SampleQueries.csproj", "{77EC7459-0B99-4142-AFC0-95E75A2DED78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5640028F-C8D0-41CF-AC71-2EB65BC1D2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5640028F-C8D0-41CF-AC71-2EB65BC1D2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5640028F-C8D0-41CF-AC71-2EB65BC1D2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B33258DB-F3E6-44E4-8930-4712DD21CBDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33258DB-F3E6-44E4-8930-4712DD21CBDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33258DB-F3E6-44E4-8930-4712DD21CBDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33258DB-F3E6-44E4-8930-4712DD21CBDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EC7459-0B99-4142-AFC0-95E75A2DED78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EC7459-0B99-4142-AFC0-95E75A2DED78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EC7459-0B99-4142-AFC0-95E75A2DED78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EC7459-0B99-4142-AFC0-95E75A2DED78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
