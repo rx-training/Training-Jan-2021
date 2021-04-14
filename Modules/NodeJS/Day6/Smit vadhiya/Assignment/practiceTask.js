@@ -37,4 +37,12 @@ app.post('/customer', (req, res) => {
 })
 
 // 4) Create a Restful API which will delete a record from the customer list.
-//    http://localhost:3000/customer
+//    http://localhost:3000/customer/1
+
+
+app.delete('/customer/:id', (req, res) => {
+    const reqData =  customer.find((c) => c.id == req.params.id);
+    customer.splice(customer.indexOf(reqData),1); 
+    res.send(`${JSON.stringify(reqData)} is deleted`)
+    fs.writeFile('customer.json',JSON.stringify(customer),(err) => {})
+})

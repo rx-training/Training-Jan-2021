@@ -2,17 +2,18 @@
   "name": "Practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "videosPractice.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon videoPractice.js"
+    "start": "nodemon routeExports.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "joi": "^17.4.0",
+    "helmet": "^4.4.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.7"
   }
 }
