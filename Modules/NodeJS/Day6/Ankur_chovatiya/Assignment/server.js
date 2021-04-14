@@ -13,8 +13,6 @@ app.get('/' , (req , res)=>{
 });
 
 
-
-
 // using get all students data
 
 app.get('/students' , (req , res)=>{
