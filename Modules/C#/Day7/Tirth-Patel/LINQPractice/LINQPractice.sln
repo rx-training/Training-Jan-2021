@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQPractice", "LINQPractice\LINQPractice.csproj", "{138A97F9-DB5A-491A-8951-31A2F6218BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment", "Assignment\Assignment.csproj", "{DEE3958F-4366-4CC7-9F8F-13CB30D110EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{138A97F9-DB5A-491A-8951-31A2F6218BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138A97F9-DB5A-491A-8951-31A2F6218BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138A97F9-DB5A-491A-8951-31A2F6218BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138A97F9-DB5A-491A-8951-31A2F6218BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE3958F-4366-4CC7-9F8F-13CB30D110EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE3958F-4366-4CC7-9F8F-13CB30D110EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE3958F-4366-4CC7-9F8F-13CB30D110EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE3958F-4366-4CC7-9F8F-13CB30D110EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE84B285-7ADE-4AE7-BA08-BEFFD93DE0E4}
+	EndGlobalSection
+EndGlobal
