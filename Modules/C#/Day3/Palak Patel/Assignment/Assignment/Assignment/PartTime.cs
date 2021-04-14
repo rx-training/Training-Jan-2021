@@ -23,7 +23,7 @@ namespace Assignment
             saleperhour = Convert.ToInt32(Console.ReadLine());
         }
 
-        public string salary()
+        private string salary()
         {
             return $"{ NoOfHour* saleperhour} INR";
         }

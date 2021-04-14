@@ -36,6 +36,6 @@ namespace Assignment
             PAN = Console.ReadLine();
         }
 
-        public void Salary() { }
+        private void Salary() { }
     }
 }
