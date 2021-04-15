@@ -16,22 +16,3 @@ app.listen(3000, () => {
  app.get('/',(req,res) => {
     res.send("hello root");
 })
-/*
-app.get('/employee/data',(req,res) => {
-    res.send("hello /employee/data");
-})
-
-
-app.post('/employee/new',(req,res) => {
-    res.send("hello /employee/new");
-})
-
-
-app.get('/customer/data',(req,res) => {
-    res.send("hello /customer/data");
-})
-
-
-app.post('/customer/new',(req,res) => {
-    res.send("hello /customer/new");
-}) */
