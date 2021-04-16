@@ -21,23 +21,33 @@ class EmployeeData {
     async insertEmployee(req, res) {
         const data = req.body;
         const empObject = new EmpModel(data);
+        try{
         const result = await empObject.save();
         res.send(result);
+        }
+        catch (ex){
+            res.send(ex.message);
+        }
     }
     //Update A EmployeeData
     async updateEmployee(req, res) {
         let data = req.body;
-        const updateEmp = await EmpModel.findByIdAndUpdate(
-            req.params.id,
-            {
-                $set: {
-                    FirstName: data.FirstName,
-                    LastName: data.LastName,
+        try {
+            const updateEmp = await EmpModel.findByIdAndUpdate(
+                req.params.id,
+                {
+                    $set: {
+                        FirstName: data.FirstName,
+                        LastName: data.LastName,
+                    },
                 },
-            },
-            { new: true }
-        );
-        res.send(updateEmp);
+                { new: true }
+            );
+            res.send(updateEmp);
+        }
+        catch (ex){
+            res.send(ex.message);
+        }   
     }
 
     //Get a Assignments From EmpId
@@ -75,6 +85,12 @@ class EmployeeData {
     // async updateAssignmentDetails(req, res) {
         
     // }
+    
+    //Delete Employee
+    async deleteEmployee (req,res){
+        const result  = await EmpModel.findByIdAndDelete(req.params.id);
+        res.send(`EmpId:${req.params.id}  Deleted Successfully `);
+    }
 }
 
 module.exports = EmployeeData;

@@ -18,16 +18,16 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const empSchema = new mongoose.Schema({
     _id: Number,
-    FirstName : String,
-    LastName:String,
-    Assignments : [
+    FirstName: { type: String, required: true },
+    LastName: { type: String, required: true },
+    Assignments: [
         {
-            _id: Number ,
+            _id: Number,
             AssignmentCategory: String,
             AssignmentName: String,
-            AssignmentStatus: String  
-        }
-    ]
+            AssignmentStatus: String,
+        },
+    ],
 });
 
 const EmpModel = mongoose.model("employee", empSchema);

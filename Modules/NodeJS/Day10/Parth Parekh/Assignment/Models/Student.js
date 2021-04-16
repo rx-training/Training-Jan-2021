@@ -17,14 +17,14 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const stdSchema = new mongoose.Schema({
     _id: Number,
-    Name: String,
-    Address: String,
+    Name: { type: String, required: true },
+    Address: { type: String, required: true },
     Fees: [
         {
             Amount: Number,
             PaymentDate: Date,
             Status: Boolean,
-        }
+        },
     ],
     Result: [
         {
@@ -33,8 +33,8 @@ const stdSchema = new mongoose.Schema({
             Math: Number,
             Total: Number,
             Grade: String,
-        }
-    ]
+        },
+    ],
 });
 
 const StdModel = mongoose.model("student", stdSchema);

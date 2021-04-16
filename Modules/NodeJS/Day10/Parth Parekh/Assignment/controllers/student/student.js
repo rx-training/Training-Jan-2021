@@ -9,13 +9,17 @@ class StudentController {
         const studentData = new StudentData();
         studentData.getAllStudentData(req, res);
     }
-    static async getStudentDataFromId (req,res){
+    static async getStudentDataFromId(req, res) {
         const studentData = new StudentData();
         studentData.getStudentDataFromId(req, res);
     }
-    static async insertStudent (req,res){
+    static async insertStudent(req, res) {
         const studentData = new StudentData();
         studentData.insertStudent(req, res);
+    }
+    static async deleteStudent(req, res) {
+        const studentData = new StudentData();
+        studentData.deleteStudent(req, res);
     }
 }
 
@@ -28,5 +32,8 @@ router.get("/:id", StudentController.getStudentDataFromId);
 
 //Post Method
 router.post("/", StudentController.insertStudent);
+
+//Delete Method
+router.delete("/:id", StudentController.deleteStudent);
 
 module.exports = router;

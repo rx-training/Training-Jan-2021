@@ -20,6 +20,11 @@ class EmployeeController {
         const employeeData = new EmployeeData();
         employeeData.updateEmployee(req, res);
     }
+    static async deleteEmployee (req,res){
+        const employeeData = new EmployeeData();
+        employeeData.deleteEmployee(req, res);
+    }
+    
     
 }
 
@@ -35,6 +40,8 @@ router.post('/', EmployeeController.insertEmployee);
 //Put Method
 router.put("/:id", EmployeeController.updateEmployee);
 
+//Delete Method
+router.delete("/:id", EmployeeController.deleteEmployee);
 
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const StdModel = require('../Models/Student');
+const StdModel = require("../Models/Student");
 
 class StudentData {
     //Get All student Details
@@ -40,21 +40,35 @@ class StudentData {
     async insertStudent(req, res) {
         const data = req.body;
         const stdObject = new StdModel(data);
-        const result = await stdObject.save();
-        res.send(result);
+        try {
+            const result = await stdObject.save();
+            res.send(result);
+        } catch (ex) {
+            res.send(ex.message);
+        }
     }
 
     // Update Result For Particular StudentId
-    async updateEngResult (req,res){
+    async updateEngResult(req, res) {
         let data = req.body;
-        const updateResult = await StdModel.findByIdAndUpdate(
-            req.params.id,
-            {
-                $set: {Result : data},
-            },
-            { new: true }
-        );
-        res.send(updateResult);
+        try {
+            const updateResult = await StdModel.findByIdAndUpdate(
+                req.params.id,
+                {
+                    $set: { Result: data },
+                },
+                { new: true }
+            );
+            res.send(updateResult);
+        } catch (ex) {
+            res.send(ex.message);
+        }
+    }
+
+    //Delete Student
+    async deleteStudent(req, res) {
+        const result = await StdModel.findByIdAndDelete(req.params.id);
+        res.send(`Student Id:${req.params.id}  Deleted Successfully `);
     }
 }
 module.exports = StudentData;
