@@ -7,8 +7,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const studentSchema = new mongoose.Schema({
   _id: Number,
-  Name: String,
-  Address: String,
+  Name: { type: String, required: true },
+  Address: { type: String, required: true },
   Fees: [
     {
       Amount: Number,

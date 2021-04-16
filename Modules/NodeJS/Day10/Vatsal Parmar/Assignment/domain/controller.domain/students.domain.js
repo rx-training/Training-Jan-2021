@@ -13,8 +13,22 @@ class StudentDomain {
   async creatStudent(req, res) {
     let data = req.body;
     const students = new StudentModel(data);
-    const result = await students.save();
-    res.send(result);
+    try {
+      const result = await students.save();
+      res.send(result);
+    } catch (e) {
+      res.send(e.message);
+    }
+  }
+  //To delete an student
+  async deleteAnStudent(req, res) {
+    let id = req.params.studentId;
+    const student = await StudentModel.findByIdAndDelete(id);
+    if (student) {
+      res.send("Student Record Deleted Successfully");
+    } else {
+      res.status(404).send("Data Not Found");
+    }
   }
   //To return a Particular Student Record
   async getStudentRecord(req, res) {
@@ -54,14 +68,18 @@ class StudentDomain {
     let id = req.params.studentId;
     let newResult = req.body;
 
-    const result = await StudentModel.findByIdAndUpdate(
-      id,
-      {
-        $set: { Result: newResult },
-      },
-      { new: true }
-    );
-    res.send(result);
+    try {
+      const result = await StudentModel.findByIdAndUpdate(
+        id,
+        {
+          $set: { Result: newResult },
+        },
+        { new: true }
+      );
+      res.send(result);
+    } catch (e) {
+      res.send(e.message);
+    }
   }
 }
 

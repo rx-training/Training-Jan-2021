@@ -19,6 +19,11 @@ class EmployeeController {
     const employeeDomain = new EmployeeDomain();
     employeeDomain.createAnEmployee(req, res);
   }
+  //To Delete An Employee
+  static async deleteAnEmployee(req, res) {
+    const employeeDomain = new EmployeeDomain();
+    employeeDomain.deleteAnEmployee(req, res);
+  }
   //To Update Data Of An Employee
   static async updateAnEmployee(req, res) {
     const employeeDomain = new EmployeeDomain();
@@ -32,6 +37,8 @@ router.use("/:EmpId/assignments", assignments);
 router.get("/", EmployeeController.get);
 //To get an single employee by id
 router.get("/:EmpId", EmployeeController.getAnEmployee);
+//To delete an employee
+router.delete("/:EmpId", EmployeeController.deleteAnEmployee);
 //To Create New Employee
 router.post("/", EmployeeController.createAnEmployee);
 //To Update Data Of An Employee

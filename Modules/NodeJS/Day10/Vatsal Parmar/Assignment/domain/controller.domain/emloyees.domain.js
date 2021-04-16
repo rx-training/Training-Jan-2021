@@ -21,8 +21,22 @@ class EmployeeDomain {
     //getting user input
     let data = req.body;
     const employee = new EmployeeModel(data);
-    const result = await employee.save();
-    res.send(result);
+    try {
+      const result = await employee.save();
+      res.send(result);
+    } catch (e) {
+      res.send(e.message);
+    }
+  }
+  //To delete an employee
+  async deleteAnEmployee(req, res) {
+    let id = req.params.EmpId;
+    const employees = await EmployeeModel.findByIdAndDelete(id);
+    if (employees) {
+      res.send("Employee Record Deleted Successfully");
+    } else {
+      res.status(404).send("Data Not Found");
+    }
   }
   //To update an employee
   async updateAnEmployee(req, res) {
@@ -34,14 +48,18 @@ class EmployeeDomain {
     let isAvail = employees.find((e) => e.id == id);
 
     if (isAvail) {
-      const result = await EmployeeModel.findByIdAndUpdate(
-        id,
-        {
-          $set: data,
-        },
-        { new: true }
-      );
-      res.send(result);
+      try {
+        const result = await EmployeeModel.findByIdAndUpdate(
+          id,
+          {
+            $set: data,
+          },
+          { new: true }
+        );
+        res.send(result);
+      } catch (e) {
+        res.send(e.message);
+      }
     } else {
       res.status(404).send("Data Not Found");
     }

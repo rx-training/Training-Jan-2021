@@ -8,8 +8,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const employeeSchema = new mongoose.Schema({
   _id: Number,
-  FirstName: String,
-  LastName: String,
+  FirstName: { type: String, required: true },
+  LastName: { type: String, required: true },
   Assignments: [
     {
       _id: Number,

@@ -15,6 +15,11 @@ class StudentController {
     const studentDomain = new StudentDomain();
     studentDomain.getAllStudents(req, res);
   }
+  //To delete a Particular Student Record
+  static async deleteAnStudent(req, res) {
+    const studentDomain = new StudentDomain();
+    studentDomain.deleteAnStudent(req, res);
+  }
   //To return a Particular Student Record
   static async getStudentRecord(req, res) {
     const studentDomain = new StudentDomain();
@@ -26,6 +31,7 @@ router.use("/:studentId/fees", fees);
 router.use("/:studentId/result", result);
 router.post("/", StudentController.createStudent);
 router.get("/", StudentController.get);
+router.delete("/:studentId", StudentController.deleteAnStudent);
 router.get("/:studentId", StudentController.getStudentRecord);
 
 module.exports = router;
