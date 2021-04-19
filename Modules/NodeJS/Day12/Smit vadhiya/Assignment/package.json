@@ -1,20 +1,19 @@
 {
-  "name": "Practice",
+  "name": "Assignment",
   "version": "1.0.0",
   "description": "",
-  "main": "videosPractice.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon routeExports.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "helmet": "^4.4.1",
-    "morgan": "^1.10.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.4",
     "nodemon": "^2.0.7"
   }
 }

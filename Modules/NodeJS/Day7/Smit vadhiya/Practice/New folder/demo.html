@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <script>
+        async function apis(){
+            let data = await fetch('http://localhost:3000/')
+            let fdata = await data.text()
+            console.log(JSON.parse(fdata));
+        }
+        function demo(){
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="apis()">helllo</button>
+    <div id="print"></div>    
+</body>
+</html>
