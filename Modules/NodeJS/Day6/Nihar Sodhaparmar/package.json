@@ -1,0 +1,17 @@
+{
+  "name": "day6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon assignment.js"
+  },
+  "author": "Nihar Sodhaparmar",
+  "license": "ISC"
+}
