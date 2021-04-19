@@ -1,0 +1,68 @@
+[
+    {
+        "type": "list",
+        "name": "01)",
+        "message": "01) Stars appears to move from east to west because",
+        "choices": ["All stars move from east to west", "The earth rotates from west to east","The earth rotates from east to west","The background of the stars moves from west to east"]
+    },
+    {
+        "type": "list",
+        "name": "02)",
+        "message": "02) Let a thin capillary tube be replaced with another tube of insufficient length then, we find water",
+        "choices": ["Will overflow", "Will not rise","Depressed","Change its meniscus"]
+    },
+    {
+        "type": "list",
+        "name": "03)",
+        "message": "03) Rectifiers are used to convert",
+        "choices": ["Direct current to Alternating current", "Alternating current to Direct current","High voltage to low voltage","Low voltage to high voltage"]
+    },
+    {
+        "type": "list",
+        "name": "04)",
+        "message": "04) Magnetism at the center of a bar magnet is",
+        "choices": ["Minimum", "Maximum","Zero","Minimum or maximum"]
+    },
+    {
+        "type": "list",
+        "name": "05)",
+        "message": "05) Point ‘A’ is at a lower electrical potential than point ‘B’. An electron between them on the line joining them will",
+        "choices": ["Move towards A", "Move towards B","Move at right angles to the line joining A and B","Remain at rest"]
+    },
+    {
+        "type": "list",
+        "name": "06)",
+        "message": "06) It takes much longer to cook food in the hills than in the plains, because",
+        "choices": ["In the hills the atmospheric pressure is lower than that in the plains and therefore water boils at a temperature lower than 100°C causing an increase in cooking time", "Due to low atmospheric pressure on the hills, the water boils at a temperature higher than 100°C and therefore water takes longer to boil","In the hills the atmospheric density is low and therefore a lot of heat is lost to the atmosphere","In the hills the humidity is high and therefore a lot of heat is absorbed by the atmosphere leaving very little heat for cooking"]
+    },
+    {
+        "type": "list",
+        "name": "07)",
+        "message": "07) Oil raise up the wick in a lamp. The principle involves",
+        "choices": ["The diffusion of oil through the wick", "The liquid state of oil","Capillary action phenomenon","Volatility of oil"]
+    },
+    {
+        "type": "list",
+        "name": "08)",
+        "message": "08) Intensity of sound at a point is __________ its distance from the source.",
+        "choices": ["Directly proportional to", "Inversely proportional to","Directly proportional to square of","Inversely proportional to square of"]
+    },
+    {
+        "type": "list",
+        "name": "09)",
+        "message": "09) Out of the following pairs, which one does not have identical dimension?",
+        "choices": ["Moment of inertia and moment of a force", "Work and Torque","Angular momentum and Planck's constant","Impulse and Momentum"]
+    },
+    {
+        "type": "list",
+        "name": "10)",
+        "message": "10) On a stationary sail boat, air is blown from a fan attached to the boat. The boat",
+        "choices": ["Moves in opposite direction in which the air is blown", "Does not move","Moves in the same direction in which air blows","Spins around"]
+    },
+    {
+        "type": "list",
+        "name": "11)",
+        "message": "Do you want to submit the paper?",
+        "choices": ["Yes", "No"]
+    }
+    ]
