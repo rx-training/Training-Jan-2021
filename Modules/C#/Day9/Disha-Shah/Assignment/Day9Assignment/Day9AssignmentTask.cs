@@ -10,6 +10,13 @@ namespace Day9Assignment
 
         static async Task Main(string[] args)
         {
+            Day9AssignmentTask day9Assignment = new Day9AssignmentTask();
+            await day9Assignment.FileOperations();
+            
+        }
+
+        public async Task FileOperations()
+        {
             try
             {
                 string filePath1 = "File1.txt";
@@ -18,24 +25,17 @@ namespace Day9Assignment
 
                 if (File.Exists(Path.Combine(rootFolder, filePath1)) != false)
                 {
-                    string text1 = await File.ReadAllTextAsync(Path.Combine(rootFolder, filePath1));
-                    string[] text2 = text1.Split(',', StringSplitOptions.RemoveEmptyEntries);
-                    string text3 = "";
-
-                    foreach (var item in text2)
-                    {
-                        text3 += item.Trim() + "\n";
-                    }
+                    string text3 = await ReadFile(filePath1);
                     
                     Console.WriteLine("Modified content from File1:");
                     Console.WriteLine(text3);
 
-                    string filePath2 = "File2.txt";
-                    await File.WriteAllTextAsync(Path.Combine(rootFolder, filePath2), text3);
+                    await WriteFile(text3);
                     Console.WriteLine("Copied content to File2 successfully!");
 
                     Console.WriteLine();
-                    File.Delete(Path.Combine(rootFolder, filePath1));
+
+                    await DeleteFile(filePath1);
                     Console.WriteLine("File deleted successfully!");
 
                     Console.WriteLine();
@@ -53,6 +53,54 @@ namespace Day9Assignment
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+
+        public async Task<string> ReadFile(string filePath1)
+        {
+            try
+            {
+
+                string text1 = await File.ReadAllTextAsync(Path.Combine(rootFolder, filePath1));
+                string[] text2 = text1.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                string text3 = "";
+
+                foreach (var item in text2)
+                {
+                    text3 += item.Trim() + "\n";
+                }
+
+                return text3;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return "";
+            }
+        }
+
+        public async Task WriteFile(string text3)
+        {
+            try
+            {
+                string filePath2 = "File2.txt";
+                await File.WriteAllTextAsync(Path.Combine(rootFolder, filePath2), text3);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public async Task DeleteFile(string filePath1)
+        {
+            try
+            {
+                File.Delete(Path.Combine(rootFolder, filePath1));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
