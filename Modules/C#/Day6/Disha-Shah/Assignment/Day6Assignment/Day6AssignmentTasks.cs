@@ -9,7 +9,7 @@ namespace Day6Assignment
             // Q. Compute area of rectangle using func delegate
 
             // Q. Compute add of two number using lambda expression
-
+            Day6AssignmentTasks day6AssignmentTasks = new Day6AssignmentTasks();
             bool moreChoice = true;
             while(moreChoice)
             {
@@ -27,11 +27,11 @@ namespace Day6Assignment
                 char choice = Convert.ToChar(Console.ReadLine());
                 switch(choice)
                 {
-                    case 'f': 
-                        FuncRectangle(num1, num2);
+                    case 'f':
+                        day6AssignmentTasks.FuncRectangle(num1, num2);
                         break;
                     case 'l':
-                        LambdaAdd(num1, num2);
+                        day6AssignmentTasks.LambdaAdd(num1, num2);
                         break;
                     default:
                         Console.WriteLine("Please enter correct choice");
@@ -52,7 +52,7 @@ namespace Day6Assignment
             }
         }
 
-        static void FuncRectangle(int num1, int num2)
+        public void FuncRectangle(int num1, int num2)
         {
             Func<int, int, int> calc = delegate (int a, int b)
             { return a * b; };
@@ -61,7 +61,7 @@ namespace Day6Assignment
 
         }
 
-        static void LambdaAdd(int num1, int num2)
+        public void LambdaAdd(int num1, int num2)
         {
             Func<int, int, int> calc = (a, b) =>
             { 
