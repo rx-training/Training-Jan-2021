@@ -1,0 +1,57 @@
+[
+    {
+        "EmpId": 1,
+        "FirstName": "Nihar",
+        "LastName": "Sodhaparmar",
+        "DateOfBirth": "21/05/2000",
+        "AddressLine1": "6, Puneshwar Park",
+        "City": "Nadiad",
+        "State": "Gujarat",
+        "Country": "India",
+        "HireDate": "04/04/2021",
+        "Assignments": [
+            {
+                "AssignmentId": 1,
+                "AssignmentCategory": "Node",
+                "AssignmentName": "Project Sturcture",
+                "AssignmentStatus": "completed"
+            },
+            {
+                "AssignmentId": 2,
+                "AssignmentCategory": "Node",
+                "AssignmentName": "Project Sturcture",
+                "AssignmentStatus": "completed"
+            }
+        ]
+    },
+    {
+        "EmpId": 2,
+        "FirstName": "Nihar",
+        "LastName": "Sodhaparmar",
+        "DateOfBirth": "21/05/2000",
+        "AddressLine1": "6, Puneshwar Park",
+        "City": "Nadiad",
+        "State": "Gujarat",
+        "Country": "India",
+        "HireDate": "04/04/2021"
+    },
+    {
+        "EmpId": 3,
+        "FirstName": "Nihar",
+        "LastName": "Sodhaparmar",
+        "DateOfBirth": "21/05/2000",
+        "AddressLine1": "6, Puneshwar Park",
+        "City": "Nadiad",
+        "State": "Gujarat",
+        "Country": "India",
+        "HireDate": "04/04/2021",
+        "Assignments": [
+            {
+                "AssignmentId": 1,
+                "AssignmentCategory": "Node1",
+                "AssignmentName": "Project Sturcture1",
+                "AssignmentStatus": "completed1"
+            }
+        ]
+    }
+]
