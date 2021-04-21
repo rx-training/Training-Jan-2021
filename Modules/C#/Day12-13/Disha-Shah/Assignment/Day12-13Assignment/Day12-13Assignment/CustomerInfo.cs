@@ -8,96 +8,77 @@ namespace Day12_13Assignment
     class CustomerInfo
     {
         // Add Customer information
-        public void InsertCustomer(string fname, string lname, long contact, string address)
+        ToyCompanyDBContext context = new ToyCompanyDBContext();
+            
+        public void InsertCustomer(Customer entity)
         {
-            using (var context = new ToyCompanyDBContext())
-            {
-                var customer = new Customer() { FirstName = fname, LastName = lname, Contact = contact, Address = address };
-                context.Customers.Add(customer);
-                context.SaveChanges();
-            }
+            context.Customers.Add(entity);
+            context.SaveChanges();
         }
 
         // Update Customer Information
-        public void UpdateCustomer(string oldFname, string oldLname, string newFname, string newLname, long newContact, string newAddress)
+        public void UpdateCustomer(Customer oldInfo, Customer newInfo)
         {
-            using (var context = new ToyCompanyDBContext())
-            {
-                var updateCustomer = context.Customers
-                                       .SingleOrDefault<Customer>(x => x.FirstName == oldFname && x.LastName == oldLname);
+            var updateCustomer = context.Customers
+                                    .SingleOrDefault<Customer>(x => x.FirstName == oldInfo.FirstName && x.LastName == oldInfo.LastName);
 
-                updateCustomer.FirstName = newFname;
-                updateCustomer.LastName = newLname;
-                updateCustomer.Address = newAddress;
-                updateCustomer.Contact = newContact;
-                context.SaveChanges();
-            }
-
+            updateCustomer.FirstName = newInfo.FirstName;
+            updateCustomer.LastName = newInfo.LastName;
+            updateCustomer.Address = newInfo.Address;
+            updateCustomer.Contact = newInfo.Contact;
+            context.SaveChanges();
         }
 
         // Delete Customer Information
-        public void DeleteCustomer(string oldFName, string oldLName)
+        public void DeleteCustomer(Customer info)
         {
-            using (var context = new ToyCompanyDBContext())
-            {
-                var deleteCustomer = context.Customers
-                                          .SingleOrDefault<Customer>(x => x.FirstName == oldFName && x.LastName == oldLName);
+            var deleteCustomer = context.Customers
+                                        .SingleOrDefault<Customer>(x => x.FirstName == info.FirstName && x.LastName == info.LastName);
 
-                context.Customers.Remove(deleteCustomer);
-                context.SaveChanges();
-            }
+            context.Customers.Remove(deleteCustomer);
+            context.SaveChanges();
         }
 
         // Get informationof all toys
         public void GetAllToysInfo()
         {
-            using (var context = new ToyCompanyDBContext())
-            {
-                var allToysInfo = context.Toys.FromSqlRaw("uspGetAllToys");
+            var allToysInfo = context.Toys.FromSqlRaw("uspGetAllToys");
 
-                foreach (var item in allToysInfo)
-                {
-                    Console.WriteLine($"{item.Name}\t{item.Description}\t{item.Price}\t{item.Qty}");
-                }
+            foreach (var item in allToysInfo)
+            {
+                Console.WriteLine($"{item.Name}\t{item.Description}\t{item.Price}\t{item.Qty}");
             }
         }
 
         // Get information of a particular toy
-        public int GetToyInfo(string toy)
+        public int GetToyInfo(Toy toy)
         {
             int qty = 0;
-            using (var context = new ToyCompanyDBContext())
+            
+            var toys = context.Toys
+                .FromSqlRaw($"uspGetToyInfo {toy.Name}")
+                .ToList();
+
+            Console.WriteLine();
+            foreach (var item in toys)
             {
-                var toys = context.Toys
-                  .FromSqlRaw($"uspGetToyInfo {toy}")
-                  .ToList();
-
-                Console.WriteLine();
-                foreach (var item in toys)
-                {
                     
-                    Console.WriteLine($"{item.Name}\t{item.Description}\t{item.Price}\t{item.Qty}");
-                    qty = item.Qty;
-                }
-
+                Console.WriteLine($"{item.Name}\t{item.Description}\t{item.Price}\t{item.Qty}");
+                qty = item.Qty;
             }
+
             return qty;
         }
 
         // Calculate amount before discount
-        public decimal CalcAmount(string toy, int qty)
+        public decimal CalcAmount(Toy toy, int qty)
         {
             decimal amount = 0.0m;
 
-            using (var context = new ToyCompanyDBContext())
-            {
+            var result = context.Toys
+                                .SingleOrDefault(s => s.Name == toy.Name);
 
-                var result = context.Toys
-                                    .SingleOrDefault(s => s.Name == toy);
-
-                amount = qty * result.Price;
-                
-            }
+            amount = qty * result.Price;
 
             return amount;
         }
@@ -136,66 +117,59 @@ namespace Day12_13Assignment
         }
 
         // Book Order of a particular customer
-        public int[] BookOrder(string fname, string lname)
+        public Order BookOrder(Customer info)
         {
             int orderId;
             int custId;
-            using (var context = new ToyCompanyDBContext())
-            {
-                // Get customer id
-                var custResult = context.Customers
-                                        .SingleOrDefault(x => x.FirstName == fname && x.LastName == lname);
+            
+            // Get customer id
+            var custResult = context.Customers
+                                    .SingleOrDefault(x => x.FirstName == info.FirstName && x.LastName == info.LastName);
 
-                custId = custResult.Id;
+            custId = custResult.Id;
 
-                // current date
-                var orderDate = DateTime.Now;
+            // current date
+            var orderDate = DateTime.Now;
 
-                // add information to Order table
-                var order = new Order() { CustomerId = custId, OrderDateTime = orderDate};
-                context.Orders.Add(order);
-                context.SaveChanges();
+            // add information to Order table
+            var order = new Order() { CustomerId = custId, OrderDateTime = orderDate};
+            context.Orders.Add(order);
+            context.SaveChanges();
 
-                // Get orderid
-                var orderResult = context.Orders
-                                        .SingleOrDefault(x => x.CustomerId == custId && x.OrderDateTime == orderDate);
+            // Get orderid
+            var orderResult = context.Orders
+                                    .SingleOrDefault(x => x.CustomerId == custId && x.OrderDateTime == orderDate);
 
-                orderId = orderResult.Id;
+            orderId = orderResult.Id;
 
-            }
-
-            int[] arr = new int[2];
-            arr[0] = orderId;
-            arr[1] = custId;
-            return arr;
+            order = new Order() { Id = orderId, CustomerId = custId };
+            return order;
         }
 
         // Order Details for a particular customer and product
-        public void BookOrderDetails(string toy, int qty, int custId, string address, string city, string state, decimal amount, decimal finalAmount, int orderId)
+        public void BookOrderDetails(Toy toy, Order order, ShipTo shipTo, int qty, decimal amount, decimal finalAmount)
         {
-            using (var context = new ToyCompanyDBContext())
-            {
-                // Get toyid
-                var toyResult = context.Toys
-                                    .SingleOrDefault(x => x.Name == toy);
+            
+            // Get toyid
+            var toyResult = context.Toys
+                                .SingleOrDefault(x => x.Name == toy.Name);
 
-                int toyId = toyResult.Id;
+            int toyId = toyResult.Id;
 
-                // Get ShipTo address id
-                var shipToResult = context.ShipTos
-                                           .SingleOrDefault(x => x.Address == address && x.City == city && x.State == state && x.CustomerId==custId);
+            // Get ShipTo address id
+            var shipToResult = context.ShipTos
+                                        .SingleOrDefault(x => x.Address == shipTo.Address && x.City == shipTo.City && x.State == shipTo.State && x.CustomerId==order.CustomerId);
 
-                var shipToId = shipToResult.Id;
+            var shipToId = shipToResult.Id;
 
-                // Add information to Order details table
-                var orderDetails = new OrderDetail() { OrderId = orderId, ToyId = toyId, ShipToId = shipToId, Qty = qty, Total = amount, ToBePaid = finalAmount };
-                context.OrderDetails.Add(orderDetails);
-                context.SaveChanges();
+            // Add information to Order details table
+            var orderDetails = new OrderDetail() { OrderId = order.Id, ToyId = toyId, ShipToId = shipToId, Qty = qty, Total = amount, ToBePaid = finalAmount };
+            context.OrderDetails.Add(orderDetails);
+            context.SaveChanges();
 
-                // update quantity in toys table
-                toyResult.Qty = toyResult.Qty - qty;
-                context.SaveChanges();
-            }
+            // update quantity in toys table
+            toyResult.Qty = toyResult.Qty - qty;
+            context.SaveChanges();
         }
 
     }

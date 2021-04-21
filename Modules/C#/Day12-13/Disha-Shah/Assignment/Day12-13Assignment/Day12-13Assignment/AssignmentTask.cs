@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Day12_13Assignment.Models;
+using System;
 
 namespace Day12_13Assignment
 {
@@ -7,6 +8,8 @@ namespace Day12_13Assignment
         static void Main(string[] args)
         {
             CustomerInfo customer = new CustomerInfo();
+            Customer cust;
+
             bool moreChoice = true;
             while (moreChoice)
             {
@@ -31,7 +34,9 @@ namespace Day12_13Assignment
                         Console.WriteLine("Enter Address of Customer:");
                         string address = Console.ReadLine();
 
-                        customer.InsertCustomer(fname, lname, contact, address);
+                        cust = new Customer() { FirstName=fname, LastName=lname, Contact=contact, Address=address};
+
+                        customer.InsertCustomer(cust);
                         Console.WriteLine();
                         Console.WriteLine("Customer added successfully");
                         break;
@@ -41,6 +46,8 @@ namespace Day12_13Assignment
                         string oldFname = Console.ReadLine();
                         Console.WriteLine("Enter lastname of Customer whose information is to be modified:");
                         string oldLname = Console.ReadLine();
+
+                        Customer cust1 = new Customer() { FirstName=oldFname, LastName=oldLname };
 
                         Console.WriteLine();
                         // New Information
@@ -53,7 +60,9 @@ namespace Day12_13Assignment
                         Console.WriteLine("Enter Address of Customer:");
                         string newAddress = Console.ReadLine();
 
-                        customer.UpdateCustomer(oldFname, oldLname, newFname, newLname, newContact, newAddress);
+                        cust = new Customer() { FirstName = newFname, LastName = newLname, Contact = newContact, Address = newAddress };
+
+                        customer.UpdateCustomer(cust1, cust);
                         Console.WriteLine();
                         Console.WriteLine("Customer Updated successfully");
                         break;
@@ -64,7 +73,9 @@ namespace Day12_13Assignment
                         Console.WriteLine("Enter lastname of Customer whose information is to be deleted:");
                         string oldLName = Console.ReadLine();
 
-                        customer.DeleteCustomer(oldFName, oldLName);
+                        cust = new Customer() { FirstName=oldFName, LastName=oldLName };
+
+                        customer.DeleteCustomer(cust);
                         Console.WriteLine();
                         Console.WriteLine("Data Deleted Successfully");
                         break;
@@ -82,8 +93,10 @@ namespace Day12_13Assignment
                         Console.WriteLine("Enter lastname of Customer who want to book a order:");
                         string LName = Console.ReadLine();
 
+                        cust = new Customer() { FirstName = FName, LastName = LName };
+
                         bool orderFlag = false;
-                        int[] resultArr;
+                        Order order = new Order();
                         int orderid = 0;
                         int custid = 0;
                         bool moreBuy = true;
@@ -96,9 +109,11 @@ namespace Day12_13Assignment
                             Console.WriteLine("Enter Toy Name you want to buy:");
                             string toy = Console.ReadLine();
 
+                            Toy toy1 = new Toy() { Name = toy };
+
                             // Display information of Toy
                             Console.WriteLine($"Information of {toy}:");
-                            int toyQty = customer.GetToyInfo(toy);
+                            int toyQty = customer.GetToyInfo(toy1);
 
                             // Quantity to buy
                             Console.WriteLine("Enter Qty you want to buy:");
@@ -113,7 +128,7 @@ namespace Day12_13Assignment
                                 decimal amount = 0.0m;
 
                                 // Before discount amount
-                                amount = customer.CalcAmount(toy, qty);
+                                amount = customer.CalcAmount(toy1, qty);
                                 Console.WriteLine($"Amount: {amount}");
 
                                 // After discount amount
@@ -128,18 +143,20 @@ namespace Day12_13Assignment
                                 Console.WriteLine("Enter State:");
                                 string stateShipTo = Console.ReadLine();
 
+                                ShipTo shipTo = new ShipTo() { Address = addressShipTo, City = cityShipTo, State = stateShipTo };
+
                                 // If First order of the day by a particular customer
                                 if (orderFlag==false)
                                 {
                                     // Entry in Order Table
-                                    resultArr = customer.BookOrder(FName, LName);
+                                    order = customer.BookOrder(cust);
                                     Console.WriteLine("Successfully added in Orders Table");
 
-                                    orderid = resultArr[0];
-                                    custid = resultArr[1];
+                                    orderid = order.Id;
+                                    custid = order.CustomerId;
 
                                     // Entry in OrderDetails Table
-                                    customer.BookOrderDetails(toy, qty, custid, addressShipTo, cityShipTo, stateShipTo, amount, finalAmount, orderid);
+                                    customer.BookOrderDetails(toy1, order, shipTo, qty, amount, finalAmount);
                                     Console.WriteLine("Successfully added in OrderDetails Table");
 
                                     orderFlag = true;
@@ -148,7 +165,7 @@ namespace Day12_13Assignment
                                 else
                                 {
                                     // Entry in OrderDetails Table
-                                    customer.BookOrderDetails(toy, qty, custid, addressShipTo, cityShipTo, stateShipTo, amount, finalAmount, orderid);
+                                    customer.BookOrderDetails(toy1, order, shipTo, qty, amount, finalAmount);
                                     Console.WriteLine("Successfully added in OrderDetails Table");
 
                                 }
