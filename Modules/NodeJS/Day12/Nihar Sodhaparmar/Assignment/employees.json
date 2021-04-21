@@ -1,0 +1,40 @@
+[
+    {
+        "EmpId": 1,
+        "FirstName": "Nihar",
+        "LastName": "Sodhaparmar",
+        "DateOfBirth": "21/05/2000",
+        "AddressLine1": "6, Puneshwar Park",
+        "City": "Nadiad",
+        "State": "Gujarat",
+        "Country": "India",
+        "HireDate": "04/04/2021",
+        "Assignments": [
+            {
+                "AssignmentId": 1,
+                "AssignmentCategory": "PHP",
+                "AssignmentName": "Routing",
+                "AssignmentStatus": "Completed"
+            }
+        ]
+    },
+    {
+        "EmpId": 2,
+        "FirstName": "Nihar",
+        "LastName": "Sodhaparmar",
+        "DateOfBirth": "21/05/2000",
+        "AddressLine1": "6, Puneshwar Park",
+        "City": "Nadiad",
+        "State": "Gujarat",
+        "Country": "India",
+        "HireDate": "04/04/2021",
+        "Assignments": [
+            {
+                "AssignmentId": 1,
+                "AssignmentCategory": "PHP",
+                "AssignmentName": "Routing",
+                "AssignmentStatus": "Completed"
+            }
+        ]
+    }
+]
