@@ -92,7 +92,11 @@ class DoctorDomain {
         path: "patients",
         populate: { path: "medicines.medicine" },
       });
-    res.send(doctors);
+    if (doctors) {
+      res.send(doctors);
+    } else {
+      res.status(404).send("Doctor Not Found");
+    }
   }
 }
 
