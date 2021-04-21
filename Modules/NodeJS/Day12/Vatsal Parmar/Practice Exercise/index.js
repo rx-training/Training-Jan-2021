@@ -11,7 +11,7 @@ const employeeSchema = new mongoose.Schema({
     required: true,
     minlength: 4,
     maxlength: 255,
-    //match: /pattern/,
+    //match: /.*a.*/,
   },
   Address: { type: String, enum: ["Ahmedabad", "Vadodara"] },
   Skills: {
