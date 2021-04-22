@@ -7,11 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PracticeDBAPI.Models;
 using PracticeDBAPI.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace PracticeDBAPI
 {
@@ -27,7 +29,11 @@ namespace PracticeDBAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<IDepositors, DepositorRepository>();
+            services.AddEntityFrameworkSqlServer();
+            services.AddDbContextPool<TestDBContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
+            //services.AddDbContext<TestDBContext>(opt =>
+              //                                 opt.UseInMemoryDatabase("TestDB"));
+            services.AddScoped<IDepositors, DepositorRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
