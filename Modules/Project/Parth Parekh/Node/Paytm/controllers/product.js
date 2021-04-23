@@ -23,6 +23,10 @@ class ProductController {
         const productData = new ProductData();
         productData.updateProductDetails(req, res);
     }
+    static async bookOrder(req,res){
+        const productData = new ProductData();
+        productData.bookOrder(req, res);
+    }
 }
 
 //Get Methods
@@ -32,6 +36,7 @@ router.get("/:id", ProductController.getProductDetailsFromId);
 //Post Methods
 router.post('/',ProductController.addProduct);
 
+router.post('/bookorder' , ProductController.bookOrder);
 //Put Methods
 router.put("/:id", ProductController.updateProductDetails);
 

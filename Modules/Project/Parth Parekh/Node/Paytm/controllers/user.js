@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const UserData = require("../domain/userlogic");
 const transaction = require('./transaction/transaction');
+const order = require("./transaction/order");
 
 class UserController {
     static async getAllUserData(req, res) {
@@ -24,13 +25,19 @@ class UserController {
         const userData = new UserData();
         userData.updateUser(req, res);
     }
+    static async getOrderDetailsOfUser(req,res){
+         const userData = new UserData();
+        userData.getOrderDetailsOfUser(req, res);
+    }
 }
 
 router.use('/transaction',transaction);
+router.use('/orders',order);
 
 //Get Methods
 router.get("/", UserController.getAllUserData);
 router.get("/:id", UserController.getUserDetailsFromId);
+
 
 //Post Methods
 router.post("/", UserController.addUser);

@@ -1,10 +1,14 @@
 const UserModel = require("../models/userData");
+const ProductModel = require('../models/product');
 const mongoose = require("mongoose");
+
 
 class UserData {
     async getAllUserData(req, res) {
         try {
-            const result = await UserModel.find();
+            const result = await UserModel.find().select(
+                "name email mobileno balance orders transactions -_id"
+            );
             if (!result) {
                 return res.status(404).send("Users Not Available !!");
             } else {
@@ -16,7 +20,9 @@ class UserData {
     }
     async getUserDetailsFromId(req, res) {
         try {
-            const result = await UserModel.findById(req.params.id);
+            const result = await UserModel.findById(req.params.id).select(
+                "name email mobileno balance orders transactions -_id"
+            );
             if (!result) {
                 return res
                     .status(404)
@@ -69,7 +75,7 @@ class UserData {
     async deleteUser(req, res) {
         const result = await UserModel.findByIdAndDelete(req.params.id);
         if (!result) {
-            return res.status(404).send("Product Not Found");
+            return res.status(404).send("User Not Found");
         } else {
             res.send(`User Id:${req.params.id}  Deleted Successfully `);
         }
@@ -77,18 +83,80 @@ class UserData {
 
     async getTransactionDetailsOFUser(req, res) {
         const userId = req.body.userId;
-
         try {
             const result = await UserModel.findById(userId);
-            if (!result) {
-                return res.status(404).send(`User  Not Found`);
-            }
             //console.log(result);
             res.send(
                 `Balance : ${result.balance} \n Transaction Details :\n  ${result.transactions}`
             );
         } catch (ex) {
-            res.send(ex.message);
+            return res.status(404).send("User Not Found");
+        }
+    }
+
+    async getOrderDetailsOfUser(req, res) {
+        const userId = req.body.userId;
+        try {
+            const result = await UserModel.findById(userId)
+                .populate({ path: "orders", populate: { path: "Product" } })
+                .select("-_id");
+            res.send(result.orders);
+        } catch (ex) {
+            return res.status(404).send("User Not Found");
+        }
+    }
+    async orderPayment(req, res) {
+        const userId = req.body.userId;
+        const orderId = req.body.orderId;
+        const amount = req.body.amount;
+
+        try {
+            const userData = await UserModel.findById(userId);
+            const orderData = userData.orders.id(orderId);
+            if (!orderData) {
+                return res.send(`Order Is Not Available For Id ${orderId}`);
+            } else {
+                if (orderData.PaymentStatus == "Done") { 
+                    return res.send("Payment Failed");
+                } else {
+                    if (orderData.totalAmount === amount) {
+
+                        if (userData.balance >= amount) {
+
+                            userData.balance = userData.balance - amount;
+                            const duplicateData = {
+                                _id: orderData._id,
+                                Quantity: orderData.Quantity,
+                                PaymentStatus: "Done",
+                                Product: orderData.Product,
+                                totalAmount: orderData.totalAmount,
+                                Shipping_Address: orderData.Shipping_Address,
+                                DeliveredOn: "4-5 Working Days",
+                                OrderDate: orderData.OrderDate,
+                            };
+                            orderData.remove();
+                            userData.orders.push(duplicateData);
+                            userData.save();
+
+                            const productData = await ProductModel.findById(duplicateData.Product);
+                            productData.Qty = productData.Qty - 1;
+                            productData.save();
+                              
+                            res.send(
+                                "Payment Successfully Done , your Order delivered On 4-5 working Days "
+                            );
+                        } else {
+                            return res.send(`Insufficient Balance !!`);
+                        }
+                    } else {
+                        return res.send(
+                            `Enter Amount : ${orderData.totalAmount} For Payment`
+                        );
+                    }
+                }
+            }
+        } catch (ex) {
+            return res.status(404).send("User Not Found");
         }
     }
 
@@ -173,11 +241,10 @@ class UserData {
                         YourId: userId,
                         paymentType: "Money Added",
                     };
-                    
+
                     userData.transactions.push(transactionUserData);
                     userData.save();
-                    res.send('Money Added Successfully');
-                    
+                    res.send("Money Added Successfully");
                 }
             }
         } catch (ex) {
