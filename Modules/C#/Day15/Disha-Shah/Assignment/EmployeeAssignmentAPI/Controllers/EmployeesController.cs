@@ -34,6 +34,23 @@ namespace EmployeeAssignmentAPI.Controllers
             return Ok(allEmployees);
         }
 
+        // Get information of a particular employee
+        [HttpGet("{empId}")]
+        public ActionResult<List<Employee>> GetEmployee(long empId)
+        {
+            List<Employee> employee = context.Employees
+                                       .Where(x => x.EmpId == empId)
+                                       .ToList();
+                                     
+
+            if (employee.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(employee);
+        }
+
         // Get information of all assignments, assigned to particular employee
         [HttpGet("{empId}/child/assignments")]
         public ActionResult<List<Employee>> GetAllAssignments(long empId)
@@ -108,9 +125,33 @@ namespace EmployeeAssignmentAPI.Controllers
             return Ok(assignment);
         }
 
+        // Add new employee
+        [HttpPost]
+        public ActionResult PostNewEmployee(Employee employee)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            context.Employees.Add(new Employee()
+            {
+                FirstName = employee.FirstName,
+                MiddleName = employee.MiddleName,
+                LastName = employee.LastName,
+                Gender = employee.Gender,
+                HireDate = employee.HireDate,
+                AddressLine1 = employee.AddressLine1,
+                City = employee.City
+            });
+
+            context.SaveChanges();
+
+            return Ok();
+        }
+
         // Add new assignment
         [HttpPost("{empId}/child/assignments")]
-        public ActionResult PostNewCustomer(Assignment assignment, long empId)
+        public ActionResult PostNewAssignment(Assignment assignment, long empId)
         {
 
             if (!ModelState.IsValid)
@@ -130,9 +171,39 @@ namespace EmployeeAssignmentAPI.Controllers
             return Ok();
         }
 
+        // Update employee
+        [HttpPut("{empId}")]
+        public ActionResult PutEmployee(Employee employee, long empId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid data");
+
+            var existingEmployee = context.Employees.Where(s => s.EmpId==empId)
+                                                    .SingleOrDefault<Employee>();
+
+            if (existingEmployee != null)
+            {
+                existingEmployee.FirstName = employee.FirstName;
+                existingEmployee.MiddleName = employee.MiddleName;
+                existingEmployee.LastName = employee.LastName;
+                existingEmployee.Gender = employee.Gender;
+                existingEmployee.HireDate = employee.HireDate;
+                existingEmployee.AddressLine1 = employee.AddressLine1;
+                existingEmployee.City = employee.City;
+
+                context.SaveChanges();
+            }
+            else
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
+
         // Update assignment
         [HttpPut("{empId}/child/assignments/{assignmentId}")]
-        public ActionResult Put(AssignmentDTO assignmentDTO, long empId, long assignmentId)
+        public ActionResult PutAssignment(AssignmentDTO assignmentDTO, long empId, long assignmentId)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid data");
