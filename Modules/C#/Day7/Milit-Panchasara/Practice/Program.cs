@@ -29,6 +29,21 @@ namespace Practice
             return obj.StudentID.GetHashCode();
         }
     }
+    static class EnumerableExtensionMethods
+    {
+        public static IEnumerable<Student> GetTeenAgerStudents(this IEnumerable<Student> source)
+        {
+
+            foreach (Student std in source)
+            {
+                Console.WriteLine("Accessing student {0}", std.StudentName);
+
+                if (std.Age > 12 && std.Age < 20)
+                    // yield keyword for differed exec.
+                    yield return std;
+            }
+        }
+    }
     class Program
     {
         static void ReportTypeProperties<T>(T obj)
@@ -351,6 +366,21 @@ namespace Practice
             {
                 Console.WriteLine($"Age {item.studentAge}, After 5 years {item.AfterFiveYears}");
             }
+            Console.WriteLine();
+
+            //differed execution
+            var teenAgerStudents = from s in studentList.GetTeenAgerStudents()
+                                   select s;
+
+            // GetTeenAgerStudents() get called in loop
+            foreach (Student teenStudent in teenAgerStudents)
+                Console.WriteLine("Student Name: {0}", teenStudent.StudentName);
+            Console.WriteLine();
+
+            // immidiate execution
+            // add break point and see value while debugging
+            IList<Student> teenAgerStudents2 =
+                studentList.Where(s => s.Age > 12 && s.Age < 25).ToList();
             Console.WriteLine();
         }
     }
