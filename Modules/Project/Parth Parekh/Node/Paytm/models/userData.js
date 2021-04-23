@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const passbookSchema = require('./passbook');
 const transactionSchema = require('./transaction');
 const orderSchema = require('./order');
 
@@ -24,7 +23,7 @@ const userSchema = new mongoose.Schema({
         type: Number,
         trim: true,
     },
-    balance : {type : Number , min : 0 ,require : true , default : 0},
+    balance : {type : Number , min : 0 ,required : true , default : 0},
     transactions: {
         type: [transactionSchema],
     },
@@ -37,15 +36,13 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.joivalidate = (data) => {
     const Joi = require("joi");
     const schema = Joi.object({
-        
         name: Joi.string().required(),
         email: Joi.string().required(),
         password: Joi.string().required(),
-        balance : Joi.number().required(),
-        mobileno : Joi.number().required(),
-        
-        transactions : Joi.array(),
-        orders : Joi.array()
+        balance: Joi.number().required(),
+        mobileno: Joi.number().required(),
+        transactions: Joi.array(),
+        orders: Joi.array(),
     });
     return schema.validate(data);
 };

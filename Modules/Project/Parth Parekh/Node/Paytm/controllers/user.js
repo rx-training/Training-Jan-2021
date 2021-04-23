@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const UserData = require("../domain/userlogic");
+const transaction = require('./transaction/transaction');
 
 class UserController {
     static async getAllUserData(req, res) {
@@ -24,6 +25,8 @@ class UserController {
         userData.updateUser(req, res);
     }
 }
+
+router.use('/transaction',transaction);
 
 //Get Methods
 router.get("/", UserController.getAllUserData);
