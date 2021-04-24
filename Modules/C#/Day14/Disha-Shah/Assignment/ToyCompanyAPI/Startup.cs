@@ -7,15 +7,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using PracticeDBAPI.Models;
-using PracticeDBAPI.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ToyCompanyAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using ToyCompanyAPI.IRepository;
+using ToyCompanyAPI.Repository;
 
-namespace PracticeDBAPI
+namespace ToyCompanyAPI
 {
     public class Startup
     {
@@ -30,15 +31,16 @@ namespace PracticeDBAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddEntityFrameworkSqlServer();
-            services.AddDbContextPool<TestDBContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
-            //services.AddDbContext<TestDBContext>(opt =>
-              //                                 opt.UseInMemoryDatabase("TestDB"));
-            services.AddScoped<IDepositors, DepositorRepository>();
-            services.AddScoped<ICustomer, CustomerRepository>();
+            services.AddDbContextPool<ToyCompanyDBContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
+            services.AddTransient<ICustomer, CustomerRepository>();
+            services.AddTransient<IOrder, OrderRepository>();
+            services.AddTransient<IToyCategory, ToyCategoryRepository>();
+            services.AddTransient<IToy, ToyRepository>();
+            services.AddTransient<IManufacturingPlant, ManufacturingPlantRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PracticeDBAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToyCompanyAPI", Version = "v1" });
             });
         }
 
@@ -49,7 +51,7 @@ namespace PracticeDBAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PracticeDBAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToyCompanyAPI v1"));
             }
 
             app.UseHttpsRedirection();
