@@ -1,0 +1,37 @@
+{
+  "customers": [
+    {
+      "address": {
+        "city": "New Orleans",
+        "state": "LA",
+        "street": "6649 N Blue Gum St",
+        "zip": "70116"
+      },
+      "first_name": "James",
+      "id": 1,
+      "last_name": "Butterburg"
+    },
+    {
+      "address": {
+        "city": "Brighton",
+        "state": "MI",
+        "street": "4 B Blue Ridge Blvd",
+        "zip": "48116"
+      },
+      "first_name": "Josephine",
+      "id": 2,
+      "last_name": "Darakjy"
+    },
+    {
+      "address": {
+        "city": "Bridgeport",
+        "state": "NJ",
+        "street": "8 W Cerritos Ave #54",
+        "zip": "08014"
+      },
+      "first_name": "Art",
+      "id": 3,
+      "last_name": "Chemel"
+    }
+  ]
+}

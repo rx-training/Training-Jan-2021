@@ -1,0 +1,6 @@
+GET http://localhost:3000/
+
+# GET http://localhost:3000/user/5
+
+GET http://localhost:3000/router/user/5
+
