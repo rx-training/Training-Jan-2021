@@ -13,7 +13,7 @@ const app = express()
 
 // 1. Create a RESTFUL API which will return a Studentlist.
 // http://localhost:3000/students
-app.all('/students', (req, res) => {
+app.get('/students', (req, res) => {
 	if( persons ) {
 		res.status(200).json(persons)
 	} else {
@@ -42,7 +42,6 @@ app.get('/students/:id', (req, res) => {
 	}
 
 })
-
 
 
 // 3. Create a RESTFUL API which return a particular student FEES Record. Fees field are 
