@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
     <script type="text/javascript" src="../Script/Login.js"></script>
     <title>Login</title>
     <style>
-        body{
+        body {
             background-image: url("../Image/background.jpg");
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-position: center; 
-            background-size: cover;   
+            background-position: center;
+            background-size: cover;
             height: 100vh;
         }
     </style>
 </head>
+
 <body class="bg-light " style="font-family: 'Work Sans', sans-serif;">
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: rgba(165, 165, 165, 0.274);">
         <div class="container">
-            <a href="../../Index.html" onclick="return backIndex()"><i class="fas h2 text-white pt-2 fa-arrow-alt-circle-left"></i></a>
-            <a href="../../Index.html" onclick="return backIndex()"><i class=" h2 fab fa-amazon text-light" ></i></a>
+            <a href="../../Index.html" onclick="return backIndex()"><i
+                    class="fas h2 text-white pt-2 fa-arrow-alt-circle-left"></i></a>
+            <a href="../../Index.html" onclick="return backIndex()"><i class=" h2 fab fa-amazon text-light"></i></a>
             <a href="#" onclick="return loadProduct()"><i class="fas fa-truck-loading"></i>&nbsp;Load Product</a>
         </div>
     </nav>
     <div class="container">
-    <div class="row ">
-        <div class="col-lg-4 col-md-2"></div>
-        <div class="col-lg-4 col-md-8 mt-4">
-            <div class="card py-3 rounded" style="background-color: rgba(0, 0, 0, 0.651);" >
-                <div class="card-body" >
-                    <h1 class="text-center mt-2 pb-3 text-white">Login</h1>
-                    <form class="text-center">
-                        <div class="form-group rounded">
-                            <select name="selectType" id="selectType" class="form-control text-white bg-dark ">
-                                <option value="Select the login type">Select the login type</option>
-                                <option value="Admin">Admin</option>
-                                <option value="User">User</option>
-                            </select>
-                        </div>
-                        <div class="form-group form-control" style="background-color: rgba(0, 0, 0, 0.151);">
-                            <label for="Username" class="text-white">Username</label>
-                            <input type="text" class="form-control text-center" id="username" placeholder="Username" required>
-                        </div>
-                        <div class="form-group form-control" style="background-color: rgba(0, 0, 0, 0.151);">
-                            <label for="Password"class="text-white">Password</label> 
-                            <input type="password" class="form-control text-center" id="password"placeholder="Password" required>
-                        </div>
-                        <input type="submit" value="Log in" class="btn btn-md btn-outline-dark text-warning" onclick="return login()">
-                    </form>
+        <div class="row ">
+            <div class="col-lg-4 col-md-2"></div>
+            <div class="col-lg-4 col-md-8 mt-4">
+                <div class="card py-3 rounded" style="background-color: rgba(0, 0, 0, 0.651);">
+                    <div class="card-body">
+                        <h1 class="text-center mt-2 pb-3 text-white">Login</h1>
+                        <form class="text-center">
+                            <div class="form-group rounded">
+                                <select name="selectType" id="selectType" class="form-control text-white bg-dark ">
+                                    <option value="Select the login type">Select the login type</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-control" style="background-color: rgba(0, 0, 0, 0.151);">
+                                <label for="Username" class="text-white">Username</label>
+                                <input type="text" class="form-control text-center" id="username" placeholder="Username"
+                                    required>
+                            </div>
+                            <div class="form-group form-control" style="background-color: rgba(0, 0, 0, 0.151);">
+                                <label for="Password" class="text-white">Password</label>
+                                <input type="password" class="form-control text-center" id="password"
+                                    placeholder="Password" required>
+                            </div>
+                            <input type="submit" value="Log in" class="btn btn-md btn-outline-dark text-warning"
+                                onclick="return login()">
+                        </form>
+                    </div>
                 </div>
+                <button class=" btn btn-md btn-outline-success text-warning form-control mt-5">Create Your Amazon
+                    Account</button>
             </div>
-            <button class=" btn btn-md btn-outline-success text-warning form-control mt-5">Create Your Amazon Account</button>
+            <div class="col-md-2 col-lg-4"></div>
         </div>
-        <div class="col-md-2 col-lg-4"></div>
-    </div>
     </div>
 
 </body>
+
 </html>
