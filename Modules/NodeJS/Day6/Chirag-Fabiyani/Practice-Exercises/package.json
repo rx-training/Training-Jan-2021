@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "name": "practice-1",
+  "version": "1.0.0",
+  "main": "Practice-1.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon Practice-1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

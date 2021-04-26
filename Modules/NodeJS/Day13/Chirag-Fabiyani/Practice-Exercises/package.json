@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fawn": "^2.1.5",
+    "mongoose": "^5.12.5"
+  }
+}

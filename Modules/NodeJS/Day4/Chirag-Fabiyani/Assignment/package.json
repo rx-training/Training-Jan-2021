@@ -1,0 +1,14 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Assignment-1.js",
+  "scripts": {
+    "test": "nodemon Assignment-1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
