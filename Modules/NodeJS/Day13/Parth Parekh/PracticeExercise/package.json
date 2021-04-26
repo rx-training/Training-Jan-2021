@@ -1,0 +1,16 @@
+{
+  "name": "PracticeExercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Day13_PracticeExercise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fawn": "^2.1.5",
+    "mongoose": "^5.12.5"
+  }
+}
