@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Detroit United Bank</title>
+    <script src="js/user/session.js"></script>
+    <script src="js/user/logout.js"></script>
+    <script>
+        (new session).isLoggedIn();
+    </script>
+</head>
+
+<body>
+    <section id="header" class="bg-primary text-white">
+        <div class="container px-5 p-1">
+            <h1 class="px-3">Detroit United Bank</h1>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-12 col-sm-6 offset-sm-3 mt-5">
+                    <div class="card mt-2">
+                        <div class="card-header">
+                            <h4>Account Login</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="login-error"><span class="small text-danger"></span></div>
+                            <form action="" class="form" id="edit-profile-form">
+                                <div class="form-group ">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" class="form-control form-control-sm" name="email" id="email">
+                                    <div id="email-error"><span class="small text-danger"></span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control form-control-sm" name="password" id="password">
+                                    <div id="password-error"><span class="small text-danger"></span></div>
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-block btn-sm" onclick="(new login).userLogin()">Login</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="footer" class="bg-dark text-white p-5 fixed-bottom">
+        <div class="container px-5 text-center">
+            <p class="font-weight-light">Copyright &copy; 2017 Detroit United Bank</p>
+        </div>
+    </section>
+
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/user/login.js"></script>
+
+</body>
+
+</html>
