@@ -47,4 +47,8 @@ SELECT p.Name, p.Disease, dp.DepartmentName AS Department, p.MorningPills, p.Aft
 	JOIN Departments dp ON p.DepartmentID=dp.DepartmentID
 GO
 
-SELECT * FROM PatientDetailRecords
+GO
+CREATE VIEW DoctorDetailRecords
+AS
+SELECT d.DoctorID, d.Name, d.Experience, dept.DepartmentName FROM Doctors d JOIN Departments dept ON d.DepartmentID=dept.DepartmentID 
+GO
