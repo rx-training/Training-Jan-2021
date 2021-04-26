@@ -13,7 +13,7 @@ BEGIN
 		IF @CustomerId IN (SELECT CustomerId FROM Customers)
 		BEGIN
 			DECLARE @flag int = 1;
-			While @flag < (SELECT Len(@ToyStr))
+			While @flag <= (SELECT Len(@ToyStr))
 			BEGIN
 				IF(@flag % 2 = 1)
 				BEGIN
@@ -41,7 +41,7 @@ BEGIN
 			ELSE
 				SET @offer = 6;
 			
-			SET @ToyStr = SUBSTRING(@ToyStr, 0, LEN(@ToyStr));
+			SET @ToyStr = SUBSTRING(@ToyStr, 0, LEN(@ToyStr)+1);
 			INSERT INTO Orders(CustomerId, Toys, Bill, offerValue, Address)
 				VALUES(@CustomerId, @ToyStr, @bill, @offer, @Address);
 		END

@@ -9,24 +9,37 @@ namespace Day12Assignment
     class Company
     {
         Context context = new Context();
+        // function to place order, placetoys() will ask how much toys you want to add in your cart
+        
         public void placeOrder(int customerID, string Address)
         {
-            string toys = placeToys();
-            Address = $"'{Address}'";
-            context.Database.ExecuteSqlRaw($"exec spOrders {customerID},{toys},{Address}");
-            context.SaveChanges();
-
             try
             {
-                Order od = context.Orders.ToList().Last();
-                string OrderedToys = od.Toys.Replace(' ', ',').TrimEnd(',');
-                int OfferOrdered = od.offerValue == 7 ? 0 : (od.offerValue * 10);
-                Console.WriteLine($"\tOrder Id : {od.OrderId}\n\tCustomer Id : {od.CustomerId}\n\tPlaced Toys : {OrderedToys}\n\tYour Bill : {od.Bill}");
-                Console.WriteLine($"\tOffer applied : {OfferOrdered}%\n\tAddress : {od.Address}");
+                context.Customers.Single(s => s.CustomerId == customerID);
+
+                string toys = placeToys();
+                //adding extrs '' to assign it in database varchar format
+                Address = $"'{Address}'";
+                context.Database.ExecuteSqlRaw($"exec spOrders {customerID},{toys},{Address}");
+                context.SaveChanges();
+                // To display placed order detail
+                try
+                {
+                    // to get last order which is saved by savechanges()
+                    Order od = context.Orders.ToList().Last();
+                    string OrderedToys = od.Toys.Replace(' ', ',').TrimEnd(',');
+                    int OfferOrdered = od.offerValue == 7 ? 0 : (od.offerValue * 10);
+                    Console.WriteLine($"\tOrder Id : {od.OrderId}\n\tCustomer Id : {od.CustomerId}\n\tPlaced Toys : {OrderedToys}\n\tYour Bill : {od.Bill}");
+                    Console.WriteLine($"\tOffer applied : {OfferOrdered}%\n\tAddress : {od.Address}");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("There is some error in displaying order detail...");
+                }
             }
-            catch (Exception)
+            catch
             {
-                Console.WriteLine("There is some error in placing order...");
+                Console.WriteLine("Customer is not found...");
             }
         }
         //to see data by its orderId
@@ -166,10 +179,12 @@ namespace Day12Assignment
                 Console.WriteLine($"You entered wrong toy name...");
             }
         }
+        
         public void AddToy(string AddToyName, int AddToyPrice, int AddToyType,int AddToyPlant)
         {
             try
             {
+                //Check if any such toy exist or not if so the go ahead else add new toy
                 context.Toys.Single(s => s.ToyName == AddToyName);
                 Console.WriteLine($"Toy named {AddToyName} is already there...");
             }
