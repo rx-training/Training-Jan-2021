@@ -1,0 +1,168 @@
+CREATE TABLE Branches(
+	BNAME VARCHAR(18) CONSTRAINT pk_Branch_Bname PRIMARY KEY
+	,CITY VARCHAR(18) NOT NULL
+)
+
+CREATE TABLE Customers(
+	CNAME VARCHAR(18) CONSTRAINT pk_Customers_Cname PRIMARY KEY
+	,CITY VARCHAR(18) NOT NULL
+)
+
+CREATE TABLE Borrows(
+	LOANNO VARCHAR(5) CONSTRAINT pk_Borrows_LoanNo PRIMARY KEY
+	,CNAME VARCHAR(18) CONSTRAINT fk_Borrows_Cname FOREIGN KEY REFERENCES Customers
+	,BNAME VARCHAR(18) CONSTRAINT fk_Borrows_Bname FOREIGN KEY REFERENCES Branches
+	,AMOUNT INT NOT NULL
+)
+
+CREATE TABLE Deposites(
+	ACTNO VARCHAR(5) CONSTRAINT pk_Deposites_Actno PRIMARY KEY
+	,CNAME VARCHAR(18) CONSTRAINT fk_Deposites_Cname FOREIGN KEY REFERENCES Customers
+	,BNAME VARCHAR(18) CONSTRAINT fk_Deposites_Bname FOREIGN KEY REFERENCES Branches
+	,AMOUNT INT NOT NULL
+	,Adate DATE NOT NULL
+)
+GO
+
+INSERT INTO Branches VALUES
+	('VRCE','NAGPUR'),
+	('AJNI','NAGPUR'),
+	('KAROLBAGH','DELHI'),
+	('CHANDNI','DELHI'),
+	('DHARAMPETH','NAGPUR'),
+	('M.G.ROAD','BANGLORE'),
+	('ANDHERI','MUMBAI'),
+	('VIRAR','MUMBAI'),
+	('NEHRU PLACE','DELHI'),
+	('POWAI','MUMBAI');
+GO
+
+INSERT INTO Customers VALUES
+	('ANIL','KOLKATA'),
+	('SUNIL','DELHI'),
+	('MEHUL','BARODA'),
+	('MANDAR','PATNA'),
+	('MADHURI','NAGPUR'),
+	('PRAMOD','NAGPUR'),
+	('SANDIP','SURAT'),
+	('SHIVANI','MUMBAI'),
+	('KRANTI','MUMBAI'),
+	('NAREN','MUMBAI');
+GO
+
+INSERT INTO Deposites VALUES
+	(100,'ANIL','VRCE',1000,'1-Mar-1995'),
+	(101,'SUNIL','AJNI',5000,'4-Jan-1996'),
+	(102,'MEHUL','KAROLBAGH',3500,'17-Nov-1995'),
+	(104,'MADHURI','CHANDNI',1200,'17-Dec-1995'),
+	(105,'PRAMOD','M.G.ROAD',3000,'27-Mar-1996'),
+	(106,'SANDIP','ANDHERI',2000,'31-Mar-1996'),
+	(107,'SHIVANI','VIRAR',1000,'5-Sep-1995'),
+	(108,'KRANTI','NEHRU PLACE',5000,'2-Jul-1995'),
+	(109,'NAREN','POWAI',7000,'10-Aug-1995');
+GO
+
+INSERT INTO Borrows VALUES
+	(201,'ANIL','VRCE',1000),
+	(206,'MEHUL','AJNI',5000),
+	(311,'SUNIL','DHARAMPETH',3000),
+	(321,'MADHURI','ANDHERI',2000),
+	(375,'PRAMOD','VIRAR',8000),
+	(481,'KRANTI','NEHRU PLACE',3000);
+GO
+
+/*q-2*/
+
+SELECT c.CNAME FROM Customers c 
+JOIN Deposites d ON c.CNAME = d.CNAME
+JOIN Branches b ON d.BNAME = b.BNAME
+WHERE c.CITY = 'NAGPUR' AND b.CITY IN ('MUMBAI','DELHI')
+GO
+
+/*q-3*/
+
+CREATE PROCEDURE uspGetNumberOfCustomersByBranchCity
+	@BranchName VARCHAR(50)
+AS
+	SELECT COUNT(CNAME) 'Total Customers' 
+	FROM Customers c 
+	JOIN Branches b ON c.CITY=b.CITY
+	WHERE b.BNAME = @BranchName
+GO
+
+EXECUTE uspGetNumberOfCustomersByBranchCity 'AJNI'
+GO
+
+DROP PROCEDURE uspGetNumberOfCustomersByBranchCity
+GO
+
+/*q-4*/
+
+CREATE PROCEDURE uspGetDepositorsWithSameBranchCity
+	@CName VARCHAR(50)
+AS
+	SET NOCOUNT ON;
+	SELECT CNAME FROM Deposites WHERE BNAME IN 
+	(SELECT BNAME FROM Branches WHERE CITY IN 
+	(SELECT b.CITY FROM Deposites d JOIN Branches b ON b.BNAME = d.BNAME WHERE d.CNAME = @CName));
+	SET NOCOUNT OFF
+GO
+
+EXECUTE uspGetDepositorsWithSameBranchCity 'SUNIL';
+GO
+
+DROP PROCEDURE uspGetDepositorsWithSameBranchCity
+GO
+
+/* q-5 */
+
+SELECT CNAME FROM Customers c WHERE CNAME 
+IN (SELECT CNAME FROM Deposites WHERE AMOUNT > 1000) 
+AND
+CNAME IN (SELECT CNAME FROM Borrows WHERE AMOUNT > 2000)
+GO
+
+/* q-6 */
+
+CREATE PROCEDURE uspGetCustomerWithSameBranch
+	@CName VARCHAR(50)
+AS
+	SET NOCOUNT ON;
+	SELECT CNAME FROM Deposites WHERE BNAME IN 
+	(SELECT b.BNAME FROM Deposites d 
+	JOIN Branches b ON b.BNAME = d.BNAME
+	WHERE d.CNAME = @CName);
+	SET NOCOUNT OFF
+GO
+
+EXECUTE uspGetCustomerWithSameBranch 'SUNIL'
+GO
+
+DROP PROCEDURE uspGetCustomerWithSameBranch
+GO
+
+
+/*q-1*/
+CREATE PROCEDURE uspAddData
+	@json NVARCHAR(MAX)
+AS
+	INSERT INTO Deposites
+	SELECT * FROM OPENJSON(@json)
+	WITH
+		(
+			ACTNO VARCHAR(5) '$.ACTNO'
+			,CNAME VARCHAR(18) '$.Cname'
+			,BNAME VARCHAR(18) '$.Bname'
+			,AMOUNT INT '$.Amount'
+			,Date DATE '$.Date'
+		)
+GO
+
+DECLARE @json NVARCHAR(MAX)
+SET @json = '[{"ACTNO":110,"Cname":"ANIL","Bname":"ANDHERI","Amount":10000,"Date":"3/31/2021"},
+	{"ACTNO":111,"Cname":"SHIVANI","Bname":"VIRAR","Amount":10000,"Date":"04/3/2021"},
+	{"ACTNO":112,"Cname":"NAREN","Bname":"POWAI","Amount":10000,"Date":"06/3/2021"}]'
+EXECUTE uspAddData @json
+GO
+
+SELECT * FROM Deposites;
