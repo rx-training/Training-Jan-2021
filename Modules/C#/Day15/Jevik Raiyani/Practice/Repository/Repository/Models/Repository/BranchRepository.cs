@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Repository.Models.Repository
 {
  
-    public class BranchRepository : GenericRepository<Customer>, ICustomer
+    public class BranchRepository : GenericRepository<Branch>, IBranch
     {
         public BranchRepository(TESTContext context) : base(context)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Models.Repository
 {
-       public class BorrowRepository : GenericRepository<Customer>, ICustomer
+       public class BorrowRepository : GenericRepository<Borrow>, IBorrow
     {
         public BorrowRepository(TESTContext context) : base(context)
         {

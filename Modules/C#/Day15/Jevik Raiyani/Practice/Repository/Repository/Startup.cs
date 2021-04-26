@@ -31,9 +31,9 @@ namespace Repository
         {
             services.AddDbContext<TESTContext>(options => options.UseSqlServer("Data Source=JEVIK\\SQLEXPRESS;Initial Catalog=TEST;Integrated Security=True"));
             services.AddTransient<ICustomer, CustomerRepository>();
-     //       services.AddTransient<IBorrow, BorrowRepository>();
-       //     services.AddTransient<IBranch, BranchRepository>();
-         //   services.AddTransient<IDeposit, DepositRepository>();
+            services.AddTransient<IBorrow, BorrowRepository>();
+            services.AddTransient<IBranch, BranchRepository>();
+            services.AddTransient<IDeposit, DepositRepository>();
             services.AddControllers();
         }
 
