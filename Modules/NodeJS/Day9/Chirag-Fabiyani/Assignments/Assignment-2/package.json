@@ -2,9 +2,9 @@
   "name": "assignment-2",
   "version": "1.0.0",
   "description": "",
-  "main": "Assignment-2.js",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon Assignment-2.js"
+    "test": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",

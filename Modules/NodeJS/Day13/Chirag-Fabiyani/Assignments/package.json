@@ -6,10 +6,10 @@
   },
   "name": "assignments",
   "version": "1.0.0",
-  "main": "Index.js",
+  "main": "app.js",
   "devDependencies": {},
   "scripts": {
-    "test": "nodemon Index.js"
+    "test": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",

@@ -2,9 +2,9 @@
   "name": "assignments",
   "version": "1.0.0",
   "description": "",
-  "main": "Index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon Index.js"
+    "test": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
