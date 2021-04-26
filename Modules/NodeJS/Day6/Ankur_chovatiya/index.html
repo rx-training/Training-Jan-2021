@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <h1>Add New Customer Details</h1>
+    <form action="/submit-student-data" method="GET">
+        customer Name: <input name="lastName" type="text" required/> <br />
+        customer Age: <input name="age" type="number" required/> <br />
+        <input type="submit" />
+    </form>
+
+    <h1>Find particular Customer's Details</h1>
+    <form action="/submit-student-data/find" method="GET">
+        customer Id: <input name="id" type="number" required> <br /> 
+        <input type="submit"/>
+    </form>
+
+
+    <h1>Update Custmer's Details</h1>
+    <form action="/submit-student-data/update" method="GET">
+        customer Id:<input name="id" type="number" required><br />
+        Update Name : <input name="name" type="text" required > <br />
+        Update Age : <input name="age" type="text" required> <br />
+        <input type="submit"/>
+    </form>
+
+
+    <h1>Delete particular Customer</h1>
+    <form action="/submit-student-data/delete" method="GET">
+        customer Id: <input name="id" type="number" required> <br /> 
+        <input type="submit"/>
+    </form>
+
+    
+    <h1>Show All Customers Data</h1>
+    <a href="/customer">Show Data</a>
+    
+</body>
+</html>

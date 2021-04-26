@@ -8,7 +8,8 @@ res.write('hello world \n');
 console.log(req.url);
 // const qs = req.url;
 // console.log(queryStrig.parse(qs));
-/app.js?anme = ank'
+// /app.js?anme = ank'
+//app.js?anme = ank'
 
 const queryObject = url.parse(req.url , true).query;
 

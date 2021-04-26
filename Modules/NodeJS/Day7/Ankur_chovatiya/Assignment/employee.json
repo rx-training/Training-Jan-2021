@@ -1,0 +1,48 @@
+[
+    {
+        "Id" : 1,
+        "Address":{
+            "line1":"Gulbai Tekara",
+            "line2":"Kokilaben vyas marge",
+            "line3":"Ahmedabad"
+        },
+        "Assignments":["node" ,"js" ,"java"],
+        "citizenshipID":2,
+        "CitizenshipLegislationCode":"KDSCS",
+        "CitizenshipStatus":"Current",
+        "CitizenshipToDate":"12/2/2021",
+        "City":"Ahmedabad",
+        "CorrespondenceLanguage":"Gujarati",
+        "Country":"India",
+        "CreationDate":"24/10/2000",
+        "DateOfBirth":"24/10/1999",
+        "directReports":["Js seniour developer" , "Project Manager"],
+        "DisplayName":"Anks",
+        "DriversLicenseExpirationDate":"21/05/2030",
+        "DriversLicenseId":9,
+        "DriversLicenseIssuingCountry":"India",
+        "EffectiveStartDate":"21/05/2020",
+        "FirstName":"Ankur",
+        "Gender":"Male",
+        "HireDate":"04/01/2021",
+        "HomeFaxAreaCode":"HASGDHAB",
+        "HomeFaxCountryCode":"IND",
+        "HomeFaxExtension":"IND-AHM",
+        "HomeFaxLegislationCode":"DDADHAKS",
+        "HomeFaxNumber":"SJDHGASJD",
+        "LastName":"Chovatiya",
+        "LastUpdateDate":"12/03/2021",
+        "LicenseNumber":"GJBSBD-3151",
+        "links":["google.com" , "khopda.com"],
+        "MaritalStatus":"unmarried",
+        "MiddleName":"H",
+        "NameSuffix":"Mr.",
+        "NationalId":5,
+        "NationalIdCountry":8
+
+
+
+
+    }
+
+]

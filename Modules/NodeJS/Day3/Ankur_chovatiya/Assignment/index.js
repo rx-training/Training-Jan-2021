@@ -5,6 +5,9 @@ class Mobike {
         this.PhoneNumber = PhoneNumber;
         this.Name = Name;
         this.Days = Days;
+        this.firstFiveDayCharge = 500;
+        this.FivetoTenDayCharge = 400;
+        this.MoreThenTenDayCharge = 200;
     }
 
     get charge(){
@@ -29,15 +32,15 @@ class Mobike {
         for (var i=0 ; i<count ; i++){
                     
             if(i < 5 ){
-                charge = charge + 500; 
+                charge = charge + this.firstFiveDayCharge; 
             }
             else if(i > 4 && i < 10)
             {
-                charge = charge + 400;
+                charge = charge + this.FivetoTenDayCharge;
             }
             else if(i > 9 && i < 18 )
             {
-                charge = charge + 200;
+                charge = charge + this.MoreThenTenDayCharge;
             }
                     
         }
