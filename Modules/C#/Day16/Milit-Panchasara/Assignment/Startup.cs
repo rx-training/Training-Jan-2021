@@ -1,3 +1,6 @@
+using Assignment.Code.Interfaces;
+using Assignment.Code.SqlServer;
+using Assignment.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,14 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Practice.Models;
-using Practice.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Practice
+namespace Assignment
 {
     public class Startup
     {
@@ -28,10 +29,12 @@ namespace Practice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ToyCompanyContext>(opt => opt.UseSqlServer());
+            services.AddDbContext<ToyCompanyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Database")));
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IToyRepository, ToyRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IAddressRepository, AddressRepository>();
             services.AddControllers();
-            //services.AddTransient<ICustomerRepository, CustomerRepositoryInMemory>(); // For testing env.
-            services.AddScoped<ICustomerRepository, CustomerRepositorySQLServer>(); // For Prod.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
