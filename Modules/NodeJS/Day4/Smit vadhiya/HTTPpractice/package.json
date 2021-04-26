@@ -1,12 +1,13 @@
 {
-  "name": "day4",
+  "name": "HTTPpractice",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve" : "nodemon --inspect practice.js 80"
+    "start": "nodemon index.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {

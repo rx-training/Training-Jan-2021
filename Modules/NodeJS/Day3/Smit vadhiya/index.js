@@ -51,7 +51,7 @@ function pr02(){
 
 function Assignment(){
     const data = require('./RamboRental')
-    const per = new data('yobike',653436727,'smit',2)
+    const per = new data('yobike',653436727,'smit',14)
     per.Compute()
 }
 

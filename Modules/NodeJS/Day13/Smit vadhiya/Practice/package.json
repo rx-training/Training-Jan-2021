@@ -1,15 +1,17 @@
 {
-  "name": "day4",
+  "name": "Practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "population.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve" : "nodemon --inspect practice.js 80"
+    "start": "nodemon population.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mongoose": "^5.12.5",
     "nodemon": "^2.0.7"
   }
 }

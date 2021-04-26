@@ -1,12 +1,13 @@
 {
-  "name": "day4",
+  "name": "Assignment",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve" : "nodemon --inspect practice.js 80"
+    "start": "nodemon app.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -1,0 +1,1 @@
+db.newOne.find({name : 'smit'})
