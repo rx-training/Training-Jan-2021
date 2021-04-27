@@ -1,0 +1,22 @@
+install express, mongoose, joi
+
+run app.js first 
+it will run application on porn no. 3000
+
+HOME PAGE
+http://localhost:3000/redbus.in/ 
+
+
+ ********************* USER'S URL *******************
+
+GET DETAIL ABOUT ALL USER'S
+http://localhost:3000/redbus.in/users/all  METHOD : GET
+
+GET DETAIL ABOUT INDIVIDUAL USER
+    GENRAL URL
+        http://localhost:3000/redbus.in/users/:id  METHOD : GET
+    EXAMPLE URL
+        http://localhost:3000/redbus.in/users/1   METHOD : GET
+
+ADD NEW USER   
+    

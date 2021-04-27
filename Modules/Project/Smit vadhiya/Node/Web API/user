@@ -1,0 +1,33 @@
+[
+{"firstName":"mohit","lastName":"shah","email":"mohitshah@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"6845678921","city":3}
+,{"firstName":"hina","lastName":"khah","email":"hinakhah@gmail.com","gender":"female","DOB":"1998-12-10","password":"pass","phoneNumber":"6845678921","city":4}
+,{"firstName":"rahul","lastName":"dev","email":"rahuldev@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"7845678921","city":5}
+,{"firstName":"bharat","lastName":"naik","email":"bharatnaik@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"9845678921","city":4}
+,{"firstName":"sundar","lastName":"jatt","email":"sundatjatt@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"6845678921","city":6}
+,{"firstName":"virat","lastName":"kohli","email":"viratkohli@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"8845678921","city":3}
+,{"firstName":"mohini","lastName":"kumar","email":"mohinikumar@gmail.com","gender":"female","DOB":"2000-02-04","password":"pass","phoneNumber":"6845678921","city":6}
+]
+
+[
+{"firstName":"rahul","lastName":"chuhan","email":"rahulchauhan@gmmail.com","gender":"male","DOB":"1998-12-10","companyName":"patel travels","address":"xyz","password":"pass","collaborationDate":"2019-12-10","phoneNumber":"7654329876","city":2}
+,{"firstName":"virat","lastName":"patel","email":"viratpatel@gmmail.com","gender":"male","DOB":"1997-05-14","companyName":"shreehari travels","address":"xyz","password":"pass","collaborationDate":"2018-07-21","phoneNumber":"8654329876","city":1}
+,{"firstName":"dhrumil","lastName":"joshi","email":"dhrumiljoshi@gmmail.com","gender":"male","DOB":"1989-01-12","companyName":"swaminarayan travels","address":"xyz","password":"pass","collaborationDate":"2015-12-03","phoneNumber":"9454329876","city":1}
+,{"firstName":"disha","lastName":"vekariya","email":"dineshvekariya@gmmail.com","gender":"female","DOB":"1992-05-23","companyName":"pavan travels","address":"xyz","password":"pass","collaborationDate":"2018-04-12","phoneNumber":"7454329876","city":1}
+,{"firstName":"rudra","lastName":"shah","email":"rudrashah@gmmail.com","gender":"male","DOB":"1994-01-14","companyName":"neeta travels","address":"xyz","password":"pass","collaborationDate":"2014-07-14","phoneNumber":"9454329876","city":1}
+]
+
+[
+{"_id":"GJ01GY4556","operator":2,"busName":"shreehari travels","busType":"ac sleeper(2x1)","busReleasesate":"2017-11-23","totalSleeperseat":30,"totalSeaterSeat":0,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+{"_id":"GJ01HY7654","operator":4,"busName":"pavaan travels","busType":"non ac sleeper(2x1)","busReleasesate":"2016-07-04","totalSleeperseat":30,"totalSeaterSeat":3,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+{"_id":"GJ01MH3737","operator":1,"busName":"patel travels","busType":"non ac sleeper(2x1)","busReleasesate":"2017-04-04","totalSleeperseat":30,"totalSeaterSeat":0,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+{"_id":"GJ01RE9009","operator":1,"busName":"patel tours & travels","busType":"ac seater(2x1)","busReleasesate":"2018-05-22","totalSleeperseat":0,"totalSeaterSeat":0,"totalSemiSleeperSeat":45,"activeStatus":true,"rating":3.5}
+{"_id":"GJ01TY8776","operator":2,"busName":"shreehari travels","busType":"non ac sleeper(2x1)","busReleasesate":"2020-02-01","totalSleeperseat":30,"totalSeaterSeat":0,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+]
+
+[
+{"busNumber":"GJ01HY7654","fromCity":1,"toCity":4,"subCities" : [1,13,4],"fromTime":"10:00:00","activeStatus":true,"ToTime":"12:02:00"}
+{"busNumber":"GJ01MH3737","fromCity":1,"toCity":5,"subCities" : [1,5],"fromTime":"22:00:00","activeStatus":true,"ToTime":"00:56:00"}
+{"busNumber":"GJ01MH3737","fromCity":6,"toCity":1,"subCities" : [6,2,1],"fromTime":"06:45:00","activeStatus":true,"ToTime":"13:31:00"}
+{"busNumber":"GJ01TY8776","fromCity":4,"toCity":2,"subCities" : [4,1,2],"fromTime":"23:59:00","activeStatus":true,"toTime":"04:53:00"}
+{"busNumber":"GJ01MH3737","fromCity":2,"toCity":1,"subCities" : [2,1],"fromTime":"10:00:00","activeStatus":true,"toTime":"13:58:00"}
+]
