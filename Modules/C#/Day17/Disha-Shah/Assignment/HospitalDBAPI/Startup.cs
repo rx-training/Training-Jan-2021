@@ -1,3 +1,4 @@
+using HospitalDBAPI.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using RoleAuthorization.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +17,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using RoleAuthorization.Models;
+using HospitalDBAPI.Models;
+using HospitalDBAPI.IRepository;
+using HospitalDBAPI.Repository;
 
-namespace RoleAuthorization
+namespace HospitalDBAPI
 {
     public class Startup
     {
@@ -35,12 +37,13 @@ namespace RoleAuthorization
         {
             services.AddEntityFrameworkSqlServer();
             services.AddDbContext<ApplicationDBContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
-            services.AddDbContext<WebAPITokenDBContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("Conn")); });
-
+            services.AddDbContext<ERCore1DBContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("Conn")); });
+            services.AddTransient<IDoctor, DoctorRepository>();
+            services.AddTransient<IPatient, PatientRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RoleAuthorization", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HospitalDBAPI", Version = "v1" });
             });
 
             // For Identity  
@@ -79,7 +82,7 @@ namespace RoleAuthorization
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RoleAuthorization v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HospitalDBAPI v1"));
             }
 
             app.UseHttpsRedirection();

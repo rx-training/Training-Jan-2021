@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RoleAuthorization.Authentication;
 using RoleAuthorization.Models;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,7 @@ namespace RoleAuthorization.Controllers
         }
 
         // GET: api/Products
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts(bool? inStock, int? skip, int? take)
         {
@@ -47,6 +50,7 @@ namespace RoleAuthorization.Controllers
         }
 
         // GET: api/Products/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -62,6 +66,7 @@ namespace RoleAuthorization.Controllers
 
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -93,6 +98,7 @@ namespace RoleAuthorization.Controllers
 
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
@@ -103,6 +109,7 @@ namespace RoleAuthorization.Controllers
         }
 
         // DELETE: api/Products/5
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
