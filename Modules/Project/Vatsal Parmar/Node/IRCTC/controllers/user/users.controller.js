@@ -1,6 +1,8 @@
 var express = require("express");
 const UserDomain = require("../../domains/users.domain");
 var router = express.Router();
+const verifyAdminToken = require("../../authentication/verifyAdminToken");
+const verifytoken = require("../../authentication/verifytoken");
 
 class UserController {
   //To get all users
@@ -31,14 +33,14 @@ class UserController {
 }
 
 //To insert user
-router.post("/", UserController.insertUser);
+router.post("/", verifytoken, UserController.insertUser);
 //To get all users
-router.get("/", UserController.get);
+router.get("/", verifyAdminToken, UserController.get);
 //To get an single user by id
-router.get("/:userId", UserController.getUser);
+router.get("/:userId", verifytoken, UserController.getUser);
 //To update user
-router.put("/:userId", UserController.updateUser);
+router.put("/:userId", verifytoken, UserController.updateUser);
 //To delete a user
-router.delete("/:userId", UserController.deleteUser);
+router.delete("/:userId", verifytoken, UserController.deleteUser);
 
 module.exports = router;

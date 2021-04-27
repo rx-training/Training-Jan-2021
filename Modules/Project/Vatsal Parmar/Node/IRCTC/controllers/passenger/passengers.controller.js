@@ -1,6 +1,8 @@
 var express = require("express");
 const PassengerDomain = require("../../domains/passengers.domain");
 var router = express.Router();
+const verifyAdminToken = require("../../authentication/verifyAdminToken");
+const verifytoken = require("../../authentication/verifytoken");
 
 class PassengerController {
   //To get all passengers
@@ -31,14 +33,18 @@ class PassengerController {
 }
 
 //To insert passenger
-router.post("/", PassengerController.insertPassenger);
+router.post("/", verifytoken, PassengerController.insertPassenger);
 //To get all passengers
-router.get("/", PassengerController.get);
+router.get("/", verifyAdminToken, PassengerController.get);
 //To get an single passenger by id
-router.get("/:passengerId", PassengerController.getPassenger);
+router.get("/:passengerId", verifytoken, PassengerController.getPassenger);
 //To update passenger
-router.put("/:passengerId", PassengerController.updatePassenger);
+router.put("/:passengerId", verifytoken, PassengerController.updatePassenger);
 //To delete a passenger
-router.delete("/:passengerId", PassengerController.deletePassenger);
+router.delete(
+  "/:passengerId",
+  verifytoken,
+  PassengerController.deletePassenger
+);
 
 module.exports = router;

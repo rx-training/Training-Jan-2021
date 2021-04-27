@@ -1,6 +1,8 @@
 var express = require("express");
 const StationDomain = require("../../domains/stations.domain");
 var router = express.Router();
+const verifyAdminToken = require("../../authentication/verifyAdminToken");
+const verifytoken = require("../../authentication/verifytoken");
 
 class StationController {
   //To get all stations
@@ -31,14 +33,14 @@ class StationController {
 }
 
 //To insert station
-router.post("/", StationController.insertStation);
+router.post("/", verifyAdminToken, StationController.insertStation);
 //To get all stations
-router.get("/", StationController.get);
+router.get("/", verifyAdminToken, StationController.get);
 //To get an single station by id
-router.get("/:stationId", StationController.getStation);
+router.get("/:stationId", verifyAdminToken, StationController.getStation);
 //To update station
-router.put("/:stationId", StationController.updateStation);
+router.put("/:stationId", verifyAdminToken, StationController.updateStation);
 //To delete an station
-router.delete("/:stationId", StationController.deleteStation);
+router.delete("/:stationId", verifyAdminToken, StationController.deleteStation);
 
 module.exports = router;

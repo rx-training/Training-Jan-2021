@@ -1,6 +1,8 @@
 var express = require("express");
 const StatusDomain = require("../../domains/status.domain");
 var router = express.Router();
+const verifyAdminToken = require("../../authentication/verifyAdminToken");
+const verifytoken = require("../../authentication/verifytoken");
 
 class StatusController {
   //To get all statuss
@@ -31,14 +33,14 @@ class StatusController {
 }
 
 //To insert status
-router.post("/", StatusController.insertStatus);
+router.post("/", verifyAdminToken, StatusController.insertStatus);
 //To get all statuss
-router.get("/", StatusController.get);
+router.get("/", verifyAdminToken, StatusController.get);
 //To get an single status by id
-router.get("/:statusId", StatusController.getStatus);
+router.get("/:statusId", verifyAdminToken, StatusController.getStatus);
 //To update status
-router.put("/:statusId", StatusController.updateStatus);
+router.put("/:statusId", verifyAdminToken, StatusController.updateStatus);
 //To delete a status
-router.delete("/:statusId", StatusController.deleteStatus);
+router.delete("/:statusId", verifyAdminToken, StatusController.deleteStatus);
 
 module.exports = router;
