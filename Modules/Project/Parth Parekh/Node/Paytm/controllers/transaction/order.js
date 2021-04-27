@@ -1,6 +1,8 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({mergeParams : true});
 const UserData = require("../../domain/userlogic");
+//const adminverifytoken = require("../../middleware/adminverifytoken");
+const verifytoken = require("../../middleware/verifytoken");
 
 class TransactionController {
     static async getOrderDetailsOfUser(req, res) {
@@ -9,13 +11,13 @@ class TransactionController {
     }
     static async orderPayment(req,res){
         const userData = new UserData();
-        userData.orderPayment(req, res); 
+        userData.orderPayment(req, res);
     }
 }
 
 //Get Methods
-router.get("/", TransactionController.getOrderDetailsOfUser);
+router.get("/", [verifytoken], TransactionController.getOrderDetailsOfUser);
 
-router.put("/payment", TransactionController.orderPayment);
+router.put("/payment", [verifytoken],TransactionController.orderPayment);
 
 module.exports = router;

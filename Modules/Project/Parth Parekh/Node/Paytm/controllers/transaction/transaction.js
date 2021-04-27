@@ -1,6 +1,8 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({mergeParams : true});
 const UserData = require("../../domain/userlogic");
+const adminverifytoken = require("../../middleware/adminverifytoken");
+const verifytoken = require("../../middleware/verifytoken");
 
 class TransactionController {
     static async paymentLogic(req, res) {
@@ -18,11 +20,11 @@ class TransactionController {
 }
 
 //Get Methods
-router.get('/',TransactionController.getTransactionDetailsOFUser);
+router.get('/', [verifytoken] ,TransactionController.getTransactionDetailsOFUser);
 
-router.post('/addMoney',TransactionController.addMoney);
+router.post("/addMoney", [verifytoken], TransactionController.addMoney);
 
 //Put Methods
-router.put('/',TransactionController.paymentLogic);
+router.put("/", [verifytoken], TransactionController.paymentLogic);
 
 module.exports = router;

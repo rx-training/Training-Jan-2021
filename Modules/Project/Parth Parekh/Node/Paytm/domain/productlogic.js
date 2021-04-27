@@ -4,7 +4,9 @@ const UserModel = require("../models/userData");
 class ProductData {
     async getProduct(req, res) {
         try {
-            const result = await ProductModel.find();
+            const result = await ProductModel.find()
+                .populate("ProductCategory")
+                .select("-__v");
             if (!result) {
                 return res.status(404).send("No Products Available !!");
             } else {
@@ -17,7 +19,9 @@ class ProductData {
 
     async getProductDetailsFromId(req, res) {
         try {
-            const result = await ProductModel.findById(req.params.id);
+            const result = await ProductModel.findById(req.params.id)
+                .populate("ProductCategory")
+                .select("-__v");
             if (!result) {
                 return res.status(404).send("Product Not Available !!");
             } else {
