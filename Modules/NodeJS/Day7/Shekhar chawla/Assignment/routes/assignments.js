@@ -57,7 +57,7 @@ router.get('/:assignmentId', (req, res) => {
 
 // create assingments of employee with eId
 // POST 	http://localhost:3000/emps/child/assignments
-router.post('/assignments', (req, res) => {
+router.post('/', (req, res) => {
 	var employee = getData('id', req.params.id, employees)
 	
 	msg = handleError.errorLog(req.body, employees[0]['assignments'], unique=0)			// check all errors except uniquekeyConstraint
