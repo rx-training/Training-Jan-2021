@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BookMyShowAPI.IRepository
 {
-    public interface ISeatCategory : IGenericInterface<SeatsCategory>
+    public interface ISeat : IGenericInterface<Seat>
     {
-        public IEnumerable GetSeatsBySeatCategoryId(int id);
+
     }
 }

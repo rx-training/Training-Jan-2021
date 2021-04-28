@@ -43,6 +43,14 @@ namespace BookMyShowAPI
             services.AddTransient<ITheatre, TheatreRepository>();
             services.AddTransient<IEventVenue, EventVenueRepository>();
             services.AddTransient<ISeatCategory, SeatCategoryRepository>();
+            services.AddTransient<ISeat, SeatRepository>();
+            services.AddTransient<ILanguage, LanguageRepository>();
+            services.AddTransient<IFilmCategory, FilmCategoryRepository>();
+            services.AddTransient<IGenre, GenreRepository>();
+            services.AddTransient<ICertification, CertificationRepository>();
+            services.AddTransient<IMovie, MovieRepository>();
+            services.AddTransient<IShowTiming, ShowTimingRepository>();
+            services.AddTransient<IEventType, EventTypeRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

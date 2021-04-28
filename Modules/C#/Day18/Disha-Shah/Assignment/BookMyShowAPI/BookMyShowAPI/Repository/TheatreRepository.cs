@@ -60,24 +60,16 @@ namespace BookMyShowAPI.Repository
         // Get Screens in a particular Theatre
         public IEnumerable GetScreensById(int id)
         {
-            var screen = context.Screens
+            var screen = context.VTheatresScreensSeats
                                 .Where(x => x.TheatreId == id)
-                                .Select(x => new Screen
+                                .Select(x => new VTheatresScreensSeat
                                 {
-                                    ScreenId = x.ScreenId,
                                     TheatreId = x.TheatreId,
-                                    Theatre = new Theatre
-                                    {
-                                        TheatreId = x.Theatre.TheatreId,
-                                        Name = x.Theatre.Name,
-                                        Address = x.Theatre.Address,
-                                        CityId = x.Theatre.CityId,
-                                        City = new City
-                                        {
-                                            CityId = x.Theatre.City.CityId,
-                                            Name = x.Theatre.City.Name
-                                        }
-                                    }
+                                    Theatre = x.Theatre,
+                                    Address = x.Address,
+                                    City = x.City,
+                                    CityId = x.CityId,
+                                    ScreenId = x.ScreenId
                                 });
 
             return screen;
@@ -102,6 +94,156 @@ namespace BookMyShowAPI.Repository
                 .SingleOrDefault();
 
             context.Screens.Remove(screen);
+            context.SaveChanges();
+        }
+
+        // Get SeatCategories in a Particular Screen of a Theatre
+        public IEnumerable GetSeatCategoryByScreenId(int id)
+        {
+            var seatCategory = context.VTheatresScreensSeats
+                                        .Where(x => x.ScreenId == id)
+                                        .Select(x => new VTheatresScreensSeat
+                                        {
+                                            TheatreId = x.TheatreId,
+                                            Theatre = x.Theatre,
+                                            Address = x.Address,
+                                            City = x.City,
+                                            CityId = x.CityId,
+                                            ScreenId = x.ScreenId,
+                                            SeatCategory = x.SeatCategory,
+                                            SeatsCategoryId = x.SeatsCategoryId,
+                                            Price = x.Price
+                                        });
+
+            return seatCategory;
+        }
+
+        // Add SeatCategories in a Particular Screen of a Theatre
+        public void CreateSeatCategoryByScreenId(int id, string seatCategory)
+        {
+            var seatCtgy = context.SeatsCategories.SingleOrDefault(x => x.Name == seatCategory);
+
+            context.ScreenSeatsCategories.Add(new ScreenSeatsCategory()
+            {
+                ScreenId=id,
+                SeatsCategoryId= seatCtgy.SeatsCategoryId
+            });
+
+            context.SaveChanges();
+        }
+
+        // Delete SeatCategories in a Particular Screen of a Theatre
+        public void DeleteSeatCategoryByScreenId(int id, string seatCategory)
+        {
+            var seatCtgy = context.SeatsCategories.SingleOrDefault(x => x.Name == seatCategory);
+
+            var screenSeatCategory = context.ScreenSeatsCategories
+                .Where(s => s.ScreenId == id && s.SeatsCategoryId==seatCtgy.SeatsCategoryId)
+                .SingleOrDefault();
+
+            context.ScreenSeatsCategories.Remove(screenSeatCategory);
+            context.SaveChanges();
+        }
+
+        // Get Seats for a particular Seat Category
+        public IEnumerable GetSeatsBySeatCategoryId(int id)
+        {
+            var seats = context.VTheatresScreensSeats
+                                        .Where(x => x.SeatsCategoryId == id)
+                                        .Select(x => new VTheatresScreensSeat
+                                        {
+                                            TheatreId = x.TheatreId,
+                                            Theatre = x.Theatre,
+                                            Address = x.Address,
+                                            City = x.City,
+                                            CityId = x.CityId,
+                                            ScreenId = x.ScreenId,
+                                            SeatCategory = x.SeatCategory,
+                                            SeatsCategoryId = x.SeatsCategoryId,
+                                            Price = x.Price,
+                                            SeatsId=x.SeatsId,
+                                            SeatNo=x.SeatNo,
+                                            IsBooked=x.IsBooked
+                                        });
+
+            return seats;
+        }
+
+        // Get movie playing in a screen
+        public IEnumerable GetMovieByScreenId(int id)
+        {
+            var screenMovie = context.ScreensMovies
+                            .SingleOrDefault(x => x.ScreenId == id);
+
+            var movie = context.VMovies
+                                .Where(x => x.MovieId == screenMovie.MovieId);
+
+            return movie;
+        }
+
+        // Assign movie playing in a screen
+        public void CreateMovieByScreenId(int id, string movie)
+        {
+            var movies = context.Movies.SingleOrDefault(x => x.Name == movie);
+
+            context.ScreensMovies.Add(new ScreensMovie()
+            {
+                ScreenId = id,
+                MovieId=movies.MovieId
+            });
+
+            context.SaveChanges();
+        }
+
+        // Delete movie playing in a screen
+        public void DeleteMovieByScreenId(int id, string movie)
+        {
+            var movies = context.Movies.SingleOrDefault(x => x.Name == movie);
+
+            var screenMovie = context.ScreensMovies
+                .Where(s => s.ScreenId == id && s.MovieId == movies.MovieId)
+                .SingleOrDefault();
+
+            context.ScreensMovies.Remove(screenMovie);
+            context.SaveChanges();
+        }
+
+        public IEnumerable GetShowTimingsByScreenId(int id)
+        {
+            var showTimings = context.ScreenShowTimings
+                                .Where(x => x.ScreenId == id);
+
+            return showTimings;
+        }
+
+        public void CreateShowTimingByScreenId(int id, string showTiming)
+        {
+            TimeSpan ts = DateTime.Parse(showTiming).TimeOfDay;
+
+            var showTime = context.ShowTimings
+                                .SingleOrDefault(x => x.ShowTime == ts);
+
+            context.ScreenShowTimings.Add(new ScreenShowTiming()
+            {
+                ScreenId = id,
+                ShowTimingId = showTime.ShowTimingId
+            });
+
+            context.SaveChanges();
+        }
+
+        public void DeleteShowTimingByScreenId(int id, string showTiming)
+        {
+            TimeSpan ts = DateTime.Parse(showTiming).TimeOfDay;
+
+            var showTime = context.ShowTimings
+                                .SingleOrDefault(x => x.ShowTime == ts);
+
+            var screenShowTiming = context.ScreenShowTimings
+                .Where(s => s.ScreenId == id && s.ShowTimingId == showTime.ShowTimingId)
+                .SingleOrDefault();
+
+            context.ScreenShowTimings.Remove(screenShowTiming);
             context.SaveChanges();
         }
     }

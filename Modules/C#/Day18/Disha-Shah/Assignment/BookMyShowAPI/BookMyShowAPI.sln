@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMyShowAPI", "BookMyShowAPI\BookMyShowAPI.csproj", "{D5DEF1D7-7FD3-48A7-8CB2-9C0FD147A640}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalDBAPI", "..\..\..\..\Day17\Disha-Shah\Assignment\HospitalDBAPI\HospitalDBAPI.csproj", "{69C542CA-C6A0-4D1F-8DD1-8FDAE85342FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShowAPI", "BookMyShowAPI\BookMyShowAPI.csproj", "{D5DEF1D7-7FD3-48A7-8CB2-9C0FD147A640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{D5DEF1D7-7FD3-48A7-8CB2-9C0FD147A640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5DEF1D7-7FD3-48A7-8CB2-9C0FD147A640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5DEF1D7-7FD3-48A7-8CB2-9C0FD147A640}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69C542CA-C6A0-4D1F-8DD1-8FDAE85342FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69C542CA-C6A0-4D1F-8DD1-8FDAE85342FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69C542CA-C6A0-4D1F-8DD1-8FDAE85342FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69C542CA-C6A0-4D1F-8DD1-8FDAE85342FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

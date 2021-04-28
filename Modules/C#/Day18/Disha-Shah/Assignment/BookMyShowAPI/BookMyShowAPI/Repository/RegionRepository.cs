@@ -18,19 +18,9 @@ namespace BookMyShowAPI.Repository
         // Get all cities in a particular region
         public IEnumerable GetCitiesById(int id)
         {
-            var cities = context.Cities
-                            .Where(x => x.RegionId == id)
-                            .Select(x=>new City 
-                            {
-                                CityId = x.CityId,
-                                Name = x.Name,
-                                RegionId = x.RegionId,
-                                Region = new Region
-                                {
-                                    RegionId = x.Region.RegionId,
-                                    Name = x.Region.Name
-                                }
-                            });
+            var cities = context.VCitiesRegions
+                                .Where(x => x.RegionId == id)
+                                .ToList();
 
             return cities;
         }

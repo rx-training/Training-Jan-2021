@@ -1,6 +1,7 @@
 ﻿using BookMyShowAPI.IRepository;
 using BookMyShowAPI.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -50,5 +51,14 @@ namespace BookMyShowAPI.Repository
             context.SaveChanges();
         }
 
+        // Get Seats for a particular Seat Category
+        public IEnumerable GetSeatsBySeatCategoryId(int id)
+        {
+            var seats = context.VSeatCategorySeats
+                                .Where(x => x.SeatsCategoryId == id)
+                                .ToList();
+
+            return seats;
+        }
     }
 }

@@ -45,6 +45,21 @@ namespace BookMyShowAPI.Controllers
             return Ok(seatCategory);
         }
 
+        // GET: api/BookMyShow/SeatCategory/5/Seats
+        [Authorize]
+        [HttpGet("{id}/Seats")]
+        public ActionResult<IEnumerable<Seat>> GetSeats(int id)
+        {
+            var seats = seatCategories.GetSeatsBySeatCategoryId(id);
+
+            if (seats == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(seats);
+        }
+
         // PUT: api/BookMyShow/SeatCategory/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

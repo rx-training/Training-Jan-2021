@@ -58,19 +58,9 @@ namespace BookMyShowAPI.Repository
         // Get all theatres in a particular city
         public IEnumerable GetTheatresById(int id)
         {
-            var theatres = context.Theatres.Where(x => x.CityId == id)
-                                            .Select(x => new Theatre
-                                            {
-                                                TheatreId = x.TheatreId,
-                                                Name = x.Name,
-                                                Address = x.Address,
-                                                CityId = x.CityId,
-                                                City = new City
-                                                {
-                                                    CityId = x.City.CityId,
-                                                    Name = x.City.Name
-                                                }
-                                            });
+            var theatres = context.VTheatresCities
+                                    .Where(x => x.CityId == id)
+                                    .ToList();
 
             return theatres;
                                                     
@@ -79,20 +69,9 @@ namespace BookMyShowAPI.Repository
         // Get all eventvenues by particular city
         public IEnumerable GetEventVenuesById(int id)
         {
-            var eventVenues = context.EventVenues.Where(x => x.CityId == id)
-                                            .Select(x => new EventVenue
-                                            {
-                                                EventVenueId = x.EventVenueId,
-                                                Name = x.Name,
-                                                Address = x.Address,
-                                                CityId = x.CityId,
-                                                TotalTickets=x.TotalTickets,
-                                                City = new City
-                                                {
-                                                    CityId = x.City.CityId,
-                                                    Name = x.City.Name
-                                                }
-                                            });
+            var eventVenues = context.VEventVenuesCities
+                                    .Where(x => x.CityId == id)
+                                    .ToList();
 
             return eventVenues;
         }

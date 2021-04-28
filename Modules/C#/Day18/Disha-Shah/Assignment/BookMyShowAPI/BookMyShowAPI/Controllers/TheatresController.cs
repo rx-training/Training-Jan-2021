@@ -60,6 +60,66 @@ namespace BookMyShowAPI.Controllers
             return Ok(screen);
         }
 
+        // GET: api/BookMyShow/Theatres/5/Screens/1/Movies
+        [Authorize]
+        [HttpGet("{id}/Screens/{screenid}/Movies")]
+        public ActionResult<IEnumerable<Movie>> GetScreenMovies(int screenid)
+        {
+            var movie = theatres.GetMovieByScreenId(screenid);
+
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(movie);
+        }
+
+        // GET: api/BookMyShow/Theatres/5/Screens/1/ShowTimings
+        [Authorize]
+        [HttpGet("{id}/Screens/{screenid}/ShowTimings")]
+        public ActionResult<IEnumerable<ShowTiming>> GetShowTimings(int screenid)
+        {
+            var showTime = theatres.GetShowTimingsByScreenId(screenid);
+
+            if (showTime == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(showTime);
+        }
+
+        // GET: api/BookMyShow/Theatres/5/Screens/2/SeatCategories
+        [Authorize]
+        [HttpGet("{id}/Screens/{screenid}/SeatCategories")]
+        public ActionResult<IEnumerable<ScreenSeatsCategory>> GetScreenSeatsCategory(int screenid)
+        {
+            var screenSeatCategory = theatres.GetSeatCategoryByScreenId(screenid);
+
+            if (screenSeatCategory == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(screenSeatCategory);
+        }
+
+        // GET: api/BookMyShow/Theatres/5/Screens/2/SeatCategories/2/Seats
+        [Authorize]
+        [HttpGet("{id}/Screens/{screenid}/SeatCategories/{seatCategoryid}/Seats")]
+        public ActionResult<IEnumerable<Seat>> GetSeats(int seatCategoryid)
+        {
+            var seat = theatres.GetSeatsBySeatCategoryId(seatCategoryid);
+
+            if (seat == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(seat);
+        }
+
         // PUT: api/BookMyShow/Theatres/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -102,6 +162,48 @@ namespace BookMyShowAPI.Controllers
             return Ok();
         }
 
+        // POST: api/BookMyShow/Theatres/5/Screens/1/Movies
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost("{id}/Screens/{screenid}/Movies")]
+        [Authorize(Roles = UserRoles.Admin)]
+        public ActionResult<Movie> PostScreenMovies(int screenid, [FromBody] string movie)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            theatres.CreateMovieByScreenId(screenid, movie);
+
+            return Ok();
+        }
+
+        // POST: api/BookMyShow/Theatres/5/Screens/1/ShowTimings
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost("{id}/Screens/{screenid}/ShowTimings")]
+        [Authorize(Roles = UserRoles.Admin)]
+        public ActionResult<Movie> PostScreenShowTimings(int screenid, [FromBody] string showTiming)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            theatres.CreateShowTimingByScreenId(screenid, showTiming);
+
+            return Ok();
+        }
+
+        // POST: api/BookMyShow/Theatres/5/Screens
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost("{id}/Screens/{screenid}/SeatCategories")]
+        [Authorize(Roles = UserRoles.Admin)]
+        public ActionResult<Screen> PostScreenSeatCategory(int screenid, [FromBody] string seatCategory)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            theatres.CreateSeatCategoryByScreenId(screenid, seatCategory);
+
+            return Ok();
+        }
+
         // DELETE: api/BookMyShow/Theatres/5
         [HttpDelete("{id}")]
         [Authorize(Roles = UserRoles.Admin)]
@@ -124,6 +226,45 @@ namespace BookMyShowAPI.Controllers
                 return BadRequest("Invalid data.");
 
             theatres.DeleteScreenById(screenid);
+
+            return Ok();
+        }
+
+        // DELETE: api/BookMyShow/Theatres/5/Screens/2/ShowTiming/10:00 AM
+        [HttpDelete("{id}/Screens/{screenid}/ShowTiming/{showTime}")]
+        [Authorize(Roles = UserRoles.Admin)]
+        public IActionResult DeleteShowTiming(int screenid, string showTime)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            theatres.DeleteShowTimingByScreenId(screenid, showTime);
+
+            return Ok();
+        }
+
+        // DELETE: api/BookMyShow/Theatres/5/Screens/2/Movies/Tenet
+        [HttpDelete("{id}/Screens/{screenid}/Movies/{movie}")]
+        [Authorize(Roles = UserRoles.Admin)]
+        public IActionResult DeleteScreenMovie(int screenid, string movie)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            theatres.DeleteMovieByScreenId(screenid, movie);
+
+            return Ok();
+        }
+
+        // DELETE: api/BookMyShow/Theatres/5/Screens/2
+        [HttpDelete("{id}/Screens/{screenid}/SeatCategories/{seatCategory}")]
+        [Authorize(Roles = UserRoles.Admin)]
+        public IActionResult DeleteScreenSeatCategory(int screenid, string seatCategory)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid data.");
+
+            theatres.DeleteSeatCategoryByScreenId(screenid, seatCategory);
 
             return Ok();
         }
