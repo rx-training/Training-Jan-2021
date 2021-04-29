@@ -82,6 +82,6 @@ app.use(route.get("/customers/:id", show));
 app.use(route.delete("/customers/:id", remove));
 app.use(route.put("/customers/:id", edit));
 
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });
