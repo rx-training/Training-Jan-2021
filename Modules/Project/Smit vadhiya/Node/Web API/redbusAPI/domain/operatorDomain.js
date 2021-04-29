@@ -1,4 +1,3 @@
-
 const Collections = require('../models/index')
 const validate = require('../models/validate')
 const logicalFunctions = require('./logicalFunctions')
@@ -6,6 +5,7 @@ const mailTo = require('./emailDomain')
 const Otp = require('./otpDomain')
 const crypto = require('crypto')
 var newOperator
+
 //*********    OPERATOR CLASSES  **********
 
 class Operatores{
@@ -59,6 +59,8 @@ class Operatores{
             } catch(ex){
                 res.status(422).send(ex.message)
             }
+        } else {
+            res.send("wrong otp")
         }
     }
 

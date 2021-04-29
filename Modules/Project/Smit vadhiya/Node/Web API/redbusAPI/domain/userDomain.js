@@ -54,6 +54,8 @@ class Users{
             } catch(ex){
                 res.status(422).send(ex.message)
             }
+        } else {
+            res.send("wrong otp")
         }
     }
     
