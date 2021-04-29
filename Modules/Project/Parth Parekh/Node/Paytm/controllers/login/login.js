@@ -6,11 +6,11 @@ require("dotenv").config();
 const USER = process.env.USER;
 const PASS = process.env.PASS;
 
-var otp = Math.floor(1000 + Math.random() * 3000);
+var otp;
 
 class LoginController {
     static async Sendotp(req, res) {
-        
+        otp = Math.floor(1000 + Math.random() * 3000);
         let email = "irctcdemo1@gmail.com";
         let transporter = nodemailer.createTransport({
             service: "gmail",

@@ -89,7 +89,8 @@ app.use(route.post("/students/add", add));
 app.use(route.put("/students/edit/:id", edit));
 app.use(route.delete("/students/delete/:id", remove));
 
-
-app.listen(3000, () => {
+module.exports = app.listen(3000, () => {
     console.log("Server Running");
 });
+
+
