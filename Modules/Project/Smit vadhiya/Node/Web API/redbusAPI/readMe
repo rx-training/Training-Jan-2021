@@ -1,0 +1,150 @@
+install express, mongoose, joi
+
+run app.js first 
+it will run application on porn no. 3000
+
+
+
+HOME PAGE
+http://localhost:3000/redbus.in/ 
+
+=>-------------- FOLLOW STEPS FOR BETTER UNDERSTANDING  --------- <= 
+
+    ADD DATA TO DATABASE
+
+        =>ADD  CITIES
+            add this bata to body
+
+                [{"cityName": "ahmedabad","state": "gujrat","latitude": 23.0225,"longitude": 72.5714}
+                ,{"cityName": "rajkot","state": "gujrat","latitude": 22.3039,"longitude": 70.8022}
+                ,{"cityName": "vadodara","state": "gujrat","latitude": 22.3072,"longitude": 73.1812}
+                ,{"cityName": "surat","state": "gujrat","latitude": 21.1702,"longitude": 72.8311}
+                ,{"cityName": "porbandar","state": "gujrat","latitude": 21.6417,"longitude": 69.6293}
+                ,{"cityName": "bhavnagar","state": "gujrat","latitude": 21.7645,"longitude": 72.1519}
+                ,{"cityName": "junagadh","state": "gujrat","latitude": 21.5222,"longitude": 70.4579}
+                ,{"cityName": "veraval","state": "gujrat","latitude": 20.9159,"longitude": 70.3629}
+                ,{"cityName": "jetpur","state": "gujrat","latitude": 21.7547,"longitude": 70.618}
+                ,{,"cityName": "gondal","state": "gujrat","latitude": 21.9612,"longitude": 70.7939}
+                ,{,"cityName": "keshod","state": "gujrat","latitude": 21.2997,"longitude": 70.2493}
+                ,{,"cityName": "mendarda","state": "gujrat","latitude": 21.3206,"longitude": 70.4417}
+                ,{,"cityName": "nadiyad","state": "gujrat","latitude": 22.6916,"longitude": 72.8634}
+                ,{,"cityName": "bharuch","state": "gujrat","latitude": 21.7051,"longitude": 72.9959}]
+
+            URL :- http://localhost:3000/redbus.in/admin/city/addmany
+     
+        =>ADD USER  
+            ADD ONE BY ONE DATA TO SIGNUP USER 
+
+                {"firstName":"mohit","lastName":"shah","email":"mohitshah@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"6845678921","city":3}
+                {"firstName":"hina","lastName":"khah","email":"hinakhah@gmail.com","gender":"female","DOB":"1998-12-10","password":"pass","phoneNumber":"6845678921","city":4}
+                {"firstName":"rahul","lastName":"dev","email":"rahuldev@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"7845678921","city":5}
+                {"firstName":"bharat","lastName":"naik","email":"bharatnaik@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"9845678921","city":4}
+                {"firstName":"sundar","lastName":"jatt","email":"sundatjatt@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"6845678921","city":6}
+                {"firstName":"virat","lastName":"kohli","email":"viratkohli@gmail.com","gender":"male","DOB":"2000-02-04","password":"pass","phoneNumber":"8845678921","city":3}
+                {"firstName":"mohini","lastName":"kumar","email":"mohinikumar@gmail.com","gender":"female","DOB":"2000-02-04","password":"pass","phoneNumber":"6845678921","city":6}
+
+            URL :- http://localhost:3000/redbus.in/user/signup
+
+        =>ADD OPERATORS
+            ADD ONE BY ONE DATA TO SIGNUP OPERATOR 
+
+                {"firstName":"rahul","lastName":"chuhan","email":"rahulchauhan@gmmail.com","gender":"male","DOB":"1998-12-10","companyName":"patel travels","address":"xyz","password":"pass","collaborationDate":"2019-12-10","phoneNumber":"7654329876","city":2}
+                {"firstName":"virat","lastName":"patel","email":"viratpatel@gmmail.com","gender":"male","DOB":"1997-05-14","companyName":"shreehari travels","address":"xyz","password":"pass","collaborationDate":"2018-07-21","phoneNumber":"8654329876","city":1}
+                {"firstName":"dhrumil","lastName":"joshi","email":"dhrumiljoshi@gmmail.com","gender":"male","DOB":"1989-01-12","companyName":"swaminarayan travels","address":"xyz","password":"pass","collaborationDate":"2015-12-03","phoneNumber":"9454329876","city":1}
+                {"firstName":"disha","lastName":"vekariya","email":"dineshvekariya@gmmail.com","gender":"female","DOB":"1992-05-23","companyName":"pavan travels","address":"xyz","password":"pass","collaborationDate":"2018-04-12","phoneNumber":"7454329876","city":1}
+                {"firstName":"rudra","lastName":"shah","email":"rudrashah@gmmail.com","gender":"male","DOB":"1994-01-14","companyName":"neeta travels","address":"xyz","password":"pass","collaborationDate":"2014-07-14","phoneNumber":"9454329876","city":1}
+            
+            URL :- http://localhost:3000/redbus.in/operator/signup
+
+ ********************* OPERATORS'S URL *******************
+
+    NEW BUS CAN BE ADDED BY OPERATOR 
+    LOGIN OPERATOR 
+
+    http://localhost:3000/redbus.in/operator/login
+
+    DATA IN BODY
+    {
+        "email" : "rahulchauhan@gmmail.com"",
+        "password" : "pass"
+    }
+    
+    COPY GENRATED TOKEN AND ADD TO HEADER WITH NAME "token"
+
+THIS IS CREDENTIALS OF OPERATOR WITH ID 1
+GO FOR THIS LINK
+
+http://localhost:3000/redbus.in/operator/1 <= THIS WILL AUTHORIZED
+
+ONLY LOGED IN USER CAN ACCES THEIR DATA
+http://localhost:3000/redbus.in/operator/2 <= THIS WILL NOT AUTHORIZED
+
+
+
+    THEN ADD DATA LIKE THIS TO BODY (ONLY ONE AT A TIME)
+    NOTE :- BUS WILL GO UNDER PERTICULER LOGGED IN OPERATOR SO CHANGE OPERATOR TO ADD IN DIFFRENT OPERATOR
+
+        2=>   {"_id":"GJ01GY4556","busName":"shreehari travels","busType":"ac sleeper(2x1)","busReleasesate":"2017-11-23","totalSleeperseat":30,"totalSeaterSeat":0,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+        4=>   {"_id":"GJ01HY7654","busName":"pavaan travels","busType":"non ac sleeper(2x1)","busReleasesate":"2016-07-04","totalSleeperseat":30,"totalSeaterSeat":3,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+        1=>   {"_id":"GJ01MH3737","busName":"patel travels","busType":"non ac sleeper(2x1)","busReleasesate":"2017-04-04","totalSleeperseat":30,"totalSeaterSeat":0,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+        1=>   {"_id":"GJ01RE9009","busName":"patel tours & travels","busType":"ac seater(2x1)","busReleasesate":"2018-05-22","totalSleeperseat":0,"totalSeaterSeat":0,"totalSemiSleeperSeat":45,"activeStatus":true,"rating":3.5}
+        2=>   {"_id":"GJ01TY8776","busName":"shreehari travels","busType":"non ac sleeper(2x1)","busReleasesate":"2020-02-01","totalSleeperseat":30,"totalSeaterSeat":0,"totalSemiSleeperSeat":0,"activeStatus":true,"rating":3.5}
+
+    URL : http://localhost:3000/redbus.in/operator/:id/mybus/add
+
+    
+
+
+
+
+
+ ********************* ADMIN'S URL *******************
+LOGIN FIRST TO ENTER IN ADMNIN MODEL
+
+http://localhost:3000/redbus.in/admin/login
+
+DATA IN BODY
+{
+    "userid" : "admin",
+    "password" : "admin"
+}
+
+ COPY GENRATED TOKEN AND ADD TO HEADER WITH NAME "token"
+
+
+ ********************* USER'S URL *******************
+
+LOGIN FIRST TO ENTER IN USE MODEL
+
+http://localhost:3000/redbus.in/user/login
+
+DATA IN BODY
+{
+    "email" : "mohitshah@gmail.com",
+    "password" : "pass"
+}
+
+ COPY GENRATED TOKEN AND ADD TO HEADER WITH NAME "token"
+ 
+THIS IS CREDENTIALS OF USER WITH ID 1
+GO FOR THIS LINK
+
+http://localhost:3000/redbus.in/user/1 <= THIS WILL AUTHORIZED
+
+ONLY LOGED IN USER CAN ACCES THEIR DATA
+http://localhost:3000/redbus.in/user/2 <= THIS WILL NOT AUTHORIZED
+
+
+
+
+GET DETAIL ABOUT ALL USER'S
+http://localhost:3000/redbus.in/users/all  METHOD : GET
+
+GET DETAIL ABOUT INDIVIDUAL USER
+    GENRAL URL
+        http://localhost:3000/redbus.in/users/:id  METHOD : GET
+    EXAMPLE URL
+        http://localhost:3000/redbus.in/users/1   METHOD : GET
+
+ADD NEW USER   
+    
