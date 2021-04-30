@@ -1,6 +1,13 @@
 const UserModel = require("../models/userData");
 const ProductModel = require('../models/product');
-const mongoose = require("mongoose");
+const nodemailer = require("nodemailer");
+var bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
+require("dotenv").config();
+
+const USER = process.env.USER;
+const PASS = process.env.PASS;
 
 
 class UserData {
@@ -39,16 +46,74 @@ class UserData {
 
     async addUser(req, res) {
         const data = req.body;
-        const userObject = new UserModel(data);
-        const { error, value } = userObject.joivalidate(data);
-        if (error) {
-            return res.status(400).send(error.details[0].message);
+
+        bcrypt.hash(data.password,10,async function(err,hash){
+            if(err)
+            {
+                return res.json({
+                message:"error Something Wrong",
+                error:err
+                });
+            }
+            else{
+                const userObject = new UserModel({
+                    name: data.name,
+                    email: data.email,
+                    password: hash,
+                    mobileno: data.mobileno,
+                });
+                const { error, value } = userObject.joivalidate(data);
+                if (error) {
+                return res.status(400).send(error.details[0].message);
+                }
+                try {
+                    const  result = await userObject.save();
+                    res.send(`Register Successfully Done`);
+                } catch (ex) {
+                    res.send(ex.message);
+                }   
+            }
+          
+        });
+        
+        
+    }
+
+    async loginUser(req ,res){
+        
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const result = await UserModel.find({email : email});
+        //console.log(result);
+
+        if(result.length < 1){
+            return res.send('User Not Register ,Register First !!');
         }
-        try {
-            const result = await userObject.save();
-            res.send(result);
-        } catch (ex) {
-            res.send(ex.message);
+        else{
+            bcrypt.compare(password,result[0].password , async function(err,result){
+                if(err){  
+                  res.status(404).json({
+                    message:"user not Registered"
+                  });
+                }
+                if (result) {
+                    let userData = {
+                        email: email,
+                        password:password,
+                    };
+                    let token = jwt.sign(userData, "private", {
+                        expiresIn: "1h",
+                    });
+                    res.status(200).json({
+                        message: "Login Successfull",
+                        jwttoken: token,
+                    });
+                }
+                else{
+                    res.send('email and password not match');
+                }
+            });
         }
     }
 
@@ -82,7 +147,7 @@ class UserData {
     }
 
     async getTransactionDetailsOFUser(req, res) {
-        const userId = req.body.userId;
+        const userId = req.params.id;
         try {
             const result = await UserModel.findById(userId);
             //console.log(result);
@@ -95,7 +160,7 @@ class UserData {
     }
 
     async getOrderDetailsOfUser(req, res) {
-        const userId = req.body.userId;
+        const userId = req.params.id;
         try {
             const result = await UserModel.findById(userId)
                 .populate({ path: "orders", populate: { path: "Product" } })
@@ -115,7 +180,8 @@ class UserData {
             const orderData = userData.orders.id(orderId);
             if (!orderData) {
                 return res.send(`Order Is Not Available For Id ${orderId}`);
-            } else {
+            } 
+            else {
                 if (orderData.PaymentStatus == "Done") { 
                     return res.send("Payment Failed");
                 } else {
@@ -124,11 +190,16 @@ class UserData {
                         if (userData.balance >= amount) {
 
                             userData.balance = userData.balance - amount;
+
+                            const product = await ProductModel.findById(orderData.Product).select('ProductName -_id');
+                            //console.log(product);
+
                             const duplicateData = {
                                 _id: orderData._id,
                                 Quantity: orderData.Quantity,
                                 PaymentStatus: "Done",
-                                Product: orderData.Product,
+                                Product : orderData.Product ,
+                                ProductName: product.ProductName,
                                 totalAmount: orderData.totalAmount,
                                 Shipping_Address: orderData.Shipping_Address,
                                 DeliveredOn: "4-5 Working Days",
@@ -139,12 +210,37 @@ class UserData {
                             userData.save();
 
                             const productData = await ProductModel.findById(duplicateData.Product);
+                            console.log(productData);
                             productData.Qty = productData.Qty - 1;
                             productData.save();
                               
-                            res.send(
-                                "Payment Successfully Done , your Order delivered On 4-5 working Days "
-                            );
+                            //Sending Payment SuccessFull Mail
+                            let email = userData.email;
+                            console.log(email);
+
+                            let transporter = nodemailer.createTransport({
+                                service: "gmail",
+                                auth: {
+                                    user:USER,
+                                    pass: PASS
+                                },
+                            });
+                            try{
+                                let info = await transporter.sendMail({
+                                    from: USER,
+                                    to: email,
+                                    subject: "Payment Successfull",   
+                                    html: `<h3>Product : ${duplicateData.ProductName}</h3>
+                                    <h3>PaymentStatus : ${duplicateData.PaymentStatus}</h3>
+                                    <h3>Amount : ${duplicateData.totalAmount}</h3>
+                                    <h3>Quantity : ${duplicateData.Quantity}</h3>
+                                    <h3>Shipping Address : ${duplicateData.Shipping_Address}</h3>
+                                    <h3> Delivery on : ${duplicateData.DeliveredOn}</h3>`,
+                                });
+                            }
+                            catch(ex){
+                                res.send('Error Occurs');
+                            }
                         } else {
                             return res.send(`Insufficient Balance !!`);
                         }

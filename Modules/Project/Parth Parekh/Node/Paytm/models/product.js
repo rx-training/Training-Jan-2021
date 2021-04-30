@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-    
     ProductName: { type: String, required: true, trim: true },
-    ProductCategory :{ type: String, required: true, trim: true },
+    ProductCategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "category",
+        required: true,
+    },
     ProductType: { type: String, required: true, trim: true },
     ProductPrice: { type: Number, required: true },
-    Qty : { type: Number, required: true }
+    Qty: { type: Number, required: true },
 });
 
 productSchema.methods.joivalidate = (data) => {
@@ -16,7 +19,7 @@ productSchema.methods.joivalidate = (data) => {
         ProductCategory: Joi.string().required(),
         ProductType: Joi.string().required(),
         ProductPrice: Joi.number().required(),
-        Qty: Joi.number().required()
+        Qty: Joi.number().required(),
     });
     return schema.validate(data);
 };

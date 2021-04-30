@@ -3,6 +3,11 @@ const router = express.Router();
 const UserData = require("../domain/userlogic");
 const transaction = require('./transaction/transaction');
 const order = require("./transaction/order");
+const category = require('../controllers/category');
+
+const adminverifytoken = require("../middleware/adminverifytoken");
+const verifytoken = require("../middleware/verifytoken");
+
 
 class UserController {
     static async getAllUserData(req, res) {
@@ -26,26 +31,37 @@ class UserController {
         userData.updateUser(req, res);
     }
     static async getOrderDetailsOfUser(req,res){
-         const userData = new UserData();
+        const userData = new UserData();
         userData.getOrderDetailsOfUser(req, res);
+    }
+    static async loginUser(req,res){
+        const userData = new UserData();
+        userData.loginUser(req, res);
     }
 }
 
-router.use('/transaction',transaction);
-router.use('/orders',order);
+router.use('/:id/transaction',transaction);
+router.use('/:id/orders',order);
+router.use('/:id/category', category);
 
 //Get Methods
-router.get("/", UserController.getAllUserData);
-router.get("/:id", UserController.getUserDetailsFromId);
+router.get("/",  [adminverifytoken] ,UserController.getAllUserData);
+router.get("/:id",[verifytoken] , UserController.getUserDetailsFromId);
+
 
 
 //Post Methods
-router.post("/", UserController.addUser);
+//Register New User
+router.post("/register", UserController.addUser);
+
+//Login User
+router.post("/login", UserController.loginUser);
+
 
 //Put Methods
-router.put("/:id", UserController.updateUser);
+router.put("/:id", [verifytoken], UserController.updateUser);
 
 //Delete Methods
-router.delete("/:id", UserController.deleteUser);
+router.delete("/:id", [verifytoken], UserController.deleteUser);
 
 module.exports = router;

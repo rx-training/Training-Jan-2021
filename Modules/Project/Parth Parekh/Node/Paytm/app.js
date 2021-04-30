@@ -3,6 +3,8 @@ const app = express();
 const loggerMiddleware = require('./middleware/loggermiddleware');
 const product = require('./controllers/product');
 const user = require('./controllers/user');
+const login = require('./controllers/login/login');
+
 
 const mongoose = require("mongoose");
 const mongoDB = "mongodb://localhost/paytm";
@@ -11,6 +13,7 @@ mongoose
     .connect(mongoDB, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useCreateIndex : true
     })
     .then(() => {
         console.log("MongoDB Conntected");
@@ -26,6 +29,7 @@ app.use(loggerMiddleware);
 app.use(express.json());
 app.use('/product',product);
 app.use('/user',user);
+app.use('/otp',login);
 
 
 app.listen(3000, () => {
