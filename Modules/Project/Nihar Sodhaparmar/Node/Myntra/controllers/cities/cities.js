@@ -41,9 +41,9 @@ class CitiesController {
 // add city
 router.post('/', [ auth, sellerAuth ], CitiesController.addCity);
 // get all cities
-router.get('/', [ auth, sellerAuth ], CitiesController.getAllCities);
+router.get('/', auth, CitiesController.getAllCities);
 // get city by id
-router.get('/:cityId', [ auth, sellerAuth ], CitiesController.getCityById);
+router.get('/:cityId', auth, CitiesController.getCityById);
 // update city
 router.put('/:cityId', [ auth, sellerAuth ], CitiesController.updateCity);
 // delete city

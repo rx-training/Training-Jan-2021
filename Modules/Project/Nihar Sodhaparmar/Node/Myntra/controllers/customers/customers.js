@@ -41,7 +41,7 @@ class CustomersController {
 // add customer
 router.post('/', CustomersController.addCustomer);
 // get all customers
-router.get('/', [ auth, sellerAuth ], CustomersController.getAllCustomers);
+router.get('/', auth, CustomersController.getAllCustomers);
 // get customer by id
 router.get('/:customerId', auth, CustomersController.getCustomerById);
 // update customer

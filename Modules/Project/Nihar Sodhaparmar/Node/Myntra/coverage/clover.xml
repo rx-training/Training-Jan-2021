@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619769949920" clover="3.2.0">
-  <project timestamp="1619769949920" name="All files">
+<coverage generated="1619779557517" clover="3.2.0">
+  <project timestamp="1619779557517" name="All files">
     <metrics statements="835" coveredstatements="350" conditionals="184" coveredconditionals="26" methods="120" coveredmethods="26" elements="1139" coveredelements="402" complexity="0" loc="835" ncloc="835" packages="17" files="39" classes="39">
       <package name="Myntra">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -903,9 +903,9 @@
         <file name="seller.js" path="C:\Nihar\Radixweb\NodeJs\Myntra\middleware\seller.js">
           <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
-          <line num="3" count="15" type="cond" truecount="1" falsecount="1"/>
+          <line num="3" count="11" type="cond" truecount="1" falsecount="1"/>
           <line num="4" count="0" type="stmt"/>
-          <line num="7" count="15" type="stmt"/>
+          <line num="7" count="11" type="stmt"/>
         </file>
       </package>
       <package name="Myntra.models">
