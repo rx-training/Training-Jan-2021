@@ -40,9 +40,9 @@ class BrandsController {
 // add brand
 router.post('/', [ auth, sellerAuth ], BrandsController.addBrand);
 // get all brands
-router.get('/', [ auth, sellerAuth ], BrandsController.getAllBrands);
+router.get('/', auth, BrandsController.getAllBrands);
 // get brand by id
-router.get('/:brandId', [ auth, sellerAuth ], BrandsController.getBrandById);
+router.get('/:brandId', auth, BrandsController.getBrandById);
 // update brand
 router.put('/:brandId', [ auth, sellerAuth ], BrandsController.updateBrand);
 // delete brand

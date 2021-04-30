@@ -40,7 +40,7 @@ class OrdersController {
 // add order
 router.post('/', auth, OrdersController.addOrder);
 // get all orders
-router.get('/', [ auth, sellerAuth ], OrdersController.getAllOrders);
+router.get('/', auth, OrdersController.getAllOrders);
 // get order by id
 router.get('/:orderId', auth, OrdersController.getOrderById);
 // update order

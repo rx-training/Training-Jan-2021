@@ -40,9 +40,9 @@ class ProductsController{
 // add product
 router.post('/', [ auth, sellerAuth ], ProductsController.addProduct);
 // get all products
-router.get('/', [ auth, sellerAuth ], ProductsController.getAllProducts);
+router.get('/', auth, ProductsController.getAllProducts);
 // get product by id
-router.get('/:productId', [ auth, sellerAuth ], ProductsController.getProductById);
+router.get('/:productId', auth, ProductsController.getProductById);
 // update product
 router.put('/:productId', [ auth, sellerAuth ], ProductsController.updateProduct);
 // delete product

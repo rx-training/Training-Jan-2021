@@ -40,9 +40,9 @@ class CountriesController {
 // add country
 router.post('/', [ auth, sellerAuth ], CountriesController.addCountry);
 // get all countries
-router.get('/', [ auth, sellerAuth ], CountriesController.getAllCountries);
+router.get('/', auth, CountriesController.getAllCountries);
 // get country by id
-router.get('/:countryId', [ auth, sellerAuth ], CountriesController.getCountryById);
+router.get('/:countryId', auth, CountriesController.getCountryById);
 // update country
 router.put('/:countryId', [ auth, sellerAuth ], CountriesController.updateCountry);
 // delete country

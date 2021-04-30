@@ -40,9 +40,9 @@ class CategoriesController{
 // add category
 router.post('/', [ auth, sellerAuth ], CategoriesController.addCategory);
 // get all categories
-router.get('/', [ auth, sellerAuth ], CategoriesController.getAllCategories);
+router.get('/', auth, CategoriesController.getAllCategories);
 // get cateory by id
-router.get('/:categoryId', [ auth, sellerAuth ], CategoriesController.getCategoryById);
+router.get('/:categoryId', auth, CategoriesController.getCategoryById);
 // update category
 router.put('/:categoryId', [ auth, sellerAuth ], CategoriesController.updateCategory);
 // delete category

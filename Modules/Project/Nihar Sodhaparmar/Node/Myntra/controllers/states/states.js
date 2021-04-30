@@ -40,9 +40,9 @@ class StatesController {
 // add state
 router.post('/', [ auth, sellerAuth ], StatesController.addState);
 // get all states
-router.get('/', [ auth, sellerAuth ], StatesController.getAllStates);
+router.get('/', auth, StatesController.getAllStates);
 // get state by id
-router.get('/:stateId', [ auth, sellerAuth ], StatesController.getStateById);
+router.get('/:stateId', auth, StatesController.getStateById);
 // update state
 router.put('/:stateId', [ auth, sellerAuth ], StatesController.updateState);
 // delete state
