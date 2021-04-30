@@ -1,0 +1,855 @@
+{
+	"info": {
+		"_postman_id": "6a5a8488-3664-458c-843b-3826a972e350",
+		"name": "Day18",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\":\"Milit\",\r\n    \"Email\": \"milit@gmail.com\",\r\n    \"Password\": \"Secret@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Authenticate/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Authenticate",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\":\"Milit123\",\r\n    \"Email\": \"milit123@gmail.com\",\r\n    \"Password\": \"Secret@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Authenticate/register-admin",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Authenticate",
+						"register-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\":\"Milit\",\r\n    \"Password\": \"Secret@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Authenticate/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Authenticate",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\":\"Milit123\",\r\n    \"Password\": \"Secret@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Authenticate/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Authenticate",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/patients",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Patients Staff Report",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/patients/assignedStaff",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients",
+						"assignedStaff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View a Patient Staff Report",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/patients/1/assignedStaff/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						"assignedStaff",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View a Patient Medicine Report",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/patients/1/medicines/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						"medicines",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/patients/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Rohan\",\r\n    \"contactNumber\": \"1414474758\",\r\n    \"departmentId\": 2,\r\n    \"description\": \"Brainstrokes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/patients",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Patient's Assigned Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"StaffId\":1\r\n    },\r\n    {\r\n        \"StaffId\":2\r\n    },\r\n    {\r\n        \"StaffId\":5\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/patients/10/assignedStaff/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients",
+						"10",
+						"assignedStaff",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"rohan\",\r\n    \"contactNumber\": \"1234567890\",\r\n    \"departmentId\": 2,\r\n    \"description\": \"Brainstrokes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/patients/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/patients/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"patients",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/staff/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Doctors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/staff/doctors",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff",
+						"doctors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View All Assistants",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/staff/assistants",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff",
+						"assistants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Staff",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/staff/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Dipak\",\r\n    \"email\": \"d@gmail.com\",\r\n    \"contactNumber\": \"7878787812\",\r\n    \"departmentId\": 1,\r\n    \"jobType\": \"Doctor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/staff",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/staff/10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQxMjMiLCJqdGkiOiIzZDgyMTEzNC0yYzkwLTQ1M2UtYmJjMy0wMjQxMTVlODBkODciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTU1NjMzNiwiaXNzIjoiSG9zcGl0YWxTZXJ2ZXIiLCJhdWQiOiJIb3NwaXRhbENsaWVudCJ9.UAWPgxy9s2xFsxN5kd-HiPcpW3p9qWvmZAkfoIbWP0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":11,\r\n    \"name\": \"Dipak\",\r\n    \"email\": \"dipak@gmail.com\",\r\n    \"contactNumber\": \"7878787812\",\r\n    \"departmentId\": 1,\r\n    \"jobType\": \"Doctor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/staff/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View all Patients of Staff",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiI3MTc0NjM2NS1kN2EwLTQwZjYtYTUyMS1kZDMzYmM5ODE4NDgiLCJleHAiOjE2MTk1NTQ0MzYsImlzcyI6Ikhvc3BpdGFsU2VydmVyIiwiYXVkIjoiSG9zcGl0YWxDbGllbnQifQ.o0Fh_3Vw9jjkhQTFNVqPHnvBf9XSuzDs5-ob0FIYiEA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTWlsaXQiLCJqdGkiOiJlMDgwZGNkMi0xNTIzLTRmMzAtOWY1ZC0yNjIzYzYyNTAxZjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTQ5NDM1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.rFUKwJlH6BAHz6eKCAMJRyyOqRwDqSTq1UIWu71A-_k",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/staff/1/patients/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"staff",
+						"1",
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
