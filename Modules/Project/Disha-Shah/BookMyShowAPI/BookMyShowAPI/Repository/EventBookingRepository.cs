@@ -39,17 +39,17 @@ namespace BookMyShowAPI.Repository
         // Book a Event
         public void BookEvent(EventBookingDTO eventBookingDTO)
         {
-            EventBookingDTO eventBooking = new EventBookingDTO
-            {
-                DateOfEvent = eventBookingDTO.DateOfEvent,
-                Event = eventBookingDTO.Event,
-                EventType = eventBookingDTO.EventType,
-                EventVenue = eventBookingDTO.EventVenue,
-                ShowTiming = eventBookingDTO.ShowTiming,
-                TicketCount = eventBookingDTO.TicketCount,
-                UserContact = eventBookingDTO.UserContact
-            };
-            var json = JsonConvert.SerializeObject(eventBooking);
+            //EventBookingDTO eventBooking = new EventBookingDTO
+            //{
+            //    DateOfEvent = eventBookingDTO.DateOfEvent,
+            //    Event = eventBookingDTO.Event,
+            //    EventType = eventBookingDTO.EventType,
+            //    EventVenue = eventBookingDTO.EventVenue,
+            //    ShowTiming = eventBookingDTO.ShowTiming,
+            //    TicketCount = eventBookingDTO.TicketCount,
+            //    UserContact = eventBookingDTO.UserContact
+            //};
+            var json = JsonConvert.SerializeObject(eventBookingDTO);
 
             var param = new SqlParameter("@jsonBook", json);
 

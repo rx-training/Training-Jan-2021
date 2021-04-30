@@ -23,6 +23,16 @@ namespace BookMyShowAPI.Repository
             return movie;
         }
 
+        // Get information of a particular movie
+        public IEnumerable GetMovieById(int id)
+        {
+            var movie = context.VMovies
+                                .Where(x=>x.MovieId==id)
+                                .ToList();
+
+            return movie;
+        }
+
         // Add Movie
         public override void Create(Movie movie)
         {
@@ -184,6 +194,136 @@ namespace BookMyShowAPI.Repository
 
             context.MovieFilmCategories.Remove(movieFilmCategory);
             context.SaveChanges();
+        }
+
+        // Get all Languages for a particular movie
+        public IEnumerable GetLanguagesByMovie(int id)
+        {
+            var languages = context.VMovies
+                                    .Where(x => x.MovieId == id)
+                                    .Select(x => new VMovie
+                                    {
+                                        MovieId = id,
+                                        Name = x.Name,
+                                        Image = x.Image,
+                                        DateOfRelease=x.DateOfRelease,
+                                        About = x.About,
+                                        Certification=x.Certification,
+                                        CertificationId=x.CertificationId,
+                                        Time=x.Time,
+                                        IsPremiere=x.IsPremiere,
+                                        IsRecommended=x.IsRecommended,
+                                        Language = x.Language,
+                                        LanguageId = x.LanguageId
+                                    })
+                                    .Distinct();
+
+            return languages;
+        }
+
+        // Get all filmCategories for a particular language
+        public IEnumerable GetFilmCategoriesByLanguage(int id, string language)
+        {
+            var filmCategories = context.VMovies
+                                        .Where(x => x.MovieId == id && x.Language == language)
+                                        .Select(x => new VMovie
+                                        {
+                                            MovieId = id,
+                                            Name = x.Name,
+                                            Image = x.Image,
+                                            DateOfRelease = x.DateOfRelease,
+                                            About = x.About,
+                                            Certification = x.Certification,
+                                            CertificationId = x.CertificationId,
+                                            Time = x.Time,
+                                            IsPremiere = x.IsPremiere,
+                                            IsRecommended = x.IsRecommended,
+                                            Language = x.Language,
+                                            LanguageId = x.LanguageId,
+                                            FilmCategory = x.FilmCategory,
+                                            FilmCategoryId = x.FilmCategoryId
+                                        })
+                                        .Distinct();
+
+            return filmCategories;
+        }
+
+        // Get all theatres for a particular film category
+        public IEnumerable GetTheatresByFilmCategory(int id, string language, string filmCategory)
+        {
+            var movie = context.Movies.SingleOrDefault(x => x.MovieId == id);
+
+            var theatres = context.TheatresMovies
+                                .Where(x => x.Movie == movie.Name && x.Language == language && x.FilmCategory == filmCategory)
+                                .Select(x => new TheatresMovie
+                                {
+                                    Movie = x.Movie,
+                                    About = x.About,
+                                    DateOfRelease = x.DateOfRelease,
+                                    Image = x.Image,
+                                    IsPremiere = x.IsPremiere,
+                                    IsRecommended = x.IsRecommended,
+                                    Time = x.Time,
+                                    Certification = x.Certification,
+                                    CertificationId = x.CertificationId,
+                                    Language = x.Language,
+                                    LanguageId = x.LanguageId,
+                                    FilmCategory = x.FilmCategory,
+                                    FilmCategoryId = x.FilmCategoryId,
+                                    TheatreId = x.TheatreId,
+                                    Theatre = x.Theatre,
+                                    Address = x.Address,
+                                    City = x.City,
+                                    CityId = x.CityId,
+                                    ShowTime=x.ShowTime,
+                                    ShowTimingId=x.ShowTimingId
+                                })
+                                .Distinct();
+
+            return theatres;
+        }
+
+        public IEnumerable GetSeatCategoriesByTheatreShowTimings(int id, string language, string filmCategory, int theatreId, string showTime)
+        {
+            var movie = context.Movies.SingleOrDefault(x => x.MovieId == id);
+
+            TimeSpan ts = DateTime.Parse(showTime).TimeOfDay;
+
+            var seats = context.TheatresMovies
+                                .Where(x => x.Movie == movie.Name && x.Language == language && x.FilmCategory == filmCategory && x.TheatreId==theatreId && x.ShowTime==ts)
+                                .Select(x => new TheatresMovie
+                                {
+                                    Movie = x.Movie,
+                                    About = x.About,
+                                    DateOfRelease = x.DateOfRelease,
+                                    Image = x.Image,
+                                    IsPremiere = x.IsPremiere,
+                                    IsRecommended = x.IsRecommended,
+                                    Time = x.Time,
+                                    Certification = x.Certification,
+                                    CertificationId = x.CertificationId,
+                                    Language = x.Language,
+                                    LanguageId = x.LanguageId,
+                                    FilmCategory = x.FilmCategory,
+                                    FilmCategoryId = x.FilmCategoryId,
+                                    TheatreId = x.TheatreId,
+                                    Theatre = x.Theatre,
+                                    Address = x.Address,
+                                    City = x.City,
+                                    CityId = x.CityId,
+                                    ShowTime = x.ShowTime,
+                                    ShowTimingId = x.ShowTimingId,
+                                    SeatCategory=x.SeatCategory,
+                                    SeatsCategoryId=x.SeatsCategoryId,
+                                    Price=x.Price,
+                                    SeatNo=x.SeatNo,
+                                    SeatsId=x.SeatsId,
+                                    ScreenId=x.ScreenId,
+                                    IsBooked=x.IsBooked
+                                })
+                                .Distinct();
+
+            return seats;
         }
     }
 }

@@ -40,19 +40,7 @@ namespace BookMyShowAPI.Repository
         // Book a Movie
         public void BookMovie(MovieBookingDTO movieBookingDTO)
         {
-            MovieBookingDTO movieBooking = new MovieBookingDTO
-            {
-                Movie = movieBookingDTO.Movie,
-                UserContact = movieBookingDTO.UserContact,
-                SeatNo = movieBookingDTO.SeatNo,
-                Theatre = movieBookingDTO.Theatre,
-                ShowTiming = movieBookingDTO.ShowTiming,
-                City = movieBookingDTO.City,
-                Language = movieBookingDTO.Language,
-                FilmCategory = movieBookingDTO.FilmCategory,
-                DateToWatch = movieBookingDTO.DateToWatch
-            };
-            var json = JsonConvert.SerializeObject(movieBooking);
+            var json = JsonConvert.SerializeObject(movieBookingDTO);
 
             var param = new SqlParameter("@jsonBook", json);
 

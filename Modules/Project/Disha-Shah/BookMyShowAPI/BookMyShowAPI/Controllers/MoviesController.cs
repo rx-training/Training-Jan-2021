@@ -51,7 +51,7 @@ namespace BookMyShowAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<Movie> GetMovie(int id)
         {
-            var movie = movies.GetById(id);
+            var movie = movies.GetMovieById(id);
 
             if (movie == null)
             {
@@ -59,6 +59,62 @@ namespace BookMyShowAPI.Controllers
             }
 
             return Ok(movie);
+        }
+
+        // GET: api/BookMyShow/Movies/5/Languages
+        [HttpGet("{id}/Languages")]
+        public ActionResult<VMovie> GetLanguages(int id)
+        {
+            var languages = movies.GetLanguagesByMovie(id);
+
+            if (languages == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(languages);
+        }
+
+        // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories
+        [HttpGet("{id}/Languages/{language}/FilmCategories")]
+        public ActionResult<VMovie> GetFilmcategories(int id, string language)
+        {
+            var filmCategories = movies.GetFilmCategoriesByLanguage(id, language);
+
+            if (filmCategories == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(filmCategories);
+        }
+
+        // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories/2D/Theatres
+        [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres")]
+        public ActionResult<TheatresMovie> GetTheatres(int id, string language, string filmCategory)
+        {
+            var theatres = movies.GetTheatresByFilmCategory(id, language, filmCategory);
+
+            if (theatres == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(theatres);
+        }
+
+        // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories/2D/Theatres/4/ShowTimings/03:00 PM
+        [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreid}/ShowTimings/{showTime}")]
+        public ActionResult<TheatresMovie> GetSeats(int id, string language, string filmCategory, int theatreid, string showTime)
+        {
+            var seats = movies.GetSeatCategoriesByTheatreShowTimings(id, language, filmCategory, theatreid, showTime);
+
+            if (seats == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(seats);
         }
 
         // PUT: api/BookMyShow/Movies/5
