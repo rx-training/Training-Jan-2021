@@ -67,7 +67,8 @@ namespace Day12Assignment.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
+			var sp = @"DROP PROCEDURE dbo.spOrders";
+			migrationBuilder.Sql(sp);
         }
     }
 }

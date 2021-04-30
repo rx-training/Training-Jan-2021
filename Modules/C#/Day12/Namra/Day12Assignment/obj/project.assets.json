@@ -5794,7 +5794,6 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore >= 5.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.5",
-      "Microsoft.EntityFrameworkCore.Relational >= 5.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.5"
     ]
@@ -5845,10 +5844,6 @@
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
-            "target": "Package",
-            "version": "[5.0.5, )"
-          },
-          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[5.0.5, )"
           },

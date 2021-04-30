@@ -55,9 +55,9 @@ namespace Day10
             {
                 Doctor dt = hs.Doctors.SingleOrDefault(s => s.FirstName == FName && s.MiddleName == MName && s.LastName == LName);
 
-                if (dt.FirstName == null)
+                if (dt == null)
                 {
-                    return "";
+                    throw new Exception();
                 }
                 else
                 {
@@ -82,7 +82,7 @@ namespace Day10
                     return $"Enter valid Name";     
                 }
                 Doctor dt = hs.Doctors.SingleOrDefault(s => s.FirstName.ToLower() == names[0].Trim(' ') && s.MiddleName.ToLower() == names[1].Trim(' ') && s.LastName.ToLower() == names[2].Trim(' '));
-                if(dt.FirstName == null)
+                if(dt == null)
                 {
                     return "";
                 }
@@ -156,7 +156,7 @@ namespace Day10
                 }
                 Doctor dt = hs.Doctors.SingleOrDefault(s => s.FirstName == names[0] && s.MiddleName == names[1] && s.LastName== names[2]);
 
-                if (dt.FirstName != null)
+                if (dt != null)
                 {
                     hs.Doctors.Remove(dt);
                     save();
