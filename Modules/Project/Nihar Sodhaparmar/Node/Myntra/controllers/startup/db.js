@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 const winston = require('winston');
+const config = require('config');
 
 module.exports = function () {
 
-    const database = 'mongodb://localhost/MyntraDB';
+    const database = config.get('db');
 
     mongoose.connect(database, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => {
-        winston.info('MongoDB connected...');
-        console.log('MongoDB connected...');
+        winston.info(`Connected to ${database}...`);
+        console.log(`Connected to ${database}...`);
     });
 }

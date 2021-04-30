@@ -1,0 +1,4 @@
+{
+    "jwtPrivatKey": "1234",
+    "db": "mongodb://localhost/MyntraDB_tests"
+}
