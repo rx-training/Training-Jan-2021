@@ -29,6 +29,7 @@ namespace Practice
             return obj.StudentID.GetHashCode();
         }
     }
+
     static class EnumerableExtensionMethods
     {
         public static IEnumerable<Student> GetTeenAgerStudents(this IEnumerable<Student> source)
