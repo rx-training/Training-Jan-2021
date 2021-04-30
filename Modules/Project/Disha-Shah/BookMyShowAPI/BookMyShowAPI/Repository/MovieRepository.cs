@@ -283,6 +283,7 @@ namespace BookMyShowAPI.Repository
             return theatres;
         }
 
+        // Get Seatcategory and seats for a particular movie and theatre
         public IEnumerable GetSeatCategoriesByTheatreShowTimings(int id, string language, string filmCategory, int theatreId, string showTime)
         {
             var movie = context.Movies.SingleOrDefault(x => x.MovieId == id);

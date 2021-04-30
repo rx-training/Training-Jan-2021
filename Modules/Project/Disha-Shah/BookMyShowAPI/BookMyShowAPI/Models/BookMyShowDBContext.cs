@@ -1,4 +1,5 @@
 ﻿using System;
+using BookMyShowAPI.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -136,19 +137,17 @@ namespace BookMyShowAPI.Models
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.FirstName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.LastName)
-                    .IsRequired()
+                entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
@@ -949,19 +948,17 @@ namespace BookMyShowAPI.Models
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.FirstName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.LastName)
-                    .IsRequired()
+                entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
