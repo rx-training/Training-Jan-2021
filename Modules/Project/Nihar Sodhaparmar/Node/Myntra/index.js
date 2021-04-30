@@ -9,7 +9,9 @@ app.use(express.json());
 const controllerRouter = require('./controllers/index');
 app.use('/', controllerRouter);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     winston.info(`App listening on port ${port}...`);
     console.log(`App listening on port ${port}...`);
 });
+
+module.exports = server;

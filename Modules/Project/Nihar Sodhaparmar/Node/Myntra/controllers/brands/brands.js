@@ -40,7 +40,7 @@ class BrandsController {
 // add brand
 router.post('/', [ auth, sellerAuth ], BrandsController.addBrand);
 // get all brands
-router.get('/', [ auth, sellerAuth ], BrandsController.getAllBrands)
+router.get('/', [ auth, sellerAuth ], BrandsController.getAllBrands);
 // get brand by id
 router.get('/:brandId', [ auth, sellerAuth ], BrandsController.getBrandById);
 // update brand
