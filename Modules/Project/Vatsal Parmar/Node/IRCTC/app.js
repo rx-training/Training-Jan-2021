@@ -4,7 +4,11 @@ var createError = require("http-errors");
 const mainRouter = require("./controllers/index");
 var mongoDB = "mongodb://localhost/irctc";
 mongoose
-  .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoDB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .then(() => console.log("Connected To MongoDB"));
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));

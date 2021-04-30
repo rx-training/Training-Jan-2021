@@ -1,4 +1,5 @@
 const UserModel = require("../models/users.model");
+var crypto = require("crypto");
 
 class UserDomain {
   //To get all users
@@ -11,6 +12,12 @@ class UserDomain {
     let id = req.params.userId;
     const user = await UserModel.findById(id);
     if (user) {
+      //decrypting user passwrd
+      var mykey = crypto.createDecipher("aes-128-cbc", "mypassword");
+      var mystr = mykey.update(user.password, "hex", "utf8");
+      mystr += mykey.final("utf8");
+      user.password = mystr;
+
       res.send(user);
     } else {
       res.status(404).send("User Not Found");
@@ -20,6 +27,13 @@ class UserDomain {
   async insertUser(req, res) {
     //getting user input
     let data = req.body;
+    let pass = data.password;
+    //encrypting user password
+    var mykey = crypto.createCipher("aes-128-cbc", "mypassword");
+    var mystr = mykey.update(pass, "utf8", "hex");
+    mystr += mykey.final("hex");
+
+    data.password = mystr;
 
     const user = new UserModel(data);
     const { error, value } = user.joiValidate(data);
@@ -49,6 +63,14 @@ class UserDomain {
     //getting user input
     let data = req.body;
     let id = req.params.userId;
+
+    let pass = data.password;
+    //encrypting user password
+    var mykey = crypto.createCipher("aes-128-cbc", "mypassword");
+    var mystr = mykey.update(pass, "utf8", "hex");
+    mystr += mykey.final("hex");
+
+    data.password = mystr;
 
     const user = new UserModel(data);
     const { error, value } = user.joiValidate(data);

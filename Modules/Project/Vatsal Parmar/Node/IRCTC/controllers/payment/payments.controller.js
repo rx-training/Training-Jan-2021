@@ -1,6 +1,8 @@
 var express = require("express");
 const PaymentDomain = require("../../domains/payments.domain");
 var router = express.Router();
+const verifyAdminToken = require("../../authentication/verifyAdminToken");
+const verifytoken = require("../../authentication/verifytoken");
 
 class PaymentController {
   //To get all payments
@@ -31,14 +33,14 @@ class PaymentController {
 }
 
 //To insert payment
-router.post("/", PaymentController.insertPayment);
+router.post("/", verifytoken, PaymentController.insertPayment);
 //To get all payments
-router.get("/", PaymentController.get);
+router.get("/", verifyAdminToken, PaymentController.get);
 //To get an single payment by id
-router.get("/:paymentId", PaymentController.getPayment);
+router.get("/:paymentId", verifytoken, PaymentController.getPayment);
 //To update payment
-router.put("/:paymentId", PaymentController.updatePayment);
+router.put("/:paymentId", verifytoken, PaymentController.updatePayment);
 //To delete a payment
-router.delete("/:paymentId", PaymentController.deletePayment);
+router.delete("/:paymentId", verifyAdminToken, PaymentController.deletePayment);
 
 module.exports = router;

@@ -3,6 +3,8 @@ const TrainDomain = require("../../domains/trains.domain");
 const search = require("./childRoutes/search.controller");
 const book = require("./childRoutes/book.controller");
 var router = express.Router();
+const verifyAdminToken = require("../../authentication/verifyAdminToken");
+const verifytoken = require("../../authentication/verifytoken");
 
 class TrainController {
   //To get all trains
@@ -38,20 +40,24 @@ class TrainController {
 }
 
 //To insert train
-router.post("/", TrainController.insertTrain);
+router.post("/", verifyAdminToken, TrainController.insertTrain);
 //To get all trains
-router.get("/", TrainController.get);
+router.get("/", verifyAdminToken, TrainController.get);
 //To get an single train by id
-router.get("/train/:trainId", TrainController.getTrain);
+router.get("/train/:trainId", verifytoken, TrainController.getTrain);
 //To update train
-router.put("/train/:trainId", TrainController.updateTrain);
+router.put("/train/:trainId", verifyAdminToken, TrainController.updateTrain);
 //To delete a train
-router.delete("/train/:trainId", TrainController.deleteTrain);
+router.delete("/train/:trainId", verifyAdminToken, TrainController.deleteTrain);
 //To search train
-router.use("/search", search);
+router.use("/search", verifytoken, search);
 //To book train
-router.use("/book", book);
+router.use("/book", verifytoken, book);
 //To get all passengers in train
-router.get("/passengers/:trainId", TrainController.getPassengers);
+router.get(
+  "/passengers/:trainId",
+  verifyAdminToken,
+  TrainController.getPassengers
+);
 
 module.exports = router;

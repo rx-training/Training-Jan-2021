@@ -1,6 +1,7 @@
 var express = require("express");
 const RouteDomain = require("../../domains/routes.domain");
 var router = express.Router();
+const verifyAdminToken = require("../../authentication/verifyAdminToken");
 
 class RouteController {
   //To get all routes
@@ -31,14 +32,14 @@ class RouteController {
 }
 
 //To insert route
-router.post("/", RouteController.insertRoute);
+router.post("/", verifyAdminToken, RouteController.insertRoute);
 //To get all routes
-router.get("/", RouteController.get);
+router.get("/", verifyAdminToken, RouteController.get);
 //To get an single route by id
-router.get("/:routeId", RouteController.getRoute);
+router.get("/:routeId", verifyAdminToken, RouteController.getRoute);
 //To update route
-router.put("/:routeId", RouteController.updateRoute);
+router.put("/:routeId", verifyAdminToken, RouteController.updateRoute);
 //To delete a route
-router.delete("/:routeId", RouteController.deleteRoute);
+router.delete("/:routeId", verifyAdminToken, RouteController.deleteRoute);
 
 module.exports = router;

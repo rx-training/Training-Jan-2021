@@ -13,6 +13,8 @@
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
     "joi": "^17.4.0",
-    "mongoose": "^5.12.5"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.5",
+    "nodemailer": "^6.5.0"
   }
 }
