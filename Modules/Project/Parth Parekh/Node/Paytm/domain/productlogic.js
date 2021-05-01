@@ -3,32 +3,47 @@ const UserModel = require("../models/userData");
 
 class ProductData {
     async getProduct(req, res) {
-        try {
-            const result = await ProductModel.find()
-                .populate("ProductCategory")
-                .select("-__v");
-            if (!result) {
-                return res.status(404).send("No Products Available !!");
-            } else {
-                res.send(result);
+        let productname = req.query.productname;
+
+        if (productname) {
+            try {
+                const result = await ProductModel.find({
+                    ProductName: productname,
+                })
+                    .populate("ProductCategory", "CategoryName -_id")
+                    .select("ProductName  ProductType ProductPrice -_id");
+                if (result.length < 1) {
+                    return res.send("Not Found ");
+                } else {
+                    return res.send(result);
+                }
+            } catch (ex) {
+                return res.send("Not Found ");
             }
-        } catch (ex) {
-            res.send(ex.message);
+        } else {
+            try {
+                const result = await ProductModel.find()
+                    .populate("ProductCategory", "CategoryName -_id")
+                    .select("ProductName  ProductType ProductPrice -_id");
+                if (result.length < 1) {
+                    return res.status(404).send("No Products Available !!");
+                } else {
+                    res.send(result);
+                }
+            } catch (ex) {
+                res.send(ex.message);
+            }
         }
     }
 
     async getProductDetailsFromId(req, res) {
         try {
             const result = await ProductModel.findById(req.params.id)
-                .populate("ProductCategory")
-                .select("-__v");
-            if (!result) {
-                return res.status(404).send("Product Not Available !!");
-            } else {
-                res.send(result);
-            }
+                .populate("ProductCategory", "CategoryName -_id")
+                .select("ProductName  ProductType ProductPrice -_id");
+            res.send(result);
         } catch (ex) {
-            res.send(ex.message);
+            res.send("Product Not Available !!");
         }
     }
 
@@ -47,11 +62,11 @@ class ProductData {
         }
     }
     async deleteProduct(req, res) {
-        const result = await ProductModel.findByIdAndDelete(req.params.id);
-        if (!result) {
-            return res.status(404).send("Product Not Found");
-        } else {
+        try {
+            const result = await ProductModel.findByIdAndDelete(req.params.id);
             res.send(`Product Id:${req.params.id}  Deleted Successfully `);
+        } catch {
+            return res.send("Not Found Id");
         }
     }
     async updateProductDetails(req, res) {
@@ -86,7 +101,7 @@ class ProductData {
                 ProductName: ProductName,
             });
 
-            if (!result) {
+            if (result.length < 1) {
                 return res.status(404).send("Product Not Found");
             } else {
                 try {

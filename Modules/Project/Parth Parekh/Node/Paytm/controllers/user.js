@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const UserData = require("../domain/userlogic");
-const transaction = require('./transaction/transaction');
+const transaction = require("./transaction/transaction");
 const order = require("./transaction/order");
-const category = require('../controllers/category');
+const category = require("../controllers/category");
 
 const adminverifytoken = require("../middleware/adminverifytoken");
 const verifytoken = require("../middleware/verifytoken");
-
 
 class UserController {
     static async getAllUserData(req, res) {
@@ -30,33 +29,30 @@ class UserController {
         const userData = new UserData();
         userData.updateUser(req, res);
     }
-    static async getOrderDetailsOfUser(req,res){
+    static async getOrderDetailsOfUser(req, res) {
         const userData = new UserData();
         userData.getOrderDetailsOfUser(req, res);
     }
-    static async loginUser(req,res){
+    static async loginUser(req, res) {
         const userData = new UserData();
         userData.loginUser(req, res);
     }
 }
 
-router.use('/:id/transaction',transaction);
-router.use('/:id/orders',order);
-router.use('/:id/category', category);
+router.use("/:id/transaction", transaction);
+router.use("/:id/orders", order);
+router.use("/:id/category", category);
 
 //Get Methods
-router.get("/",  [adminverifytoken] ,UserController.getAllUserData);
-router.get("/:id",[verifytoken] , UserController.getUserDetailsFromId);
-
-
+router.get("/", [adminverifytoken], UserController.getAllUserData);
+router.get("/:id", [verifytoken], UserController.getUserDetailsFromId);
 
 //Post Methods
 //Register New User
 router.post("/register", UserController.addUser);
 
-//Login User
+//Login User pass email and password
 router.post("/login", UserController.loginUser);
-
 
 //Put Methods
 router.put("/:id", [verifytoken], UserController.updateUser);
