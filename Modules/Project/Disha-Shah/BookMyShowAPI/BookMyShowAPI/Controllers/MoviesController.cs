@@ -103,11 +103,25 @@ namespace BookMyShowAPI.Controllers
             return Ok(theatres);
         }
 
-        // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories/2D/Theatres/4/ShowTimings/03:00 PM
-        [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreid}/ShowTimings/{showTime}")]
-        public ActionResult<TheatresMovie> GetSeats(int id, string language, string filmCategory, int theatreid, string showTime)
+        // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories/2D/Theatres/4/ShowTimings/03:00 PM/SeatCategories
+        [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreid}/ShowTimings/{showTime}/SeatCategories")]
+        public ActionResult<TheatresMovie> GetSeatCategories(int id, string language, string filmCategory, int theatreid, string showTime)
         {
-            var seats = movies.GetSeatCategoriesByTheatreShowTimings(id, language, filmCategory, theatreid, showTime);
+            var seatCategory = movies.GetSeatCategoriesByTheatreShowTimings(id, language, filmCategory, theatreid, showTime);
+
+            if (seatCategory == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(seatCategory);
+        }
+
+        // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories/2D/Theatres/4/ShowTimings/03:00 PM/SeatsCategories/Normal/Seats
+        [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreid}/ShowTimings/{showTime}/SeatsCategories/{seatCategory}/Seats")]
+        public ActionResult<TheatresMovie> GetSeats(int id, string language, string filmCategory, int theatreid, string showTime, string seatCategory)
+        {
+            var seats = movies.GetSeatsBySeatCategories(id, language, filmCategory, theatreid, showTime, seatCategory);
 
             if (seats == null)
             {

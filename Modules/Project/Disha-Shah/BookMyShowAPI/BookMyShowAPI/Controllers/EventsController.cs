@@ -260,7 +260,7 @@ namespace BookMyShowAPI.Controllers
             return Ok(events.GetEventsByLangugage(language));
         }
 
-        // PUT: api/BookMyShow/Events/5
+        // PUT: api/BookMyShow/Events/5/ShowTimes/03:00 PM
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}/ShowTimes/{showTime}")]
         [Authorize(Roles = UserRoles.Admin)]
@@ -274,7 +274,7 @@ namespace BookMyShowAPI.Controllers
             return Ok();
         }
 
-        // POST: api/BookMyShow/Events
+        // POST: api/BookMyShow/Events/ShowTimes/03:00 PM
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("ShowTimes/{showTime}")]
         [Authorize(Roles = UserRoles.Admin)]

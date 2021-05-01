@@ -11,8 +11,8 @@ namespace BookMyShowAPI.IRepository
     public interface IAdmin
     {
         Task<IdentityResult> RegisterAdmin(RegisterModel model);
-        Task<string> LoginAdmin(string userName);
         public void CreateAdmin(RegisterModel model);
         public Admin FindName(string name);
+        Task<Response> ConfirmEmailAsync(string userId, string token);
     }
 }

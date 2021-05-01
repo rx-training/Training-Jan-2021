@@ -1,4 +1,5 @@
-﻿using BookMyShowAPI.IRepository;
+﻿using BookMyShowAPI.Authentication;
+using BookMyShowAPI.IRepository;
 using BookMyShowAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -22,15 +23,14 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Certifications
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Certification>> GetCertifications()
         {
             return Ok(certifications.GetAll());
         }
 
-        // GET: api/BookMyShow/Certifications/5
-        [Authorize]
+        // GET: api/BookMyShow/Certifications/1
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpGet("{id}")]
         public ActionResult<Certification> GetCertification(int id)
         {

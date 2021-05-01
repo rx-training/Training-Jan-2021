@@ -208,6 +208,7 @@ namespace BookMyShowAPI.Repository
             context.SaveChanges();
         }
 
+        // Get ShowTimings by Screen
         public IEnumerable GetShowTimingsByScreenId(int id)
         {
             var showTimings = context.ScreenShowTimings
@@ -226,6 +227,7 @@ namespace BookMyShowAPI.Repository
             return showTimings;
         }
 
+        // Add ShowTimings for a Screen
         public void CreateShowTimingByScreenId(int id, string showTiming)
         {
             TimeSpan ts = DateTime.Parse(showTiming).TimeOfDay;
@@ -242,6 +244,7 @@ namespace BookMyShowAPI.Repository
             context.SaveChanges();
         }
 
+        // Delete ShowTimings for a Screen
         public void DeleteShowTimingByScreenId(int id, string showTiming)
         {
             TimeSpan ts = DateTime.Parse(showTiming).TimeOfDay;
@@ -255,6 +258,74 @@ namespace BookMyShowAPI.Repository
 
             context.ScreenShowTimings.Remove(screenShowTiming);
             context.SaveChanges();
+        }
+
+        // Get movies for a particular theatre
+        public IEnumerable GetMoviesByTheatreId(int id)
+        {
+            var movies = context.TheatresMovies
+                            .Where(x => x.TheatreId == id)
+                            .Select(x => new TheatresMovie
+                            {
+                                TheatreId = x.TheatreId,
+                                Theatre = x.Theatre,
+                                Address = x.Address,
+                                CityId = x.CityId,
+                                City = x.City,
+                                Movie = x.Movie,
+                                About = x.About,
+                                Certification = x.Certification,
+                                CertificationId = x.CertificationId,
+                                DateOfRelease = x.DateOfRelease,
+                                FilmCategory = x.FilmCategory,
+                                FilmCategoryId = x.FilmCategoryId,
+                                Genre = x.Genre,
+                                GenreId = x.GenreId,
+                                Image = x.Image,
+                                IsPremiere = x.IsPremiere,
+                                IsRecommended = x.IsRecommended,
+                                Language = x.Language,
+                                LanguageId = x.LanguageId,
+                                Time = x.Time
+                            })
+                            .Distinct();
+
+            return movies;
+        }
+
+        // Get showtimings for a particular theatre in a movie
+        public IEnumerable GetShowTimingsByMovieId(int id)
+        {
+            var showTimings = context.TheatresMovies
+                            .Where(x => x.TheatreId == id)
+                            .Select(x => new TheatresMovie
+                            {
+                                TheatreId = x.TheatreId,
+                                Theatre = x.Theatre,
+                                Address = x.Address,
+                                CityId = x.CityId,
+                                City = x.City,
+                                Movie = x.Movie,
+                                About = x.About,
+                                Certification = x.Certification,
+                                CertificationId = x.CertificationId,
+                                DateOfRelease = x.DateOfRelease,
+                                FilmCategory = x.FilmCategory,
+                                FilmCategoryId = x.FilmCategoryId,
+                                Genre = x.Genre,
+                                GenreId = x.GenreId,
+                                Image = x.Image,
+                                IsPremiere = x.IsPremiere,
+                                IsRecommended = x.IsRecommended,
+                                Language = x.Language,
+                                LanguageId = x.LanguageId,
+                                Time = x.Time,
+                                ShowTime=x.ShowTime,
+                                ShowTimingId = x.ShowTimingId
+                            })
+                            .Distinct();
+
+            return showTimings;
         }
     }
 }

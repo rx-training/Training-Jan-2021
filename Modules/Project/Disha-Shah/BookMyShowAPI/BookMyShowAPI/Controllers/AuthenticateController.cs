@@ -18,21 +18,24 @@ using MimeKit;
 
 namespace BookMyShowAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/BookMyShow/[controller]")]
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
         private readonly IUser users;
         private readonly IAdmin admins;
         private readonly IMailService mailService;
+        private readonly IConfiguration _configuration;
 
-        public AuthenticateController(IUser user, IAdmin admin, IMailService mailService)
+        public AuthenticateController(IUser user, IAdmin admin, IMailService mailService, IConfiguration configuration)
         {
             users = user;
             admins = admin;
             this.mailService = mailService;
+            _configuration = configuration;
         }
 
+        // POST: api/bookmyshow/authenticate/login?otp=1234
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model, int otp)
@@ -60,12 +63,19 @@ namespace BookMyShowAPI.Controllers
             }
 
             var newToken = await users.LoginUser(username);
-            return Ok(new
+
+            if (newToken != null)
             {
-                token = newToken
-            });
+                return Ok(new
+                {
+                    token = newToken
+                });
+            }
+
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Email is not confirmed!" });
         }
 
+        // POST: api/bookmyshow/authenticate/register
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
@@ -81,25 +91,11 @@ namespace BookMyShowAPI.Controllers
 
             users.CreateUser(model);
 
-            // Mail Sending
-            MailRequest request = new MailRequest();
-
-            request.ToEmail = users.FindName(model.Username).Email;
-            request.Subject = "Hello!";
-            request.Body = "You have successfully registered yourself!";
-
-            try
-            {
-                await mailService.SendEmailAsync(request);
-                return Ok(new Response { Status = "Success", Message = "User created successfully!" });
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return Ok(new Response { Status = "Success", Message = "User created successfully!" });
 
         }
 
+        // POST: api/bookmyshow/authenticate/register-admin
         [HttpPost]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
@@ -115,23 +111,26 @@ namespace BookMyShowAPI.Controllers
 
             admins.CreateAdmin(model);
 
-            // Mail Sending
-            MailRequest request = new MailRequest();
-
-            request.ToEmail = admins.FindName(model.Username).Email;
-            request.Subject = "Hello!";
-            request.Body = "You have successfully registered yourself!";
-
-            try
-            {
-                await mailService.SendEmailAsync(request);
-                return Ok(new Response { Status = "Success", Message = "Admin created successfully!" });
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return Ok(new Response { Status = "Success", Message = "Admin created successfully!" });
         }
 
+        // POST: api/bookmyshow/authenticate/confirmemail
+        [HttpGet("ConfirmEmail")]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if(string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token))
+            {
+                return NotFound();
+            }
+
+            var result = await users.ConfirmEmailAsync(userId, token);
+
+            if(result.Status == "Success")
+            {
+                return Redirect($"{_configuration["AppUrl"]}/confirmemail.html");
+            }
+
+            return BadRequest(result);
+        }
     }
 }

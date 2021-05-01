@@ -14,5 +14,7 @@ namespace BookMyShowAPI.IRepository
         Task<string> LoginUser(string userName);
         public void CreateUser(RegisterModel model);
         public User FindName(string name);
+        Task<Response> ConfirmEmailAsync(string userId, string token);
+        Task<bool> IsEmailConfirmedAsync(string userName);
     }
 }

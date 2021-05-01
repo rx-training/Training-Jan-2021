@@ -23,7 +23,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/EventTypes
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<EventType>> GetEventTypes()
         {
@@ -31,7 +30,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/EventTypes/5
-        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<EventType> GetEventTypes(int id)
         {

@@ -23,7 +23,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Theatres
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Theatre>> GetTheatres()
         {
@@ -31,7 +30,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Theatres/5
-        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<Theatre> GetTheatre(int id)
         {
@@ -45,8 +43,35 @@ namespace BookMyShowAPI.Controllers
             return Ok(theatre);
         }
 
+        // GET: api/BookMyShow/Theatres/5/Movies
+        [HttpGet("{id}/Movies")]
+        public ActionResult<IEnumerable<TheatresMovie>> GetMovies(int id)
+        {
+            var movies = theatres.GetMoviesByTheatreId(id);
+
+            if (movies == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(movies);
+        }
+
+        // GET: api/BookMyShow/Theatres/5/Movies/31/ShowTimings
+        [HttpGet("{id}/Movies/{movieid}/ShowTimings")]
+        public ActionResult<IEnumerable<TheatresMovie>> GetShowTimingsByMovie(int movieid)
+        {
+            var showTimings = theatres.GetShowTimingsByMovieId(movieid);
+
+            if (showTimings == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(showTimings);
+        }
+
         // GET: api/BookMyShow/Theatres/5/Screens
-        [Authorize]
         [HttpGet("{id}/Screens")]
         public ActionResult<IEnumerable<Screen>> GetScreens(int id)
         {
@@ -61,7 +86,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Theatres/5/Screens/1/Movies
-        [Authorize]
         [HttpGet("{id}/Screens/{screenid}/Movies")]
         public ActionResult<IEnumerable<Movie>> GetScreenMovies(int screenid)
         {
@@ -76,7 +100,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Theatres/5/Screens/1/ShowTimings
-        //[Authorize]
         [HttpGet("{id}/Screens/{screenid}/ShowTimings")]
         public ActionResult<IEnumerable<ShowTiming>> GetShowTimings(int screenid)
         {
@@ -91,7 +114,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Theatres/5/Screens/2/SeatCategories
-        [Authorize]
         [HttpGet("{id}/Screens/{screenid}/SeatCategories")]
         public ActionResult<IEnumerable<ScreenSeatsCategory>> GetScreenSeatsCategory(int screenid)
         {
@@ -106,7 +128,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Theatres/5/Screens/2/SeatCategories/2/Seats
-        [Authorize]
         [HttpGet("{id}/Screens/{screenid}/SeatCategories/{seatCategoryid}/Seats")]
         public ActionResult<IEnumerable<Seat>> GetSeats(int seatCategoryid)
         {

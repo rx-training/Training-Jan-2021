@@ -23,7 +23,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Seats
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Seat>> GetSeatCategories()
         {
@@ -31,7 +30,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Seats/5
-        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<Seat> GetSeatcategory(int id)
         {

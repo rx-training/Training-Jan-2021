@@ -2,6 +2,7 @@
 using BookMyShowAPI.IRepository;
 using BookMyShowAPI.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -19,44 +20,17 @@ namespace BookMyShowAPI.Repository
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IMailService mailService;
 
-        public AdminRepository(BookMyShowDBContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration) : base(context)
+        public AdminRepository(BookMyShowDBContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, IMailService mailService) : base(context)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
+            this.mailService = mailService;
         }
 
-        public async Task<string> LoginAdmin(string userName)
-        {
-            var user = await userManager.FindByNameAsync(userName);
-
-            var userRoles = await userManager.GetRolesAsync(user);
-
-            var authClaims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            };
-
-            foreach (var userRole in userRoles)
-            {
-                authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-            }
-
-            var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
-
-            var token = new JwtSecurityToken(
-                issuer: _configuration["JWT:ValidIssuer"],
-                audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddHours(3),
-                claims: authClaims,
-                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-
+        // To Register admin
         public async Task<IdentityResult> RegisterAdmin(RegisterModel model)
         {
             ApplicationUser admin = new ApplicationUser()
@@ -68,9 +42,42 @@ namespace BookMyShowAPI.Repository
             };
             var result = await userManager.CreateAsync(admin, model.Password);
 
+            if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+            if(await roleManager.RoleExistsAsync(UserRoles.Admin))
+            {
+                await userManager.AddToRoleAsync(admin, UserRoles.Admin);
+            }
+
+            if (result.Succeeded)
+            {
+                var confirmEmailToken = await userManager.GenerateEmailConfirmationTokenAsync(admin);
+                var encodedEmailToken = Encoding.UTF8.GetBytes(confirmEmailToken);
+                var validEmailToken = WebEncoders.Base64UrlEncode(encodedEmailToken);
+
+                string url = $"{_configuration["AppUrl"]}/api/authenticate/confirmemail?userid={admin.Id}&token={validEmailToken}";
+
+                MailRequest request = new MailRequest();
+
+                request.ToEmail = model.Email;
+                request.Subject = $"Hello {model.Username}, Confirm Your Email!";
+                request.Body = $"<h1>You have successfully registered yourself with BookMyShow!</h1><h4>Your OTP is: 1234</h4><p><a href='{url}'>Click here</a> to verify your email</p>";
+
+                try
+                {
+                    await mailService.SendEmailAsync(request);
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+
             return result;
         }
 
+        // Map admin details to Admins table in BookMyShowDB from Users table in BookMyShowAuthenticationAPIDB
         public void CreateAdmin(RegisterModel model)
         {
             context.Admins.Add(new Admin()
@@ -84,20 +91,45 @@ namespace BookMyShowAPI.Repository
             context.SaveChanges();
         }
 
+        // Return Admin information based on username
         public Admin FindName(string name)
         {
             var registeredAdmin = context.Admins.SingleOrDefault(x => x.UserName == name);
             return registeredAdmin;
-            //if (registeredAdmin != null)
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
+        }
 
+        // Confirm Email
+        public async Task<Response> ConfirmEmailAsync(string userId, string token)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return new Response
+                {
+                    Status = "Error",
+                    Message = "User not found"
+                };
+            }
 
+            var decodedToken = WebEncoders.Base64UrlDecode(token);
+            string normalToken = Encoding.UTF8.GetString(decodedToken);
+
+            var result = await userManager.ConfirmEmailAsync(user, normalToken);
+
+            if (result.Succeeded)
+            {
+                return new Response
+                {
+                    Status = "Success",
+                    Message = "Email Confirmed Successfully"
+                };
+            }
+
+            return new Response
+            {
+                Status = "Error",
+                Message = "Email not confirmed"
+            };
         }
     }
 }

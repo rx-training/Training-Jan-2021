@@ -23,7 +23,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Languages
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Language>> GetLanguages()
         {
@@ -31,7 +30,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Languages/5
-        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<Language> GetLanguage(int id)
         {

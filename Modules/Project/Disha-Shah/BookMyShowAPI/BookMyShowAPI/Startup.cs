@@ -124,6 +124,8 @@ namespace BookMyShowAPI
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+
             app.UseAuthentication();
 
             app.UseRouting();
