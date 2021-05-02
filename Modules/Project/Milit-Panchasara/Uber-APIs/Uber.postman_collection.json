@@ -1,0 +1,952 @@
+{
+	"info": {
+		"_postman_id": "e61be986-ad73-4ec3-9f91-b34c81ac6817",
+		"name": "Uber",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Riders",
+			"item": [
+				{
+					"name": "Rider Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6ImM2YTU0MzgzLTkxNGYtNGRiNi05ODkxLWZlNmI1OTRlNjg3YiIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5ODc2NDU4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.bjop-8yAGMh72LBs_uMgREl6FOgD--39c9xBdI1IY6k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/profile",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Rider Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJzcHNwNjExNkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6Ijc5OTAzNDkwMzMiLCJqdGkiOiJmNmIyOGNhYS03Y2ZkLTQwNzItODE2NC00MWJkY2IxOTFkYTgiLCJVc2VySWQiOiIxZjE4ZDM4MC04ZmI0LTRlNDUtOTI0Mi01ZTE0ZTdlZjkxZTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJSaWRlciIsImV4cCI6MTYyMDA1NTU0NCwiaXNzIjoiVWJlclNlcnZlciIsImF1ZCI6IlViZXJDbGllbnRzIn0.arOMhbZLZjdxrDJ3usdaOAddnHLWJjPDJjAl8RR0jIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"riderId\": 26,\r\n    \"firstName\": \"Milit\",\r\n    \"lastName\": \"Panchasara\",\r\n    \"email\": \"spsp6116@gmail.com\",\r\n    \"inviteCode\": \"7990349033\",\r\n    \"contactNumber\": 7990349033,\r\n    \"country\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/profile",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Rider",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contactnumber\":\"7990349033\",\r\n    \"Password\":\"Secret@123\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/Auth/login/rider",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"Auth",
+								"login",
+								"rider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Rider",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\":\"Milit2\",\r\n    \"LastName\":\"Gajjar2\",\r\n    \"Email\": \"milit2@gmail.com\",\r\n    \"ContactNumber\": \"7990349032\",\r\n    \"Password\": \"Secret@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/Auth/register/rider",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"Auth",
+								"register",
+								"rider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send verification email",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6ImM2YTU0MzgzLTkxNGYtNGRiNi05ODkxLWZlNmI1OTRlNjg3YiIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5ODc2NDU4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.bjop-8yAGMh72LBs_uMgREl6FOgD--39c9xBdI1IY6k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/Auth/rider/sendEmail/26",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"Auth",
+								"rider",
+								"sendEmail",
+								"26"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comfirm Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/Auth/Confirm?userId=1f18d380-8fb4-4e45-9242-5e14e7ef91e8&token=CfDJ8IVnfD9Z0CJOgco1BzLnl3IHWix1vm0c/4qZV7kCYBQVwg0ukNVxttotbuuJ9aCyOXGAf7HyCf6yZKGNuYD9fAtu7D2IlklgAplmIdFrDox7pw6xjWOkPsU+SfPs6d5JdDUCXbNEyBhXMypcCOEZnCL+KN0O2CEZ6dhdeBveo/rF0eAQ5VMCyCye4RdBlHqS95tYOnzOaYqfN3OnDRpRH0gyiOac2AR5fh61WhwC08ACde6m4sy3vNbn1IHvyNwxgw==",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"Auth",
+								"Confirm"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1f18d380-8fb4-4e45-9242-5e14e7ef91e8"
+								},
+								{
+									"key": "token",
+									"value": "CfDJ8IVnfD9Z0CJOgco1BzLnl3IHWix1vm0c/4qZV7kCYBQVwg0ukNVxttotbuuJ9aCyOXGAf7HyCf6yZKGNuYD9fAtu7D2IlklgAplmIdFrDox7pw6xjWOkPsU+SfPs6d5JdDUCXbNEyBhXMypcCOEZnCL+KN0O2CEZ6dhdeBveo/rF0eAQ5VMCyCye4RdBlHqS95tYOnzOaYqfN3OnDRpRH0gyiOac2AR5fh61WhwC08ACde6m4sy3vNbn1IHvyNwxgw=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comfirm Phone number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/Auth/ContactNumber/Confirm?contact=7990349033&otp=000000",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"Auth",
+								"ContactNumber",
+								"Confirm"
+							],
+							"query": [
+								{
+									"key": "contact",
+									"value": "7990349033"
+								},
+								{
+									"key": "otp",
+									"value": "000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trips",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6IjQxZWY0MjA5LWI5YTMtNDI0ZS1hNDdmLTBkYzFlMTEzMzg2MCIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5NzgzMjM4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.WQxRroZYzzRpWZ28shTNp9G7zG1IvgbsoMKhJ4K_Zlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/trips",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set New Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6Ijg4ZGIxMDQ4LTZhNTQtNDdkYS1hODA2LTM0NDJmOGYxZDMzNSIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5ODcwMDI5LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.W-80Opr3qrh-dB8vYQtrZFLLGzJRS32eMVAno3EqYxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DestinationId\": 1,\r\n    \"SourceId\": 6,\r\n    \"RideTypeId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/trips",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6Ijg4ZGIxMDQ4LTZhNTQtNDdkYS1hODA2LTM0NDJmOGYxZDMzNSIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5ODcwMDI5LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.W-80Opr3qrh-dB8vYQtrZFLLGzJRS32eMVAno3EqYxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TripId\": {{tripId}},\r\n    \"RiderId\": 26,\r\n    \"Action\": \"TripStarted\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/trips/{{tripId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"trips",
+								"{{tripId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6Ijg4ZGIxMDQ4LTZhNTQtNDdkYS1hODA2LTM0NDJmOGYxZDMzNSIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5ODcwMDI5LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.W-80Opr3qrh-dB8vYQtrZFLLGzJRS32eMVAno3EqYxs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TripId\": {{tripId}},\r\n    \"RiderId\": 26,\r\n    \"Action\": \"TripCompleted\",\r\n    \"PaymentMethod\": \"Cash\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/trips/{{tripId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"trips",
+								"{{tripId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6IjQxZWY0MjA5LWI5YTMtNDI0ZS1hNDdmLTBkYzFlMTEzMzg2MCIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5NzgzMjM4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.WQxRroZYzzRpWZ28shTNp9G7zG1IvgbsoMKhJ4K_Zlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TripId\": {{tripId}},\r\n    \"RiderId\": 26,\r\n    \"Action\": \"TripCancelled\",\r\n    \"PaymentMethod\": \"Cash\",\r\n    \"CancelledBy\": \"Rider\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/trips/{{tripId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"trips",
+								"{{tripId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6IjQxZWY0MjA5LWI5YTMtNDI0ZS1hNDdmLTBkYzFlMTEzMzg2MCIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5NzgzMjM4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.WQxRroZYzzRpWZ28shTNp9G7zG1IvgbsoMKhJ4K_Zlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/trips/{{tripId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"trips",
+								"{{tripId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Ratings given",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6IjQxZWY0MjA5LWI5YTMtNDI0ZS1hNDdmLTBkYzFlMTEzMzg2MCIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5NzgzMjM4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.WQxRroZYzzRpWZ28shTNp9G7zG1IvgbsoMKhJ4K_Zlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/ratings/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"ratings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Rating given",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6IjQxZWY0MjA5LWI5YTMtNDI0ZS1hNDdmLTBkYzFlMTEzMzg2MCIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5NzgzMjM4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.WQxRroZYzzRpWZ28shTNp9G7zG1IvgbsoMKhJ4K_Zlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/ratings/{{tripId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"ratings",
+								"{{tripId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtaWxpdDEyQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzk5MDM0OTAzMyIsImp0aSI6IjQxZWY0MjA5LWI5YTMtNDI0ZS1hNDdmLTBkYzFlMTEzMzg2MCIsIlVzZXJJZCI6IjFmMThkMzgwLThmYjQtNGU0NS05MjQyLTVlMTRlN2VmOTFlOCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlJpZGVyIiwiZXhwIjoxNjE5NzgzMjM4LCJpc3MiOiJVYmVyU2VydmVyIiwiYXVkIjoiVWJlckNsaWVudHMifQ.WQxRroZYzzRpWZ28shTNp9G7zG1IvgbsoMKhJ4K_Zlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RiderId\":26,\r\n    \"DriverId\":5,\r\n    \"TripId\": 19,\r\n    \"Comments\": \"Good Comfort.\",\r\n    \"MediaAttached\":\"\",\r\n    \"RatingOfRider\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/rider/26/ratings/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"rider",
+								"26",
+								"ratings",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\":\"Admin\",\r\n    \"LastName\":\"1\",\r\n    \"Email\": \"admin@gmail.com\",\r\n    \"ContactNumber\": \"7990349011\",\r\n    \"Password\": \"Secret@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/Auth/register/admin",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"Auth",
+								"register",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contactnumber\":\"7990349011\",\r\n    \"Password\":\"Secret@123\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/Auth/login/admin",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"Auth",
+								"login",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Block/Unblock rider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6Ijc5OTAzNDkwMTEiLCJqdGkiOiI4MDJkZDI4Zi03MDZlLTQ4NmYtYmEwYS03ODk1Y2RmNmQ5OTgiLCJVc2VySWQiOiI1MTQwODQ0ZS0zZWQyLTRkMDEtOGJlZC0zZTYyYTZiNjJiOWUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTg3MjE4OSwiaXNzIjoiVWJlclNlcnZlciIsImF1ZCI6IlViZXJDbGllbnRzIn0.QaazIRTuliu8YqjJnIcrpyElk6Es08wlvmlklG506MI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"unblock\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/admins/2/rider/26",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"admins",
+								"2",
+								"rider",
+								"26"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set RidetTypes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6Ijc5OTAzNDkwMTEiLCJqdGkiOiI2OThlNzM4OS0zMjVhLTRkZDUtOWEzYS1iOWE5Yzk1NWUwMWEiLCJVc2VySWQiOiI1MTQwODQ0ZS0zZWQyLTRkMDEtOGJlZC0zZTYyYTZiNjJiOWUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTc3Mjg0NywiaXNzIjoiVWJlclNlcnZlciIsImF1ZCI6IlViZXJDbGllbnRzIn0.kKQaiKSAgtU2vwEs3Ju2YTB9O1Eprcm09y0N4iirymQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rideName\": \"UberNew\",\r\n    \"pricePerKm\": 8,\r\n    \"seatingCapacity\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/ridetypes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"ridetypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update RidetTypes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6Ijc5OTAzNDkwMTEiLCJqdGkiOiI2OThlNzM4OS0zMjVhLTRkZDUtOWEzYS1iOWE5Yzk1NWUwMWEiLCJVc2VySWQiOiI1MTQwODQ0ZS0zZWQyLTRkMDEtOGJlZC0zZTYyYTZiNjJiOWUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTc3Mjg0NywiaXNzIjoiVWJlclNlcnZlciIsImF1ZCI6IlViZXJDbGllbnRzIn0.kKQaiKSAgtU2vwEs3Ju2YTB9O1Eprcm09y0N4iirymQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rideName\": \"UberNew2\",\r\n    \"pricePerKm\": 8,\r\n    \"seatingCapacity\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/ridetypes/11",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"ridetypes",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete RidetTypes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6Ijc5OTAzNDkwMTEiLCJqdGkiOiI2OThlNzM4OS0zMjVhLTRkZDUtOWEzYS1iOWE5Yzk1NWUwMWEiLCJVc2VySWQiOiI1MTQwODQ0ZS0zZWQyLTRkMDEtOGJlZC0zZTYyYTZiNjJiOWUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTc3Mjg0NywiaXNzIjoiVWJlclNlcnZlciIsImF1ZCI6IlViZXJDbGllbnRzIn0.kKQaiKSAgtU2vwEs3Ju2YTB9O1Eprcm09y0N4iirymQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/ridetypes/11",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"ridetypes",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login Driver",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contactnumber\":\"7990349012\",\r\n    \"Password\":\"Secret@123\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44383/api/Auth/login/driver",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44383",
+					"path": [
+						"api",
+						"Auth",
+						"login",
+						"driver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Driver",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\":\"Milit22\",\r\n    \"LastName\":\"Gajjar22\",\r\n    \"Email\": \"milit22@gmail.com\",\r\n    \"ContactNumber\": \"7990349072\",\r\n    \"Password\": \"Secret@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44383/api/Auth/register/driver",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44383",
+					"path": [
+						"api",
+						"Auth",
+						"register",
+						"driver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44383/api/locations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44383",
+					"path": [
+						"api",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Locations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6Ijc5OTAzNDkwMTEiLCJqdGkiOiI2OThlNzM4OS0zMjVhLTRkZDUtOWEzYS1iOWE5Yzk1NWUwMWEiLCJVc2VySWQiOiI1MTQwODQ0ZS0zZWQyLTRkMDEtOGJlZC0zZTYyYTZiNjJiOWUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTYxOTc3Mjg0NywiaXNzIjoiVWJlclNlcnZlciIsImF1ZCI6IlViZXJDbGllbnRzIn0.kKQaiKSAgtU2vwEs3Ju2YTB9O1Eprcm09y0N4iirymQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"locationName\": \"PDM college, Rajkot, Gujarat\",\r\n    \"longitude\": 71.6279837718273,\r\n    \"latitude\": 21.18899005518514\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44383/api/locations",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44383",
+					"path": [
+						"api",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get RideTypes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44383/api/ridetypes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44383",
+					"path": [
+						"api",
+						"ridetypes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

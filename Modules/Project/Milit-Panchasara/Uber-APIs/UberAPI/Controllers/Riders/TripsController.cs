@@ -11,7 +11,7 @@ using UberAPI.Models.Auth;
 
 namespace UberAPI.Controllers.Riders
 {
-    [Authorize(Roles = UserRoles.RiderRole)]
+    [Authorize(Roles = UserRoles.RiderRole + "," + UserRoles.AdminRole)]
     [Route("api/rider/{id}/[controller]")]
     [ApiController]
     public class TripsController : ControllerBase
@@ -31,25 +31,37 @@ namespace UberAPI.Controllers.Riders
 
         // GET: api/rider/{id}/trips
         [HttpGet]
-        public ActionResult<IEnumerable<VTripsData>> GetTrips(int id)
+        public ActionResult<IEnumerable<VTripsData>> GetAllTrips(int id)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
             if (!riderRepo.ValidateRider(cred, id))
             {
                 return Unauthorized();
             }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
+            }
+
             return tripRepo.GetAllTrips(id).ToList();
         }
 
         // GET: api/rider/{id}/trips/{tripId}
         [HttpGet("{tripId}")]
-        public ActionResult<VTripsData> GetTrips(int id, int tripId)
+        public ActionResult<VTripsData> GetTrip(int id, int tripId)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
             if (!riderRepo.ValidateRider(cred, id))
             {
                 return Unauthorized();
             }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
+            }
+
             var trip = tripRepo.GetTrip(id, tripId);
             if (trip == null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Trip not found!" });
@@ -65,6 +77,12 @@ namespace UberAPI.Controllers.Riders
             {
                 return Unauthorized();
             }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
+            }
+
             var destination = locationRepo.Find(x => x.LocationId == request.DestinationId).SingleOrDefault();
             var source = locationRepo.Find(x => x.LocationId == request.SourceId).SingleOrDefault();
             var rideType = rideTypeRepo.Find(x => x.RideTypeId == request.RideTypeId).SingleOrDefault();
@@ -74,7 +92,7 @@ namespace UberAPI.Controllers.Riders
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Error occured!" });
             }
 
-            var tripData = tripRepo.SetNewTrip(id, source.LocationId, destination.LocationId, rideType);
+            var tripData = tripRepo.SetNewTrip(id, source, destination, rideType);
 
             if(tripData == null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Error occured while setting trip!" });
@@ -83,12 +101,17 @@ namespace UberAPI.Controllers.Riders
 
         // PUT: api/rider/{id}/trips/{tripId}
         [HttpPut("{tripId}")]
-        public ActionResult<VTripsData> SetNewTrip(int id, int tripId, UpdateTripInput request)
+        public ActionResult<VTripsData> UpdateTrip(int id, int tripId, UpdateTripInput request)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
             if (!riderRepo.ValidateRider(cred, id))
             {
                 return Unauthorized();
+            }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
             }
 
             var tripActionTypes = new List<string>() { "TripCancelled", "TripCompleted", "TripStarted" };

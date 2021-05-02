@@ -14,6 +14,7 @@ namespace UberAPI.Models
         public string OtherDocument { get; set; }
         public string CurrentAddress { get; set; }
         public string PermenantAddress { get; set; }
+
         public string Country { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }

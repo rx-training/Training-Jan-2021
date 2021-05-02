@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using UberAPI.Code.Interfaces;
@@ -26,8 +27,27 @@ namespace UberAPI.Code.RepositoryDB
             this.roleManager = roleManager;
             _configuration = configuration;
         }
+
+        public async Task<bool> confirmToken(string userId, string token)
+        {
+            // get user from id
+            var user = await userManager.FindByIdAsync(userId);
+
+            //confirming email using token
+            var result = await userManager.ConfirmEmailAsync(user, token);
+            if(result.Succeeded)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public async Task<IdentityResult> CreateUser(Register request, string role)
         {
+            //creating user object
             var user = new AppUser()
             {
                 Email = request.Email,
@@ -37,6 +57,7 @@ namespace UberAPI.Code.RepositoryDB
             };
             var result = await userManager.CreateAsync(user, request.Password);
 
+            //assigning role
             if (!await roleManager.RoleExistsAsync(role))
                 await roleManager.CreateAsync(new IdentityRole(role));
             if (!await roleManager.RoleExistsAsync(role))
@@ -51,8 +72,10 @@ namespace UberAPI.Code.RepositoryDB
 
         public async Task<string> GetToken(AppUser user)
         {
+            //getting role of user
             var UserRole = await userManager.GetRolesAsync(user);
 
+            //setting up claims and token payload
             var authClaims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Email, user.Email),
@@ -76,6 +99,7 @@ namespace UberAPI.Code.RepositoryDB
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
 
+            //generating token
             var newToken = new JwtSecurityTokenHandler().WriteToken(token);
 
             return newToken;
@@ -83,8 +107,36 @@ namespace UberAPI.Code.RepositoryDB
 
         public async Task<string> LoginUser(string id)
         {
+            // get user from id
             var user = await userManager.FindByIdAsync(id);
+
+            // get token for the user
             return await this.GetToken(user);
+        }
+
+        public async Task<string> SendEmail(string id)
+        {
+            // get user from id
+            var user = await userManager.FindByIdAsync(id);
+
+            // get token for email confirmation
+            var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+            return token;
+
+                
+        }
+
+        public bool VerifyContactNumber(string contact)
+        {
+            // get user from contact number
+            var user = context.Users.SingleOrDefault(x => x.PhoneNumber == contact);
+            if (user == null)
+                return false;
+
+            //updating verified contact number field
+            user.PhoneNumberConfirmed = true;
+            context.SaveChanges();
+            return true;
         }
     }
 }

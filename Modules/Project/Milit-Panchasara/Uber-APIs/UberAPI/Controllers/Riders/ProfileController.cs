@@ -32,6 +32,13 @@ namespace UberAPI.Controllers.Riders
             {
                 return Unauthorized();
             }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
+            }
+
+            // fetching profile
             var profile = riderRepo.ViewProfile(id);
             if (profile == null)
             {
@@ -40,14 +47,21 @@ namespace UberAPI.Controllers.Riders
             return profile;
         }
 
-        [HttpPost]
-        public ActionResult<VRider> SetProfile(int id, VRider request)
+        [HttpPut]
+        public ActionResult<VRider> UpdateProfile(int id, VRider request)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
             if (!riderRepo.ValidateRider(cred, id))
             {
                 return Unauthorized();
             }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
+            }
+
+            // updating profile
             var profile = riderRepo.EditProfile(id, request);
             if (profile == null)
             {
