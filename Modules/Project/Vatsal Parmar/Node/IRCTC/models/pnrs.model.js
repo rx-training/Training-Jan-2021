@@ -1,12 +1,7 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 
 const passengerSchema = new mongoose.Schema({
-  user_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
-    required: true,
-    trim: true,
-  },
   first_name: { type: String, required: true, trim: true, uppercase: true },
   last_name: { type: String, required: true, trim: true, uppercase: true },
   age: { type: Number, required: true, trim: true, min: 0, max: 200 },
@@ -24,16 +19,34 @@ const passengerSchema = new mongoose.Schema({
     enum: ["WAITING", "BOOKED", "CANCLED"],
     uppercase: true,
   },
+  seat_no: { type: String, trim: true, uppercase: true, default: 0 },
+});
+
+const pnrSchema = new mongoose.Schema({
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+    trim: true,
+  },
   train: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "train",
     required: true,
     trim: true,
   },
+  passengers: {
+    type: [passengerSchema],
+    required: true,
+  },
   from: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "station",
     required: true,
+    trim: true,
+  },
+  fromTime: {
+    type: String,
     trim: true,
   },
   to: {
@@ -42,30 +55,28 @@ const passengerSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  toTime: {
+    type: String,
+    trim: true,
+  },
   travel_class: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "status",
     orequired: true,
     trim: true,
   },
-  seat_no: { type: String, trim: true, uppercase: true, default: 0 },
   booking_date: { type: Date, trim: true },
   ticket_price: { type: Number, trim: true, required: true, min: 0 },
 });
 
-passengerSchema.methods.joiValidate = (data) => {
+pnrSchema.methods.joiValidate = (data) => {
   const Joi = require("joi");
   const schema = Joi.object({
     user_id: Joi.string().required(),
-    first_name: Joi.string().required(),
-    last_name: Joi.string().required(),
-    age: Joi.number().required().min(0).max(200),
-    gender: Joi.string().required(),
-    reservation_status: Joi.string().required(),
     train: Joi.string().required(),
+    passengers: Joi.array().required(),
     from: Joi.string().required(),
     to: Joi.string().required(),
-    seat_no: Joi.string().default(0),
     booking_date: Joi.date(),
     travel_class: Joi.string().required(),
     ticket_price: Joi.number().required(),
@@ -73,6 +84,6 @@ passengerSchema.methods.joiValidate = (data) => {
   return schema.validate(data);
 };
 
-const PassengerModel = mongoose.model("passenger", passengerSchema);
+const PnrModel = mongoose.model("pnr", pnrSchema);
 
-module.exports = PassengerModel;
+module.exports = PnrModel;
