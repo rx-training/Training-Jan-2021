@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.idcard {
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  width: fit-content;
+  border-radius: 10px;
+  transition: all 0.3 linear;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1.1rem;
+}
+
+.studentImage img {
+  border-radius: 50%;
+  border: 0.1rem solid white;
+}
+
+.college {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.college img {
+  margin-top: 10px;
+}
+
+.college .collegename {
+  text-transform: uppercase;
+}
