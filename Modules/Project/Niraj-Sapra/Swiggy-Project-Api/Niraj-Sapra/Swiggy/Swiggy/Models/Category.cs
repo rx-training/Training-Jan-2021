@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swiggy.Models.Repository;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -11,6 +12,6 @@ namespace Swiggy.Models
         public string CategoryName { get; set; }
         public int? ResIdcategory { get; set; }
 
-        public virtual RRestorent ResIdcategoryNavigation { get; set; }
+        public virtual Restorent ResIdcategoryNavigation { get; set; }
     }
 }

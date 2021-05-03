@@ -65,6 +65,22 @@ namespace Swiggy
             });
 
             services.AddTransient<ICustomer, RCustomer>();
+            services.AddTransient<ICategory, RCategory>();
+            services.AddTransient<ICreditmemo, RCreditmemo>();
+            services.AddTransient<IInvoice, RInvoice>();
+            services.AddTransient<IOffer, ROffer>();
+            services.AddTransient<IOfferStatus, ROfferStatus>();
+            services.AddTransient<IOrder, ROrder>();
+            services.AddTransient<IOrderStatus, ROrderStatus>();
+            services.AddTransient<IPayment, RPayment>();
+            services.AddTransient<IPaymentType, RPaymentType>();
+            services.AddTransient<IProduct, RProduct>();
+            services.AddTransient<IQuote, RQuote>();
+            services.AddTransient<IQuoteItem, RQuoteItem>();
+            services.AddTransient<IRestorent, RRestorent>();
+            services.AddTransient<IShipment, RShipment>();
+            services.AddTransient<IViewProduct, RViewProduct>();
+            services.AddTransient<IProduct, RProduct>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swiggy", Version = "v1" });

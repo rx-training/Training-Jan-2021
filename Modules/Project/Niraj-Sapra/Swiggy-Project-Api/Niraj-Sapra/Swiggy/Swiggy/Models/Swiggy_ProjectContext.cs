@@ -30,7 +30,7 @@ namespace Swiggy.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Quote> Quotes { get; set; }
         public virtual DbSet<QuoteItem> QuoteItems { get; set; }
-        public virtual DbSet<RRestorent> Restorents { get; set; }
+        public virtual DbSet<Restorent> Restorents { get; set; }
         public virtual DbSet<Shipment> Shipments { get; set; }
         public virtual DbSet<ViewProduct> ViewProducts { get; set; }
 
@@ -344,7 +344,7 @@ namespace Swiggy.Models
                     .HasConstraintName("fkquoteItempro");
             });
 
-            modelBuilder.Entity<RRestorent>(entity =>
+            modelBuilder.Entity<Restorent>(entity =>
             {
                 entity.ToTable("Restorent");
 

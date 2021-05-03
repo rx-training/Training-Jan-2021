@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swiggy.Models.Repository;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -18,7 +19,7 @@ namespace Swiggy.Models
         public string ProductImage { get; set; }
         public int? RestorentId { get; set; }
 
-        public virtual RRestorent Restorent { get; set; }
+        public virtual Restorent Restorent { get; set; }
         public virtual ICollection<QuoteItem> QuoteItems { get; set; }
     }
 }
