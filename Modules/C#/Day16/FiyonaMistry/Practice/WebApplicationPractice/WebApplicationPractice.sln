@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationPractice", "WebApplicationPractice\WebApplicationPractice.csproj", "{F5C16180-8C8B-41AD-AAD9-50553F542068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationPracticeDay17", "D:\Fiyona\repos\WebApplicationPracticeDay17\WebApplicationPracticeDay17.csproj", "{05D31C86-7B04-4AE7-8A06-A0EDD5224C00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5C16180-8C8B-41AD-AAD9-50553F542068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C16180-8C8B-41AD-AAD9-50553F542068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C16180-8C8B-41AD-AAD9-50553F542068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C16180-8C8B-41AD-AAD9-50553F542068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D31C86-7B04-4AE7-8A06-A0EDD5224C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D31C86-7B04-4AE7-8A06-A0EDD5224C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D31C86-7B04-4AE7-8A06-A0EDD5224C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D31C86-7B04-4AE7-8A06-A0EDD5224C00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46D83C97-3E8A-4768-8687-34A7D0297A04}
+	EndGlobalSection
+EndGlobal
