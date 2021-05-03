@@ -3,15 +3,16 @@ const app = express();
 const router = express.Router();
 const model = require('../../../../MongoDB/model');
 const doPayment = require('../../../../domain/doPayment');
-
+const _ = require('lodash');
+const auth = require('../../../../Middelware/jwt');
 
 let Details = {};
 class Payment {
 
 
     static async PaymentReview(req , res , next){
-
-            model.Flight.findOne(req.body).populate('AirFare').then(result =>{
+        var searchObj = _.pick(req.body ,['TakeoffPoint','LandingPoint', 'TackoffDate', 'LandingDate','Economy'])
+            model.Flight.findOne(searchObj).populate('AirFare').then(result =>{
                 
                 Details.FlightName  = result.FlightName;
                 Details.From = result.TakeoffPoint;
@@ -32,8 +33,8 @@ class Payment {
     
 }
 
-router.post('/paymentReview' ,[express.json()] ,Payment.PaymentReview);
-router.post('/payment' , [express.json()] , Payment.doPayment);
+router.post('/paymentReview' ,[express.json() , auth] ,Payment.PaymentReview);
+router.post('/payment' , [express.json() , auth] , Payment.doPayment);
 
 
 

@@ -42,6 +42,7 @@ class AuthenticationRouter{
                         message:'login scuccessful',
                         jwtoken: token
                     });
+                    next();
          
                 } 
              }).catch(err=>{
@@ -49,8 +50,9 @@ class AuthenticationRouter{
                  res.status(401).json({
                     message:"Login Faild"
                 });
+                next();
              })
-        next();
+        
         
     }
     static async sendOtp (req , res ,next ){
@@ -86,12 +88,33 @@ class AuthenticationRouter{
         }
     
         static async verifyOtp(req , res , next){
+            let userdata = {
+                username: req.body.username
+                };
+     model.CommonUser.findOne({username:userdata.username}).select().then(result =>{
         
-    
+            userdata.isAdmin = result.isAdmin;
             if(otps == parseInt(req.body.otp)){
-                res.send('login success!');
+                let token = jwt.sign(userdata, global.config.secretKey , {
+                    algorithm:global.config.algorithm,
+                    expiresIn:'50m'
+                });
+                
+                
+
+                res.status(200).json({
+                    message:'login scuccessful',
+                    jwtoken: token
+                });
                 next();
-            }
+            } 
+        }).catch(err=>{
+            if(err) throw err;
+            res.status(401).json({
+               message:"Login Faild"
+           });
+           next();
+        })
     
         }
     
