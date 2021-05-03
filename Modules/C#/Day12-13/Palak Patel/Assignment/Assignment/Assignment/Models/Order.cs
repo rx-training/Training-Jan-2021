@@ -10,7 +10,11 @@ namespace Assignment.Models
         public int OrderId { get; set; }
         public string OrderItem { get; set; }
         public int PayAmount  
-        { set
+        {
+            get {
+                return PayAmount;
+            }
+            set
             {
                 var amount = from t in Toy where t.ToyName == OrderItem select t.Price;
                 PayAmount = Convert.ToInt32(amount);
