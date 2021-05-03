@@ -4,6 +4,7 @@ const router = express.Router()
 const admin = require('./admin')
 const adminLogin = require('../authentication/admin/authentication')
 const security = require('../../authenticater/admin/secutity')
+
 router.use('/',adminLogin)
 
 

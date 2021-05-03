@@ -3,7 +3,7 @@ var express = require('express');
 const Collections = require('../../../models/index')
 var router = express.Router();
 var jwt = require('jsonwebtoken')
-const crypto = require('crypto')
+const Encdec = require('../../../domain/passwordDomain');
 
 class UserLogin{
     static async login(req,res){
@@ -14,10 +14,8 @@ class UserLogin{
         const user = await Collections.Users.find({email : userdata.email})
         if(user.length == 0) return res.status(404).send("emailId not found")
 
-        var mykey = crypto.createDecipher("aes-128-cbc", "mypassword");
-        var myPassword = mykey.update(user[0].password, "hex", "utf8");
-        myPassword += mykey.final("utf8");
-       
+        var myPassword = Encdec.decPassword(user[0].password)
+
         const actualData = {
             userEmail : user[0].email,
             userPassword : myPassword

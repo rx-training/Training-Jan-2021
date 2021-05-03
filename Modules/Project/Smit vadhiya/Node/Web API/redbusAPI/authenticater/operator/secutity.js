@@ -2,6 +2,7 @@ var jwt = require('jsonwebtoken')
 const Collections = require('../../models/index')
 const config = require('../../static/config') 
 const crypto = require('crypto')
+const Encdec = require('../../domain/passwordDomain')
  function  verify(req,res,next){
     var token = req.headers["token"]
     jwt.verify(token, global.config.secretKey,
@@ -18,12 +19,8 @@ const crypto = require('crypto')
                 return res.status(401).json({
                         message: 'Unauthorized Access'
                  });
-            } 
-                var pass = decoded.password
-                var mykey1 = crypto.createCipher("aes-128-cbc", "mypassword");
-                var hash = mykey1.update(pass, "utf8", "hex");
-                hash += mykey1.final("hex");
-
+            }
+                var hash = Encdec.encPassword(decoded.password)
                 const operatorData = await Collections.Operators.find({ email : decoded.email, password : hash})
                 const url = req.url.split('/')
                 const operatorId = parseInt(url[1])

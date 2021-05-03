@@ -3,7 +3,7 @@ var express = require('express');
 const Collections = require('../../../models/index')
 var router = express.Router();
 var jwt = require('jsonwebtoken')
-const crypto = require('crypto')
+const Encdec = require('../../../domain/passwordDomain');
 
 router.post('/login', async (req,res) => {
     const operatordata = {
@@ -13,11 +13,9 @@ router.post('/login', async (req,res) => {
     const operator = await Collections.Operators.find({email : operatordata.email})
     if(operator.length == 0) return res.status(404).send("emailId not found")
     
-    
-    var mykey = crypto.createDecipher("aes-128-cbc", "mypassword");
-    var myPassword = mykey.update(operator[0].password, "hex", "utf8");
-    myPassword += mykey.final("utf8");
+
         
+        var myPassword = Encdec.decPassword(operator[0].password)
 
     const actualData = {
         userEmail : operator[0].email,
