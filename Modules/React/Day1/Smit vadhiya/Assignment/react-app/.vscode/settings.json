@@ -1,0 +1,16 @@
+{
+    "json.schemas": [
+    {
+        "fileMatch": [
+            "/myfile"
+        ],
+        "url": "schemaURL"
+    }
+    ],
+    "emmet.preferences": {
+
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+}
