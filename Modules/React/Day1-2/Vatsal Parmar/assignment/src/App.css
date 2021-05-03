@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.student-id {
+  background: #eeeeee;
+  width: 20rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 0.3rem;
+  text-align: center;
+  transition: all 0.1s linear;
+}
+
+.student-id:hover {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.student-img {
+  border-radius: 50%;
+  border: 0.1rem solid teal;
+  float: left;
+  margin-right: 10px;
+}
+
+.student span {
+  color: teal;
+  font-weight: bold;
+}
+
+.student {
+  text-align: left;
+}
+
+.college {
+  margin-top: 10px;
+}
+
+.college p {
+  text-align: left;
+}
+
+.college span {
+  color: teal;
+  font-weight: bold;
+}
+
+.college img {
+  margin-top: 10px;
+  border-radius: 0.3rem;
+  border: 0.1rem solid teal;
+  width: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .app {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -37,17 +37,17 @@ class PnrController {
   }
 }
 
-//To insert passenger
+//To insert pnr
 router.post("/", verifytoken, PnrController.insertPnr);
-//To get all passengers
+//To get all pnrs
 router.get("/", verifyAdminToken, PnrController.get);
-//To get an single passenger by id
+//To get an single pnr by id
 router.get("/:pnrId", verifytoken, PnrController.getPnr);
-//To update passenger
+//To update pnr
 router.put("/:pnrId", verifytoken, PnrController.updatePnr);
 //To delete a pnr
 router.delete("/:pnrId", verifytoken, PnrController.deletePnr);
-//To delete a passenger
+//To remove a passenger
 router.delete(
   "/:pnrId/passenger/:passengerId",
   verifytoken,
