@@ -46,9 +46,9 @@
                 MAIN ROUTE DATA
 
 [
-{"busNumber":"GJ01HY7654","fromCity":1,"toCity":4,"subCities" : [1,13,4],"fromTime":"10:00:00","activeStatus":true,"ToTime":"12:02:00"}
-{"busNumber":"GJ01MH3737","fromCity":1,"toCity":5,"subCities" : [1,5],"fromTime":"22:00:00","activeStatus":true,"ToTime":"00:56:00"}
-{"busNumber":"GJ01MH3737","fromCity":6,"toCity":1,"subCities" : [6,2,1],"fromTime":"06:45:00","activeStatus":true,"ToTime":"13:31:00"}
+{"busNumber":"GJ01HY7654","fromCity":1,"toCity":4,"subCities" : [1,13,4],"fromTime":"10:00:00","activeStatus":true,"toTime":"12:02:00"}
+{"busNumber":"GJ01GY4556","fromCity":1,"toCity":5,"subCities" : [1,5],"fromTime":"22:00:00","activeStatus":true,"toTime":"00:56:00"}
+{"busNumber":"GJ01RE9009","fromCity":6,"toCity":1,"subCities" : [6,2,1],"fromTime":"06:45:00","activeStatus":true,"toTime":"13:31:00"}
 {"busNumber":"GJ01TY8776","fromCity":4,"toCity":2,"subCities" : [4,1,2],"fromTime":"23:59:00","activeStatus":true,"toTime":"04:53:00"}
 {"busNumber":"GJ01MH3737","fromCity":2,"toCity":1,"subCities" : [2,1],"fromTime":"10:00:00","activeStatus":true,"toTime":"13:58:00"}
 ]
