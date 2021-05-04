@@ -6,44 +6,35 @@ var employees = [
     { Id: 5, FirstName: "Tina", LastName: "Agarwal", Address: "B-14, new Naimesh Park Soc, Ahmedabad, Gujarat", Salary: 560000 }
 ];
 var names;
+// Get all employees
 function GetAllEmployees() {
     document.getElementById("content").innerHTML = "";
     for (var emp in employees) {
         var newAddress = employees[emp].Address.split(',');
         var total = employees[emp].Salary + (employees[emp].Salary * 0.1);
-        document.getElementById("content").innerHTML += '<tr><td>' + employees[emp].Id + '</td><td>'
-            + employees[emp].FirstName + " " + employees[emp].LastName + '</td><td>'
-            + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-            + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td><td><button class="btn btn-danger" onclick="deleteEmp(' + emp + ')">Delete</button></td></tr>';
+        document.getElementById("content").innerHTML += "<tr><td>" + employees[emp].Id + "</td><td>" + employees[emp].FirstName + " " + employees[emp].LastName + "</td><td>" + newAddress[0] + "</td><td>" + newAddress[1] + "</td><td>" + newAddress[2] + "</td><td>" + newAddress[3] + "</td><td>" + total + "</td><td><button class=\"btn btn-danger\" onclick=\"deleteEmp(" + emp + ")\">Delete</button></td></tr>";
     }
-}
-for (var emp in employees) {
-    console.log(employees[emp].FirstName);
 }
 console.log(employees);
 GetAllEmployees();
+// get employee information based on index number
 function indexEmp() {
     var index = document.getElementById("myIndex").value;
     var newAddress = employees[index].Address.split(',');
     var total = employees[index].Salary + (employees[index].Salary * 0.1);
-    document.getElementById("indexContent").innerHTML = '<tr><td>' + employees[index].Id + '</td><td>'
-        + employees[index].FirstName + " " + employees[index].LastName + '</td><td>'
-        + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-        + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td></tr>';
+    document.getElementById("indexContent").innerHTML = "<tr><td>" + employees[index].Id + "</td><td>" + employees[index].FirstName + " " + employees[index].LastName + "</td><td>" + newAddress[0] + "</td><td>" + newAddress[1] + "</td><td>" + newAddress[2] + "</td><td>" + newAddress[3] + "</td><td>" + total + "</td></tr>";
 }
+// get employee information based on employee id
 function idEmp() {
     var index = document.getElementById("myId").value;
-    for (var emp in employees) {
-        if (employees[emp].Id == parseInt(index)) {
-            var newAddress = employees[emp].Address.split(',');
-            var total = employees[emp].Salary + (employees[emp].Salary * 0.1);
-            document.getElementById("idContent").innerHTML = '<tr><td>' + employees[emp].Id + '</td><td>'
-                + employees[emp].FirstName + " " + employees[emp].LastName + '</td><td>'
-                + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-                + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td></tr>';
-        }
-    }
+    var newArray = employees.filter(function (employees, i, arr) {
+        return employees.Id == parseInt(index);
+    });
+    var newAddress = newArray[0].Address.split(',');
+    var total = newArray[0].Salary + (newArray[0].Salary * 0.1);
+    document.getElementById("idContent").innerHTML = "<tr><td>" + newArray[0].Id + "</td><td>" + newArray[0].FirstName + " " + newArray[0].LastName + "</td><td>" + newAddress[0] + "</td><td>" + newAddress[1] + "</td><td>" + newAddress[2] + "</td><td>" + newAddress[3] + "</td><td>" + total + "</td></tr>";
 }
+// add employee
 function addEmp() {
     var fname = document.getElementById("firstName").value;
     var lname = document.getElementById("lastName").value;
@@ -53,11 +44,13 @@ function addEmp() {
     employees.push(employee);
     GetAllEmployees();
 }
+// delete employee
 function deleteEmp(id) {
     var index = parseInt(id);
     employees.splice(index, 1);
     GetAllEmployees();
 }
+// join two employee arrays
 function joinEmp() {
     var employees1 = [
         { Id: 11, FirstName: "Reena", LastName: "Sharma", Address: "C-14, new Naimesh Park Soc, Ahmedabad, Gujarat", Salary: 240000 },
@@ -66,12 +59,10 @@ function joinEmp() {
     var mergedEmp = employees.concat(employees1);
     console.log(mergedEmp);
     document.getElementById("joinContent").innerHTML = "";
-    for (var emp in mergedEmp) {
-        var newAddress = mergedEmp[emp].Address.split(',');
-        var total = mergedEmp[emp].Salary + (mergedEmp[emp].Salary * 0.1);
-        document.getElementById("joinContent").innerHTML += '<tr><td>' + mergedEmp[emp].Id + '</td><td>'
-            + mergedEmp[emp].FirstName + " " + mergedEmp[emp].LastName + '</td><td>'
-            + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-            + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td></tr>';
+    for (var _i = 0, mergedEmp_1 = mergedEmp; _i < mergedEmp_1.length; _i++) {
+        var empObj = mergedEmp_1[_i];
+        var newAddress = empObj.Address.split(',');
+        var total = empObj.Salary + (empObj.Salary * 0.1);
+        document.getElementById("joinContent").innerHTML += "<tr><td>" + empObj.Id + "</td><td>" + empObj.FirstName + " " + empObj.LastName + "</td><td>" + newAddress[0] + "</td><td>" + newAddress[1] + "</td><td>" + newAddress[2] + "</td><td>" + newAddress[3] + "</td><td>" + total + "</td></tr>";
     }
 }

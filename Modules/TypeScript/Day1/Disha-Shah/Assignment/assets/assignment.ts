@@ -8,6 +8,7 @@ let employees = [
 
 var names : string[];
 
+// Get all employees
 function GetAllEmployees() : void
 {
     document.getElementById("content").innerHTML = "";
@@ -18,22 +19,15 @@ function GetAllEmployees() : void
 
         var total : number= employees[emp].Salary + (employees[emp].Salary * 0.1);
 
-        document.getElementById("content").innerHTML += '<tr><td>' + employees[emp].Id + '</td><td>' 
-                        + employees[emp].FirstName + " " + employees[emp].LastName + '</td><td>'
-                        + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-                        + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td><td><button class="btn btn-danger" onclick="deleteEmp('+emp+')">Delete</button></td></tr>';
+        document.getElementById("content").innerHTML += `<tr><td>${employees[emp].Id}</td><td>${employees[emp].FirstName} ${employees[emp].LastName}</td><td>${newAddress[0]}</td><td>${newAddress[1]}</td><td>${newAddress[2]}</td><td>${newAddress[3]}</td><td>${total}</td><td><button class="btn btn-danger" onclick="deleteEmp(${emp})">Delete</button></td></tr>`;
     }
-}
-
-for(var emp in employees)
-{
-    console.log(employees[emp].FirstName)
 }
 
 console.log(employees);
 
 GetAllEmployees();
 
+// get employee information based on index number
 function indexEmp() : void
 {
     var index: string = (document.getElementById("myIndex") as HTMLInputElement).value;
@@ -42,32 +36,28 @@ function indexEmp() : void
 
     var total:number = employees[index].Salary + (employees[index].Salary * 0.1);
 
-    document.getElementById("indexContent").innerHTML = '<tr><td>' + employees[index].Id + '</td><td>' 
-                    + employees[index].FirstName + " " + employees[index].LastName + '</td><td>'
-                    + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-                    + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td></tr>';
+    document.getElementById("indexContent").innerHTML = `<tr><td>${employees[index].Id}</td><td>${employees[index].FirstName} ${employees[index].LastName}</td><td>${newAddress[0]}</td><td>${newAddress[1]}</td><td>${newAddress[2]}</td><td>${newAddress[3]}</td><td>${total}</td></tr>`;
+
 }
 
+// get employee information based on employee id
 function idEmp():void
 {
     var index:string = (document.getElementById("myId") as HTMLInputElement).value;
 
-    for(var emp in employees)
-    {
-        if(employees[emp].Id==parseInt(index))
-        {
-            var newAddress : string[]= employees[emp].Address.split(',');
+    var newArray = employees.filter((employees, i, arr) => {
+        return employees.Id==parseInt(index);
+    });
 
-            var total: number = employees[emp].Salary + (employees[emp].Salary * 0.1);
+    var newAddress: string[] = newArray[0].Address.split(',');
 
-            document.getElementById("idContent").innerHTML = '<tr><td>' + employees[emp].Id + '</td><td>' 
-                            + employees[emp].FirstName + " " + employees[emp].LastName + '</td><td>'
-                            + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-                            + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td></tr>';
-        }
-    }
+    var total: number = newArray[0].Salary + (newArray[0].Salary * 0.1);
+
+    document.getElementById("idContent").innerHTML = `<tr><td>${newArray[0].Id}</td><td>${newArray[0].FirstName} ${newArray[0].LastName}</td><td>${newAddress[0]}</td><td>${newAddress[1]}</td><td>${newAddress[2]}</td><td>${newAddress[3]}</td><td>${total}</td></tr>`;
+
 }
 
+// add employee
 function addEmp() : void
 {
     var fname = (document.getElementById("firstName") as HTMLInputElement).value;
@@ -81,6 +71,7 @@ function addEmp() : void
     GetAllEmployees();
 }
 
+// delete employee
 function deleteEmp(id:string)
 {
     var index : number = parseInt(id);
@@ -89,7 +80,7 @@ function deleteEmp(id:string)
     GetAllEmployees();
 }
 
-
+// join two employee arrays
 function joinEmp() : void
 {
     let employees1 = [    
@@ -103,17 +94,13 @@ function joinEmp() : void
 
     document.getElementById("joinContent").innerHTML = "";
 
-    for(var emp in mergedEmp)
+    for (var empObj of mergedEmp)
     {
-            
-        var newAddress : string[]= mergedEmp[emp].Address.split(',');
+        var newAddress: string[] = empObj.Address.split(',');
 
-        var total: number = mergedEmp[emp].Salary + (mergedEmp[emp].Salary * 0.1);
+        var total: number = empObj.Salary + (empObj.Salary * 0.1);
 
-        document.getElementById("joinContent").innerHTML += '<tr><td>' + mergedEmp[emp].Id + '</td><td>' 
-                        + mergedEmp[emp].FirstName + " " + mergedEmp[emp].LastName + '</td><td>'
-                        + newAddress[0] + '</td><td>' + newAddress[1] + '</td><td>' + newAddress[2]
-                        + '</td><td>' + newAddress[3] + '</td><td>' + total + '</td></tr>';
-            
+        document.getElementById("joinContent").innerHTML += `<tr><td>${empObj.Id}</td><td>${empObj.FirstName} ${empObj.LastName}</td><td>${newAddress[0]}</td><td>${newAddress[1]}</td><td>${newAddress[2]}</td><td>${newAddress[3]}</td><td>${total}</td></tr>`;
+
     }
 }
