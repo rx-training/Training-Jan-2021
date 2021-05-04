@@ -2,6 +2,10 @@ import React from "react";
 
 // Assignment2: Create a StudentIDCard Component which will include another component image,Personal Component include(ID,FirstName,LastName,DOB),College Component include collegeName,College Address and College Logo)
 
+function Assignment2() {
+  return <StudentIDCard></StudentIDCard>;
+}
+
 function StudentIDCard() {
   return (
     <section className="idcard">
@@ -40,4 +44,4 @@ const College = () => {
   );
 };
 
-export default StudentIDCard;
+export default Assignment2;

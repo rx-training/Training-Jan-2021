@@ -1,13 +1,13 @@
 import React from "react";
 
-// Assignment3: Store above example info javascript variable and then display dynamically, Display FullName variable in respective Component
+// Assignment6: While calling StudentID Component in the app Component pass one <p>Student Details</p> as children. Access it in the StudentID Card Component with Children props.
 
 const student1 = {
-  studentImage: "images/kumar.jpeg",
-  ID: "17CEUSG032",
-  firstName: "Kumar",
-  lastName: "Sondarva",
-  DOB: "06/09/1999",
+  studentImage: "images/gunjan.jpeg",
+  ID: "17CEUSG015",
+  firstName: "Gunjan",
+  lastName: "Thumar",
+  DOB: "02/12/1999",
 };
 
 const college = {
@@ -16,16 +16,21 @@ const college = {
   collegeAddress: "College Road, Nadiad 387 001",
 };
 
-function Assignment3() {
-  return <StudentIDCard student={student1} college={college}></StudentIDCard>;
+function Assignment6() {
+  return (
+    <StudentIDCard student={student1} college={college}>
+      <p>Student Details</p>
+    </StudentIDCard>
+  );
 }
 
 function StudentIDCard(props) {
-  const { student, college } = props;
+  const { student, college, children } = props;
   return (
     <section className="idcard">
       <Image image={student.studentImage}></Image>
       <Personal student={student}></Personal>
+      {children}
       <College college={college}></College>
     </section>
   );
@@ -63,4 +68,4 @@ const College = (props) => {
   );
 };
 
-export default Assignment3;
+export default Assignment6;

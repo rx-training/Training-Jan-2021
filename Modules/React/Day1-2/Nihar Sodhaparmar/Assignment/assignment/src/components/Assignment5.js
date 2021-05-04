@@ -1,14 +1,30 @@
 import React from "react";
 
-// Assignment3: Store above example info javascript variable and then display dynamically, Display FullName variable in respective Component
+// Assignment5: Create Students Array of 3 students with field Image,Id,FirstName,LastName,DOB,CollegeName,Address and CollegeLogo and pass it as Object to the StudentIDCardComponent
 
-const student1 = {
-  studentImage: "images/kumar.jpeg",
-  ID: "17CEUSG032",
-  firstName: "Kumar",
-  lastName: "Sondarva",
-  DOB: "06/09/1999",
-};
+const students = [
+  {
+    studentImage: "images/ankit.jpeg",
+    ID: "17CEUSG011",
+    firstName: "Ankit",
+    lastName: "Parmar",
+    DOB: "06/09/1999",
+  },
+  {
+    studentImage: "images/divya.jpeg",
+    ID: "17CEUSG012",
+    firstName: "Divya",
+    lastName: "Shah",
+    DOB: "02/12/1999",
+  },
+  {
+    studentImage: "images/darsh.jpeg",
+    ID: "17CEUSG013",
+    firstName: "Darsh",
+    lastName: "Shah",
+    DOB: "02/12/1999",
+  },
+];
 
 const college = {
   collegeLogo: "images/ddu-logo.jpg",
@@ -16,8 +32,16 @@ const college = {
   collegeAddress: "College Road, Nadiad 387 001",
 };
 
-function Assignment3() {
-  return <StudentIDCard student={student1} college={college}></StudentIDCard>;
+function Assignment5() {
+  const studentsElement = [];
+
+  students.forEach((s) => {
+    studentsElement.push(
+      <StudentIDCard key={s.ID} student={s} college={college}></StudentIDCard>
+    );
+  });
+
+  return <section>{studentsElement}</section>;
 }
 
 function StudentIDCard(props) {
@@ -63,4 +87,4 @@ const College = (props) => {
   );
 };
 
-export default Assignment3;
+export default Assignment5;
