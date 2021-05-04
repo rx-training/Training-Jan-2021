@@ -66,3 +66,4 @@ function joinEmp() {
         document.getElementById("joinContent").innerHTML += "<tr><td>" + empObj.Id + "</td><td>" + empObj.FirstName + " " + empObj.LastName + "</td><td>" + newAddress[0] + "</td><td>" + newAddress[1] + "</td><td>" + newAddress[2] + "</td><td>" + newAddress[3] + "</td><td>" + total + "</td></tr>";
     }
 }
+//# sourceMappingURL=assignment.js.map

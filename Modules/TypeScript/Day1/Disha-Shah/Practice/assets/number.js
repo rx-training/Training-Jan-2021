@@ -43,3 +43,4 @@ console.log(typeof myNumber5); //Output: object
 var num2 = myNumber5.valueOf();
 console.log(num2); //Output: 123
 console.log(typeof num2); //Output: number
+//# sourceMappingURL=number.js.map

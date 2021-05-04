@@ -68,3 +68,4 @@ document.getElementById("app").innerHTML += looselyTyped.toFixed() + "<br>";
 var looselyTyped1 = {};
 var d = looselyTyped1.a.b.c.d;
 document.getElementById("app").innerHTML += d + "<br>";
+//# sourceMappingURL=datatypes.js.map
