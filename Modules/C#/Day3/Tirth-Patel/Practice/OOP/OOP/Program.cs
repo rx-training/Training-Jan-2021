@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OOP
 {
@@ -19,9 +20,13 @@ namespace OOP
             mySoftware.ISBN = "1234";
             mySoftware.name = "Office-2021";
             mySoftware.Purchase();
-            
-            Item newItm = Item.GetItem();
-            Console.WriteLine("new Item Id ={0} , NAame {1}",newItm.ID ,newItm.name);
+
+            List<Item> myItems = Item.GetItems(20);
+            foreach (var item in myItems)
+            {
+                Console.WriteLine("new Item Id ={0} , NAame {1}", item.ID,item.name);
+            }
+          
 
         }
     }

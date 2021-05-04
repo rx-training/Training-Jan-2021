@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice", "Practice\Practice.csproj", "{333B51F1-D2D1-42C8-B0E2-47BCA7446B62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP", "..\..\..\Day3\Tirth-Patel\Practice\OOP\OOP\OOP.csproj", "{20EDEFCE-D49E-418A-A41D-FA75D825B55F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{333B51F1-D2D1-42C8-B0E2-47BCA7446B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{333B51F1-D2D1-42C8-B0E2-47BCA7446B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{333B51F1-D2D1-42C8-B0E2-47BCA7446B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{333B51F1-D2D1-42C8-B0E2-47BCA7446B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20EDEFCE-D49E-418A-A41D-FA75D825B55F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EDEFCE-D49E-418A-A41D-FA75D825B55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EDEFCE-D49E-418A-A41D-FA75D825B55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EDEFCE-D49E-418A-A41D-FA75D825B55F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64E296FC-F40E-42D7-88C4-645D1EF9F6E6}
+	EndGlobalSection
+EndGlobal

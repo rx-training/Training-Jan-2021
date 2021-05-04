@@ -1,19 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace OOP
 {
     public class Item
     {
         public int ID { get; set; }
-        public string name;
+        public string name { get; set; }
         public virtual void Purchase()
         {
             System.Console.WriteLine("purchasing {0}", name);
         }
-        public  static Item GetItem()
+        public  static List<Item> GetItems(int numToGet)
         {
-            var newitem = new Item { ID = 101, name = "myItem1" };
-            return newitem;
+            var random = new Random();
+            var newList = new List<Item>();
+            Item newItem;
+            for (int i = 0; i <numToGet; i++)
+            {
+                 newItem = new Item() { ID = random.Next(), name = "Myitem" +i.ToString() };
+                newList.Add(newItem);
+           
+            }
+
+            return newList;
         }
     }
     class Software : Item
