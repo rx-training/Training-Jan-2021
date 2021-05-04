@@ -10,10 +10,11 @@ var Employee = [
 
 // Search by index
 console.log("Search by Index :");
-var searchByIndex = Employee.filter((Employee, index, array) => {
-    return Employee.ID == 4
-});
-console.log(searchByIndex);
+console.log(Employee[0]['FirstName']);
+// var searchByIndex = Employee.filter((Employee, index, array) => {
+//     return Employee.ID == 4
+// });
+// console.log(searchByIndex);
 
 
 // Search by ID

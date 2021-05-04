@@ -8,6 +8,7 @@ var Employee = [
 ];
 // Search by index
 console.log("Search by Index :");
+console.log(Employee[0]['FirstName']);
 var searchByIndex = Employee.filter(function (Employee, index, array) {
     return Employee.ID == 4;
 });
