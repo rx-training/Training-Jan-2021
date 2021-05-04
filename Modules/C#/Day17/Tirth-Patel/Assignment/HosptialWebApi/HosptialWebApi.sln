@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HosptialWebApi", "HosptialWebApi\HosptialWebApi.csproj", "{FF71EA38-2479-4EB8-932E-CE2FC1E5B153}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF71EA38-2479-4EB8-932E-CE2FC1E5B153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF71EA38-2479-4EB8-932E-CE2FC1E5B153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF71EA38-2479-4EB8-932E-CE2FC1E5B153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF71EA38-2479-4EB8-932E-CE2FC1E5B153}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53188A26-6D75-4A2D-928E-CCA580B3CAB1}
+	EndGlobalSection
+EndGlobal

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nc/LfXS7VwkSTxv4AFKUq1mka2GvqkyAD6iiZ1PiDMyyMJIcaBgOGEaiiVf6Ddf+NZv9oMlo3z/Frh3AzVipwA==",
+  "dgSpecHash": "YUzSVMPe7FDVlPlGMAZh6gdSqykzPgL1XUPTR7jdpMQ7Th8MlcgnNl6yIqb3/jsPnwDFdbfFbAu4hnCv9FSLgQ==",
   "success": true,
   "projectFilePath": "F:\\day4\\Modules\\C#\\Day5\\Tirth-Patel\\Assignment\\Assignment\\Assignment.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tirth\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.14\\microsoft.netcore.app.host.win-x64.3.1.14.nupkg.sha512"
+  ],
   "logs": []
 }
