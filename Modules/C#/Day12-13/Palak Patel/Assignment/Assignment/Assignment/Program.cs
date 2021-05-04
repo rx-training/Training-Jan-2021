@@ -1,5 +1,6 @@
 ﻿using System;
 using Assignment.Models;
+using System.Linq;
 
 namespace Assignment
 {
@@ -43,6 +44,7 @@ namespace Assignment
                         Console.WriteLine("Enter the Toy name that you want to buy");
                         var Name = Console.ReadLine();
                         var order = new Order { OrderItem = Name };
+                        //var payment = db.Database.ExecuteSqlCommand("Discount @Amount @orderId", parameters: new[] {order.PayAmount ,order.OrderId})
                         db.Orders.Add(order);
                         break;
                     default:
