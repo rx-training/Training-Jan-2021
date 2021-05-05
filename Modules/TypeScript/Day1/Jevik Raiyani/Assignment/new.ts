@@ -6,31 +6,50 @@ var employee =[
     {"id":5 ,"Fname":"X","LName":"Y","Address":"26/11 Bhojarajapara ,Gondal ,Rajkot ,Gujarat","Salary":13451}
 ]
 //all
-for (const i of employee) {
-    console.log(i);
+
+function GetAll(){
+    for (const i of employee) {
+        console.log(i);
+    }
 }
 
 //by index
-console.log(employee[0]);
+
+function GetbyIndex(i:number){
+    console.log(employee[i]);
+}
 
 //emp by id
-var GetbyId = employee.filter((element,index,id)=>{
-   return element.id== 4
-})
-console.log(GetbyId);
+function GetbyEmpId(i:number){
+    var GetbyId = employee.filter((element,index,id)=>{
+    return element.id== i;
+    })
+    console.log(GetbyId);
+}
 
 //Push
-employee.push( {"id":6 ,"Fname":"Fname","LName":"Lname","Address":"26/11 Bhojarajapara ,Gondal ,Rajkot ,Gujarat","Salary":13451});
-console.log(employee);
+function PushData(id:number,Fname:string,LName:string,Address:string,Salary:number){
+    employee.push( {"id":id ,"Fname":Fname,"LName":LName,"Address":Address,"Salary":Salary});
+}
 
 //delete
-employee.pop();
-console.log(employee);
+function PopEmp(){
+    employee.pop();
+}
 
 //emp array
+function empData(){
 var emp = employee
 for (const val of emp) {
     console.log(`Id: ${val.id}, Name : ${val.Fname.concat(" ").concat(val.LName)}  Address: ${val.Address.split(",")} Salary : ${val.Salary*1.2} `)
 }
+}
 
-
+GetAll();
+GetbyIndex(1);
+GetbyEmpId(4);
+PushData(6,"Arvind","Kejrival","4546 aa Delhi",4522);
+GetAll();
+PopEmp();
+GetAll();
+empData();

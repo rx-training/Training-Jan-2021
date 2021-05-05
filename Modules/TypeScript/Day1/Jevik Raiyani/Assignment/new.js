@@ -6,26 +6,44 @@ var employee = [
     { "id": 5, "Fname": "X", "LName": "Y", "Address": "26/11 Bhojarajapara ,Gondal ,Rajkot ,Gujarat", "Salary": 13451 }
 ];
 //all
-for (var _i = 0, employee_1 = employee; _i < employee_1.length; _i++) {
-    var i = employee_1[_i];
-    console.log(i);
+function GetAll() {
+    for (var _i = 0, employee_1 = employee; _i < employee_1.length; _i++) {
+        var i = employee_1[_i];
+        console.log(i);
+    }
 }
 //by index
-console.log(employee[0]);
-//emp by id
-var GetbyId = employee.filter(function (element, index, id) {
-    return element.id == 4;
-});
-console.log(GetbyId);
-//Push
-employee.push({ "id": 6, "Fname": "Fname", "LName": "Lname", "Address": "26/11 Bhojarajapara ,Gondal ,Rajkot ,Gujarat", "Salary": 13451 });
-console.log(employee);
-//delete
-employee.pop();
-console.log(employee);
-//emp array
-var emp = employee;
-for (var _a = 0, emp_1 = emp; _a < emp_1.length; _a++) {
-    var val = emp_1[_a];
-    console.log("Id: " + val.id + ", Name : " + val.Fname.concat(" ").concat(val.LName) + "  Address: " + val.Address.split(",") + " Salary : " + val.Salary * 1.2 + " ");
+function GetbyIndex(i) {
+    console.log(employee[i]);
 }
+//emp by id
+function GetbyEmpId(i) {
+    var GetbyId = employee.filter(function (element, index, id) {
+        return element.id == i;
+    });
+    console.log(GetbyId);
+}
+//Push
+function PushData(id, Fname, LName, Address, Salary) {
+    employee.push({ "id": id, "Fname": Fname, "LName": LName, "Address": Address, "Salary": Salary });
+}
+//delete
+function PopEmp() {
+    employee.pop();
+}
+//emp array
+function empData() {
+    var emp = employee;
+    for (var _i = 0, emp_1 = emp; _i < emp_1.length; _i++) {
+        var val = emp_1[_i];
+        console.log("Id: " + val.id + ", Name : " + val.Fname.concat(" ").concat(val.LName) + "  Address: " + val.Address.split(",") + " Salary : " + val.Salary * 1.2 + " ");
+    }
+}
+GetAll();
+GetbyIndex(1);
+GetbyEmpId(4);
+PushData(6, "Arvind", "Kejrival", "4546 aa Delhi", 4522);
+GetAll();
+PopEmp();
+GetAll();
+empData();
