@@ -17,7 +17,6 @@ interface Inventory{
 interface IRetailShop extends Inventory{
 
     productList(P : any);
-    purchaseProduct(P : any);
     reorderRequest();
 
 }
@@ -29,6 +28,7 @@ class RetailShop implements IRetailShop{
     productDescription: string;
     productCompany: string;
     productQty: number;
+    // get productQty() {return this._productQty}
     productPrice: number;
     productExpiryDate?: Date;
 
@@ -42,15 +42,6 @@ class RetailShop implements IRetailShop{
     }
 
     productList(P : any) {
-        console.log("Product List : ");
-        // this.purchaseProduct(P);
-        return P;
-    }
-
-    purchaseProduct(P : any) {
-        this.productQty -= 1;
-        console.log("After purchasing the product : ");
-        this.reorderRequest();
         return P;
     }
 
@@ -62,13 +53,47 @@ class RetailShop implements IRetailShop{
 
 }
 
+class Order extends RetailShop{
+
+    constructor(ID : number, Name : string, Decs : string, Comp : string, Qty : number, Price : number){
+        super(ID, Name, Decs, Comp, Qty, Price);
+    }
+
+}
+
 var Product : RetailShop[] = [
     new RetailShop(1, "Laptop", "Slim Laptop", "Hp", 7, 50000 ),
-    new RetailShop(2, "Smart Phone", "Latest Smart Phone", "Samsung", 4, 12000)
-];  
+    new RetailShop(2, "Smart Phone", "Latest Smart Phone", "Samsung", 6, 12000)
+]; 
 
+var order : Order[];
+var order = [
+    new Order(1, "Laptop", "Slim Laptop", "Hp", 1, 50000 ),
+    new Order(2, "Smart Phone", "Latest Smart Phone", "Samsung", 2, 12000)
+]; 
+
+// Initial Product List
+console.log("Product List : ");
+for(var product of Product){
+    console.log(product.productList(product));
+}
+console.log("-------------------------------------------------------------");
+
+// Inital Order List 
+console.log("Order List : ");
+for(var ord of order){
+    console.log(ord.productList(ord));
+}
+console.log("-------------------------------------------------------------");
+
+// Product List after ordering the products
+console.log("Product list after ordering the products : ");
 for(var p of Product){
+    for(var o of order){
+        if(p.productId == o.productId){
+            p.productQty -= o.productQty;
+        }
+    }
+    p.reorderRequest();
     console.log(p.productList(p));
-    console.log(p.purchaseProduct(p));
-    console.log("");
 }
