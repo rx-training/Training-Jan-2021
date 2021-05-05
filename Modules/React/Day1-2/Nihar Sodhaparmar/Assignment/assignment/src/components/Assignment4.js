@@ -34,11 +34,16 @@ const college = {
 
 function Assignment4() {
   return (
-    <>
+    <div className="container bg-light border border-primary rounded mt-5 p-5 text-center">
+      <h1 className="display-4">Assignment 4</h1>
+      <p className="lead">
+        Call StudentID Card component 3 times and pass different student data
+        using props.
+      </p>
       <StudentIDCard student={student1} college={college}></StudentIDCard>
       <StudentIDCard student={student2} college={college}></StudentIDCard>
       <StudentIDCard student={student3} college={college}></StudentIDCard>
-    </>
+    </div>
   );
 }
 

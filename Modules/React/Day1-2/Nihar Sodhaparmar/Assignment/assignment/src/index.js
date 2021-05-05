@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.css";
 import Assignment1 from "./components/Assignment1";
 import Assignment2 from "./components/Assignment2";
 import Assignment3 from "./components/Assignment3";
@@ -22,6 +23,7 @@ ReactDOM.render(
     <Assignment5></Assignment5>
     {/* Assignment6 */}
     <Assignment6></Assignment6>
+    <div className="mt-5"></div>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -17,7 +17,16 @@ const college = {
 };
 
 function Assignment3() {
-  return <StudentIDCard student={student1} college={college}></StudentIDCard>;
+  return (
+    <div className="container bg-light border border-primary rounded mt-5 p-5 text-center">
+      <h1 className="display-4">Assignment 3</h1>
+      <p className="lead">
+        Store above example info javascript variable and then display
+        dynamically, Display FullName variable in respective Component
+      </p>
+      <StudentIDCard student={student1} college={college}></StudentIDCard>
+    </div>
+  );
 }
 
 function StudentIDCard(props) {

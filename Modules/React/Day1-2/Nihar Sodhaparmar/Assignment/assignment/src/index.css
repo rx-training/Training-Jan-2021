@@ -19,6 +19,7 @@ code {
   transition: all 0.3 linear;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
   font-size: 1.1rem;
+  background: white;
 }
 
 .studentImage img {
@@ -32,6 +33,7 @@ code {
 
 .college img {
   margin-top: 10px;
+  margin-bottom: 17px;
 }
 
 .college .collegename {

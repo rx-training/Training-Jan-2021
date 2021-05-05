@@ -18,9 +18,17 @@ const college = {
 
 function Assignment6() {
   return (
-    <StudentIDCard student={student1} college={college}>
-      <p>Student Details</p>
-    </StudentIDCard>
+    <div className="container bg-light border border-primary rounded mt-5 p-5 text-center">
+      <h1 className="display-4">Assignment 6</h1>
+      <p className="lead">
+        {`While calling StudentID Component in the app Component pass one
+        <p>Student Details</p> as children. Access it in the StudentID Card
+        Component with Children props.`}
+      </p>
+      <StudentIDCard student={student1} college={college}>
+        <p>Student Details</p>
+      </StudentIDCard>
+    </div>
   );
 }
 

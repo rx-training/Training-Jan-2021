@@ -41,7 +41,17 @@ function Assignment5() {
     );
   });
 
-  return <section>{studentsElement}</section>;
+  return (
+    <div className="container bg-light border border-primary rounded mt-5 p-5 text-center">
+      <h1 className="display-4">Assignment 5</h1>
+      <p className="lead">
+        Create Students Array of 3 students with field
+        Image,Id,FirstName,LastName,DOB,CollegeName,Address and CollegeLogo and
+        pass it as Object to the StudentIDCardComponent
+      </p>
+      <section>{studentsElement}</section>
+    </div>
+  );
 }
 
 function StudentIDCard(props) {
