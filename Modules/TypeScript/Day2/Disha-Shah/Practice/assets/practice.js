@@ -1,188 +1,241 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 //----------------------------------Class---------------------------------------------------------
-class Employee {
-    constructor(code, name) {
+var Employee = /** @class */ (function () {
+    function Employee(code, name) {
         this.empName = name;
         this.empCode = code;
     }
-    getSalary() {
-        return `${this.empName} has Salary = 10000`;
-    }
-}
+    Employee.prototype.getSalary = function () {
+        return this.empName + " has Salary = 10000";
+    };
+    return Employee;
+}());
 // creating object
-let employee = new Employee(12, "John Smith");
-document.getElementById("app").innerHTML = `${employee.getSalary()} <br>`;
+var employee = new Employee(12, "John Smith");
+document.getElementById("app").innerHTML = employee.getSalary() + " <br>";
 // inheritance
-class Animal {
-    move(distanceInMeters = 0) {
-        console.log(`Animal moved ${distanceInMeters}m.`);
+var Animal = /** @class */ (function () {
+    function Animal() {
     }
-}
-class Dog extends Animal {
-    bark() {
+    Animal.prototype.move = function (distanceInMeters) {
+        if (distanceInMeters === void 0) { distanceInMeters = 0; }
+        console.log("Animal moved " + distanceInMeters + "m.");
+    };
+    return Animal;
+}());
+var Dog = /** @class */ (function (_super) {
+    __extends(Dog, _super);
+    function Dog() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Dog.prototype.bark = function () {
         console.log("Woof! Woof!");
-    }
-}
-const dog = new Dog();
+    };
+    return Dog;
+}(Animal));
+var dog = new Dog();
 dog.bark();
 dog.move(10);
 dog.bark();
 // inherited by two classes
-class Animal1 {
-    constructor(theName) {
+var Animal1 = /** @class */ (function () {
+    function Animal1(theName) {
         this.name = theName;
     }
-    move(distanceInMeters = 0) {
-        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    Animal1.prototype.move = function (distanceInMeters) {
+        if (distanceInMeters === void 0) { distanceInMeters = 0; }
+        console.log(this.name + " moved " + distanceInMeters + "m.");
+    };
+    return Animal1;
+}());
+var Snake = /** @class */ (function (_super) {
+    __extends(Snake, _super);
+    function Snake(name) {
+        return _super.call(this, name) || this;
     }
-}
-class Snake extends Animal1 {
-    constructor(name) {
-        super(name);
-    }
-    move(distanceInMeters = 5) {
+    Snake.prototype.move = function (distanceInMeters) {
+        if (distanceInMeters === void 0) { distanceInMeters = 5; }
         console.log("Slithering...");
-        super.move(distanceInMeters);
+        _super.prototype.move.call(this, distanceInMeters);
+    };
+    return Snake;
+}(Animal1));
+var Horse = /** @class */ (function (_super) {
+    __extends(Horse, _super);
+    function Horse(name) {
+        return _super.call(this, name) || this;
     }
-}
-class Horse extends Animal1 {
-    constructor(name) {
-        super(name);
-    }
-    move(distanceInMeters = 45) {
+    Horse.prototype.move = function (distanceInMeters) {
+        if (distanceInMeters === void 0) { distanceInMeters = 45; }
         console.log("Galloping...");
-        super.move(distanceInMeters);
-    }
-}
-let sam = new Snake("Sammy the Python");
-let tom = new Horse("Tommy the Palomino");
+        _super.prototype.move.call(this, distanceInMeters);
+    };
+    return Horse;
+}(Animal1));
+var sam = new Snake("Sammy the Python");
+var tom = new Horse("Tommy the Palomino");
 sam.move();
 tom.move(34);
 // private
-class Animal2 {
-    constructor(theName) {
+var Animal2 = /** @class */ (function () {
+    function Animal2(theName) {
         this.name = theName;
     }
-}
-class Rhino extends Animal2 {
-    constructor() {
-        super("Rhino");
+    return Animal2;
+}());
+var Rhino = /** @class */ (function (_super) {
+    __extends(Rhino, _super);
+    function Rhino() {
+        return _super.call(this, "Rhino") || this;
     }
-}
-class Employee1 {
-    constructor(theName) {
+    return Rhino;
+}(Animal2));
+var Employee1 = /** @class */ (function () {
+    function Employee1(theName) {
         this.name = theName;
     }
-}
-let animal = new Animal2("Goat");
-let rhino = new Rhino();
-let employee1 = new Employee1("Bob");
+    return Employee1;
+}());
+var animal = new Animal2("Goat");
+var rhino = new Rhino();
+var employee1 = new Employee1("Bob");
 animal = rhino;
 //animal = employee1;    //error(not accessible)
 // protected
 // @errors: 2445
-class Person {
-    constructor(name) {
+var Person = /** @class */ (function () {
+    function Person(name) {
         this.name = name;
     }
-}
-class Employee2 extends Person {
-    constructor(name, department) {
-        super(name);
-        this.department = department;
+    return Person;
+}());
+var Employee2 = /** @class */ (function (_super) {
+    __extends(Employee2, _super);
+    function Employee2(name, department) {
+        var _this = _super.call(this, name) || this;
+        _this.department = department;
+        return _this;
     }
-    getElevatorPitch() {
-        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
-    }
-}
-let howard = new Employee2("Howard", "Sales");
+    Employee2.prototype.getElevatorPitch = function () {
+        return "Hello, my name is " + this.name + " and I work in " + this.department + ".";
+    };
+    return Employee2;
+}(Person));
+var howard = new Employee2("Howard", "Sales");
 console.log(howard.getElevatorPitch());
 //console.log(howard.name);    //error(not accessible)
 // protected constructor
-class Person1 {
-    constructor(theName) {
+var Person1 = /** @class */ (function () {
+    function Person1(theName) {
         this.name = theName;
     }
-}
+    return Person1;
+}());
 // Employee can extend Person
-class Employee3 extends Person1 {
-    constructor(name, department) {
-        super(name);
-        this.department = department;
+var Employee3 = /** @class */ (function (_super) {
+    __extends(Employee3, _super);
+    function Employee3(name, department) {
+        var _this = _super.call(this, name) || this;
+        _this.department = department;
+        return _this;
     }
-    getElevatorPitch() {
-        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
-    }
-}
-let howard1 = new Employee3("Howard", "Sales");
+    Employee3.prototype.getElevatorPitch = function () {
+        return "Hello, my name is " + this.name + " and I work in " + this.department + ".";
+    };
+    return Employee3;
+}(Person1));
+var howard1 = new Employee3("Howard", "Sales");
 //let john = new Person1("John");   //error(not accessible)
 // readonly
-class Octopus {
-    constructor(theName) {
+var Octopus = /** @class */ (function () {
+    function Octopus(theName) {
         this.numberOfLegs = 8;
         this.name = theName;
     }
-}
-let dad = new Octopus("Man with the 8 strong legs");
+    return Octopus;
+}());
+var dad = new Octopus("Man with the 8 strong legs");
 //dad.name = "Man with the 3-piece suit";   // error(can't modify)
 console.log(dad.name);
 // Accessors
-const fullNameMaxLength = 10;
-class Employee4 {
-    constructor() {
+var fullNameMaxLength = 10;
+var Employee4 = /** @class */ (function () {
+    function Employee4() {
         this._fullName = "";
     }
-    get fullName() {
-        return this._fullName;
-    }
-    set fullName(newName) {
-        if (newName && newName.length > fullNameMaxLength) {
-            throw new Error("fullName has a max length of " + fullNameMaxLength);
-        }
-        this._fullName = newName;
-    }
-}
-let employee2 = new Employee4();
+    Object.defineProperty(Employee4.prototype, "fullName", {
+        get: function () {
+            return this._fullName;
+        },
+        set: function (newName) {
+            if (newName && newName.length > fullNameMaxLength) {
+                throw new Error("fullName has a max length of " + fullNameMaxLength);
+            }
+            this._fullName = newName;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Employee4;
+}());
+var employee2 = new Employee4();
 employee2.fullName = "Bob Smith";
 if (employee2.fullName) {
     console.log(employee2.fullName);
 }
 // Static
-class Grid {
-    constructor(scale) {
+var Grid = /** @class */ (function () {
+    function Grid(scale) {
         this.scale = scale;
     }
-    calculateDistanceFromOrigin(point) {
-        let xDist = point.x - Grid.origin.x;
-        let yDist = point.y - Grid.origin.y;
+    Grid.prototype.calculateDistanceFromOrigin = function (point) {
+        var xDist = point.x - Grid.origin.x;
+        var yDist = point.y - Grid.origin.y;
         return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
-    }
-}
-Grid.origin = { x: 0, y: 0 };
-let grid1 = new Grid(1.0); // 1x scale
-let grid2 = new Grid(5.0); // 5x scale
+    };
+    Grid.origin = { x: 0, y: 0 };
+    return Grid;
+}());
+var grid1 = new Grid(1.0); // 1x scale
+var grid2 = new Grid(5.0); // 5x scale
 console.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));
 console.log(grid2.calculateDistanceFromOrigin({ x: 10, y: 10 }));
 // use class as an interface
-class Point {
-}
-let point3d = { x: 1, y: 2, z: 3 };
+var Point = /** @class */ (function () {
+    function Point() {
+    }
+    return Point;
+}());
+var point3d = { x: 1, y: 2, z: 3 };
 //----------------------------------------------Tuple------------------------------------------------------------------
 // Declare a Tuple
-let a;
+var a;
 // Initialize it
 a = ["hi", 8]; // Ok
 console.log(a);
-document.getElementById("app").innerHTML += `${a} <br>`;
+document.getElementById("app").innerHTML += a + " <br>";
 var employees1;
 employees1 = [[1, "Steve"], [2, "Bill"], [3, "Jeff"]];
 console.log(employees1);
-document.getElementById("app").innerHTML += `${employees1} <br>`;
+document.getElementById("app").innerHTML += employees1 + " <br>";
 //------------------------------------------------Union------------------------------------------------------------------
 // Union Example
 var emp1;
 emp1 = [[1, "Steve"], [2, "Bill"], [3, "Jeff"]];
 console.log(emp1);
-let code;
+var code;
 code = 123;
 console.log(code);
 code = "ABC";
@@ -191,10 +244,10 @@ console.log(code);
 // passing union type in function parameter
 function display(value) {
     if (typeof (value) === "number") {
-        console.log(`${value} is a number`);
+        console.log(value + " is a number");
     }
     else if (typeof (value) === "string") {
-        console.log(`${value} is a string`);
+        console.log(value + " is a string");
     }
 }
 display(123);
@@ -223,7 +276,7 @@ var UserResponse;
     UserResponse[UserResponse["Yes"] = 1] = "Yes";
 })(UserResponse || (UserResponse = {}));
 function respond(recipient, message) {
-    console.log(`User : ${recipient}, Response : ${message}`);
+    console.log("User : " + recipient + ", Response : " + message);
 }
 respond("Princess Caroline", UserResponse.Yes);
 var Direction1;
@@ -274,7 +327,7 @@ var LogLevel;
     LogLevel[LogLevel["DEBUG"] = 3] = "DEBUG";
 })(LogLevel || (LogLevel = {}));
 function printImportant(key, message) {
-    const num = LogLevel[key];
+    var num = LogLevel[key];
     if (num <= LogLevel.WARN) {
         console.log("Log level key is:", key);
         console.log("Log level value is:", num);
@@ -287,17 +340,17 @@ var Enum;
 (function (Enum) {
     Enum[Enum["A"] = 0] = "A";
 })(Enum || (Enum = {}));
-let a1 = Enum.A;
-let nameOfA = Enum[a1]; // "A"
+var a1 = Enum.A;
+var nameOfA = Enum[a1]; // "A"
 console.log(nameOfA);
-let directions = [
+var directions = [
     0 /* Up */,
     1 /* Down */,
     2 /* Left */,
     3 /* Right */,
 ];
 console.log(directions);
-const ODirection = {
+var ODirection = {
     Up: 0,
     Down: 1,
     Left: 2,
@@ -312,42 +365,43 @@ function walk(dir) { }
 function run(dir) { }
 walk(2 /* Left */);
 run(ODirection.Right);
-class Employee5 {
-    constructor(code, name) {
+var Employee5 = /** @class */ (function () {
+    function Employee5(code, name) {
         this.empCode = code;
         this.name = name;
     }
-    getSalary(empCode) {
+    Employee5.prototype.getSalary = function (empCode) {
         return 20000;
-    }
-}
-let emp2 = new Employee5(1, "Steve");
+    };
+    return Employee5;
+}());
+var emp2 = new Employee5(1, "Steve");
 console.log(emp2.getSalary(30000));
-let kv1 = { key: 1, value: "Steve" };
+var kv1 = { key: 1, value: "Steve" };
 console.log(kv1);
 ;
 function addKeyValue(key, value) {
-    console.log(`addKeyValue: key = ${key}, Value: ${value}`);
+    console.log("addKeyValue: key = " + key + ", Value: " + value);
 }
-let kvp = addKeyValue;
+var kvp = addKeyValue;
 kvp(1, 'Bill');
 function printLabel(labeledObj) {
     console.log(labeledObj.label);
 }
-let myObj = { size: 10, label: "Size 10 Object" };
+var myObj = { size: 10, label: "Size 10 Object" };
 printLabel(myObj);
-let numArr = [1, 2, 3];
+var numArr = [1, 2, 3];
 console.log(numArr[0]);
 console.log(numArr[1]);
-let empObj1 = {
+var empObj1 = {
     empCode: 1,
     empName: "Steve",
     SSN: 100
 };
 //empObj1.SSN = 200; // error(readonly)
 console.log(empObj1);
-let a2 = [1, 2, 3, 4];
-let ro = a2;
+var a2 = [1, 2, 3, 4];
+var ro = a2;
 console.log(ro);
 //ro[0] = 12; // error!
 //Index signature in type 'readonly number[]' only permits reading.
@@ -360,7 +414,7 @@ console.log(ro);
 a2 = ro;
 console.log(a2);
 function createSquare(config) {
-    let newSquare = { color: "white", area: 100 };
+    var newSquare = { color: "white", area: 100 };
     if (config.color) {
         newSquare.color = config.color;
     }
@@ -369,25 +423,25 @@ function createSquare(config) {
     }
     return newSquare;
 }
-let mySquare = createSquare({ color: "black" });
+var mySquare = createSquare({ color: "black" });
 console.log(mySquare);
-let squareOptions = { colour: "red", width: 100 };
-let mySquare1 = createSquare(squareOptions);
-let myArray = ["Alice", "Bob"];
+var squareOptions = { colour: "red", width: 100 };
+var mySquare1 = createSquare(squareOptions);
+var myArray = ["Alice", "Bob"];
 console.log(myArray);
-let empObj2 = {
+var empObj2 = {
     empCode: 1,
     gender: "male",
     name: "Bill"
 };
 console.log(empObj2);
 function getCounter() {
-    let counter = function (start) { };
+    var counter = function (start) { };
     counter.interval = 123;
     counter.reset = function () { };
     return counter;
 }
-let c = getCounter();
+var c = getCounter();
 console.log(c);
 c(10);
 console.log(c);
@@ -402,11 +456,11 @@ function add(a, b) {
 }
 console.log(add(3, 4));
 // anonymous function
-let sum = function (x, y) {
+var sum = function (x, y) {
     return x + y;
 };
 console.log(sum(4, 5));
-let myAdd = function (x, y) {
+var myAdd = function (x, y) {
     return x + y;
 };
 console.log(myAdd(6, 7));
@@ -416,42 +470,49 @@ function buildName(firstName, lastName) {
     else
         return firstName;
 }
-let result1 = buildName("Bob"); // works correctly now
+var result1 = buildName("Bob"); // works correctly now
 console.log(result1);
 //let result2 = buildName("Bob", "Adams", "Sr."); // error, too many parameters
 //Expected 1 - 2 arguments, but got 3.
-let result3 = buildName("Bob", "Adams"); // ah, just right
+var result3 = buildName("Bob", "Adams"); // ah, just right
 console.log(result3);
-function buildName1(firstName, lastName = "Smith") {
+function buildName1(firstName, lastName) {
+    if (lastName === void 0) { lastName = "Smith"; }
     return firstName + " " + lastName;
 }
-let result5 = buildName1("Bob"); // works correctly now, returns "Bob Smith"
+var result5 = buildName1("Bob"); // works correctly now, returns "Bob Smith"
 console.log(result5);
-let result6 = buildName1("Bob", undefined); // still works, also returns "Bob Smith"
+var result6 = buildName1("Bob", undefined); // still works, also returns "Bob Smith"
 console.log(result6);
 //let result7 = buildName1("Bob", "Adams", "Sr."); // error, too many parameters
 //Expected 1 - 2 arguments, but got 3.
-let result8 = buildName1("Bob", "Adams"); // ah, just right
+var result8 = buildName1("Bob", "Adams"); // ah, just right
 console.log(result8);
 // rest parameters
-function buildName2(firstName, ...restOfName) {
+function buildName2(firstName) {
+    var restOfName = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        restOfName[_i - 1] = arguments[_i];
+    }
     return firstName + " " + restOfName.join(" ");
 }
 // employeeName will be "Joseph Samuel Lucas MacKinzie"
-let employeeName = buildName2("Joseph", "Samuel", "Lucas", "MacKinzie");
-console.log(employeeName);
-let deck = {
+var employeeName5 = buildName2("Joseph", "Samuel", "Lucas", "MacKinzie");
+console.log(employeeName5);
+var deck = {
     suits: ["hearts", "spades", "clubs", "diamonds"],
     cards: Array(52),
     // NOTE: The function now explicitly specifies that its callee must be of type Deck
     createCardPicker: function () {
-        return () => {
-            let pickedCard = Math.floor(Math.random() * 52);
-            let pickedSuit = Math.floor(pickedCard / 13);
-            return { suit: this.suits[pickedSuit], card: pickedCard % 13 };
+        var _this = this;
+        return function () {
+            var pickedCard = Math.floor(Math.random() * 52);
+            var pickedSuit = Math.floor(pickedCard / 13);
+            return { suit: _this.suits[pickedSuit], card: pickedCard % 13 };
         };
     },
 };
-let cardPicker = deck.createCardPicker();
-let pickedCard = cardPicker();
+var cardPicker = deck.createCardPicker();
+var pickedCard = cardPicker();
 console.log("card: " + pickedCard.card + " of " + pickedCard.suit);
+//# sourceMappingURL=practice.js.map

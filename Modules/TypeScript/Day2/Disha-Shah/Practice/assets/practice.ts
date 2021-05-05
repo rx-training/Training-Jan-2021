@@ -496,7 +496,18 @@ console.log(numArr[0]);
 console.log(numArr[1]);
 
 // interface for creating properties
-            
+interface IEmployee5 {
+    empCode: number;
+    empName: string;
+    empDept?: string; // otional
+    readonly SSN: number; // readonly
+}            
+
+let empObj1: IEmployee5 = {
+    empCode: 1,
+    empName: "Steve",
+    SSN: 100
+}
 
 //empObj1.SSN = 200; // error(readonly)
 
@@ -650,8 +661,8 @@ function buildName2(firstName: string, ...restOfName: string[]) {
 }
 
 // employeeName will be "Joseph Samuel Lucas MacKinzie"
-let employeeName = buildName2("Joseph", "Samuel", "Lucas", "MacKinzie");
-console.log(employeeName);
+let employeeName5 = buildName2("Joseph", "Samuel", "Lucas", "MacKinzie");
+console.log(employeeName5);
 
 // this and arrow functions
 interface Card {
