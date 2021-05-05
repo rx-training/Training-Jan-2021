@@ -3,9 +3,9 @@ const validate = require('../models/validate')
 const logicalFunctions = require('./logicalFunctions')
 const mailTo = require('./emailDomain')
 const Otp = require('./otpDomain')
-const crypto = require('crypto')
+const Encdec = require('./passwordDomain')
 var newOperator
-
+    
 //*********    OPERATOR CLASSES  **********
 
 class Operatores{
@@ -25,22 +25,16 @@ class Operatores{
             res.send(operatorData.error.message)
         } else {
             operatorData.value._id = await logicalFunctions.incId('Operatores')
-            var pass = operatorData.value.password
-
-            var mykey1 = crypto.createCipher("aes-128-cbc", "mypassword");
-            var hash = mykey1.update(pass, "utf8", "hex");
-            hash += mykey1.final("hex");
-
-            operatorData.value.password = hash
+            operatorData.value.password = Encdec.encPassword(operatorData.value.password)
 
             try {
                 newOperator =  operatorData.value
+
                 var otp = Otp.createOtp()
-                var to = "sdvadhiya222@gmail.com"
-                var subject = "OTP verification" 
-                var text = ""
-                var html = "<h1> Your OTP : "+otp+"</h1>"
-                await mailTo(to,subject,text,html)
+                await mailTo(operatorData.value.email, //emailid
+                            "OTP verification" ,"", //subject and text
+                            "<h1> Your OTP : "+otp+"</h1>") //HTML body
+
                 res.send("varification email is sent to your mail id");
             } catch(ex) {
                 res.status(422).send(ex.message)

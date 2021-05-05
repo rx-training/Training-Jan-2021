@@ -4,7 +4,8 @@ const validate = require('../models/validate')
 const logicalFunctions = require('./logicalFunctions')
 const mailTo = require('./emailDomain')
 const Otp = require('./otpDomain')
-const crypto = require('crypto')
+const EncDec = require('./passwordDomain')
+
 var newUser
 
 //*********    USER CLASSES  **********
@@ -19,22 +20,16 @@ class Users{
         } else {
             userData.value._id = await logicalFunctions.incId('Users')
 
-            var pass = userData.value.password
-
-            var mykey1 = crypto.createCipher("aes-128-cbc", "mypassword");
-            var hash = mykey1.update(pass, "utf8", "hex");
-            hash += mykey1.final("hex");
-
-            userData.value.password = hash
+            userData.value.password = EncDec.encPassword(userData.value.password)
 
             try {
                 newUser = userData.value 
+
                 var otp = Otp.createOtp()
-                var to = "sdvadhiya222@gmail.com"
-                var subject = "OTP verification" 
-                var text = ""
-                var html = "<h1> Your OTP : "+otp+"</h1>"
-                await mailTo(to,subject,text,html)
+
+                await mailTo(userData.value.email
+                            ,"OTP verification","",
+                            "<h1> Your OTP : "+otp+"</h1>")
                 res.send("varification email is sent to your mail id");
                 
             } catch(ex) {
@@ -86,13 +81,13 @@ class Users{
                 await logicalFunctions.updateBookedSeat(data.routeId,data.tripDate,data.seatNo)
 
                 var to = await logicalFunctions.getField(Collections.Users,userId,'email')
-                var subject = "Congratulation for yout trip" 
+                var subject = "Congratulation for your trip" 
                 var text = "your ticket "
                 var html = JSON.stringify(newTrip)
                 await mailTo("sdvadhiya222@gmail.com",subject,text,html)
 
-                //const result =await newTrip.save()
-                //res.send(result); 
+                const result =await newTrip.save()
+                res.send(result); 
             } catch(ex){
                 res.send(ex.message)
             }
