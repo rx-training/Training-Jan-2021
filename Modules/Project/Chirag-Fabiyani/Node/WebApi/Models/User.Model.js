@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+    UserId:{
+        type: Number,
+        unique: true
+    },
     ContactNumber:{
         type: String,
         unique: true,

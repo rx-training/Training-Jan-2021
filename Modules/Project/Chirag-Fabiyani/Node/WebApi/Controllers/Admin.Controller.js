@@ -10,6 +10,9 @@ const mongoDB = 'mongodb://127.0.0.1/OLX';
 
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true });
 
+const Otp = Math.floor(100000 + Math.random() * 900000);
+const domain = new LoginDomain(Otp);
+
 class UserAdmin{
     static addData(req,res,next){
         const Admin = new Admins(req.body);
@@ -27,15 +30,20 @@ class UserAdmin{
     }
 
     static login(req,res,next){
-        const domain = new LoginDomain();
         domain.login(req,res,next);
+    }
+
+    static verifyOtp(req,res,next){
+        domain.verifyOtp(req,res,next);
     }
 }
 
 router.post('/insert',[Security,express.json()],UserAdmin.addData);
 
-router.get('/all',Security,UserAdmin.allData);
+router.get('/all',UserAdmin.allData);
 
 router.post('/login',express.json(),UserAdmin.login);
+
+router.post('/verifyotp',express.json(),UserAdmin.verifyOtp);
 
 module.exports = router;

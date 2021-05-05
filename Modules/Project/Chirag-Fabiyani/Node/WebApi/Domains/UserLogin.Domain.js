@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 global.config = require('../Config');
-const Admins = require('../Models/Admin.Model');
+const Users = require('../Models/User.Model');
 const bcrypt = require('bcrypt');
 const mail = require('./Mail.Domain')
 
@@ -14,7 +14,7 @@ class Domain{
     async login(req,res,next){
         console.log(this.Otp)
         let userdata = {
-            EmailId: parseInt(req.body.EmailId),
+            AdminId: parseInt(req.body.AdminId),
             Password: req.body.Password
         };
     
@@ -23,11 +23,11 @@ class Domain{
             expiresIn: '1800s'
         });
           
-        let hash = await Admins.find({'EmailId': userdata.EmailId}).select().exec();
+        let hash = await Admins.find({'AdminId': userdata.AdminId}).select().exec();
         this.EmailId = hash[0].EmailId;
 
 
-        if (userdata.EmailId == hash[0].EmailId && bcrypt.compareSync(userdata.Password,hash[0].Password)) {
+        if (userdata.AdminId == hash[0].AdminId && bcrypt.compareSync(userdata.Password,hash[0].Password)) {
             let text = 'Your login Otp is: '+this.Otp;
             res.status(200).json({
             message: text,
@@ -46,10 +46,10 @@ class Domain{
 
     async verifyOtp(req,res,next){
         if(req.body.Otp == this.Otp){
-            mail(this.EmailId,"Otp verification successful, User logged in")
+            mail(this.EmailId,"Otp verification successful, Admin logged in")
         }
         else{
-            mail(this.EmailId,"Otp verification unsuccessful, User not logged in")
+            mail(this.EmailId,"Otp verification unsuccessful, Admin not logged in")
 
         }
         res.send("Check your mail");

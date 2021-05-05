@@ -26,6 +26,12 @@ class Ad{
             res.send(result)
         });
     }
+
+    static idDataDelete(req,res,next){
+        Ads.remove({AdId: parseInt(req.params.id)}).then(()=>{
+            res.send("AdId: "+ req.params.id + "deleted successsfully");
+        })
+    }
 }
 
 router.post('/insert',express.json(),Ad.addData);
@@ -33,5 +39,7 @@ router.post('/insert',express.json(),Ad.addData);
 router.get('/all',Ad.allData);
 
 router.get('/:id',Ad.idData);
+
+router.delete('/:id',Ad.idDataDelete);
 
 module.exports = router;
