@@ -5,9 +5,9 @@ const UserDomain = require('../../../../domain/userDomain')
 class ConfirmTrip{
 
     //AFTER COMPLITION OF PAYMENT TRIP WILL ADDED TO TRIP COLLECTION
-    static async postNewTrip(req,res){
+   static async postNewTrip(req,res){
         UserDomain.postAddNewTrip(req,res)
-    }
+    } 
 }
 
 router.post('/',ConfirmTrip.postNewTrip) // /user/:id/search/newtrip/
