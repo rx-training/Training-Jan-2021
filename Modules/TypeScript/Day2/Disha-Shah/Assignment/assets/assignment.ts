@@ -62,7 +62,7 @@ class Product implements IProduct {
     }
 
     // Reorder product
-    reOrder(reOrderQty: number): void {
+    private reOrder(reOrderQty: number): void {
         this.qty += reOrderQty;
         console.log(`Re-Order for ${reOrderQty} pieces of ${this.name} is successfully placed`);
         console.log(`After Delivery: Name: ${this.name}, Total Quantity Available: ${this.qty}`);

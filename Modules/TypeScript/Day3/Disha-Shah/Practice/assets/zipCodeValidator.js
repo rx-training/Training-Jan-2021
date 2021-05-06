@@ -41,4 +41,4 @@ myGenericNumber.add = function (x, y) {
     return x + y;
 };
 console.log(myGenericNumber.add(myGenericNumber.zeroValue, 10));
-//# sourceMappingURL=zipCodeValidator.js.map
+//# sourceMappingURL=ZipCodeValidator.js.map
