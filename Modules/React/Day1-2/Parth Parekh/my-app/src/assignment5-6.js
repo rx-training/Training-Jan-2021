@@ -1,14 +1,6 @@
 import { defaults } from "joi";
 import React from "react";
 import img from "./logo.png";
-import "./assignment.css";
-
-// 1. Create a Functional Component which prints Hello World.
-const Helloworld = () => {
-    return <h3>Hello World</h3>;
-};
-
-//export default Helloworld;
 
 //Day1-2 Assignment
 const Student = (props) => {
@@ -24,12 +16,12 @@ const Student = (props) => {
         Logo,
     } = props.student;
     return (
-        <div className="div2">
-            <h2>{props.children}</h2>
+        <div className="card-body">
+            <h3>{props.children}</h3>
             <Image img={image} />
-            <p>ID : {ID}</p>
-            <p>Name :{FirstName + " " + LastName} </p>
-            <p>Date Of Birth : {DOB}</p>
+            <p className="card-text">ID : {ID}</p>
+            <p className="card-text">Name :{FirstName + " " + LastName} </p>
+            <p className="card-text">Date Of Birth : {DOB}</p>
             <College
                 CollegeName={CollegeName}
                 CollegeAddress={CollegeAddress}
@@ -42,9 +34,15 @@ const Student = (props) => {
 const College = (props) => {
     return (
         <div>
-            <p>College Name : {props.CollegeName} </p>
-            <p>College Address : {props.CollegeAddress}</p>
-            <img src={props.Logo} className="logo" alt="Logo" />
+            <p className="card-text">College Name : {props.CollegeName} </p>
+            <p className="card-text">
+                College Address : {props.CollegeAddress}
+            </p>
+            <img
+                src={props.Logo}
+                className="logo rounded img-fuild"
+                alt="Logo"
+            />
         </div>
     );
 };
@@ -90,12 +88,31 @@ const StudentIDCard = () => {
         },
     ];
     return (
-        <div className="div1">
-            <Student student={PersonObject[0]}>
-                <p>Student Details</p>
-            </Student>
-            <Student student={PersonObject[1]} />
-            <Student student={PersonObject[2]} />
+        <div className="container">
+            <h3 className="mb-3">Assignment StudentIDCard</h3>
+            <div className="row">
+                <div className="col-md-4 mb-2">
+                    <div className="card text-center bg-dark text-white">
+                        <Student student={PersonObject[0]}>
+                            <p>Student Details</p>
+                        </Student>
+                    </div>
+                </div>
+                <div className="col-md-4 mb-2">
+                    <div className="card text-center bg-dark text-white">
+                        <Student student={PersonObject[1]}>
+                            <p>Student Details</p>
+                        </Student>
+                    </div>
+                </div>
+                <div className="col-md-4 mb-2">
+                    <div className="card text-center bg-dark text-white">
+                        <Student student={PersonObject[2]}>
+                            <p>Student Details</p>
+                        </Student>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
