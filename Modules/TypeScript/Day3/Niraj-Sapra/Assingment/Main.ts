@@ -1,0 +1,13 @@
+import {Vacancies} from "./Vacancies";
+var vancancie = new Vacancies();
+import {Application} from "./Applicants";
+var Applications = new Application();
+import {InterviewProcess} from "./Interviewproceess";
+var Interview = new InterviewProcess();
+import {Employee} from "./ReportHireingemployee";
+var Employees = new Employee();
+vancancie.PostVacancie();
+Applications.Applicationpost();
+Interview.Scheduling_Interviews();
+Interview.Hire_Applicate();
+Employees.Final_Employee();
