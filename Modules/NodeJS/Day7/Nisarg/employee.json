@@ -1,0 +1,34 @@
+[
+    {
+        "EmpId": 1,
+        "FirstName": "Abc",
+        "LastName": "kk",
+        "Assignments": [
+            {
+                "AssignmentId": 1,
+                "AssignmentCategory": "PHP",
+                "AssignmentName": "Routing",
+                "AssignmentStatus": "Completed"
+            },
+            {
+                "AssignmentId": 1,
+                "AssignmentCategory": "PHP",
+                "AssignmentName": "Routing",
+                "AssignmentStatus": "Completed"
+            }
+        ]
+    },
+    {
+        "EmpId": 2,
+        "FirstName": "Virat",
+        "LastName": "Kohli",
+        "Assignments": [
+            {
+                "AssignmentId": 1,
+                "AssignmentCategory": "PHP",
+                "AssignmentName": "Routing",
+                "AssignmentStatus": "Completed"
+            }
+        ]
+    }
+]

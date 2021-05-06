@@ -1,0 +1,30 @@
+<html><head><title>Promises</title></head>
+<script>
+	
+
+	const pobj1=new Promise((resolve,reject)=>{
+
+			setTimeout(()=>{
+				let roll_no=[1,2,3,4,5];
+				resolve(roll_no);
+				reject('Error while communicating');  
+			},2000);
+
+
+			pobj1.then((roll_no)=>
+			{
+				console.log(roll_no);
+			}).catch((error)=>
+			{
+				console.log(error);
+			});
+
+	});
+</script>
+<body>
+<!-- Promises is an object that track about whether a particular event has happened or not! -->
+<!-- 3 stages  1)Pending  2)resolve and 3)reject-->
+
+
+</body>
+</html>
