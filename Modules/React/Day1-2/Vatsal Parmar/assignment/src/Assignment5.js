@@ -1,16 +1,23 @@
-import { Children } from "react";
+import React from "react";
 import "./App.css";
+
+/*Assignment-5 Create Students Array of 3 students with field Image,Id,FirstName,LastName,DOB,CollegeName,
+Address and CollegeLogo and pass it as Object to the StudentIDCardComponent.*/
 
 const College = ({ collageName, address, collegeLogo }) => {
   return (
-    <div className="college">
-      <p>
-        <span>College Name :</span> {collageName}
-      </p>
-      <p>
-        <span>College Address :</span> {address}
-      </p>
-      <img src={collegeLogo} alt="Collage Logo"></img>
+    <div className="college row">
+      <div className="col-8 col-sm-8">
+        <p>
+          <span>College Name :</span> {collageName}
+        </p>
+        <p>
+          <span>College Address :</span> {address}
+        </p>
+      </div>
+      <div className="col-4 col-sm-4 p-3">
+        <img src={collegeLogo} alt="Collage Logo"></img>
+      </div>
     </div>
   );
 };
@@ -37,7 +44,6 @@ const Image = ({ image }) => {
 };
 
 const StudentIDCard = ({
-  children,
   student: {
     image,
     id,
@@ -50,15 +56,27 @@ const StudentIDCard = ({
   },
 }) => {
   return (
-    <div className="student-id">
-      <Image image={image} />
-      <Personal id={id} firstName={firstName} lastName={lastName} dob={dob} />
-      <College
-        collageName={collageName}
-        address={address}
-        collegeLogo={collegeLogo}
-      />
-      {children}
+    <div className="col-lg-4 col-md-6">
+      <div className="my-2 p-3 student-id">
+        <div className="row">
+          <div className="col-4 col-sm-4">
+            <Image image={image} />
+          </div>
+          <div className="col-8 col-sm-8">
+            <Personal
+              id={id}
+              firstName={firstName}
+              lastName={lastName}
+              dob={dob}
+            />
+          </div>
+        </div>
+        <College
+          collageName={collageName}
+          address={address}
+          collegeLogo={collegeLogo}
+        />
+      </div>
     </div>
   );
 };
@@ -100,7 +118,7 @@ function App() {
     },
   ];
   return (
-    <div className="app">
+    <div className="row">
       <StudentIDCard student={students[0]} />
       <StudentIDCard student={students[1]}>
         <p>Student Details</p>
@@ -111,3 +129,5 @@ function App() {
 }
 
 export default App;
+
+//-------------------------------------------------END-------------------------------------------------------
