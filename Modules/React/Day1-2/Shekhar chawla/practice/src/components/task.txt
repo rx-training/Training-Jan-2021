@@ -1,0 +1,52 @@
+Day1/2
+
+What to Learn
+
+Installation
+
+                Add React to a Website
+
+                Create a New React App
+
+                CDN Links
+
+Hello word Application
+
+Introducing JSX
+
+Rendering Elements
+
+JavaScript in JSX
+
+Components and Props
+
+Children Props
+
+Composing Component
+
+CSS in React
+
+Practice Exercise:
+
+Do the hands on the exercise provided in video on the https://tutorials.rxtrainees.radixweb.net/ site and https://reactjs.org/docs/hello-world.html
+
+Assignment
+
+1. Create a Functional Component which prints Hello World.
+
+2. Create a StudentIDCard Component which will include another component image,Personal Component include(ID,FirstName,LastName,DOB),College Component include collegeName,College Address and College Logo)
+
+3. Store above example info javascript variable and then display dynamically, Display FullName variable in respective Component
+
+4. Call StudentID Card component 3 times and pass different student data using props.
+
+5. Create Students Array of 3 students with field Image,Id,FirstName,LastName,DOB,CollegeName,Address and CollegeLogo and pass it as Object to the StudentIDCardComponent.
+
+6. While calling StudentID Component in the app Component pass one <p>Student Details</p> as children. Access it in the StudentID Card Component with Children props.
+
+Online References:
+
+https://reactjs.org/docs/hello-world.html
+https://reactjs.org/docs/introducing-jsx.html
+https://reactjs.org/docs/rendering-elements.html
+https://reactjs.org/docs/components-and-props.html
