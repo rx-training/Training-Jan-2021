@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Collage } from './collage'
-import { Personal } from './personal'
+import { Collage } from './stdChild/collage'
+import { Personal } from './stdChild/personal'
 
 class StudentID extends Component {
     constructor(props){
