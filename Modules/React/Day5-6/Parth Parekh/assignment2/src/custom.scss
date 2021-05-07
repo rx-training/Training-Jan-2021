@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/bootstrap.scss";
+body {
+    background: linear-gradient(240deg, rgba(10, 61, 128, 0.61), black);
+    overflow-x: hidden;
+}
+img:hover {
+    border: 1px solid rgba(24, 204, 48, 0.795);
+    border-radius: 15px;
+}
+.font {
+    color: whitesmoke !important;
+    font-family: initial;
+}
