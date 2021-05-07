@@ -7,25 +7,21 @@
             "type": "typescript",
             "tsconfig": ".vscode/tsconfig.json",
             "option": "watch",
-            "problemMatcher":"$tsc-watch",
+            "problemMatcher": "$tsc-watch",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "label": "tsc:watch - .vscode/tsconfig.json"
-            
         }
     ],
     "command": "tsc",
     "isShellCommand":true,
     "showOutput":"silent",
-    "args": ["--target","ES6","--outDir","js",
+    "args": ["--target","ES5","--outDir","js",
     "--sourceMap","--watch"],
     
     "problemMatcher": "$tsc",
-    "group": {
-        "kind": "build",
-        "isDefault": true
-    }
+    "group": "build"
     
 }

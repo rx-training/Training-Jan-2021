@@ -106,3 +106,4 @@ class Person {
   }
   
   let point3d: Point3d = { x: 1, y: 2, z: 3 };
+  var x_ =12;
