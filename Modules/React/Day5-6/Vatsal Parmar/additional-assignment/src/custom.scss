@@ -1,0 +1,36 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.nav-btn:hover {
+  // background-color: rgb(50, 201, 252);
+  background-color: rgb(88, 88, 88);
+  cursor: pointer;
+}
+
+.nav-btn {
+  border: 1px solid white;
+  font-weight: bolder;
+}
+
+body {
+  background-color: rgb(253, 239, 237);
+}
+
+#login {
+  background-color: rgb(201, 200, 200);
+}
+
+#rectangle {
+  background-color: lavender;
+}
+
+#circle {
+  background-color: cornsilk;
+}
+
+#signup {
+  background-color: antiquewhite;
+}
+
+#leftbar {
+  background-color: ivory;
+}
