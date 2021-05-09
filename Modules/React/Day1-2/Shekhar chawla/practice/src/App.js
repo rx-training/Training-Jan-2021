@@ -24,7 +24,7 @@ function App() {
 
       {/* Assignment components */}
       <hr />
-      <p className="display-3">React site</p>
+      <p className="display-3">Assignments</p>
       <Assignment1 />
       <Assignment2 /> <hr />
       <Assignment3 /> <hr />

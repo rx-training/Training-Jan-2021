@@ -1,0 +1,28 @@
+Day3/4:
+
+What to Learn
+
+1. Import and Export
+
+2. class based Component
+
+3. FunctionalvsClass
+
+4. State
+
+5. Iterating through State list passing it to child component.
+
+Practice Exercise:
+
+1. Do the hands on the for book Mini Project video from tutorial site
+
+2. Practice Exercise from official site. Using map function and state object
+
+Assignment:
+
+Create a 5 student info List in the StudentList class component and store it in the state Object and pass this info StudentIDCard Component using map function and props.
+
+Online Reference:
+
+https://reactjs.org/docs/state-and-lifecycle.html
+https://reactjs.org/docs/lists-and-keys.html
