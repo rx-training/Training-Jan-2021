@@ -71,7 +71,10 @@ const  Trip = Joi.object({
     tripDate: Joi.date(),
     farePrice: Joi.number().min(0),
     totalSeat: Joi.number(),
-    seatNo: Joi.array()
+    seatNo: Joi.array(),
+    travelerList : Joi.array(),
+    departureTime : Joi.string(),
+    destinationTime : Joi.string(),
 })
 
 // VALIDATE LOGIN STATUS DATA

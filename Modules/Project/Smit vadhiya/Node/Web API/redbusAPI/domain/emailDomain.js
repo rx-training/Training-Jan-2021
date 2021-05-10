@@ -8,8 +8,8 @@ async function mailTo(to,subject,text,html){
             secure: false,
             requireTLS: true,
             auth: {
-                user: 'sdvadhiya222@gmail.com',
-                pass: 'master698'
+                user: 'redbusapis@gmail.com',
+                pass: 'redbus698'
             }
         });
 

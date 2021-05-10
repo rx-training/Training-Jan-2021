@@ -19,25 +19,22 @@ class Users{
             res.send(userData.error.message)
         } else {
             userData.value._id = await logicalFunctions.incId('Users')
-
             userData.value.password = EncDec.encPassword(userData.value.password)
-
             try {
                 newUser = userData.value 
-
-                var otp = Otp.createOtp()
-
-                await mailTo(userData.value.email
+                var otp = Otp.createOtp() //CREATE OTP 
+                await mailTo(userData.value.email  //SENT MAIL
                             ,"OTP verification","",
                             "<h1> Your OTP : "+otp+"</h1>")
+
                 res.send("varification email is sent to your mail id");
-                
             } catch(ex) {
                 res.status(422).send(ex.message)
             }
         }
     } 
 
+    //VERIFY OTP
     static async addData(req,res){
         var uOtp = req.params.otp
         var data = Otp.verifyOtp(uOtp)
@@ -53,12 +50,12 @@ class Users{
             res.send("wrong otp")
         }
     }
-    
-    
 
+    //ADD NEW TRIP
     static async postAddNewTrip(req,res){
         const userId = parseInt(req.params.id)
         var data = req.body
+        
         const newData = {
             fromCity: data.fromCity,
             toCity: data.toCity,
@@ -66,11 +63,14 @@ class Users{
             routeId: data.routeId,
             bookIngDate: Date.now(),
             tripDate: data.tripDate,
-            farePrice: data.ticketPrice,
+            farePrice:(data.ticketPrise * parseInt(data.selectedSeat.length)),
             totalSeat: data.selectedSeat.length,
-            seatNo: data.selectedSeat
+            seatNo: data.selectedSeat,
+            travelerList : data.travelerList,
+            departureTime : data.timeAtStartpoint,
+            destinationTime : data.timeAtEndpoint
         }
-
+        console.log(newData);
         data = validate.Trip.validate(newData)
         if(data.error){
             res.send(data.error.message)
@@ -84,7 +84,7 @@ class Users{
                 var subject = "Congratulation for your trip" 
                 var text = "your ticket "
                 var html = JSON.stringify(newTrip)
-                await mailTo("sdvadhiya222@gmail.com",subject,text,html)
+                await mailTo("redbusapis@gmail.com",subject,text,html)
 
                 const result =await newTrip.save()
                 res.send(result); 
@@ -148,7 +148,7 @@ class Users{
                     tripDate : date,
                     availableSeat : remainingSeat,
                 }
-               allBuses.push(displayData)
+            allBuses.push(displayData)
             }
         }
         res.send(allBuses)

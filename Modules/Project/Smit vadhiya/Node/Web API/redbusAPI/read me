@@ -148,7 +148,7 @@ GET :  http://localhost:3000/redbus.in/user/:id    //  ../user/2 can't acces dat
 PUT :  http://localhost:3000/redbus.in/user/:id/update  //UPDATE USERDATA BY ADD DATA TO BODY IN KEY VALYE PAIR
 
 GET : http://localhost:3000/redbus.in/user/:id/search  //get all buses which will travel to my route and i can select one from that 
-
+    
     BODY :
         ADD START CITYID,ENDCITYID AND DATE IN BODY LIKE THIS FOR SEARCH BUSES 
         { "id1" : 1 , "id2" : 4 , "date" : "2021-05-31"}

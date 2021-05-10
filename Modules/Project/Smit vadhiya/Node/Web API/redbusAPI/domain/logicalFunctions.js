@@ -1,14 +1,15 @@
-
 const Collections = require('../models/index')
+
 //**********    LOGICAL FUNCTIONS   */
+
 class logicalFunctions{
     static async incId(collection){
-         var data = await Collections
-                            .Counter
-                            .findOneAndUpdate(
-                                        {_id : collection},
-                                        {$inc : {count:1}},
-                                        {useFindAndModify : false})
+        var data = await Collections.Counter.findOneAndUpdate(
+            {_id : collection},
+            {$inc : {count:1}},
+            {useFindAndModify : false}
+        )
+
         if(!data){
             const newData = new Collections.Counter({
                 _id : collection,
@@ -20,7 +21,6 @@ class logicalFunctions{
         return await data.count
     }
 
-   
     static async distance(id1,id2) {
         var lat1 =await logicalFunctions.findLatLon(id1,'latitude')
         var lon1 =await logicalFunctions.findLatLon(id1,'longitude')
@@ -86,7 +86,6 @@ class logicalFunctions{
         } else if(coach.match(/^.*non.*A.*C.*sleeper.*$/i)) {
             multiplier = 1.6
         } else if(coach.match(/^.*A.*C.*sleeper.*$/i)) {
-           
             multiplier = 2.3
         }
         return distance * multiplier
@@ -94,7 +93,7 @@ class logicalFunctions{
 
     static async remainingSeat(id,date){
         var seat = await Collections.OccupiedSeats.find({routeId : id, Date : date})
-        seat = seat[0]
+        seat = seat[0]  
         if(!seat) {
             var seat = new Collections.OccupiedSeats({
                 routeId: id,
@@ -135,10 +134,11 @@ class logicalFunctions{
     }
 
 }
+
 //console.log(logicalFunctions.incId('de'));
 //logicalFunctions.incId('de')
 //logicalFunctions.remainingSeat(3,'2021-12-21T00:00:00.000Z')
- /*     var date =new Date(Date.parse('1998-12-31','dd-mm-yyyy'))
+/*     var date =new Date(Date.parse('1998-12-31','dd-mm-yyyy'))
             console.log(date);
             date.setDate(date.getDate() + 1)
              console.log(date); */
