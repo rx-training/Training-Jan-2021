@@ -68,12 +68,10 @@ export default class Book extends Component {
 
     return (
       <article className="book row">
-        <img
-          className="col-md-4 col-lg-2 p-3"
-          width="150"
-          src={img}
-          alt="book"
-        />
+        <div className="col-md-4 col-lg-2 text-center">
+          <img width="150" src={img} alt="book" />
+        </div>
+
         <div className="col-md-8 col-lg-10 p-3 sm-text-center">
           <h4>Title : {title}</h4>
           <h6>Author : {author}</h6>
