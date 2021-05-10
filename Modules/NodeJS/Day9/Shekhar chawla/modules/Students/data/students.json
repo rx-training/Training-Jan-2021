@@ -1,0 +1,99 @@
+[
+    {
+        "Address": "Ahmedabad",
+        "Fees": [
+            {
+                "Amount": 10000,
+                "PaymentDate": "12/12/2020",
+                "Status": "true",
+                "id": 1
+            },
+            {
+                "Amount": 4556,
+                "PaymentDate": "12/12/2020",
+                "Status": "true",
+                "id": 2
+            }
+        ],
+        "ID": 1,
+        "Name": "Reena",
+        "Result": [
+            {
+                "Eng": 70,
+                "Grade": "A",
+                "Hindi": 80,
+                "Math": 60,
+                "Total": 210,
+                "id": 1
+            },
+            {
+                "Eng": 1,
+                "Grade": "A",
+                "Hindi": 2,
+                "Math": 3,
+                "Total": 4,
+                "id": 2
+            }
+        ]
+    },
+    {
+        "Address": "Surat",
+        "Fees": [
+            {
+                "Amount": 12000,
+                "PaymentDate": "12/12/2020",
+                "Status": "false",
+                "id": 1
+            },
+            {
+                "Amount": 132131,
+                "PaymentDate": "12/12/2020",
+                "Status": "true",
+                "id": 2
+            }
+        ],
+        "ID": 2,
+        "Name": "Rita",
+        "Result": [
+            {
+                "Eng": 70,
+                "Grade": "A",
+                "Hindi": 80,
+                "Math": 60,
+                "Total": 210,
+                "id": 1
+            },
+            {
+                "Eng": 4,
+                "Grade": "A",
+                "Hindi": 5,
+                "Math": 6,
+                "Total": 7,
+                "id": 2
+            }
+        ]
+    },
+    {
+        "Address": "Faridabad",
+        "Fees": [
+            {
+                "Amount": 45565,
+                "PaymentDate": "12/12/2020",
+                "Status": "false",
+                "id": 1
+            }
+        ],
+        "ID": 3,
+        "Name": "Ramina",
+        "Result": [
+            {
+                "Eng": 70,
+                "Grade": "A",
+                "Hindi": 80,
+                "Math": 60,
+                "Total": 210,
+                "id": 1
+            }
+        ]
+    }
+]

@@ -7,13 +7,21 @@
 // ”Result”:{“Hindi”:80,”Eng”:70,”Math”:60,”Total”:210,”Grade”:”A”}
 // }]
 
-var persons = require('./json/day5_persons.json')
+var persons = require('./json/students.json')
 const express = require('express')
 const app = express()
 
+// authentication
+const generateToken = require('./generateToken')
+app.use('/', generateToken)
+// authorization
+const verifyToken = require('./verifyToken')
+
+
+
 // 1. Create a RESTFUL API which will return a Studentlist.
 // http://localhost:3000/students
-app.get('/students', (req, res) => {
+app.all('/students', (req, res) => {
 	if( persons ) {
 		res.status(200).json(persons)
 	} else {
@@ -44,9 +52,10 @@ app.get('/students/:id', (req, res) => {
 })
 
 
+
 // 3. Create a RESTFUL API which return a particular student FEES Record. Fees field are 
 // http://localhost:3000/students/1/fees
-app.get('/students/:id/fees', (req, res) => {
+app.get('/students/:id/fees', verifyToken, (req, res) => {
 
 	var found = 0
 	for (var i = 0; i < persons.Students.length; i++) {
@@ -67,8 +76,8 @@ app.get('/students/:id/fees', (req, res) => {
 
 
 // 4. Create a RESTFUL API which will return a particular student Exam Result. Result Fields are 
-// http://localhost:/3000/students/1/result
-app.get('/students/:id/result', (req, res) => {
+// http://localhost:3000/students/1/result
+app.get('/students/:id/result', verifyToken, (req, res) => {
 
 	var found = 0
 	for (var i = 0; i < persons.Students.length; i++) {
@@ -109,6 +118,6 @@ app.put('/students/:id', (req, res) => {
 })
 
 
-app.listen(3001, () => console.log('3001 server started'))
+app.listen(3000, () => console.log('3000 server started'))
 
 

@@ -1,0 +1,27 @@
+Day5/6
+
+What to learn
+
+1. Events
+
+2. Change State using this.setState method
+
+3. Passing methods to children
+
+4. Conditional in JSX.
+
+Practice Exercise:
+
+1. Do the hands on the for book Mini Project video from tutorial site
+
+2. Practice Exercise from official site. Using lifting stateup
+
+Assignment:
+
+1. Reference to day2 assignment, StudentID Card Should contain delete button and should delete remove that from booklist component. Need to use the concept passing methods to children.
+
+2. Add one toggle button in StudentIdCard Component, implement toggle functionality using ternary operator in JSX.
+
+Online Reference:
+
+https://reactjs.org/docs/state-and-lifecycle.html
