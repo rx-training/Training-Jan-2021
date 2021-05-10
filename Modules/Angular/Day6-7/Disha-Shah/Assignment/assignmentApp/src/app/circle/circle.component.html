@@ -1,0 +1,16 @@
+<div class="container">
+    <!--Circle Area-->
+    <h3>Calculate Circle Area:</h3>
+    <div class="form-group">
+        <label for="exampleInputNum1">Number1</label>
+        <!--Two way binding for number-->
+        <input [(ngModel)] = "Num1" type = "number"  class="form-control">
+    </div>
+    <!--Event binding-->
+    <button type="submit" class="btn btn-primary" (click)="calculate()">Calculate Area</button>
+    <br><br>
+    <!--String interpolation-->
+    <h5>Area of Circle of radius {{Num1}} = {{Result}}</h5>
+
+</div>
+
