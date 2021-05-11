@@ -1,0 +1,21 @@
+<html>
+<head><title>EventLoop</title></head>
+<script type="text/javascript">
+		const fun2=()=>
+		{
+			setTimeout(()=>{
+				console.log("Function2 is starting");
+			},3000);
+		}
+
+		const fun1=()=>
+		{
+			console.log("Function 1 is starting");
+			fun2();
+			console.log("Function 1 is ending");
+		}
+</script>
+
+<body>
+</body>
+</html>

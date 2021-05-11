@@ -1,0 +1,15 @@
+
+<html>
+<body>
+<script>
+x = 3.14;       // This will not cause an error.
+document.write("Value of X is:"+x);
+myFunction();
+
+function myFunction() {
+  "use strict";
+  y = 3.14;   // This will cause an error
+}
+</script>
+</body>
+</html>

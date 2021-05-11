@@ -1,0 +1,27 @@
+<html>
+<body>
+<script>
+
+
+const fun2=()=>
+{
+
+	setTimeout(()=>{
+		console.log("Function 2 is starting");
+	},3000);
+}
+
+const fun1=()=>
+{
+	console.log("Function 1 is starting");
+	fun2();
+	console.log("Function 1 is ending");
+}
+fun1();
+
+//Syncronous(one by one) and asynchronous(In a fast manner,no waits)-
+
+
+</script>
+</body>
+</html>

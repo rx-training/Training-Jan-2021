@@ -1,0 +1,28 @@
+<html>
+<head><title>Closures</title>
+<script>
+
+	const outerFunction=(a)=>
+	{
+		let b=10,c=20;
+		const innerFunction=()=>
+		{
+			let sum=a+b+c;
+			console.log(`The sum of two no's is:${sum}.`);
+		}
+		innerFunction();
+	}
+
+let inner=outerFunction(10);
+console.dir(inner);
+innerFunction();
+
+//inner function can access outer function values.
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>
