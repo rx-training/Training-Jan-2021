@@ -1,0 +1,110 @@
+<div class="container">
+    <h4>NgFor Example</h4>
+    <div *ngFor = "let product of productList; let idx = index, let first = first, let last = last">
+        <li>
+            Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+        </li>
+    </div>
+    <h4>NgClass example</h4>
+    <!-- toggle the "special" class on/off with a property -->
+    <div [ngClass]="isSpecial ? 'special' : ''">This div is special</div>
+    <button (click)="ToggleFn()" class="btn btn-primary">Toogle Special</button>
+    <div [ngClass]="setCurrentClasses()">NgClass practice</div>
+    <h4 [ngStyle]="{fontSize : '24px', fontStyle: 'italic'}">NgStyle Practice</h4>
+    <h4 [ngStyle]="{fontSize : getSize()}">NgStyle Practice</h4>
+    <h4 [ngStyle] = "setCurrentStyles()">hello world</h4>
+
+    
+    <div>
+        Pick your favorite hero
+        (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+    </div>
+    <select [(ngModel)]="hero">
+        <ng-container *ngFor="let h of heroes">
+          <ng-container *ngIf="showSad || h.emotion !== 'Sad'">
+            <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+          </ng-container>
+        </ng-container>
+    </select>
+    <br><br>
+
+    <div *ngFor = "let product of productList; let idx = index, let first = first, let last = last">
+        <div [ngSwitch]="product.ProductQuantity">
+            <div *ngSwitchCase="3" [ngStyle]="{color : 'red', fontStyle: 'italic'}">
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+            <div *ngSwitchCase="30" [ngStyle]="{color : 'yellow', fontStyle: 'italic'}">
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+            <div *ngSwitchCase="100" [ngStyle]="{color : 'green', fontStyle: 'italic'}">
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+            <div *ngSwitchDefault>
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+        </div>
+    </div>
+
+    <!--Building Attribute Directives-->
+    <br><br>
+    <p appHighlight>Highlight me!</p>
+
+    <h2>Pick a highlight color</h2>
+    <div>
+    <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    <input type="radio" name="colors" (click)="color='blue'">Blue
+    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    </div>
+    <p [appHighlight]="color" defaultColor="violet">
+        Highlight me too!
+    </p>
+
+    <!--Building Structural Directives-->
+    <br><br>
+    
+    <p>
+        The condition is currently
+        <span [ngClass]="{ 'a': !condition, 'b': condition, 'unless': true }">{{condition}}</span>
+        <button
+          (click)="condition = !condition"
+          [ngClass] = "{ 'a': condition, 'b': !condition }" >
+          Toggle condition to {{condition ? 'false' : 'true'}}
+        </button>
+    </p>
+
+    <p *appUnless="condition" class="unless a">
+        (A) This paragraph is displayed because the condition is false.
+    </p>
+      
+    <p *appUnless="!condition" class="unless b">
+        (B) Although the condition is true,
+        this paragraph is displayed because appUnless is set to false.
+    </p>
+    
+
+</div>

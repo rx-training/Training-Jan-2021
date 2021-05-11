@@ -1,0 +1,12 @@
+.special{
+    color: crimson;
+    font-size: 24px;
+}
+
+.saveable{
+    font-weight: lighter;
+}
+
+.modified{
+    font-family: cursive;
+}
