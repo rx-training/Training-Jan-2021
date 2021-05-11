@@ -1,18 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Assignment</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="ml-auto">
-          <app-login></app-login>
-      </div>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item m-3">
+        <!--Sign up Component-->
+        <app-signup></app-signup>
+      </li>
+      <li class="nav-item m-3">
+        <!--Login Component-->
+        <app-login></app-login>
+      </li>
+    </ul>
   </div>
 </nav>
+
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-3 pl-0">
+    <div class="col-md-3 pl-0 pr-0">
+      <!--Left bar Component-->
       <app-left-bar></app-left-bar>
     </div>
-    <div class="col-sm-12 col-md-9 pr-0">
+    <div class="col-md-9 pl-0 pr-0">
+      <!--Rectangle Component-->
       <app-rectangle></app-rectangle>
+
+      <!--Circle Component-->
       <app-circle></app-circle>
     </div>
   </div>

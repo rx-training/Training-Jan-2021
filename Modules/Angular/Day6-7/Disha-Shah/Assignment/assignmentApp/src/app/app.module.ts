@@ -7,6 +7,7 @@ import { RectangleComponent } from './rectangle/rectangle.component';
 import { LoginComponent } from './login/login.component';
 import { CircleComponent } from './circle/circle.component';
 import { LeftBarComponent } from './left-bar/left-bar.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LeftBarComponent } from './left-bar/left-bar.component';
     RectangleComponent,
     LoginComponent,
     CircleComponent,
-    LeftBarComponent
+    LeftBarComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
