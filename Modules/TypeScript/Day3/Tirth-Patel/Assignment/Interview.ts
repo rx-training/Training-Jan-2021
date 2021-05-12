@@ -18,6 +18,7 @@ class Interviews{
     }
     ResultGenerator(id:number)
     {
+        //business logic to hire someone 
         //for now hiring all as of now
             for(let applicant of ListofInterviews){
                 applicant.IsHired = true;
