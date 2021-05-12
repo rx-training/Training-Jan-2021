@@ -15,7 +15,36 @@ export class NgForComponent implements OnInit {
   showSad = true;
   hero = '';
   color = '';
+  colorNew = 'orange';
   condition = false;
+  cityList: Array<any> = [];
+  cityId=0;
+  regionId = 0;
+  city="";
+  fname = "Reena";
+  lname = "Sharma";
+  color1 = 'red';
+  color2 = 'green';
+  color3 = 'blue';
+
+  trackByItems(index: number, item: any): number { return item.Id; }
+
+  getItems(){
+    this.productList = this.getItemsFromServer();
+  }
+
+  getItemsFromServer(){
+    this.productList.push({Id: this.productList.length + 1, ProductName: "Pen-Pencil", ProductPrice: 30, ProductQuantity: 30});
+
+    return this.productList;
+  }
+
+  refreshItems(){
+    this.productList = [{Id: 1, ProductName: "Pen", ProductPrice: 30, ProductQuantity: 3},
+    {Id: 2, ProductName: "Pencil", ProductPrice: 30, ProductQuantity: 30},
+    {Id: 3, ProductName: "Pen-Pencil", ProductPrice: 30, ProductQuantity: 30},
+    {Id: 4, ProductName: "Eraser", ProductPrice: 100, ProductQuantity: 100}];
+  }
 
   ToggleFn(){
     if(this.isSpecial)
@@ -64,10 +93,10 @@ export class NgForComponent implements OnInit {
   }
 
   constructor() {
-    this.productList = [{ProductName: "Pen", ProductPrice: 30, ProductQuantity: 3},
-    {ProductName: "Pencil", ProductPrice: 30, ProductQuantity: 30},
-    {ProductName: "Pen-Pencil", ProductPrice: 30, ProductQuantity: 30},
-    {ProductName: "Eraser", ProductPrice: 100, ProductQuantity: 100}];
+    this.productList = [{Id: 1, ProductName: "Pen", ProductPrice: 30, ProductQuantity: 3},
+    {Id: 2, ProductName: "Pencil", ProductPrice: 30, ProductQuantity: 30},
+    {Id: 3, ProductName: "Pen-Pencil", ProductPrice: 30, ProductQuantity: 30},
+    {Id: 4, ProductName: "Eraser", ProductPrice: 100, ProductQuantity: 100}];
 
     this.heroes = [{name: "Mr. Nice", emotion:"Happy"},
     {name: "Mr. Sad", emotion:"Sad"},
@@ -75,7 +104,21 @@ export class NgForComponent implements OnInit {
     {name: "Mr. Angry", emotion:"Angry"}]
    }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    let response = await fetch(`https://localhost:44380/api/BookMyShow/Cities`);
+    let data = await response.json();
+    console.log(data);
+    this.cityList = data;
+    console.log(this.cityList);
+  }
+
+  async getCityInfo(){
+    let response = await fetch(`https://localhost:44380/api/BookMyShow/Cities/${this.cityId}`);
+    let data = await response.json();
+    console.log(data);
+    this.cityId = data.cityId;
+    this.regionId = data.regionId;
+    this.city = data.name;
   }
 
 }

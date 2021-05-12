@@ -10,7 +10,7 @@ export class HighlightDirective {
   @Input() defaultColor: string = '';
 
   constructor(private el: ElementRef) {
-    
+    this.el.nativeElement.style.backgroundColor = 'pink';
   }
 
   @HostListener('mouseenter') onMouseEnter() {

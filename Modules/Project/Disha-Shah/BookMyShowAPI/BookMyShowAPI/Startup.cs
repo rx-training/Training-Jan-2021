@@ -83,6 +83,13 @@ namespace BookMyShowAPI
                 opts.SignIn.RequireConfirmedEmail = true;
             });
 
+            services.AddCors(options => options.AddPolicy("BookMyShowPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             // For Identity  
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDBContext>()
@@ -132,9 +139,11 @@ namespace BookMyShowAPI
 
             app.UseAuthorization();
 
+            app.UseCors("MyPolicy");
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("BookMyShowPolicy");
             });
         }
     }

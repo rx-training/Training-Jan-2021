@@ -7,6 +7,7 @@ import { NgIfComponent } from './ng-if/ng-if.component';
 import { NgForComponent } from './ng-for/ng-for.component';
 import { HighlightDirective } from './highlight.directive';
 import { UnlessDirective } from './unless.directive';
+import { JoinNamePipe } from './join-name.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UnlessDirective } from './unless.directive';
     NgIfComponent,
     NgForComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    JoinNamePipe
   ],
   imports: [
     BrowserModule,
