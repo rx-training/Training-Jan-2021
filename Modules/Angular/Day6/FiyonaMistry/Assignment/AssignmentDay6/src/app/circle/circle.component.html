@@ -1,0 +1,12 @@
+<!-- 3. Create a circle component which computes area of Circle -->
+
+<form>
+    <div class="form-group">
+        <label for="radius">Enter Radius : </label>
+        <input type="number" name="radius" [(ngModel)]="radius" class="form-control">
+    </div>
+    <button class="form-control btn bg-primary text-white my-3" (click)="area()">Find Area of Circle</button>
+    <div class="form-group">
+        <label for="result">Area of Circle : {{ result.toFixed(2) }}</label>
+    </div>
+</form>

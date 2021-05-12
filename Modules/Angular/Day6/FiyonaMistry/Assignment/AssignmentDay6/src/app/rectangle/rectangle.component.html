@@ -1,0 +1,16 @@
+<!-- 1.Create a Rectangle Component which computes area of Rectangle. -->
+
+<form>
+    <div class="form-group">
+        <label for="width">Enter Width : </label>
+        <input type="number" name="width" [(ngModel)]="width" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="length">Enter Length : </label>
+        <input type="number" name="length" [(ngModel)]="length" class="form-control">
+    </div>
+    <button class="form-control btn bg-primary text-white my-3" (click)="area()">Find Area of Rectangle</button>
+    <div class="form-group">
+        <label for="result">Area of Rectangle : {{ result }}</label>
+    </div>
+</form>
