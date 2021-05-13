@@ -1,0 +1,84 @@
+<div class="container mt-3">
+    <h3>Add Students Information</h3>
+        <br>
+    <div class="row">
+        
+        <form [formGroup] = "profileForm" (ngSubmit)="profileSubmit()">
+            <label>First Name:
+                <input type="text" formControlName="firstName" class="form-control">
+            </label>
+            <br>
+            <label>Last Name:
+                <input type="text" formControlName="lastName" class="form-control">
+            </label>
+            <br>
+            <div formGroupName="address">
+                <h4>Address</h4>
+              
+                <label>
+                  Street:
+                  <input type="text" formControlName="street" class="form-control">
+                </label>
+                <br>
+              
+                <label>
+                  City:
+                  <input type="text" formControlName="city" class="form-control">
+                </label>
+                <br>
+                
+                <label>
+                  State:
+                  <input type="text" formControlName="state" class="form-control">
+                </label>
+                <br>
+              
+                <label>
+                  Zip Code:
+                  <input type="text" formControlName="zip" class="form-control">
+                </label>
+            </div>
+            <br>
+            <div formArrayName = "hobbies">
+                <h4>Hobbies</h4>
+                <button (click)="addHobbies()" class="btn btn-secondary" type="button">Add Hobby</button>
+                <div *ngFor="let hobby of getHobbies.controls; let i=index">
+                    <!--Repeated hobby template-->
+                    <label>
+                        Hobby:
+                        <input type="text" name="" id="" [formControlName]="i" class="form-control">
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
+        </form>
+    </div>
+    <br>
+    <div class="row">
+        
+        <h3>Students List</h3>
+        <table class="table table-bordered">
+            <thead>
+                <th>Name</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Hobbies</th>
+            </thead>
+            <tbody>
+                <ng-container *ngFor = "let student of studentArr">
+                        <tr>
+                            <td>{{student.Name}}</td>
+                            <td>{{student.street}}</td>
+                            <td>{{student.city}}</td>
+                            <td>{{student.state}}</td>
+                            <td>{{student.zip}}</td>
+                            <td>{{student.hobbies}}</td>
+                        </tr>
+                </ng-container>
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,372 @@
+<div class="container mt-3">
+    <h3>Student Admission Form</h3>
+    <br>
+    <div class="row">
+        
+        <!--Reactive form for student admission-->
+        <form [formGroup] = "studentForm" (ngSubmit)="profileSubmit()">
+
+            <!--Form group for student name-->
+            <div formGroupName="name">
+                <h5>Student Name</h5>
+              
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                        First Name:
+                        <input type="text" formControlName="first" class="form-control">
+                        </label>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label>
+                        Middle Name:
+                        <input type="text" formControlName="middle" class="form-control">
+                        </label>
+                    </div>
+                     
+                    <div class="col-md-4">
+                        <label>
+                        Last Name:
+                        <input type="text" formControlName="last" class="form-control">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Date Of Birth:
+                        <input type="date" formControlName="dob" class="form-control">
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Place of Birth:
+                        <input type="text" formControlName="birthPlace" class="form-control">
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>First Language:
+                        <input type="text" formControlName="language" class="form-control">
+                    </label>
+                </div>
+            </div>
+            <br>
+
+            <!--form group of address-->
+            <div formGroupName="address">
+                <h5>Address</h5>
+              
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                        City:
+                        <input type="text" formControlName="city" class="form-control">
+                        </label>
+                    </div>
+                
+                    <div class="col-md-3">
+                        <label>
+                        State:
+                        <input type="text" formControlName="state" class="form-control">
+                        </label>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <label>
+                        Country:
+                        <input type="text" formControlName="country" class="form-control">
+                        </label>
+                    </div>
+                
+                    <div class="col-md-3">
+                        <label>
+                        Pincode:
+                        <input type="text" formControlName="pin" class="form-control">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!--form group for father's information-->
+            <div formGroupName="father">
+                <h5>Father Information</h5>
+
+                <!--form group for father's full name-->
+                <div formGroupName="fullName">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>
+                                First Name:
+                                <input type="text" formControlName="first" class="form-control">
+                            </label>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label>
+                                Middle Name:
+                            <input type="text" formControlName="middle" class="form-control">
+                            </label>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label>
+                                Last Name:
+                            <input type="text" formControlName="last" class="form-control">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                        Email:
+                        <input type="email" formControlName="email" class="form-control">
+                        </label>
+                    </div>
+              
+                    <div class="col-md-4">
+                        <label>
+                        Educational Qualification:
+                        <input type="text" formControlName="qualification" class="form-control">
+                        </label>
+                    </div>
+                        
+                    <div class="col-md-4">
+                        <label>
+                        Profession:
+                        <input type="text" formControlName="profession" class="form-control">
+                        </label>
+                    </div>
+                </div>
+              
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                        Designation:
+                        <input type="text" formControlName="designation" class="form-control">
+                        </label>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label>
+                            Contact No:
+                            <input type="number" formControlName="phone" class="form-control">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!--form group for mother's information-->
+            <div formGroupName="mother">
+                <h5>Mother Information</h5>
+
+                <!--form group for mother's full name-->
+                <div formGroupName="fullName">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>
+                                First Name:
+                                <input type="text" formControlName="first" class="form-control">
+                            </label>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label>
+                                Middle Name:
+                            <input type="text" formControlName="middle" class="form-control">
+                            </label>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label>
+                                Last Name:
+                            <input type="text" formControlName="last" class="form-control">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                        Email:
+                        <input type="email" formControlName="email" class="form-control">
+                        </label>
+                    </div>
+              
+                    <div class="col-md-4">
+                        <label>
+                        Educational Qualification:
+                        <input type="text" formControlName="qualification" class="form-control">
+                        </label>
+                    </div>
+                        
+                    <div class="col-md-4">
+                        <label>
+                        Profession:
+                        <input type="text" formControlName="profession" class="form-control">
+                        </label>
+                    </div>
+                </div>
+              
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                        Designation:
+                        <input type="text" formControlName="designation" class="form-control">
+                        </label>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label>
+                            Contact No:
+                            <input type="number" formControlName="phone" class="form-control">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!--form array for emergency contacts-->
+            <div formArrayName = "emergencyContacts">
+                <h5>Emergency Contacts</h5>
+                <div *ngFor="let emergencyContact of getEmergencyContacts.controls; let i=index">
+
+                    <!--form group for emergency contact's list-->
+                    <div [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>
+                                    Relation:
+                                    <input type="text" name="" id="" formControlName="relation" class="form-control">
+                                </label>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>
+                                    Contact No:
+                                    <input type="number" name="" id="" formControlName="contact" class="form-control">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button (click)="addEmergencyContacts()" class="btn btn-secondary" type="button">Add Emergency Contact</button>
+
+            </div>
+            <br>
+
+            <!--form array for reference details-->
+            <div formArrayName = "referenceDetails">
+                <h5>Reference Details</h5>
+                <div *ngFor="let referenceDetails of getReferenceDetails.controls; let i=index">
+
+                    <!--form group for reference detail's list-->
+                    <div [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>
+                                    Reference Through:
+                                    <input type="text" name="" id="" formControlName="referenceThrough" class="form-control">
+                                </label>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>
+                                    Address:
+                                    <input type="text" name="" id="" formControlName="address" class="form-control">
+                                </label>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>
+                                    Contact No:
+                                    <input type="number" name="" id="" formControlName="contact" class="form-control">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button (click)="addReferenceDetails()" class="btn btn-secondary" type="button">Add Reference Details</button>
+
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+    <br>
+    <div class="row">
+
+        <!--table of student's information-->
+        <h3>Students List</h3>
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Birth Place</th>
+                <th>First Language</th>
+                <th>Address</th>
+                <th>Father's Name</th>
+                <th>Father's Email</th>
+                <th>Father's Educational Qualification</th>
+                <th>Father's Profession</th>
+                <th>Father's Designation</th>
+                <th>Father's Contact No</th>
+                <th>Mother's Name</th>
+                <th>Mother's Email</th>
+                <th>Mother's Educational Qualification</th>
+                <th>Mother's Profession</th>
+                <th>Mother's Designation</th>
+                <th>Mother's Contact No</th>
+                <th>Emergency Contact's Relation/Contact No</th>
+                <th>Reference Through/Address/Contact No</th>
+            </thead>
+            <tbody>
+                <ng-container *ngFor = "let student of studentList">
+                        <tr>
+                            <td>{{student.name}}</td>
+                            <td>{{student.dob}}</td>
+                            <td>{{student.placeOfBirth}}</td>
+                            <td>{{student.language}}</td>
+                            <td>{{student.address}}</td>
+                            <td>{{student.fatherName}}</td>
+                            <td>{{student.fatherEmail}}</td>
+                            <td>{{student.fatherQualification}}</td>
+                            <td>{{student.fatherProfession}}</td>
+                            <td>{{student.fatherDesignation}}</td>
+                            <td>{{student.fatherPhone}}</td>
+                            <td>{{student.motherName}}</td>
+                            <td>{{student.motherEmail}}</td>
+                            <td>{{student.motherQualification}}</td>
+                            <td>{{student.motherProfession}}</td>
+                            <td>{{student.motherDesignation}}</td>
+                            <td>{{student.motherPhone}}</td>
+                            <td [ngStyle]="{padding : 0}">
+                                <ng-container *ngFor = "let emergencyContact of student.emergencyContact; let i = index">
+                                    <tr>
+                                        <td>{{emergencyContact.relation}}</td>
+                                        <td>{{emergencyContact.contact}}</td>
+                                    </tr>
+                                </ng-container>
+                            </td>
+                            <td [ngStyle]="{padding : 0}">
+                                <ng-container *ngFor = "let referenceDetails of student.referenceDetails; let i = index">
+                                    <tr>
+                                        <td>{{referenceDetails.referenceThrough}}</td>
+                                        <td>{{referenceDetails.address}}</td>
+                                        <td>{{referenceDetails.contact}}</td>
+                                    </tr>
+                                </ng-container>
+                            </td>
+                        </tr>
+                </ng-container>
+            </tbody>
+        </table>
+
+    </div>
+</div>
