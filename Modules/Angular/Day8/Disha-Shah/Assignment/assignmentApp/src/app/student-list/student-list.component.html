@@ -11,36 +11,38 @@
                 <th>Active</th>
                 <th>Pass</th>
             </thead>
-            <tbody *ngFor = "let student of studentList">
-                <ng-container *ngIf="student.IsActive">
-                    <tr [ngClass]="student.IsPassed ? 'pass' : 'fail'">
-                        <td>{{student.Id}}</td>
-                        <td>{{student.Name}}</td>
-                        <td>{{student.Age}}</td>
-                        <td>{{student.Average}}</td>
-                        <td [ngSwitch]="student.Grade" [ngClass]="'grade'">
-                            <span *ngSwitchCase="'A'" [ngStyle]="{color : 'darkgreen'}">
-                                {{student.Grade}}
-                            </span>
-                            <span *ngSwitchCase="'B'" [ngStyle]="{color : 'darkblue'}">
-                                {{student.Grade}}
-                            </span>
-                            <span *ngSwitchCase="'C'" [ngStyle]="{color : 'darkorange'}">
-                                {{student.Grade}}
-                            </span>
-                            <span *ngSwitchCase="'D'" [ngStyle]="{color : 'darkgoldenrod'}">
-                                {{student.Grade}}
-                            </span>
-                            <span *ngSwitchCase="'E'" [ngStyle]="{color : 'darkred'}">
-                                {{student.Grade}}
-                            </span>
-                            <span *ngSwitchDefault>
-                                {{student.Grade}}
-                            </span>
-                        </td>
-                        <td>{{student.IsActive}}</td>
-                        <td>{{student.IsPassed}}</td>
-                    </tr>
+            <tbody>
+                <ng-container *ngFor = "let student of studentList">
+                    <ng-container *ngIf="student.IsActive">
+                        <tr [ngClass]="student.IsPassed ? 'pass' : 'fail'">
+                            <td>{{student.Id}}</td>
+                            <td>{{student.Name}}</td>
+                            <td>{{student.Age}}</td>
+                            <td>{{student.Average}}</td>
+                            <td [ngSwitch]="student.Grade" [ngClass]="'grade'">
+                                <span *ngSwitchCase="'A'" [ngStyle]="{color : 'darkgreen'}">
+                                    {{student.Grade}}
+                                </span>
+                                <span *ngSwitchCase="'B'" [ngStyle]="{color : 'darkblue'}">
+                                    {{student.Grade}}
+                                </span>
+                                <span *ngSwitchCase="'C'" [ngStyle]="{color : 'darkorange'}">
+                                    {{student.Grade}}
+                                </span>
+                                <span *ngSwitchCase="'D'" [ngStyle]="{color : 'darkgoldenrod'}">
+                                    {{student.Grade}}
+                                </span>
+                                <span *ngSwitchCase="'E'" [ngStyle]="{color : 'darkred'}">
+                                    {{student.Grade}}
+                                </span>
+                                <span *ngSwitchDefault>
+                                    {{student.Grade}}
+                                </span>
+                            </td>
+                            <td>{{student.IsActive}}</td>
+                            <td>{{student.IsPassed}}</td>
+                        </tr>
+                    </ng-container>
                 </ng-container>
             </tbody>
         </table>

@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface IStudent{
-  Id: number;
-  Name: string;
-  Age: number;
-  Average: number;
-  Grade: string;
-  IsActive: boolean;
-  IsPassed: boolean;
-}
+import { IStudent } from '../models/IStudent';
 
 @Component({
   selector: 'app-student-list',
@@ -16,15 +7,8 @@ interface IStudent{
   styleUrls: ['./student-list.component.css']
 })
 
-export class StudentListComponent implements OnInit, IStudent {
+export class StudentListComponent implements OnInit {
 
-  Id: number = 0;
-  Name: string = '';
-  Age: number = 0;
-  Average: number = 0;
-  Grade: string = '';
-  IsActive: boolean = true;
-  IsPassed: boolean = true;
   studentList: Array<IStudent> = [];
 
   constructor() { 
