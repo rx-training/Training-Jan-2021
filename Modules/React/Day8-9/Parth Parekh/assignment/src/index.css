@@ -1,0 +1,23 @@
+body {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        120deg,
+        rgba(0, 0, 0, 1) 1%,
+        rgb(0, 0, 20) 2%,
+        rgb(8, 79, 111) 90%
+    );
+    color: white;
+    font-family: initial;
+}
+.radiosize {
+    height: 20px;
+    width: 20px;
+}
+
+.clearfix {
+    clear: both;
+}
+ul li {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    list-style-type: none;
+}
