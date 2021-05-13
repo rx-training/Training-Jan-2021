@@ -1,0 +1,16 @@
+form {
+  margin: 2rem;
+}
+input {
+  display: block;
+  margin: 1rem;
+}
+
+.nav-option:hover {
+  background-color: rgb(94, 94, 94);
+  cursor: pointer;
+}
+
+.nav-option {
+  border: 1px solid rgb(94, 94, 94);
+}
