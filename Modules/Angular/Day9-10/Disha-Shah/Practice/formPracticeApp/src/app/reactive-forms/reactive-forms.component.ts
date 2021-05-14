@@ -48,6 +48,15 @@ export class ReactiveFormsComponent implements OnInit {
     console.log(this.studentArr);
   }
 
+  updateProfile() {
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
+  }
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,42 +1,49 @@
 <div class="container mt-3">
+    <h2>Form Builder Practice</h2>
+
     <h3>Add Students Information</h3>
         <br>
     <div class="row">
         
         <form [formGroup] = "profileForm" (ngSubmit)="profileSubmit()">
             <label>First Name:
-                <input type="text" formControlName="firstName" class="form-control">
+                <input type="text" formControlName="firstName" class="form-control" required>
             </label>
+            <span style="color: red;" *ngIf="profileForm.controls.firstName.touched && profileForm.controls.firstName.invalid" class="ml-3">Firstname is required</span>
             <br>
             <label>Last Name:
-                <input type="text" formControlName="lastName" class="form-control">
+                <input type="text" formControlName="lastName" class="form-control" required>
             </label>
+            <span style="color: red;" *ngIf="LastName.touched && LastName.invalid" class="ml-3">Lastname is required</span>
+            <br>
             <br>
             <div formGroupName="address">
                 <h4>Address</h4>
               
                 <label>
                   Street:
-                  <input type="text" formControlName="street" class="form-control">
+                  <input type="text" formControlName="street" class="form-control" required>
                 </label>
                 <br>
               
                 <label>
                   City:
-                  <input type="text" formControlName="city" class="form-control">
+                  <input type="text" formControlName="city" class="form-control" required>
                 </label>
                 <br>
                 
                 <label>
                   State:
-                  <input type="text" formControlName="state" class="form-control">
+                  <input type="text" formControlName="state" class="form-control" required>
                 </label>
                 <br>
               
                 <label>
                   Zip Code:
-                  <input type="text" formControlName="zip" class="form-control">
+                  <input type="number" formControlName="zip" class="form-control" required  minlength="6" maxlength="6">
                 </label>
+                <span style="color: red;" *ngIf="Zip.touched && Zip.invalid" class="ml-3">Zip code of 6 digits is required</span>
+                <br>
             </div>
             <br>
             <div formArrayName = "hobbies">
@@ -46,7 +53,7 @@
                     <!--Repeated hobby template-->
                     <label>
                         Hobby:
-                        <input type="text" name="" id="" [formControlName]="i" class="form-control">
+                        <input type="text" name="" id="" [formControlName]="i" class="form-control" required>
                     </label>
                 </div>
             </div>
@@ -84,4 +91,12 @@
         </table>
 
     </div>
+
+    <p>
+        Form Value: {{ profileForm.value | json }}
+    </p>
+        
+    <p>
+        Form Status: {{ profileForm.status }}
+    </p>
 </div>

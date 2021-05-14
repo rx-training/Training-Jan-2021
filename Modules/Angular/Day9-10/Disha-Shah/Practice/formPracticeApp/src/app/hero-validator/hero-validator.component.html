@@ -1,0 +1,18 @@
+<div class="container">
+    <form [formGroup] = "heroForm" (ngSubmit)="profileSubmit()">
+        <input type="text" id="name" class="form-control"
+            formControlName="name" required>
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="alert alert-danger">
+
+            Name should be of atleast 4 charactes nd it should not be "bob"
+        
+        <input type="number" class="form-control" formControlName="phone" required>
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">10 digits valid phone number is required</div>
+
+
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+
+</div>
