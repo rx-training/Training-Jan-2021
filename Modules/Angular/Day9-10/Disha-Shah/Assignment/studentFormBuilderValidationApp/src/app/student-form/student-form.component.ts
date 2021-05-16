@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, FormArray, FormBuilder, Validators, AbstractControl, ValidatorFn} from '@angular/forms';
 import { IStudent } from '../models/IStudent';
-import { ageValidator} from '../Validators/dobValidator';
+import { dobValidator} from '../Validators/dobValidator';
+import { duplicateContact } from '../Validators/duplicateContact';
 
 @Component({
   selector: 'app-student-form',
@@ -27,73 +28,97 @@ export class StudentFormComponent implements OnInit {
   FatherEmail: AbstractControl;
   FatherQualification: AbstractControl;
   FatherProfession: AbstractControl;
+  FatherDesignation: AbstractControl;
   FatherPhone: AbstractControl;
   MotherFName: AbstractControl;
   MotherMName: AbstractControl;
   MotherLName: AbstractControl;
   MotherEmail: AbstractControl;
   MotherQualification: AbstractControl;
+  MotherProfession: AbstractControl;
+  MotherDesignation: AbstractControl;
   MotherPhone: AbstractControl;
 
-  emergencyIndex : number=0;
-
+  // getter for emergency contacts as array
   get getEmergencyContacts(){
     return this.studentForm.get('emergencyContacts') as FormArray;
   }
 
+  // add new emergency contact form group
   addEmergencyContacts(){
     this.getEmergencyContacts.push(this.fb.group({
       relation: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
-      contact: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])]
+      contact: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}'), duplicateContact('contact')])]
     }));
   }
-    
+  
+  // getter for reference details as array
   get getReferenceDetails(){
     return this.studentForm.get('referenceDetails') as FormArray;
   }
 
+  // add new reference details form group
   addReferenceDetails(){
     this.getReferenceDetails.push(this.fb.group({
       referenceThrough: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z. ]*')])],
       address: ['', Validators.required],
-      contact:['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])]
+      contact:['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}'), duplicateContact('contact')])]
     }));
 
   }
 
+  // getter for student full name as form group
   get getStudentName(){
     return this.studentForm.get('name') as FormGroup;
   }
 
+  // getter for student address as form group
   get getStudentAddress(){
     return this.studentForm.get('address') as FormGroup;
   }
 
+  // getter for father's info as form group
   get getFatherInfo(){
     return this.studentForm.get('father') as FormGroup;
   }
 
+  // getter for father's full name as form group
   get getFatherName(){
     return this.getFatherInfo.controls['fullName'] as FormGroup;
   }
 
+  // getter for mother's info as form group
   get getMotherInfo(){
     return this.studentForm.get('mother') as FormGroup;
   }
 
+  // getter for mather's full name as form group
   get getMotherName(){
     return this.getMotherInfo.controls['fullName'] as FormGroup;
   }
 
+  // get emergency contact's group to access .touched and .invalid properties on it's controls
   getEmergencyContactsGroup(i: number){
     return <FormGroup>(<FormArray>this.studentForm.get('emergencyContacts')).get(i.toString());
   }
 
+  // get reference details group to access .touched and .invalid properties on it's controls
   getReferenceDetailsGroup(i: number){
     return <FormGroup>(<FormArray>this.studentForm.get('referenceDetails')).get(i.toString());
   }
+  
+  // to update validity of it's ancestors
+  updateValidation(arrayName: any,field: string | (string | number)[])
+  {
+    (this.studentForm.get(arrayName) as FormArray).controls.forEach(
+      group=>group?.get(field)?.updateValueAndValidity()
+    )
+  }
 
+  // submit form
   profileSubmit(){
+    console.log(this.studentForm);
+    console.log(this.studentForm.value);
     console.log(this.studentForm.value.emergencyContacts);
     console.log(this.studentForm.value.emergencyContacts[0].relation);
     var newStudent: IStudent = {
@@ -133,6 +158,7 @@ export class StudentFormComponent implements OnInit {
     }
   }
 
+  // constructor to initialize form
   constructor(private fb: FormBuilder) { 
     this.studentForm = this.fb.group({
       name: this.fb.group({
@@ -140,14 +166,14 @@ export class StudentFormComponent implements OnInit {
         middle: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
         last: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])]
       }),
-      dob: ['', Validators.compose([Validators.required, ageValidator(5, 20)])],
+      dob: ['', Validators.compose([Validators.required, dobValidator(5, 20)])],
       birthPlace: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])],
       language: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
       address: this.fb.group({
         city: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
         state: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
         country: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
-        pin: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(6)])]
+        pin: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{6}')])]
       }),
       father: this.fb.group({
         fullName: this.fb.group({
@@ -168,7 +194,7 @@ export class StudentFormComponent implements OnInit {
           last: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])]
         }),
         email: ['example@gmail.com', Validators.compose([Validators.required, Validators.email])],
-        qualification: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        qualification: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z. ]*')])],
         profession: ['', Validators.pattern('[a-zA-Z ]*')],
         designation: ['', Validators.pattern('[a-zA-Z ]*')],
         phone: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])]
@@ -176,14 +202,14 @@ export class StudentFormComponent implements OnInit {
       emergencyContacts: this.fb.array([
         this.fb.group({
           relation: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
-          contact: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])]
+          contact: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}'), duplicateContact('contact')])]
         })
       ]),
       referenceDetails: this.fb.array([
         this.fb.group({
           referenceThrough: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z. ]*')])],
           address: ['', Validators.required],
-          contact: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])]
+          contact: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}'), duplicateContact('contact')])]
         })
       ])
     });
@@ -201,12 +227,15 @@ export class StudentFormComponent implements OnInit {
     this.FatherEmail = this.getFatherInfo.controls['email'];
     this.FatherQualification = this.getFatherInfo.controls['qualification'];
     this.FatherProfession = this.getFatherInfo.controls['profession'];
+    this.FatherDesignation = this.getFatherInfo.controls['designation'];
     this.FatherPhone = this.getFatherInfo.controls['phone'];
     this.MotherFName = this.getMotherName.controls['first'];
     this.MotherMName = this.getMotherName.controls['middle'];
     this.MotherLName = this.getMotherName.controls['last'];
     this.MotherEmail = this.getMotherInfo.controls['email'];
     this.MotherQualification = this.getMotherInfo.controls['qualification'];
+    this.MotherProfession = this.getMotherInfo.controls['profession'];
+    this.MotherDesignation = this.getMotherInfo.controls['designation'];
     this.MotherPhone = this.getMotherInfo.controls['phone'];
   }
 
