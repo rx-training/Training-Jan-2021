@@ -1,0 +1,53 @@
+const mongoose = require('mongoose')
+
+const assignemntSchema = require('./assignments.models').schema
+
+const empSchema = new mongoose.Schema({
+  AddressLine1: { type: String },
+  AddressLine2: { type: String },
+  AddressLine3: { type: String },
+  assignments: [assignemntSchema] ,     // Assignments
+  CitizenshipId: { type: Number },
+  CitizenshipLegislationCode: { type: String },
+  CitizenshipStatus: { type: String },
+  CitizenshipToDate: { type: Date },
+  City: { type: String },
+  CorrespondenceLanguage: { type: String },
+  Country: { type: String },
+  CreationDate: { type: Date },
+  DateOfBirth: { type: Date },
+  directReports: { type: Array },
+  DisplayName: { type: String },
+  DriversLicenseExpirationDate: { type: Date },
+  DriversLicenseId: { type: Number },
+  DriversLicenseIssuingCountry: { type: String },
+  EffectiveStartDate: { type: Date },
+  Ethnicity: { type: String },
+  FirstName: { type: String },
+  Gender: { type: String },
+  HireDate: { type: Date },
+  HomeFaxAreaCode: { type: String },
+  HomeFaxCountryCode: { type: String },
+  HomeFaxExtension: { type: String },
+  HomeFaxLegislationCode: { type: String },
+  HomeFaxNumber: { type: String },
+  HomePhoneAreaCode: { type: String },
+  HomePhoneCountryCode: { type: String },
+  HomePhoneExtension: { type: String },
+  HomePhoneLegislationCode: { type: String },
+  HomePhoneNumber: { type: String },
+  Honors: { type: String },
+  LastName: { type: String },
+  LastUpdateDate: { type: Date },
+  LegalEntityId: { type: Number },
+  LicenseNumber: { type: String },
+  links: { type: Array },
+  MaritalStatus: { type: String },
+  MiddleName: { type: String },
+  MilitaryVetStatus: { type: String },
+  NameSuffix: { type: String },
+  NationalId: { type: String },
+  NationalIdCountry: { type: String },
+})
+
+module.exports = mongoose.model('Employees', empSchema)
