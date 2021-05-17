@@ -11,6 +11,8 @@ import { duplicateContact } from '../Validators/duplicateContact';
 })
 export class StudentFormComponent implements OnInit {
 
+  submitted=false;
+
   studentList: Array<IStudent>=[];
 
   studentForm;
@@ -117,6 +119,8 @@ export class StudentFormComponent implements OnInit {
 
   // submit form
   profileSubmit(){
+    this.submitted = true;
+
     console.log(this.studentForm);
     console.log(this.studentForm.value);
     console.log(this.studentForm.value.emergencyContacts);
@@ -156,6 +160,8 @@ export class StudentFormComponent implements OnInit {
     for(var obj of this.getEmergencyContacts.value){
       console.log(obj.relation + " " + obj.contact);
     }
+
+    this.studentForm.reset();
   }
 
   // constructor to initialize form
@@ -181,7 +187,7 @@ export class StudentFormComponent implements OnInit {
           middle: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
           last: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])]
         }),
-        email: ['example@gmail.com', Validators.compose([Validators.required, Validators.email])],
+        email: ['', Validators.compose([Validators.required, Validators.email])],
         qualification:['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z. ]*')])],
         profession: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])],
         designation: ['', Validators.pattern('[a-zA-Z ]*')],
@@ -193,7 +199,7 @@ export class StudentFormComponent implements OnInit {
           middle:['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
           last: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])]
         }),
-        email: ['example@gmail.com', Validators.compose([Validators.required, Validators.email])],
+        email: ['', Validators.compose([Validators.required, Validators.email])],
         qualification: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z. ]*')])],
         profession: ['', Validators.pattern('[a-zA-Z ]*')],
         designation: ['', Validators.pattern('[a-zA-Z ]*')],

@@ -636,7 +636,7 @@
         <button type="submit" class="btn btn-primary mt-3" [disabled]="!studentForm.valid">Submit</button>
     </form>
     <br>
-    <div class="row">
+    <div class="row" *ngIf="submitted">
 
         <!--table of student's information-->
         <h3>Students List</h3>
@@ -704,13 +704,13 @@
             </tbody>
         </table>
 
-        <p>
-            Form Value: {{ studentForm.value | json }}
-        </p>
-
-        <p>
-            Form Status: {{ studentForm.status }}
-        </p>
-
     </div>
+
+    <p>
+        Form Value: {{ studentForm.value | json }}
+    </p>
+
+    <p>
+        Form Status: {{ studentForm.status }}
+    </p>
 </div>
