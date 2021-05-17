@@ -1,0 +1,10 @@
+<input type="text" [(ngModel)] = "show" disabled>
+<button (click)= "showOrHide()">showOrHide</button>
+<div *ngIf="show" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam voluptatum neque corrupti explicabo aut nisi sapiente alias, ea possimus ex atque sint eligendi? Nobis exercitationem quod eligendi totam possimus.</div>
+
+<input type="number" [(ngModel)]="a">
+<input type="number" [(ngModel)]="b">
+<button (click)="valid()">Substract</button>
+
+<p  *ngIf= "data">Substaction is Possiblee</p>
+<p *ngIf="!data">Enter Valid Data</p>

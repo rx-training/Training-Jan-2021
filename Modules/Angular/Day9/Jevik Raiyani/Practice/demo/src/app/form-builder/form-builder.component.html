@@ -1,0 +1,36 @@
+<div>
+    <form [formGroup]="bookForm" (ngSubmit)="submitdata()">
+        Name <input type="text" formControlName="Name" required>
+        <span style="color: red;" *ngIf="bookForm.controls.Name.invalid && !bookForm.controls.Name.untouched">Value is required</span>
+        Author <input type="text" formControlName="Author">
+        Price <input type="text" formControlName="Price">
+
+        <div formGroupName="Publisher">
+            Publisher Name <input type="text" formControlName="PublisherName">
+            Contact Number <input type="text"   formControlName="ContactNumber">
+
+            <div formGroupName="Location"> 
+                City <input type="text" formControlName="City">
+                Landmark <input type="text" formControlName="Landmark"> 
+                State <input type="text" formControlName="State"> 
+
+            </div>
+
+        </div>
+
+        <div formArrayName="Subscriber">
+            <div *ngFor="let item of getSubscriber.controls; let idx= index">
+                <div [formGroupName]="idx">
+                    <input type="text"  formControlName="SubscriberName">
+                    <input type="text"  formControlName="SubscriberContactNummber">
+                    <input type="date" formControlName="Purchasedate">
+                </div>
+            </div>
+        </div>
+
+        <button>submit data</button>
+
+
+    </form>
+</div>
+

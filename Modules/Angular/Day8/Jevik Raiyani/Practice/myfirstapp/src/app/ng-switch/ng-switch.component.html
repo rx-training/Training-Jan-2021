@@ -1,0 +1,24 @@
+<input type = "text" [(ngModel)]="num" >
+
+
+<div [ngSwitch]= "num">
+    <div *ngSwitchCase =1>
+        <div>
+            <li>
+               rating {{num}}
+            </li>
+            </div>
+    </div>
+    <div *ngSwitchCase =2 >
+        <li>
+            rating {{num}}
+    </li></div> 
+</div>
+
+<div *ngFor="let product of productList; let idx= index, let first=first, let last= last,let even = even"
+            [ngSwitch]="product.rating">
+        
+        <span *ngSwitchCase="1" [ngStyle]="{'font-size':'18px','color':'green'}" >{{product.ProductName}}</span>      
+        <span *ngSwitchCase="2" [ngStyle]="{'font-size':'18px','color':'red'}" >{{product.ProductName}}</span>      
+            
+</div>
