@@ -23,6 +23,9 @@ GET : http://localhost:3000/redbus.in/admin/bus/:busid    //GET BUS DETAIL BU BU
 GET : 
 GET : http://localhost:3000/redbus.in/admin/route/all  //GET ALL ROUTES
 
+GET : http://localhost:3000/api/admin/income/:year/ //get yearly income
+
+GET : http://localhost:3000/api/admin/income/:year/:month //get monthly income
 
 
 

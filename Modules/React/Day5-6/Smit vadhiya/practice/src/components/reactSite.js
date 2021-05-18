@@ -189,14 +189,12 @@ const fullName = {
 class TempInput extends Component {
     constructor(props){
         super(props)
-        this.state = {temp :''}
     }
 
     
 
     render() {
         const changeTemp = (e) => {
-            this.setState({temp : e.target.value})
             this.props.change(e.target.value)
         }
         return (
@@ -216,13 +214,12 @@ export class TempConvert extends Component {
         super(props)
         this.state = {celsius: '', fahrenheit : ''}
     }
+
     printCelsius = (fahrenheit) => {
         this.setState({celsius : toCelsius(fahrenheit),fahrenheit : fahrenheit})
-        console.log(fahrenheit);
     }
     printFahrenheit = (celsius) => {
         this.setState({fahrenheit : toFahrenheit(celsius),celsius : celsius})
-        console.log(celsius);
     }
 
     render() {

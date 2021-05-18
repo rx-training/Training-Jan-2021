@@ -1,0 +1,21 @@
+#root{
+   margin-top: 50px;
+}
+.full-name{
+   display: grid;
+   grid-template-columns: auto 1fr 1fr;
+   grid-gap: 20px;
+}
+label{
+   font-size: 25px;
+}
+.stdDiv{
+   border: 1px solid black;
+   padding: 20px 10px;
+}
+.email{
+   margin-top: 40px;
+   display: grid;
+   grid-template-columns: auto 1fr ;
+   grid-gap: 20px;
+}

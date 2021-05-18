@@ -1,0 +1,14 @@
+.mainDiv{
+  border: 2px solid red;
+  height: 500px;
+  
+  align-items: center;
+  justify-content: center;
+}
+.subDiv{
+  display: inline-block;
+  border: 2px solid black;
+}
+.subDiv h1{
+  margin: 2px;
+}

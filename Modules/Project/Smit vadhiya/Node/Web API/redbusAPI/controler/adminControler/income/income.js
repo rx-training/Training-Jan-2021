@@ -8,7 +8,7 @@ class Income {
                 [{tripDate : {$gte : new Date(year)}},
                 {tripDate : {$lt : new Date((parseInt(year) + 1).toString()) }}]
             }).select('tripDate farePrice -_id')
-            return data
+        return data
     }
     static async getByYear(req,res){
         const year = req.params.year
@@ -19,11 +19,14 @@ class Income {
     } 
     static async getByMonth(req,res){
         const year = req.params.year
-        const month = req.params.month
+        const month = parseInt(req.params.month)
         const data = await Income.getYearData(year)
-        var total = data.filter((i) => i.farePrice == 955.2)
-        data.push(total)
-        res.send(data);
+        
+        var filterData = data.filter((i) => i.tripDate.getMonth() == (month-1))
+        var total = 0
+        for(var i of filterData) total += i.farePrice 
+        
+        res.send(`total income in year of ${month}/${year} : ${total}rs`);
     } 
 
 }
