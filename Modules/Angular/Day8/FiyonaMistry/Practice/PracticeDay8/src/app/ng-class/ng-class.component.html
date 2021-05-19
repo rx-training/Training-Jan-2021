@@ -1,0 +1,26 @@
+<h1>NgClass</h1>
+<!-- NgClass with an exxpression -->
+<div [ngClass]="isSpecial ? 'special' : ''">Special div (NgClass = true; So, the bg is black)</div>
+ 
+<!-- NgClass with a method -->
+<!-- <div [ngClass]="currentClass">This is the ngClass method div</div> -->
+<div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special.</div>
+<ul>
+  <li>
+    <label for="saveable">saveable</label>
+    <input type="checkbox" [(ngModel)]="canSave" id="saveable">
+  </li>
+  <li>
+    <label for="modified">modified:</label>
+    <input type="checkbox" [value]="!isUnchanged" (change)="isUnchanged=!isUnchanged" id="modified"></li>
+  <li>
+    <label for="special">special: <input type="checkbox" [(ngModel)]="isSpecial" id="special"></label>
+</li>
+</ul>
+<button (click)="setCurrentClasses()">Refresh currentClasses</button>
+
+
+<div [ngClass]="currentClasses">
+    This div should be {{ canSave ? "saveable": "not"}} saveable,
+                    {{ isUnchanged ? "unchanged" : "modified" }} and
+                    {{ isSpecial ? "": "not"}} special after clicking "Refresh".</div>

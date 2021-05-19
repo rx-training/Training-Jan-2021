@@ -1,0 +1,19 @@
+<h1>NgStyle</h1>
+<!-- Hard-coded color -->
+<div [style.color]="isSpecial ? 'Green' : 'Red'">This div is connected with NgStyle</div>
+
+<!-- NgStyle -->
+<h4>[ngStyle] This is the div in which NgStyle is used by-default.</h4>
+
+<p>currentStyles is {{currentStyles | json}}</p>
+
+<label>italic: <input type="checkbox" [(ngModel)]="canSave"></label> |
+<label>normal: <input type="checkbox" [(ngModel)]="isUnchanged"></label> |
+<label>xlarge: <input type="checkbox" [(ngModel)]="isSpecial"></label>
+<button (click)="setCurrentStyles()">Refresh currentStyles</button>
+<br><br>
+<div [ngStyle]="currentStyles">
+  This div should be {{ canSave ? "italic": "plain"}},
+                  {{ isUnchanged ? "normal weight" : "bold" }} and,
+                  {{ isSpecial ? "extra large": "normal size"}} after clicking "Refresh".</div>
+                  
