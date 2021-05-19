@@ -1,0 +1,17 @@
+<form>
+    <div class="form-group">
+      <label for="Email">UserName</label>
+      <input type="text" class="form-control" name="inputUsername" aria-describedby="emailHelp" placeholder="Enter Username"
+      [(ngModel)]="username">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your UserName with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="Password">Password</label>
+      <input type="password" class="form-control" name="InputPassword1" placeholder="Password"
+      [(ngModel)]="password">
+    </div>
+   
+    <button type="submit" class="btn btn-primary" (click)="Validate()">Submit</button>
+  </form>
+
+<h2  class="display2">Login Status: {{Result}}</h2>

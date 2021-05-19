@@ -1,0 +1,11 @@
+<app-top-bar></app-top-bar>
+
+<div class="container">
+  <!-- <router-outlet></router-outlet> -->
+  <!-- <app-parent></app-parent>
+  <hr>
+  <app-student-form></app-student-form> -->
+  <h2>Assignment</h2>
+  <app-student-form (FormValue)="sendData($event)" ></app-student-form>
+  <app-student-list [stdData]="parentData" ></app-student-list>
+</div>

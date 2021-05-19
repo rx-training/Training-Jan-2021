@@ -29,7 +29,7 @@ class Book implements booking{
         console.log(`The token number is:${this.Token}`);
        };
         
-        
+        // double id can not be booked and cancel order implementation
 
     };
   

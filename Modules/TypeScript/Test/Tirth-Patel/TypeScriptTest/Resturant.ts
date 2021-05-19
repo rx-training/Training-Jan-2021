@@ -19,6 +19,7 @@ for(let table of Tables){
 var book1 = new Book(null,newCustomer.CustomerId,2,new Date("2021-09-10"));
 
 book1.Createbooking(book1);
+
 //checking the all the bookings 
 for(let bookings of AllBookings){
     console.log(bookings);

@@ -1,0 +1,32 @@
+<h2 class="display1 text-center">Assignment</h2>
+<hr>
+
+<table class="table table-hover table-striped table-responsive" >
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Average</th>
+        <th>Grade</th>
+        <th>Active-Status</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <tr *ngFor="let student of students"   [ngStyle]="{backgroundColor:getColor(student)}" >
+        <ng-container *ngIf ="student.Active">
+<td>{{student.Id}}</td>
+<td>{{student.Name}}</td>
+<td>{{student.Age}}</td>
+<td>{{student.Average}}</td>
+<td>{{student.Grade}}</td>
+<td>{{student.Active}}</td>
+</ng-container>
+
+    </tr>
+
+</tbody>
+
+</table>
+
