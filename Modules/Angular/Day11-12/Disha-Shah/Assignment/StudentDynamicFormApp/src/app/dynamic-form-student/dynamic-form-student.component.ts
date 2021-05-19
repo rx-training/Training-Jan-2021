@@ -11,35 +11,39 @@ export class DynamicFormStudentComponent implements OnInit {
 
   @Input() student: StudentBase<string>;
   @Input() form: FormGroup;
+  
   get isValid() { 
     console.log('split result:' + this.student.key.split('.'));
     let keys = this.student.key.split('.');
-    if(keys[0]=='name')
-    {
-      console.log(this.getStudentName);
-      console.log(this.getStudentName.controls);
-      console.log(this.getStudentName.controls[keys[1]]);
-      console.log('result: ' + this.getStudentName.controls[keys[1]].valid);
-      return this.getStudentName.controls[keys[1]].valid || this.getStudentName.controls[keys[1]].untouched; 
+    if(this.getKeys(this.student).length==2)
+    { 
+      console.log(this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1]));
+      console.log(this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1]).valid || this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1]).untouched);
+      return this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1]).valid || this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1]).untouched; 
+    }
+    else if(this.getKeys(this.student).length==3)
+    { 
+      console.log(this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1] + '.' + this.getKeys(this.student)[2]));
+      console.log(this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1] + '.' + this.getKeys(this.student)[2]).valid || this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1] + '.' + this.getKeys(this.student)[2]).untouched);
+      return this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1] + '.' + this.getKeys(this.student)[2]).valid || this.form.get(this.getKeys(this.student)[0] + '.' + this.getKeys(this.student)[1] + '.' + this.getKeys(this.student)[2]).untouched; 
     }
     else{
       return this.form.controls[this.student.key].valid || this.form.controls[this.student.key].untouched; 
     }
   }
 
-  get getStudentName(){
-    return this.form.get('name') as FormGroup;
+  getKeys(student: StudentBase<string>): string[]{
+    let keys = student.key.split('.');
+    return keys;
   }
 
   constructor() { 
   }
 
   ngOnInit(): void {
-    // console.log(this.student);
-    // console.log(this.form);
-    // console.log(this.getStudentName);
-    // console.log(this.getStudentName.controls);
-    // console.log(this.isValid);
+    console.log(this.student);
+    console.log(this.form);
+    console.log(this.isValid);
   }
 
 }

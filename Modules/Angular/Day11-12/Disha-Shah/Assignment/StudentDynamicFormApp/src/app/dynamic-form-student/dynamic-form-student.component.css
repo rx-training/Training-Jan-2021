@@ -1,8 +1,8 @@
 .errorMessage{
     color: #a94442;
-    margin-left: 15px;
+    margin-left: 32px;
 }
 
-  input.ng-invalid:not(form).ng-touched  {
-    border: 2px solid #a94442; /* red */
-  }
+input.ng-invalid:not(form).ng-touched  {
+  border: 2px solid #a94442; /* red */
+}
