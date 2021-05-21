@@ -1,0 +1,140 @@
+<style>
+    .flex-container{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.flex-container>div{
+    background-color: white;
+    color:black;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: xx-large
+}
+.flex-container1{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    height: 200px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: cadetblue;
+}
+.flex-container1>div{
+    background-color: coral;
+    color: black;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: xx-large;
+}
+.flex-container2{
+    display: flex;
+    flex-flow: column wrap;
+    background-color: brown;
+}
+.flex-container2>div{
+    background-color: pink;
+    color: black;
+    width: 50px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: xx-large;
+}
+.flex-container3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    background-color: cadetblue;
+}
+.flex-container3>div{
+    background-color: coral;
+    color: black;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: xx-large;
+}
+.flex-container4{
+    display: flex;
+    flex-flow: row wrap;
+    background-color: brown;
+}
+.flex-container4>div{
+    background-color: pink;
+    color: black;
+    width: 50px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: xx-large;
+}
+.flex-container5{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: cadetblue;
+}
+.flex-container5>div{
+    background-color: coral;
+    color: black;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: xx-large;
+}
+
+</style>
+
+<div class="wrapper">
+    <!-- Page Content -->
+    <div id="content" class="w-100">
+        
+        <div class="px-5 pt-2">
+            <div class="flex-container">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+            <div class="flex-container1">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+            <div class="flex-container2">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+            <div class="flex-container3">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+            <div class="flex-container4">
+                <div style="order: 3; flex-grow: 2;">1</div>
+                <div style="order: 1; flex-grow: 1;">2</div>
+                <div style="order: 2; flex-grow: 4;">3</div>
+            </div>
+            <div class="flex-container5">
+                <div>1</div>
+                <div style="flex: 0 0 200px;">2</div>
+                <div>3</div>
+            </div>
+        </div>
+    </div>
+</div>

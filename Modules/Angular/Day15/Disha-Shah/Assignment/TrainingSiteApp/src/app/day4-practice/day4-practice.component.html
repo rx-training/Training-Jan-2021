@@ -1,0 +1,182 @@
+<style>
+.main{
+    background-color: blue;
+}
+.main-area{
+    border: 5px solid white;
+    margin-top: auto;
+    padding: 30px 10px;
+    
+}
+#para1{
+    border: 5px dashed white;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+}
+.city li{
+    display: inline;
+    text-decoration: none;
+    margin: 20px;
+    font-size: large;
+}
+.city a:link{
+    text-decoration: none;
+    color: white;
+}
+.city a:visited{
+    text-decoration: none;
+    color: purple;
+}
+.city a:hover{
+    text-decoration: none;
+    color: red;
+}
+.city a:active{
+    text-decoration: none;
+    color: yellow;
+}
+div>p:first-child{
+    background-color: yellow;
+}
+div>p::first-letter{
+    color: red;
+    font-size: xx-large;
+}
+div>p:last-child{
+    background-color: white;
+}
+div>p::before{
+    content: 'start - ';
+}
+div>p::after{
+    content: ' - end';
+}
+
+/*-------------------------------------------*/
+.main-area{
+    border: 5px solid teal;
+    margin-top: auto;
+    padding-bottom: 50px;
+}
+h1,h2{
+    color: greenyellow;
+}
+table,th,td{
+    border: 3px solid black;
+    border-collapse: collapse;
+    width: 1000px;
+    height: 50px;
+    margin-left:auto; 
+    margin-right:auto;   
+}
+th{
+    background-color:darkslateblue;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+td{
+    text-align: center;
+}
+tr:nth-child(even){
+    background-color: pink;
+    color: crimson;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+tr:nth-child(odd){
+    background-color: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+#grade{
+    background-color: yellowgreen;
+    color:black;
+}
+
+</style>
+
+<div class="wrapper">
+    <!-- Page Content -->
+    <div id="content" class="main">
+        
+        <div class="px-5 pt-2" style="text-align: center;">
+            <div class="main-area">
+                <h2>Select Your City:</h2>
+                <ul class="city">
+                    <li><a href="#" target="_blank">Ahmedabad</a></li>
+                    <li><a href="#" target="_self">Gandhinagar</a></li>
+                    <li><a href="#" target="_blank">Mumbai</a></li>
+                    <li><a href="#" target="_self">Hyderabad</a></li>
+                </ul>
+                <p id="para1">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi nostrum animi assumenda! Tempora, non libero. Provident tenetur laborum nihil cum. Quaerat vel autem culpa incidunt rerum recusandae. Laboriosam, modi repellat.
+                </p>
+                <div>
+                    <p>This paragraph is the first child of its parent (div).</p>
+                    <p>This paragraph is not the first child of its parent.</p>
+                </div>
+            </div>
+            <p style="font-size: xx-large;color: black;">This Para is out of div tag</p>
+        </div>
+    
+        <div class="px-5 pt-2" style="text-align: center;">
+            <div class="main-area">
+                <div>
+
+                    <h1>Heading1</h1>
+
+                    <h2>Sub Heading</h2>
+
+                    <h1>Heading2</h1>
+
+                    <h2>Sub heading</h2>
+
+                </div>
+            <h1 style="color: black;">Student Report Card</h1>
+            <table>
+                <caption style="margin-bottom: 30px;">Report Card</caption>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No</th>
+                    <th>Year Of Passing</th>
+                    <th>DS</th>
+                    <th>OS</th>
+                    <th>ADA</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>Rachel Green</td>
+                    <td>12</td>
+                    <td>2021</td>
+                    <td>90</td>
+                    <td>90</td>
+                    <td>90</td>
+                    <td id="grade">A</td>
+                </tr>
+                <tr>
+                    <td>Ross Geller</td>
+                    <td>16</td>
+                    <td>2020</td>
+                    <td>94</td>
+                    <td>94</td>
+                    <td>94</td>
+                    <td id="grade">A</td>
+                </tr>
+                <tr>
+                    <td>Phoebe Buffay</td>
+                    <td>19</td>
+                    <td>2021</td>
+                    <td>96</td>
+                    <td>96</td>
+                    <td>96</td>
+                    <td id="grade">A</td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div>

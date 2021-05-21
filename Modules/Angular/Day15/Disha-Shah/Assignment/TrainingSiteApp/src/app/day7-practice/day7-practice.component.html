@@ -1,0 +1,78 @@
+<style>
+    .wrapper1{
+    text-align: center;
+    border: 5px solid red;
+}
+.wrapper-breakpoint{
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: darkolivegreen;
+    color: white;
+    font-size: small;
+}
+.hide-element{
+    
+    display: none;
+}
+@media only screen and (min-width: 500px){
+    .wrapper1{
+        border: 5px solid blue;
+    }
+    .wrapper-breakpoint{
+        background-color: brown;
+        font-size: medium;
+    }
+}
+
+@media only screen and (min-width: 700px){
+    .wrapper-breakpoint{
+        background-color: blueviolet;
+        font-size: large;
+    }
+}
+@media only screen and (min-width: 900px){
+    .wrapper-breakpoint{
+        background-color: dimgrey;
+        font-size: x-large;
+    }
+}
+@media only screen and (min-width:1000px){
+    .wrapper-breakpoint{
+        background-color: darkgoldenrod;
+        font-size: xx-large;
+    }
+}
+@media only screen and (min-width:500px){
+    .hide-element{
+        display: block;
+        text-align: center;
+        background-color: dodgerblue;
+        margin-top: 20px;
+        padding: 20px;
+    }
+}
+
+</style>
+
+<div class="wrapper">
+    <!-- Page Content -->
+    <div id="content" class="w-100">
+        
+        <div class="px-5 pt-2">
+            <div class="wrapper1">
+                    <h1>This is heading</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate porro deserunt enim pariatur vel itaque aliquid fugiat minima deleniti soluta doloribus placeat ipsam, velit laudantium consequatur voluptas natus qui quia.</p>
+            </div>
+            <div class="wrapper-breakpoint">
+                <h1>This is breakpoint example</h1>
+                <h2>Font size will also be changed accordingly</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident praesentium ratione dolorum vero id commodi dolore est autem non, molestiae quas ipsam molestias minima reprehenderit natus! Ipsa nobis perferendis nostrum.</p>
+            </div>
+            <div class="hide-element">
+                    <h1>This element will be hidden in small screen size</h1>
+            </div>
+            <h1>Above element will be hidden in small screen size</h1>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a routerLink="/users/{{user.id}}/{{user.name}}" routerLinkActive="active" class="list-group-item" *ngFor="let user of users; let i = index">
+                    {{user.name}}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+            <p>users works!</p>
+        </div>
+    </div>
+</div>
