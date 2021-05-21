@@ -21,9 +21,6 @@ class StudentController {
   //To insert student
   static async insertStudent(req, res) {
     let data = req.body;
-    const students = await StudentModel.find().select("-__v");
-    let id = students.length + 1;
-    data._id = id;
     const student = new StudentModel(data);
     try {
       const result = await student.save();

@@ -4,6 +4,7 @@ function StudentId({
   student: { firstName, middleName, lastName, city, stdImg, _id, gender, dob },
   handleInfo,
 }) {
+  let id = _id.substr(_id.length - 4);
   return (
     <div className="col-md-4 text-white text-center">
       <div className="bg-secondary rounded pt-2 mb-2">
@@ -11,11 +12,11 @@ function StudentId({
           src={`./img/user/${stdImg}`}
           width="50px"
           height="50px"
-          className="border border-light rounded "
+          className="border border-light rounded"
           alt="student"
         />
         <div>
-          <h6 className="m-0 text-capitalize">ID : {_id} </h6>
+          <h6 className="m-0 text-capitalize">ID : {id} </h6>
           <h6 className="m-0 text-capitalize">
             NAME : {firstName + " " + middleName + " " + lastName}
           </h6>

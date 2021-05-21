@@ -220,7 +220,6 @@ export default class Form extends Component {
     event.preventDefault();
     if (this.validateForm(this.state.errors)) {
       const student = {
-        _id: this.state._id,
         firstName: this.state.firstName,
         middleName: this.state.middleName,
         lastName: this.state.lastName,
