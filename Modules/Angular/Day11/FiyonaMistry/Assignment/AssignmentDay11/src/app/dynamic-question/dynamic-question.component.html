@@ -1,0 +1,14 @@
+<div [formGroup]="AdmissionForm" >
+    <div class="row">
+        <!-- <label [attr.for]="question.key">{{ question.label }}</label> -->
+        <div [ngSwitch]="question.controlType">
+            <input [type]="question.type" [formControlName]="question.key" [id]="question.key" *ngSwitchCase="'textbox'" [class]="question.class" class="form-control my-2" [placeholder]="question.label">
+            <input [formControlName]="question.key" [id]="question.key" *ngSwitchCase="'date'" [class]="question.class" class="form-control my-2" [placeholder]="question.label">
+        </div>
+        <ng-container *ngFor="let validation of question.validations;">
+            <div *ngIf="AdmissionForm.get(question.key).hasError(validation.name)">{{validation.msg}}</div>
+        </ng-container>
+    </div>
+</div>
+
+

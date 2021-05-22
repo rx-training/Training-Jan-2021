@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { of } from 'rxjs';
+import { stringValidation } from 'src/app/shared/StringValidation';
 import { QuestionBase } from './question-base';
 import { DateQuestion } from './question-date';
 import { TextboxQuestion } from './question-textbox';
@@ -16,8 +18,11 @@ export class QuestionService {
         new TextboxQuestion({
             key : 'firstName',
             label : 'First Name',
-            required : true,
-            order : 1
+            order : 1,
+            validations : [
+              {name : "required", validator : Validators.required, msg : "First Name is required"},
+              {name : "str", validator : stringValidation(/^[a-zA-Z]+$/), msg : "Name cannot include numbers"}
+            ]
         }),
         new TextboxQuestion({
             key : 'middleName',
@@ -51,7 +56,7 @@ export class QuestionService {
         }),
         new TextboxQuestion({
           key : 'city',
-          label : 'city',
+          label : 'City',
           required : true,
           order : 7
         }),
@@ -125,79 +130,79 @@ export class QuestionService {
           key : 'MfirstName',
           label : 'Mother First Name',
           required : true,
-          order : 11
+          order : 19
         }),
         new TextboxQuestion({
           key : 'MmiddleName',
           label : 'Mother Middle Name',
           required : true,
-          order : 12
+          order : 20
         }),
         new TextboxQuestion({
           key : 'MlastName',
           label : 'Mother Last Name',
           required : true,
-          order : 13
+          order : 21
         }),
         new TextboxQuestion({
           key : 'Memail',
           label : 'Mother Email',
           required : true,
-          order : 14
+          order : 22
         }),
         new TextboxQuestion({
           key : 'MeducationQualification',
           label : 'Mother Education Qualification',
           required : true,
-          order : 15
+          order : 23
         }),
         new TextboxQuestion({
           key : 'Mprofession',
           label : 'Mother Profession',
           required : true,
-          order : 16
+          order : 24
         }),
         new TextboxQuestion({
           key : 'Mdesignation',
           label : 'Mother Designation',
           required : true,
-          order : 17
+          order : 25
         }),
         new TextboxQuestion({
           key : 'Mphone',
           label : 'Mother Phone',
           required : true,
-          order : 18
+          order : 26
         }),
         new TextboxQuestion({
           key : 'relation',
           label : 'Relation',
           required : true,
-          order : 19
+          order : 27
         }),
         new TextboxQuestion({
           key : 'Contact',
           label : 'Contact',
           required : true,
-          order : 20
+          order : 28
         }),
         new TextboxQuestion({
           key : 'refThrough',
           label : 'Reference Through',
           required : true,
-          order : 21
+          order : 29
         }),
         new TextboxQuestion({
           key : 'refAddress',
           label : 'Reference Address',
           required : true,
-          order : 22
+          order : 30
         }),
         new TextboxQuestion({
           key : 'refPhone',
           label : 'Reference Phone',
           required : true,
-          order : 23
+          order : 31
         })
     ];
     return of(questions.sort((a, b) => a.order - b.order));
