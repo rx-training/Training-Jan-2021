@@ -1,0 +1,8 @@
+<p *ngIf="product.price > 700">
+    <button (click)="notify.emit()">Notify Me</button>
+</p>
+
+<h2>Child Component</h2>
+<button class="btn btn-primary" (click)="increment()">Increment</button>
+<button class="btn btn-primary" (click)="decrement()">Decrement</button>
+<p>Current Count : {{ count }}</p>
