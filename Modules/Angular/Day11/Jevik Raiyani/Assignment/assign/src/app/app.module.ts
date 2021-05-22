@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import  {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormAssignmentComponent } from './form-assignment/form-assignment.component';
+import { DynamicFormInputComponent } from './dynamic-form-input/dynamic-form-input.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormAssignmentComponent
+    DynamicFormInputComponent,
+    DynamicFormComponent
   ],
   imports: [
     BrowserModule,
