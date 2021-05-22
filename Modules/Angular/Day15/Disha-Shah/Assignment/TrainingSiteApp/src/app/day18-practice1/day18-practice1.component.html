@@ -1,1 +1,19 @@
-<p>day18-practice1 works!</p>
+<div class="wrapper">
+    <!-- Page Content -->
+    <div id="content" class="w-100">
+        
+        <div class="container mt-5">
+            <h1 class="h3">Callback practice(Square of a Number)</h1>
+            <form>
+                <div class="form-group">
+                    <label for="num1">Enter Number</label>
+                    <input type="number" name="" id="num1" class="form-control">
+                </div>
+                <input type="submit" value="Click Me" class="btn btn-primary" onclick="return mySquare((c)=>{
+                    document.getElementById('result').innerHTML = 'Result is: ' + c*c
+                })">
+            </form>
+            <h1 class="h4" id="result"></h1>
+        </div>
+    </div>
+</div>

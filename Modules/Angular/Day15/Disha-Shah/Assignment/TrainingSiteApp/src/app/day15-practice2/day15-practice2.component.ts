@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import {practice} from './practice2.js';
 
 @Component({
   selector: 'app-day15-practice2',
@@ -10,6 +11,8 @@ export class Day15Practice2Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    practice();
+    
   }
 
 }

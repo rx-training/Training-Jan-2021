@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { assignment } from './assignment.js';
 
 @Component({
   selector: 'app-day15-assignment',
@@ -10,6 +11,7 @@ export class Day15AssignmentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    assignment();
   }
 
 }

@@ -18,7 +18,7 @@ using MimeKit;
 
 namespace BookMyShowAPI.Controllers
 {
-    [Route("api/BookMyShow/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthenticateController : ControllerBase
     {

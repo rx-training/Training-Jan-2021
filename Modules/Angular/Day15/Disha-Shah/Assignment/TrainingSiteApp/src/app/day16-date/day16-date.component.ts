@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {date} from './date.js';
 
 @Component({
   selector: 'app-day16-date',
@@ -10,6 +11,7 @@ export class Day16DateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    date();
   }
 
 }

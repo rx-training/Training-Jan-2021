@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {array} from './array';
 
 @Component({
   selector: 'app-day16-array',
@@ -10,6 +11,7 @@ export class Day16ArrayComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    array();
   }
 
 }
