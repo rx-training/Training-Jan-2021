@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Dependency Injection</h1>
+  <app-car></app-car>
+  <app-injectors></app-injectors>
+  <app-tests></app-tests>
+  <p id="user">
+    {{ userInfo }}
+    <br>
+    <button class="btn btn-primary" (click)="nextUser()">Next User</button>
+  </p>
+  <app-heroes id="authorized" *ngIf="isAuthorized"></app-heroes>
+  <app-heroes id="unAuthorized" *ngIf="!isAuthorized"></app-heroes>
+  <app-heroes-tsp id="tspAuthorized" *ngIf="isAuthorized"></app-heroes-tsp>
+  <app-providers></app-providers>    
+</div>
