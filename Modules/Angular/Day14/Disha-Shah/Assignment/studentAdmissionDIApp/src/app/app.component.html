@@ -1,0 +1,6 @@
+<div>  ​
+  <app-student (userData) = "AddData($event)" [editValue] = "editData" [id] = "index"></app-student>  ​
+
+  <app-student-list [listValue] = "listData" [submit]="IsSubmit" (editData)="EditData($event)"></app-student-list>  ​
+
+</div>  
