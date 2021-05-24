@@ -9,14 +9,10 @@ export default function Navbar() {
                 </h3>
             </div>
             <div className="col-md-3  my-auto h4 text-center">
-                <Link to="/" className="">
-                    Home
-                </Link>
+                <Link to="/">Home</Link>
             </div>
             <div className="col-md-3 h4 my-auto text-center">
-                <Link to="/add-student/_add" className="">
-                    New Form
-                </Link>
+                <Link to="/add-student/_add">New Form</Link>
             </div>
         </div>
     );
