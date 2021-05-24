@@ -23,7 +23,7 @@ class ProductProvider extends Component {
       featuredProducts: [],
       singleProduct: {},
       loading: true,
-      saerch: "",
+      search: "",
       price: 0,
       min: 0,
       max: 0,
@@ -274,10 +274,58 @@ class ProductProvider extends Component {
 
   // handle filtering
   handleChange = (event) => {
-    console.log(event);
+    const name = event.target.name;
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+    console.log(name, value);
+
+    this.setState(
+      {
+        [name]: value,
+      },
+      this.sortData
+    );
   };
 
-  sortData = () => {};
+  sortData = () => {
+    const { storeProducts, price, company, shipping, search } = this.state;
+    let tempPrice = parseInt(price);
+
+    let tempProducts = [...storeProducts];
+
+    // searched  based filtering
+    if (search.length > 0) {
+      tempProducts = tempProducts.filter((item) => {
+        let tempSearch = search.toLowerCase();
+        let tempTitle = item.title.toLowerCase().slice(0, search.length);
+
+        if (tempSearch === tempTitle) {
+          return item;
+        }
+
+        return null;
+      });
+    }
+
+    // company based filtering
+    if (company !== "all") {
+      tempProducts = tempProducts.filter((item) => item.company === company);
+    }
+
+    // price  based filtering
+    tempProducts = tempProducts.filter((item) => item.price <= tempPrice);
+
+    // shipping  based filtering
+    if (shipping) {
+      tempProducts = tempProducts.filter((item) => item.freeShipping === true);
+    }
+
+    this.setState({
+      filteredProducts: tempProducts,
+    });
+  };
 
   render() {
     return (
