@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-
+import {linkData} from './linkData'
 const ProductContet =  React.createContext();
 
 class ProductProvider extends Component {
    state ={
       sidebarOpen : false,
       cartOpen : false,
-      cartItems : 0,
-      
+      cartItems : 12,
+      links : linkData,
+      cart : []
    }
 
    handleSidebar=()=>{
@@ -32,7 +33,8 @@ class ProductProvider extends Component {
                value={{
                   ...this.state,
                   handleSidebar :  this.handleSidebar,
-                  handleCart :this.handleCart
+                  handleCart :this.handleCart,
+                  closeCart : this.closeCart
                }}>
             {this.props.children}
          </ProductContet.Provider>
