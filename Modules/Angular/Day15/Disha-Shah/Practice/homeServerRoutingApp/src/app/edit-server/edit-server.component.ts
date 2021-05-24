@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ServerService } from '../server.service';
+import { CanComponentDeactivate } from './can-deactivate-guard.service';
 
 @Component({
   selector: 'app-edit-server',
   templateUrl: './edit-server.component.html',
   styleUrls: ['./edit-server.component.css']
 })
-export class EditServerComponent implements OnInit {
+export class EditServerComponent implements OnInit, CanComponentDeactivate {
 
   server: { id: number, name: string } | undefined;
   serverId: number | undefined;
   serverName: string | undefined;
   allowEdit = false;
+  changesSaved = false;
 
-  constructor(private serversService: ServerService, private route: ActivatedRoute) {
+  constructor(private serversService: ServerService, private route: ActivatedRoute, private router: Router) {
    }
 
   ngOnInit(): void {
@@ -26,17 +29,28 @@ export class EditServerComponent implements OnInit {
       }
     );
     this.route.fragment.subscribe();
-    this.server = this.serversService.getServer(1);
+    const id = +this.route.snapshot.params['id'];
+    this.server = this.serversService.getServer(id);
     this.serverId = this.server?.id;
     this.serverName = this.server?.name;
-    // this.server = {
-    //   id: this.route.snapshot.params['id'],
-    //   name: this.route.snapshot.params['name'],
-    // };
   }
 
   onUpdateServer() {
     this.serversService.updateServer(this.server?.id, {name: this.serverName});
+    this.changesSaved = true;
+    this.router.navigate(['../'], {relativeTo: this.route})
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean{
+    if(!this.allowEdit){
+      return true;
+    }
+    if(this.serverName!=this.server?.name && !this.changesSaved){
+      return confirm("Do you want to discard the changes?");
+    }
+    else{
+      return true;
+    }
   }
 
 }

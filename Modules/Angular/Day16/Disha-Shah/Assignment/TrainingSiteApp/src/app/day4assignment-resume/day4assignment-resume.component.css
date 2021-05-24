@@ -1,0 +1,123 @@
+/* Main Area */
+*{
+	font-family: sans-serif;
+}
+h2{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-bottom: 5px;
+}
+h3{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-bottom: 5px;
+    font-size: 1.25rem;
+}
+h4{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 1.20rem;
+}
+/* .main-area{
+    margin-left: 200px;
+} */
+/* Header */
+.main-area .header{
+	width:1120px;
+	height:250px;
+	background-color:#0F2557;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.header img{
+    position: absolute;
+    left: 60px;
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+	border: 5px solid white;
+	
+}
+.header-text{
+	color: white;
+	width: 60%;
+	margin-left: 280px;
+}
+.header-text h1{
+	font-size: 80px;
+}
+.contact{
+    text-align: right; 
+    list-style-type: none; 
+    color: white; 
+    margin-right: 40px;
+}
+
+li a{
+    color: white;
+    text-decoration: none;
+}
+li a:hover{
+    color: white;
+    text-decoration: none;
+}
+.heading{
+    margin-left: 60px;
+    margin-top: 30px;
+}
+/* SKILLS CONTENT SECTION */
+.content{
+    display: flex;
+    position: relative;
+}
+.sub-heading{
+    margin-left: 60px;
+    color: rgb(87, 86, 86);
+}
+.sub-heading-content{
+    color: rgb(112, 112, 112);
+}
+/* TABLE SECTION */
+.table-content{
+    margin-left: 60px;
+    width: 1025px;
+}
+.table-left-ins{
+    color: #0F2557;
+}
+.table-right-yr{
+    color: black;
+    text-align: right;
+}
+.table-left-field{
+    color: black;
+    
+}
+.table-right-pr{
+    color: rgb(112, 112, 112);
+    text-align: right;
+}
+.company-link{
+    color: #0F2557; 
+    text-decoration: none;
+    text-align: right;
+}
+/* PROJECTS SECTION */
+.projects-sub-heading{
+    color:rgb(87, 86, 86);
+    margin-left: 60px;
+}
+.projects-content{
+    width: 1025px;
+    text-align: justify;
+    color: rgb(112, 112, 112);
+    margin-left: 60px;
+    
+}
+.achievements{
+    color: rgb(87,86,86); 
+    font-weight: bold;
+}
