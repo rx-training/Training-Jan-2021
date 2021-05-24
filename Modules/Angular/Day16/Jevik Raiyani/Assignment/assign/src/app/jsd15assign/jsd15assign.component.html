@@ -1,0 +1,67 @@
+    <div>
+        <form>
+            <div class="number">
+                <label for="number1">Enter number </label>
+                <input type="number" id="number1">
+            </div>
+            <div class="number">
+                <label for="number2">Enter number</label>
+                <input type="number" id="number2">
+            </div>
+                <div class="number">
+                <input type="radio" class="radio" id="sum" name="calculate" value="sum">
+                <label for="addition">Addition</label><br>
+                <input type="radio" class="radio" id="sub" name="calculate" value="sub">
+                <label for="male">Subtraction</label><br>
+                <input type="radio" class="radio" id="mul" name="calculate" value="mul">
+                <label for="female">Multipication</label><br>
+                <input type="radio" class="radio" id="div" name="calculate" value="div">
+                <label for="Divison">Divison</label>
+                <br>
+
+                <p id="result">Total is:    </p>
+                <p id="result1"></p>
+                <p id="result2"></p>
+            </div>
+            <div>
+                <button type="button" onclick="return Calculate()">Click me</button>
+                <button type="reset"  onclick="return Reset()">Reset</button>
+
+            </div>                
+        </form>
+    </div>
+
+<script>
+    function Calculate(){
+     var a = parseInt(document.getElementById("number1").value);
+     var b = parseInt(document.getElementById("number2").value);
+     var radio = document.getElementsByName('calculate');
+     var radiochecks;
+     for(i = 0; i < radio.length; i++) { 
+         if(radio[i].checked){
+             radiochecks=radio[i].value;   
+         }  
+     } 
+     if(radiochecks=="sum"){
+                 document.getElementById("result1").innerHTML = a + b;
+             }
+             else if(radiochecks=="sub"){
+                 document.getElementById("result1").innerHTML = a - b;
+             }
+             else if(radiochecks=="mul"){
+                 document.getElementById("result1").innerHTML = a * b;
+             }
+             else if(radiochecks=="div"){
+                 document.getElementById("result1").innerHTML = a/b;
+             }
+             else{
+                 document.getElementById("result2").innerHTML = "valid number";
+             }
+             return 0;
+    } 
+   function Reset(){
+     document.getElementById("result1").innerHTML ="";
+
+        document.getElementById("result2").innerHTML ="";
+   }
+ </script>
