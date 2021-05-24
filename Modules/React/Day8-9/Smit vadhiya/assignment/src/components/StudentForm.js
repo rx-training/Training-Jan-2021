@@ -8,14 +8,15 @@ export default class StudentForm extends Component {
         firstName : "",
         lastName : "",
         email : "",
-        state : "Select State",
-        district : "Select District",
+        state : "",
+        district : "",
         stdImg : "",
         clgImg : "",
         clgName : "",
         stdAddress : "",
         gender :"male",
-        dob : ""
+        dob : "",
+        stdImgFile: ""
     }
 
     
@@ -24,10 +25,13 @@ export default class StudentForm extends Component {
             [e.target.name] : e.target.value
         })
     }
+
     handleImg= (e) => {
         this.setState({
-            [e.target.name] : "./img/"+e.target.files[0].name
+            [e.target.name] : e.target.files[0],
+            stdImgFile : URL.createObjectURL(e.target.files[0])
         })
+        
     }
     handleSubmit=(e)=>{
         e.preventDefault()
@@ -50,14 +54,15 @@ export default class StudentForm extends Component {
             firstName : "",
             lastName : "",
             email : "",
-            state : "Select State",
-            district : "Select District",
-            stdImg : "",
-            clgImg : "",
+            state : "",
+            district : "",
+            stdImg : null,
+            clgImg : null,
             clgName : "",
             stdAddress : "",
             gender :"male",
-            dob : ""
+            dob : "",
+            stdImgFile: null
         })
     }
     render() {
@@ -79,7 +84,7 @@ export default class StudentForm extends Component {
                                             <input 
                                                 type="text" 
                                                 id="fname" 
-                                                required="required"  
+                                                  
                                                 className="form-control" 
                                                 name="firstName" 
                                                 onChange={this.handleChange}
@@ -97,7 +102,7 @@ export default class StudentForm extends Component {
                                         <div className="col-8">
                                             <input 
                                                 type="text" id="lname" 
-                                                required="required"  
+                                                  
                                                 className="form-control" 
                                                 name="lastName" 
                                                 onChange={this.handleChange}
@@ -116,7 +121,7 @@ export default class StudentForm extends Component {
                                             <input 
                                                 type="email" 
                                                 id="email" 
-                                                required="required"  
+                                                  
                                                 className="form-control" 
                                                 name="email" 
                                                 onChange={this.handleChange}
@@ -156,7 +161,7 @@ export default class StudentForm extends Component {
                                         <div className="col-8">
                                             <input 
                                                 type="date" id="dob" 
-                                                required="required"  
+                                                  
                                                 className="form-control" 
                                                 name="dob" 
                                                 onChange={this.handleChange}
@@ -173,7 +178,7 @@ export default class StudentForm extends Component {
                                         <div className="col-8 col-lg-10">
                                             <textarea 
                                                 id="stdAddress" 
-                                                required="required"  
+                                                  
                                                 className="form-control" 
                                                 name="stdAddress" 
                                                 onChange={this.handleChange}
@@ -193,11 +198,12 @@ export default class StudentForm extends Component {
                                         <select  
                                             id="state" 
                                             className="form-control" 
-                                            required="required"  
+                                              
                                             name="state" 
                                             onChange={this.handleChange}
                                             value={this.state.state}
                                         >
+                                            <option value="" disabled>--select--</option>
                                             <Option />
                                         </select>
                                     </div>
@@ -212,11 +218,12 @@ export default class StudentForm extends Component {
                                         <select  
                                             id="district" 
                                             className="form-control" 
-                                            required="required"  
+                                              
                                             name="district" 
                                             onChange={this.handleChange}
                                             value={this.state.district}
                                         >
+                                            <option value="" disabled>--select--</option>
                                             <District state={this.state.state}/>
                                         </select>
                                     </div>
@@ -231,7 +238,6 @@ export default class StudentForm extends Component {
                                             <input 
                                                 type="text" 
                                                 id="clgName" 
-                                                required="required"  
                                                 className="form-control" 
                                                 name="clgName" 
                                                 onChange={this.handleChange}
@@ -249,12 +255,11 @@ export default class StudentForm extends Component {
                                         <div className="col-6">
                                             <input 
                                                 type="file" 
-                                                required="required"  
                                                 id="stdImg" 
                                                 className="form-control" 
                                                 name="stdImg" 
                                                 onChange={this.handleImg}
-                                                
+                                                value={[this.state.stdImgFile]}
                                             />
                                         </div>
                                 </div>
@@ -267,7 +272,6 @@ export default class StudentForm extends Component {
                                         <div className="col-6 ">
                                             <input  
                                                 type="file" 
-                                                required="required"  
                                                 id="clgImg" 
                                                 className="form-control" 
                                                 name="clgImg" 
@@ -290,6 +294,7 @@ export default class StudentForm extends Component {
 
                     {(this.state.stdList.length > 0 ) ? this.state.stdList.map((data) => <DisplayDetails key={data.firstName} detail={data}/>) : null}
                 </div>
+                <img src={this.state.stdImgFile} alt="" />
             </div>
         )
     }
