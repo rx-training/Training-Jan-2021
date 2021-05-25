@@ -13,7 +13,7 @@ export default function Featured() {
                     <ProductConsumer>
                         {(value) => {
                             const { featuredProducts } = value;
-                            console.log(featuredProducts);
+                            //console.log(featuredProducts);
                             return featuredProducts.map((product) => {
                                 return (
                                     <Product
