@@ -1,13 +1,13 @@
-export function assignment(){
     var grandTotal = 0;
 
-getJSON("assignment.json");
+getJSON("../../json/assignment.json");
 
 async function getJSON(file) {
     localStorage.clear();
     let x = await fetch(file);
     console.log(x);
     y = await x.json();
+    console.log(y);
     localStorage.setItem("products", JSON.stringify(y));
     console.log(y);
     document.getElementById("pContent").innerHTML = "";
@@ -82,7 +82,4 @@ function reset(){
     document.getElementById("modalTotal").innerHTML = "";
     localStorage.removeItem("cartItems");
     return false;
-}
-
-
 }

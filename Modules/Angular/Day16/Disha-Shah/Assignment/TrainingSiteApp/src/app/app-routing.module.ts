@@ -13,6 +13,7 @@ import { Day16StringComponent } from './day16-string/day16-string.component';
 import { Day17AssignmentComponent } from './day17-assignment/day17-assignment.component';
 import { Day17Practice1Component } from './day17-practice1/day17-practice1.component';
 import { Day17Practice2Component } from './day17-practice2/day17-practice2.component';
+import { Day18AssignmentExamComponent } from './day18-assignment-exam/day18-assignment-exam.component';
 import { Day18AssignmentComponent } from './day18-assignment/day18-assignment.component';
 import { Day18Practice1Component } from './day18-practice1/day18-practice1.component';
 import { Day18Practice2Component } from './day18-practice2/day18-practice2.component';
@@ -194,7 +195,12 @@ const routes: Routes = [
     },
     { 
       path: 'day18assignment', 
-      component: Day18AssignmentComponent
+      component: Day18AssignmentComponent, children: [
+        {
+          path: 'day18assignmentexam',
+          component: Day18AssignmentExamComponent
+        }
+      ]
     },
     { 
       path: 'day19practice1', 

@@ -1,4 +1,3 @@
-export function practice(){
     function varFunc() {
         var x = 10;
         var i=0;
@@ -36,4 +35,3 @@ export function practice(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

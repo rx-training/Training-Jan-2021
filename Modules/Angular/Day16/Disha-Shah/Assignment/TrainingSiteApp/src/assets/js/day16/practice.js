@@ -1,4 +1,3 @@
-export function practice(){
     function checkString() {
         var userStr = document.getElementById("str").value;
         var userTrimStr = userStr.trim();
@@ -43,4 +42,3 @@ export function practice(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

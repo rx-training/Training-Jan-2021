@@ -1,4 +1,3 @@
-export function assignment(){
     function validateForm() {
         var eid = document.getElementById("eid").value;
         var ename = document.getElementById("ename").value;
@@ -157,4 +156,3 @@ export function assignment(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

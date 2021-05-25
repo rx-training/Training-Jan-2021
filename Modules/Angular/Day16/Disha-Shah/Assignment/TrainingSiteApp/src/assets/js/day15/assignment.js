@@ -1,4 +1,3 @@
-export function assignment() {
     function operation() {
         var ans = 0;
         if(document.getElementById("add").checked == true) {
@@ -44,4 +43,3 @@ export function assignment() {
         document.getElementById("div").checked=false;
         document.getElementById("answer").innerHTML="";
     }
-}

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { assignment } from './assignment.js';
 
 @Component({
   selector: 'app-day15-assignment',
@@ -10,8 +9,19 @@ export class Day15AssignmentComponent implements OnInit {
 
   constructor() { }
 
+  
   ngOnInit(): void {
-    assignment();
+    this.loadScript('/assets/js/day15/assignment.js');
   }
+
+  loadScript(url: any){
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = url;
+    body.appendChild(script);
+    
+  }
+
 
 }

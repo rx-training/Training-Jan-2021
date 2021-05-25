@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {string} from './string.js';
 
 @Component({
   selector: 'app-day16-string',
@@ -11,7 +10,15 @@ export class Day16StringComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    string();
+    this.loadScript('/assets/js/day16/string.js');
+  }
+
+  loadScript(url: any){
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = url;
+    body.appendChild(script);
   }
 
 }

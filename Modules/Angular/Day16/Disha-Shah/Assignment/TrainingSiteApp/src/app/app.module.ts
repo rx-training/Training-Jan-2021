@@ -47,6 +47,8 @@ import { Day6assignmentLayoutComponent } from './day6assignment-layout/day6assig
 import { Day7assignmentLayoutComponent } from './day7assignment-layout/day7assignment-layout.component';
 import { Day8assignmentLayout1Component } from './day8assignment-layout1/day8assignment-layout1.component';
 import { Day8assignmentLayout2Component } from './day8assignment-layout2/day8assignment-layout2.component';
+import { Day18AssignmentExamComponent } from './day18-assignment-exam/day18-assignment-exam.component';
+import { Day18AssignmentFinishExamComponent } from './day18-assignment-finish-exam/day18-assignment-finish-exam.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +97,8 @@ import { Day8assignmentLayout2Component } from './day8assignment-layout2/day8ass
     Day7assignmentLayoutComponent,
     Day8assignmentLayout1Component,
     Day8assignmentLayout2Component,
+    Day18AssignmentExamComponent,
+    Day18AssignmentFinishExamComponent,
   ],
   imports: [
     BrowserModule,

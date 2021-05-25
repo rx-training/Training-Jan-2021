@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {date} from './date.js';
 
 @Component({
   selector: 'app-day16-date',
@@ -11,7 +10,14 @@ export class Day16DateComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    date();
+    this.loadScript('/assets/js/day16/date.js');
   }
 
+  loadScript(url: any){
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = url;
+    body.appendChild(script);
+  }
 }

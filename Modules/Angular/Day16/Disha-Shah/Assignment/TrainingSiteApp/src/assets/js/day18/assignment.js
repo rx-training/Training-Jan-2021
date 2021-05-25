@@ -1,4 +1,3 @@
-export function assignment(){
     function validateForm() {
         var eid = document.getElementById("eid").value;
         var pass = document.getElementById("pass").value;
@@ -53,16 +52,11 @@ export function assignment(){
         }
 
         if(flag == 1) {
-            alert("Successfully Logged In!!")
-            window.location.assign("Exam.html");  
+            alert("Successfully Logged In!!");
+            return true;
+            //window.location.assign("day18assignmentexam");
+            //window.location.assign("../../../day18-assignment-exam/day18-assignment-exam.component.html");  
         }
         return false;
 
     }
-
-    function myFunc() { 
-        var sidebarContent = document.getElementById("sidebar"); 
-        sidebarContent.classList.toggle("active");
-        return false; 
-    }
-}

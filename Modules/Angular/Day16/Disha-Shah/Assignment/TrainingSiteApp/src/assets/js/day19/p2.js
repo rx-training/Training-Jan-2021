@@ -1,4 +1,3 @@
-export function practice(){
     //Function Expression Example
     var x = function(a,b) {return a*b};
     var z = x(4,5);
@@ -296,4 +295,3 @@ export function practice(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

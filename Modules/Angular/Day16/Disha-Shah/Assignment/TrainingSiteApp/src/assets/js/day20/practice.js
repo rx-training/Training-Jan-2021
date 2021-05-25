@@ -1,4 +1,3 @@
-export function practice(){
      //Web Storage
      if(typeof Storage !== undefined) {
         localStorage.setItem("firstName", "Rita");
@@ -94,5 +93,3 @@ export function practice(){
         console.log("Latitude: " + position.coords.latitude + 
         ", Longitude: " + position.coords.longitude);
     }
-
-}

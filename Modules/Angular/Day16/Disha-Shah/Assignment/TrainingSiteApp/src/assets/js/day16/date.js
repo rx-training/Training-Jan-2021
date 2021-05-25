@@ -1,4 +1,3 @@
-export function date(){
     var d = new Date(2018, 11, 24, 10, 33, 30, 0);
         document.getElementById("demo").innerHTML = "Date with given specified values: " + d;
 
@@ -39,5 +38,3 @@ export function date(){
             sidebarContent.classList.toggle("active");
             return false; 
         }
-
-}

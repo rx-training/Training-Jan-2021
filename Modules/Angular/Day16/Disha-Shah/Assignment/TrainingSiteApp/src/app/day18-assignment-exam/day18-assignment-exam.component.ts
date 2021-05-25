@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-day19-practice2',
-  templateUrl: './day19-practice2.component.html',
-  styleUrls: ['./day19-practice2.component.css']
+  selector: 'app-day18-assignment-exam',
+  templateUrl: './day18-assignment-exam.component.html',
+  styleUrls: ['./day18-assignment-exam.component.css']
 })
-export class Day19Practice2Component implements OnInit {
+export class Day18AssignmentExamComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
-    this.loadScript('/assets/js/day19/p2.js');
+    this.loadScript('/assets/js/day18/exam.js');
   }
 
   loadScript(url: any){

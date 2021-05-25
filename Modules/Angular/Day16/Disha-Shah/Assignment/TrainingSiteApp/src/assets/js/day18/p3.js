@@ -1,4 +1,3 @@
-export function practice(){
     function getPromise() {
         var strValue = document.getElementById("strValue").value;
         let myPromise = new Promise((resolve, reject) => {
@@ -42,4 +41,3 @@ export function practice(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

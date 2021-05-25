@@ -1,4 +1,3 @@
-export function practice(){
     function mySquare(callBack) {
         var num1 = parseInt(document.getElementById("num1").value);
         callBack(num1);
@@ -11,4 +10,3 @@ export function practice(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

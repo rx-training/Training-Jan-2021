@@ -1,3 +1,5 @@
+<body>
+    
 <div class="w-100">
         
         <div class="container bg-light mt-5 px-0">
@@ -28,7 +30,7 @@
                                     <div class="form-group">
                                         <input type="password" name="" id="pass" placeholder="Password" class="form-control">
                                     </div>
-                                    <input type="submit" value="Login" class="btn btn-primary btn-block" onclick="return validateForm()">
+                                    <button type="submit" routerLink="day18assignmentexam" routerLinkActive="active" class="btn btn-primary btn-block" onclick="return validateForm()">Login</button>
                                 </form>
                             </div>
                         </div>
@@ -39,3 +41,5 @@
         </div>
         
     </div>
+    <router-outlet></router-outlet>
+</body>

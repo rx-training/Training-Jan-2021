@@ -1,4 +1,3 @@
-export function practice(){
     function moveForward() {
         window.location.assign("Practice2.html");
     }
@@ -11,4 +10,3 @@ export function practice(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

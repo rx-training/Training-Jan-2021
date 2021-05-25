@@ -1,4 +1,3 @@
-export function practice(){
     var newWindow;
 
         function moveBackward() {
@@ -19,4 +18,3 @@ export function practice(){
             sidebarContent.classList.toggle("active");
             return false; 
         }
-}

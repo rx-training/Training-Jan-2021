@@ -1,4 +1,3 @@
-export function assignment(){
     function checkDate() {
         var userDate = document.getElementById("date").value;
         var trimDate = userDate.trim();
@@ -93,4 +92,3 @@ export function assignment(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

@@ -1,4 +1,3 @@
-export function string(){
     var str = "Please locate where 'locate' occurs!";
         var indexofPos = str.indexOf("locate",15);
         var searchPos = str.search("locate");
@@ -44,4 +43,3 @@ export function string(){
             sidebarContent.classList.toggle("active");
             return false; 
         }
-}

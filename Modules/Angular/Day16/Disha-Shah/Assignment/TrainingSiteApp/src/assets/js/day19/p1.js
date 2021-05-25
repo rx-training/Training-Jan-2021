@@ -1,4 +1,3 @@
-export function practice(){
     //Area of Circle using Function Expression
     function circleArea() {
         var r = parseInt(document.getElementById("num1").value);
@@ -53,4 +52,3 @@ export function practice(){
         sidebarContent.classList.toggle("active");
         return false; 
     }
-}

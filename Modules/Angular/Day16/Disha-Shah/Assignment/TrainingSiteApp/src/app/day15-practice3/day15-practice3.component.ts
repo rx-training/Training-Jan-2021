@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {practice} from './practice3.js';
 
 @Component({
   selector: 'app-day15-practice3',
@@ -11,7 +10,16 @@ export class Day15Practice3Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    practice();
+    this.loadScript('/assets/js/day15/p3.js');
+  }
+
+  loadScript(url: any){
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = url;
+    body.appendChild(script);
+    
   }
 
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {array} from './array';
 
 @Component({
   selector: 'app-day16-array',
@@ -11,7 +10,16 @@ export class Day16ArrayComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    array();
+    this.loadScript('/assets/js/day16/array.js');
   }
+
+  loadScript(url: any){
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = url;
+    body.appendChild(script);
+  }
+
 
 }

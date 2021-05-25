@@ -1,4 +1,3 @@
-export function array(){
     var fruits = ["Apple", "Mango", "Banana", "Kiwi"];
         document.getElementById("demo1").innerHTML = "toString: " + fruits.toString();
 
@@ -107,4 +106,3 @@ export function array(){
             sidebarContent.classList.toggle("active");
             return false; 
         }
-}
