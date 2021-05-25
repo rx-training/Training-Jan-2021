@@ -1,0 +1,32 @@
+<body>
+        <div class="wrapper">
+            <!-- Page Content -->
+            <div id="content" class="w-100">
+                
+                    <div class="container mt-5 bg-light px-0">
+                        <h1 class="h2 bg-dark text-white text-center py-3 font-weight-light text-uppercase">University of Mumbai Examination</h1>
+                        <br><br>
+                        <div class="text-right h3 px-4" id="timer"></div>
+                        <form class="px-4 pb-4">
+                            <div class="form-group">
+                                <label for="question">Question 1:</label><br>
+                                    <input type="radio" name="question" id="op1" value="op1">
+                                    <label for="op1">Option1</label><br>
+                                    <input type="radio" name="question"  id="op2" value="op2">
+                                    <label for="op2">Option2</label><br>
+                                    <input type="radio" name="question"  id="op3" value="op3">
+                                    <label for="op3">Option3</label><br>
+                                    <input type="radio" name="question"  id="op4" value="op4">
+                                    <label for="op4">Option4</label>
+                                
+                            </div>
+                            <a class="btn btn-primary" routerLink="/javascript/day18assignment/day18assignmentexam" routerLinkActive="active" >Next Question </a>
+                        </form>
+
+                    </div>
+                
+            </div>
+        </div>
+
+        <router-outlet></router-outlet>
+    </body>
