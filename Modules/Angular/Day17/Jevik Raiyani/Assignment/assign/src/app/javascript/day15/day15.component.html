@@ -1,0 +1,32 @@
+<div>
+    <form>
+        <div class="number">
+            <label for="number1">Enter number </label>
+            <input type="number" id="number1">
+        </div>
+        <div class="number">
+            <label for="number2">Enter number</label>
+            <input type="number" id="number2">
+        </div>
+            <div class="number">
+            <input type="radio" class="radio" id="sum" name="calculate" value="sum">
+            <label for="addition">Addition</label><br>
+            <input type="radio" class="radio" id="sub" name="calculate" value="sub">
+            <label for="male">Subtraction</label><br>
+            <input type="radio" class="radio" id="mul" name="calculate" value="mul">
+            <label for="female">Multipication</label><br>
+            <input type="radio" class="radio" id="div" name="calculate" value="div">
+            <label for="Divison">Divison</label>
+            <br>
+
+            <p id="result">Total is:    </p>
+            <p id="result1"></p>
+            <p id="result2"></p>
+        </div>
+        <div>
+            <button type="button" onclick="return Calculate()">Click me</button>
+            <button type="reset"  onclick="return Reset()">Reset</button>
+
+        </div>                
+    </form>
+</div>
