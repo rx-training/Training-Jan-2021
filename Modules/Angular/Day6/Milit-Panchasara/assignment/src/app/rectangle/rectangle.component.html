@@ -1,0 +1,14 @@
+<div class="row">
+    <h3>Rectangle Area</h3>
+    <div class="col-12 col-sm-4">
+        <label for="">Length:</label>
+        <input type="number" class="form-control" [(ngModel)]='length' (input)='calculateArea()'>
+    </div>
+    <div class="col-12 col-sm-4">
+        <label for="">Width:</label>
+        <input type="number" class="form-control" [(ngModel)]='width' (input)='calculateArea()'>
+    </div>
+    <div class="col-12 col-sm-4">
+        <h3 class="mt-3">Area: {{area}}</h3>
+    </div>
+</div>

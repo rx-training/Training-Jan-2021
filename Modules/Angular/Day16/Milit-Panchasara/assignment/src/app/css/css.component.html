@@ -1,0 +1,70 @@
+<div class="row">
+    <aside id="side-nav" class="col-12 col-lg-3 bg-dark vh-100 text-light position-fixed p-3" style="border: 3px solid rgb(172, 184, 255); border-top: none;">
+        <ul>
+            <li>
+                Day 4:
+                <ul>
+                    <li>
+                        <a [routerLink]="['./day4/assignment1']">Assignment 1</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['./day4/practice1']">Practice 1</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['./day4/practice2-4']">Practice 2-4</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['./day4/practice-extra']">Practice extra</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Day 5:
+                <ul>
+                    <li>
+                        <a [routerLink]="['./day5/assignment1']">Assignment 1</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['./day5/practice1']">Practice 1</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Day 6:
+                <ul>
+                    <li>
+                        <a [routerLink]="['./day6/assignment1-practice7']">Assignment 1 + Practice 7 </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['./day6/practice5-6']">Practice 5-6</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['./day6/practice-extra']">Practice extra</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Day 7:
+                <ul>
+                    <li>
+                        <a [routerLink]="['./day7/assignment1']">Assignment 1</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Day 8:
+                <ul>
+                    <li>
+                        <a [routerLink]="['./day8/assignment1']">Assignment 1</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['./day8/practice1']">Practice 1</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <div class="offset-1 offset-lg-3 col-9" id="body-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

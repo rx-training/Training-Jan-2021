@@ -1,0 +1,45 @@
+<div class="container my-5">
+    <div class="row">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="col-12 offset-md-3 col-md-6">
+            <label for="">User name</label>
+            <input type="text" class="form-control" formCotrolName="username">
+            <label for="">Email</label>
+            <input type="text" class="form-control" formControlName="email">
+            <label for="">Gender</label>
+            <div class="radio" *ngFor="let gender of genders">
+                <label for="">
+                    <input type="radio" formControlName="gender" [value]="gender"> {{gender}}
+                </label>
+            </div>
+            <div class="form-group" formGroupName="address">
+                <label for="">Street</label>
+                <input type="text" class="form-control" formControlName="street">
+                <label for="">City</label>
+                <input type="text" class="form-control" formControlName="city">
+                <label for="">Country</label>
+                <input type="text" class="form-control" formControlName="country">
+            </div><br>
+            <b>Family Details:</b>
+            <div class="form-group" formArrayName="family">
+                <div class="row" *ngFor="let member of getFamily().controls;let i = index" [formGroupName]="i">
+                    <div class="col-4">
+                        <label for="">Name</label>
+                        <input type="text" class="form-control" formControlName="i.name">
+                    </div>
+                    <div class="col-4">
+                        <label for="">Relation</label>
+                        <input type="text" class="form-control" formControlName="i.relation">
+                    </div>
+                    <div class="col-4">
+                        <label for="">Age</label>
+                        <input type="number" class="form-control" formControlName="i.age">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary m-2" (click)="addMember()">Add more family member</button>
+            <hr>
+            <button type="submit" class="btn btn-primary m-2">Sign up</button>
+            <button type="button" class="btn btn-primary m-2" (click)="updateAddress()">Find Address</button>
+        </form>
+    </div>
+</div>

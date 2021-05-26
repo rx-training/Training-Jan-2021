@@ -1,0 +1,11 @@
+<div class="container">
+  <app-admission-form [studentService]="service" [index]="index" (indexEmitter)="setIndexFromForm($event)">
+
+  </app-admission-form>
+
+  <hr>
+
+  <app-student-list [studentService]="service" (formEmitter)="setIndex($event)">
+
+  </app-student-list>
+</div>

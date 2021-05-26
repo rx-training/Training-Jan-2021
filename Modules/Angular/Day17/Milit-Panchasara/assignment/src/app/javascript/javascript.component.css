@@ -1,0 +1,13 @@
+#side-nav {
+  height: 85vh;
+  position: fixed;
+  overflow: scroll; }
+
+@media (max-width: 991px) {
+  #side-nav {
+    height: 40vh !important;
+    z-index: 1;
+    opacity: 0.95; }
+  #body-content {
+    margin-top: 300px !important;
+    z-index: 0; } }

@@ -1,0 +1,20 @@
+<div class="container">
+    <table class=" table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Location</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let location of locationData'>
+                <td>{{location.locationId}}</td>
+                <td>{{location.locationName}}</td>
+                <td>{{location.longitude}}</td>
+                <td>{{location.longitude}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

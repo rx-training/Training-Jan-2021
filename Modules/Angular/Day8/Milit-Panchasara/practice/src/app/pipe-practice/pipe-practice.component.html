@@ -1,0 +1,15 @@
+<div class="container">
+    <p>Date pipe: {{todayDate | date:"MM/dd/yyyy"}}</p>
+    <p>Date pipe: {{todayDate | date:'fullDate'}}</p>
+    <p>Date pipe: {{todayDate | date:'fullDate' | uppercase}}</p>
+    <p>Date pipe: {{todayDate | date:'fullDate' | lowercase}}</p>
+    <p>Date pipe: {{todayDate | date:'shortDate'}}</p>
+    <p appHighlight> {{number1 | customPipe:2 }}</p>
+    <p> {{number1 | customPipe:5 }}</p>
+    <p appHighlight> {{number1 | customPipe:-1 }}</p>
+    <p> {{number1 | currency:'USD' }}</p>
+    <p appHighlight> {{number1 | currency:'INR' }}</p>
+    <hr>
+    <input type="text" class="form-control" [(ngModel)]='inpString'>
+    <p>{{inpString | vowels}}</p>
+</div>

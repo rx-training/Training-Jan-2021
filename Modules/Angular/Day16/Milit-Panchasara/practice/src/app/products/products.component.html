@@ -1,0 +1,22 @@
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productsList;">
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td><a [routerLink]="['details', product.id]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div>
+    <router-outlet></router-outlet>
+</div>

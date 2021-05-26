@@ -1,0 +1,39 @@
+<div class="conatiner m-3"> 
+    <table class="table table-bordered table-hover text-center">
+        <tr class="bg-dark text-light">
+            <th>Sr. No.</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity (upto 25)</th>
+            <th>Action</th>
+            <th>Total Prices</th>
+        </tr>
+        <tbody id="items-table-body">
+
+        </tbody>
+    </table>
+    <button class="btn btn-primary" onclick="viewCartSummary()"  data-toggle="modal" data-target="#cart-modal" id="view-cart-btn">View Cart Summary</button>
+    <button class="btn btn-danger"  onclick="resetCartSummary()">Reset Cart</button>
+    <hr>
+    <div id="cartSummary">
+    
+    </div>
+</div>
+
+<div class="modal fade text-dark" id="cart-modal" tabindex="1" style="margin-top: 300px;">
+    <div class="modal-dialog">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <h4 class=" modal-title">Cart</h4>
+                <button type="button" data-dismiss="modal" class="close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-block" id="checkout-btn">Checkout</button>
+            </div>
+
+        </div>
+    </div>
+</div>

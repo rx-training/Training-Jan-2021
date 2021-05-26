@@ -1,0 +1,23 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit(f, addressData)" #f="ngForm">
+        <label for="">Email:</label>
+        <input class="form-control" name="username" type="text" id="" placeholder="username" [ngModel]="'example@example.com'" #username="ngModel" required email>
+        <span style="color: red;" *ngIf="!username.valid && username.touched">Invalid input!</span>
+        <br>
+        <label for="">Password:</label>
+        <input class="form-control" name="pass" type="password" id="" placeholder="password" #pass="ngModel" [ngModel]="" required>
+        <br>
+        <div id="address" ngModelGroup="address" #addressData="ngModelGroup">
+            <div class="form-group">
+                <label for="">City</label>
+                <input type="text" name="city" class="form-control" ngModel>
+                <label for="">State</label>
+                <input type="text" name="state" class="form-control" ngModel>
+            </div>
+
+        </div>
+        <button class=" btn btn-sm btn-dark my-3">Sign Up</button>
+    </form>
+    <hr>
+    <h3>{{data}}</h3>
+</div>

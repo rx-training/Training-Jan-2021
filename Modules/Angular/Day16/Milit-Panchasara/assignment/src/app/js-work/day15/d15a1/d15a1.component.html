@@ -1,0 +1,34 @@
+<div class="container m-5">
+    <form action="" class="form">
+        <div class=" form-group row">
+            <label for="number1" class="col-4 text-right pt-3">Please enter first number: </label>
+            <input type="number" class="form-control m-2 col" placeholder="number 1" id="number1" required>
+        </div>
+        <div class="form-group row">
+            <label for="number2" class="col-4 text-right pt-3">Please enter second number: </label>
+            <input type="number" class="form-control m-2 col" placeholder="number 2" id="number2" required>
+        </div>
+        <div class="form-group row">
+            <label for="operation" class="col-4 text-right">Please select operation you want to perform:</label>
+            <div class="col-8">
+                <div class="form-check">
+                    <label for=""><input type="radio" value="addition" id="addition" name="operation" checked> Addition</label>
+                </div>
+                <div class="form-check">
+                    <label for=""><input type="radio" value="substraction" id="substraction" name="operation"> Substraction</label>
+                </div>
+                <div class="form-check">
+                    <label for=""><input type="radio" value="multiplication" id="multiplication" name="operation"> Multiplication</label>
+                </div>
+                <div class="form-check">
+                    <label for=""><input type="radio" value="division" id="division" name="operation"> Division</label>
+                </div>
+            </div>
+        </div>
+    </form><br>
+    <div class="text-center">
+        <button class="btn btn-outline-dark mb-3 d-inline" onclick="calculate()">Calculate</button>
+        <button class="btn btn-outline-danger mb-3 d-inline" onclick="reset()">Reset</button>
+    </div>
+    <h1>Result: <span id="resultFromJS"></span></h1>
+</div>

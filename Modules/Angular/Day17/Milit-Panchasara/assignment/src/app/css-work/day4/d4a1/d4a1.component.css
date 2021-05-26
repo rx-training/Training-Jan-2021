@@ -1,0 +1,90 @@
+* {
+    font-family: Arial, Helvetica, sans-serif ;
+}
+
+body {
+    /* background-image: url("../../../../assets/img/gradient.jpg"); */
+    background-size: cover;
+}
+
+h3 {
+    font-size: 22.5px;
+}
+
+h5 {
+    margin: 10px 0;
+}
+
+table {
+    width: 100%;
+}
+
+.personal-information{
+    text-align: center;
+    display: inline-block !important;
+}
+
+#information {
+    padding-left: 50px;
+}
+
+#resume {
+    width: 60%;
+    margin: 60px 20% 0px 20%;
+}
+
+hr {
+    height: 5px;
+    background-color: rgb(112, 112, 112);
+}
+
+#education-table tr th,td {
+    padding: 10px 0px 10px 0px;
+}
+
+.bold-heading {
+    font-weight: bold;
+}
+
+.degree {
+    text-align: center;
+    width: 20%;
+    vertical-align: top;
+}
+
+.degree-year {
+    text-align: center;
+    width: 15%;
+}
+
+.degree-marks {
+    width: 10%;
+    text-align: center;
+}
+
+.skills-label {
+    width: 40%;
+}
+
+.internship-name, .project-name {
+    vertical-align: top;
+}
+
+.duration {
+    font-style: italic;
+    text-align: right;
+}
+
+#hobbies-list * {
+    padding: 10px 0px 10px 0px;
+}
+
+#project_video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 280px;
+    width: 500px;
+}
+
+

@@ -1,0 +1,30 @@
+<h4>Subjects Passed:</h4>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Average</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let student of studentList">
+                <ng-container *ngIf="student.Active">
+                    <tr [ngClass]="setClass(student.Grade)">
+                        <td >{{student.ID}}</td>
+                        <td>{{student.Name}}</td>
+                        <td>{{student.Age}}</td>
+                        <td>{{student.Average}}</td>
+                        <td>{{student.Grade}}</td>
+                        <ng-container [ngSwitch] = 'student.Grade'>
+                            <td *ngSwitchCase="'D'" class="bg-danger">Fail</td>
+                            <td *ngSwitchDefault class="bg-success">Pass</td>
+                        </ng-container>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        </tbody>
+    </table>

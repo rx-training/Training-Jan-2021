@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 offset-md-3 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Sign Up</h3>
+                </div>
+                <div class="card-body">
+                    <label for="">Name:</label>
+                    <input type="text" class="form-control mb-3" placeholder="name here" [(ngModel)]='name'>
+                    <label for="">Email:</label>
+                    <input type="email" class="form-control {{emailValidClass}} mb-3" [(ngModel)]='email' (input)='checkEmail()' placeholder="email here">
+                    <label for="">Address:</label>
+                    <input type="text" class="form-control mb-3" placeholder="address here" [(ngModel)]='address'>
+                    <label for="">Pan number:</label>
+                    <input type="number" class="form-control mb-3" placeholder="pan number here" [(ngModel)]='pannumber'>
+                    <label for="">Password:</label>
+                    <input type="password" class="form-control" [(ngModel)]='password' placeholder="password here">
+                    <button class="my-3 btn btn-primary btn-sm" (click)='signUpUser()'>Sign up</button>
+                    <hr>
+                    <p>{{details}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

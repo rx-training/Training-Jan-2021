@@ -1,0 +1,86 @@
+<table class="table table-bordered ">
+    <thead class=" text-light bg-dark">
+        <tr>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Place of birth</th>
+            <th>First Language</th>
+            <th>Address</th>
+            <th>Father</th>
+            <th>Mother</th>
+            <th>Emergency Details</th>
+            <th>Reference Details</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngIf="studentList.length == 0">
+            <td colspan="9" class="text-center">No records found.</td>
+        </tr>
+        <tr *ngFor="let student of studentList;">
+            <td>{{student.studentName.firstName}} {{student.studentName.middleName}} {{student.studentName.lastName}}</td>
+            <td>{{student.dob}}</td>
+            <td>{{student.placeOfBirth}}</td>
+            <td>{{student.firstLanguage}}</td>
+            <td>{{student.address.street}}, {{student.address.city}} - {{student.address.pin}}, {{student.address.state}}, {{student.address.country}}</td>
+            <td>{{student.father.name.firstName}} {{student.father.name.middleName}} {{student.father.name.lastName}}</td>
+            <td>{{student.mother.name.firstName}} {{student.mother.name.middleName}} {{student.mother.name.lastName}}</td>
+            <td> <button class="btn btn-sm btn-primary" type="button"  (click)="currentEmergencyList = student.emergencyDetail" data-toggle="modal" data-target="#emergencyDetailModal">View</button></td>
+            <td> <button class="btn btn-sm btn-primary" type="button" (click)="currentReferenceDetail = student.referenceDetail" data-toggle="modal" data-target="#referenceDetailModal">View</button></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- emergencyDetailModal -->
+<div class="modal fade" id="emergencyDetailModal">
+    <div class="modal-dialog">
+        <div class=" modal-content">
+            <div class=" modal-header">
+                <h3 class=" modal-title">Emergency Contact List</h3>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class=" modal-body">
+                <table class="table table-bordered">
+                    <thead class="text-light bg-dark">
+                        <tr>
+                            <td>Relation</td>
+                            <td>Contact Number</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detail of currentEmergencyList">
+                            <td>{{detail.relation}}</td>
+                            <td>{{detail.number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class=" modal-footer ">
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- referenceDetailModal -->
+<div class="modal fade" id="referenceDetailModal">
+    <div class="modal-dialog">
+        <div class=" modal-content">
+            <div class=" modal-header">
+                <h3 class=" modal-title">Reference Details</h3>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class=" modal-body">
+                <ul *ngIf = "currentReferenceDetail != null">
+                    <li>Reference name: {{currentReferenceDetail.referenceThrough}}</li>
+                    <li>Address: {{currentReferenceDetail.address.street}},  {{currentReferenceDetail.address.city}} - {{currentReferenceDetail.address.pin}},  {{currentReferenceDetail.address.state}},  {{currentReferenceDetail.address.country}}</li>
+                    <li>Contact number: {{currentReferenceDetail.address.contact}}</li>
+                </ul>
+            </div>
+            <div class=" modal-footer ">
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
