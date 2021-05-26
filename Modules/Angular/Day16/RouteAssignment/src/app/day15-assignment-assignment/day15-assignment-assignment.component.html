@@ -1,0 +1,42 @@
+<h1 class="display-3 my-3 text-center">Assignment</h1>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form id="form1" class="border border-warning p-5 bg-secondary">
+            <div class="form-group">
+                <label for="number1">Number 1 : </label>
+                <input class="form-control" type="text" id="number1" placeholder="number1">
+            </div>
+            <div class="form-group">
+                <label for="number2">Number 2 : </label>
+                <input class="form-control" type="text" id="number2" placeholder="number2">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="operation">Choose operation by Radio Button</label>
+                    </div>
+                </div>
+                <input type="radio" name="operation" value="add" checked> Addition
+                <input type="radio" name="operation" value="sub"> Substraction
+                <input type="radio" name="operation" value="mul"> Multiplication
+                <input type="radio" name="operation" value="div"> Division
+            </div>
+            <input type="button" class="btn btn-outline-warning" value="calculateByRadio" (click)="calculate()">
+            <div class="form-group mt-3">
+                <label for="">Choose Operation by Dropdown : </label>
+                <select class="border border-warning bg-warning" name="operation1" id="">
+                    <option value="add">Addition</option>
+                    <option value="sub">Substraction</option>
+                    <option value="mul">Multiplication</option>
+                    <option value="div">Division</option>
+                </select>
+            </div>
+
+            <input type="button" class="btn btn-outline-warning" value="CalculateByDropdown" (click)="calculate1()">
+            <input type="reset" class="btn btn-outline-warning" value="reset" (click)="reset()"> <br>
+            <br>
+            <label for="result" id="resultForm1" style="font-size: x-large;"> Result is :</label>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+
+<hr class="bg-dark">
+<h1 class="text-center">Product Details Page</h1>
+
+<p class="text-center">
+    product : {{product.name}} <br>
+    price : {{ product.price}}
+</p>
+
+<div class="row my-2">
+    <div class="col-md-4"></div>
+    <div class="col-md-2">
+        <a class="btn btn-outline-primary" [routerLink]="['overview']">OverView </a>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-outline-primary" [routerLink]="['spec']">Specification </a>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
+<a class='btn btn-default btn-outline-danger' (click)="onBack()">Back to Product List </a>

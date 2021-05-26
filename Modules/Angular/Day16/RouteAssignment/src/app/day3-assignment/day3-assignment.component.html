@@ -1,0 +1,47 @@
+<h2 class="text-center mt-5 display-4" style="color: rgb(165, 29, 29);">Registration</h2>
+<hr class="bg-dark">
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <label for="name" class="lab1"> Name </label>
+        <input class="form-control" type="text" id="name" required>
+
+        <label for="age" class="lab1"> Age </label>
+        <input class="form-control" type="number" id="age" min="18" max="50" required>
+
+        <label for="gender" class="lab1"> Gender </label><br>
+        <input type="radio" id="gender" name="Gender" value="male"><label for="male" [ngClass]="'lab1'"
+            required>Male</label>
+        <input type="radio" id="gender" name="Gender" value="female"><label [ngClass]="'lab1'"
+            for="female">Feale</label><br>
+
+        <label for="designation" class="lab1"> Designation </label>
+        <input type="text" class="form-control" id="designation" required>
+
+        <label for="salary" class="lab1"> Salary </label>
+        <input type="text" class="form-control" id="salary" required>
+
+        <label for="location" class="lab1"> Location </label>
+        <select name="location" class="form-control" required>
+            <option value="">Select</option>
+            <option value="ahmedabad">Ahmedabad</option>
+            <option value="nadiad">Nadiad</option>
+            <option value="vadodara">Vadodara</option>
+        </select>
+
+        <label for="mail" class="lab1"> E-mail </label>
+        <input type="email" class="form-control" id="mail" required>
+
+        <label for="joining_date" class="lab1"> Date of Joining </label>
+        <input type="date" class="form-control  my-2" id="joining_date" required>
+
+        <label for="number" class="lab1 my-2"> Contact Number </label>
+        <input type="text" class="form-control my-2" id="number" required>
+
+
+        <input type="submit" class="form-control" value="submit">
+
+
+
+    </div>
+</div>

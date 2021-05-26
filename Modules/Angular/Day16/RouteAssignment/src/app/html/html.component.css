@@ -1,0 +1,10 @@
+button:hover{
+    color: rgb(0, 81, 255);
+}
+:any-link:hover{
+    color: green;
+    text-decoration: none;
+}
+:any-link{
+    color: white;
+}

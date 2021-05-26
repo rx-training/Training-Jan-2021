@@ -1,0 +1,14 @@
+<div class="container my-5 p-5 border border-dark">
+    <div class="row my-2">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <a [routerLink]='["/heroes"]' class='btn btn-outline-dark form-control'>Hero</a>
+        </div>
+        <div class="col-md-2">
+            <a [routerLink]='["/crisis"]' class='btn btn-outline-dark form-control'>Crisis</a>
+        </div>
+    </div>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

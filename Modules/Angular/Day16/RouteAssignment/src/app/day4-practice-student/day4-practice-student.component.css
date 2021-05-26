@@ -1,0 +1,36 @@
+div {
+    text-align: center;
+}
+.h1{
+    color : rgb(82, 119, 12);
+    font-size: 40px;
+}
+.h3{
+    color :rgb(88, 129, 49)
+}
+table{
+
+    border-collapse: collapse;
+}
+
+*{
+    font-size: large;
+}          
+thead {
+    text-align:center;
+    background: rgb(100, 133, 40);
+    color:white;
+}
+
+th,td {
+    border: 1px solid black;
+    text-align:center;
+    padding: 15px;
+    width: 115px;
+}
+td{
+    background: rgb(161, 214, 64);
+}
+div>p{
+    color : green;
+}

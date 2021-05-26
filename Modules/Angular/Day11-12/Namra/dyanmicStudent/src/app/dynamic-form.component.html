@@ -1,0 +1,23 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of questions" >
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 my-2">
+          <app-question [question]="question" [form]="form"></app-question>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5"></div>
+      <div class="col-md-2 my-3">
+        <button type="submit" class="form-control btn btn-outline-success" [disabled]="!form.valid" (click)='display()'>Save</button>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="payLoad" class="alert alert-success">
+    <p class="text-center">Saved the following values</p>
+    <p class="text-center">{{payLoad}}</p>
+  </div>
+</div>

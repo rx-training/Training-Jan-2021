@@ -1,0 +1,111 @@
+<div class="container my-5 rounded border border-dark">
+    <p class="display-4 text-center bg-secondary rounded p-4 mt-3"> Day 8 Practical </p>
+    <hr class="bg-dark">
+
+    <div class="row my-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input type="text" placeholder="Enter your name..." class="form-control mb-2" [(ngModel)]='Name'>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <button class='btn btn-outline-dark' [disabled]="Name === ''" (click)="ngIfFunction()">
+                Show Data
+            </button>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+    <!-- ngIf -->
+    <p class="text-center" *ngIf='ngIfFlag && Name!==""; else noName'>Hello {{Name}}, Hope you are doing good...</p>
+
+    <!-- To implement else part -->
+    <ng-template #noName>
+        <!--ngStyle-->
+        <p class="text-center" [ngStyle]="{color : 'red'}">Please enter a name to display it...</p>
+    </ng-template>
+
+    <div class="row my-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-3">
+            <button class="btn btn-outline-dark " (click)='StatusCheck()'>
+                Status
+            </button>
+        </div>
+        <!--NgClass-->
+        <div class="col-md-4" [ngClass]="{online : Status == true, danger : Status == false}">
+            <p>{{Status ? 'Online' : 'Offline'}}</p>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <!-- ngFor -->
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <button (click)=" addNgFor()" class="btn mb-3 btn-primary form-control">
+                + (ngFor)
+            </button>
+        </div>
+    </div>
+    <app-ngforcomponent *ngFor="let l of numbers" class="text-center"></app-ngforcomponent>
+    <p *ngFor="let l of numbers ; let i = index" class="text-center">{{i}}</p>
+    <!-- NgSwitch -->
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-4">
+            <form>
+                <p><label for="City">Please choose your city : </label></p>
+                <input type="radio" [(ngModel)]="ndSwitchValue" [ngModelOptions]="{standalone: true}"
+                    value="Ahmedabad">&nbsp;Ahmedabad<br>
+                <input type="radio" [(ngModel)]="ndSwitchValue" [ngModelOptions]="{standalone: true}"
+                    value="Mehasana">&nbsp;Mehasana<br>
+                <input type="radio" [(ngModel)]="ndSwitchValue" [ngModelOptions]="{standalone: true}"
+                    value="Gandhinagar">&nbsp;Gandhinagar<br>
+                <input type="radio" [(ngModel)]="ndSwitchValue" [ngModelOptions]="{standalone: true}"
+                    value="Patan">&nbsp;Patan<br>
+            </form>
+        </div>
+    </div>
+    <!-- ngSwitch -->
+    <div [ngSwitch]="ndSwitchValue" class="text-center">
+        <p *ngSwitchCase="'Ahmedabad'">Your city is Ahmedabad</p>
+        <p *ngSwitchCase="'Mehasana'">Your city is Mehasana</p>
+        <p *ngSwitchCase="'Gandhinagar'">Your city is Gandhinagar</p>
+        <p *ngSwitchCase="'Patan'">Your city is Patan</p>
+        <p *ngSwitchDefault>Please choose one city...</p>
+    </div>
+
+    <!-- ngFor -->
+
+    <div class="text-center">
+        Pick your favorite hero
+        (<label><input type="checkbox" (change)="showSad = !showSad">show sad</label>)
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <select [(ngModel)]="hero" class="form-control">
+                <ng-container *ngFor="let h of moodSet">
+                    <ng-container *ngIf="showSad || h.Mood !== 'sad'">
+                        <option [ngValue]="h">{{h.Name}} ({{h.Mood}})</option>
+                    </ng-container>
+                </ng-container>
+            </select>
+        </div>
+    </div>
+
+    <!-- ng Attribute -->
+
+    <br>
+    <h1 class="text-center">Attribute Directive</h1>
+
+    <h2 class="text-center">Pick a highlight color</h2>
+    <div class="text-center">
+        <input type="radio" name="colors" (click)="color='lightgreen'">Green
+        <input type="radio" name="colors" (click)="color='yellow'">Yellow
+        <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    </div>
+    <p class="text-center" [appHighlight]="color" defaultHighlight = 'violet'>Highlight me! {{color}}</p>
+    <p class="text-center" [appHighlight]="color">Highlight me! {{color}}</p>
+
+</div>

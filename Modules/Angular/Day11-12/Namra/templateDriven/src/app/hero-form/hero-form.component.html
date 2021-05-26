@@ -1,0 +1,71 @@
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>Hero Form</h1>
+      <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control p-3" id="name"
+                 required
+                 [(ngModel)]="model.name" name="name"
+                 #name="ngModel">
+          <div [hidden]="name.valid || name.pristine"
+               class="alert alert-danger">
+            Name is required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="alterEgo">Alter Ego</label>
+          <input type="text" class="form-control p-3" id="alterEgo"
+                 [(ngModel)]="model.alterEgo" name="alterEgo">
+        </div>
+  
+        <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control " id="power"
+                  required
+                  [(ngModel)]="model.power" name="power"
+                  #power="ngModel">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+            Power is required
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+        
+  
+      
+  
+       <!-- NOT SHOWN IN DOCS -->
+        <div>
+          <hr>
+          Name via form.controls = {{showFormControls(heroForm)}}
+          
+        </div>
+        {{diagnostic}}
+       <!-- - -->
+      </form>
+    </div>
+  
+    <div [hidden]="!submitted" class="text-center">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-xs-3">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</div>
+        <div class="col-xs-9">&nbsp;&nbsp;{{ model.name }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Alter Ego&nbsp; |</div>
+        <div class="col-xs-9">&nbsp;&nbsp;{{ model.alterEgo }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Power&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</div>
+        <div class="col-xs-9">&nbsp;&nbsp;{{ model.power }}</div>
+      </div>
+      <br>
+      <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+    </div>
+  </div>
+  
