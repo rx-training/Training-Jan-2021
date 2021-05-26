@@ -2,30 +2,46 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
+
+import { Router } from '@angular/router';
+
 import { AppComponent } from './app.component';
-import { CrisisListComponent } from './crisis-list/crisis-list.component';
-//import { HeroListComponent } from './heroes/hero-list/hero-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
+
+import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
-//import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CrisisListComponent,
-    //HeroListComponent,
-    PageNotFoundComponent,
-    //HeroDetailComponent
-  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
-    AppRoutingModule
+    AuthModule,
+    AppRoutingModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ComposeMessageComponent,
+    PageNotFoundComponent
+  ],
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    // Use a custom replacer to display function names in the route configs
+    const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+
+    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+  }
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+*/

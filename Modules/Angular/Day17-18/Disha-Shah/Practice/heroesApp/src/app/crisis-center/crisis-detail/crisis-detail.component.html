@@ -1,0 +1,14 @@
+<div *ngIf="crisis">
+  <h3>"{{ editName }}"</h3>
+  <div>
+    <label>Id: </label>{{ crisis.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="editName" placeholder="name"/>
+  </div>
+  <p>
+    <button (click)="save()" class="btn btn-primary">Save</button>
+    <button (click)="cancel()" class="ml-5 btn btn-secondary">Cancel</button>
+  </p>
+</div>
+

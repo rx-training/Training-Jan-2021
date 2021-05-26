@@ -1,0 +1,8 @@
+<h3>ADMIN</h3>
+<nav>
+  <a routerLink="./" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }" class="btn btn-primary">Dashboard</a>
+  <a routerLink="./crises" routerLinkActive="active" class="ml-3 btn btn-primary">Manage Crises</a>
+  <a routerLink="./heroes" routerLinkActive="active" class="ml-3 btn btn-primary">Manage Heroes</a>
+</nav>
+<router-outlet></router-outlet>
