@@ -1,0 +1,549 @@
+<div class="container">
+<div class="card ">
+    <div class="card-header text-center text-muted" style="font-size: 30px;">
+        STUDENT ADDMISSION FORM
+    </div>
+    <div class="card-body">
+        <div class="text-center text-muted " style="font-size: 30px;">Student Details</div>
+        <hr>
+        <form [formGroup]="StudentAddmissionDetails" (ngSubmit)="SubmitData()" #Studentform="ngForm">
+
+            <div formGroupName="StudentName">
+                <div class="row">
+                    <!---------------------------------Student Details-------------------------------------------->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentFirstName">Student FirstName</label>
+                            <input type="text" class="form-control "   formControlName="FirstName"
+                                [ngClass]="{'is-invalid':StudentFirstName.errors && (StudentFirstName.touched || StudentFirstName.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="StudentFirstName?.errors && (StudentFirstName.touched || StudentFirstName.dirty) ">
+                                <div *ngIf="StudentFirstName.errors.required">First Name Required</div>
+                                <div *ngIf="StudentFirstName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentMiddleName">Student MiddleName</label>
+                            <input type="text" class="form-control" formControlName="MiddleName"
+                                [ngClass]="{'is-invalid':StudentMiddleName.errors && (StudentMiddleName.touched || StudentMiddleName.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="StudentMiddleName?.errors && (StudentMiddleName.touched || StudentMiddleName.dirty)">
+                                <div *ngIf="StudentMiddleName.errors.required">Middle Name Required</div>
+                                <div *ngIf="StudentMiddleName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Student LastName</label>
+                            <input type="text" class="form-control " formControlName="LastName"
+                                [ngClass]="{'is-invalid':StudentLastName?.errors && (StudentLastName.touched || StudentLastName.dirty)}">
+                            <div class="invalid-feedback" *ngIf="StudentLastName?.errors && StudentLastName.touched">
+                                <div *ngIf="StudentLastName.errors.required">Last Name Required</div>
+                                <div *ngIf="StudentLastName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Date of Birth </label>
+                        <input type="date" class="form-control" formControlName="StudentDateOfBirth" [ngClass]="{'is-invalid':Age?.errors && (Age.touched || Age.dirty)}">
+                        <div class="invalid-feedback"
+                            *ngIf="Age?.errors && (Age.touched || Age.dirty)">
+                            <div *ngIf="Age.errors.required">Birthdate is Required</div>
+                            <div *ngIf="Age.errors.AgeLimit">sorry Age Between 5 to 20 Year </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Place of Birth </label>
+                        <input type="text" class="form-control" formControlName="StudentPlaceofBirth"
+                            [ngClass]="{'is-invalid':StudnetPlaceofBirth.errors && (StudnetPlaceofBirth.touched || StudnetPlaceofBirth.dirty)}">
+                        <div class="invalid-feedback"
+                            *ngIf="StudnetPlaceofBirth?.errors && (StudnetPlaceofBirth.touched || StudnetPlaceofBirth.dirty)">
+                            <div *ngIf="StudnetPlaceofBirth.errors.required">Birth Place Required</div>
+                            <div *ngIf="StudnetPlaceofBirth.errors.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">First Language </label>
+                        <input type="text" class="form-control" formControlName="StudentFirstLanguage"
+                            [ngClass]="{'is-invalid':StudentFirstLanguage.errors && StudentFirstLanguage.touched}">
+                        <div class="invalid-feedback"
+                            *ngIf="StudentFirstLanguage?.errors && (StudentFirstLanguage.touched || StudentFirstLanguage.dirty)">
+                            <div *ngIf="StudentFirstLanguage.errors.required">Student First Language Required</div>
+                            <div *ngIf="StudentFirstLanguage.errors.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div formGroupName="Address">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">City</label>
+                            <input type="text" class="form-control" formControlName="City"
+                                [ngClass]="{'is-invalid':City?.errors && (City.touched || City.dirty)}">
+                            <div class="invalid-feedback" *ngIf="City?.errors && (City.touched || City.dirty)">
+                                <div *ngIf="City.errors.required">City is Required Fild</div>
+                                <div *ngIf="City.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">State</label>
+                            <input type="text" class="form-control" formControlName="State"
+                                [ngClass]="{'is-invalid':State?.errors && (State.touched || State.dirty)}">
+                            <div class="invalid-feedback" *ngIf="State?.errors && (State.touched || State.dirty)">
+                                <div *ngIf="State.errors.required">State is Required Fild</div>
+                                <div *ngIf="State.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Country</label>
+                            <input type="text" class="form-control" formControlName="Country"
+                                [ngClass]="{'is-invalid':Country?.errors && (Country.touched || Country.dirty)}">
+                            <div class="invalid-feedback" *ngIf="Country?.errors && (Country.touched || Country.dirty)">
+                                <div *ngIf="Country.errors.required">Country is Required Fild</div>
+                                <div *ngIf="Country.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">PinNumber</label>
+                            <input type="text" class="form-control" formControlName="PinNumber"
+                                [ngClass]="{'is-invalid':PinNumber?.errors && (PinNumber.touched || PinNumber.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="PinNumber?.errors && (PinNumber.touched || PinNumber.dirty)">
+                                <div *ngIf="PinNumber.errors.required">Pincode is Required Fild</div>
+                                <div *ngIf="PinNumber.errors.Nodigit">Only Digit Are Allowed </div>
+                                <div *ngIf="PinNumber.errors.maxlength || PinNumber.errors.minlength">Pincode number is
+                                    6 Digit Only</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!---------------------------------------- Father Details----------------------------->
+            <div class="text-center text-muted" style="font-size: 30px;">Father Details</div>
+            <hr>
+            <div formGroupName="FatherName">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentFirstName">Father FirstName</label>
+                            <input type="text" class="form-control" formControlName="FirstName"
+                                [ngClass]="{'is-invalid': FatherFirstName?.errors && (FatherFirstName.touched || FatherFirstName.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherFirstName?.errors && (FatherFirstName.touched || FatherFirstName.dirty)">
+                                <div *ngIf="FatherFirstName.errors.required">First Name Required</div>
+                                <div *ngIf="FatherFirstName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentMiddleName">Father MiddleName</label>
+                            <input type="text" class="form-control" formControlName="MiddleName"
+                                [ngClass]="{'is-invalid': FatherMiddleName?.errors && (FatherMiddleName.touched || FatherMiddleName.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherMiddleName?.errors && (FatherMiddleName.touched || FatherMiddleName.dirty)">
+                                <div *ngIf="FatherMiddleName.errors.required">Middle Name Required</div>
+                                <div *ngIf="FatherMiddleName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Father LastName</label>
+                            <input type="text" class="form-control " formControlName="LastName"
+                                [ngClass]="{'is-invalid': FatherLastName?.errors && FatherLastName.touched}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherLastName?.errors && (FatherLastName.touched || FatherLastName.dirty)">
+                                <div *ngIf="FatherLastName.errors.required">Last Name Required</div>
+                                <div *ngIf="FatherLastName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div formGroupName="FatherDetails">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Father Email</label>
+                            <input type="text" class="form-control" formControlName="Email"
+                                [ngClass]="{'is-invalid':FatherEmail?.errors &&  (FatherEmail.touched || FatherEmail.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherEmail?.errors && (FatherEmail.touched || FatherEmail.dirty)">
+                                <div *ngIf="FatherEmail.errors.required">Email is Required Fild</div>
+                                <div *ngIf="FatherEmail.errors.email">Please Enter Valid Email</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Father Education Qualification</label>
+                            <input type="text" class="form-control" formControlName="EducationQualification"
+                                [ngClass]="{'is-invalid':FatherQualification?.errors &&(FatherQualification.touched || FatherQualification.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherQualification?.errors && (FatherQualification.touched || FatherQualification.dirty)">
+                                <div *ngIf="FatherQualification.errors.required">Education Qualification is Required
+                                    Fild</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Father Profession</label>
+                            <input type="text" class="form-control" formControlName="Profession"
+                                [ngClass]="{'is-invalid':FatherProfession?.errors &&(FatherProfession.touched || FatherProfession.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherProfession?.errors && (FatherProfession.touched || FatherProfession.dirty)">
+                                <div *ngIf="FatherProfession.errors.required"> Profession is Required Fild</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="StudentLastName">Father Designation</label>
+                            <input type="text" class="form-control" formControlName="Designation"
+                                [ngClass]="{'is-invalid':FatherDesignation?.errors &&(FatherDesignation.touched || FatherDesignation.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherDesignation?.errors && (FatherDesignation.touched || FatherDesignation.dirty)">
+                                <div *ngIf="FatherDesignation.errors.required">Designation is Required Fild</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="StudentLastName">Father Phone Number</label>
+                            <input type="text" class="form-control" formControlName="PhoneNumber"
+                                [ngClass]="{'is-invalid':FatherPhoneNumber?.errors &&(FatherPhoneNumber.touched || FatherPhoneNumber.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="FatherPhoneNumber?.errors && (FatherPhoneNumber.touched || FatherPhoneNumber.dirty)">
+                                <div *ngIf="FatherPhoneNumber.errors.required">MobileNumber is Required Fild</div>
+                                <div *ngIf="FatherPhoneNumber.errors.Nodigit">Please Enter Digit Only</div>
+                                <div
+                                    *ngIf="(FatherPhoneNumber.errors.maxlength  || FatherPhoneNumber.errors.minlength)">
+                                    Please Enter 10 Digit Number</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+
+
+            <!---------------------------------------- Mother Details----------------------------->
+            <div class="text-center text-muted" style="font-size: 30px;">Mother Details</div>
+            <hr>
+            <div formGroupName="MotherName">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentFirstName">Mother FirstName</label>
+                            <input type="text" class="form-control " formControlName="FirstName"
+                                [ngClass]="{'is-invalid': MotherFirstName?.errors && (MotherFirstName.touched || MotherFirstName.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherFirstName?.errors && (MotherFirstName.touched || MotherFirstName.dirty)">
+                                <div *ngIf="MotherFirstName.errors.required">First Name Required</div>
+                                <div *ngIf="MotherFirstName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentMiddleName">Mother MiddleName</label>
+                            <input type="text" class="form-control" formControlName="MiddleName"
+                                [ngClass]="{'is-invalid': MotherMiddleName?.errors && (MotherMiddleName.touched || MotherMiddleName.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherMiddleName?.errors && (MotherFirstName.touched || MotherFirstName.dirty)">
+                                <div *ngIf="MotherMiddleName.errors.required">Middle Name Required</div>
+                                <div *ngIf="MotherMiddleName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Mother LastName</label>
+                            <input type="text" class="form-control" formControlName="LastName"
+                                [ngClass]="{'is-invalid': MotherLastName?.errors && (MotherLastName.touched || MotherLastName.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherLastName?.errors && (MotherLastName.touched || MotherLastName.dirty)">
+                                <div *ngIf="MotherLastName.errors.required">Last Name Required</div>
+                                <div *ngIf="MotherLastName.errors.Nocharactor">Only Charactor Are Allowed </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div formGroupName="MotherDetails">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Mother Email</label>
+                            <input type="text" class="form-control" formControlName="Email"
+                                [ngClass]="{'is-invalid':MotherEmail?.errors &&  (MotherEmail.touched || MotherEmail.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherEmail?.errors && (MotherEmail.touched || MotherEmail.dirty)">
+                                <div *ngIf="MotherEmail.errors.required">Email is Required Fild</div>
+                                <div *ngIf="MotherEmail.errors.email">Please Enter Valid Email</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Mother Education Qualification</label>
+                            <input type="text" class="form-control" formControlName="EducationQualification"
+                                [ngClass]="{'is-invalid':MotherQualification?.errors &&(MotherQualification.touched || MotherQualification.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherQualification?.errors && (MotherQualification.touched || MotherQualification.dirty)">
+                                <div *ngIf="MotherQualification.errors.required">Education Qualification is Required
+                                    Fild</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="StudentLastName">Mother Profession</label>
+                            <input type="text" class="form-control" formControlName="Profession"
+                                [ngClass]="{'is-invalid':MotherProfession?.errors &&(MotherProfession.touched || MotherProfession.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherProfession?.errors && (MotherProfession.touched || MotherProfession.dirty)">
+                                <div *ngIf="MotherProfession.errors.required"> Profession is Required Fild</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="StudentLastName">Mother Designation</label>
+                            <input type="text" class="form-control" formControlName="Designation"
+                                [ngClass]="{'is-invalid':MotherDesignation?.errors &&(MotherDesignation.touched || MotherDesignation.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherDesignation?.errors && (MotherDesignation.touched || MotherDesignation.dirty)">
+                                <div *ngIf="MotherDesignation.errors.required">Designation is Required Fild</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="StudentLastName">Mother Phone Number</label>
+                            <input type="text" class="form-control" formControlName="PhoneNumber"
+                                [ngClass]="{'is-invalid':MotherPhoneNumber?.errors &&(MotherPhoneNumber.touched || MotherPhoneNumber.dirty)}">
+                            <div class="invalid-feedback"
+                                *ngIf="MotherPhoneNumber?.errors && (MotherPhoneNumber.touched || MotherPhoneNumber.dirty)">
+                                <div *ngIf="MotherPhoneNumber.errors.required">MobileNumber is Required Fild</div>
+                                <div *ngIf="MotherPhoneNumber.errors.Nodigit">Please Enter Digit Only</div>
+                                <div
+                                    *ngIf="(MotherPhoneNumber.errors.maxlength  || MotherPhoneNumber.errors.minlength)">
+                                    Please Enter 10 Digit Number</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Emergency Contect List  -->
+            <div class="text-center text-muted" style="font-size: 30px;">Emergency Contact Details</div>
+            <hr>
+            <button type="button" class="btn btn-success btn-block" (click)="AddEmergencyContactList() "
+                [disabled]="StudentAddmissionDetails.get('EmergencyContactList').invalid">Add More Emergency
+                Contact</button>
+            <div formArrayName="EmergencyContactList"
+                *ngFor="let AddEmergency of  StudentAddmissionDetails.get('EmergencyContactList')['controls'];let idx=index">
+                <div [formGroupName]="idx">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Relation</label>
+                                <input type="text" class="form-control" formControlName="Relation"
+                                    [ngClass]="{'is-invalid':AddEmergency.get('Relation')?.errors && (AddEmergency.get('Relation').touched || AddEmergency.get('Relation').dirty)}">
+                                <div class="invalid-feedback"
+                                    *ngIf="AddEmergency.get('Relation')?.errors && (AddEmergency.get('Relation').touched || AddEmergency.get('Relation').dirty)">
+                                    <div *ngIf="AddEmergency.get('Relation')?.errors.required">Relation is Required
+                                    </div>
+                                    <div *ngIf="AddEmergency.get('Relation')?.errors.Nocharactor">only Charactor are
+                                        Allowed</div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Mobile Number</label>
+                                <input type="text" class="form-control" formControlName="MobileNumber"
+                                    [ngClass]="{'is-invalid':AddEmergency.get('MobileNumber')?.errors &&(AddEmergency.get('MobileNumber').touched || AddEmergency.get('MobileNumber').dirty)}">
+                                <div class="invalid-feedback"
+                                    *ngIf="AddEmergency.get('MobileNumber')?.errors &&(AddEmergency.get('MobileNumber').touched || AddEmergency.get('MobileNumber').dirty)">
+                                    <div *ngIf="AddEmergency.get('MobileNumber').errors.required">MobileNumber is
+                                        Required Fild</div>
+                                    <div *ngIf="AddEmergency.get('MobileNumber').errors.Nodigit">Please Enter Digit Only
+                                    </div>
+                                    <div
+                                        *ngIf="(AddEmergency.get('MobileNumber').errors.maxlength  || AddEmergency.get('MobileNumber').errors.minlength)">
+                                        Please Enter 10 Digit Number</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Reference Details  -->
+            <div class="text-center text-muted" style="font-size: 30px;">Reference Details</div>
+            <hr>
+            <button type="button" class="btn btn-danger btn-block" (click)="AddReference()"
+                [disabled]="StudentAddmissionDetails.get('Reference')?.invalid"> Add More References</button>
+            <div formArrayName="Reference"
+                *ngFor="let ref of StudentAddmissionDetails.get('Reference')['controls'];let idx=index">
+                <div [formGroupName]="idx">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Reference Name</label>
+                                <input type="text" class="form-control" formControlName="Referencethrough"
+                                    [ngClass]="{'is-invalid':ref.get('Referencethrough')?.errors && (ref.get('Referencethrough').touched || ref.get('Referencethrough').dirty)}">
+                                <div class="invalid-feedback"
+                                    *ngIf="ref.get('Referencethrough')?.errors && (ref.get('Referencethrough').touched || ref.get('Referencethrough').dirty)">
+                                    <div *ngIf="ref.get('Referencethrough')?.errors.required">Reference Name is Required
+                                    </div>
+                                    <div *ngIf="ref.get('Referencethrough')?.errors.Nocharactor">only Charactor are
+                                        Allowed</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Reference Mobile Number</label>
+                                <input type="text" class="form-control" formControlName="MobileNumber"
+                                    [ngClass]="{'is-invalid':ref.get('MobileNumber')?.errors && (ref.get('MobileNumber').touched || ref.get('MobileNumber').dirty)}">
+                                <div class="invalid-feedback"
+                                    *ngIf="ref.get('MobileNumber')?.errors &&(ref.get('MobileNumber').touched || ref.get('MobileNumber').dirty)">
+                                    <div *ngIf="ref.get('MobileNumber').errors.required">MobileNumber is Required Fild
+                                    </div>
+                                    <div *ngIf="ref.get('MobileNumber').errors.Nodigit">Please Enter Digit Only</div>
+                                    <div
+                                        *ngIf="(ref.get('MobileNumber').errors.maxlength  || ref.get('MobileNumber').errors.minlength)">
+                                        Please Enter 10 Digit Number</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-block mt-5"
+            [disabled]="StudentAddmissionDetails.invalid"
+            >Save The Record</button>
+        </form>
+
+
+
+       
+
+
+    </div>
+</div>
+
+</div>
+
+ <!-- ----------------------table----------------- -->
+<table class="table table-hover mt-5" style="font-size: 12px;">
+    <thead class="thead-dark">
+        <tr>
+            <th>Student Name</th>
+            <th>DOB</th>
+            <th>PLaceBirth</th>
+            <th>First Language</th>
+            <th>Adddress</th>
+            <th>Pincode Number</th>
+            <th>Father Name</th>
+            <th>Faher Email</th>
+            <th>Father Qualification</th>
+            <th>Father Profession</th>
+            <th>Father Designation</th>
+            <th>Father Phone Number</th>
+            <th>Mother Name</th>
+            <th>Mother Email</th>
+            <th>Mother Education Qualification</th>
+            <th>Mother Profession</th>
+            <th>Mother Designation</th>
+            <th>Mother Phone Number</th>
+            
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let StudentData of arr">
+            <td>{{StudentData.StudentName.FirstName}} {{StudentData.StudentName.MiddleName}} {{StudentData.StudentName.LastName}}</td>
+            <td>{{StudentData.StudentDateOfBirth}}</td>
+            <td>{{StudentData.StudentPlaceofBirth}}</td>
+            <td>{{StudentData.StudentFirstLanguage}}</td>
+            <td> {{StudentData.Address.City}}  {{StudentData.Address.State}}  {{StudentData.Address.Country}}</td>
+            <td>{{StudentData.Address.PinNumber}}</td>
+            <td>{{StudentData.FatherName.FirstName}} {{StudentData.FatherName.MiddleName}} {{StudentData.FatherName.LastName}}</td>
+            <td>{{StudentData.FatherDetails.Email}}</td>
+            <td>{{StudentData.FatherDetails.EducationQualification}}</td>
+            <td>{{StudentData.FatherDetails.Profession}}</td>
+            <td>{{StudentData.FatherDetails.Designation}}</td>
+            <td>{{StudentData.FatherDetails.PhoneNumber}}</td>
+            <td>{{StudentData.MotherName.FirstName}} {{StudentData.MotherName.MiddleName}} {{StudentData.MotherName.LastName}}</td>
+            <td>{{StudentData.MotherDetails.Email}}</td>
+            <td>{{StudentData.MotherDetails.EducationQualification}}</td>
+            <td>{{StudentData.MotherDetails.Profession}}</td>
+            <td>{{StudentData.MotherDetails.Designation}}</td>
+            <td>{{StudentData.MotherDetails.PhoneNumber}}</td>
+            
+
+
+        </tr>
+    </tbody>
+
+</table>

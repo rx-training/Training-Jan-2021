@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white" style="font-size: 20px;">Create Employee with nested Reactive  forms And form Array</div>
+        <div class="card-body">
+            <form [formGroup]="CreateEmployee" (ngSubmit)="onSubmit()">
+                <div class="form-group" >
+                    <label for="FullName">FullName </label>
+                    <input type="text" class="form-control" formControlName="FullName" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="text" class="form-control" formControlName="Email">
+                </div>
+                <div  formArrayName="Skill" *ngFor="let addnewskill of this.CreateEmployee.get('Skill')['controls']; let i=index">
+                <div [formGroupName]="i" >
+                    <div class="form-group">
+                        
+                        <label for="SkillName">SkillName</label>
+                        <input type="text" class="form-control" formControlName="SkillName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SkillName">Exprience</label>
+                        <input type="text" class="form-control" formControlName="Exprience">
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" value="bignner" formControlName="Proficiency"  >bignner
+                        <input type="radio" value="Intermedeate" formControlName="Proficiency" >Intermedeate
+                        <input type="radio" value="Advanced" formControlName="Proficiency" >Advanced
+                          
+                        
+                    </div>
+                </div>
+
+                </div>
+                <div class="form-group">
+                    
+                    <button class="btn btn-primary ml-5" type="button" (click)="AddSkill()">Add More Skill</button>
+                    <button class="btn btn-primary ml-5" type="button" (click)="AddDefaultData()">Load data</button>
+                    <button class="btn btn-primary ml-5" type="submit">Save</button>
+                </div>
+
+                
+            </form>
+
+
+
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+</div>

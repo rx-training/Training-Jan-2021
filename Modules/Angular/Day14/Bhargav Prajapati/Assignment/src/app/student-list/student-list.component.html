@@ -1,0 +1,258 @@
+<app-student (SendData)="getData($event)"></app-student>
+<div class="container mt-5">
+    <div style="overflow-x: scroll;">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>StudentID</th>
+                    <th>StudentName</th>
+                    <th>StudentDateofBirth</th>
+                    <th>StudentPlaceofBirth</th>
+                    <th>StudentFirstLanguage</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>PinNumber</th>
+                    <th>FatherName</th>
+                    <th>FatherEmail</th>
+                    <th>FatherEductionQualification</th>
+                    <th>FatherProfession</th>
+                    <th>FatherDesignation</th>
+                    <th>FatherPhoneNumber</th>
+                    <th>MotherName</th>
+                    <th>MotherEmail</th>
+                    <th>MotherEductionQualification</th>
+                    <th>MotherProfession</th>
+                    <th>MotherDesignation</th>
+                    <th>MotherPhoneNumber</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of StudentList">
+                    <td>{{item.StudentId}}</td>
+                    <td>{{item.StudentName}}</td>
+                    <td>{{item.StudentDateOfBirth}}</td>
+                    <td>{{item.StudentPlaceofBirth}}</td>
+                    <td>{{item.StudentFirstLanguage}}</td>
+                    <td>{{item.City}}</td>
+                    <td>{{item.State}}</td>
+                    <td>{{item.Country}}</td>
+                    <td>{{item.PinNumber}}</td>
+                    <td>{{item.FathertName}}</td>
+                    <td>{{item.FatherEmail}}</td>
+                    <td>{{item.FatherEducationQualification}}</td>
+                    <td>{{item.FatherProfession}}</td>
+                    <td>{{item.FatherDesignation}}</td>
+                    <td>{{item.FatherPhoneNumber}}</td>
+                    <td>{{item.MotherName}}</td>
+                    <td>{{item.MotherEmail}}</td>
+                    <td>{{item.MotherEducationQualification}}</td>
+                    <td>{{item.MotherProfession}}</td>
+                    <td>{{item.MotherDesignation}}</td>
+                    <td>{{item.MotherPhoneNumber}}</td>
+                    <td><button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                            (click)="EditData(item)"> Edit </button> </td>
+                    <td><button class="btn btn-danger" (click)="DeleteData(item.StudentId,StudentList)"> Delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Student Update</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="container">
+                    <div class="card mt-4 ">
+                        <div class="card-header bg-primary text-white text-center" style="font-size: 20px;">
+                            Student Admission Form
+                        </div>
+                        <div class="card-body">
+                            <form>
+
+                                <div class="text-center text-muted" style="font-size: 30px;">Student Details</div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Student Id</label>
+                                            <input type="number" disabled name="StudentId" class="form-control"
+                                                [(ngModel)]="studentList.StudentId">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Student Name</label>
+                                            <input type="text" class="form-control" name="StudentName"
+                                                [(ngModel)]="studentList.StudentName">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Student Data of Birth</label>
+                                            <input type="date" class="form-control"
+                                                [(ngModel)]="studentList.StudentDateOfBirth" name="StudentDateOfBirth">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">StudentPlace of Birth</label>
+                                            <input type="text" class="form-control"
+                                                [(ngModel)]="studentList.StudentPlaceofBirth"
+                                                name="StudentPlaceofBirth">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Student First Language</label>
+                                    <input type="text" class="form-control"
+                                        [(ngModel)]="studentList.StudentFirstLanguage" name="StudentFirstLanguage">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="">City</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentList.City"
+                                            name="City">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">State</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentList.State"
+                                            name="State">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Country</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentList.Country"
+                                            name="Country">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Pin Number</label>
+                                        <input type="number" class="form-control" [(ngModel)]="studentList.PinNumber"
+                                            name="PinNumber">
+                                    </div>
+                                </div>
+
+                                <!-- Father Details -->
+                                <div class="text-center text-muted" style="font-size: 30px;">Father Details</div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Father Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentList. FathertName"
+                                            name="FathertName">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Father Email </label>
+                                        <input type="email" class="form-control" [(ngModel)]="studentList.FatherEmail"
+                                            name="FatherEmail">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">FatherEducationQualification</label>
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="studentList.FatherEducationQualification"
+                                            name="FatherEducationQualification">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">FatherProfession</label>
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="studentList.FatherProfession" name="FatherProfession">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">FatherDesignation</label>
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="studentList.FatherDesignation" name="FatherDesignation">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">FatherPhoneNumber</label>
+                                        <input type="number" class="form-control"
+                                            [(ngModel)]="studentList.FatherPhoneNumber" name="FatherPhoneNumber">
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Mother Details -->
+                                <div class="text-center text-muted" style="font-size: 30px;">Mother Details</div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">MotherName</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentList.MotherName"
+                                            name="MotherName">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Mother Email </label>
+                                        <input type="email" class="form-control" [(ngModel)]="studentList.MotherEmail"
+                                            name="MotherEmail">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Mother Education Qualification</label>
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="studentList.MotherEducationQualification"
+                                            name="MotherEducationQualification">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Mother Profession</label>
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="studentList.MotherProfession" name="MotherProfession">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Mother Designation</label>
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="studentList.MotherDesignation" name="MotherDesignation">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Mother PhoneNumber</label>
+                                        <input type="number" class="form-control"
+                                            [(ngModel)]="studentList.MotherPhoneNumber" name="MotherPhoneNumber">
+                                    </div>
+                                </div>
+
+                                <button class="btn mt-5 btn-block btn-primary" data-dismiss="modal" type="button"
+                                    (click)="UpdateData(studentList)">Update Data</button>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.Containar2
+            {
+                background-color:teal;
+                display: flex;
+                flex-wrap: wrap;
+            
+                
+              }
+            .vp
+            {
+                font-size:large;
+                margin: 25px;
+                padding: 25px;
+                text-align: center;
+                height:40px;
+                width: 55px;
+                text-decoration: none;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                color: aliceblue;            
+            }
+            
+            div a:hover
+            {
+                background-color: brown;
+            }
+           

@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center text-muted">Template Driven Forms </div>
+        <div class="card-body">
+            <form (ngSubmit)="OnSubmit()" #f="ngForm">
+                <div id="User-data" ngModelGroup="UserData" #data="ngModelGroup">
+                    <div class="form-group">
+                        <label for="">UserName</label>
+                        <input type="text" class="form-control" ngModel name="UserName" required>
+                        <button type="button" class="btn btn-outline-primary mt-2"
+                            (click)="SuggestedUsrname()">DefaultName</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="Email" class="form-control" ngModel name="Email" required email #email="ngModel">
+                        <span class="help-block" style="color:red" *ngIf="!email.valid && email.touched">Please Enter A
+                            valid Email</span>
+                    </div>
+                </div>
+                <p class="text-danger" *ngIf="!data.valid && data.touched">Form Group is not valid</p>
+
+                <div class="form-group">
+                    <label for="">Message</label>
+                    <textarea [(ngModel)]="Answer" id="" cols="10" rows="2" ngModel name="Message"
+                        class="form-control"></textarea>
+                </div>
+                <div class="radio" *ngFor="let item of gender">
+                    <label>
+                        <input type="radio" name="gender" ngModel [value]="item" required> {{item}}
+                    </label>
+                </div>
+                <p>Your Reply :- {{Answer}}</p>
+                <div class="form-grou">
+                    <label for="">Secret</label>
+                    <select name="Secret" class="form-control" [ngModel]="DefaultQuestion" required>
+                        <option value="Pet">Your Pet Name ?</option>
+                        <option value="Teacher">Your Teacher Name ?</option>
+
+                    </select>
+                </div>
+                <button class="btn btn-primary mt-2" type="submit" [disabled]="!f.valid">Submit</button>
+
+            </form>
+
+            <hr>
+            <div *ngIf="submited">
+                <h3>Your Data:- </h3>
+                <p>Your Name :- {{storeData.UserName}}}</p>
+                <p>Your Email:- {{storeData.Email}} </p>
+                <p>Secrate Question :- {{storeData.SecarateQuesione}} </p>
+                <p> your Message :- {{storeData.Message}} </p>
+                <p> Gender :- {{storeData.Gender}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white" style="font-size: 20px;">Registration form</div>
+        <div class="card-body">
+            <form (ngSubmit)="Register()" #d="ngForm">
+                <div ngModelGroup="RegisterName">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="FirstName" #FirstName="ngModel" ngModel placeholder="First Name"
+                            class="form-control" pattern="^[A-Za-z\s]*$" required>
+                        <div *ngIf="FirstName.errors?.required && (FirstName.touched ||FirstName.dirty)"
+                            class="mt-2  alert alert-danger"> FirstName is Required </div>
+                        <div *ngIf=" FirstName.errors?.pattern  && (FirstName.touched ||FirstName.dirty)"
+                            class="mt-2 alert alert-danger">
+                            Only Charactor are allowed
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="LastName" #LastName="ngModel" ngModel placeholder="Last Name"
+                            class="form-control" required pattern="^[A-Za-z\s]*$">
+                        <div *ngIf="LastName.errors?.required && (LastName.touched ||LastName.dirty)"
+                            class="mt-2  alert alert-danger"> Last is Required </div>
+                        <div *ngIf=" LastName.errors?.pattern  && (LastName.touched ||LastName.dirty)"
+                            class="mt-2 alert alert-danger">
+                            Only Charactor are allowed
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="Email" #Email="ngModel" ngModel placeholder="Email Address"
+                        class="form-control" required email>
+                    <div *ngIf="Email.errors?.required && (Email.touched ||Email.dirty)"
+                        class="mt-2  alert alert-danger"> Email is Required </div>
+                    <div *ngIf="Email.errors?.email && (Email.touched ||Email.dirty)" class="mt-2  alert alert-danger">
+                        Email is invalid </div>
+
+
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" name="PhoneNumber" #phno="ngModel" ngModel placeholder="Phone Number"
+                        class="form-control" required maxlength="10" minlength="10" pattern="[0-9\s]*$">
+                    <div *ngIf="phno.errors?.required && (phno.touched ||phno.dirty)" class="mt-2  alert alert-danger">
+                        Phone Numberis Required </div>
+                    <div *ngIf="(phno.errors?.maxlength  || phno.errors?.minlength) && (phno.touched ||phno.dirty)"
+                        class="mt-2  alert alert-danger">only 10 Number are allowed</div>
+                    <div *ngIf="phno.errors?.pattern   && (phno.touched ||phno.dirty)" class="mt-2  alert alert-danger">
+                        Digit Number Are allowed</div>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="Password" #password="ngModel" ngModel placeholder="Password"
+                        class="form-control" required>
+                    <div *ngIf="password.invalid && password.touched" class="mt-2  alert alert-danger">Password is
+                        Required </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-block" [disabled]="!d.valid">Register</button>
+            </form>
+
+            <div *ngIf="Registervalue" class="mt-2">
+                <p>Your FirstName :- {{RegisterData.FullName.FirstName}} </p>
+                <p> Your Last Name :- {{RegisterData.FullName.LastName}} </p>
+                <p>Your Email :- {{RegisterData.Email}} </p>
+                <p>Your Phone Number :- {{RegisterData.PhoneNo}} </p>
+                <p>Your Password :- {{RegisterData.Password}} </p>
+            </div>
+        </div>
+    </div>
+</div>

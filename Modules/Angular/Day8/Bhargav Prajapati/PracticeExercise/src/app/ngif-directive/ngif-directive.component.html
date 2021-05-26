@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header text-center text-muted" style="font-size: 30px;">
+       ng-if Directives 
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+         <label for="">Enter True false status :-</label>
+        <input type="text" class="form-control"[(ngModel)]="show" disabled>
+
+        <button class="btn btn-primary mt-3" (click)="changestatus()">Show/Hide</button>
+    </div>
+
+    <p *ngIf="show">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae praesentium, ex excepturi placeat, ab esse eligendi tempore temporibus consequuntur accusantium illo eveniet explicabo aut sit vitae molestiae corrupti quaerat nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi autem beatae maiores dolore? Repellendus adipisci labore, expedita ex provident veritatis doloribus temporibus, quos laboriosam perspiciatis ratione voluptatem. Voluptatum, modi repellendus!
+    </p>
+
+    </div>
+</div>

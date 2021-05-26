@@ -1,0 +1,16 @@
+.Containar
+            {
+                display: flex;
+                flex-wrap: wrap;
+                height:500px;
+                width: 100%;
+                background-color: darkred;
+                justify-content: center;
+                align-items: center;
+            }
+            #SD
+            {
+                height:100px;
+                width: 100px;
+                background-color: darksalmon;
+            }

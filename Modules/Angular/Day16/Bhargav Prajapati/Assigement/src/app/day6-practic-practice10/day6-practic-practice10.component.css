@@ -1,0 +1,18 @@
+.Containar2
+            {
+                background-color: crimson;
+                display: flex;
+                align-items: baseline;
+                
+
+            }
+            #bc
+            {
+                background-color:darkkhaki;
+                font-size: 20px;
+                margin: 25px;
+                padding: 25px;
+                text-align: center;
+                
+
+            }

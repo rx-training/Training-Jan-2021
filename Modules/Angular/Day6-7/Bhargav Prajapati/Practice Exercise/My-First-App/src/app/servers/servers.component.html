@@ -1,0 +1,10 @@
+<p>This is the Server Id :- {{ ServerId}}  And This Is The Server Status :- {{ServerStatus}} </p>
+<div class="text-muted">this is one way binding</div>
+<div>
+    <label for="">Server Name   </label>
+    <input type="text" class="form-control" [(ngModel)]="data">
+    <p>{{data}}</p>
+</div>
+<div class="py-2">
+<button class="btn btn-primary" [disabled]="!AllowServer">Add Server</button>
+</div>

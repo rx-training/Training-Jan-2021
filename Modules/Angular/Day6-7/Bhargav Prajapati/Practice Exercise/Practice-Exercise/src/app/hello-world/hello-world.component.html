@@ -1,0 +1,30 @@
+<h1 class="display-3 text-center pt-2">Practice Exercise</h1>
+<hr>
+<div class="container">
+<p class="text-muted">1. Create Hello World Component and call the helloWorld Component in the App Component.</p>
+<p class="text-danger ">Hello World</p>
+<p class="text-muted">2. HelloworldComponent-> Declare a name variable and store your name in that variable and use header tag to interpolate the variable Greeting of the day with name stored in the variable</p>
+<p class="text-danger ">Hello {{Name}} </p>
+<p class="text-muted">3. Create one textbox in Helloworld component. Bind its value to name variable.</p>
+<p>Enter Your name</p>
+<input type="text" class="form-control" [value]="Name">
+<p class="text-danger ">{{Name}} </p>
+
+<p class="text-muted">4. Create calc component Two text boxes with label. Do the operation addition,multiple and substraction. Use two way binding and event binding.
+</p>
+<div class="form-Group">
+    <label for="">Enter First Number</label>
+    <input type="number" class="form-control" [(ngModel)]="Number1">
+    <label for="">Enter Secound Number</label>
+    <input type="number" class="form-control" [(ngModel)]="Number2">
+    <button class="btn btn-success mx-2 my-2" (click)="getAddition()">Addition</button>
+    <button class="btn btn-primary mx-2 my-2" (click)="getSubtraction()">Subtraction</button>
+    <button class="btn btn-danger mx-2 my-2" (click)="getMultiplication()">Multiplication</button>
+    <button class="btn btn-warning text-white" (click)="getDivision()">Division</button> 
+</div>
+
+<p>First Number :- {{Number1}}</p>
+<p>Secount Number :- {{Number2}}</p>
+<p>{{cal}}</p>
+<div class="py-5"></div>
+</div>

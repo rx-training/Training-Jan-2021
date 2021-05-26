@@ -1,0 +1,26 @@
+.Example
+{
+   /* background-color: red;*/
+    height:100px;
+    width: 400px;
+}
+@media only screen and (max-width: 600px) {
+    .Example {background: red;}
+  }
+  @media only screen and (min-width: 600px) {
+    
+    .Example {background: green;}
+  }
+  @media only screen and (min-width: 768px) {
+    .Example {background: blue;}
+  } 
+  @media only screen and (min-width: 992px) {
+    .Example {background: orange;}
+  } 
+  @media only screen and (min-width: 1200px) {
+    .Example {background: pink;}
+  }
+  
+  
+
+

@@ -1,0 +1,70 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>StudentId</th>
+            <th>StudentName</th>
+            <th>StudentAge</th>
+            <th>Average</th>
+            <th>Grade</th>
+            <th>Status</th>
+            <th> Delete </th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let item of studentinfo; let idx=index" [ngStyle]="{'color':getColor(item)}">
+            <ng-container *ngIf="item.Status=='Active'">
+
+                <td>{{item.StudentId}}</td>
+                <td>{{item.StudentName}}</td>
+                <td>{{item.StudentAge}}</td>
+                <td>{{item.Average}}</td>
+                <td>{{item.Grade}}</td>
+                <td>{{item.Status}}</td>
+                <td><button class="btn btn-danger" (click)="DeleteData(idx)">Delete</button></td>
+                <td><button class="btn btn-primary" (click)="EditData(item)">Edit</button></td>
+
+
+            </ng-container>
+        </tr>
+
+
+    </tbody>
+
+</table>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card mt-5">
+            <div class="card-header text-muted text-center">
+                Edit Details
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <input type="number" [(ngModel)]="Id" disabled class="form-control">
+                    <label for="studentName">Enter New Student Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="stdName">
+                    <label for="studentName">Enter New Age</label>
+                    <input type="number" class="form-control" [(ngModel)]="Age">
+                    <label for="studentName">Enter New Average</label>
+                    <input type="number" class="form-control" [(ngModel)]="Average">
+                    <label for="studentName">Enter New Grade</label>
+                    <input type="text" class="form-control" [(ngModel)]="Grade">
+                    <label for="studentName">Enter New Status</label>
+                    <input type="text" class="form-control" [(ngModel)]="status">
+                    <button class="mt-3 btn btn-success" (click)="Updatedata()">Updated</button>
+
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3"></div>
+
+</div>
+
+<div style="margin-bottom: 30px;"></div>

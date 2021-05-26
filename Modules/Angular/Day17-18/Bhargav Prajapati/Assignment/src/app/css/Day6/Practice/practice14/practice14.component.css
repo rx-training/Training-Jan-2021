@@ -1,0 +1,14 @@
+.Containar
+ {
+                background-color: indianred;
+                display: flex;
+                flex-wrap: wrap;
+                height: 500px;
+ }
+.XZ  {
+                background-color: lightslategray;
+                height: 50px;
+                width: 50px;
+                margin: 25px;
+                padding:25px
+            }

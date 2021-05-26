@@ -1,0 +1,23 @@
+.cointainar
+            {
+                background-color: maroon;
+                height:500px;
+                display: flex;
+                
+            }
+            #A
+            {
+                background-color: mediumslateblue;
+                height:250px;
+                width: 250px;
+                margin: 25px;
+                padding: 25px;
+            }
+            #A:hover
+            {
+                background-color: olive;
+            }
+            .cointainar:hover
+            {
+                background-color: peru;
+            }
