@@ -1,0 +1,9 @@
+.App{
+    margin-top: 5%;
+    margin-left: 25%;
+    text-align: center;
+    width: 50%;
+    border-left:1px solid grey;
+    border-right:1px solid grey;
+    border-top:1px solid grey;
+}

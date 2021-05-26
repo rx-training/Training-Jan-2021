@@ -1,0 +1,45 @@
+const mongoose = require('mongoose')
+
+const studentSchema = new mongoose.Schema({
+        ImageUrl : String,
+        id:String,
+        firstName:String,
+        middleName:String,
+        lastName:String,
+        DOB:String,
+        placeofBirth:String,
+        firstLanguage:String,
+        city:String,
+        states:String,
+        country:String,
+        pincode:String,
+        F_firstName:String,
+        F_middleName:String,
+        F_lastName:String,
+        F_email:String,
+        F_educationQualification:String,
+        F_profession:String,
+        F_designation:String,
+        F_phone:String,
+        M_firstName:String,
+        M_middleName:String,
+        M_lastName:String,
+        M_email:String,
+        M_educationQualification:String,
+        M_profession:String,
+        M_designation:String,
+        M_phone:String,
+        E_phone:String,
+        E_relation:String,
+        referenceName:String,
+        jobTitle:String,
+        referenceRelation:String,
+        address:String,
+        R_phone:String,
+        CollegeName: String,
+        CollegeAddress:String,
+        CollegeLogo:String
+})
+
+
+module.exports = mongoose.model('Student' ,studentSchema )
