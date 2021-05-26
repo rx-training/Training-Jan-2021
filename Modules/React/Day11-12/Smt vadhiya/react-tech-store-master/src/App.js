@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import {FaHome} from 'react-icons/fa'
-import styled from 'styled-components'
 
 import Home from "./pages/HomePage";
 import About from "./pages/AboutPage";
@@ -27,6 +25,7 @@ class App extends Component {
     <>
       {/** navbar sidebar cart, footer */}
       <Navbar />
+      <div className="nav-magin"></div>
       <Sidebar />
       <SideCart />
       

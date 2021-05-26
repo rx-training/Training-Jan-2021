@@ -1,0 +1,871 @@
+import React, { Component } from 'react'
+import { StateOption , DistrictOption } from './Option'
+
+export default class Form extends Component {
+   state = {
+      students : [],
+
+      stdFirstName: "",stdLastName: "",
+      stdDob : "",stdMiddleName : "",
+      stdState : "",pinCode : "",
+      stdDist : "",
+      stdLanguage : "",
+      stdAddress : "",
+      
+      
+      fatherFirstName :"",
+      fatherMiddleName :"",fatherLastName :"",
+      fatherEmail :"",fatherPhone :"",
+      fatherEducation :"",fatherDesignation :"",
+
+      motherFirstName :"",
+      motherMiddleName :"",motherLastName :"",
+      motherEmail :"",motherPhone :"",
+      motherEducation :"",motherDesignation :"",
+
+      relFirstName :"", relLastName:"", relMiddleName:"",
+      relPhone : "",relation : "",
+      
+      refFirstName :"",refLastName:"" ,
+      refPhone:"", refAddress:"",
+
+      errors : {
+         stdFirstName: "",stdLastName: "",
+         stdDob : "",stdMiddleName : "",
+         stdBirthPlace : "",pinCode : "",
+
+         fatherFirstName :"",
+         fatherMiddleName :"",fatherLastName :"",
+         fatherEmail :"",fatherPhone :"",
+
+         motherFirstName :"",
+         motherMiddleName :"",motherLastName :"",
+         motherEmail :"",motherPhone :"",
+
+         relFirstName :"", relLastName:"", relMiddleName:"",
+         relPhone : "",
+
+         refFirstName :"",refLastName:"" ,
+         refPhone:"",
+      }
+   }
+
+   calculateAge = (birthday) =>{
+      var ageDifMs = Date.now() - new Date(birthday).getTime();
+      var ageDate = new Date(ageDifMs); 
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+   }
+   handleChange=(e)=>{
+   const {name, value} = e.target
+   const errors = this.state.errors
+   this.setState({
+      [name] : value
+   })
+
+   if(name === 'stdState'){
+      this.setState({stdDist : ""})
+   }
+
+   switch(name){
+
+      /* STUDENT CASE */
+      case 'stdFirstName' :  
+      case 'stdMiddleName' :  
+      case 'stdLastName' :  
+      case 'fatherFirstName' :  
+      case 'fatherMiddleName' :  
+      case 'fatherLastName' :  
+      case 'motherFirstName' :
+      case 'motherMiddleName' :  
+      case 'motherLastName' :  
+      case 'relFirstName' :   
+      case 'relMiddleName' :  
+      case 'relLastName' : 
+      case 'refFirstName' :
+      case 'refLastName' :   
+         errors[name] = value.length < 3 && value.length !== 0 ? "minimum length shoud be 3" : ""
+         break;
+
+      case 'pinCode' : 
+         errors[name] = value.length !== 6 ? "pincode must be of 6 digit" : ( isNaN(value)  ? "Only Numbers are valid" : "")
+         break;
+      case "stdDob" : 
+      var age = this.calculateAge(this.state.stdDob)
+         errors[name] =  (age < 5 || age > 20 || isNaN(age)) ? "Age must be between 5 to 20" : ""
+         break;
+
+      case 'fatherPhone' :  
+      case 'motherPhone' :
+      case 'refPhone' :
+      case 'relPhone' :  
+         errors[name] = value.length !== 10 && value.length !== 0 ? "Phone number must be of 10 digit" : ( isNaN(value)  ? "Only Numbers are valid" : "")
+         break;
+
+      case 'fatherEmail' : 
+      case 'motherEmail' : 
+         var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/; 
+         errors[name] =  value.match(pattern) || value.length === 0 ? "" : "Please enter valid Email"
+         break;
+         
+      default :
+   }
+} 
+
+handleSubmit = (e) => {
+   e.preventDefault()
+   const errors = this.state.errors
+   var data = {}
+
+   for(var j in this.state) {
+      if(j !== 'students' && j !== 'errors'){
+      data[j] = this.state[j]
+      }
+   }
+
+   var flag = 0
+   for(var i in errors){
+      if(errors[i].length > 1){
+      flag = 1
+      break;
+      }
+   }
+   if(flag === 0){
+      this.setState({students : [...this.state.students,data]})
+
+      for(var k in this.state) {
+      if(k !== 'students' && k !== 'errors'){
+         this.setState({
+            [k]  : ""
+         })
+      }
+      }
+   }
+}
+
+   render() {
+      const {
+            stdFirstName,stdLastName
+            ,stdDob,stdState
+            ,stdDist,stdAddress 
+            ,pinCode,stdMiddleName,stdLanguage
+
+            ,fatherMiddleName,fatherFirstName
+            ,fatherLastName
+            ,fatherEmail,fatherPhone 
+            ,fatherEducation,fatherDesignation
+
+            ,motherMiddleName,motherFirstName
+            ,motherLastName
+            ,motherEmail,motherPhone
+            ,motherEducation,motherDesignation,
+
+            relFirstName,relLastName,
+            relMiddleName,relPhone,
+            relation,
+            
+            refAddress,refFirstName,refLastName,refPhone,
+
+            errors
+         } = this.state
+      const  handleChange  = this.handleChange
+      const  handleSubmit  = this.handleSubmit
+      return (
+         <>
+            <form action="" onSubmit={handleSubmit}>
+               <div className="card">
+               <div className="card-header bg-dark text-center">
+                  <h1 className="display-4 text-white">Student Admission Form</h1>
+               </div>
+               <div className="card-body row gy-3 justify-content-between align-items-center">
+
+               <div className="col-12 text-center">
+                  <h3>Student's Details</h3>
+               </div>
+               {/** FULL NAME */}
+                  <div className="col-12 col-md-2">
+                     <label htmlFor="">FullName</label>
+                  </div>
+                  <div className="col-12 col-md-10 d-flex gap-2">
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           id="name" 
+                           className="form-control" 
+                           placeholder="First Name"
+                           required="required"
+                           name="stdFirstName"
+                           value={stdFirstName}
+                           onChange={handleChange}
+                        />
+                           {errors.stdFirstName.length > 0 && 
+                              <span className="text-danger">{errors.stdFirstName}</span>  }
+                     </div>
+                     <div className="w-100">
+                     <input 
+                        type="text" 
+                        name="stdMiddleName"
+                        className="form-control" 
+                        placeholder="Middle Name"
+                        required="required"
+                        value={stdMiddleName}
+                        onChange={handleChange}
+                     />
+                        {errors.stdMiddleName.length > 0 && 
+                           <span className="text-danger">{errors.stdMiddleName}</span> }
+                  </div>   
+                  <div className="w-100">
+                     <input 
+                        type="text" 
+                        name="stdLastName"
+                        className="form-control" 
+                        placeholder="Last Name"
+                        required="required"
+                        value={stdLastName}
+                        onChange={handleChange}
+                     />
+                        {errors.stdLastName.length > 0 &&  
+                           <span className="text-danger">{errors.stdLastName}</span>  }
+                  </div>
+                  </div>
+
+               {/** STATE */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                              <label htmlFor="state">State</label>
+                        </div>
+                        <div className="col-8">
+                           <select 
+                              className="form-control"  
+                              id="state" name="stdState" 
+                              value={stdState} 
+                              onChange={handleChange}
+                              required="required"
+                           >
+                              <option value=""  disabled="disabled">-- select one --</option>
+                              <StateOption />
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
+
+               {/** district */} 
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                              <label htmlFor="district">District</label>
+                        </div>
+                        <div className="col-8">
+                           <select 
+                              className="form-control " 
+                              id="district" 
+                              name="stdDist" 
+                              value={stdDist} 
+                              onChange={handleChange}
+                              required="required"
+                           >
+                              <option value="" disabled="disabled">-- select district --</option>
+                              <DistrictOption  state={stdState}/>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
+               {/** Adderess */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="address">Address</label>
+                        </div>
+                        <div className="col-8">
+                           <textarea 
+                              type="text" 
+                              id="address" 
+                              name="stdAddress"
+                              className="form-control" 
+                              required="required"
+                              placeholder="Address" 
+                              value={stdAddress}
+                              onChange={handleChange}
+                           />
+                        </div>
+                     </div>
+                  </div> 
+
+               {/** pin code */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="pin">Pin code</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                           type="text" 
+                           id="pin" 
+                           className="form-control" 
+                           name="pinCode"
+                           placeholder="pin code"
+                           required="required"
+                           value={pinCode}
+                           onChange={handleChange}
+                        />
+                        {errors.pinCode.length > 0 && 
+                           <span className="text-danger">{errors.pinCode}</span>  }
+                        </div>
+                     </div>
+                  </div> 
+
+               {/** DOB */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="dob">Date of birth</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                           type="date" 
+                           id="dob" 
+                           className="form-control"
+                           name="stdDob"
+                           required="required"
+                           value={stdDob}
+                           onChange={handleChange}
+                        />
+                        { errors.stdDob.length > 0 && 
+                           <span className="text-danger">{errors.stdDob}</span> }
+                        </div>
+                     </div>
+                  </div>   
+
+               {/** language */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="language">Language</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                           type="text" 
+                           id="language" 
+                           className="form-control" 
+                           name="stdLanguage"
+                           required="required"
+                           value={stdLanguage}
+                           onChange={handleChange}
+                           placeholder="First Language"
+                        />
+                        </div>
+                     </div>
+                  </div>   
+
+
+               {/*    <div className="col-12 col-md-6">
+                        <div className="row">
+                           <div className="col-4">
+                              
+                           </div>
+                           <div className="col-8">
+                              
+                           </div>
+                           </div>
+                        </div>   
+               */}
+               <div className="col-12 text-center">
+                  <h3>Father's Details</h3>
+               </div>
+               {/** FULL NAME */}
+                  <div className="col-12 col-md-2">
+                     <label htmlFor="fatherName">FullName</label>
+                  </div>
+                  <div className="col-12 col-md-10 d-flex gap-2">
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           id="fatherName" 
+                           className="form-control" 
+                           placeholder="First Name"
+                           required="required"
+                           name="fatherFirstName"
+                           value={fatherFirstName}
+                           onChange={handleChange}
+                        />
+                           {errors.fatherFirstName.length > 0 && 
+                              <span className="text-danger">{errors.fatherFirstName}</span>  }
+                     </div>
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           name="fatherMiddleName"
+                           className="form-control" 
+                           placeholder="Middle Name"
+                           required="required"
+                           value={fatherMiddleName}
+                           onChange={handleChange}
+                        />
+                           {errors.fatherMiddleName.length > 0 && 
+                              <span className="text-danger">{errors.fatherMiddleName}</span>  }
+                     </div>
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           name="fatherLastName"
+                           className="form-control" 
+                           placeholder="Last Name"
+                           required="required"
+                           value={fatherLastName}
+                           onChange={handleChange}
+                        />
+                           {errors.fatherLastName.length > 0 && 
+                              <span className="text-danger">{errors.fatherLastName}</span>  }
+                     </div>
+                  </div>
+
+               {/** EMAIL */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="email">Email</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                              type="email" 
+                              id="email" 
+                              name="fatherEmail"
+                              placeholder="Email id"
+                              required="required"
+                              className="form-control"
+                              value={fatherEmail} 
+                              onChange={handleChange}
+                           />
+                           {errors.fatherEmail.length > 0 && 
+                              <span className="text-danger">{errors.fatherEmail}</span>  }
+                        </div>
+                     </div>
+                  </div>   
+
+               {/** PHONE NUMBER */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="phone">Phone </label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                              type="text" 
+                              id="phone" 
+                              className="form-control" 
+                              name="fatherPhone"
+                              required="required"
+                              value={fatherPhone}
+                              onChange={handleChange}
+                              placeholder="Phone number"
+                           />
+                           { errors.fatherPhone.length > 0 && 
+                              <span className="text-danger">{errors.fatherPhone}</span>  }
+                        </div>
+                     </div>
+                  </div>   
+
+               {/** Education Qualification */}
+                  <div className="col-12 col-md-6">
+                     <div className="row align-items-center">
+                        <div className="col-4">
+                           <label htmlFor="education">Education Qualification </label>
+                        </div>
+                        <div className="col-8">
+                           <select 
+                              className="form-control " 
+                              id="education" 
+                              name="fatherEducation" 
+                              value={fatherEducation} 
+                              onChange={handleChange}
+                              required="required"
+                           >
+
+                              <option value=""  disabled="disabled">-- select one --</option>
+                              <option value="No formal education">No formal education</option>
+                              <option value="Primary education">Primary education</option>
+                              <option value="Secondary education">Secondary education or high school</option>
+                              <option value="GED">GED</option>
+                              <option value="Vocational qualification">Vocational qualification</option>
+                              <option value="Bachelor's degree">Bachelor's degree</option>
+                              <option value="Master's degree">Master's degree</option>
+                              <option value="Doctorate or higher">Doctorate or higher</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>   
+
+               {/* designation */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="designation">Designation</label>
+                        </div>
+                        <div className="col-8">
+                           <select 
+                              className="form-control dropdown" 
+                              id="designation" 
+                              name="fatherDesignation" 
+                              value={fatherDesignation} 
+                              onChange={handleChange}
+                              required="required"
+                           >
+                              <option value=""  disabled="disabled">-- select one --</option>
+                              <option value="Employed">Employed</option>
+                              <option value="Self-employed">Self-employed</option>
+                              <option value="Out of work">Out of work</option>
+                              <option value="Homemaker">Homemaker</option>
+                              <option value="Student">Student</option>
+                              <option value="Retired">Retired</option>
+                              <option value="Unable to work">Unable to work</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>   
+
+
+               <div className="col-12 text-center">
+                  <h3>Mother's Details</h3>
+               </div>
+               {/** FULL NAME */}
+                  <div className="col-12 col-md-2">
+                     <label htmlFor="motherName">FullName</label>
+                  </div>
+                  <div className="col-12 col-md-10 d-flex gap-2">
+
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           id="motherName" 
+                           className="form-control" 
+                           placeholder="First Name"
+                           required="required"
+                           name="motherFirstName"
+                           value={motherFirstName}
+                           onChange={handleChange}
+                        />
+                        {errors.motherFirstName.length > 0 && 
+                           <span className="text-danger">{errors.motherFirstName}</span>  }
+                     </div>
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           name="motherMiddleName"
+                           className="form-control" 
+                           placeholder="Middle Name"
+                           required="required"
+                           value={motherMiddleName}
+                           onChange={handleChange}
+                        />
+                        {errors.motherMiddleName.length > 0 && 
+                           <span className="text-danger">{errors.motherMiddleName}</span>  }
+                     </div>
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           name="motherLastName"
+                           className="form-control" 
+                           placeholder="Last Name"
+                           required="required"
+                           value={motherLastName}
+                           onChange={handleChange}
+                        />
+                        {errors.motherLastName.length > 0 && 
+                           <span className="text-danger">{errors.motherLastName}</span>  }
+                     </div>
+                  </div>
+
+               {/** EMAIL */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="email">Email</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                              type="email" 
+                              id="email" 
+                              name="motherEmail"
+                              placeholder="Email id"
+                              required="required"
+                              className="form-control"
+                              value={motherEmail} 
+                              onChange={handleChange}
+                           />
+                           {errors.motherEmail.length > 0 && 
+                              <span className="text-danger">{errors.motherEmail}</span>  }
+                        </div>
+                     </div>
+                  </div>   
+
+               {/** PHONE NUMBER */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="phone">Phone </label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                              type="text" 
+                              id="phone" 
+                              className="form-control" 
+                              required="required"
+                              name="motherPhone"
+                              value={motherPhone}
+                              onChange={handleChange}
+                              placeholder="Phone number"
+                           />
+                           {errors.motherPhone.length > 0 && 
+                              <span className="text-danger">{errors.motherPhone}</span>  }
+                        </div>
+                     </div>
+                  </div>   
+
+               {/** Education Qualification */}
+                  <div className="col-12 col-md-6">
+                     <div className="row align-items-center">
+                        <div className="col-4">
+                           <label htmlFor="education">Education Qualification </label>
+                        </div>
+                        <div className="col-8">
+                           <select 
+                              className="form-control " 
+                              id="education" 
+                              name="motherEducation" 
+                              value={motherEducation} 
+                              onChange={handleChange}
+                              required="required"
+                           >
+                              <option value=""  disabled="disabled">-- select one --</option>
+                              <option value="No formal education">No formal education</option>
+                              <option value="Primary education">Primary education</option>
+                              <option value="Secondary education">Secondary education or high school</option>
+                              <option value="GED">GED</option>
+                              <option value="Vocational qualification">Vocational qualification</option>
+                              <option value="Bachelor's degree">Bachelor's degree</option>
+                              <option value="Master's degree">Master's degree</option>
+                              <option value="Doctorate or higher">Doctorate or higher</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>   
+
+               {/* designation */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="designation">Designation</label>
+                        </div>
+                        <div className="col-8">
+                           <select 
+                              className="form-control dropdown" 
+                              id="designation" 
+                              name="motherDesignation" 
+                              value={motherDesignation} 
+                              onChange={handleChange}
+                              required="required"
+                           >
+                              <option value=""  disabled="disabled">-- select one --</option>
+                              <option value="Employed">Employed</option>
+                              <option value="Self-employed">Self-employed</option>
+                              <option value="Out of work">Out of work</option>
+                              <option value="Homemaker">Homemaker</option>
+                              <option value="Student">Student</option>
+                              <option value="Retired">Retired</option>
+                              <option value="Unable to work">Unable to work</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>   
+
+
+               <div className="col-12 text-center">
+                  <h3>Emergency Contact Details</h3>
+               </div>
+               {/** FULL NAME */}
+                  <div className="col-12 col-md-2">
+                     <label htmlFor="relName">FullName</label>
+                  </div>
+                  <div className="col-12 col-md-10 d-flex gap-2">
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           id="relName" 
+                           className="form-control" 
+                           placeholder="First Name"
+                           required="required"
+                           name="relFirstName"
+                           value={relFirstName}
+                           onChange={handleChange}
+                        />
+                        {errors.relFirstName.length > 0 && 
+                           <span className="text-danger">{errors.relFirstName}</span>  }
+                     </div>
+                     <div className="w-100">
+                        <input   
+                           type="text" 
+                           name="relMiddleName"
+                           className="form-control" 
+                           placeholder="Middle Name"
+                           required="required"
+                           value={relMiddleName}
+                           onChange={handleChange}
+                        />
+                        {errors.relMiddleName.length > 0 && 
+                           <span className="text-danger">{errors.relMiddleName}</span>  }
+                     </div>
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           name="relLastName"
+                           className="form-control" 
+                           placeholder="Last Name"
+                           required="required"
+                           value={relLastName}
+                           onChange={handleChange}
+                        />
+                        {errors.relLastName.length > 0 && 
+                           <span className="text-danger">{errors.relLastName}</span>  }
+                     </div>
+                  </div>
+
+               {/** RELATION NAME */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="relation">Relation</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                              type="text" 
+                              id="relation" 
+                              name="relation"
+                              required="required"
+                              placeholder="Relation"
+                              className="form-control"
+                              value={relation} 
+                              onChange={handleChange}
+                           />
+                        </div>
+                     </div>
+                  </div>
+
+               {/* RELATION PHONE NUMBER */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="relPhone">Phone</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                              type="text" 
+                              id="relPhone" 
+                              name="relPhone"
+                              required="required"
+                              placeholder="PhoneNumber"
+                              className="form-control"
+                              value={relPhone} 
+                              onChange={handleChange}
+                           />
+                           {errors.relPhone.length > 0 && 
+                              <span className="text-danger">{errors.relPhone}</span>  }
+                        </div>
+                     </div>
+                  </div>
+               
+
+
+                  <div className="col-12 text-center">
+                     <h3>Reference Details</h3>
+                  </div>
+               {/** FULL NAME */}
+                  <div className="col-12 col-md-2">
+                     <label htmlFor="refName">FullName</label>
+                  </div>
+                  <div className="col-12 col-md-10 d-flex gap-2">
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           id="refName" 
+                           className="form-control" 
+                           placeholder="First Name"
+                           required="required"
+                           name="refFirstName"
+                           value={refFirstName}
+                           onChange={handleChange}
+                        />
+                        {errors.refFirstName.length > 0 && 
+                           <span className="text-danger">{errors.refFirstName}</span>  }
+                     </div>
+                     <div className="w-100">
+                        <input 
+                           type="text" 
+                           name="refLastName"
+                           className="form-control" 
+                           placeholder="Last Name"
+                           required="required"
+                           value={refLastName}
+                           onChange={handleChange}
+                        />
+                        {errors.refLastName.length > 0 && 
+                           <span className="text-danger">{errors.refLastName}</span>  }
+                     </div>
+                  </div>
+
+               {/* REF ADDRESS */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="refAddress">Address</label>
+                        </div>
+                        <div className="col-8">
+                           <textarea 
+                              type="text" 
+                              id="refAddress" 
+                              name="refAddress"
+                              required="required"
+                              className="form-control"
+                              placeholder="Address" 
+                              value={refAddress}
+                              onChange={handleChange}
+                           />
+                        </div>
+                     </div>
+                  </div> 
+
+
+               
+                {/* REF PHONE NUMBER */}
+                  <div className="col-12 col-md-6">
+                     <div className="row">
+                        <div className="col-4">
+                           <label htmlFor="refPhone">Phone</label>
+                        </div>
+                        <div className="col-8">
+                           <input 
+                              type="text" 
+                              id="refPhone" 
+                              name="refPhone"
+                              placeholder="PhoneNumber"
+                              required="required"
+                              className="form-control"
+                              value={refPhone} 
+                              onChange={handleChange}
+                           />
+                           {errors.refPhone.length > 0 && 
+                              <span className="text-danger">{errors.refPhone}</span>  }
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div className="card-footer text-center">
+                  <button className="btn btn-success" type="submit">Submit</button>
+               </div>
+               </div>
+            </form> 
+         </>
+      )
+   }
+}

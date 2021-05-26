@@ -44,3 +44,6 @@ body {
   color: var(--primaryColor);
   outline-color: var(--darkGrey);
 }
+.nav-magin{
+  height: 60px;
+}

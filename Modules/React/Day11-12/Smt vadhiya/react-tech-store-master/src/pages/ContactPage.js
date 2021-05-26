@@ -1,9 +1,13 @@
 import React from "react";
+import { Contact } from "../components/contactPage/Contact";
+import {Hero} from '../components/Hero'
+import contactImg from '../images/contactBcg.jpeg'
 
 export default function ContactPage() {
-  return (
-    <>
-      <h1>Hello From Contact Page</h1>
-    </>
-  );
+return (
+   <>
+      <Hero img={contactImg} />
+      <Contact />
+   </>
+);
 }
