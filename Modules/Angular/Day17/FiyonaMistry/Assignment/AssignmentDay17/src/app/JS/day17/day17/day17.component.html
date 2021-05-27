@@ -1,0 +1,49 @@
+<div class="container m-2">
+    <h2 class="text-center">Employee Details</h2>
+    <form>
+        <div class="form-group">
+            <input type="number" id="emp_id" class="form-control" placeholder="Employee ID" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Employee Name" required>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Employee Age" required>
+        </div>
+        <div class="form-group form-inline">
+            <label for="gender" class="px-3">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male" checked><label for="male" class="px-3">Male</label>
+            <input type="radio" id="female" name="gender" value="female"><label for="female" class="px-3">Female</label>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Employee Destination" required>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Employee Salary" required>
+        </div>
+        <div class="form-group">
+            <label for="location" style="text-align: left;">Location : </label>
+            <select name="location" id="location" class="form-control">
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="baroda">Baroda</option>
+                <option value="rajkot">Rajkot</option>
+                <option value="gandhinagar">Gandhinagar</option>
+                <option value="vapi">Vapi</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Employee Email" required>
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" placeholder="Employee Date of 
+            Joining" required>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Employee Contact Number" required>
+        </div>
+        <div class="form-group text-center">
+            <button class="btn btn-primary" (click)="onClick()" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
