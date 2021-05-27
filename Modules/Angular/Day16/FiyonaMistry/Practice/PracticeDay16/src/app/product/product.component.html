@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class="display-5">Product List</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{ product.ID }}</td>
+                    <td><a [routerLink]="['detail', product.ID]" class="text-decoration-none">{{ product.Name }}</a></td>
+                    <td>{{ product.Price }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <router-outlet></router-outlet>
+</div>
