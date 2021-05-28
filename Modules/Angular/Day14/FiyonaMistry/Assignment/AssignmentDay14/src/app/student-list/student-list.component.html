@@ -1,0 +1,36 @@
+<div class="text-center m-5">
+    <button class="btn btn-primary" (click)="isActiveFunc()">Display Data</button>
+</div>
+
+<div *ngIf="isActiveInList">
+    <div class="container">
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th>FullName</th>
+                    <th>DOB</th>
+                    <th>Place Of Birth</th>
+                    <th>Language Preference</th>
+                    <th>Address</th>
+                    <th>Pin Code</th>
+                    <th>Father's Name</th>
+                    <th>Mother's Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let st of StudentList; let i = index">
+                    <td>{{ st.Name.FirstName + " " + st.Name.MiddleName + " " + st.Name.LastName }}</td>
+                    <td>{{ st.DOB }}</td>
+                    <td>{{ st.BirthPlace }}</td>
+                    <td>{{ st.LanguagePreference }}</td>
+                    <td>{{ st.Address.City }}</td>
+                    <td>{{ st.Address.Pin }}</td>
+                    <td>{{ st.Father.Name.FirstName + " " + st.Father.Name.MiddleName + " " + st.Father.Name.LastName }}</td>
+                    <td>{{ st.Mother.Name.FirstName + " " + st.Mother.Name.MiddleName + " " + st.Mother.Name.LastName }}</td>
+                    <td><button class="btn btn-primary" (click)="UpdateStudent(st, i)">Update</button></td>
+                    <td><button class="btn btn-primary" (click)="DeleteStudent(i)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

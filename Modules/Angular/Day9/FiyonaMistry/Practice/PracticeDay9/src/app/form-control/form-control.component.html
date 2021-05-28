@@ -1,0 +1,10 @@
+<div class="container my-5">
+    <form class="my-4">
+        <div class="form-group">
+            <label for="name">Name : </label>
+            <input type="text" formControlName="Name" class="form-control mb-3">
+            <button class="btn btn-primary" (click)="msg()">Submit Name</button>
+        </div>
+    </form>    
+    <label for="result">{{ Name.value }}</label>
+</div>

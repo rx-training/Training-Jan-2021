@@ -1,0 +1,90 @@
+<div class="container my-5">
+    <form [formGroup]="Employee">
+        <div class="form-group">
+            <label for="id">ID : </label>
+            <input type="number" formControlName="ID" class="form-control mb-3">
+        </div>
+        <div class="form-group">
+            <label for="name">Name : </label>
+            <input type="text" formControlName="Name" class="form-control mb-3">
+            <div *ngIf="Employee.get('Name').invalid" class="alert alert-danger">
+                <span *ngIf="Employee.get('Name').errors.required">Name is required</span>
+                <span *ngIf="Employee.get('Name').errors.pattern">Number are not allowed in Name</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary : </label>
+            <input type="number" formControlName="Salary" class="form-control mb-3">
+            <div *ngIf="Employee.get('Salary').invalid" class="alert alert-danger">
+                <div *ngIf="Employee.get('Salary').errors.required">Salary is required</div>
+                <div *ngIf="Employee.get('Salary').errors.pattern">Characters are not allowed in Salary</div>
+            </div>
+        </div>
+        <div formGroupName="Address">
+            <h4>Address : </h4>
+            <div class="form-group">
+                <label for="city">City : </label>
+                <input type="text" formControlName="City" class="form-control mb-3">
+            </div>
+            <div class="form-group">
+                <label for="state">State : </label>
+                <input type="text" formControlName="State" class="form-control mb-3">
+            </div>
+        </div>
+        <div formArrayName="WorkedAtCompanies">
+            <h4>Worked At Companies : </h4>
+            <span>
+                <button class="btn btn-primary my-2" (click)="addCompany()">Add Company</button>
+            </span>
+            <div *ngFor="let company of WorkedAtCompanies.controls; let i = index">
+                <div [formGroupName]="i">
+                    <div class="row">
+                        <div class="form-group col-5">
+                            <label for="companyName">Company Name : </label>
+                            <input type="text" formControlName="CompanyName" class="form-control mb-3">
+                        </div>
+                        <div class="form-group col-5">
+                            <label for="workedTillDate">Worked Till Date : </label>
+                            <input type="date" formControlName="WorkedTillDate" class="form-control mb-3">
+                        </div>
+                        <div class="form-group col-2">
+                            <button class="btn btn-primary mt-4" (click)="removeCompany(i)">Remove Company</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>City</th>
+                <th>State</th>
+                <ng-container *ngFor="let company of WorkedAtCompanies.controls">
+                    <th>Company Name</th>
+                    <th>Worked Till Date</th>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <td>{{ Employee.get("ID").value }}</td>
+                <td>{{ Employee.get("Name").value }}</td>
+                <td>{{ Employee.get("Salary").value }}</td>
+                <td>{{ Employee.get("Address").get("City").value }}</td>
+                <td>{{ Employee.get("Address").get("State").value }}</td>
+                <ng-container *ngFor="let company of WorkedAtCompanies.value">
+                    <td>{{ company.CompanyName }}</td>
+                    <td>{{ company.WorkedTillDate }}</td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

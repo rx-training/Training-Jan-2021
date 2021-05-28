@@ -1,0 +1,11 @@
+<div class="text-center">
+  <nav class="nav navbar-dark bg-dark px-5">
+      <a routerLink="/crisis-center" routerLinkActive="active" class="nav-link text-light p-3">Crisis Center</a>
+      <a [routerLink]="['/heroes']" routerLinkActive="active" class="nav-link text-light p-3">Heroes</a>
+  </nav>
+</div>
+<div class="container">
+  <div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<h1>NgIf</h1>
+<div *ngIf="isActive ? '' : 'not'">NgIf isActive</div>
+<button (click)="isActiveToggle()">Toggle isActive</button>
+
+<input type="text" [(ngModel)]="show" disabled>
+<button (click)="showhide()">Show/Hide</button>
+<div *ngIf = "show">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente ab enim architecto ut animi reprehenderit, facilis blanditiis minima deleniti at perspiciatis odio necessitatibus iure impedit placeat quaerat qui quia porro doloribus rem beatae accusamus.</p>
+</div>
+
+<!-- Can also use style.display for this show/hide -->

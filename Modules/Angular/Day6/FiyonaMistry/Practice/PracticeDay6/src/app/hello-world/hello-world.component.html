@@ -1,0 +1,18 @@
+<!-- 2. HelloworldComponent-> Declare a name variable and store your name in that variable and use header tag to interpolate the variable Greeting of the day with name stored in the variable.
+3. Create one textbox in Helloworld component. Bind its value to name variable.-->
+
+<div id="greetings">
+    <h1 class="display-4 font-weight-bold">Greetings for the day {{ Name }}!!!</h1>
+    <p class="lead">Today's Date : {{ Today | date }}</p>    
+    <input type="text" [value] = "Name">  
+</div>
+
+
+
+<!-- Pipes : 
+        Date       date:"MM/dd/yy"
+        UpperCase
+        LowerCase
+        Currency
+        Decimal
+        Percent -->

@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 class="display-5">Product Details</h1>
+    Product Name : {{ product.Name }} <br>
+    Price : {{ product.Price }}
+    <br><br>
+    <div class="row">
+        <div class="col">
+            <ul class="nav navbar-nav">
+                <li><a [routerLink]="['overview']" class="text-decoration-none">Overview</a></li>
+                <li><a [routerLink]="['spec']" class="text-decoration-none">Specification</a></li>
+            </ul>
+            <button class="btn btn-primary" (click)="onBack()">Back to Product List</button>
+        </div>
+        <div class="col">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

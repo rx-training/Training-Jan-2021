@@ -1,0 +1,7 @@
+#sidenav a:hover{
+    background-color: lightgray;
+    border-radius: 4px;
+}
+#sidenav{
+    box-shadow: 1px 2px 1px lightgray;
+}

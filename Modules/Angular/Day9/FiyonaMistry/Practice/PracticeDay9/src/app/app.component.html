@@ -1,0 +1,9 @@
+<div class="container text-center">
+  <button class="btn btn-primary m-5 px-5" (click)="toggleEditor('control')">Form Control</button>
+  <button class="btn btn-primary m-5 px-5" (click)="toggleEditor('group')">Form Group</button>
+</div>
+
+<app-form-control *ngIf="showControl"></app-form-control>
+
+<app-form-group *ngIf="showGroup"></app-form-group>
+

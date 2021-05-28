@@ -1,0 +1,65 @@
+<!-- StudentList Component will create an array of student type.Display an array with NGFor in table. Grade wise color should be given using ngSwitch and ngClass or ngStyle. Only active should displayed using ngIf -->
+
+<div class="container my-5">
+    <table class="table table-hover my-5">
+        <thead>
+            <tr class="text-center">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Average</th>
+                <th>Grade</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of StudentList" class="text-center">
+                <td>{{ student.ID }}</td>
+                <td>{{ student.Name }}</td>
+                <td>{{ student.Age }}</td>
+                <td>{{ student.Average }}</td>
+                <td [ngSwitch]="student.Grade">
+                    <div *ngSwitchCase="'A+'" [ngStyle]="{'color' : 'green'}">{{ student.Grade }}</div>
+                    <div *ngSwitchCase="'A'" [ngStyle]="{'color' : 'darkmagenta'}">{{ student.Grade }}</div>
+                    <div *ngSwitchCase="'B+'" [ngStyle]="{'color' : 'orange'}">{{ student.Grade }}</div>
+                    <div *ngSwitchCase="'B'" [ngStyle]="{'color' : 'red'}">{{ student.Grade }}</div>
+                </td>
+                <td>{{ student.isActive }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <button class="btn btn-primary" (click)="isActiveFunc()">Display Active Students</button>
+    </div>
+    <div *ngIf="isActiveInList">
+        <table class="table table-hover my-5">
+            <thead>
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Average</th>
+                    <th>Grade</th>
+                    <th>Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of StudentList" class="text-center">
+                    <ng-container *ngIf="student.isActive == 1">
+                        <td>{{ student.ID }}</td>
+                        <td>{{ student.Name }}</td>
+                        <td>{{ student.Age }}</td>
+                        <td>{{ student.Average }}</td>
+                        <td [ngSwitch]="student.Grade">
+                            <div *ngSwitchCase="'A+'" [ngStyle]="{'color' : 'green'}">{{ student.Grade }}</div>
+                            <div *ngSwitchCase="'A'" [ngStyle]="{'color' : 'darkmagenta'}">{{ student.Grade }}</div>
+                            <div *ngSwitchCase="'B+'" [ngStyle]="{'color' : 'orange'}">{{ student.Grade }}</div>
+                            <div *ngSwitchCase="'B'" [ngStyle]="{'color' : 'red'}">{{ student.Grade }}</div>
+                        </td>
+                        <td>{{ student.isActive }}</td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

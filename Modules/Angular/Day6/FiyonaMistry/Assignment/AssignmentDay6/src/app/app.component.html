@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col"></div>
+  <div class="col-9">
+  <app-login class="m-3"></app-login>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-2 m-3" id="left-bar">
+    <app-left></app-left>
+  </div>
+  <!-- <div class="col m-3">
+    <app-rectangle></app-rectangle>
+  </div>
+  <div class="col m-3">
+    <app-circle></app-circle>
+  </div> -->
+  <div id="accordion" class="tablist col-lg-4 col-md-5 m-3">
+    <div class="card">
+      <div class="card-header" role="tab" id="heading1">
+          <h5 class="mb-0">
+              <a href="#collapse1" data-parent="#accordion" data-toggle="collapse" aria-expanded="false">Area of Rectangle</a>
+          </h5>
+      </div>
+      <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+          <div class="card-body">
+            <app-rectangle></app-rectangle>
+          </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" role="tab" id="heading2">
+          <h5 class="mb-0">
+              <a href="#collapse2" data-parent="#accordion" data-toggle="collapse" aria-expanded="false">Area of Circle</a>
+          </h5>
+      </div>
+      <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+          <div class="card-body">
+             <app-circle></app-circle>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-5 m-3">
+    <app-sign-up></app-sign-up>
+  </div>
+</div>

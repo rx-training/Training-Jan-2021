@@ -1,0 +1,12 @@
+.special{
+    background-color: black;
+    color: white;
+}
+
+.modified {
+    font-size: 2rem;
+}
+
+  .saveable {
+	color: limegreen;
+}
