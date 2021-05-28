@@ -1,0 +1,10 @@
+<h1 class="text-center">{{title}}</h1>
+<p class="text-center">Current count is {{child.count}}</p>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-2"><button (click)= 'child.increment()' class="btn btn-outline-success my-2 form-control">Increment</button></div>
+    <div class="col-md-2"><button (click)= 'child.decrement()' class="btn btn-outline-danger my-2 form-control">Decrement</button></div>
+</div>
+
+
+<app-child-local-component class="text-center" #child></app-child-local-component>

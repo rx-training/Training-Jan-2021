@@ -1,0 +1,73 @@
+<div class="container my-3 p-5 border border-white rounded" style=" box-shadow:5px 10px 50px 10px rgb(0, 0, 0) ; background-color: black;">
+    <p class="display-4 text-center text-white"> Students</p>
+    <hr class="bg-light">
+    <table class="table table-dark table-responsive-md rounded">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor='let l of list; let idx= index'>
+            <td>{{l.Id}}</td>
+            <td>{{l.Name}}</td>
+            <td>{{l.Address}}</td>
+            <td>
+                <button (click)='Edit(idx)' [ngClass]="'blue'" class="form-control btn btn-light text-white">
+                    Edit&nbsp;
+                </button>
+            </td>
+            <td>
+                <button (click)='Delete(idx);updateFlag = false;' [ngClass]="'red'" class="form-control btn btn-light text-white">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div class="row my-3 text-white">
+        <div class="col-md-4 my-2">
+            <p class="text-center">Id</p>
+            <input type="number" class="form-control text-center text-white" [ngClass]='"black"' placeholder="Id" [(ngModel)]='student.Id'>
+        </div>
+        <div class="col-md-4 my-2">
+            <p class="text-center">Name</p>
+            <input type="string" class="form-control text-center text-white" [ngClass]='"black"' placeholder="Name" [(ngModel)]='student.Name'>
+        </div>
+        <div class="col-md-4 my-2">
+            <p class="text-center">Address</p>
+            <input type="string" class="form-control text-center text-white" [ngClass]='"black"' placeholder="Address" [(ngModel)]='student.Address'>
+        </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <button *ngIf='updateFlag == false' (click)='AddStudent()' [ngClass]='"green"' class="form-control my-3 btn btn-light text-white">
+                Add Student
+            </button>
+            <button *ngIf='updateFlag == true;' (click)='updateFlag = false;update()' [ngClass]='"blue"' class="form-control my-3 btn btn-light text-white">
+                Update
+            </button>
+            <button *ngIf='updateFlag == true;' (click)='updateFlag = false;reset()' [ngClass]='"red"' class="form-control my-3 btn btn-light text-white">
+                cancel
+            </button>
+        </div>
+    </div>
+    <hr class="bg-light">
+    <p class="text-center display-4 font-weight-bold" [ngClass]='"title"'>Log Data</p>
+
+    <table class="table table-responsive-lg text-center text-white">
+        <tr>
+            <td>Id</td>
+            <td>Student Data</td>
+            <td>Operation</td>
+            <td>Status</td>
+            <td>Time</td>
+        </tr>
+        <tr *ngFor='let l of logs' class="bg-light" style=" box-shadow:5px 10px 50px 10px rgb(0, 0, 0) inset">
+            <td>{{l.Id}}</td>
+            <td>{{l.StudentData | json}}</td>
+            <td>{{l.Operation}}</td>
+            <td [ngClass]='l.Status ? "success" : "failure"' style="text-shadow: 5px 1px 18px #FFFFFF;">{{l.Status ? 'Success' : 'Failed'}}</td>
+            <td>{{l.Time}}</td>
+        </tr>
+    </table>
+</div>

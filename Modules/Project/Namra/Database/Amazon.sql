@@ -119,7 +119,6 @@ CREATE TABLE Carts
 	UserId INT NOT NULL CONSTRAINT fkCartUserId FOREIGN KEY REFERENCES Users(UserId),
 	ProductId INT NOT NULL CONSTRAINT fkProductsCart FOREIGN KEY REFERENCES Products(ProductId) 
 )
-
 --11. Creating table of user orders
 
 CREATE TABLE Orders
@@ -128,9 +127,9 @@ CREATE TABLE Orders
 	UserId INT NOT NULL CONSTRAINT fkOrderUserId FOREIGN KEY REFERENCES Users(UserId),
 	ProductId INT NOT NULL CONSTRAINT fkOrderProductId FOREIGN KEY REFERENCES Products(ProductId),
 	Quantity INT NOT NULL DEFAULT 1,
+	Bill INT NOT NULL DEFAULT 0,
 	OrderedDate DATETIME DEFAULT CURRENT_TIMESTAMP
 )
-
 --12. Creating table of user placed order
 
 CREATE TABLE PlacedOrder
@@ -139,10 +138,10 @@ CREATE TABLE PlacedOrder
 	UserId INT NOT NULL CONSTRAINT fkplacedUser FOREIGN KEY REFERENCES Users(UserID),
 	ProductID INT NOT NULL CONSTRAINT fkPlacedProduct FOREIGN KEY REFERENCES Products(ProductId),
 	Quantity INT NOT NULL DEFAULT 1,
+	Bill INT NOT NULL DEFAULT 0,
 	PlacedStatus VARCHAR(20) NOT NULL DEFAULT 'Delivered',
 	PlacedDate DATETIME DEFAULT CURRENT_TIMESTAMP
 )
-
 --13. Creating table for seller
 
 CREATE TABLE Sellers
@@ -151,6 +150,7 @@ CREATE TABLE Sellers
 	SellerName VARCHAR(100) NOT NULL,
 	SellerContactNo VARCHAR(13) NOT NULL CONSTRAINT chkSellerContactNo CHECK(SellerContactNo LIKE '[+][0-9][0-9][1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'), 
 	SellerEmail VARCHAR(50) NOT NULL,
+
 	SellerCompanyName VARCHAR(100) NOT NULL,
 	SellerDate DATETIME DEFAULT CURRENT_TIMESTAMP
 )
@@ -829,6 +829,39 @@ END
 EXEC spCartAddDelete 'add','Apple Air Laptop',1
 SELECT * FROM Carts
 EXEC spCartAddDelete 'add','Apple Air Laptop',1 -- raise an error
+
+CREATE PROCEDURE spOrder
+(
+	@CustomerId int,
+	@ProductId int, 
+	@Quantity int
+)
+AS
+BEGIN
+	BEGIN TRY
+		IF(@CustomerId IN (SELECT UserId FROM Users))
+		BEGIN
+			If(@ProductId IN (SELECT ProductId FROM Products))
+				BEGIN 
+					IF(@Quantity <= 10)
+						BEGIN
+							INSERT INTO Orders(UserId, ProductId, Quantity, Bill) VALUES(@CustomerId, @ProductId, @Quantity, (SELECT ProductPrice FROM Products WHERE ProductId = @ProductId) * @Quantity);
+						END
+					ELSE
+						RAISERROR('Product quantity should be less than 10...',16,1);
+				END
+			ELSE
+				RAISERROR('Product is not found...',16,1);
+		END
+		ELSE
+			RAISERROR('User is not found in record...',16,1);
+	END TRY
+	BEGIN CATCH
+		PRINT ERROR_MESSAGE();
+	END CATCH
+END
+
+EXECUTE spOrder 1,2,5;
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------Views-------------------------------------------------------------------------------

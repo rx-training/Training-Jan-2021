@@ -1,0 +1,137 @@
+
+.container{
+    width : 100%;
+    height : 100%;
+}
+.header_up{
+    width: 100%;
+    height : 20px;
+    text-align: center;  
+}
+.header_up p a{
+    text-decoration: none;
+}
+.header_up p a:hover{
+    text-decoration : underline;
+}
+#home{
+    margin-left: 25%;
+}
+*{
+    font-size: large;
+}
+.navbar_first{
+    list-style-type: none;
+    background-color: black;
+    overflow: hidden;
+}
+    
+.nav{
+    display : inline;
+    float:left;
+}
+.nav a{
+    display: block;
+    padding: 4px 20px 4px 8px;
+    color : white;
+    text-decoration: none;
+    
+    font-size: 18px;
+}
+
+.banner1{
+    display: block;
+    width:100%;
+    heigth : 300px;
+}
+.Arcana{
+    width : 100%;
+    height: 50px;
+    background-color: black;
+    color : white;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 1px;
+
+}
+#HTML_Up{
+    text-decoration:none ;
+    color : white;
+}
+.button1{
+    background-color:rgb(90, 90, 207);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.table{
+    text-align: center;
+    padding: 40px;
+}
+.table td{
+
+    padding : 10px;
+}
+.gigantic{
+    background-color: rgba(233, 233, 233, 0.89);
+    text-align: center;
+}
+.gigantic p:first-child{
+    font-size:xx-large;
+    font-family: Georgia, serif;
+    padding:45px 10px 5px 10px;
+    font-weight:bold;
+}
+.gigantic p:last-child{
+    font-size:large;
+    padding-bottom: 20px;
+}
+.table2 tr td{
+    padding : 20px;
+}
+.table2 tr td img{
+    border-radius: 8px;
+}
+.ready{
+    text-align: center;
+    font-size: xx-large;
+    background-color: rgba(87, 151, 211, 0.192);
+    padding : 20px 10px 20px 10px;
+}
+.ready p button{
+    color:rgb(139, 137, 0);
+    border : none;
+    font-size : x-large;
+}
+.touch_table{
+    background-color: rgb(238, 238, 238);
+}
+.touch tr th
+{
+    font-weight: bold;
+    text-align: left;
+    padding :40px; 
+}
+.touch tr td{
+    padding : 10px;
+}
+.touch tr td input,
+.touch tr td textarea{
+  border : none;
+  padding: 8px 15px;
+  display: inline-block;
+  
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.touch tr td input[type="submit"]
+{
+    background-color: black;
+    color: white;
+}

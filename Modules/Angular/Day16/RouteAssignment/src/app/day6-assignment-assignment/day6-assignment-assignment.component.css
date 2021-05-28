@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    font-size: large;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .flexOne {
+      background-color: rgba(212, 128, 71, 0.205);
+      padding: 10px;
+      flex: 25%;
+  }
+  
+  .flexTwo {
+    background-color: rgba(70, 118, 167, 0.377);
+    padding: 10px;
+    flex: 25%;
+  }
+  .flexThird{
+    background-color: rgba(75, 187, 31, 0.315);
+    padding: 10px;
+    flex: 25%;
+  }
+  .flexFour {
+    background-color: rgba(255, 30, 98, 0.185);
+    padding: 10px;
+    flex: 25%;
+  }
+  
+  @media (max-width: 800px) {
+    .flexOne, .flexTwo,.flexThird,.flexFour {
+      flex: 50%;
+    }
+  }
+  @media (max-width: 600px) {
+      .flexOne, .flexTwo,.flexThird,.flexFour {
+      flex: 100%;
+    }
+  }

@@ -1,0 +1,5 @@
+<h1 class="text-center">Welcome to {{title}}</h1>
+<hr class="bg-dark">
+<p class="text-center">current count is {{Counter}}</p>
+<hr class="bg-dark">
+<app-child-component (countChanged)='countChangedHandler($event)' [count]='Counter'></app-child-component>

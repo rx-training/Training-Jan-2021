@@ -1,0 +1,33 @@
+<div *ngIf = 'flag == false' class="text-center">
+    <h2>HEROES</h2>
+    <table class="table table-danger">
+        <tr class="border border-dark">
+            <th class="table-warning">Id</th>
+            <th>Name</th>
+            <th>Rider</th>
+            <th>Latest champion</th>
+        </tr>
+        <tr *ngFor='let l of list; let idx = index'>
+            <td class="table-warning">
+                {{l.Id}}
+            </td>
+            <td>
+                {{l.Name}}
+            </td>
+            <td>
+                {{l.Rider}}
+            </td>
+            <td>
+                {{l.LatestChampion}}
+            </td>
+            <td>
+                <a class = "btn btn-outline-dark" (click)='flag=true' [routerLink]="['/heroes', idx]" >Details</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf='flag==true'>
+<hr class="bg-dark">
+    <a class="btn btn-outline-dark my-2" (click)='flag=false;' [routerLink]="['/heroes']">GoBack</a>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,46 @@
+<h1 id="head1" class="text-center display-1 m-auto">Practice 1</h1>
+    <br>
+    <div class="container justify-content-center">
+    <input type="button" value="Change heading colour" class="btn btn-outline-primary" (click)="change()"></div>
+    <br>
+    <br>
+    <form class="bg-light p-5 m-5">
+        <div class="form-group">
+            <label for="output">Different Outputs :</label>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <input type="number" class="border form-control mx-3  border-warning" id="age1" placeholder="enter your age">
+            </div>
+            <div class="col">
+                <input type="number" class="border form-control mx-3  border-warning" id="age2" placeholder="enter your age">
+            </div>
+            <div class="col">
+                <input type="number" class="border form-control mx-3  border-warning" id="age3" placeholder="enter your age">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <input type="button"  class="btn btn-outline-success m-2 float-right" (click)="output()" value="submit">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="calculateAge">Age :</label> <br>
+            <div class="col"><input type="number" class="border form-control mx-3  border-warning" id="age4" placeholder="enter your age"></div>
+            <div class="col"><input type="number" class="border form-control mx-3  border-warning" id="age5" placeholder="enter your age"></div>
+            <div class="col"><input type="number" class="border form-control mx-3  border-warning" id="age6" placeholder="enter your age"></div>
+            <div class="col"><input type="button" class="btn btn-dark float-right mr-2" (click)="calculate()" value="submit"></div>
+        </div>
+    </form>
+
+    <script>
+        var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.name = changeHeading;
+        function changeHeading(){
+    document.getElementById("head1").innerHTML="<font color='blue'>Practice 1"
+}
+    });
+    </script>
+   
