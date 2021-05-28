@@ -1,0 +1,12 @@
+<h4 *ngIf="!allowEdit">  You 're not Allowed to edit!</h4>
+<div *ngIf="allowEdit">
+<form action="
+" class="form" >
+<div class="form-group">
+    <input type="text" class="form-control" ([ngModel])="serverid" placeholder="EnterId">
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" ([ngModel])="serverName" placeholder="EnterName">
+</div>
+<button type="submit"(click)="onUpdateServer()">Submit</button>
+</form></div>

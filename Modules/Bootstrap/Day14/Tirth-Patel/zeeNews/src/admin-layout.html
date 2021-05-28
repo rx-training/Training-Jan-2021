@@ -233,10 +233,20 @@
 //adding the admin funcitonality is here all add function is below
 
     function add_live_news() {
+    
+        // fetch("./json/news.json").then(function(resp){
+        //     return resp.json();
+        // })
+        // .then(function(data){
+        //     localStorage.setItem("news",JSON.stringify(data));
+        // });
+ 
+        
         var live_news_heading = document.getElementById("h3-3").value;
         var live_news_image = document.getElementById("img3");
         var live_news_content = document.getElementById("info3").value;
         var img_path = "./img/News/" + live_news_image.files[0].name;
+
         //var x=$("#movie-image").attr('src',"./image/" +image.files[0].name);
         var news = JSON.parse(localStorage.getItem("news"));
 
@@ -252,13 +262,20 @@
 
     }
     function add_breaking_news() {
+        // fetch("./json/carousel.json").then(function(resp){
+        //     return resp.json();
+        // })
+        // .then(function(data){
+        //     localStorage.setItem("breaking-news",JSON.stringify(data));
+        // });
         var breaking_news_heading = document.getElementById("h3-1").value;
         var breaking_news_image = document.getElementById("img1");
         var breaking_news_content = document.getElementById("info1").value;
         var img_path = "./img/breaking-news/" + breaking_news_image.files[0].name;
         //var x=$("#movie-image").attr('src',"./img/breaking-news" +image.files[0].name);
-        var news = JSON.parse(localStorage.getItem("breaking-news"));
-        console.log(news)
+        localStorage.setItem("breaking-news","")
+        var news = JSON.parse(localStorage.getItem("breaking-news")) || [];
+        console.log(news);
         var New_News = {
             "img-src": `${img_path}`,
             "car-h3": `${breaking_news_heading}`,
@@ -267,10 +284,17 @@
         news.push(New_News);
         // console.log(news);
         let news_string = JSON.stringify(news);
-        localStorage.setItem("breaking-news", news_string)
+        localStorage.setItem("breaking-news", news_string);
+        console.log("set item called");
 
     }
     function add_card_news() {
+        // fetch("./json/cards.json").then(function(resp){
+        //     return resp.json();
+        // })
+        // .then(function(data){
+        //     localStorage.setItem("budget-2021",JSON.stringify(data));
+        // });
         var card_news_heading = document.getElementById("h32").value;
         var card_news_image = document.getElementById("img2");
         var card_news_content = document.getElementById("info2").value;

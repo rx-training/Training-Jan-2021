@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+           
+            <div class="update-Form d-none">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="StudneId" [(ngModel)]="Student.Id" >
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name" [(ngModel)]="Student.Name" >
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="City" [(ngModel)]="Student.City" >
+            </div>
+            <button class="btn btn-success" (click)="Add()">AddStudent</button>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="updatedata" class="form-label">
+                Studentid
+            </label>
+            <input type="number" name="student.Id" [(ngModel)]="Student.Id" #id>
+        </div>
+        <button class="btn btn-warning" (click)="deleteData(Student.Id)">Delete</button>
+        <button class="btn btn-warning" (click)="display()">GetAll</button>
+
+    </div>
+
+</div>

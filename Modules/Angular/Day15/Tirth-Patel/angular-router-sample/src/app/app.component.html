@@ -1,0 +1,33 @@
+<h1>Angular Router</h1>
+<!-- <nav>
+  <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+  <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+</nav> -->
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col col-md-8">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
+    
+        <li role="presentation"><a routerLink="/users">Users</a></li>
+        <li role="presentation"><a routerLink="/servers">Servers</a></li>
+
+      </ul>
+    </div>
+  </div>
+</div> -->
+<h1>Angular Router</h1>
+<nav>
+  <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+  <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+</nav>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+  <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col col-md-8">
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

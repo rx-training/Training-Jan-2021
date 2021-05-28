@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <table class="table table-striped table-border" id="table data">
+        <thead class="thead-dark">
+            <tr>
+                <th>ProductID</th>
+                <th>ProductName</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="shop-item">
+                <td>2</td>
+                <td class="item-name">Pen</td>
+                <td class="item-price">150</td>
+                <td c>2</td>
+                <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+            </tr>
+            <tr class="shop-item">
+                <td>3</td>
+                <td class="item-name">butter</td>
+                <td class="item-price">100</td>
+                <td>1</td>
+                <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+            </tr> 
+            <tr class="shop-item">
+                <td>4</td>
+                <td class="item-name">Pencil</td>
+                <td class="item-price">110</td>
+                <td>1</td>
+                <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+            </tr>
+            <tr class="shop-item">
+                <td>1</td>
+                <td class="item-name">Cheese</td>
+                <td class="item-price">100</td>
+                <td>1</td>
+                <td><button class="btn btn-success add-to-cart" type="button">Add to cart</button></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    <div class="container">
+        <button id="my-cart" class="btn-primary added-to-cart"  type="button" onclick="mycart()">Cart summary</button>
+       <h2>Items list of your cart is as below</h2>
+        <p id="cart"></p>
+        <h2>cart total: <span id="grand-total"></span></h2>
+    </div>
+</div>

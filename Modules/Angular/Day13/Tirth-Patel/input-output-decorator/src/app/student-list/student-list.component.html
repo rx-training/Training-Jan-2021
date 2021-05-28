@@ -14,14 +14,14 @@
                 <th>Fatherphone</th>
                 <th>MotherName</th>
                 <th>MotherEmail</th>
-                <th>MotherPhone</th> 
-                <!-- <ng-container>
-                <div *ngFor="let item of studentList.get('EmergencyContactList').controls ; let idx=index  ">
+                 <ng-container>
+                <div *ngFor="let item of studentList ; let idx=index  ">
                         <th>Relation</th>
                         <th>Number</th>
                         </div>
-                </ng-container> -->
-               
+                </ng-container>   
+                <!-- we have array to travserse
+                -->
                 <th>RefrenceThrough</th>
                 <th>AddressWithTelephoneNo</th>
             </tr>
@@ -42,13 +42,13 @@
         <td>{{student.Mother.MotherName.MFirst}} {{student.Mother.MotherName.MMiddle}} {{student.Mother.MotherName.MLast}}</td>
         <td>{{student.Mother.MEmail}}</td>
         <td>{{student.Mother.MPhone}}}</td>
-     <!-- <ng-container>
-            <div *ngFor="let item of EmergencyContactList.controls ; let idx=index  ">
+     <ng-container>
+            <div *ngFor="let item of student.EmergencyContactList ; let idx=index  ">
                 <td>{{student.EmergencyContactList[idx].Relation}}</td>
                 <td>{{student.EmergencyContactList[idx].Number}}</td>
                 
                     </div>
-            </ng-container>  -->
+            </ng-container> 
       
         <td>{{student.RefrenceDetails.RefrenceThrough}}</td>
         <td>{{student.RefrenceDetails.AddressWithTelephoneNo}}</td>

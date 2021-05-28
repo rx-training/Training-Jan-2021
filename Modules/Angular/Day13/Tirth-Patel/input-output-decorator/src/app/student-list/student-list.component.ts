@@ -16,8 +16,10 @@ studentList :any[]=[];
   }
 Display(){
   console.log('child to app');
+  console.log(this.stdData);
   this.studentList.push(this.stdData);
   console.log(this.studentList);
 }
+
 
 }

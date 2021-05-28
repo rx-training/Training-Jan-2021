@@ -1,0 +1,32 @@
+<h2 class="display1 text-center">TrainingSite</h2>
+<div class="container">
+  <nav class="navbar navbar-expand-md bg-success m-3 ">
+
+    <div class="container-fluid">
+
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav ">
+          <li class="nav-item ">
+            <a class=" nav-link active" [routerLink]="'html'">HTML <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item  ">
+            <a class=" nav-link" [routerLink]="'css'">CSS</a>
+          </li>
+
+          <li>
+            <a class=" nav-link" [routerLink]="'js'">Java-script</a>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col col-md-8">
+
+    <router-outlet></router-outlet>
+  </div>
+</div>
