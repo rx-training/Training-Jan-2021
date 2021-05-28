@@ -1,0 +1,23 @@
+<div class="text-dark">Employee Id :- {{EmployeeId}}</div>
+<div class="text-danger">Employee Name :- {{EmployeeName}}</div>
+<div class="text-success">Skills :- {{Skill}}</div>
+<div class="text-primary">Date Of Birth {{DOB | date}} </div>
+<div class="text-danger">{{getAge()}}</div>
+<div>
+        <p class="text-muted">Property Binding</p>
+        
+        <input type="text" [value]="Skill" class="form-control">
+</div>
+<div class="px-5">
+    <label for="">Two Way Binding</label>
+    <input type="text" class="form-control" [(ngModel)]="name">
+    <p class="text-danger">{{name}} </p>
+</div>
+
+<div class="my-5">
+    <button class="btn btn-primary" (click)="ShowAlert()">Event Binding</button>
+    
+</div>
+<div class="my-3">
+<button class="btn btn-primary"  (mouseenter)="ShowAlert()">Event Binding</button>
+</div>

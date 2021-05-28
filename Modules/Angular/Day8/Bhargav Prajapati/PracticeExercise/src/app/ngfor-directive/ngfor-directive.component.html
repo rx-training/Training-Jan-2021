@@ -1,0 +1,43 @@
+<div class="card ">
+    <div class="card-header text-center text-muted" style="font-size: 35px;">
+            ngFor Directive
+
+    </div>
+   
+    <div class="card-body">
+
+        <div class="form-group">
+            <label for="">Id</label>
+            <input type="text" class="form-control" disabled [(ngModel)]="id">
+            <label for="">Enter New ProductName</label>
+            <input type="text" class="form-control"  [(ngModel)]="ProductName">
+            <label for="">Enter New ProductPrice</label>
+            <input type="number" class="form-control" [(ngModel)]="ProductPrice">
+            <label for="">Enter New ProductQuantity</label>
+            <input type="number" class="form-control" [(ngModel)]="ProductQuantity">
+           <button class="btn btn-success mt-3" (click)="Updatedata()">Upgrade</button>
+        </div>        
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ProductId</th>
+                    <th>ProductName</th>
+                    <th>ProductPrice</th>
+                    <th>ProductQuantity</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Productlist; let idx=index">
+                    <td>{{item.ProductId}}</td>
+                    <td>{{item.ProductName}}</td>
+                    <td>{{item.ProductPrice}}</td>
+                    <td>{{item.ProductQuantity}}</td>
+                    <td><Button class="btn btn-danger" (click)="DeleteData(idx)">Delete</Button></td>
+                  <td><button class="btn btn-primary" (click)="EditData(item)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

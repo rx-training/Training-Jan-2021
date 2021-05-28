@@ -1,0 +1,79 @@
+<div class="contaainer">
+    <div class="card m-5">
+        <div class="card-header bg-primary text-center display-4">Employee Details</div>
+        <div class="card-body bg-light">
+            <form>
+            <div class="form-group">
+                <label for="employee id">Employee Id</label>
+                <input type="text" class="form-control" placeholder="atleast five character" id="employee_id"  required>
+            </div>
+            <div class="form-group">
+                <label for="employee name">Employee Name</label>
+                <input type="text" class="form-control" placeholder="John" id="employee_name" required>
+            </div>
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input type="number" class="form-control" placeholder="Age should be a number" required max="100" min="0"  id="employee_age">
+            </div>
+            <div class="form-check">
+                <label for="Genter">Gender</label>
+                <input type="radio" name="gender" id=""  checked> Male
+                <input type="radio" name="gender" id="" > Female
+                <input type="radio" name="gender" id="" > Other
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation</label>
+                <input type="text" class="form-control" required id="designation">
+            </div>
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="number" class="form-control" placeholder="Salary should be number" required  min="0" >
+            </div>
+            <div class="form-group">
+                <label for="Location">Location</label>
+                <select name="" id="" class="form-control">
+                    <option value="">Ahmedabad</option>
+                    <option value="">Delhi</option>
+                    <option value="">Mumbai</option>
+                    <option value="">Surat</option>
+                    <option value="">Vadodra</option>
+                    <option value="">Rajkot</option>
+                    <option value="">Kutch</option>
+                    <option value="">Patan</option>
+                    <option value="">Benglore</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label for="email">Email Id</label>
+                <input type="text" class="form-control" placeholder="abc@gmail.com" id="email_id" required>
+            </div>
+            <div class="form-group">
+                <label for="date of joining">Date Of Joining</label>
+                <input type="date" name="" id="date_of_joining" placeholder="DD-MM-YYYY" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Contect Number">Contect Number</label>
+                <input type="text" name="" id="mobile_number" class="form-control" placeholder="1234567890" required>
+             
+                
+            </div>
+        </form>
+        </div>
+        <div class="card-footer ">
+            <button type="button" class="btn btn-info btn-block" onclick="validation()">Submit</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-danger text-center">Invalid Details</div>
+        <div class="card-boday">
+        <div class="text-danger lead" id="invalid_mobile_number"></div>
+        <div class="text-danger lead" id="invalid_employee_id"></div>
+        <div class="text-danger lead" id="invalid_email_id"></div>
+        
+    </div>
+    </div>
+   
+</div>

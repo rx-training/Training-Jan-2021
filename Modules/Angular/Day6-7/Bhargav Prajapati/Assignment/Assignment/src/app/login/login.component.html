@@ -1,0 +1,17 @@
+<div class="card ">
+    <div class="card-header text-center">
+        <p class="text-muted" style="font-size: 35px;">Login Component </p>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="">Enter User Name :-</label>
+            <input type="text" class="form-control" [(ngModel)]="MessageforUseName" required>
+            <label for="">Enter Password :-</label>
+            <input type="password" class="form-control" [(ngModel)]="MessageforPassword" required>
+
+            <button class="btn btn-success mt-3" (click)="chkdata()">LogIn</button>
+            <div class="text-danger text-center">{{Message1}}</div>
+            <div class="text-success text-center">{{Message2}}</div>
+        </div>
+    </div>
+</div>

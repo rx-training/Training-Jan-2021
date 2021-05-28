@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white" style="font-size: 20px;">Validators</div>
+        <div class="card-body">
+            <form  [formGroup]="EmployeeDetails" (ngSubmit)="f.form.valid && Submitdata()" #f=ngForm>
+                <div class="form-group">
+                    <label for="">Enter Name</label>
+                    <input type="text" value="" placeholder="Enter Name" class="form-control" formControlName="UserName" [ngClass]="{'is-invalid':EmployeeDetails.get('UserName').errors && EmployeeDetails.get('UserName').touched}">
+                    <span class="invalid-feedback" *ngIf="EmployeeDetails.get('UserName').errors && EmployeeDetails.get('UserName').touched">
+                    <span  *ngIf="EmployeeDetails.get('UserName').errors.required ">UserName is required</span>
+                   <span  *ngIf="EmployeeDetails.get('UserName').errors.minlength ||EmployeeDetails.get('UserName').errors.maxlength"> Minnumum 2 and Maaximum 10 charactor required </span>
+                   <span  *ngIf="EmployeeDetails.get('UserName').errors.InvalidNames">Name is not valid </span> 
+                </span>
+                </div>
+                <div class="form-group">
+                    <label for="">Enter Email</label>
+                    <input type="email" placeholder="Enter Name" class="form-control " formControlName="Email" [ngClass]="{'is-invalid':EmployeeDetails.get('Email').errors && EmployeeDetails.get('Email').touched}">
+                    <span class="invalid-feedback"  *ngIf="EmployeeDetails.get('Email').errors && EmployeeDetails.get('Email').touched">
+                        <span *ngIf="EmployeeDetails.get('Email').errors.required">Email Address is required</span>
+                        <span *ngIf="EmployeeDetails.get('Email').errors.email">Email Address is not valid</span>
+
+                    </span> 
+                </div>
+                
+                    <div formArrayName="Skills" *ngFor="let item of EmployeeDetails.get('Skills')['controls'];let idx=index">
+                        <div [formGroupName]="idx">
+                            <div class="form-group">
+                            <label for="">Skill Name</label>
+                            <input type="text" class="form-control" formControlName="SkillName">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Exprience</label>
+                            <input type="text" class="form-control" formControlName="Exprience">
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" value="Bignner" formControlName="Profiancy">Bignner
+                            <input type="radio" value="Intermedeate" formControlName="Profiancy">Intermedeate
+                            <input type="radio" value="Advanced" formControlName="Profiancy">Advanced
+                        </div>
+                        </div>
+                    </div>
+                
+                <div class="form-group">
+                <button type="button" class="btn btn-primary mx-5" (click)="AddSkills()">Add More Skill</button>
+                <button type="submit"  class="btn btn-primary  mx-5">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

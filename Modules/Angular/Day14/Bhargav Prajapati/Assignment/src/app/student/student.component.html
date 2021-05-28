@@ -1,0 +1,149 @@
+
+<div class="container">
+<div class="card mt-4 ">
+    <div class="card-header bg-primary text-white text-center" style="font-size: 20px;">
+        Student Admission Form
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submidata()">
+
+            <div class="text-center text-muted" style="font-size: 30px;">Student Details</div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Student Id</label>
+                        <input type="number" name="StudentId" class="form-control" [(ngModel)]="studentList.StudentId">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Student Name</label>
+                        <input type="text" class="form-control" name="StudentName" [(ngModel)]="studentList.StudentName">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Student Data of Birth</label>
+                        <input type="date" class="form-control" [(ngModel)]="studentList.StudentDateOfBirth" name="StudentDateOfBirth">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">StudentPlace of Birth</label>
+                        <input type="text" class="form-control" [(ngModel)]="studentList.StudentPlaceofBirth" name="StudentPlaceofBirth">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Student First Language</label>
+                <input type="text" class="form-control" [(ngModel)]="studentList.StudentFirstLanguage" name="StudentFirstLanguage">
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">City</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.City" name="City">
+                </div>
+                <div class="col-md-3">
+                    <label for="">State</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.State" name="State">
+                </div>
+                <div class="col-md-3">
+                    <label for="">Country</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.Country" name="Country">
+                </div>
+                <div class="col-md-3">
+                    <label for="">Pin Number</label>
+                    <input type="number" class="form-control" [(ngModel)]="studentList.PinNumber" name="PinNumber">
+                </div>
+            </div>
+
+            <!-- Father Details -->
+            <div class="text-center text-muted" style="font-size: 30px;">Father Details</div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Father Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList. FathertName" name="FathertName">
+                </div>
+                <div class="col-md-6">
+                    <label for="">Father Email </label>
+                    <input type="email" class="form-control" [(ngModel)]="studentList.FatherEmail" name="FatherEmail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">FatherEducationQualification</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.FatherEducationQualification" name="FatherEducationQualification">
+                </div>
+                <div class="col-md-6">
+                    <label for="">FatherProfession</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.FatherProfession" name="FatherProfession">
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">FatherDesignation</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.FatherDesignation" name="FatherDesignation">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">FatherPhoneNumber</label>
+                        <input type="number" class="form-control" [(ngModel)]="studentList.FatherPhoneNumber" name="FatherPhoneNumber">
+                    </div>
+                </div>
+
+
+
+                <!-- Mother Details -->
+            <div class="text-center text-muted" style="font-size: 30px;">Mother Details</div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">MotherName</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.MotherName" name="MotherName">
+                </div>
+                <div class="col-md-6">
+                    <label for="">Mother Email </label>
+                    <input type="email" class="form-control" [(ngModel)]="studentList.MotherEmail" name="MotherEmail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Mother Education Qualification</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.MotherEducationQualification" name="MotherEducationQualification">
+                </div>
+                <div class="col-md-6">
+                    <label for="">Mother Profession</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.MotherProfession" name="MotherProfession">
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Mother Designation</label>
+                    <input type="text" class="form-control" [(ngModel)]="studentList.MotherDesignation" name="MotherDesignation">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Mother PhoneNumber</label>
+                        <input type="number" class="form-control" [(ngModel)]="studentList.MotherPhoneNumber" name="MotherPhoneNumber">
+                    </div>
+                </div>
+
+                <button class="btn mt-5 btn-block btn-primary" type="submit" >Submit</button>
+                
+        </form>
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+.cointainar
+{
+    background-color: maroon;
+    height:500px;
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+#A
+{
+    background-color: mediumslateblue;
+    height:10px;
+    width: 100px;
+    margin: 25px;
+    padding: 25px;
+}
+#A:hover
+{
+    background-color: salmon;
+}

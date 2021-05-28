@@ -1,0 +1,41 @@
+    <div class="container">
+        <h1 class="text-center">Calculation</h1>
+        <form>
+        <div class="form-group">
+            <label for="number1">Please Enter The Number One</label>
+            <input type="text" class="form-control" id="num1">
+        </div>
+    
+        <div class="form-group">
+            <label for="number2">Please Enter The Secound Number </label>
+            <input type="text" class="form-control" id="num2">
+        </div>
+    
+        <div class="form-group">
+            <label for="number2">Selection Your Choise </label> <br>
+            <input type="radio" name="check" id="add">
+            <label for="addition">Addition</label>
+        </div>
+    
+        <div class="form-group">
+            <input type="radio" name="check" id="sub">
+            <label for="addition">Subtraction</label>
+        </div>
+    
+        <div class="form-group">
+            <input type="radio" name="check" id="mul">
+            <label for="addition">Multiplication</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" name="check" id="div">
+            <label for="addition">Division</label>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="button" onclick="calculate()">Calculate</button>
+            <input type="reset" value="Reset"  class="btn btn-danger" onclick="Reset()">
+        </div>
+    </form>
+        <p id="result"></p>
+    
+    </div>
+    

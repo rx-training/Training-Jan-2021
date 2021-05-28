@@ -1,0 +1,225 @@
+
+.offscroll
+{
+    overflow-y: hidden;
+}
+#header_logo{
+    text-align: center;
+    color: aqua;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  .topnav {
+    overflow: hidden;
+    background-color:teal;
+  }
+  
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+
+  #header_logo{
+    text-align: center;
+    color: aqua;
+}
+.button_text{
+    color: white;
+    padding-top: 20px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.863);
+    
+    
+}
+#button1{
+    color: white;
+    background-color:dodgerblue;
+    border: none;
+    margin-left: 15px;
+    height: 30px;
+    width: 100px;
+}
+#button2{
+    background-color:white;
+    color:black;
+    border: none;
+    margin-left: 15px;
+    height: 30px;
+    width: 100px;
+}
+.div2{
+    float: left;
+    height: 150px;
+    width: 28%;
+    margin-left: 25px;
+    padding: 10px;
+}
+.part{
+    margin: 15px;
+    padding: 5px;
+    margin-left: 10% ;
+    padding-top: 50px;
+}
+.div2 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center-align{
+    text-align: center;
+    
+}
+hr{
+    background-color: grey;
+    margin-left: 200px;
+    margin-right: 200px;
+    
+}
+.font-weight-light{
+    font-weight: 300;
+    color: grey;
+    font-family: 'Times New Roman', Times, serif;
+}
+.bg-grey{
+    background-color: rgba(242,242,242,242);
+    display: block;
+    height: 170px;
+}
+#font-family{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.fldiv3{
+    float: left;
+    width: 50%;
+    padding: 40px;
+}
+.fldiv3 img
+    {
+     float: left; margin-right: 10px;
+    }
+
+.ml-div3
+{
+    margin-left: 175px;
+    margin-bottom:20px;
+}
+.div4
+{
+    margin-left: 400px;
+    height: 200px;
+    
+}
+#inline{
+    text-align: center; 
+    display: inline;
+    
+}
+.section1{
+    height: 100px;
+}
+.section2{
+    height: 200px;
+    clear: both;
+}
+.section3{
+    height: 350px;   
+}
+
+.section4{
+    height: 300px;
+	background-color:blue;
+}
+
+
+.div5 {
+    height: 100%;
+    width: 40%;
+    margin-left: 8%;
+    float: left;
+}
+.div6 {
+    float: left;
+    margin-left: 17%;
+}
+.div7{
+    float: left;
+    margin-left: 17%;
+}
+
+
+#button3{
+    
+    height: 40px;
+    background-color:indigo;
+    border: none;
+    border-radius: 6px;
+    width: 200px;
+    padding: 2px;
+    align-items:center;
+}
+footer{
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+ @media screen and (max-width: 600px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+} 
+
+
+@media screen and (max-width: 600px) {
+    .button_text {
+      height: 30%;
+    }
+}
+
+
+ @media screen and (max-width: 600px) {
+    .div2{
+        width: 100%;
+      flex-direction: row;
+      margin: 25px;
+    }
+ }
+ @media screen and (max-width: 600px) {
+    .fldiv3{
+        width: 100%;
+      flex-direction: row;
+      margin: 25px;
+      float: none;
+    }
+ }
+ @media screen and (max-width: 600px) {
+   .center-align {
+      height: 30%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .div5{
+        width: 100%;
+      flex-direction: row;
+      margin: 25px;
+      float: none;
+    }
+ }

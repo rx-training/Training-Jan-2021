@@ -1,0 +1,18 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ProductId</th>
+                <th>ProductName</th>
+                <th>ProductPrice</th>
+            </tr>
+        </thead>
+        <tbody>
+               <tr *ngFor="let item of Products">
+                   <td>{{item.ProductId}}</td>
+                   <td><a [routerLink]="['/Product',item.ProductId]"> {{item.ProductName}}</a></td>
+                   <td>{{item.ProductPrice}}</td>
+               </tr> 
+        </tbody>
+    </table>
+</div>

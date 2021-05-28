@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header text-center text-muted" style="font-size: 35px;">
+        CLass Directive
+    </div>
+    <div class="card-body">
+
+            <select (change)="ChangeColor($event)">
+                <option value="1">Red</option>
+                <option value="2">Yellow</option>
+            </select>
+
+       <table  class="table" [ngClass]="applycss">
+           <thead class="thead-dark">
+               <tr>
+                   <th>StudentId</th>
+                   <th>StudentName</th>
+                   <th>MobileNumber</th>
+               </tr>
+
+           </thead>
+           <tbody>
+               <tr *ngFor="let std of info;let idx=index">
+                   <td>{{std.StudentId}}</td>
+                   <td>{{std.StudentName}}</td>
+                   <td>{{std.MobileNumber}}</td>
+                   
+               </tr>
+           </tbody>
+
+       </table>
+
+    </div>
+</div>

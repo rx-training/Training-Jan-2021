@@ -1,0 +1,82 @@
+
+
+<div class="container mt-5" style="overflow-x: scroll;">
+<button class="btn btn-outline-primary btn-block mb-3" (click)="Show()">Show Data</button>
+    <table class="table" >
+    <thead class="thead-dark">
+        <tr>
+            <th>StudentName</th>
+            <th>DOB</th>
+            <th>PLaceBirth</th>
+            <th>FirstLanguage</th>
+            <th>Adddress</th>
+            <th>PincodeNumber</th>
+            <th>FatherName</th>
+            <th>FaherEmail</th>
+            <th>FatherQualification</th>
+            <th>FatherProfession</th>
+            <th>FatherDesignation</th>
+            <th>FatherPhoneNumber</th>
+            <th>MotherName</th>
+            <th>MotherEmail</th>
+            <th>MotherEducationQualification</th>
+            <th>MotherProfession</th>
+            <th>MotherDesignation</th>
+            <th>MotherPhoneNumber</th>
+            <th>Relation</th>
+            <th>RelationMoblieNumber</th>
+            <th>RefereceName</th>
+            <th>RefereceMobileNumber</th>
+            
+
+
+        </tr>
+
+    </thead>
+<tbody>
+    <tr *ngFor="let StudentData of StdList">
+        <td>{{StudentData.StudentName.FirstName}} {{StudentData.StudentName.MiddleName}} {{StudentData.StudentName.LastName}}</td>
+        <td>{{StudentData.StudentDateOfBirth}}</td>
+        <td>{{StudentData.StudentPlaceofBirth}}</td>
+        <td>{{StudentData.StudentFirstLanguage}}</td>
+        <td> {{StudentData.Address.City}}  {{StudentData.Address.State}}  {{StudentData.Address.Country}}</td>
+        <td>{{StudentData.Address.PinNumber}}</td>
+        <td>{{StudentData.FatherName.FirstName}} {{StudentData.FatherName.MiddleName}} {{StudentData.FatherName.LastName}}</td>
+        <td>{{StudentData.FatherDetails.Email}}</td>
+        <td>{{StudentData.FatherDetails.EducationQualification}}</td>
+        <td>{{StudentData.FatherDetails.Profession}}</td>
+        <td>{{StudentData.FatherDetails.Designation}}</td>
+        <td>{{StudentData.FatherDetails.PhoneNumber}}</td>
+        <td>{{StudentData.MotherName.FirstName}} {{StudentData.MotherName.MiddleName}} {{StudentData.MotherName.LastName}}</td>
+        <td>{{StudentData.MotherDetails.Email}}</td>
+        <td>{{StudentData.MotherDetails.EducationQualification}}</td>
+        <td>{{StudentData.MotherDetails.Profession}}</td>
+        <td>{{StudentData.MotherDetails.Designation}}</td>
+        <td>{{StudentData.MotherDetails.PhoneNumber}}</td>
+        <td>
+        <ng-container *ngFor="let item of StudentData.EmergencyContactList" >
+            {{item.Relation}}<br>
+        </ng-container>
+    </td>
+    <td>
+        <ng-container *ngFor="let item of StudentData.EmergencyContactList" >
+            {{item.MobileNumber}}<br>
+        </ng-container>
+    </td>
+    <td>
+        <ng-container *ngFor="let item of StudentData.Reference" >
+            {{item.Referencethrough}}<br>
+        </ng-container>
+    </td>
+    <td>
+        <ng-container *ngFor="let item of StudentData.Reference" >
+            {{item.MobileNumber}}<br>
+        </ng-container>
+    </td>
+        
+    </tr>
+</tbody>
+
+</table>
+</div>
+

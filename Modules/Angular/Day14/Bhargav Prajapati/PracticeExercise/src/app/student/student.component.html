@@ -1,0 +1,20 @@
+
+<div class="container">
+<table class="table table.hover">
+    <thead class="thead-dark">
+        <tr>
+            <td>StudentId</td>
+            <td>StudentName</td>
+            <td>StudentAddress</td>
+            <td>StudentContectNumber</td>
+        </tr>
+        <tr *ngFor="let item of List">
+            <td>{{item.stdID}}</td>
+            <td>{{item.Name}}</td>
+            <td>{{item.Address}}</td>
+            <td>{{item.ContectNumber}}</td>
+            <td><button class="btn btn-danger" (click)="del(item.stdID)">Delete</button></td>
+        </tr>
+    </thead>
+</table>
+</div>

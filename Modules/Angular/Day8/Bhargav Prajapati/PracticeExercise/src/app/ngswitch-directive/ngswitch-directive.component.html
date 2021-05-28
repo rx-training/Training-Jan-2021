@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header text-center text-muted" style="font-size: 32px;">
+       ngstyle Directive
+    </div>
+    <div class="card-body">
+        <table class="table borderless">
+            <span [ngStyle]="{'color':'green'}">
+            <thead class="thead-dark">
+                <tr>
+                    <td>StudentId</td>
+                    <td>StudentName</td>
+                    <td>MobileNumber</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let item of student; let idx=index">
+                    
+                  
+                    <td>{{item.StudentId}}</td>
+                    <td>{{item.StudentName}}</td>
+                    <td>{{item.MobileNumber}}</td>
+                    
+            
+                </tr> 
+            
+            </tbody>
+            </span>
+        </table>
+    </div>
+</div>

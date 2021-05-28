@@ -1,0 +1,30 @@
+.Containar
+            {
+                height:50%;
+                width: 100%;
+                border: 2px cornflowerblue solid;
+
+                
+            }
+            .Div1
+            {
+                height: 20%;
+                width: 20%;
+                border:2px yellow solid;
+                float: left;
+                
+            }
+            .Div2
+            {
+                height: 20%;
+                width: 20%;
+                border:2px yellow solid;
+                 float:left;
+            }
+            .Div3
+            {
+                height: 20%;
+                width: 20%;
+                border:2px yellow solid;
+                 float:right;
+            }

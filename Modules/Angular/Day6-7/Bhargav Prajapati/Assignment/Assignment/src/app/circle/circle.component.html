@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-header text-center">
+        <p class="text-muted" style="font-size: 35px;">Area of Circle </p>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="">Enter The Radius :-</label>
+            <input type="number" class="form-control" [(ngModel)]="Radius">
+            <button class="btn btn-primary mt-3" (click)="Calculate()">Calculate</button>
+        </div>
+        <pre class="text-success" style="font-size: 20px;">
+
+            Area of Circle=Pi*r*r
+                          ={{Pi}}*{{Radius}}*{{Radius}}
+                          ={{result}}
+
+
+                             
+                     </pre>
+    </div>
+</div>
