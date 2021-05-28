@@ -1,0 +1,5 @@
+class Orders
+{
+    OrderID : number;
+    
+}
