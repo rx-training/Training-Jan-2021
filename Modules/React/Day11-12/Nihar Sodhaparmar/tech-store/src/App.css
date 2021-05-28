@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap");
+
+:root {
+  --primaryColor: #5fb7ea;
+  --primaryRGBA: rgb(0, 0, 0, 0.3);
+  --mainGrey: #fafafa;
+  --darkGrey: #5f5e5e;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainTransition: all 0.3s ease-in-out;
+  --mainSpacing: 0.3rem;
+}
+
+.text-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+}
+
+.text-main {
+  color: var(--primaryColor);
+}
+
+body {
+  font-family: "Open Sans", sans-serif !important;
+  background: var(--mainGrey) !important;
+  color: var(--mainBlack);
+}
+
+.main-link {
+  padding: 0.5rem 1rem;
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  outline: 2px solid var(--primaryColor);
+  outline-offset: 4px;
+  border: none;
+  transition: var(--mainTransition);
+}
+
+.main-link:hover {
+  text-decoration: none;
+  background: var(--darkGrey);
+  color: var(--primaryColor);
+  outline-color: var(--darkGrey);
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.cart-icon:hover {
+  cursor: pointer;
+}

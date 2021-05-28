@@ -1,0 +1,9 @@
+.idcard {
+  width: fit-content;
+  transition: all 0.3 linear;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.delete-button {
+  margin-right: 10px;
+}

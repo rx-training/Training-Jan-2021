@@ -1,0 +1,60 @@
+body {
+  margin-top: 110px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.student-table tr {
+  border-top: hidden;
+}
+
+.student-info-container {
+  padding: 50px 100px;
+  width: fit-content;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.student-info-container table tr td:nth-child(2) {
+  padding-left: 100px;
+}
+
+.student-form {
+  margin: 0 25px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.student-form-body {
+  margin: 0 50px;
+}
+
+.form-student-image {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+}
+
+.name-md-mt {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 562px) {
+  .student-info-container {
+    margin: 5px;
+    padding: 25px 15px;
+  }
+  .student-info-container table tr td:nth-child(2) {
+    padding-left: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .student-form {
+    margin: 5px;
+  }
+
+  .student-form-body {
+    margin: 0;
+  }
+
+  .name-md-mt {
+    margin-top: 15px;
+  }
+}
