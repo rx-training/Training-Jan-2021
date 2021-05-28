@@ -1,0 +1,10 @@
+<app-hello-world></app-hello-world>
+<app-personal></app-personal>
+<!--<app-server></app-server>-->
+<div app-server></div>
+<app-pipes></app-pipes>
+<div class="container my-5">
+  <h4>Your Text:</h4>
+  <input type="text" [(ngModel)]="userText"><br>
+  <app-joke-list [simpleInput]='userText'></app-joke-list>
+</div>

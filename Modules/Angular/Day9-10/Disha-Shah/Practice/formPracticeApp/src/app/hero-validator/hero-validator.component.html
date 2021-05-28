@@ -1,0 +1,40 @@
+<div class="container">
+    <form [formGroup] = "heroForm" (ngSubmit)="profileSubmit()">
+        Name: <input type="text" id="name" class="form-control"
+            formControlName="name" required>
+
+        <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="alert alert-danger">
+
+            Name should be of atleast 4 charactes nd it should not start with "bob"
+        </div> -->
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="alert alert-danger">
+
+            <div *ngIf="name.errors?.required">
+                Name is required.
+            </div>
+            <div *ngIf="name.errors?.minlength">
+                Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="name.errors?.forbiddenName">
+                Name cannot be Bob.
+            </div>
+        </div>
+
+        Alter Ego: <input type="text" id="alterEgo" class="form-control"
+            formControlName="alterEgo" required>
+
+        <div *ngIf="heroForm.errors?.identityRevealed && (heroForm.touched || heroForm.dirty)" class="cross-validation-error-message alert alert-danger">
+            Name cannot match alter ego.
+        </div>
+
+        Phone: <input type="number" class="form-control" formControlName="phone" required>
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">10 digits valid phone number is required</div>
+
+
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+
+</div>

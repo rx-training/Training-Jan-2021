@@ -1,0 +1,39 @@
+<div class="container">
+    <form (ngSubmit)="submit()" #addForm="ngForm">
+        <h4>Add Data:</h4>
+        <div class="form-group"> 
+            <label for="id">Id:</label> 
+            <input type="number" class="form-control" [(ngModel)] = "student.id" id="id" name="id" #id="ngModel">
+        </div>
+        <div class="form-group"> 
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" [(ngModel)] = "student.name" id="name" name="name" #name="ngModel">
+        </div>
+        <div class="form-group"> 
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" [(ngModel)] = "student.address" id="address" name="address" #address="ngModel">
+        </div>
+        <div class="form-group"> 
+            <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid">Add</button>
+        </div>
+    </form>
+
+    <form (ngSubmit)="update()" #updateForm="ngForm">
+        <h4>Update Data:</h4>
+        <div class="form-group">
+            <label for="id">Id:</label>
+            <input type="number" class="form-control" [ngModel] = "editValue.id" name="id" #id="ngModel" readonly>
+        </div>
+        <div class="form-group">  
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" [ngModel] = "editValue.name" name="name" #name="ngModel">
+        </div>
+        <div class="form-group"> 
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" [ngModel] = "editValue.address" name="address" #address="ngModel">
+        </div>
+        <div class="form-group"> 
+            <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid">Update</button>
+        </div>
+    </form>
+</div>

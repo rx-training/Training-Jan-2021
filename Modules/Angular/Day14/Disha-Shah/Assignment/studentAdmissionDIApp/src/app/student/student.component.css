@@ -1,0 +1,14 @@
+[class*="col-"] .ng-valid[required], .ng-valid.required  {
+    border: 2px solid #42A948; /* green */
+  }
+  
+  [class*="col-"] .ng-invalid:not(form).ng-touched  {
+    border: 2px solid #a94442; /* red */
+  }
+
+.errorMsg{
+    color: #a94442;
+    font-size: 15px;
+    font-weight: normal;
+    
+}

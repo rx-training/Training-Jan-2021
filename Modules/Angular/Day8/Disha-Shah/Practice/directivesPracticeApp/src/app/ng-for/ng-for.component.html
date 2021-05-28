@@ -1,0 +1,188 @@
+<div class="container">
+    <h4>NgFor Example</h4>
+    <div *ngFor = "let product of productList; let idx = index, let first = first, let last = last">
+        <li>
+            Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+        </li>
+    </div>
+    <h4>NgClass example</h4>
+    <!-- toggle the "special" class on/off with a property -->
+    <div [ngClass]="isSpecial ? 'special' : ''">This div is special</div>
+    <button (click)="ToggleFn()" class="btn btn-primary">Toogle Special</button>
+    <div [ngClass]="setCurrentClasses()">NgClass practice</div>
+    <h4 [ngStyle]="{fontSize : '24px', fontStyle: 'italic'}">NgStyle Practice</h4>
+    <h4 [ngStyle]="{fontSize : getSize()}">NgStyle Practice</h4>
+    <h4 [ngStyle] = "setCurrentStyles()">hello world</h4>
+
+    <div *ngIf="productList[0]">Hello, {{productList[0].ProductName}}</div>
+
+    <!--trackBy-->
+    <div *ngFor="let item of productList; let idx = index trackBy: trackByItems">
+        <li>Index: {{item.Id}} {{item.ProductName}} {{item.ProductQuantity}}</li>
+    </div>
+    <button class="btn btn-primary" (click)="getItems()">Add Item</button>
+    <button class="btn btn-primary ml-3" (click)="refreshItems()">Refresh</button>
+
+    
+    <div>
+        Pick your favorite hero
+        (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+    </div>
+    <select [(ngModel)]="hero">
+        <ng-container *ngFor="let h of heroes">
+          <ng-container *ngIf="showSad || h.emotion !== 'Sad'">
+            <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+          </ng-container>
+        </ng-container>
+    </select>
+    <br><br>
+
+    <div *ngFor = "let product of productList; let idx = index, let first = first, let last = last">
+        <div [ngSwitch]="product.ProductQuantity">
+            <div *ngSwitchCase="3" [ngStyle]="{fontStyle: 'italic'}" [appHighlight]="color1">
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+            <div *ngSwitchCase="30" [ngStyle]="{fontStyle: 'italic'}" [appHighlight]="color2">
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+            <div *ngSwitchCase="100" [ngStyle]="{fontStyle: 'italic'}" [appHighlight]="color3">
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+            <div *ngSwitchDefault>
+                Index: {{idx+1}}
+            First: {{first}}
+            Last: {{last}}
+            {{product.ProductName}}
+            {{product.ProductPrice}}
+            {{product.ProductQuantity}}
+            </div>
+        </div>
+    </div>
+
+    <!--Building Attribute Directives-->
+    <br><br>
+    <p appHighlight>Highlight me!</p>
+
+    <p [appHighlight]="colorNew">Hightlight this!</p>
+
+    <h2>Pick a highlight color</h2>
+    <div>
+    <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    <input type="radio" name="colors" (click)="color='blue'">Blue
+    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    </div>
+    <p [appHighlight]="color" defaultColor="violet">
+        Highlight me too!
+    </p>
+
+    <p>Use ngNonBindable to stop evaluation.</p>
+    <p>This should evaluate: {{ 1 + 1 }}</p>
+    <p ngNonBindable>This should not evaluate: {{ 1 + 1 }}</p>
+    <h3>ngNonBindable with a directive</h3>
+    <div ngNonBindable [appHighlight]="'yellow'">This should not evaluate: {{ 1 +1 }}, but will highlight yellow.
+    </div>
+
+    <!--Building Structural Directives-->
+    <br><br>
+    
+    <p *appUnless="condition">Show this sentence unless the condition is true.</p>
+    <p>
+        The condition is currently
+        <span [ngClass]="{ 'a': !condition, 'b': condition, 'unless': true }">{{condition}}</span>
+        <button
+          (click)="condition = !condition"
+          [ngClass] = "{ 'a': condition, 'b': !condition }" >
+          Toggle condition to {{condition ? 'false' : 'true'}}
+        </button>
+    </p>
+
+    <p *appUnless="condition" class="unless a">
+        (A) This paragraph is displayed because the condition is false.
+    </p>
+      
+    <p *appUnless="!condition" class="unless b">
+        (B) Although the condition is true,
+        this paragraph is displayed because appUnless is set to false.
+    </p>
+    
+    <div *ngIf="isSpecial" class="name">{{heroes[0].name}}</div>
+
+    <ng-template [ngIf]="isSpecial">
+        <div class="name">{{heroes[0].name}}</div>
+    </ng-template>
+
+    <!--Comparing shorthand use of * with longhand <ng-template>-->
+    <div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackByItems" [class.odd]="odd">
+        ({{i}}) {{hero.name}}
+    </div>
+    
+    <ng-template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackByItems">
+        <div [class.odd]="odd">({{i}}) {{hero.name}}</div>
+    </ng-template>
+
+    <!--Creating template fragments with <ng-template>-->
+    <p>Hip!</p>
+    <ng-template>
+    <p>Hip!</p>
+    </ng-template>
+    <p>Hooray!</p>
+
+    <!--Get all cities information from API-->
+    <h4>Cities Information Fetch through API</h4>
+    <div class="m-3">
+        <!--.getJSON()-->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>CityId</th>
+                    <th>RegionId</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody *ngFor = "let city of cityList">
+                <tr>
+                    <td>{{city.cityId}}</td>
+                    <td>{{city.regionId}}</td>
+                    <td>{{city.name}}</td>
+                </tr>
+            </tbody>
+        </table>   
+    </div> 
+
+    <!--Get Information of particular city-->
+    <h4>Get Information by CityId:</h4>
+    <input type="number" name="" id=""  [(ngModel)] = "cityId" class="form-control mt-3">
+    <button (click) = "getCityInfo()" class="btn btn-primary mt-3">Get Info</button>
+    <h5>Result:</h5>
+    <h5>CityId: {{cityId}}</h5>
+    <h5>RegionId: {{regionId}}</h5>
+    <h5>City: {{city}}</h5>
+    <br>
+
+    <!--Custom pipe operator-->
+    <h4>Combined name using Pipe Operator</h4>
+    <input type="text" name="" id="" [(ngModel)] = "fname" class="form-control mt-3">
+    <input type="text" name="" id="" [(ngModel)] = "lname" class="form-control mt-3">
+    <p class="mt-3">Combine Name: {{fname | joinName: lname}}</p>
+
+</div>

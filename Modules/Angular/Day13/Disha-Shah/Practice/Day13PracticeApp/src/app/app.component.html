@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Welcome to {{title}}!</h1>
+  <h4>Parent listens for child event</h4>
+  <p>current count is {{Counter}}</p>
+  <app-input-output-practice [count]="Counter" (countChanged) = "countChangedHandler($event)"></app-input-output-practice>
+
+  <h4>Parent uses local variable to access the child in template</h4>
+  <p>Current count is {{child.count}}</p>
+  <button (click)="child.newIncrement()" type="button" class="btn btn-primary">New Increment</button>
+  <button (click)="child.newDecrement()" type="button" class="btn btn-primary mx-3">New Decrement</button>
+  <app-input-output-practice #child></app-input-output-practice>
+
+  <h4>Parent uses @ViewChild() to get reference to the child component</h4>
+  <button (click)="increment()" type="button" class="btn btn-primary">View Child Increment</button>
+  <button (click)="decrement()" type="button" class="btn btn-primary mx-3">View Child Decrement</button>
+  <app-view-child></app-view-child>
+
+  <app-event-emitter-practice (open)="onOpen($event)" (close)="onClose($event)"></app-event-emitter-practice>
+
+  <div class="container">
+    <br />
+    <h4>Products List</h4>
+    <table class="table">
+        <thead>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Stock</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products">
+              <td>{{p.id}}</td>
+              <td>{{p.title}}</td>
+              <td>{{p.price}}</td>
+              <td>{{p.stock}}</td>
+              <td><app-stock-status [productId]='p.id' [stock]='p.stock' (stockValueChange)='changeStockValue($event)'></app-stock-status></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>User & User List Component</h4>
+  <header></header>  ​
+
+   <div>  ​
+        <app-user-list [listValue] = "listData"></app-user-list>  ​
+
+        <app-user (userData) = "AddData($event)"></app-user>  ​
+
+    </div>  
+
+</div>

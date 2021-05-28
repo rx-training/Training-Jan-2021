@@ -1,4 +1,6 @@
 ﻿using BookMyShowAPI.Authentication;
+using BookMyShowAPI.IRepository;
+using BookMyShowAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +13,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MimeKit;
 
 namespace BookMyShowAPI.Controllers
 {
@@ -18,109 +22,115 @@ namespace BookMyShowAPI.Controllers
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly IUser users;
+        private readonly IAdmin admins;
+        private readonly IMailService mailService;
         private readonly IConfiguration _configuration;
 
-        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthenticateController(IUser user, IAdmin admin, IMailService mailService, IConfiguration configuration)
         {
-            this.userManager = userManager;
-            this.roleManager = roleManager;
+            users = user;
+            admins = admin;
+            this.mailService = mailService;
             _configuration = configuration;
         }
 
+        // POST: api/bookmyshow/authenticate/login?otp=1234
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginModel model, int otp)
         {
-            var user = await userManager.FindByNameAsync(model.Username);
-            if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
+            var username = "";
+            var pass = "";
+            if (users.FindName(model.Username) != null && otp == 1234)
             {
-                var userRoles = await userManager.GetRolesAsync(user);
+                username = model.Username;
+                pass = users.FindName(model.Username).Password;
+            }
+            else if (admins.FindName(model.Username) != null && otp == 1234)
+            {
+                username = model.Username;
+                pass = admins.FindName(model.Username).Password;
+            }
+            else
+            {
+                return Unauthorized();
+            }
 
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
+            if(model.Password.Trim() != pass)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Password!" });
+            }
 
-                foreach (var userRole in userRoles)
-                {
-                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-                }
+            var newToken = await users.LoginUser(username);
 
-                var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
-
-                var token = new JwtSecurityToken(
-                    issuer: _configuration["JWT:ValidIssuer"],
-                    audience: _configuration["JWT:ValidAudience"],
-                    expires: DateTime.Now.AddHours(3),
-                    claims: authClaims,
-                    signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                    );
-
+            if (newToken != null)
+            {
                 return Ok(new
                 {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                    token = newToken
                 });
             }
-            return Unauthorized();
+
+            return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Email is not confirmed!" });
         }
 
+        // POST: api/bookmyshow/authenticate/register
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
-            var userExists = await userManager.FindByNameAsync(model.Username);
-            if (userExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
-
-            ApplicationUser user = new ApplicationUser()
+            if(users.FindName(model.Username) != null)
             {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username,
-                PhoneNumber = model.PhoneNumber
-            };
-            var result = await userManager.CreateAsync(user, model.Password);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
+            }
+
+            var result = await users.RegisterUser(model);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
 
+            users.CreateUser(model);
+
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+
         }
 
+        // POST: api/bookmyshow/authenticate/register-admin
         [HttpPost]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
-            var userExists = await userManager.FindByNameAsync(model.Username);
-            if (userExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
-
-            ApplicationUser user = new ApplicationUser()
+            if (admins.FindName(model.Username) != null)
             {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username,
-                PhoneNumber = model.PhoneNumber
-            };
-            var result = await userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
-
-            if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
-                await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
-            if (!await roleManager.RoleExistsAsync(UserRoles.User))
-                await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
-
-            if (await roleManager.RoleExistsAsync(UserRoles.Admin))
-            {
-                await userManager.AddToRoleAsync(user, UserRoles.Admin);
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Admin already exists!" });
             }
 
-            return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+            var result = await admins.RegisterAdmin(model);
+            if (!result.Succeeded)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Admin creation failed! Please check admin details and try again." });
+
+            admins.CreateAdmin(model);
+
+            return Ok(new Response { Status = "Success", Message = "Admin created successfully!" });
         }
 
+        // POST: api/bookmyshow/authenticate/confirmemail
+        [HttpGet("ConfirmEmail")]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if(string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token))
+            {
+                return NotFound();
+            }
+
+            var result = await users.ConfirmEmailAsync(userId, token);
+
+            if(result.Status == "Success")
+            {
+                return Redirect($"{_configuration["AppUrl"]}/confirmemail.html");
+            }
+
+            return BadRequest(result);
+        }
     }
 }

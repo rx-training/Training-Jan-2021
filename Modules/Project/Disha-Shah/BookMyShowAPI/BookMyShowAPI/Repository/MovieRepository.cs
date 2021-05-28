@@ -283,6 +283,7 @@ namespace BookMyShowAPI.Repository
             return theatres;
         }
 
+        // Get Seatcategory and seats for a particular movie and theatre
         public IEnumerable GetSeatCategoriesByTheatreShowTimings(int id, string language, string filmCategory, int theatreId, string showTime)
         {
             var movie = context.Movies.SingleOrDefault(x => x.MovieId == id);
@@ -320,6 +321,50 @@ namespace BookMyShowAPI.Repository
                                     SeatsId=x.SeatsId,
                                     ScreenId=x.ScreenId,
                                     IsBooked=x.IsBooked
+                                })
+                                .Distinct();
+
+            return seats;
+        }
+
+        // Get Seats information based on seat category for a particular movie and theatre
+        public IEnumerable GetSeatsBySeatCategories(int id, string language, string filmCategory, int theatreId, string showTime, string seatsCategory)
+        {
+            var movie = context.Movies.SingleOrDefault(x => x.MovieId == id);
+
+            TimeSpan ts = DateTime.Parse(showTime).TimeOfDay;
+
+            var seats = context.TheatresMovies
+                                .Where(x => x.Movie == movie.Name && x.Language == language && x.FilmCategory == filmCategory && x.TheatreId == theatreId && x.ShowTime == ts && x.SeatCategory==seatsCategory)
+                                .Select(x => new TheatresMovie
+                                {
+                                    Movie = x.Movie,
+                                    About = x.About,
+                                    DateOfRelease = x.DateOfRelease,
+                                    Image = x.Image,
+                                    IsPremiere = x.IsPremiere,
+                                    IsRecommended = x.IsRecommended,
+                                    Time = x.Time,
+                                    Certification = x.Certification,
+                                    CertificationId = x.CertificationId,
+                                    Language = x.Language,
+                                    LanguageId = x.LanguageId,
+                                    FilmCategory = x.FilmCategory,
+                                    FilmCategoryId = x.FilmCategoryId,
+                                    TheatreId = x.TheatreId,
+                                    Theatre = x.Theatre,
+                                    Address = x.Address,
+                                    City = x.City,
+                                    CityId = x.CityId,
+                                    ShowTime = x.ShowTime,
+                                    ShowTimingId = x.ShowTimingId,
+                                    SeatCategory = x.SeatCategory,
+                                    SeatsCategoryId = x.SeatsCategoryId,
+                                    Price = x.Price,
+                                    SeatNo = x.SeatNo,
+                                    SeatsId = x.SeatsId,
+                                    ScreenId = x.ScreenId,
+                                    IsBooked = x.IsBooked
                                 })
                                 .Distinct();
 

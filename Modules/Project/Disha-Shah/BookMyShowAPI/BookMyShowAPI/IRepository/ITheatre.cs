@@ -26,5 +26,7 @@ namespace BookMyShowAPI.IRepository
         public void DeleteShowTimingByScreenId(int id, string showTiming);
 
         public IEnumerable GetSeatsBySeatCategoryId(int id);
+        public IEnumerable GetMoviesByTheatreId(int id);
+        public IEnumerable GetShowTimingsByMovieId(int id);
     }
 }

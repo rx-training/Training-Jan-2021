@@ -1,0 +1,62 @@
+<body>
+    
+<div class="w-100">
+        
+        <div class="container mt-5">
+
+            <h1 class="h3 text-center">Latest Products</h1>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <th>ProductId</th>
+                    <th>ProductName</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </thead>
+                <tbody id="pContent">
+                
+                </tbody>
+            </table>
+            <div class="row">
+                
+                    <button class="btn btn-success" onclick="return cartSummary()" data-toggle="modal" data-target="#checkoutModal">Cart Summary</button>
+                    <button class="btn btn-danger ml-3" onclick="return reset()">Reset</button>
+    
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Cart Summary</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                            </thead>
+                            <tbody id="modal-body">
+                                
+                            </tbody>
+                            <tfoot>
+                                <th colspan="4" class="text-right h4">Total Amount to be Paid: <span id="modalTotal">0.0</span></th>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="checkout">Checkout</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>

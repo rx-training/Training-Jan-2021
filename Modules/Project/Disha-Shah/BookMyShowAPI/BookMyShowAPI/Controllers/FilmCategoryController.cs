@@ -23,7 +23,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/FilmCategory
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<FilmCategory>> GetFilmCategories()
         {
@@ -31,7 +30,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/FilmCategory/5
-        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<FilmCategory> GetFilmCategory(int id)
         {

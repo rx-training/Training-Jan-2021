@@ -1,0 +1,74 @@
+ <div class="container">
+    <div class="row" *ngIf="submit">
+
+        <h3>Students List</h3>
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Birth Place</th>
+                <th>First Language</th>
+                <th>Address</th>
+                <th>Father's Name</th>
+                <th>Father's Email</th>
+                <th>Father's Educational Qualification</th>
+                <th>Father's Profession</th>
+                <th>Father's Designation</th>
+                <th>Father's Contact No</th>
+                <th>Mother's Name</th>
+                <th>Mother's Email</th>
+                <th>Mother's Educational Qualification</th>
+                <th>Mother's Profession</th>
+                <th>Mother's Designation</th>
+                <th>Mother's Contact No</th>
+                <th>Emergency Contact's Relation/Contact No</th>
+                <th>Reference Through/Address/Contact No</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let student of listValue">
+                    <tr>
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.dob}}</td>
+                        <td>{{student.placeOfBirth}}</td>
+                        <td>{{student.language}}</td>
+                        <td>{{student.address}}</td>
+                        <td>{{student.fatherName}}</td>
+                        <td>{{student.fatherEmail}}</td>
+                        <td>{{student.fatherQualification}}</td>
+                        <td>{{student.fatherProfession}}</td>
+                        <td>{{student.fatherDesignation}}</td>
+                        <td>{{student.fatherPhone}}</td>
+                        <td>{{student.motherName}}</td>
+                        <td>{{student.motherEmail}}</td>
+                        <td>{{student.motherQualification}}</td>
+                        <td>{{student.motherProfession}}</td>
+                        <td>{{student.motherDesignation}}</td>
+                        <td>{{student.motherPhone}}</td>
+                        <td [ngStyle]="{padding : 0}">
+                            <ng-container *ngFor="let emergencyContact of student.emergencyContact; let i = index">
+                                <tr>
+                                    <td>{{emergencyContact.relation}}</td>
+                                    <td>{{emergencyContact.contact}}</td>
+                                </tr>
+                            </ng-container>
+                        </td>
+                        <td [ngStyle]="{padding : 0}">
+                            <ng-container *ngFor="let referenceDetails of student.referenceDetails; let i = index">
+                                <tr>
+                                    <td>{{referenceDetails.referenceThrough}}</td>
+                                    <td>{{referenceDetails.address}}</td>
+                                    <td>{{referenceDetails.contact}}</td>
+                                </tr>
+                            </ng-container>
+                        </td>
+                        <td><button class="btn btn-danger mt-3" (click) = "edit(student.id, student)">Edit</button>&nbsp;<button class="btn btn-danger mt-3" (click) = "remove(student.id)">Delete</button></td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+
+    </div>
+</div>

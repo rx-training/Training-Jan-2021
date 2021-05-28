@@ -1,0 +1,54 @@
+<div [formGroup]="form">
+    <div [ngSwitch]="getKeys(student).length" class="mx-3">
+        <!--No nested form group-->
+        <div *ngSwitchCase="1">
+            <label [attr.for]="student.key">{{student.label}}</label>
+            <div class="mx-3">
+                <input [formControlName]="student.key"
+                        [id]="student.key" [type]="student.type" class="form-control">
+            </div>
+        </div>
+
+        <!--Nested formgroup of level 1-->
+        <div *ngSwitchCase="2">
+            <div [formGroupName]="getKeys(student)[0]">
+                <label [attr.for]="getKeys(student)[1]">{{student.label}}</label>
+                <div class="mx-3">
+                    <input [formControlName]="getKeys(student)[1]"
+                            [id]="getKeys(student)[1]" [type]="student.type" class="form-control">
+                </div>
+                     
+            </div>
+        </div>
+
+        <!--Nested formgroup of level 2-->
+        <div *ngSwitchCase = "3">
+            <div [formGroupName]="getKeys(student)[0]">
+                <div [formGroupName]="getKeys(student)[1]">
+                    <label [attr.for]="getKeys(student)[2]">{{student.label}}</label>
+                    <div class="mx-3">
+                        <input [formControlName]="getKeys(student)[2]"
+                                [id]="getKeys(student)[2]" [type]="student.type" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Nested formgroup of level 3-->
+        <div *ngSwitchCase = "4">
+            <div [formGroupName]="getKeys(student)[0]">
+                <div [formGroupName]="getKeys(student)[1]">
+                    <div [formGroupName]="getKeys(student)[2]">
+                        <label [attr.for]="getKeys(student)[3]">{{student.label}}</label>
+                        <div class="mx-3">
+                            <input [formControlName]="getKeys(student)[3]"
+                                    [id]="getKeys(student)[3]" [type]="student.type" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="errorMessage" *ngIf="!isValid">Valid {{student.label}} is required</div>
+</div>

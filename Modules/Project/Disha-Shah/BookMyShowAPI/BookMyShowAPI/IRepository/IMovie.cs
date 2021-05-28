@@ -28,5 +28,6 @@ namespace BookMyShowAPI.IRepository
         public IEnumerable GetFilmCategoriesByLanguage(int id, string language);
         public IEnumerable GetTheatresByFilmCategory(int id, string language, string filmCategory);
         public IEnumerable GetSeatCategoriesByTheatreShowTimings(int id, string language, string filmCategory, int theatreId, string showTime);
+        public IEnumerable GetSeatsBySeatCategories(int id, string language, string filmCategory, int theatreId, string showTime, string seatsCategory);
     }
 }

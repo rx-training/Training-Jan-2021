@@ -1,0 +1,12 @@
+<div class="container">
+    <h4>Students List:</h4>
+    <div *ngFor = "let s of list">
+        <li>{{s.id}}   {{s.name}}    {{s.address}}</li>
+    </div>
+
+    <h4>Add Data:</h4>
+    Id: <input type="number" class="form-control" [(ngModel)] = "student.id">
+    Name: <input type="text" class="form-control" [(ngModel)] = "student.name">
+    Address: <input type="text" class="form-control" [(ngModel)] = "student.address">
+    <button type="submit" class="btn btn-primary" (click)="submit()">Add</button>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+    <br><br>
+    <h3>Pipes Practice</h3>
+    <span>Value is {{value1 | currency:'INR'}}</span>
+    <br><br>
+    <p>The hero's birthday is {{ birthday | date:"MM/dd/yy" }} </p>
+    <h4>Power Booster</h4>
+    <p>Super power boost: {{2 | exponentialStrength: 10}}</p>
+
+    <h4>Power Boost Calculator</h4>
+    <div>Normal power: <input [(ngModel)]="power"></div>
+    <div>Boost factor: <input [(ngModel)]="factor"></div>
+    <p>
+      Super Hero Power: {{power | exponentialStrength: factor}}
+    </p>
+</div>

@@ -23,7 +23,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Genres
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Genre>> GetGenres()
         {
@@ -31,7 +30,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Genres/5
-        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<Genre> GetGenre(int id)
         {

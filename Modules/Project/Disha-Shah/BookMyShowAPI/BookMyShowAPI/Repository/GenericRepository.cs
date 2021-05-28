@@ -44,5 +44,9 @@ namespace BookMyShowAPI.Repository
             context.SaveChanges();
         }
 
+        public IEnumerable<T> Find(Func<T, bool> predicate)
+        {
+            return context.Set<T>().Where(predicate);
+        }
     }
 }

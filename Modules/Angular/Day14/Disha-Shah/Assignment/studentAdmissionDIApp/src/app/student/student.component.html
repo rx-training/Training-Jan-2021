@@ -1,0 +1,647 @@
+<div class="container mt-3">
+    <h3 class="display-4 text-center">Student Admission Form</h3>
+    <br>
+
+    <!--Reactive form for student admission-->
+    <form [formGroup]="studentForm" (ngSubmit)="profileSubmit()">
+
+        <!--Form group for student name-->
+        <div formGroupName="name">
+            <h5>Student Name</h5>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>
+                        First Name:
+                    </label>
+                    <input type="text" formControlName="first" class="form-control" required>
+                    
+                    <div [ngClass]="'errorMsg'" *ngIf="StudFName.invalid && (StudFName.dirty || StudFName.touched)">
+
+                        <div *ngIf="StudFName.errors?.required">
+                            Firstname is required.
+                        </div>
+                        <div *ngIf="StudFName.errors?.pattern">
+                            Firstname must only contain alphabets
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Middle Name:
+                    </label>
+                    <input type="text" formControlName="middle" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="StudMName.invalid && (StudMName.dirty || StudMName.touched)">
+
+                        <div *ngIf="StudMName.errors?.required">
+                            Middlename is required.
+                        </div>
+                        <div *ngIf="StudMName.errors?.pattern">
+                            Middlename must only contain alphabets
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Last Name:
+                    </label>
+                    <input type="text" formControlName="last" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="StudLName.invalid && (StudLName.dirty || StudLName.touched)">
+
+                        <div *ngIf="StudLName.errors?.required">
+                            Lastname is required.
+                        </div>
+                        <div *ngIf="StudLName.errors?.pattern">
+                            Lastname must only contain alphabets
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Date Of Birth:
+                </label>
+                <input type="date" formControlName="dob" class="form-control" required>
+
+                <div [ngClass]="'errorMsg'" *ngIf="studentForm.controls.dob.invalid && (studentForm.controls.dob.dirty || studentForm.controls.dob.touched)">
+
+                    <div *ngIf="studentForm.controls.dob.errors?.required">
+                        Date of Birth is required.
+                    </div>
+                    <div *ngIf="studentForm.controls.dob.errors?.invalidAge">
+                        Current Age should be between 5 to 20
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Place of Birth:
+                </label>
+                <input type="text" formControlName="birthPlace" class="form-control" required>
+
+                <div [ngClass]="'errorMsg'" *ngIf="studentForm.controls.birthPlace.invalid && (studentForm.controls.birthPlace.dirty || studentForm.controls.birthPlace.touched)">
+
+                    <div *ngIf="studentForm.controls.birthPlace.errors?.required">
+                        Place of Birth is required.
+                    </div>
+                    <div *ngIf="studentForm.controls.birthPlace.errors?.pattern">
+                        It should only contain alphabets and spaces
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>First Language:
+                </label>
+                <input type="text" formControlName="language" class="form-control" required>
+
+                <div [ngClass]="'errorMsg'" *ngIf="studentForm.controls.language.invalid && (studentForm.controls.language.dirty || studentForm.controls.language.touched)">
+
+                    <div *ngIf="studentForm.controls.language.errors?.required">
+                        First Language is required.
+                    </div>
+                    <div *ngIf="studentForm.controls.language.errors?.pattern">
+                        It should only contain alphabets
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--form group of address-->
+        <div formGroupName="address">
+            <h5>Address</h5>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>
+                        City:
+                    </label>
+                    <input type="text" formControlName="city" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="AddressCity.invalid && (AddressCity.dirty || AddressCity.touched)">
+
+                        <div *ngIf="AddressCity.errors?.required">
+                            City is required.
+                        </div>
+                        <div *ngIf="AddressCity.errors?.pattern">
+                            It must only contain alphabets
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label>
+                        State:
+                    </label>
+                    <input type="text" formControlName="state" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="AddressState.invalid && (AddressState.dirty || AddressState.touched)">
+
+                        <div *ngIf="AddressState.errors?.required">
+                            State is required.
+                        </div>
+                        <div *ngIf="AddressState.errors?.pattern">
+                            It must only contain alphabets
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label>
+                        Country:
+                    </label>
+                    <input type="text" formControlName="country" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="AddressCountry.invalid && (AddressCountry.dirty || AddressCountry.touched)">
+
+                        <div *ngIf="AddressCountry.errors?.required">
+                            Country is required.
+                        </div>
+                        <div *ngIf="AddressCountry.errors?.pattern">
+                            It must only contain alphabets
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label>
+                        Pincode:
+                    </label>
+                    <input type="number" formControlName="pin" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="AddressPin.invalid && (AddressPin.dirty || AddressPin.touched)">
+
+                        <div *ngIf="AddressPin.errors?.required">
+                            Pincode is required.
+                        </div>
+                        <div *ngIf="AddressPin.errors?.pattern">
+                            It should contain 6 numbers
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!--form group for father's information-->
+        <div formGroupName="father">
+            <h5>Father Information</h5>
+
+            <!--form group for father's full name-->
+            <div formGroupName="fullName">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>
+                            First Name:
+                        </label>
+                        <input type="text" formControlName="first" class="form-control" required>
+
+                        <div [ngClass]="'errorMsg'" *ngIf="FatherFName.invalid && (FatherFName.dirty || FatherFName.touched)">
+
+                            <div *ngIf="FatherFName.errors?.required">
+                                Firstname is required.
+                            </div>
+                            <div *ngIf="FatherFName.errors?.pattern">
+                                It should only contain alphabets
+                            </div>
+    
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>
+                            Middle Name:
+                        </label>
+                        <input type="text" formControlName="middle" class="form-control" required>
+
+                        <div [ngClass]="'errorMsg'" *ngIf="FatherMName.invalid && (FatherMName.dirty || FatherMName.touched)">
+
+                            <div *ngIf="FatherMName.errors?.required">
+                                Middlename is required.
+                            </div>
+                            <div *ngIf="FatherMName.errors?.pattern">
+                                It should only contain alphabets
+                            </div>
+    
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>
+                            Last Name:
+                        </label>
+                        <input type="text" formControlName="last" class="form-control" required>
+
+                        <div [ngClass]="'errorMsg'" *ngIf="FatherLName.invalid && (FatherLName.dirty || FatherLName.touched)">
+
+                            <div *ngIf="FatherLName.errors?.required">
+                                Lastname is required.
+                            </div>
+                            <div *ngIf="FatherLName.errors?.pattern">
+                                It should only contain alphabets
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>
+                        Email:
+                    </label>
+                    <input type="email" formControlName="email" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="FatherEmail.invalid && (FatherEmail.dirty || FatherEmail.touched)">
+
+                        <div *ngIf="FatherEmail.errors?.required">
+                            Email is required.
+                        </div>
+                        <div *ngIf="FatherEmail.errors?.email">
+                            Proper format Ex: example@gmail.com
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Educational Qualification:
+                    </label>
+                    <input type="text" formControlName="qualification" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="FatherQualification.invalid && (FatherQualification.dirty || FatherQualification.touched)">
+
+                        <div *ngIf="FatherQualification.errors?.required">
+                            Qualification is required.
+                        </div>
+                        <div *ngIf="FatherQualification.errors?.pattern">
+                            It should only contain alphabets, spaces and .
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Profession:
+                    </label>
+                    <input type="text" formControlName="profession" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="FatherProfession.invalid && (FatherProfession.dirty || FatherProfession.touched)">
+
+                        <div *ngIf="FatherProfession.errors?.required">
+                            Profession is required.
+                        </div>
+                        <div *ngIf="FatherProfession.errors?.pattern">
+                            It should only contain alphabets and spaces
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>
+                        Designation:
+                    </label>
+                    <input type="text" formControlName="designation" class="form-control">
+
+                    <div [ngClass]="'errorMsg'" *ngIf="FatherDesignation.invalid && (FatherDesignation.dirty || FatherDesignation.touched)">
+
+                        <div *ngIf="FatherDesignation.errors?.pattern">
+                            It should only contain alphabets and spaces
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Contact No:
+                    </label>
+                    <input type="number" formControlName="phone" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="FatherPhone.invalid && (FatherPhone.dirty || FatherPhone.touched)">
+
+                        <div *ngIf="FatherPhone.errors?.required">
+                            Contact No. is required.
+                        </div>
+                        <div *ngIf="FatherPhone.errors?.pattern">
+                            It should contain 10 numbers
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!--form group for mother's information-->
+        <div formGroupName="mother">
+            <h5>Mother Information</h5>
+
+            <!--form group for mother's full name-->
+            <div formGroupName="fullName">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>
+                            First Name:
+                        </label>
+                        <input type="text" formControlName="first" class="form-control" required>
+
+                        <div [ngClass]="'errorMsg'" *ngIf="MotherFName.invalid && (MotherFName.dirty || MotherFName.touched)">
+
+                            <div *ngIf="MotherFName.errors?.required">
+                                Firstname is required.
+                            </div>
+                            <div *ngIf="MotherFName.errors?.pattern">
+                                It should only contain alphabets
+                            </div>
+    
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>
+                            Middle Name:
+                        </label>
+                        <input type="text" formControlName="middle" class="form-control" required>
+
+                        <div [ngClass]="'errorMsg'" *ngIf="MotherMName.invalid && (MotherMName.dirty || MotherMName.touched)">
+
+                            <div *ngIf="MotherMName.errors?.required">
+                                Middlename is required.
+                            </div>
+                            <div *ngIf="MotherMName.errors?.pattern">
+                                It should only contain alphabets
+                            </div>
+    
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>
+                            Last Name:
+                        </label>
+                        <input type="text" formControlName="last" class="form-control" required>
+
+                        <div [ngClass]="'errorMsg'" *ngIf="MotherLName.invalid && (MotherLName.dirty || MotherLName.touched)">
+
+                            <div *ngIf="MotherLName.errors?.required">
+                                Lastname is required.
+                            </div>
+                            <div *ngIf="MotherLName.errors?.pattern">
+                                It should only contain alphabets
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>
+                        Email:
+                    </label>
+                    <input type="email" formControlName="email" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="MotherEmail.invalid && (MotherEmail.dirty || MotherEmail.touched)">
+
+                        <div *ngIf="MotherEmail.errors?.required">
+                            Email is required.
+                        </div>
+                        <div *ngIf="MotherEmail.errors?.email">
+                            Proper format Ex: example@gmail.com
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Educational Qualification:
+                    </label>
+                    <input type="text" formControlName="qualification" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="MotherQualification.invalid && (MotherQualification.dirty || MotherQualification.touched)">
+
+                        <div *ngIf="MotherQualification.errors?.required">
+                            Qualification is required.
+                        </div>
+                        <div *ngIf="MotherQualification.errors?.pattern">
+                            It should only contain alphabets, spaces and .
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Profession:
+                    </label>
+                    <input type="text" formControlName="profession" class="form-control">
+
+                    <div [ngClass]="'errorMsg'" *ngIf="MotherProfession.invalid && (MotherProfession.dirty || MotherProfession.touched)">
+
+                        <div *ngIf="MotherProfession.errors?.pattern">
+                            It should only contain alphabets and spaces
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>
+                        Designation:
+                    </label>
+                    <input type="text" formControlName="designation" class="form-control">
+
+                    <div [ngClass]="'errorMsg'" *ngIf="MotherDesignation.invalid && (MotherDesignation.dirty || MotherDesignation.touched)">
+
+                        <div *ngIf="MotherDesignation.errors?.pattern">
+                            It should only contain alphabets and spaces
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>
+                        Contact No:
+                    </label>
+                    <input type="number" formControlName="phone" class="form-control" required>
+
+                    <div [ngClass]="'errorMsg'" *ngIf="MotherPhone.invalid && (MotherPhone.dirty || MotherPhone.touched)">
+
+                        <div *ngIf="MotherPhone.errors?.required">
+                            Contact No. is required.
+                        </div>
+                        <div *ngIf="MotherPhone.errors?.pattern">
+                            It should contain 10 numbers
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!--form array for emergency contacts-->
+        <div formArrayName="emergencyContacts">
+            <h5>Emergency Contacts</h5>
+            <div *ngFor="let emergencyContact of getEmergencyContacts.controls; let i=index">
+
+                <!--form group for emergency contact's list-->
+                <div [formGroupName]="i">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>
+                                Relation:
+                            </label>
+                            <input type="text" name="" id="" formControlName="relation" class="form-control" required>
+
+                            <div [ngClass]="'errorMsg'" *ngIf="getEmergencyContactsGroup(i).controls.relation.invalid && (getEmergencyContactsGroup(i).controls.relation.dirty || getEmergencyContactsGroup(i).controls.relation.touched)">
+
+                                <div *ngIf="getEmergencyContactsGroup(i).controls.relation.errors?.required">
+                                    Relation is required.
+                                </div>
+                                <div *ngIf="getEmergencyContactsGroup(i).controls.relation.errors?.pattern">
+                                    It should only contain alphabets
+                                </div>
+        
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>
+                                Contact No:
+                            </label>
+                            <input type="number" name="" id="" formControlName="contact" class="form-control"
+                                (keyup)="updateValidation('emergencyContacts','contact')" required>
+
+                            <div [ngClass]="'errorMsg'" *ngIf="getEmergencyContactsGroup(i).controls.contact.invalid && (getEmergencyContactsGroup(i).controls.contact.dirty || getEmergencyContactsGroup(i).controls.contact.touched)">
+
+                                <div *ngIf="getEmergencyContactsGroup(i).controls.contact.errors?.required">
+                                    Contact No. is required.
+                                </div>
+                                <div *ngIf="getEmergencyContactsGroup(i).controls.contact.errors?.pattern">
+                                    It should contain 10 numbers
+                                </div>
+                                <div *ngIf="getEmergencyContactsGroup(i).controls.contact.errors?.duplicateContactError">
+                                    Duplicate not allowed
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button (click)="addEmergencyContacts()" class="btn btn-secondary" type="button">Add Emergency
+                Contact</button>
+
+        </div>
+        <br>
+
+        <!--form array for reference details-->
+        <div formArrayName="referenceDetails">
+            <h5>Reference Details</h5>
+            <div *ngFor="let referenceDetails of getReferenceDetails.controls; let i=index">
+
+                <!--form group for reference detail's list-->
+                <div [formGroupName]="i">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>
+                                Reference Through:
+                            </label>
+                            <input type="text" name="" id="" formControlName="referenceThrough" class="form-control"
+                                required>
+
+                            <div [ngClass]="'errorMsg'" *ngIf="getReferenceDetailsGroup(i).controls.referenceThrough.invalid && (getReferenceDetailsGroup(i).controls.referenceThrough.dirty || getReferenceDetailsGroup(i).controls.referenceThrough.touched)">
+
+                                <div *ngIf="getReferenceDetailsGroup(i).controls.referenceThrough.errors?.required">
+                                    Reference through is required.
+                                </div>
+                                <div *ngIf="getReferenceDetailsGroup(i).controls.referenceThrough.errors?.pattern">
+                                    It should only contain alphabets
+                                </div>
+        
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>
+                                Address:
+                            </label>
+                            <input type="text" name="" id="" formControlName="address" class="form-control" required>
+
+                            <div [ngClass]="'errorMsg'" *ngIf="getReferenceDetailsGroup(i).controls.address.invalid && (getReferenceDetailsGroup(i).controls.address.dirty || getReferenceDetailsGroup(i).controls.address.touched)">
+
+                                <div *ngIf="getReferenceDetailsGroup(i).controls.address.errors?.required">
+                                    Address is required.
+                                </div>
+        
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>
+                                Contact No:
+                            </label>
+                            <input type="number" name="" id="" formControlName="contact" class="form-control"
+                                (keyup)="updateValidation('referenceDetails','contact')" required>
+
+                            <div [ngClass]="'errorMsg'" *ngIf="getReferenceDetailsGroup(i).controls.contact.invalid && (getReferenceDetailsGroup(i).controls.contact.dirty || getReferenceDetailsGroup(i).controls.contact.touched)">
+
+                                <div *ngIf="getReferenceDetailsGroup(i).controls.contact.errors?.required">
+                                    Contact No. is required.
+                                </div>
+                                <div *ngIf="getReferenceDetailsGroup(i).controls.contact.errors?.pattern">
+                                    It should contain 10 numbers
+                                </div>
+                                <div *ngIf="getReferenceDetailsGroup(i).controls.contact.errors?.duplicateContactError">
+                                    Duplicate not allowed
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button (click)="addReferenceDetails()" class="btn btn-secondary" type="button">Add Reference
+                Details</button>
+
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" [disabled]="!studentForm.valid">Submit</button>
+    </form>
+    <br>
+
+    <p>
+        Form Value: {{ studentForm.value | json }}
+    </p>
+
+    <p>
+        Form Status: {{ studentForm.status }}
+    </p>
+</div>

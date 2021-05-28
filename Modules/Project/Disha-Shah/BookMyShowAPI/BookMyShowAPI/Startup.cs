@@ -55,11 +55,40 @@ namespace BookMyShowAPI
             services.AddTransient<IMovieBooking, MovieBookingRepository>();
             services.AddTransient<IEventBooking, EventBookingRepository>();
             services.AddTransient<IBookingHistory, BookingHistoryRepository>();
+            services.AddTransient<IUser, UserRepository>();
+            services.AddTransient<IAdmin, AdminRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookMyShowAPI", Version = "v1" });
             });
+
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IMailService, MailServiceRepository>();
+
+            //services.AddIdentity<ApplicationUser, IdentityRole>(opt =>
+            //{
+            //    opt.Password.RequiredLength = 10;
+            //    opt.Password.RequireDigit = true;
+            //    opt.Password.RequireUppercase = true;
+            //    opt.User.RequireUniqueEmail = true;
+            //    opt.SignIn.RequireConfirmedEmail = true;
+            //});
+
+            services.Configure<IdentityOptions>(opts =>
+            {
+                opts.User.RequireUniqueEmail = true;
+                opts.Password.RequiredLength = 9;
+
+                opts.SignIn.RequireConfirmedEmail = true;
+            });
+
+            services.AddCors(options => options.AddPolicy("BookMyShowPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
             // For Identity  
             services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -102,15 +131,19 @@ namespace BookMyShowAPI
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+
             app.UseAuthentication();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
+            app.UseCors("MyPolicy");
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("BookMyShowPolicy");
             });
         }
     }

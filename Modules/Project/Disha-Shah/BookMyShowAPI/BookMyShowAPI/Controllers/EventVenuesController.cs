@@ -23,7 +23,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/EventVenues
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<EventVenue>> GetEventVenues()
         {
@@ -31,7 +30,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/EventVenues/5
-        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<EventVenue> GetEventVenue(int id)
         {
@@ -46,7 +44,6 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/EventVenues/5/ShowTimings
-        //[Authorize]
         [HttpGet("{id}/ShowTimings")]
         public ActionResult<ShowTiming> GetShowTimings(int id)
         {

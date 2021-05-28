@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <nav id="sidebar">
+        
+        <div class="sidebar-header">
+            <h3>HTML Tasks</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <li>
+                <a href="#day3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day3</a>
+                <ul class="collapse list-unstyled" id="day3Submenu">
+                    
+                    <li>
+                        <a href="#practiceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Practice</a>
+                        <ul class="collapse list-unstyled" id="practiceSubmenu">
+                            <li>
+                                <a routerLink="/day3practice" routerLinkActive="active" class="pl-5">Practice Tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#assignmentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assignment</a>
+                        <ul class="collapse list-unstyled" id="assignmentSubmenu">
+                            <li>
+                                <a routerLink="/day3assignment" routerLinkActive="active" class="pl-5">Employee Details Form</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+
+    </nav>
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="return myFunc()">
+                    &#9776;
+                    
+                </button>
+            </div>
+        </nav>
+
+        <img src="../../assets/images/HTML_logo.jpg" alt="" class="img-fluid w-75 imgLogo">
+    </div>
+</div> 

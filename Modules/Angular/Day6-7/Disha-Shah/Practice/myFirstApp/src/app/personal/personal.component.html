@@ -1,0 +1,23 @@
+<div class="container">
+    <p class="display-4">personal works!</p>
+    Enter Name: <input [(ngModel)] = "Name" type = "text" id="userInput">
+    <p>Hello, {{Name}}</p>
+    <p [id]="sayHelloId" [style.color]="fontColor">You can set my color in the component!</p>
+    <button (click)="sayMessage()" [disabled]="canClick" type="button" class="btn btn-secondary">Trigger alert message</button>
+    <br><br>
+    <span>Id value is {{value1}}</span>
+    <input [value] = "value1">
+    <br><br>
+    <span>Value is {{value1 | currency}}</span>
+    <br><br>
+    <span>date of birth {{dob}}</span>
+    <br><br>
+    <span>date of birth {{dob | date | uppercase}}</span>
+    <br><br>
+    <span>Age is {{getAge()}}</span>
+    <br><br>
+    <span>Status is {{status}}</span>
+    <br><br>
+    <span>{{ status ? "This is current status" : "This is false status"}}</span>
+    <br><br>
+</div>

@@ -47,7 +47,7 @@ namespace BookMyShowAPI.Controllers
         // POST: api/BookMyShow/ShowTimings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        //[Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = UserRoles.Admin)]
         public ActionResult<ShowTiming> PostShowTiming([FromBody] string showTiming)
         {
             if (!ModelState.IsValid)
@@ -60,7 +60,7 @@ namespace BookMyShowAPI.Controllers
 
         // DELETE: api/BookMyShow/ShowTimings/5
         [HttpDelete("{id}")]
-        //[Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = UserRoles.Admin)]
         public IActionResult DeleteShowTiming(int id)
         {
             if (!ModelState.IsValid)

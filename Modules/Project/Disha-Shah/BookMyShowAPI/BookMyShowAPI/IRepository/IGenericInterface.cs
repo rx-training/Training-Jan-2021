@@ -12,5 +12,6 @@ namespace BookMyShowAPI.IRepository
         void Create(T entity);
         void Update(int id, T entity);
         void Delete(int id);
+        IEnumerable<T> Find(Func<T, bool> predicate);
     }
 }

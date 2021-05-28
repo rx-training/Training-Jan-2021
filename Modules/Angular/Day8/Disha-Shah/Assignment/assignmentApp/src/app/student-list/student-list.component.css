@@ -1,0 +1,12 @@
+.grade{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.pass{
+    background-color: lightgreen;
+}
+
+.fail{
+    background-color:lightcoral;
+}
