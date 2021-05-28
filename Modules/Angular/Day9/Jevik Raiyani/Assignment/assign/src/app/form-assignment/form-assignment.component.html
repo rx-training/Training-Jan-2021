@@ -1,0 +1,580 @@
+<div class="container">
+    <h1 >Student Admission Form</h1>
+
+    <form [formGroup]="IStudent"  (ngSubmit)="SubmitData()">
+
+        <div formGroupName="Name">        
+            <div class="form-group">
+                <label for="FName"> FirstName </label>
+                <input type="text" formControlName="FName" class="form-control" required >
+                
+                <div *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="Fname.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="Fname.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="Fname.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="MName"> MiddleName </label>
+                <input type="text" formControlName="MName" class="form-control" required>
+                <div *ngIf="Mname.invalid && (Mname.dirty || Mname.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="Mname.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="Mname.errors.minlength">
+                        Atleast 3 Character
+                        </div>
+                        <div *ngIf="Mname.errors.InValid">
+                        Only Alphabet are allowed
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="LName">LastName </label>
+                <input type="text" formControlName="LName" class="form-control">
+                <div *ngIf="Lname.invalid && (Lname.dirty || Lname.touched)"
+                class="alert alert-danger">
+
+                <div *ngIf="Lname.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="Lname.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="Lname.errors.InValid">
+                    Only Alphabet are allowed
+                </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="DOB"> DateOfBirth </label>
+            <input type="date" formControlName="DOB" class="form-control">
+            <div *ngIf="Date.invalid && (Date.dirty || Date.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="Date.errors.required">
+                        Required
+                    </div>
+                    
+                </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="PlaceOfBirth"> PlaceOfBirth </label>
+            <input type="text" formControlName="PlaceOfBirth" class="form-control">
+            <div *ngIf="PlaceOfBirth.invalid && (PlaceOfBirth.dirty || PlaceOfBirth.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="PlaceOfBirth.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="PlaceOfBirth.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="PlaceOfBirth.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="FirstLanguage"> FirstLanguage </label>
+            <input type="text" formControlName="FirstLanguage" class="form-control">
+            <div *ngIf="FirstLanguage.invalid && (FirstLanguage.dirty || FirstLanguage.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="FirstLanguage.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="FirstLanguage.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="FirstLanguage.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+            </div>
+        </div>
+
+        <div formGroupName="Address">        
+            <div class="form-group">
+                <label for="City"> City </label>
+                <input type="text" formControlName="City" class="form-control">
+                <div *ngIf="City.invalid && (City.dirty || City.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="City.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="City.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="City.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+                 </div>
+
+            </div>
+            <div class="form-group">
+                <label for="State"> State </label>
+                <input type="text" formControlName="State" class="form-control">
+                <div *ngIf="State.invalid && (State.dirty || State.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="State.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="State.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="State.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="Country">Country </label>
+                <input type="text" formControlName="Country" class="form-control">
+                <div *ngIf="Country.invalid && (Country.dirty || Country.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="Country.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="Country.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="Country.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+                 </div>
+
+            </div>
+            <div class="form-group">
+                <label for="Pin">Pin </label>
+                <input type="text" formControlName="Pin" class="form-control">
+                <div *ngIf="Pin.invalid && (Pin.dirty || Pin.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="Pin.errors.required">
+                        Required
+                    </div>
+                    <div *ngIf="Pin.errors.minlength || Pin.errors.maxlength">
+                    Length 6
+                    </div>
+                    <div *ngIf="Pin.errors.InValidNum">
+                    Only Digitare allowed
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div formGroupName="Father">
+
+            <div formGroupName="Name">        
+                <div class="form-group">
+                    <label for="FName"> FirstName </label>
+                    <input type="text" formControlName="FName" class="form-control">
+                    <div *ngIf="FatherFname.invalid && (FatherFname.dirty || FatherFname.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="FatherFname.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="FatherFname.errors.minlength">
+                        Atleast 3 Character
+                        </div>
+                        <div *ngIf="FatherFname.errors.InValid">
+                        Only Alphabet are allowed
+                        </div>
+                 </div>
+                </div>
+                <div class="form-group">
+                    <label for="MName"> MiddleName </label>
+                    <input type="text" formControlName="MName" class="form-control">
+                    <div *ngIf="FatherMname.invalid && (FatherMname.dirty || FatherMname.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="FatherMname.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="FatherMname.errors.minlength">
+                        Atleast 3 Character
+                        </div>
+                        <div *ngIf="FatherMname.errors.InValid">
+                        Only Alphabet are allowed
+                        </div>
+                 </div>
+                </div>
+                <div class="form-group">
+                    <label for="LName">LastName </label>
+                    <input type="text" formControlName="LName" class="form-control">
+                    <div *ngIf="FatherLname.invalid && (FatherLname.dirty || FatherLname.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="FatherLname.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="FatherLname.errors.minlength">
+                        Atleast 3 Character
+                        </div>
+                        <div *ngIf="FatherLname.errors.InValid">
+                        Only Alphabet are allowed
+                        </div>
+                 </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="PlaceOfBirth"> Email </label>
+                <input type="email" formControlName="Email" class="form-control">
+                <div *ngIf="FatherEmail.invalid && (FatherEmail.dirty || FatherEmail.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="FatherEmail.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="FatherEmail.errors.minlength">
+                        Atleast 8 Character
+                        </div>
+                        <div *ngIf="FatherEmail.errors.email">
+                            Only Valid email allowed
+                        </div>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="EducationQualification"> EducationQualification </label>
+                <input type="text" formControlName="EducationQualification" class="form-control">
+                <div *ngIf="FatherEducationQualification.invalid && (FatherEducationQualification.dirty || FatherEducationQualification.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="FatherEducationQualification.errors.required">
+                        Required
+                        </div>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Profession"> Profession </label>
+                <input type="text" formControlName="Profession" class="form-control">
+                <div *ngIf="FatherProfession.invalid && (FatherProfession.dirty || FatherProfession.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="FatherProfession.errors.required">
+                        Required
+                        </div>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Designation"> Designation </label>
+                <input type="text" formControlName="Designation" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="Phone"> Phone </label>
+                <input type="text" formControlName="Phone" class="form-control">
+                <div *ngIf="FatherPhone.invalid && (FatherPhone.dirty || FatherPhone.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="FatherPhone.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="FatherPhone.errors.minlength || FatherPhone.errors.maxlength">
+                    Length 10
+                    </div>
+                    <div *ngIf="FatherPhone.errors.InValidNum">
+                    Only Digitare allowed
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div formGroupName="Mother">
+            <div formGroupName="Name">        
+                <div class="form-group">
+                    <label for="FName"> FirstName </label>
+                    <input type="text" formControlName="FName" class="form-control">
+                    <div *ngIf="MotherFname.invalid && (MotherFname.dirty || MotherFname.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="MotherFname.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="MotherFname.errors.minlength">
+                        Atleast 3 Character
+                        </div>
+                        <div *ngIf="MotherFname.errors.InValid">
+                        Only Alphabet are allowed
+                        </div>
+                 </div>
+                </div>
+                <div class="form-group">
+                    <label for="MName"> MiddleName </label>
+                    <input type="text" formControlName="MName" class="form-control">
+                    <div *ngIf="MotherMname.invalid && (MotherMname.dirty || MotherMname.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="MotherMname.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="MotherMname.errors.minlength">
+                        Atleast 3 Character
+                        </div>
+                        <div *ngIf="MotherMname.errors.InValid">
+                        Only Alphabet are allowed
+                        </div>
+                 </div>
+                </div>
+                <div class="form-group">
+                    <label for="LName">LastName </label>
+                    <input type="text" formControlName="LName" class="form-control">
+                    <div *ngIf="MotherLname.invalid && (MotherLname.dirty || MotherLname.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="MotherLname.errors.required">
+                        Required
+                        </div>
+                        <div *ngIf="MotherLname.errors.minlength">
+                        Atleast 3 Character
+                        </div>
+                        <div *ngIf="MotherLname.errors.InValid">
+                        Only Alphabet are allowed
+                        </div>
+                 </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="PlaceOfBirth"> Email </label>
+                <input type="email" formControlName="Email" class="form-control">
+                <div *ngIf="MotherEmail.invalid && (MotherEmail.dirty || MotherEmail.touched)"
+                class="alert alert-danger">
+
+                <div *ngIf="MotherEmail.errors.required">
+                Required
+                </div>
+                <div *ngIf="MotherEmail.errors.minlength">
+                Atleast 8 Character
+                </div>
+                <div *ngIf="MotherEmail.errors.email">
+                Only Valid email allowed
+                </div>
+         </div>
+            </div>
+            <div class="form-group">
+                <label for="EducationQualification"> EducationQualification </label>
+                <input type="text" formControlName="EducationQualification" class="form-control">
+                <div *ngIf="MotherEducationQualification.invalid && (MotherEducationQualification.dirty || MotherEducationQualification.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="MotherEducationQualification.errors.required">
+                        Required
+                        </div>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="Profession"> Profession </label>
+                <input type="text" formControlName="Profession" class="form-control">
+                <div *ngIf="MotherProfession.invalid && (MotherProfession.dirty || MotherProfession.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="MotherProfession.errors.required">
+                        Required
+                        </div>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="Designation"> Designation </label>
+                <input type="text" formControlName="Designation" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Phone"> Phone </label>
+                <input type="text" formControlName="Phone" class="form-control">
+                <div *ngIf="MotherPhone.invalid && (MotherPhone.dirty || MotherPhone.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="MotherPhone.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="MotherPhone.errors.minlength || MotherPhone.errors.maxlength">
+                    Length 10
+                    </div>
+                    <div *ngIf="MotherPhone.errors.InValidNum">
+                    Only Digitare allowed
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div formArrayName="EmergencyContactList">  
+            <h3>EmergencyContactList <button (click)=addEmergencyContactList()>Add</button></h3>  
+            <div *ngFor="let list  of EmergencyContactList.controls; let i = index">
+                <div [formGroupName]="i">
+                    <div class="form-group">
+                        <label for="Relation"> Relation </label>
+                        <input type="text" formControlName="Relation" class="form-control">
+                        <div *ngIf="list.get('Relation').errors &&(list.get('Relation').touched || list.get('Relation').dirty)"
+                        class="alert alert-danger">
+        
+                            <div *ngIf="list.get('Relation').errors.required">
+                            Required
+                            </div>
+                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone"> Phone </label>
+                        <input type="text" formControlName="Phone" class="form-control">
+                        <div *ngIf="list.get('Phone').errors &&(list.get('Phone').touched || list.get('Phone').dirty)"
+                        class="alert alert-danger">
+
+                            <div *ngIf="list.get('Phone').errors.required">
+                            Required
+                            </div>
+                            <div *ngIf="list.get('Phone').errors.minlength || list.get('Phone').errors.maxlength">
+                            Length 10
+                            </div>
+                            <div *ngIf="list.get('Phone').errors.InValidNum">
+                            Only Digitare allowed
+                            </div>
+                </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        
+        <div class="form-group">
+            <label for="ReferenceDetail"> ReferenceDetail </label>
+            <input type="text" formControlName="ReferenceDetail" class="form-control">
+            <div *ngIf="RefDetail.invalid && (RefDetail.dirty || RefDetail.touched)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="RefDetail.errors.required">
+                        Required
+                        </div>
+                 </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="ReferenceThrough"> ReferenceThrough </label>
+            <input type="text" formControlName="ReferenceThrough" class="form-control">
+            <div *ngIf="RefThrough.invalid && (RefThrough.dirty || RefThrough.touched)"
+            class="alert alert-danger">
+
+            <div *ngIf="RefThrough.errors.required">
+            Required
+            </div>
+     </div>
+        </div>
+        
+        <div formGroupName="ReferenceAddress">        
+            <div class="form-group">
+                <label for="City"> City </label>
+                <input type="text" formControlName="City" class="form-control">
+                <div *ngIf="RefCity.invalid && (RefCity.dirty || RefCity.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="RefCity.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="RefCity.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="RefCity.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="State"> State </label>
+                <input type="text" formControlName="State" class="form-control">
+                <div *ngIf="RefState.invalid && (RefState.dirty || RefState.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="RefState.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="RefState.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="RefState.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="Country">Country </label>
+                <input type="text" formControlName="Country" class="form-control">
+                <div *ngIf="RefCountry.invalid && (RefCountry.dirty || RefCountry.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="RefCountry.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="RefCountry.errors.minlength">
+                    Atleast 3 Character
+                    </div>
+                    <div *ngIf="RefCountry.errors.InValid">
+                    Only Alphabet are allowed
+                    </div>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="Pin">Pin </label>
+                <input type="text" formControlName="Pin" class="form-control">
+                <div *ngIf="RefPin.invalid && (RefPin.dirty || RefPin.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="RefPin.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="RefPin.errors.minlength || RefPin.errors.maxlength">
+                    Length 6
+                    </div>
+                    <div *ngIf="RefPin.errors.InValidNum">
+                    Only Digit are allowed
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="TelNo">TelNo </label>
+                <input type="text" formControlName="TelNo" class="form-control">
+                <div *ngIf="RefTelNo.invalid && (RefTelNo.dirty || RefTelNo.touched)"
+                class="alert alert-danger">
+
+                    <div *ngIf="RefTelNo.errors.required">
+                    Required
+                    </div>
+                    <div *ngIf="RefTelNo.errors.minlength || RefTelNo.errors.maxlength">
+                    Length 10
+                    </div>
+                    <div *ngIf="RefTelNo.errors.InValidNum">
+                    Only Digit are allowed
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <button  type="submit" [disabled]="!IStudent.valid" class="btn btn-primary">Submit</button>
+        <span *ngIf="IStudent.invalid">All valid Detail require for Submit</span>
+    </form>
+</div>

@@ -1,0 +1,58 @@
+<table class="table container">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Average</th>
+            <th>Grade</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let data of student; let idx = index  ;"  [ngSwitch] ="data.Grade">
+    <ng-container *ngIf="data.Active">
+        
+        <tr  *ngSwitchCase=" 'A' "  [ngStyle]="{'color':'green'}"   > 
+            <td> {{data.Id}} </td>
+            <td> {{data.Name}}  </td>
+            <td> {{data.Age}} </td>
+            <td> {{data.Average}} </td>
+            <td> {{data.Grade}} </td>
+            <td> {{data.Active}} </td>
+        </tr>
+        <tr *ngSwitchCase=" 'B' " [ngStyle]="{'color':'blue'}" > 
+            <td> {{data.Id}} </td>
+            <td> {{data.Name}}  </td>
+            <td> {{data.Age}} </td>
+            <td> {{data.Average}} </td>
+            <td> {{data.Grade}} </td>
+            <td> {{data.Active}} </td>
+        </tr>
+        <tr *ngSwitchCase=" 'C' " [ngStyle]="{'color':'pink'}" > 
+            <td> {{data.Id}} </td>
+            <td> {{data.Name}}  </td>
+            <td> {{data.Age}} </td>
+            <td> {{data.Average}} </td>
+            <td> {{data.Grade}} </td>
+            <td> {{data.Active}} </td>
+        </tr>
+        <tr *ngSwitchCase=" 'D' " [ngStyle]="{'color':'darkblue'}" > 
+            <td> {{data.Id}} </td>
+            <td> {{data.Name}}  </td>
+            <td> {{data.Age}} </td>
+            <td> {{data.Average}} </td>
+            <td> {{data.Grade}} </td>
+            <td> {{data.Active}} </td>
+        </tr>
+        <tr *ngSwitchCase=" 'F' " [ngStyle]="{'color':'red'}" > 
+            <td> {{data.Id}} </td>
+            <td> {{data.Name}}  </td>
+            <td> {{data.Age}} </td>
+            <td> {{data.Average}} </td>
+            <td> {{data.Grade}} </td>
+            <td> {{data.Active}} </td>
+        </tr>
+    </ng-container>
+    </tbody>
+    
+</table>

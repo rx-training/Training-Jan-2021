@@ -1,0 +1,19 @@
+<div>
+  <span>Id is {{val1}}</span>
+  <input [value] = "val1">
+  <span>Value is {{val1 | currency}}</span>
+  <br>
+  <span>DOB {{dob}}</span>
+  <br>
+  <span>DOB {{dob|date}}</span>
+  <br>
+  <span>Status is {{status}} </span>
+  <br>
+  <span> {{status ? "this is current status ": "This is false Status"}} </span>
+  <br>
+  <span> {{returnString()}} </span>
+</div>
+
+<div class="border solid 2px;">
+<app-nav></app-nav>
+</div>

@@ -1,0 +1,67 @@
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="eid">Employee Id</label>
+                <input id="eid" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="ename">Employee Name</label>
+                <input id="ename" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="eage">Employee Age</label>
+                <input id="eage" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="form-inline">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+                </div>
+            </div>            
+
+            <div class="form-group">
+                <label for="eemailid">Employee email-id</label>
+                <input id="eemailid" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="edesignation">Designation</label>
+                <input id="edesignation" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="esalary">Salary</label>
+                <input id="esalary" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="elocation">Location</label>
+                <select id="elocation" class="form-control">
+                    <option value="">Select a Location</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="baroda">Rajkot</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="edoj">Date of Join</label>
+                <input id="edoj" class="form-control" type="text" placeholder="mm-dd-yyyy">
+            </div>
+
+            <button class="btn btn-primary" onclick="submitted()" type="button">Submit form</button>
+            <button class="btn btn-primary" type="reset">Reset form</button>
+
+            <div id="validations" class="text-danger"></div>
+        </form>
+    </div>
+
+    

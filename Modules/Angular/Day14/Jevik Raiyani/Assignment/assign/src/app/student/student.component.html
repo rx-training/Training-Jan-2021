@@ -1,0 +1,29 @@
+<div class="container">
+    ID
+    <input type="text" [(ngModel)]="Id" [disabled]="idVal">
+    Name
+    <input type="text" [(ngModel)]="Name">
+    Address
+    <input type="text" [(ngModel)]="Address">
+    <button (click)="IdEnable()" >Enable Id for add</button>
+    <button (click)="ADD()" [disabled]="idVal" >Add</button>
+    <button (click) = "Update()" [disabled]="!idVal"> Update</button>
+
+
+    <table> 
+        <thead>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Address</td>
+        </thead>
+        <tbody *ngFor="let data of studentdata; let idx = index"> 
+            <tr>
+                <td> {{data.Id}}  </td>
+                <td> {{data.Name}}</td>
+                <td> {{data.Address}}  </td>
+                <td> <button (click)=Edit(data)>Edit</button> </td>
+                <td> <button (click) = "Delete(data)">Delete</button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+<ul>
+    <li *ngFor = "let student of studentList">
+        {{student.Name}}
+    </li>
+</ul>
+<label for="">{{Id}}</label>
+<input type="text" [(ngModel)]="Name">
+<input type="text" [(ngModel)]= "Address">
+<button (click)="update()" >Update</button>
+
+<select (change)="changeClass($event)">
+    <option value="1">Red</option>
+    <option value="2">Green</option>
+</select>
+
+<table [ngClass]="applyCss">
+    <tr> 
+        <td>Id</td>
+        <td>Name</td>
+        <td>Address</td>
+    </tr>
+    <tr *ngFor ="let student of studentList; let idx= index">
+        <td>{{student.Id}}</td>
+        <td>   {{student.Name}} </td>
+        <td>   {{student.Address}} </td>
+        <td><button (click)="Edit(student)" >Edit</button></td>
+        <td><button (click)="remove(idx)" >Delete</button></td>
+        
+    </tr> 
+
+</table>
+ 

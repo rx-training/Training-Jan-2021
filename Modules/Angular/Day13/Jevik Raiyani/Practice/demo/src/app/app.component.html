@@ -1,0 +1,38 @@
+<!-- <h1>Demo</h1> 
+
+
+     <app-example [data] ='"jevik"' ></app-example> -->
+<h1>Example 1</h1>
+
+<app-applist [listdata]= "booklist" ></app-applist>
+<app-appform (addBook) = "addBook($event)"></app-appform> 
+
+
+
+<h2>Example 2</h2>
+<app-parent-compo> </app-parent-compo>
+
+
+
+
+<div class="container">
+     <br />
+     <h1 class="text-center">{{title}}</h1>
+     <table class="table">
+         <thead>
+         <th>Id</th>
+         <th>Title</th>
+         <th>Price</th>
+         <th>Stock</th>
+         </thead>
+         <tbody>
+             <tr *ngFor="let p of products">
+                 <td>{{p.id}}</td>
+                 <td>{{p.title}}</td>
+                 <td>{{p.price}}</td>
+                 <td>{{p.stock}}</td>
+                 <td><app-stockstatus [productId]='p.id' [stock]='p.stock' (stockValueChange)='changeStockValue($event)'></app-stockstatus></td>
+             </tr>
+         </tbody>
+     </table>
+ </div>

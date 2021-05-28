@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+var ClassTable_1 = require("./ClassTable");
+var Data = new ClassTable_1.BookTable();
+Data.AvailableTotal();
+Data.AvailableByCountry("india");
+Data.AvaliableByTime(2021, 5, 7, 11, 50);
+Data.AvaliableDinningRoomWithTable("gangotari");
+var OrderClass_1 = require("./OrderClass");
+var Order = new OrderClass_1.OrderData("jevik", "26/11 bhojarajpara", "Gondal", "India");
+Order.GetMenu();
+Order.OrderItemById(1);

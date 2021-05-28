@@ -1,0 +1,46 @@
+div.main{
+    border: 2px solid black;
+    width: 50%;
+    margin: auto;
+    background-image: url("../../../src/assets/Capture.png");
+    background-repeat: no-repeat ;
+    background-position: top;
+    padding-left: 15px;
+    
+}
+div.top{
+    text-align: right;  
+    list-style-type: none;
+    margin-right:5% ;
+
+}
+table{
+    width: 90%; 
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 8px;
+}
+table, td, th{
+    border: 1px solid black;
+}
+td{
+    padding: 5px;
+}
+a:hover {
+    font-weight: bold;
+}
+h3{
+    text-decoration: underline;
+    margin-bottom: -5px;
+}
+#heading{
+    font-weight: bold;
+}
+span{
+    border: 2px solid black;
+}
+#video{
+    float: Right;
+    padding-right: 5%;
+}
+
