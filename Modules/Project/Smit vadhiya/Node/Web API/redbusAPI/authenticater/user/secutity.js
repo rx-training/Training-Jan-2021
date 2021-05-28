@@ -1,7 +1,7 @@
 var jwt = require('jsonwebtoken') 
 const Collections = require('../../models/index')
-const config = require('../../static/config') 
-const crypto = require('crypto')
+
+const Encdec = require('../../domain/passwordDomain')
 
 function  verify(req,res,next){
     var token = req.headers["token"]

@@ -1,0 +1,32 @@
+body{
+   margin-top: 100px!important;
+}
+.full-name{
+   display: grid;
+   grid-template-columns: auto 1fr 1fr;
+   grid-gap: 20px;
+}
+label{
+   font-size: 25px;
+}
+.stdDiv{
+   border: 1px solid black;
+   padding: 20px 10px;
+}
+.email{
+   margin-top: 40px;
+   display: grid;
+   grid-template-columns: auto 1fr ;
+   grid-gap: 20px;
+}
+.info tr{
+   text-transform: capitalize;
+   font-size: 20px;
+}
+.listTable tr{
+   font-size: 25px;
+   text-transform: capitalize;
+}
+.nav-link{
+   color: aqua!important;
+}

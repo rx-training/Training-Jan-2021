@@ -14,4 +14,5 @@ class Users{
 
 router.get('/all',Users.getAllUser)//GET ALL OPERATOR'S DATA
 
+
 module.exports = router

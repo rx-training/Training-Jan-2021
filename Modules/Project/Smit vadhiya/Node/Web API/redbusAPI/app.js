@@ -16,8 +16,7 @@ app.listen(port, () => console.log(`redbus is listening on port ${port}!`))
 app.use(express.json())
 
 //ALL APIS WILL START FROM redbus.in
-app.use('/redbus.in',redbusApis)
+app.use('/api',redbusApis)
 
 //HOME PAGE
-app.get('/', (req, res) => res.send('Please go to redbus.in'))
-app.get('/redbus.in', (req, res) => res.send('Welcome to redbus buddy!'))
+app.get('/api', (req, res) => res.send('Welcome to redbus buddy!'))

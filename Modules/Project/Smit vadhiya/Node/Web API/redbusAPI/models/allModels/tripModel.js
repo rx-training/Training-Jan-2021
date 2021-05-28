@@ -18,6 +18,14 @@ const TripSchema = new Schema({
         type : Number,
         ref : 'MainRoute'
     },
+    travelerList : {
+        type : [{
+            name : String,
+            gender : String,
+            age : Number
+        }] ,
+        required : true  
+    },
     bookIngDate: Date,
     tripDate: Date,
     farePrice: Number,
