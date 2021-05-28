@@ -1,0 +1,15 @@
+"use strict";
+exports.__esModule = true;
+var Vacancies_1 = require("./Vacancies");
+var vancancie = new Vacancies_1.Vacancies();
+var Applicants_1 = require("./Applicants");
+var Applications = new Applicants_1.Application();
+var Interviewproceess_1 = require("./Interviewproceess");
+var Interview = new Interviewproceess_1.InterviewProcess();
+var ReportHireingemployee_1 = require("./ReportHireingemployee");
+var Employees = new ReportHireingemployee_1.Employee();
+vancancie.PostVacancie();
+Applications.Applicationpost();
+Interview.Scheduling_Interviews();
+Interview.Hire_Applicate();
+Employees.Final_Employee();
