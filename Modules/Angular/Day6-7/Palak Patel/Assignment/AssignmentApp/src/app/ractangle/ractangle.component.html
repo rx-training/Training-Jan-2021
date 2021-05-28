@@ -1,0 +1,18 @@
+<div class="container">
+    <label for="title" class="h4">Area of Ractangle</label>
+    <div class="row">
+        
+        <div class="col-sm-3">
+            <label for="length">Length</label>
+            <input type="number" class="form-control" required [(ngModel)]="length">
+        </div>
+        <div class="col-sm-3">
+            <label for="width">Width</label>
+            <input type="number" class="form-control" required [(ngModel)]="width">
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-success mt-2 mx-3" (click)="area()">Calculate</button>
+        <div class="mt-3 h5">Result: {{result}}</div>
+    </div>
+</div>

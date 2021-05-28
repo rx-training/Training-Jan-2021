@@ -1,0 +1,56 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="col-lg-5">
+          <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#CircleArea"
+              aria-expanded="false" aria-controls="collapseExample">
+              Area of Circle
+            </button>
+            <button class="btn btn-primary ml-2" type="button" data-toggle="collapse" data-target="#RactangleArea"
+              aria-expanded="false" aria-controls="collapseExample">
+              Area of Ractangle
+            </button>
+          </p>
+          <div class="collapse" id="CircleArea">
+            <div class="card card-body">
+              <app-circle></app-circle>
+            </div>
+          </div>
+          <div class="collapse mt-2" id="RactangleArea">
+            <div class="card card-body">
+              <app-ractangle></app-ractangle>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="card">
+          <ul class="nav nav-fill nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#signup">Sign Up</a>
+            </li>
+          </ul>
+        
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="login" class="container tab-pane active"><br>
+              <app-login></app-login>
+            </div>
+            <div id="signup" class="container tab-pane fade"><br>
+              <app-sign-up></app-sign-up>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+
+</div>
