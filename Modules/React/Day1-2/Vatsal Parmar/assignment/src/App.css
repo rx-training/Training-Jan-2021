@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.student-id {
+  transition: all 0.1s linear;
+  background-color: #eeeeee;
+  border-radius: 1rem;
+}
+
+.student-id:hover {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.student-img {
+  border-radius: 50%;
+  border: 0.1rem solid teal;
+}
+
+.student span {
+  color: teal;
+  font-weight: bold;
+}
+
+.college span {
+  color: teal;
+  font-weight: bold;
+}
+
+.college img {
+  border-radius: 0.3rem;
+  border: 0.1rem solid teal;
+  width: 50px;
+}

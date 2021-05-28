@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 var createError = require("http-errors");
 const mainRouter = require("./controllers/index");
 var mongoDB = "mongodb://localhost/irctc";
+
 mongoose
   .connect(mongoDB, {
     useNewUrlParser: true,
@@ -17,6 +18,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/", mainRouter);
 
 // catch 404 and forward to error handler

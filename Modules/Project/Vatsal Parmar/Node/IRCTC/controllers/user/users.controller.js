@@ -33,7 +33,7 @@ class UserController {
 }
 
 //To insert user
-router.post("/", verifytoken, UserController.insertUser);
+router.post("/", UserController.insertUser);
 //To get all users
 router.get("/", verifyAdminToken, UserController.get);
 //To get an single user by id

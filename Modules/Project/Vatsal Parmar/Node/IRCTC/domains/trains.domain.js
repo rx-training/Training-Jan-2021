@@ -2,7 +2,7 @@ const TrainModel = require("../models/trains.model");
 const StationModel = require("../models/stations.model");
 const RouteModel = require("../models/routes.model");
 const StatusModel = require("../models/status.model");
-const PassengerModel = require("../models/passengers.model");
+const PassengerModel = require("../models/pnrs.model");
 
 class TrainDomain {
   //To get all trains
@@ -104,7 +104,7 @@ class TrainDomain {
             if (distance > 0) {
               let t_name = await TrainModel.findById(trainId);
               let c = await StatusModel.find({ train: trainId }).select(
-                "-train"
+                "-train -seats"
               );
               let trainObj = {
                 train: t_name,
@@ -135,39 +135,20 @@ class TrainDomain {
       res.send(`Train Not Available For ${journeyFrom} to ${journeyTo}`);
     }
   }
-  //To book train
-  async bookTrain(req, res) {
-    let cId = req.params.classId;
 
-    const status = await StatusModel.findById(cId);
-    let seat = status.avail_seat;
-    let booked = status.booked_seat;
-    if (seat > 0) {
-      seat = seat - 1;
-      booked = booked + 1;
-      const result = await StatusModel.findByIdAndUpdate(
-        cId,
-        { $set: { avail_seat: seat, booked_seat: booked } },
-        { new: true }
-      );
-      res.send(result);
-    } else {
-      res.send("Train Is Full");
-    }
-  }
-  //To get passengers
-  async getPassengers(req, res) {
+  //To get pnrs
+  async getPnrs(req, res) {
     let id = req.params.trainId;
 
-    const passengers = await PassengerModel.find({ train: id })
+    const pnrs = await PassengerModel.find({ train: id })
       .populate("train", "train_name")
       .populate("from", "station_name")
       .populate("to", "station_name")
       .populate("travel_class", "class_type");
-    if (passengers.length > 0) {
-      res.send(passengers);
+    if (pnrs.length > 0) {
+      res.send(pnrs);
     } else {
-      res.status(404).send("No Passengers");
+      res.status(404).send("No PNR");
     }
   }
 }

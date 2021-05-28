@@ -1,6 +1,10 @@
 var express = require("express");
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 var router = express.Router();
+
+const EMAIL = process.env.USER;
+const PASSWORD = process.env.PASSWORD;
 
 var otp;
 
@@ -11,8 +15,8 @@ class Otp {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "email", //sender's email
-        pass: "password", //password
+        user: EMAIL, //sender's email
+        pass: PASSWORD, //password
       },
     });
     let info = await transporter.sendMail({

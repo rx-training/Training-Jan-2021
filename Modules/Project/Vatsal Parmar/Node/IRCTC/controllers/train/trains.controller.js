@@ -1,7 +1,6 @@
 var express = require("express");
 const TrainDomain = require("../../domains/trains.domain");
 const search = require("./childRoutes/search.controller");
-const book = require("./childRoutes/book.controller");
 var router = express.Router();
 const verifyAdminToken = require("../../authentication/verifyAdminToken");
 const verifytoken = require("../../authentication/verifytoken");
@@ -33,9 +32,9 @@ class TrainController {
     trainDomain.deleteTrain(req, res);
   }
   //To get passengers
-  static async getPassengers(req, res) {
+  static async getPnrs(req, res) {
     const trainDomain = new TrainDomain();
-    trainDomain.getPassengers(req, res);
+    trainDomain.getPnrs(req, res);
   }
 }
 
@@ -51,13 +50,7 @@ router.put("/train/:trainId", verifyAdminToken, TrainController.updateTrain);
 router.delete("/train/:trainId", verifyAdminToken, TrainController.deleteTrain);
 //To search train
 router.use("/search", verifytoken, search);
-//To book train
-router.use("/book", verifytoken, book);
-//To get all passengers in train
-router.get(
-  "/passengers/:trainId",
-  verifyAdminToken,
-  TrainController.getPassengers
-);
+//To get all pnrs in train
+router.get("/pnrs/:trainId", verifyAdminToken, TrainController.getPnrs);
 
 module.exports = router;
