@@ -9,7 +9,9 @@ const AircraftSchema = new mongoose.Schema({
     AircraftName : String,
     AircraftNumber : String ,
     AircraftType : String,
-    Seats : [String]
+    Seats : [
+        {type : String}
+        ]
 });
 
 const AddressSchema = new mongoose.Schema({
@@ -174,9 +176,29 @@ const passengerSchema = new mongoose.Schema({
     MealSelection : String,
     AvailDomesticConcession : Boolean,
     ConcessionType : String,
-    Adults : Number,
-    Children : Number ,
-    Infants : Number ,
+    Adults :{
+        type:Number,
+        default : 0
+    } ,
+    Children :{
+        type:Number,
+        default : 0
+    } ,
+    Infants :{
+        type:Number,
+        default : 0
+    }  ,
+    Guests : [{
+        Title : String ,
+        FirstName : String ,
+        LastName : String ,
+        FrequentFlyerProgram : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Offer'
+             },
+        FrequentFlyerNumber : String ,
+        MealSelection : String,
+    }],
     PromotionCode :{
         type :mongoose.Schema.Types.ObjectId ,
         ref : 'Offer'

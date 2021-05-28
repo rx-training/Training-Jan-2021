@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 const model = require('../MongoDB/model');
 const otp = require('../domain/otp');
+const auth = require('../Middelware/jwt');
+
 class Dopayment {
 
     static async doPayment(req , res , next){
@@ -8,7 +10,8 @@ class Dopayment {
         const transation = new model.Transation(req.body);
         transation.save().then(result =>{
             res.send('your ticket is successfully booked!');
-                            model.Transation.findOne(req.body).populate('PassengerId').then(result =>{
+                            model.Transation.findOne(req.body).populate('PassengerId').populate('Guests').then(result =>{
+                                
                                 
                                 customerMailId = result.PassengerId.PrimaryEmail;
                                 // otp.GenerateOtp(customerMailId);
@@ -24,7 +27,7 @@ class Dopayment {
                                     from : 'ankur.chovatiya1856@gmail.com',
                                     to : customerMailId,
                                     subject : ' Ticket Booking',
-                                    text : `Hello Your ticket is successfully booked! `
+                                    text : `Hello Your ticket is successfully booked! \n Informations:\n ${result}`
                                 };
                     
                     

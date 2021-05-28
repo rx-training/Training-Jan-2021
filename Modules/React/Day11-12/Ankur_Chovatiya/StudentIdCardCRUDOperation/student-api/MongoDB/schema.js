@@ -1,0 +1,45 @@
+const mongoose = require('mongoose')
+
+const studentSchema = mongoose.Schema({
+    studentId : String,
+    firstName : String , 
+    middleName : String ,
+    lastName : String ,
+    dob : Date ,
+    birthPlace : String ,
+    language : String , 
+    FfirstName : String, 
+    FmiddleName : String, 
+    FlastName : String, 
+    Fdesignation : String , 
+    Fprofession : String , 
+    FphoneNo : Number, 
+    Fedu : String, 
+    Femail : String, 
+    Mdesignation : String, 
+    MfirstName :String, 
+    MmiddleName : String, 
+    MlastName : String , 
+    Medu : String, 
+    Memail : String, 
+    Mprofession : String, 
+    MphoneNo : Number , 
+    Relation1 : String, 
+    Relation2 :String, 
+    RphoneNo1 : Number, 
+    RphoneNo2 :Number, 
+    RefName : String, 
+    RefAddress :String , 
+    RefPhoneNo :Number, 
+    city : String , 
+    state : String, 
+    country :String ,
+    pincode : Number ,
+    collegeName : String ,
+    collegeAddress : String ,
+    collegeLogo : String ,
+    Img : String
+})
+
+
+module.exports = {studentSchema}
