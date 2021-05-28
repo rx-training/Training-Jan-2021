@@ -88,7 +88,7 @@ public class Person
         get
         {
 
-            Zodiac z1 = new Zodiac();
+            var z1 = new Zodiac();
 
             return (z1.verifysign(dayofbirth, monthofbirth));
 

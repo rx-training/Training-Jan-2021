@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8">
+            <form class="form form-border" [formGroup]="signupForm"
+            (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="usernmae">UserName</label>
+            <input type="text" class="form-control" id="username" formControlName="username">
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" class="form-control" id="email" formControlName='email'>
+        </div>
+        <div class="radio" *ngFor="let gender of genders ">
+            <label>
+                <input type="radio" [value]="gender" formControlName ="gender">{{gender}}
+            </label>
+        </div>
+        <div formArrayName="Contacts">
+            <button class="btn btn-success" (click)="Add()">AddNewContact</button>
+            <div *ngFor="let item of contacts.controls ; let idx=index  ">
+                <div [formGroupName]="idx">
+                    <label for="Contact">Number
+                        <input type="text" formControlName='number'>
+                    </label>
+                    <label for="Contact">LinkedIn
+                        <input type="text" formControlName='linkedIn'>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+        
+        </form>
+        </div>
+    </div>
+</div>

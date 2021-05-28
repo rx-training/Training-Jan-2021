@@ -1,0 +1,22 @@
+<div class="container mt-5">
+<div class="row">
+    <div class="col">
+        <form action="" class="form">
+            <div class="form-group">
+            <label class="form-label">
+                Name:
+                <input type="text" [formControl]="name">
+              </label>
+            </div>
+            </form>
+            <p class="lead">
+                Value: {{name.value}}
+            </p>
+            <p>
+                <button class="btn btn-info" (click)="updatename()">Default Value</button>
+            </p>
+
+    </div>
+</div>
+
+</div>

@@ -1,0 +1,30 @@
+
+
+<div *ngFor="let product of productlist;
+let idx =index ,
+let first = first,
+let last = last
+">
+    <li>{{product.productname}}
+        {{product.productprice}}
+        {{idx}}
+
+    </li>
+</div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor=" let pro of productlist ">
+            <td> {{pro.productname}}</td>
+
+            <td>{{pro.productprice}}</td>
+            <td><buttton class="btn btn-danger" (click)="remove(pro)">remove</buttton></td>
+            <td><buttton class="btn btn-info" (click)="edit(pro)">Edit</buttton></td>
+
+        </tr>
+    </table>
+<input type="text"[(ngModel)]="updatename">
+<input type="text"[(ngModel)]="updateprice">
+<button class="btn btn-success" (click)="update()">Update</button>

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>I am in the appComponent</h3>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+<app-servers></app-servers>
+
+<div [ngClass]="currentclasses">This div is initially saveable, unchanged, and special.</div>
+<button class="btn btn-primary" (click)="setCurrentClasses()"> setClass</button>
+<div [ngStyle]="currentstyles">
+  This div is initially italic, normal weight, and extra large (24px).
+
+
+</div>
+
+<button class="btn btn-primary" (click)="setCurrentStyles()">Set styles </button>
+<div class="container">
+  <div class="h2">NgFor Example</div>
+  <div class="row">
+    <div class="col">
+      <app-ngfor></app-ngfor>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="contaienr">
+  <p>Custom Directives Practice</p>
+  <app-custom-directives></app-custom-directives>
+</div>
+<div class="container">
+  <div class="col">
+    <div class="row">
+      <app-assignment></app-assignment>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<hr>
+<p class="lead">Create a Rectangle Component which computes area of Rectangle.</p>
+<hr>
+<form>
+    <div class="row">
+
+
+        <div class="col">
+            <label for="length">Enter Length</label>
+            <input type="number" name="length" [(ngModel)]="Length" class="form-control">
+        </div>
+        <div class="col">
+            <label for="Width">Enter Width</label>
+            <input type="number" name="widht" [(ngModel)]="Width" class="form-control">
+        </div>
+      
+    </div>
+    <button class="btn btn-primary" (click)="ComputeArea()" >Compute</button>
+</form>
+
+<h2 class="display3">Area of Rectangle is: {{Area}}</h2>
+<hr>

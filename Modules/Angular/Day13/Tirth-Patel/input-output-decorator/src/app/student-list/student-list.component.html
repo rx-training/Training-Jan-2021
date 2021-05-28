@@ -1,0 +1,64 @@
+
+<div class="container">
+    <button class="btn btn-success" (click)="Display()">FetchData</button>
+    <table class="table table-hover table-striped table-responsive" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>BirthPlace</th>
+                <th>1stLang.</th>
+                <th>Address</th>
+                <th>FatherName</th>
+                <th>FatherEmail</th>
+                <th>Fatherphone</th>
+                <th>MotherName</th>
+                <th>MotherEmail</th>
+                <th>MotherPhone</th> 
+                <!-- <ng-container>
+                <div *ngFor="let item of studentList.get('EmergencyContactList').controls ; let idx=index  ">
+                        <th>Relation</th>
+                        <th>Number</th>
+                        </div>
+                </ng-container> -->
+               
+                <th>RefrenceThrough</th>
+                <th>AddressWithTelephoneNo</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let student of studentList" >
+                
+        <td>{{student.Name.SFirst}} {{student.Name.SMiddle}} {{student.Name.SLast}}</td>
+        <td>{{student.DOB}}</td>
+        <td>{{student.PlaceOfBirth}}</td>
+        <td>{{student.FirstLanguage}}</td>
+    
+        <td>{{student.Address.City}} {{student.Address.State}}{{student.Address.CountryPin}}</td>
+        <td>{{student.Father.FatherName.FFirst}} {{student.Father.FatherName.FMiddle}} {{student.Father.FatherName.FLast}}</td>
+        <td>{{student.Father.FEmail}}</td>
+        <td>{{student.Father.FPhone}}</td>
+        <td>{{student.Mother.MotherName.MFirst}} {{student.Mother.MotherName.MMiddle}} {{student.Mother.MotherName.MLast}}</td>
+        <td>{{student.Mother.MEmail}}</td>
+        <td>{{student.Mother.MPhone}}}</td>
+     <!-- <ng-container>
+            <div *ngFor="let item of EmergencyContactList.controls ; let idx=index  ">
+                <td>{{student.EmergencyContactList[idx].Relation}}</td>
+                <td>{{student.EmergencyContactList[idx].Number}}</td>
+                
+                    </div>
+            </ng-container>  -->
+      
+        <td>{{student.RefrenceDetails.RefrenceThrough}}</td>
+        <td>{{student.RefrenceDetails.AddressWithTelephoneNo}}</td>
+       
+      
+       
+        
+            </tr>
+        
+        </tbody>
+        
+        </table>
+    </div>

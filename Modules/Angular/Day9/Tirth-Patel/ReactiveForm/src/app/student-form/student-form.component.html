@@ -1,0 +1,308 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8">
+            <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+                Name:
+
+                <div formGroupName="Name" class="form-group">
+
+                    <label>
+                        FirstName
+                        <input type="text" formControlName="SFirst" class="form-control">
+                        <small *ngIf="SFirst.invalid && (SFirst.dirty ||SFirst.touched)"
+                        class="validationError Form-error" >Not Suitable Name</small>
+                        <!-- <div *ngIf="SFirst.valid && (SFirst.dirty || SFirst.untouched)"class="alert alert-danger" role="alert">
+                            Error
+                          </div> -->
+                    </label>
+                    <label>
+                        MiddleName
+                        <input type="text" formControlName="SMiddle" class="form-control">
+                        <small *ngIf="!SMiddle.valid && (SMiddle.dirty ||SMiddle.touched)"
+                        class="validationError Form-error" >Not Suitable Name</small>
+
+                    </label>
+                    <label>
+                        LastName
+                        <input type="text" formControlName="SLast" class="form-control">
+                        <small *ngIf="!SLast.valid && (SLast.dirty ||SLast.touched)"
+                        class="validationError Form-error" >Not Suitable Name</small>
+
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <label for="DOb" class="form-label">DOB
+                        <input type="date" formControlName="DOB" class="form-control">
+                        <small *ngIf="!DOB.valid && (DOB.dirty ||DOB.touched)"
+                        class="validationError Form-error" >Age Should be between 5 and 20</small>
+                    </label>
+                    <label for="PlaceoFB" class="form-label">Place-Of-Birth
+                        <input type="text" formControlName="PlaceOfBirth" class="form-control">
+                        <small *ngIf="!PlaceOfBirth.valid && (PlaceOfBirth.dirty ||PlaceOfBirth.touched)"
+                        class="validationError Form-error" >Not Suitable Name</small>
+                    </label>
+                    <label for="DOb" class="form-label">FirstLanguage
+                        <input type="text" formControlName="FirstLanguage" class="form-control">
+                        <small *ngIf="!FirstLanguage.valid && (FirstLanguage.dirty ||FirstLanguage.touched)"
+                        class="validationError Form-error" >Incorrect detail</small>
+                    </label>
+                </div>
+                Address:
+                <div formGroupName="Address" class="form-group">
+                    <label>
+                        City
+                        <input type="text" formControlName="City" class="form-control">
+                        <small *ngIf="!City.valid && (City.dirty ||City.touched)"
+                        class="validationError Form-error" >City Does not Exist</small>
+                    </label>
+                    <label>
+                        State
+                        <input type="text" formControlName="State" class="form-control">
+                        <small *ngIf="!State.valid && (State.dirty ||State.touched)"
+                        class="validationError Form-error" >State Does not Exist</small>
+                    </label>
+                    <label>
+                        CountryPin
+                        <input type="text" formControlName="CountryPin" class="form-control">
+                        <small *ngIf="!CountryPin.valid && (CountryPin.dirty ||CountryPin.touched)"
+                        class="validationError Form-error" >Invalid countryPin</small>
+                    </label>
+
+                </div>
+                <h5>Father-Details</h5>
+                <div formGroupName="Father" class="form-group">
+                    <div class="form-group">
+                        <label for="">
+                            <h6>FatherName</h6>
+                        </label>
+
+                        <div formGroupName="FatherName" class="form-group">
+                            <label>
+                                FirstName
+                                <input type="text" formControlName="FFirst" class="form-control">
+                                <small *ngIf="!FFirst.valid && (FFirst.dirty ||FFirst.touched)"
+                                class="validationError Form-error" >Not Suitable Name</small>
+                            </label>
+                            <label>
+                                MiddleName
+                                <input type="text" formControlName="FMiddle" class="form-control">
+                                <small *ngIf="!FMiddle.valid && (FMiddle.dirty ||FMiddle.touched)"
+                                class="validationError Form-error" >Not Suitable Name</small>
+                            </label>
+                            <label>
+                                LastName
+                                <input type="text" formControlName="FLast" class="form-control">
+                                <small *ngIf="!FLast.valid && (FLast.dirty ||FLast.touched)"
+                                class="validationError Form-error" >Not Suitable Name</small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email
+                            <input type="email" formControlName="FEmail" class="form-control">
+                            <small *ngIf="!FEmail.valid && (FEmail.dirty ||FEmail.touched)"
+                                class="validationError Form-error" >Invalid Email</small>
+                        </label>
+                    </div>
+                    <label for="Education" class="form-label">EducationQualification
+                        <input type="text" formControlName="FEducationQualification" class="form-control">
+                        <small *ngIf="!FEducationQualification.valid && (FEducationQualification.dirty ||FEducationQualification.touched)"
+                                class="validationError Form-error" >Not Suitable Input</small>
+                    </label>
+                    <label for="Profession" class="form-label">Profession
+                        <input type="text" formControlName="FProfession" class="form-control">
+                        <small *ngIf="!FProfession.valid && (FProfession.dirty ||FProfession.touched)"
+                                class="validationError Form-error" >Not Suitable Input</small>
+                    </label>
+                    <label for="Designation" class="form-label">Designation
+                        <input type="text" formControlName="FDesignation" class="form-control">
+                        <small *ngIf="!FDesignation.valid && (FDesignation.dirty ||FDesignation.touched)"
+                                class="validationError Form-error" >Not Suitable Input</small>
+                    </label>
+                    <div class="form-group"> <label for="Phone" class="form-label">Phone
+                            <input type="tel" formControlName="FPhone" class="form-control">
+                            <small *ngIf="!FPhone.valid && (FPhone.dirty ||FPhone.touched)"
+                                class="validationError Form-error" >Invalid PhoneNumber</small>
+                        </label></div>
+
+
+                </div>
+                <h5>Mother-Details</h5>
+                <div formGroupName="Mother" class="form-group">
+                    <div class="form-group">
+                        <label for="">
+                            <h6>MotherName</h6>
+                        </label>
+
+                        <div formGroupName="MotherName" class="form-group">
+                            <label>
+                                FirstName
+                                <input type="text" formControlName="MFirst" class="form-control">
+                                <small *ngIf="!MFirst.valid && (MFirst.dirty ||MFirst.touched)"
+                                class="validationError Form-error" >Not Suitable Name</small>
+                            </label>
+                            <label>
+                                MiddleName
+                                <input type="text" formControlName="MMiddle" class="form-control">
+                                <small *ngIf="!MMiddle.valid && (MMiddle.dirty ||MMiddle.touched)"
+                                class="validationError Form-error" >Not Suitable Name</small>
+                            </label>
+                            <label>
+                                LastName
+                                <input type="text" formControlName="MLast" class="form-control">
+                                <small *ngIf="!MLast.valid && (MLast.dirty ||MLast.touched)"
+                                class="validationError Form-error" >Not Suitable Name</small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email
+                            <input type="email" formControlName="MEmail" class="form-control">
+                            <small *ngIf="!MEmail.valid && (MEmail.dirty ||MEmail.touched)"
+                                class="validationError Form-error" >Invalid Email</small>
+                        </label>
+                    </div>
+                    <label for="Education" class="form-label">EducationQualification
+                        <input type="text" formControlName="MEducationQualification" class="form-control">
+                        <small *ngIf="!MEducationQualification.valid && (MEducationQualification.dirty ||MEducationQualification.touched)"
+                                class="validationError Form-error" >Not Suitable Input</small>
+                    </label>
+                    <label for="Profession" class="form-label">Profession
+                        <input type="text" formControlName="MProfession" class="form-control">
+                        <small *ngIf="!MProfession.valid && (MProfession.dirty ||MProfession.touched)"
+                                class="validationError Form-error" >Not Suitable Input</small>
+                    </label>
+                    <label for="Designation" class="form-label">Designation
+                        <input type="text" formControlName="MDesignation" class="form-control">
+                        <small *ngIf="!MDesignation.valid && (MDesignation.dirty ||MDesignation.touched)"
+                                class="validationError Form-error" >Not Suitable Input</small>
+                    </label>
+                    <div class="form-group"> <label for="Phone" class="form-label">Phone
+                            <input type="tel" formControlName="MPhone" class="form-control">
+                            <small *ngIf="!MPhone.valid && (MPhone.dirty ||MPhone.touched)"
+                                class="validationError Form-error" >Invalid PhoneNumber</small>
+                        </label></div>
+
+                </div>
+                <div formArrayName="EmergencyContactList">
+                    <label for="Emergency">
+                        <h5>EmergencyContactList</h5>
+                    </label>
+
+                    <button class="btn btn-warning pl-auto btn-sm" (click)="Add()">Add</button>
+                    <div *ngFor="let item of EmergencyContactLists.controls ; let idx=index  ">
+                        <div [formGroupName]="idx">{{idx+1}})
+                            <label for="Contact">Relation
+                                <input type="text" formControlName='Relation'>
+                                <small *ngIf="!item.controls.Relation.valid && (item.controls.Relation.dirty ||item.controls.Relation.touched) && idx==0"
+                                class="validationError Form-error" >IncorrectName</small>
+                                <!-- <small *ngIf="!idxFormGroup(idx).controls.Relation.valid && (idxFormGroup(idx).controls.Relation.dirty ||idxFormGroup(idx).controls.Relation.touched) && idx==0"
+                                class="validationError Form-error" >IncorrectName</small> -->
+                            </label>
+                            <label for="Contact">Number
+                                <input type="tel" formControlName='Number'>
+                                <small *ngIf="!item.controls.Number.valid && (item.controls.Number.dirty ||item.controls.Number.touched) && idx==0"
+                                class="validationError Form-error" >Invalid Number</small>
+                                <!-- <small *ngIf="!idxFormGroup(idx).controls.Number.valid && (idxFormGroup(idx).controls.Number.dirty ||idxFormGroup(idx).controls.Number.touched)"
+                                class="validationError Form-error" >Invalid PhoneNumber</small> -->
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <div formGroupName="RefrenceDetails" class="form-group">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <h5>RefrenceDetails</h5>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            RefrenceThrough
+                            <input type="text" formControlName="RefrenceThrough" class="form-control">
+                            <small *ngIf="!RefrenceThrough.valid && (RefrenceThrough.dirty ||RefrenceThrough.touched)"
+                                class="validationError Form-error" >Not Suitable Name</small>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            AddressWithTelephoneNo
+                            <input type="tel" formControlName="AddressWithTelephoneNo" class="form-control">
+                            <small *ngIf="!AddressWithTelephoneNo.valid && (AddressWithTelephoneNo.dirty ||AddressWithTelephoneNo.touched)"
+                                class="validationError Form-error" >Must be filled</small>
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <button class="btn-success" type="submit" [disabled]="!studentForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <table class="table table-hover table-striped table-responsive" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>BirthPlace</th>
+                <th>1stLang.</th>
+                <th>Address</th>
+                <th>FatherName</th>
+                <th>FatherEmail</th>
+                <th>Fatherphone</th>
+                <th>MotherName</th>
+                <th>MotherEmail</th>
+                <th>MotherPhone</th> 
+                <ng-container>
+                <div *ngFor="let item of EmergencyContactLists.controls ; let idx=index  ">
+                        <th>Relation</th>
+                        <th>Number</th>
+                        </div>
+                </ng-container>
+               
+                <th>RefrenceThrough</th>
+                <th>AddressWithTelephoneNo</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let student of StudentList" >
+                
+        <td>{{student.Name.SFirst}} {{student.Name.SMiddle}} {{student.Name.SLast}}</td>
+        <td>{{student.DOB}}</td>
+        <td>{{student.PlaceOfBirth}}</td>
+        <td>{{student.FirstLanguage}}</td>
+    
+        <td>{{student.Address.City}} {{student.Address.State}}{{student.Address.CountryPin}}</td>
+        <td>{{student.Father.FatherName.FFirst}} {{student.Father.FatherName.FMiddle}} {{student.Father.FatherName.FLast}}</td>
+        <td>{{student.Father.FEmail}}</td>
+        <td>{{student.Father.FPhone}}</td>
+        <td>{{student.Mother.MotherName.MFirst}} {{student.Mother.MotherName.MMiddle}} {{student.Mother.MotherName.MLast}}</td>
+        <td>{{student.Mother.MEmail}}</td>
+        <td>{{student.Mother.MPhone}}}</td>
+        <ng-container>
+            <div *ngFor="let item of EmergencyContactLists.controls ; let idx=index  ">
+                <td>{{student.EmergencyContactList[idx].Relation}}</td>
+                <td>{{student.EmergencyContactList[idx].Number}}</td>
+                
+                    </div>
+            </ng-container>
+      
+        <td>{{student.RefrenceDetails.RefrenceThrough}}</td>
+        <td>{{student.RefrenceDetails.AddressWithTelephoneNo}}</td>
+       
+      
+       
+        
+            </tr>
+        
+        </tbody>
+        
+        </table>
+    </div>
