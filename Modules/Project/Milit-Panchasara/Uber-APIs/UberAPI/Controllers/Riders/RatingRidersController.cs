@@ -35,6 +35,12 @@ namespace UberAPI.Riders.Controllers
             {
                 return Unauthorized();
             }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
+            }
+
             return ratingByRiderRepo.Find(x => x.RiderId == id).ToList();
         }
 
@@ -47,6 +53,12 @@ namespace UberAPI.Riders.Controllers
             {
                 return Unauthorized();
             }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
+            }
+
             var ratingRider = ratingByRiderRepo.Find(x => x.TripId == tripId).SingleOrDefault();
 
             if (ratingRider == null)
@@ -65,6 +77,11 @@ namespace UberAPI.Riders.Controllers
             if (!riderRepo.ValidateRider(cred, id) || id != ratingRider.RiderId)
             {
                 return Unauthorized();
+            }
+            var rider = riderRepo.Find(x => x.RiderId == id).Single();
+            if (rider.IsBlocked == true)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
             }
 
             var ratingExist = ratingByRiderRepo.Find(x => x.TripId == ratingRider.TripId).SingleOrDefault();

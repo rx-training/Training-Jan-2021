@@ -1,0 +1,43 @@
+<div class="container my-5">
+    <h6>Hello!</h6>
+    <h3>Good morning ,  {{name}} !</h3>
+    <div class="row">
+        <div class="col-6">
+            <label for="">Enter your name: (Method 1 using event and prop binding)</label>
+            <input type="text" class="form-control" [value]="name" (input)='changeName($event)' placeholder="name here">
+        </div>
+        <div class="col-6">
+            <label for="">Enter your name: (Method 2 using ngModel)</label>
+            <input type="text" class="form-control" [value]="name" [(ngModel)]='name' placeholder="name here">
+        </div>
+    </div>
+    <hr>
+    <h3>Calculator:</h3>
+    <div class="row">
+        <div class="col-4">
+            <label for="">Number 1:</label>
+            <input type="number" class="form-control" [value]="number1" [(ngModel)]='number1' placeholder="number 1 here">
+        </div>
+        <div class="col-4">
+            <label for="">Number 2:</label>
+            <input type="number" class="form-control" [value]="number2" [(ngModel)]='number2' placeholder="number 2 here">
+        </div>
+        <div class="col-4">
+            <label for="">Select Operation:</label>
+            <select class="form-control" name="operation" id="operation" [(ngModel)]='operation'>
+                <option value="addition">Addition</option>
+                <option value="substration">Substration</option>
+                <option value="multiplication">Multiplication</option>
+                <option value="divison">Divison</option>
+            </select>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col-4">
+            <button class="btn btn-primary" (click)='calculate()'>Calculate</button>
+        </div>
+        <div class="col-8">
+            <h5>{{result}}</h5>
+        </div>
+    </div>
+</div>

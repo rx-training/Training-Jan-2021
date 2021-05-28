@@ -1,0 +1,15 @@
+<div class="container">
+  <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top px-5">
+    <!-- <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnav1"><span
+      class="navbar-toggler-icon"></span></button> -->
+    <div class=" navbar-collapse collapse" id="navbarnav1">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" [routerLink]="'/'">Home</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="'/products'">Products</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="mt-5 pt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

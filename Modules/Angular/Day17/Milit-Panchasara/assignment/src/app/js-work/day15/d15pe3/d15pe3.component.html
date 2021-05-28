@@ -1,0 +1,30 @@
+<div class="container m-5">
+    <form action="" class="form mt-5">
+        <div class="form-group row">
+            <label for="lang" class="col-12">Please select your technology:</label>
+            <div class="col-12">
+                <div class="row">                    
+                    <div class="form-check">
+                        <label for="" class=" btn btn-primary"  onclick="showDetails('php')"><input type="radio" class="d-none" value="php" id="php" name="lang"> PHP</label>
+                    </div>
+                    <div class="form-check">
+                        <label for="" class=" btn btn-primary"  onclick="showDetails('jsp')"><input type="radio" class="d-none" value="jsp" id="jsp" name="lang"> JSP</label>
+                    </div>
+                    <div class="form-check">
+                        <label for="" class=" btn btn-primary"  onclick="showDetails('asp-net')"><input type="radio" class="d-none" value="asp-net" id="asp-net" name="lang"> ASP.Net</label>
+                    </div>
+                    <div class="form-check">
+                        <label for="" class=" btn btn-primary"  onclick="showDetails('perl')"><input type="radio" class="d-none" value="perl" id="perl" name="lang"> PERL</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div>
+<div class="row bg-light border border-warning d-none px-4 m-3" id="detail-row">
+    <span id="php-details" class="m-3"></span>
+    <span id="jsp-details" class="m-3"></span>
+    <span id="asp-net-details" class="m-3"></span>
+    <span id="perl-details" class="m-3"></span>
+</div>

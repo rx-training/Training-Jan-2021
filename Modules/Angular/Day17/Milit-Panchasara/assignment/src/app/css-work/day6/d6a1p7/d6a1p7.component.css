@@ -1,0 +1,54 @@
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    margin: 10px;
+    padding: 30px;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 992px) {
+
+    nav a {
+        margin: 10px;
+        padding: 10px;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+    nav a {
+        margin: 10px;
+        padding: 10px;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 5px;
+}
+
+.images div{
+    flex-basis: 24%;
+    width: 25%;
+    margin: 5px 5px;
+}
+
+.images div img{
+    flex-basis: 24%;
+    width: 25%;
+    margin-bottom: 5px;
+}

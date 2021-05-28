@@ -1,0 +1,48 @@
+<div>
+    <button class="btn btn-sm btn-primary" type="button" (click)="setParams(-1, null)" data-toggle="modal" data-target="#formModal">Add Student</button>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Standard</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let st of studentList;let i = index; trackBy: trackItem">
+                <td>{{st.id}}</td>
+                <td>{{st.name}}</td>
+                <td>{{st.address}}</td>
+                <td>{{st.standard}}</td>
+                <td class="w-25">
+                    <button class="btn btn-sm btn-primary m-1" (click)="setParams(i, st)"  data-toggle="modal" data-target="#formModal">Update</button>
+                    <button class="btn btn-sm btn-primary m-1" (click)="deleteStudent(i)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- formModal -->
+<div class="modal fade" id="formModal">
+    <div class="modal-dialog">
+        <div class=" modal-content">
+            <div class=" modal-header">
+                <h3 class=" modal-title">Student Form</h3>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class=" modal-body">
+                <app-student-form [student]="student" [index]="index" (formEmitter)="fetchValues($event)"></app-student-form>
+            </div>
+            <div class=" modal-footer ">
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+<div>
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" placeholder="name here" [(ngModel)]='name' [ngClass]="name.trim().length == 0 ? 'is-invalid':'is-valid'">
+    <button class="btn btn-primary my-3" [ngClass]="name.trim().length == 0 ? 'disabled':''">Submit</button>
+
+    <p [ngStyle]='{color: changeBGColor()}'>Name is : {{name}}</p>
+
+    <h4>Subjects Passed:</h4>
+
+    <ul>
+        <ng-container *ngFor="let subject of marks">
+            <li *ngIf="subject.marks >= 30" [appGradeColors]="subject.grade">
+                {{subject.subject}} : {{subject.marks}}, Grade: {{subject.grade}} , Subject Code:
+                <ng-container [ngSwitch]="subject.subject">
+                    <span *ngSwitchCase="'Maths'"> M101</span>
+                    <span *ngSwitchCase="'English'"> E101</span>
+                    <span *ngSwitchCase="'Science'"> S102</span>
+                    <span *ngSwitchCase="'Computer'"> C111</span>
+                </ng-container>
+            </li>
+        </ng-container>
+    </ul>
+    <h4>Subjects Failed:</h4>
+    <ul>
+        <ng-container *ngFor="let subject of marks">
+            <li *ngIf="subject.marks < 30" [appGradeColors]="subject.grade">
+                {{subject.subject}} : {{subject.marks}}, Grade: {{subject.grade}} , Subject Code:
+                <ng-container [ngSwitch]="subject.subject">
+                    <span *ngSwitchCase="'Maths'"> M101</span>
+                    <span *ngSwitchCase="'English'"> E101</span>
+                    <span *ngSwitchCase="'Science'"> S102</span>
+                    <span *ngSwitchCase="'Computer'"> C111</span>
+                </ng-container>
+            </li>
+        </ng-container>
+    </ul>
+</div>

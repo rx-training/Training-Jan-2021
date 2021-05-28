@@ -10,7 +10,7 @@ namespace UberAPI.Code.Interfaces
     {
         IEnumerable<VTripsData> GetAllTrips(int id);
         VTripsData GetTrip(long id, long tripId );
-        VTripsData SetNewTrip(int id, long source, long destination, RideType rideType);
+        VTripsData SetNewTrip(int id, Location source, Location destination, RideType rideType);
         VTripsData UpdateTrip(UpdateTripInput updateTripInput);
     }
 }

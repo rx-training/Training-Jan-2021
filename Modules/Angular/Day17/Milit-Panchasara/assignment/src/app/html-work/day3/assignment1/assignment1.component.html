@@ -1,0 +1,76 @@
+<h1 style="text-align: center;">Add Employee Form</h1>
+<hr>
+<br>
+<div class="container">
+
+
+    <div class="card" data-aos="fade-up">
+        <div class="card-header bg-info"><h3>Add Employee</h3></div>
+        <div class="card-body">
+            <form action="" method="">
+                <div class="form-group"> 
+                    <label for="employee_name">Employee Name:</label> 
+                    <input type="tect" class="form-control form-field" id="employee_name" name="employee_name" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group"> 
+                    <label for="employee_email">Employee Email:</label> 
+                    <input type="email" class="form-control form-field" id="employee_email" name="employee_email" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group"> 
+                    <label for="employee_contact">Contact number</label> 
+                    <input type="text" class="form-control form-field" id="employee_contact" name="employee_contact" pattern="[1-9]{1}[0-9]{9}" placeholder="Enter mobile number" required>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group"> 
+                            <label for="birthdate">Birth Date</label> 
+                            <input type="date" class="form-control form-field" id="birthdate" name="birthdate" >
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group"> 
+                            <label for="age">Age</label> 
+                            <input type="number" class="form-control form-field" id="age" name="age" min="18" max="75" placeholder="Employee Age" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label><br>
+                    <input type="radio" class="" name="gender" id="male" value="male" checked/>
+                    <label for="male">Male</label>
+                    <input type="radio" class="" name="gender"  id="female" value="female">
+                    <label for="circle">Female</label>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group"> 
+                            <label for="designation">Designation</label><br>
+                            <select class="form-control form-field " id="designation" name="designation" required>
+                                <option value="developer">Developer</option>
+                                <option value="designer">Designer</option>
+                                <option value="hr_manager">HR Manager</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group"> 
+                            <label for="salary">Salary (CTC in Rs.):</label> 
+                            <input type="number" class="form-control form-field" id="salary" name="salary" min="0" placeholder="Enter Salary" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group"> 
+                    <label for="location">Location:</label><br>
+                    <select class="form-control form-field" id="location" name="location" required>
+                        <option value="rajkot">Rajkot</option>
+                        <option value="ahmedabad">Ahmedabad</option>
+                        <option value="baroda">Baroda</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-danger">Create</button>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>

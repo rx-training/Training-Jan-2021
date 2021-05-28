@@ -34,6 +34,19 @@ namespace UberAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "policy1",
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin()
+                                             .AllowAnyMethod()
+                                             .AllowAnyHeader();
+                                  });
+            });
+
+            services.AddControllers();
+
             services.AddControllers();
 
             // for dbContext
@@ -83,6 +96,8 @@ namespace UberAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("policy1");
 
             app.UseAuthentication();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Geolocation;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,21 +26,32 @@ namespace UberAPI.Code.RepositoryDB
             return context.VTripsData.Where(x => x.TripId == tripId && x.RiderId == id).SingleOrDefault();
         }
 
-        public VTripsData SetNewTrip(int id, long source, long destination, RideType rideType)
+        public VTripsData SetNewTrip(int id, Location source, Location destination, RideType rideType)
         {
             try
             {
+                // Calculating Distance using co-ordinates of source and destination
+                var distance = GeoCalculator.GetDistance(source.Latitude, source.Longitude, destination.Latitude, destination.Longitude, 2, DistanceUnit.Kilometers);
+                var estimatedFairAmount = distance * rideType.PricePerKm;
+
+                // assigning random driver to trip who is currently not doing any trips
+                var driverIds = context.Drivers.Include(x => x.Trips).Include(x => x.Vehicles).Where(x => !x.Trips.Any(x => x.Status == "Started" || x.Status == "New") && x.Vehicles.Any(x => x.CurrentRideTypeId == rideType.RideTypeId)).Select(x => x.DriverId).ToList();
+                var index = new Random().Next(driverIds.Count);
+                var driver = driverIds[index];
+
+                // params for Stored procedure
                 object[] lspParam = new object[] 
                 { 
                     new SqlParameter("@RiderID", Convert.ToInt64(id)),
-                    new SqlParameter("@DriverID", Convert.ToInt64(5)),
-                    new SqlParameter("@SourceLocationID", source),
-                    new SqlParameter("@DestinationLocationID", destination),
+                    new SqlParameter("@DriverID", driver),
+                    new SqlParameter("@SourceLocationID", source.LocationId),
+                    new SqlParameter("@DestinationLocationID", destination.LocationId),
                     new SqlParameter("@RideTypeID", rideType.RideTypeId),
                     new SqlParameter("@Status", "New"),
-                    new SqlParameter("@EstimatedFairAmount", Convert.ToDouble(100)),
+                    new SqlParameter("@EstimatedFairAmount", estimatedFairAmount),
                 };
 
+                // executing Stored procedure
                 int rowAfftected = context.Database.ExecuteSqlRaw(@"EXEC usp_SaveNewTripData @RiderID, 
                                                             @DriverID, 
                                                             @SourceLocationID, 
@@ -54,6 +66,7 @@ namespace UberAPI.Code.RepositoryDB
                     return null;
                 }
 
+                // fetching result from view
                 var trip = context.VTripsData.Where(x => x.RiderId == id && x.Status == "New").FirstOrDefault();
                 return trip;
             }
@@ -75,6 +88,7 @@ namespace UberAPI.Code.RepositoryDB
                 {
                     var trip = context.VTripsData.Where(x => x.TripId == updateTripInput.TripId).FirstOrDefault();
 
+                    // params for Stored procedure
                     lspParam = new object[]
                     {
                     new SqlParameter("@Action", updateTripInput.Action),
@@ -84,6 +98,7 @@ namespace UberAPI.Code.RepositoryDB
                     new SqlParameter("@CancelledBy", (updateTripInput.CancelledBy == null) ? String.Empty : updateTripInput.CancelledBy)
                     };
 
+                    // executing Stored procedure
                     rowAfftected = context.Database.ExecuteSqlRaw(@"EXEC usp_UpdateTripData @Action,
                                                             @TripID, 
                                                             @ActualFairAmount,
@@ -93,12 +108,14 @@ namespace UberAPI.Code.RepositoryDB
                 }
                 else
                 {
+                    // params for Stored procedure
                     lspParam = new object[]
                     {
                     new SqlParameter("@Action", updateTripInput.Action),
                     new SqlParameter("@TripID", updateTripInput.TripId),
                     };
 
+                    // executing Stored procedure
                     rowAfftected = context.Database.ExecuteSqlRaw(@"EXEC usp_UpdateTripData @Action,
                                                             @TripID",
                                                         lspParam);
@@ -109,6 +126,7 @@ namespace UberAPI.Code.RepositoryDB
                     return null;
                 }
 
+                // fetching result from view
                 var tripNew = context.VTripsData.Where(x => x.TripId == updateTripInput.TripId).FirstOrDefault();
                 return tripNew;
             }

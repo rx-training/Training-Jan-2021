@@ -1,0 +1,68 @@
+<div [formGroup]="form">
+    <div *ngIf="groupArrayLength == 4">
+        <div [formGroupName]="groupArray[0]">
+            <div [formGroupName]="groupArray[1]">
+                <div [formGroupName]="groupArray[2]">
+                    <div [formGroupName]="groupArray[3]">
+                        <label class="mt-3">{{field.label}}</label>
+                        <div [ngSwitch]="field.controlType">
+                            <input *ngSwitchCase="'text'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                            <input *ngSwitchCase="'date'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                            <input *ngSwitchCase="'number'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                        </div>
+                        <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="groupArrayLength == 3">
+        <div [formGroupName]="groupArray[0]">
+            <div [formGroupName]="groupArray[1]">
+                <div [formGroupName]="groupArray[2]">
+                    <label class="mt-3">{{field.label}}</label>
+                    <div [ngSwitch]="field.controlType">
+                        <input *ngSwitchCase="'text'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                        <input *ngSwitchCase="'date'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                        <input *ngSwitchCase="'number'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                    </div>
+                    <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="groupArrayLength == 2">
+        <div [formGroupName]="groupArray[0]">
+            <div [formGroupName]="groupArray[1]">
+                <label class="mt-3">{{field.label}}</label>
+                <div [ngSwitch]="field.controlType">
+                    <input *ngSwitchCase="'text'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                    <input *ngSwitchCase="'date'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                    <input *ngSwitchCase="'number'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                </div>
+                <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+            </div>
+        </div>
+    </div>
+    <div *ngIf="groupArrayLength == 1">
+        <div [formGroupName]="groupArray[0]">
+            <label class="mt-3">{{field.label}}</label>
+            <div [ngSwitch]="field.controlType">
+                <input *ngSwitchCase="'text'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                <input *ngSwitchCase="'date'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+                <input *ngSwitchCase="'number'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+            </div>
+            <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+        </div>
+    </div>
+    <div *ngIf="groupArrayLength == 0">
+        <label class="mt-3">{{field.label}}</label>
+        <div [ngSwitch]="field.controlType">
+            <input *ngSwitchCase="'text'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+            <input *ngSwitchCase="'date'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+            <input *ngSwitchCase="'number'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control">
+        </div>
+        <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+    </div>
+    
+</div>

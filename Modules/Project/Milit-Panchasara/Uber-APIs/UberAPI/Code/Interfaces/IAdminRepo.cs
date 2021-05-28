@@ -8,5 +8,7 @@ namespace UberAPI.Code.Interfaces
 {
     public interface IAdminRepo : IGenericRepo<Admin>
     {
+        bool BlockRider(long id, string action);
+        bool ValidateAdmin(string cred, long id);
     }
 }

@@ -1,0 +1,10 @@
+<div class="row">
+    <h3>Circle Area</h3>
+    <div class="col-4">
+        <label for="">Radius:</label>
+        <input type="number" class="form-control" [(ngModel)]='radius' (input)='calculateArea()'>
+    </div>
+    <div class="col-4">
+        <h3 class="mt-3">Area: {{area}}</h3>
+    </div>
+</div>

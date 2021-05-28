@@ -1,0 +1,10 @@
+<hr>
+<h4>Child data:</h4>
+<div *ngFor="let num of data;let i = index">
+    <app-child [childNum]="num" (changed)="countChangedHandler($event, i)"></app-child>
+</div>
+<app-child [child2]="data2" #child></app-child>
+<button (click)="child.changeValue()">Change value from parent</button>
+
+<hr>
+<button (click)="changeValue()">Change value from parent</button>
