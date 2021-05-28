@@ -57,7 +57,7 @@ namespace StudentAdmissionFormAPI.Repository
             return context.Set<T>().Find(id);
         }
 
-        public virtual void Update(int id, T entity)
+        public void Update(T entity)
         {
             context.Entry(entity).State = EntityState.Modified;
             context.SaveChanges();

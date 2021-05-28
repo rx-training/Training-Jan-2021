@@ -25,7 +25,23 @@ namespace StudentAdmissionFormAPI.Controllers
         public ActionResult<List<Student>> GetStudents()
         {
             //return await customer.Customers.ToListAsync();
-            return Ok(student.GetAll());
+            return Ok(student.GetAllStudents());
+        }
+
+        // GET: api/Customers
+        [HttpGet("{id}/EmergencyContacts")]
+        public ActionResult<List<Student>> GetEmergencyContacts(int id)
+        {
+            //return await customer.Customers.ToListAsync();
+            return Ok(student.GetAllEmergencyContacts(id));
+        }
+
+        // GET: api/Customers
+        [HttpGet("{id}/ReferenceDetails")]
+        public ActionResult<List<Student>> GetReferenceDetails(int id)
+        {
+            //return await customer.Customers.ToListAsync();
+            return Ok(student.GetAllReferenceDetails(id));
         }
 
         // GET: api/Customers/Reena&Mehta
@@ -50,7 +66,9 @@ namespace StudentAdmissionFormAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            student.Update(id, customerInfo);
+            student.UpdateStudent(customerInfo);
+
+            //student.UpdateEmergencyContact(id, customerInfo.EmergencyContacts);
 
             return Ok();
         }

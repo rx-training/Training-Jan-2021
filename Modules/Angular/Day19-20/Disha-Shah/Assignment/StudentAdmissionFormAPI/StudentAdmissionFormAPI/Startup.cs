@@ -38,6 +38,14 @@ namespace StudentAdmissionFormAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "StudentAdmissionFormAPI", Version = "v1" });
             });
+
+            services.AddCors(options => options.AddPolicy("Policy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,9 +64,11 @@ namespace StudentAdmissionFormAPI
 
             app.UseAuthorization();
 
+            app.UseCors("Policy");
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("Policy");
             });
         }
     }
