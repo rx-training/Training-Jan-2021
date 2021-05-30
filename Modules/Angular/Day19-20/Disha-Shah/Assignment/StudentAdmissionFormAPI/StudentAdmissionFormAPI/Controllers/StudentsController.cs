@@ -20,45 +20,14 @@ namespace StudentAdmissionFormAPI.Controllers
             student = context;
         }
 
-        // GET: api/Customers
+        // GET: api/Students
         [HttpGet]
         public ActionResult<List<Student>> GetStudents()
         {
-            //return await customer.Customers.ToListAsync();
             return Ok(student.GetAllStudents());
         }
 
-        // GET: api/Customers
-        [HttpGet("{id}/EmergencyContacts")]
-        public ActionResult<List<Student>> GetEmergencyContacts(int id)
-        {
-            //return await customer.Customers.ToListAsync();
-            return Ok(student.GetAllEmergencyContacts(id));
-        }
-
-        // GET: api/Customers
-        [HttpGet("{id}/ReferenceDetails")]
-        public ActionResult<List<Student>> GetReferenceDetails(int id)
-        {
-            //return await customer.Customers.ToListAsync();
-            return Ok(student.GetAllReferenceDetails(id));
-        }
-
-        // GET: api/Customers/Reena&Mehta
-        [HttpGet("{id}")]
-        public ActionResult<Student> GetStudent(int id)
-        {
-            var studentInfo = student.GetById(id);
-
-            if (studentInfo == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(studentInfo);
-        }
-
-        // PUT: api/Customers/5
+        // PUT: api/Students/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public ActionResult Put(int id, Student customerInfo)
@@ -68,13 +37,11 @@ namespace StudentAdmissionFormAPI.Controllers
 
             student.UpdateStudent(customerInfo);
 
-            //student.UpdateEmergencyContact(id, customerInfo.EmergencyContacts);
-
             return Ok();
         }
 
 
-        // POST: api/Customers
+        // POST: api/Students
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public ActionResult Post(Student customerInfo)
@@ -84,11 +51,10 @@ namespace StudentAdmissionFormAPI.Controllers
 
             student.Create(customerInfo);
 
-            //return CreatedAtAction("GetCustomer", new { id = customerInfo.Id }, customer);
             return Ok();
         }
 
-        // DELETE: api/Customers/5
+        // DELETE: api/Students/5
         [HttpDelete("{id}")]
         public ActionResult DeleteCustomer(int id)
         {

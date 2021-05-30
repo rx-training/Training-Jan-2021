@@ -19,13 +19,7 @@ export class StudentComponent implements OnInit, OnChanges {
 
   @Output() userData = new EventEmitter();
 
-  studFName = this.editValue.name.split(' ')[0];
-  studMName = this.editValue.name.split(' ')[1];
-  studLName = this.editValue.name.split(' ')[2];
-
   index = -1;
-
-  submitted = false;
 
   studentList: Array<IStudent>=[];
 
@@ -178,10 +172,7 @@ export class StudentComponent implements OnInit, OnChanges {
 
   addStudent(student: IStudent): void {
     this.studentService.addStudent(student)
-      .subscribe(newStudent => {
-        //newStudent.studentId = this.studentList[this.studentList.length-2].studentId + 1;
-        this.studentList.push(newStudent);
-      });
+      .subscribe();
   }
 
   updateStudent(student: IStudent): void{
@@ -191,13 +182,6 @@ export class StudentComponent implements OnInit, OnChanges {
 
   // submit form
   profileSubmit(){
-
-    this.submitted = true;
-
-    console.log(this.studentList.length);
-    console.log(this.studentList[this.studentList.length]);
-    console.log(this.studentList[this.studentList.length-1].studentId);
-    console.log(this.studentList[this.studentList.length-1].studentId + 1);
 
     var newStudent: IStudent = {
       name: this.studentForm.value.name.first.concat(' ', this.studentForm.value.name.middle, ' ', this.studentForm.value.name.last),
@@ -225,45 +209,63 @@ export class StudentComponent implements OnInit, OnChanges {
     console.log(newStudent.referenceDetails);
     console.log(this.studentForm);
 
-    var x: number = this.id != null ? this.id : this.studentList[this.studentList.length-1].studentId + 1;
+    var x: number = this.id != null ? this.id : this.studentList.length != 0 ? this.studentList[this.studentList.length-1].studentId + 1 : 0;
+
+    for (const key in newStudent.emergencyContacts) {
+      newStudent.emergencyContacts[key].emergencyId = 0;
+      newStudent.emergencyContacts[key].studentId = 0;
+    }
+
+    for (const key in this.studentForm.value.referenceDetails) {
+      newStudent.referenceDetails[key].referenceId = 0;
+      newStudent.referenceDetails[key].studentId = 0;
+    }
 
     if(this.index != x){ 
-      
-      for (const key in newStudent.emergencyContacts) {
-        newStudent.emergencyContacts[key].emergencyId = 0;
-        newStudent.emergencyContacts[key].studentId = 0;
-      }
-
-      for (const key in this.studentForm.value.referenceDetails) {
-        newStudent.referenceDetails[key].referenceId = 0;
-        newStudent.referenceDetails[key].studentId = 0;
-      }
-      
+  
       this.addStudent(newStudent);
+      newStudent.studentId = x;
+      this.studentList.push(newStudent);
       console.log("data added successfully!");
     }
 
     else{
       
-      for (const key in newStudent.emergencyContacts) {
-        newStudent.emergencyContacts[key].emergencyId = 0;
-        newStudent.emergencyContacts[key].studentId = 0;
-      }
-
-      for (const key in this.studentForm.value.referenceDetails) {
-        newStudent.referenceDetails[key].referenceId = 0;
-        newStudent.referenceDetails[key].studentId = 0;
-      }
-
       newStudent.studentId = x;
       this.updateStudent(newStudent);
       console.log(newStudent);
       console.log("data updated successfully");
 
+      var oldData = this.studentList.find(x=>x.studentId==newStudent.studentId);
+
+      oldData.address = newStudent.address;
+      oldData.dob = newStudent.dob;
+      oldData.emergencyContacts = newStudent.emergencyContacts;
+      oldData.fatherDesignation = newStudent.fatherDesignation;
+      oldData.fatherEmail = newStudent.fatherEmail;
+      oldData.fatherName = newStudent.fatherName;
+      oldData.fatherPhone = newStudent.fatherPhone;
+      oldData.fatherProfession = newStudent.fatherProfession;
+      oldData.fatherQualification=newStudent.fatherQualification;
+      oldData.language= newStudent.language;
+      oldData.motherDesignation=newStudent.motherDesignation;
+      oldData.motherEmail=newStudent.motherEmail;
+      oldData.motherName=newStudent.motherName;
+      oldData.motherPhone=newStudent.motherPhone;
+      oldData.motherProfession=newStudent.motherProfession;
+      oldData.motherQualification=newStudent.motherQualification;
+      oldData.name = newStudent.name;
+      oldData.placeOfBirth=newStudent.placeOfBirth;
+      oldData.referenceDetails=newStudent.referenceDetails;
+
+      console.log(oldData);
+
       // id is assigned to null after completing update operation, so that add operation can be easily performed 
       // on form
       this.id = null;
     }
+
+    //this.getStudents();
 
     this.studentForm.reset();
 

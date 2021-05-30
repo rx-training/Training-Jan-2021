@@ -15,15 +15,10 @@ export class AppComponent {
   editData: IStudent = {studentId: 0, address: "", dob: new Date(), emergencyContacts: [], fatherDesignation: "", fatherEmail: "", fatherName: "", fatherPhone: "", fatherProfession: "", fatherQualification: "", language: "", motherDesignation: "", motherEmail: "", motherName: "", motherPhone: "", motherProfession: "", motherQualification: "", name: "", placeOfBirth: "", referenceDetails: []}; ​​
 
   index: number;
-  
+ 
   AddData(result: any[]){  ​
-    //this.listData=reply.service.getStudents(); 
-    // this.studentService.getStudents()
-    // .subscribe(students => {this.listData = students, console.log(this.listData)});
-    // reply.service.getStudents()
-    // .subscribe(students => {this.listData = students, console.log(this.listData)});
-
     this.listData = result;
+    console.log(this.listData);
   } 
 
   EditData(reply){
@@ -31,20 +26,4 @@ export class AppComponent {
      this.index = reply.id;
   }
 
-  // getStudents(): void{
-  //   this.studentService.getStudents()
-  //   .subscribe(students => {this.listData = students, console.log(this.listData)});
-
-  // }
-
-  // constructor(private studentService: StudentService) { 
-  // }
-
-  // ngOnChanges() {
-  //   this.getStudents();
-  // }
-
-  // ngOnInit(): void {
-
-  // }
 }

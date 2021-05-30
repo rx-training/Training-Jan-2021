@@ -16,8 +16,6 @@ export class StudentService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  studentList: Array<IStudent> = [];
-
   constructor(private logger: LoggerService, private http: HttpClient) {  }
 
   /** GET students from the server */

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { IStudent } from '../models/IStudent';
 import { StudentService } from '../student.service';
 
@@ -7,7 +7,7 @@ import { StudentService } from '../student.service';
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.css']
 })
-export class StudentListComponent implements OnInit {
+export class StudentListComponent implements OnInit, OnChanges {
 
   @Input() listValue = []; 
 
@@ -34,8 +34,14 @@ export class StudentListComponent implements OnInit {
   constructor(private studentService: StudentService) { 
   }
 
+  ngOnChanges(): void{
+    this.studentList = this.listValue;
+    console.log('changes' + this.listValue);
+  }
+
   ngOnInit(): void {
     this.getStudents();
+    console.log('init' + this.listValue);
   }
 
 }
