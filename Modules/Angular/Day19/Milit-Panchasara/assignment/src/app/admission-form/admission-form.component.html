@@ -1,0 +1,334 @@
+<div class="m-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>Student Admission Form</h1>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="admissionForm">
+                        <div class="form-group" formGroupName="studentName">
+                            <label for="">Name:</label>
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <input type="text" class="form-control form-control-sm" placeholder="first name" formControlName="firstName">
+                                    <ng-container *ngIf="!studentName.controls.firstName.valid && studentName.controls.firstName.touched && studentName.controls.firstName.errors != null">
+                                        <span class="small text-danger" *ngIf="studentName.controls.firstName.errors.required">This field cannot be empty.</span>
+                                        <span class="small text-danger" *ngIf="studentName.controls.firstName.errors.pattern">Numbers and signs are not allowed.</span>
+                                    </ng-container>
+                                    
+                                </div>
+                                <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                    <input type="text" class="form-control form-control-sm" placeholder="middle name" formControlName="middleName">
+                                    <ng-container *ngIf="!studentName.controls.middleName.valid && studentName.controls.middleName.touched && studentName.controls.middleName.errors != null">
+                                        <span class="small text-danger" *ngIf="studentName.controls.middleName.errors.required">This field cannot be empty.</span>
+                                        <span class="small text-danger" *ngIf="studentName.controls.middleName.errors.pattern">Numbers and signs are not allowed.</span>
+                                    </ng-container>
+                                </div>
+                                <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                    <input type="text" class="form-control form-control-sm" placeholder="last name" formControlName="lastName">
+                                    <ng-container *ngIf="!studentName.controls.lastName.valid && studentName.controls.lastName.touched && studentName.controls.lastName.errors != null">
+                                        <span class="small text-danger" *ngIf="studentName.controls.lastName.errors.required">This field cannot be empty.</span>
+                                        <span class="small text-danger" *ngIf="studentName.controls.lastName.errors.pattern">Numbers and signs are not allowed.</span>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="">Date of birth:</label>
+                            <input type="date" class="form-control form-control-sm" formControlName="dob">
+                            <ng-container *ngIf="!admissionForm.controls.dob.valid && admissionForm.controls.dob.touched && admissionForm.controls.dob.errors != null">
+                                <span class="small text-danger" *ngIf="admissionForm.controls.dob.errors.required">This field cannot be empty.</span>
+                                <span class="small text-danger" *ngIf="admissionForm.controls.dob.errors.futureDate">Date of birth should not be in future.</span>
+                            </ng-container>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="">Place of birth:</label>
+                            <input type="text" class="form-control form-control-sm" formControlName="placeOfBirth">
+                            <ng-container *ngIf="!admissionForm.controls.placeOfBirth.valid && admissionForm.controls.placeOfBirth.touched && admissionForm.controls.placeOfBirth.errors != null">
+                                <span class="small text-danger" *ngIf="admissionForm.controls.placeOfBirth.errors.required">This field cannot be empty.</span>
+                            </ng-container>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="">First language:</label>
+                            <input type="text" class="form-control form-control-sm" formControlName="firstLanguage">
+                            <ng-container *ngIf="!admissionForm.controls.firstLanguage.valid && admissionForm.controls.firstLanguage.touched && admissionForm.controls.firstLanguage.errors != null">
+                                <span class="small text-danger" *ngIf="admissionForm.controls.firstLanguage.errors.required">This field cannot be empty.</span>
+                            </ng-container>
+                        </div>
+                        <ng-container formGroupName="address">
+                            <div class="form-group mt-3">
+                                <label for="">Street Address:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="street">
+                                <ng-container *ngIf="!address.controls.street.valid && address.controls.street.touched && address.controls.street.errors != null">
+                                    <span class="small text-danger" *ngIf="address.controls.street.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mt-3">
+                                        <label for="">City:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="city" formControlName="city">
+                                        <ng-container *ngIf="!address.controls.city.valid && address.controls.city.touched && address.controls.city.errors != null">
+                                            <span class="small text-danger" *ngIf="address.controls.city.errors.required">This field cannot be empty.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mt-3">
+                                        <label for="">State:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="state" formControlName="state">
+                                        <ng-container *ngIf="!address.controls.state.valid && address.controls.state.touched && address.controls.state.errors != null">
+                                            <span class="small text-danger" *ngIf="address.controls.state.errors.required">This field cannot be empty.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mt-3">
+                                        <label for="">Country:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="country" formControlName="country">
+                                        <ng-container *ngIf="!address.controls.country.valid && address.controls.country.touched && address.controls.country.errors != null">
+                                            <span class="small text-danger" *ngIf="address.controls.country.errors.required">This field cannot be empty.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-lg-3 mt-3">
+                                        <label for="">Pincode:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="pincode" formControlName="pin">
+                                        <ng-container *ngIf="!address.controls.pin.valid && address.controls.pin.touched && address.controls.pin.errors != null">
+                                            <span class="small text-danger" *ngIf="address.controls.pin.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="address.controls.pin.errors.pattern">Pincode should be 6 digits long.</span>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <hr>
+                        <div class="father-details" formGroupName="father">
+                            <h5>Father's Details:</h5>
+                            <div class="form-group" formGroupName="name">
+                                <label for="">Name:</label>
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <input type="text" class="form-control form-control-sm" placeholder="first name" formControlName="firstName">
+                                        <ng-container *ngIf="!fatherName.controls.firstName.valid && fatherName.controls.firstName.touched && fatherName.controls.firstName.errors != null">
+                                            <span class="small text-danger" *ngIf="fatherName.controls.firstName.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="fatherName.controls.firstName.errors.pattern">Numbers and signs are not allowed.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                        <input type="text" class="form-control form-control-sm" placeholder="middle name" formControlName="middleName">
+                                        <ng-container *ngIf="!fatherName.controls.middleName.valid && fatherName.controls.middleName.touched && fatherName.controls.middleName.errors != null">
+                                            <span class="small text-danger" *ngIf="fatherName.controls.middleName.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="fatherName.controls.middleName.errors.pattern">Numbers and signs are not allowed.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                        <input type="text" class="form-control form-control-sm" placeholder="last name" formControlName="lastName">
+                                        <ng-container *ngIf="!fatherName.controls.lastName.valid && fatherName.controls.lastName.touched && fatherName.controls.lastName.errors != null">
+                                            <span class="small text-danger" *ngIf="fatherName.controls.lastName.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="fatherName.controls.lastName.errors.pattern">Numbers and signs are not allowed.</span>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Email:</label>
+                                <input type="email" class="form-control form-control-sm" formControlName="email">
+                                <ng-container *ngIf="!father.controls.email.valid && father.controls.email.touched && father.controls.email.errors != null">
+                                    <span class="small text-danger" *ngIf="father.controls.email.errors.required">This field cannot be empty.</span>
+                                    <span class="small text-danger" *ngIf="father.controls.email.errors.email">Invalid email.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Education qualification:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="education">
+                                <ng-container *ngIf="!father.controls.education.valid && father.controls.education.touched && father.controls.education.errors != null">
+                                    <span class="small text-danger" *ngIf="father.controls.education.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Profession:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="profession">
+                                <ng-container *ngIf="!father.controls.profession.valid && father.controls.profession.touched && father.controls.profession.errors != null">
+                                    <span class="small text-danger" *ngIf="father.controls.profession.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Designation:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="designation">
+                                <ng-container *ngIf="!father.controls.designation.valid && father.controls.designation.touched && father.controls.designation.errors != null">
+                                    <span class="small text-danger" *ngIf="father.controls.designation.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Contact number:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="phone">
+                                <ng-container *ngIf="!father.controls.phone.valid && father.controls.phone.touched && father.controls.phone.errors != null">
+                                    <span class="small text-danger" *ngIf="father.controls.phone.errors.required">This field cannot be empty.</span>
+                                    <span class="small text-danger" *ngIf="father.controls.phone.errors.pattern">Contact number should be 10 digits long.</span>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="father-details" formGroupName="mother">
+                            <h5>Mother's Details:</h5>
+                            <div class="form-group" formGroupName="name">
+                                <label for="">Name:</label>
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <input type="text" class="form-control form-control-sm" placeholder="first name" formControlName="firstName">
+                                        <ng-container *ngIf="!motherName.controls.firstName.valid && motherName.controls.firstName.touched && motherName.controls.firstName.errors != null">
+                                            <span class="small text-danger" *ngIf="motherName.controls.firstName.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="motherName.controls.firstName.errors.pattern">Numbers and signs are not allowed.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                        <input type="text" class="form-control form-control-sm" placeholder="middle name" formControlName="middleName">
+                                        <ng-container *ngIf="!motherName.controls.middleName.valid && motherName.controls.middleName.touched && motherName.controls.middleName.errors != null">
+                                            <span class="small text-danger" *ngIf="motherName.controls.middleName.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="motherName.controls.middleName.errors.pattern">Numbers and signs are not allowed.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                        <input type="text" class="form-control form-control-sm" placeholder="last name" formControlName="lastName">
+                                        <ng-container *ngIf="!motherName.controls.lastName.valid && motherName.controls.lastName.touched && motherName.controls.lastName.errors != null">
+                                            <span class="small text-danger" *ngIf="motherName.controls.lastName.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="motherName.controls.lastName.errors.pattern">Numbers and signs are not allowed.</span>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Email:</label>
+                                <input type="email" class="form-control form-control-sm" formControlName="email">
+                                <ng-container *ngIf="!mother.controls.email.valid && mother.controls.email.touched && mother.controls.email.errors != null">
+                                    <span class="small text-danger" *ngIf="mother.controls.email.errors.required">This field cannot be empty.</span>
+                                    <span class="small text-danger" *ngIf="mother.controls.email.errors.email">Invalid email.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Education qualification:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="education">
+                                <ng-container *ngIf="!mother.controls.education.valid && mother.controls.education.touched && mother.controls.education.errors != null">
+                                    <span class="small text-danger" *ngIf="mother.controls.education.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Profession:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="profession">
+                                <ng-container *ngIf="!mother.controls.profession.valid && mother.controls.profession.touched && mother.controls.profession.errors != null">
+                                    <span class="small text-danger" *ngIf="mother.controls.profession.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Designation:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="designation">
+                                <ng-container *ngIf="!mother.controls.designation.valid && mother.controls.designation.touched && mother.controls.designation.errors != null">
+                                    <span class="small text-danger" *ngIf="mother.controls.designation.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Contact number:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="phone">
+                                <ng-container *ngIf="!mother.controls.phone.valid && mother.controls.phone.touched && mother.controls.phone.errors != null">
+                                    <span class="small text-danger" *ngIf="mother.controls.phone.errors.required">This field cannot be empty.</span>
+                                    <span class="small text-danger" *ngIf="mother.controls.phone.errors.pattern">Contact number should be 10 digits long.</span>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>Emergency Details:</h5>
+                        <div class="form-group" formArrayName="emergencyDetail">
+                            <ng-container *ngIf="!admissionForm.controls.emergencyDetail.valid && admissionForm.controls.emergencyDetail.touched && admissionForm.controls.emergencyDetail.errors != null">
+                                <span class="small text-danger" *ngIf="admissionForm.controls.emergencyDetail.errors.duplicateRelation">Duplicate relation or contact number is not allowed.</span>
+                            </ng-container>
+                            <div class="row" *ngFor="let entry of getEmergencyDetails().controls;let i = index" [formGroupName]="i" >
+                                <div class="col-12 col-md-5 mt-3">
+                                    <label for="">Relation:</label>
+                                    <input type="text" class="form-control form-control-sm" placeholder="relation" formControlName="relation">
+                                    <div *ngIf="!getEntry(i).controls.relation.valid && getEntry(i).controls.relation.errors != null">
+                                        <span class="small text-danger" *ngIf="getEntry(i).controls.relation.errors.required">This field cannot be empty.</span>
+                                    </div>
+                                </div>
+                                <div class="col-9 col-md-5 mt-3">
+                                    <label for="">Contact number:</label>
+                                    <input type="text" class="form-control form-control-sm" placeholder="contact number" formControlName="number">
+                                    <div *ngIf="!getEntry(i).controls.number.valid && getEntry(i).controls.number.errors != null">
+                                        <span class="small text-danger" *ngIf="getEntry(i).controls.number.errors.required">This field cannot be empty.</span>
+                                        <span class="small text-danger" *ngIf="getEntry(i).controls.number.errors.pattern">Contact number should be 10 digits long.</span>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-2 mt-4 py-3" *ngIf="i != 0">
+                                    <button type="button" class="btn btn-sm btn-danger" (click)="removeEmergencyDetail(i)">remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-dark my-3" (click)="addEmergencyDetail()">Add another detail</button>
+                        <hr>
+                        <h5>Reference Details:</h5>
+                        <div formGroupName="referenceDetail">
+                            <div class="form-group mt-3 mb-3">
+                                <label for="">Reference Through:</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="referenceThrough">
+                                <ng-container *ngIf="!reference.controls.referenceThrough.valid && reference.controls.referenceThrough.touched && reference.controls.referenceThrough.errors != null">
+                                    <span class="small text-danger" *ngIf="reference.controls.referenceThrough.errors.required">This field cannot be empty.</span>
+                                </ng-container>
+                            </div>
+                            <label>Address:</label>
+                            <div class="form-group" formGroupName="address">
+                                <div class="form-group">
+                                    <label for="">Street Address:</label>
+                                    <input type="text" class="form-control form-control-sm" formControlName="street">
+                                    <ng-container *ngIf="!referenceAddress.controls.street.valid && referenceAddress.controls.street.touched && referenceAddress.controls.street.errors != null">
+                                        <span class="small text-danger" *ngIf="referenceAddress.controls.street.errors.required">This field cannot be empty.</span>
+                                    </ng-container>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <label for="">City:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="city" formControlName="city">
+                                        <ng-container *ngIf="!referenceAddress.controls.city.valid && referenceAddress.controls.city.touched && referenceAddress.controls.city.errors != null">
+                                            <span class="small text-danger" *ngIf="referenceAddress.controls.city.errors.required">This field cannot be empty.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                        <label for="">State:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="state" formControlName="state">
+                                        <ng-container *ngIf="!referenceAddress.controls.state.valid && referenceAddress.controls.state.touched && referenceAddress.controls.state.errors != null">
+                                            <span class="small text-danger" *ngIf="referenceAddress.controls.state.errors.required">This field cannot be empty.</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                        <label for="">Country:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="country" formControlName="country">
+                                        <ng-container *ngIf="!referenceAddress.controls.country.valid && referenceAddress.controls.country.touched && referenceAddress.controls.country.errors != null">
+                                            <span class="small text-danger" *ngIf="referenceAddress.controls.country.errors.required">This field cannot be empty.</span>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mt-3">
+                                        <label for="">Pincode:</label>
+                                        <input type="number" class="form-control form-control-sm" placeholder="pincode" formControlName="pin">
+                                        <ng-container *ngIf="!referenceAddress.controls.pin.valid && referenceAddress.controls.pin.touched && referenceAddress.controls.pin.errors != null">
+                                            <span class="small text-danger" *ngIf="referenceAddress.controls.pin.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="referenceAddress.controls.pin.errors.pattern">Pincode should be 6 digits long.</span>
+                                        </ng-container>
+                                        
+                                    </div>
+                                    <div class="col-12 col-md-6 mt-3">
+                                        <label for="">Contact number:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="contact number" formControlName="contact">
+                                        <ng-container *ngIf="!referenceAddress.controls.contact.valid && referenceAddress.controls.contact.touched && referenceAddress.controls.contact.errors != null">
+                                            <span class="small text-danger" *ngIf="referenceAddress.controls.contact.errors.required">This field cannot be empty.</span>
+                                            <span class="small text-danger" *ngIf="referenceAddress.controls.contact.errors.pattern">Contact number should be 10 digits long.</span>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <button type="button" (click)="submitForm('add')" *ngIf="index == -1" [ngClass]="{'disabled': admissionForm.invalid && false}" class="btn btn-primary my-3">Add</button>
+                        <button type="button" (click)="submitForm('edit')" *ngIf="index != -1" [ngClass]="{'disabled': admissionForm.invalid}" class="btn btn-primary my-3">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
