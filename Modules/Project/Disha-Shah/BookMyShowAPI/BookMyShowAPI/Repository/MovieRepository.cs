@@ -18,9 +18,33 @@ namespace BookMyShowAPI.Repository
         // Get all the information of all movies
         public IEnumerable GetAllMovies()
         {
-            var movie = context.VMovies.ToList();
+            var movies = context.Movies;
 
-            return movie;
+            var m1 = from x in movies
+                     select new Movie
+                     {
+                         About = x.About,
+                         Certification = x.Certification,
+                         CertificationId = x.CertificationId,
+                         DateOfRelease = x.DateOfRelease,
+                         Image = x.Image,
+                         IsPremiere = x.IsPremiere,
+                         IsRecommended = x.IsRecommended,
+                         MovieId = x.MovieId,
+                         Name = x.Name,
+                         Time = x.Time,
+                         MovieGenres = context.MovieGenres.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieFilmCategories = context.MovieFilmCategories.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieLanguages = context.MovieLanguages.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         ScreensMovies = context.ScreensMovies.Where(m => m.MovieId == x.MovieId).ToArray()
+                     };
+
+
+            return m1;
+
+            //var movies = context.VMovies.ToList();
+
+            //return movies;
         }
 
         // Get information of a particular movie

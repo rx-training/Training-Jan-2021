@@ -18,9 +18,26 @@ namespace BookMyShowAPI.Repository
         // Get information of all events
         public IEnumerable GetAllEvents()
         {
-            var events = context.VEvents.ToList();
+            var events = context.Events;
 
-            return events;
+            var e1 = from x in events
+                     select new Event
+                     {
+                         EventId = x.EventId,
+                         EventType = x.EventType,
+                         EventTypeId = x.EventTypeId,
+                         Image = x.Image,
+                         DateOfEvent = x.DateOfEvent,
+                         Name = x.Name,
+                         TicketPrice = x.TicketPrice,
+                         Time = x.Time,
+                         EventLanguages = context.EventLanguages.Where(e => e.EventId == x.EventId).ToArray(),
+                         EventVenueShowTimingId = x.EventVenueShowTimingId,
+                         EventVenueShowTiming = x.EventVenueShowTiming,
+                     };
+
+
+            return e1;
         }
 
         // Get information of a particular event

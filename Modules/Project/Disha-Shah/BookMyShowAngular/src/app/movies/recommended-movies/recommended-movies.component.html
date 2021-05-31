@@ -1,0 +1,20 @@
+<div class="row slick-recommended-movies" id="recommendedMovies">
+    <div class="col-sm-12 col-md-4 col-lg-3" *ngFor="let movie of moviesList">
+        <div class="slide-content">
+            <a href="#" class="text-decoration-none">
+                <img [src]="'../../assets/' + movie.image" alt="" loading="lazy" class="w-100 rounded">
+                <h6 style="color: black;" class="pt-3">{{movie.name}}</h6>
+                <span class="d-none d-lg-block">
+                    <span *ngFor = "let genres of movie.movieGenres; let l = last" class="text-muted font-weight-normal">
+                        <span *ngIf = "l==true">
+                            {{genres.genre}}
+                        </span>
+                        <span *ngIf = "l==false">
+                            {{genres.genre}}/
+                        </span>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
