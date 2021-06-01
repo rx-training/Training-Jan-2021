@@ -1,0 +1,277 @@
+    <div class="container my-5">
+        <div class="card shadow rounded">
+            <div class="card-header text-center">
+                <h2>Student Admission Form</h2>
+            </div>
+            <div class="card-body p-5">
+                <form [formGroup]="AdmissionForm" #admissionForm>
+                    <!-- FullName -->
+                        <label for="fullName">Full Name : </label>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" formControlName="studentFirstName" class="form-control" placeholder="First Name">
+                                <ng-container *ngIf="AdmissionForm.get('studentFirstName').invalid && AdmissionForm.get('studentFirstName').touched" class="alert alert-danger">
+                                    <span *ngIf="AdmissionForm.get('studentFirstName').errors.required" class="text-danger">First Name is required</span>
+                                    <span *ngIf="AdmissionForm.get('studentFirstName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                </ng-container>
+                            </div>
+                            <div class="col">
+                                <input type="text" formControlName="studentMiddleName" class="form-control" placeholder="Middle Name">
+                                <ng-container *ngIf="AdmissionForm.get('studentMiddleName').invalid && AdmissionForm.get('studentMiddleName').touched" class="alert alert-danger">
+                                    <span *ngIf="AdmissionForm.get('studentMiddleName').errors.required" class="text-danger">Middle Name is required</span>
+                                    <span *ngIf="AdmissionForm.get('studentMiddleName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                </ng-container>
+                            </div>
+                            <div class="col">
+                                <input type="text" formControlName="studentLastName" class="form-control" placeholder="Last Name">
+                                <ng-container *ngIf="AdmissionForm.get('studentLastName').invalid && AdmissionForm.get('studentLastName').touched" class="alert alert-danger">
+                                    <span *ngIf="AdmissionForm.get('studentLastName').errors.required" class="text-danger">Last Name is required</span>
+                                    <span *ngIf="AdmissionForm.get('studentLastName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                </ng-container>
+                            </div>
+                        </div>
+                    <div class="form-group my-3">
+                        <label for="DOB">Date Of Birth : </label>
+                        <input type="date" formControlName="dob" class="form-control">
+                        <ng-container *ngIf="AdmissionForm.get('dob').invalid && AdmissionForm.get('dob').touched" class="alert alert-danger">
+                            <span *ngIf="AdmissionForm.get('dob').errors.required" class="text-danger">DOB is required</span>
+                            <span *ngIf="AdmissionForm.get('dob').errors.invalidDate" class="text-danger">Please input valid Date</span>
+                        </ng-container>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="BirthPlace">Place Of Birth : </label>
+                        <input type="text" formControlName="birthPlace" class="form-control">
+                        <ng-container *ngIf="AdmissionForm.get('birthPlace').invalid && AdmissionForm.get('birthPlace').touched" class="alert alert-danger">
+                            <span *ngIf="AdmissionForm.get('birthPlace').errors.required" class="text-danger">BirthPlace is required</span>
+                            <span *ngIf="AdmissionForm.get('birthPlace').errors.str" class="text-danger">Name cannot include numbers</span>
+                        </ng-container>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="Language">Language Preference : </label>
+                        <input type="text" formControlName="languagePreferred" class="form-control">
+                        <ng-container *ngIf="AdmissionForm.get('languagePreferred').invalid && AdmissionForm.get('languagePreferred').touched" class="alert alert-danger">
+                            <span *ngIf="AdmissionForm.get('languagePreferred').errors.required" class="text-danger">Language Preference is required</span>
+                            <span *ngIf="AdmissionForm.get('languagePreferred').errors.str" class="text-danger">Name cannot include numbers</span>
+                        </ng-container>
+                    </div>
+                    <!-- Address -->
+                    <div class="form-group my-3" formGroupName="addresses">
+                        <label for="Address">Address : </label>
+                        <div *ngFor="let address of Address.controls; let i = index" [formGroupName]="i">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" formControlName="city" class="form-control" placeholder="City">
+                                <ng-container *ngIf="address.get('city').invalid && address.get('city').touched" class="alert alert-danger">
+                                    <span *ngIf="address.get('city').errors.required" class="text-danger">City is required</span>
+                                </ng-container>
+                            </div>
+                            <div class="col">
+                                <input type="text" formControlName="state" class="form-control" placeholder="State">
+                                <ng-container *ngIf="address.get('state').invalid && address.get('state').touched" class="alert alert-danger">
+                                    <span *ngIf="address.get('state').errors.required" class="text-danger">State is required</span>
+                                </ng-container>
+                            </div>
+                            <div class="col">
+                                <input type="text" formControlName="country" class="form-control" placeholder="Country">
+                                <ng-container *ngIf="address.get('country').invalid && address.get('country').touched" class="alert alert-danger">
+                                    <span *ngIf="address.get('country').errors.required" class="text-danger">Country is required</span>
+                                </ng-container>
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="pinCode" class="form-control" placeholder="PinCode">
+                                <ng-container *ngIf="address.get('pinCode').invalid && address.get('pinCode').touched" class="alert alert-danger">
+                                    <span *ngIf="address.get('pinCode').errors.required" class="text-danger">Pin is required</span>
+                                    <span *ngIf="address.get('pinCode').errors.pin" class="text-danger">Pin must be of 6 digits</span>
+                                </ng-container>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Father's and Mother's Details -->
+                    <div class="form-group my-3">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Father's Details</h4>
+                                <div class="form-group" formGroupName="fatherDetails">
+                                    <div *ngFor="let father of FatherDetails.controls; let i = index" [formGroupName]="i">
+                                        <div class="row">
+                                        <div class="col-sm-12 col-md-4 my-md-2">
+                                            <input type="text" formControlName="fatherFirstName" class="form-control" placeholder="First Name">
+                                            <ng-container *ngIf="father.get('fatherFirstName').invalid && father.get('fatherFirstName').touched" class="alert alert-danger">
+                                                <span *ngIf="father.get('fatherFirstName').errors.required" class="text-danger">FirstName is required</span>
+                                                <span *ngIf="father.get('fatherFirstName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                            </ng-container> 
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 my-2">
+                                            <input type="text" formControlName="fatherMiddleName" class="form-control" placeholder="Middle Name">
+                                            <ng-container *ngIf="father.get('fatherMiddleName').invalid && father.get('fatherMiddleName').touched" class="alert alert-danger">
+                                                <span *ngIf="father.get('fatherMiddleName').errors.required" class="text-danger">Middle Name is required</span>
+                                                <span *ngIf="father.get('fatherMiddleName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                            </ng-container> 
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 my-md-2">
+                                            <input type="text" formControlName="fatherLastName" class="form-control" placeholder="Last Name">
+                                            <ng-container *ngIf="father.get('fatherLastName').invalid && father.get('fatherLastName').touched" class="alert alert-danger">
+                                                <span *ngIf="father.get('fatherLastName').errors.required" class="text-danger">Last Name is required</span>
+                                                <span *ngIf="father.get('fatherLastName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                            </ng-container> 
+                                        </div>
+                                    </div>
+                                    <input type="email" formControlName="fatherEmail" class="form-control my-2" placeholder="Email">
+                                    <ng-container *ngIf="father.get('fatherEmail').invalid && father.get('fatherEmail').touched" class="alert alert-danger">
+                                        <span *ngIf="father.get('fatherEmail').errors.required" class="text-danger">Email is required</span>
+                                        <span *ngIf="father.get('fatherEmail').errors.email" class="text-danger">Enter proper email</span>
+                                    </ng-container> 
+
+                                    <input type="text" formControlName="fatherEducationQualification" class="form-control my-2" placeholder="Education Qualification">
+                                    <ng-container *ngIf="father.get('fatherEducationQualification').invalid && father.get('fatherEducationQualification').touched" class="alert alert-danger">
+                                        <span *ngIf="father.get('fatherEducationQualification').errors.required" class="text-danger">EducationQualification is required</span>
+                                    </ng-container> 
+
+                                    <input type="text" formControlName="fatherProfession" class="form-control my-2" placeholder="Profession">
+                                    <ng-container *ngIf="father.get('fatherProfession').invalid && father.get('fatherProfession').touched" class="alert alert-danger">
+                                        <span *ngIf="father.get('fatherProfession').errors.required" class="text-danger">Profession is required</span>
+                                        <span *ngIf="father.get('fatherProfession').errors.str" class="text-danger">Profession cannot include numbers</span>
+                                    </ng-container> 
+
+                                    <input type="text" formControlName="fatherDesignation" class="form-control my-2" placeholder="Designation">
+                                    <ng-container *ngIf="father.get('fatherDesignation').invalid && father.get('fatherDesignation').touched" class="alert alert-danger">
+                                        <span *ngIf="father.get('fatherDesignation').errors.required" class="text-danger">Designation is required</span>
+                                        <span *ngIf="father.get('fatherDesignation').errors.str" class="text-danger">Designation cannot include numbers</span>
+                                    </ng-container> 
+
+                                    <input type="number" formControlName="fatherPhoneNumber" class="form-control my-2" placeholder="Phone">
+                                    <ng-container *ngIf="father.get('fatherPhoneNumber').invalid && father.get('fatherPhoneNumber').touched" class="alert alert-danger">
+                                        <span *ngIf="father.get('fatherPhoneNumber').errors.required" class="text-danger">Phone is required</span>
+                                        <span *ngIf="father.get('fatherPhoneNumber').errors.phone" class="text-danger">Phone must be of 10 digits</span>
+                                    </ng-container> 
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h4>Mother's Details</h4>
+                                <div class="form-group" formGroupName="motherDetails">
+                                <div *ngFor="let mother of MotherDetails.controls; let i = index" [formGroupName]="i">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 my-md-2">
+                                            <input type="text" formControlName="motherFirstName" class="form-control" placeholder="First Name">
+                                            <ng-container *ngIf="mother.get('motherFirstName').invalid && mother.get('motherFirstName').touched" class="alert alert-danger">
+                                                <span *ngIf="mother.get('motherFirstName').errors.required" class="text-danger">FirstName is required</span>
+                                                <span *ngIf="mother.get('motherFirstName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                            </ng-container> 
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 my-2">
+                                            <input type="text" formControlName="motherMiddleName" class="form-control" placeholder="Middle Name">
+                                            <ng-container *ngIf="mother.get('motherMiddleName').invalid && mother.get('motherMiddleName').touched" class="alert alert-danger">
+                                                <span *ngIf="mother.get('motherMiddleName').errors.required" class="text-danger">Middle Name is required</span>
+                                                <span *ngIf="mother.get('motherMiddleName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                            </ng-container> 
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 my-md-2">
+                                            <input type="text" formControlName="motherLastName" class="form-control" placeholder="Last Name">
+                                            <ng-container *ngIf="mother.get('motherLastName').invalid && mother.get('motherLastName').touched" class="alert alert-danger">
+                                                <span *ngIf="mother.get('motherLastName').errors.required" class="text-danger">Last Name is required</span>
+                                                <span *ngIf="mother.get('motherLastName').errors.str" class="text-danger">Name cannot include numbers</span>
+                                            </ng-container> 
+                                        </div>
+                                    </div>
+                                    <input type="email" formControlName="motherEmail" class="form-control my-2" placeholder="Email">
+                                    <ng-container *ngIf="mother.get('motherEmail').invalid && mother.get('motherEmail').touched" class="alert alert-danger">
+                                        <span *ngIf="mother.get('motherEmail').errors.required" class="text-danger">Email is required</span>
+                                        <span *ngIf="mother.get('motherEmail').errors.email" class="text-danger">Enter proper email</span>
+                                    </ng-container> 
+
+                                    <input type="text" formControlName="motherEducationQualification" class="form-control my-2" placeholder="Education Qualification">
+                                    <ng-container *ngIf="mother.get('motherEducationQualification').invalid && mother.get('motherEducationQualification').touched" class="alert alert-danger">
+                                        <span *ngIf="mother.get('motherEducationQualification').errors.required" class="text-danger">EducationQualification is required</span>
+                                    </ng-container> 
+
+                                    <input type="text" formControlName="motherProfession" class="form-control my-2" placeholder="Profession">
+                                    <ng-container *ngIf="mother.get('motherProfession').invalid && mother.get('motherProfession').touched" class="alert alert-danger">
+                                        <span *ngIf="mother.get('motherProfession').errors.required" class="text-danger">Profession is required</span>
+                                        <span *ngIf="mother.get('motherProfession').errors.str" class="text-danger">Profession cannot include numbers</span>
+                                    </ng-container> 
+
+                                    <input type="text" formControlName="motherDesignation" class="form-control my-2" placeholder="Designation">
+                                    <ng-container *ngIf="mother.get('motherDesignation').invalid && mother.get('motherDesignation').touched" class="alert alert-danger">
+                                        <span *ngIf="mother.get('motherDesignation').errors.required" class="text-danger">Designation is required</span>
+                                        <span *ngIf="mother.get('motherDesignation').errors.str" class="text-danger">Designation cannot include numbers</span>
+                                    </ng-container> 
+
+                                    <input type="number" formControlName="motherPhoneNumber" class="form-control my-2" placeholder="Phone">
+                                    <ng-container *ngIf="mother.get('motherPhoneNumber').invalid && mother.get('motherPhoneNumber').touched" class="alert alert-danger">
+                                        <span *ngIf="mother.get('motherPhoneNumber').errors.required" class="text-danger">Phone is required</span>
+                                        <span *ngIf="mother.get('motherPhoneNumber').errors.phone" class="text-danger">Phone must be of 10 digits</span>
+                                    </ng-container> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div formArrayName="emergencyContacts" class="my-3">
+                        <h4>Emergency Contact : </h4>
+                        <div *ngFor="let contact of EmergencyContact.controls; let i = index" [formGroupName]="i">
+                            <div>
+                                <div class="row">
+                                    <div class="form-group col-sm-12 col-md-6 col-lg">
+                                        <input type="text" formControlName="relation" class="form-control mb-3" placeholder="Relation">
+                                        <ng-container *ngIf="contact.get('relation').invalid && contact.get('relation').touched" class="alert alert-danger">
+                                            <span *ngIf="contact.get('relation').errors.required" class="text-danger">Relation is required</span>
+                                            <span *ngIf="contact.get('relation').errors.str" class="text-danger">Name cannot include numbers</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-6 col-lg">
+                                        <input type="number" formControlName="phoneNumber" class="form-control mb-3" placeholder="Contact Number">
+                                        <ng-container *ngIf="contact.get('phoneNumber').invalid && contact.get('phoneNumber').touched" class="alert alert-danger">
+                                            <span *ngIf="contact.get('phoneNumber').errors.required" class="text-danger">Phone is required</span>
+                                            <span *ngIf="contact.get('phoneNumber').errors.phone" class="text-danger">Phone must be of 10 digits</span>
+                                        </ng-container>
+                                    </div>
+                                    <div class="form-group col-lg-1 col-sm-12 mb-2">
+                                        <button class="btn btn-primary" (click)="removeEmergency(i)">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary my-2" (click)="addEmergency()">Add Emergency Contact</button>
+                    </div>
+                    <div formArrayName="referenceDetails" class="my-3">
+                        <h4>Reference Detail : </h4>
+                        <div *ngFor="let contact of ReferenceDetail.controls; let i = index" [formGroupName]="i">
+                            <div>
+                                <div class="row">
+                                    <div class="form-group col-sm-12 col-md-4">
+                                        <input type="text" formControlName="referenceThrough" class="form-control mb-3" placeholder="Reference Through">
+                                        <ng-container *ngIf="contact.get('referenceThrough').invalid && contact.get('referenceThrough').touched" class="alert alert-danger">
+                                            <span *ngIf="contact.get('referenceThrough').errors.required" class="text-danger">Referencee Name is required</span>
+                                            <span *ngIf="contact.get('referenceThrough').errors.str" class="text-danger">Name cannot include numbers</span>
+                                        </ng-container> 
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4">
+                                        <input type="text" formControlName="referenceAddress" class="form-control mb-3" placeholder="Reference Address">
+                                        <ng-container *ngIf="contact.get('referenceThrough').invalid && contact.get('referenceThrough').touched" class="alert alert-danger">
+                                            <span *ngIf="contact.get('referenceThrough').errors.required" class="text-danger">Address is required</span>
+                                        </ng-container> 
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4">
+                                        <input type="number" formControlName="referencePhone" class="form-control mb-3" placeholder="Reference Phone Number">
+                                        <ng-container *ngIf="contact.get('referencePhone').invalid && contact.get('referencePhone').touched" class="alert alert-danger">
+                                            <span *ngIf="contact.get('referencePhone').errors.required" class="text-danger">Phone is required</span>
+                                            <span *ngIf="contact.get('referencePhone').errors.phone" class="text-danger">Phone must be of 10 digits</span>
+                                        </ng-container> 
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md mb-2">
+                                        <button class="btn btn-primary" (click)="removeReference(i)">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary my-2" (click)="addReference()">Add Reference Detail</button>
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary px-5" [disabled]="this.AdmissionForm.invalid" (click)="submit(AdmissionForm.value)">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

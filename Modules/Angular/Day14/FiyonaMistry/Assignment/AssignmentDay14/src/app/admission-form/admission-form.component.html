@@ -251,10 +251,9 @@
                     <button class="btn btn-primary my-2" (click)="addReference()">Add Reference Detail</button>
                 </div>
                 <div class="form-group text-center">
-                    <button class="btn btn-primary px-5" (click)="submit()">Submit</button>
+                    <button class="btn btn-primary px-5" [disabled]="this.AdmissionForm.invalid" (click)="submit()">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<!-- [disabled]="this.AdmissionForm.invalid" -->
