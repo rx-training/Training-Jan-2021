@@ -78,6 +78,20 @@ namespace BookMyShowAPI.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("Activities/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Activity>> GetActivityByPrice(int min, int max)
+        {
+            var entity = events.GetActivitiesByPrice(min, max);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+
         // GET: api/BookMyShow/Events/Comedies
         [HttpGet("Comedies")]
         public ActionResult<IEnumerable<Comedy>> GetComedies()
@@ -104,6 +118,19 @@ namespace BookMyShowAPI.Controllers
         public ActionResult<Comedy> GetComediesByCity(string city)
         {
             var entity = events.GetComedyByCity(city);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+        [HttpGet("Comedies/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Comedy>> GetComediesByPrice(int min, int max)
+        {
+            var entity = events.GetComedyByPrice(min, max);
 
             if (entity == null)
             {
@@ -148,6 +175,19 @@ namespace BookMyShowAPI.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("Outdoors/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Outdoor>> GetOutdoorByPrice(int min, int max)
+        {
+            var entity = events.GetOutdoorsByPrice(min, max);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
         // GET: api/BookMyShow/Events/Plays
         [HttpGet("Plays")]
         public ActionResult<IEnumerable<Play>> GetPlays()
@@ -174,6 +214,19 @@ namespace BookMyShowAPI.Controllers
         public ActionResult<Play> GetPlayByCity(string city)
         {
             var entity = events.GetPlaysByCity(city);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+        [HttpGet("Plays/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Play>> GetPlayByPrice(int min, int max)
+        {
+            var entity = events.GetPlaysByPrice(min, max);
 
             if (entity == null)
             {
@@ -218,6 +271,19 @@ namespace BookMyShowAPI.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("Populars/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Popular>> GetPopularByPrice(int min, int max)
+        {
+            var entity = events.GetPopularsByPrice(min, max);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
         // GET: api/BookMyShow/Events/Sports
         [HttpGet("Sports")]
         public ActionResult<IEnumerable<Sport>> GetSports()
@@ -244,6 +310,19 @@ namespace BookMyShowAPI.Controllers
         public ActionResult<Sport> GetSportByCity(string city)
         {
             var entity = events.GetSportsByCity(city);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+        [HttpGet("Sports/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Sport>> GetSportByPrice(int min, int max)
+        {
+            var entity = events.GetSportsByPrice(min, max);
 
             if (entity == null)
             {

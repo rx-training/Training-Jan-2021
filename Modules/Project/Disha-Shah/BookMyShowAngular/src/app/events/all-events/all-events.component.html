@@ -1,0 +1,43 @@
+<div class="bg-light">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <h4>Filters</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Category</h5>
+                        <div class="mb-3">
+                            <select class="custom-select" (change)="changeCategory($event)">
+                                <option selected>Choose Category</option>
+                                <option>Outdoors</option>
+                                <option>Comedy</option>
+                                <option>Populars</option>
+                            </select>
+                        </div>
+                        <h5>Price</h5>
+                        <div class="mb-3">
+                            <select class="custom-select" (change)="changePrice($event)">
+                                <option selected>Choose Price</option>
+                                <option>0-500</option>
+                                <option>501-2000</option>
+                                <option>2001-100000</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-9">
+                <h4>Events</h4>
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 mb-4" *ngFor = "let e of uniqueEventsList">
+                        <a href="#" class="text-decoration-none">
+                            <img [src]="'../../assets/' + e.image" alt="" loading="lazy" class="w-100 rounded">
+                            <h6 style="color: black;" class="pt-3">{{e.event}}</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

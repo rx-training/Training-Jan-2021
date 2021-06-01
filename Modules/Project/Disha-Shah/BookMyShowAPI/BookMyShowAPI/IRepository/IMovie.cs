@@ -24,6 +24,8 @@ namespace BookMyShowAPI.IRepository
         public void CreateMovieFilmCategories(int id, string filmCategory);
         public void DeleteMovieFilmCategories(int id, string filmCategory);
 
+        public IEnumerable GetMoviesByGenreLanguage(string genre, string language);
+
         public IEnumerable GetLanguagesByMovie(int id);
         public IEnumerable GetFilmCategoriesByLanguage(int id, string language);
         public IEnumerable GetTheatresByFilmCategory(int id, string language, string filmCategory);

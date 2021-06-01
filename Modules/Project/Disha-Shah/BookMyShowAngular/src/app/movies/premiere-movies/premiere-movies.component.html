@@ -1,10 +1,20 @@
 <div class="container text-white py-5 d-none d-lg-block">
-    <h4 class="font-weight-bold h3">Premieres</h4>
-    <h6>Brand new releases every Friday</h6>
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="font-weight-bold h3">Premieres</h4>
+            <h6>Brand new releases every Friday</h6>
+        </div>
+        <div class="col-md-6">
+            <a routerLink="movies" routerLinkActive="active" class="text-decoration-none">
+                <h6 class="font-weight-normal text-right" style="color: rgb(253, 98, 124);">See All &gt;
+                </h6>
+            </a>
+        </div>
+    </div>
 
     <div class="row slick-entertainment" id="premiereMovies">
 
-        <div class="col-lg-3" *ngFor="let movie of moviesList">
+        <div class="col-lg-3" *ngFor="let movie of finalList">
             <div>
                 <div class="slide-content">
                     <a href="#">
@@ -36,7 +46,7 @@
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" id="premiereCarousel">
-            <ng-container *ngFor="let movie of moviesList; let f = first">
+            <ng-container *ngFor="let movie of finalList; let f = first">
                 <ng-container *ngIf = "f==true">
                     <div class="carousel-item active pt-3 pb-5">
                         <div class="d-flex flex-row flex-fill py-3">
@@ -115,28 +125,6 @@
             </ng-container>
             
         </div>
-
-        <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active col-3">
-                <img class="d-block w-100" src="../../../assets/images/entertainment-1.png" alt="First slide">
-              </div>
-              <div class="carousel-item col-3">
-                <img class="d-block w-100" src="../../../assets/images/entertainment-10.png" alt="Second slide">
-              </div>
-              <div class="carousel-item col-3">
-                <img class="d-block w-100" src="../../../assets/images/entertainment-2.png" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div> -->
 
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

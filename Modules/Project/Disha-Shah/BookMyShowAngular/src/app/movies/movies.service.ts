@@ -20,6 +20,21 @@ export class MoviesService {
   getMovies(): Observable<IMovies[]> {
     return this.http.get<IMovies[]>(this.moviesUrl);
   }
+
+  getMoviesByGenre(genre: string): Observable<IMovies[]>{
+    const url = `${this.moviesUrl}/Genres/${genre}`; 
+    return this.http.get<IMovies[]>(url);
+  }
+  
+  getMoviesByLanguage(language: string): Observable<IMovies[]>{
+    const url = `${this.moviesUrl}/Languages/${language}`; 
+    return this.http.get<IMovies[]>(url);
+  }
+  
+  getMoviesByGenreLanguage(genre: string, language: string): Observable<IMovies[]>{
+    const url = `${this.moviesUrl}/Genres/${genre}/Languages/${language}`;
+    return this.http.get<IMovies[]>(url);
+  }
   
   // /** POST: add a new hero to the server */
   // addStudent(student: IStudent): Observable<IStudent> {

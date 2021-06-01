@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
 import { LanguageService } from 'src/app/language.service';
 import { ILanguages } from 'src/app/models/ILanguages';
-import { IOutdoors } from 'src/app/models/IOutdoors';
-import { OutdoorService } from '../outdoor.service';
+import { IActivities } from 'src/app/models/IActivities';
+import { EventsService } from '../events.service';
 
 @Component({
   selector: 'app-outdoor',
@@ -12,13 +12,15 @@ import { OutdoorService } from '../outdoor.service';
 })
 export class OutdoorComponent implements OnInit {
 
-  outdoorsList: Array<IOutdoors> = [];
+  outdoorsList: Array<IActivities> = [];
 
-  uniqueOutdoorsList: Array<IOutdoors> = [];
+  uniqueOutdoorsList: Array<IActivities> = [];
+
+  finalList: Array<IActivities> = [];
 
   languagesList: Array<ILanguages> = [];
 
-  showTimes: Array<any> = [];
+  languages: Array<any> = [];
 
   getOutdoors(): void{
     this.service.getOutdoors()
@@ -26,35 +28,27 @@ export class OutdoorComponent implements OnInit {
       this.outdoorsList = outdoors,
       console.log(this.outdoorsList), 
       this.uniqueOutdoorsList = this.outdoorsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
-      console.log(this.uniqueOutdoorsList)
+      console.log(this.uniqueOutdoorsList),
       this.uniqueOutdoorsList.forEach(element => {
         element.showTimings = [];
         element.languages = [];
+        this.languages = [];
         this.outdoorsList.forEach(item => {
           if(item.eventId == element.eventId){
             console.log(element.showTimings);
             element.showTimings.push({"showTime": item.showTime});
-            element.languages.push({"language": item.language});
+            this.languages.push({"language": item.language});
             console.log(element.showTimings);
 
           }
         }) 
-      this.showTimes = [...new Set(element.languages.map(i => i.language))];
-      console.log('lang' + this.showTimes);
+      element.languages = [...new Set(this.languages.map(i => i.language))];
+      console.log('lang' + element.languages);
       })
 
-      console.log(this.uniqueOutdoorsList)
-      // this.uniqueOutdoorsList.forEach(element => {
-      //   element.movieGenres.forEach(e => {
-      //     console.log(e.genreId);
-      //     this.genresList.forEach(g => {
-      //       if(e.genreId == g.genreId){
-      //         e.genre=g.genre1
-      //       }
-      //     })
-      //     console.log(e);
-      //   })
-      // })
+      console.log(this.uniqueOutdoorsList),
+      this.finalList = this.uniqueOutdoorsList.slice(0,10),
+      console.log(this.finalList)
     });  
   }
 
@@ -66,7 +60,7 @@ export class OutdoorComponent implements OnInit {
     }); 
   }
 
-  constructor(private service: OutdoorService, private languageService: LanguageService) { }
+  constructor(private service: EventsService, private languageService: LanguageService) { }
 
   ngOnInit(): void {
     this.getOutdoors();

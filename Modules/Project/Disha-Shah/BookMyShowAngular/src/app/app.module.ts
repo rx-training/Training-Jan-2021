@@ -13,6 +13,19 @@ import { GenreService } from './movies/genre.service';
 import { LanguageService } from './language.service';
 import { OutdoorComponent } from './events/outdoor/outdoor.component';
 import { ComediesComponent } from './events/comedies/comedies.component';
+import { PopularsComponent } from './events/populars/populars.component';
+import { PlaysComponent } from './events/plays/plays.component';
+import { SportsComponent } from './events/sports/sports.component';
+import { ActivitiesComponent } from './events/activities/activities.component';
+import { UserFooterComponent } from './user-footer/user-footer.component';
+import { UserTopSliderComponent } from './user-top-slider/user-top-slider.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-movies-events.component';
+import { AllMoviesComponent } from './movies/all-movies/all-movies.component';
+import { AllEventsComponent } from './events/all-events/all-events.component';
+import { AllPlaysComponent } from './events/all-plays/all-plays.component';
+import { AllSportsComponent } from './events/all-sports/all-sports.component';
+import { AllActivitiesComponent } from './events/all-activities/all-activities.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +35,20 @@ import { ComediesComponent } from './events/comedies/comedies.component';
     RecommendedMoviesComponent,
     PremiereMoviesComponent,
     OutdoorComponent,
-    ComediesComponent
+    ComediesComponent,
+    PopularsComponent,
+    PlaysComponent,
+    SportsComponent,
+    ActivitiesComponent,
+    UserFooterComponent,
+    UserTopSliderComponent,
+    PageNotFoundComponent,
+    HomeAllMoviesEventsComponent,
+    AllMoviesComponent,
+    AllEventsComponent,
+    AllPlaysComponent,
+    AllSportsComponent,
+    AllActivitiesComponent
   ],
   imports: [
     BrowserModule,

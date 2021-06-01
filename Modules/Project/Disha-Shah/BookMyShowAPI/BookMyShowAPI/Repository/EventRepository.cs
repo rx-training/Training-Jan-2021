@@ -18,26 +18,28 @@ namespace BookMyShowAPI.Repository
         // Get information of all events
         public IEnumerable GetAllEvents()
         {
-            var events = context.Events;
+            var events = context.VEvents;
 
-            var e1 = from x in events
-                     select new Event
-                     {
-                         EventId = x.EventId,
-                         EventType = x.EventType,
-                         EventTypeId = x.EventTypeId,
-                         Image = x.Image,
-                         DateOfEvent = x.DateOfEvent,
-                         Name = x.Name,
-                         TicketPrice = x.TicketPrice,
-                         Time = x.Time,
-                         EventLanguages = context.EventLanguages.Where(e => e.EventId == x.EventId).ToArray(),
-                         EventVenueShowTimingId = x.EventVenueShowTimingId,
-                         EventVenueShowTiming = x.EventVenueShowTiming,
-                     };
+            //var e1 = from x in events
+            //         select new Event
+            //         {
+            //             EventId = x.EventId,
+            //             EventType = x.EventType,
+            //             EventTypeId = x.EventTypeId,
+            //             Image = x.Image,
+            //             DateOfEvent = x.DateOfEvent,
+            //             Name = x.Name,
+            //             TicketPrice = x.TicketPrice,
+            //             Time = x.Time,
+            //             EventLanguages = context.EventLanguages.Where(e => e.EventId == x.EventId).ToArray(),
+            //             EventVenueShowTimingId = x.EventVenueShowTimingId,
+            //             EventVenueShowTiming = x.EventVenueShowTiming,
+            //         };
 
 
-            return e1;
+            //return e1;
+
+            return events;
         }
 
         // Get information of a particular event
@@ -328,6 +330,54 @@ namespace BookMyShowAPI.Repository
                                 .ToList();
 
             return sports;
+        }
+
+        public IEnumerable GetActivitiesByPrice(int min, int max)
+        {
+            var events = context.Activities
+                                    .Where(x => x.TicketPrice >= min && x.TicketPrice <= max);
+
+            return events;
+        }
+
+        public IEnumerable GetComedyByPrice(int min, int max)
+        {
+            var events = context.Comedys
+                                    .Where(x => x.TicketPrice >= min && x.TicketPrice <= max);
+
+            return events;
+        }
+
+        public IEnumerable GetOutdoorsByPrice(int min, int max)
+        {
+            var events = context.Outdoors
+                                    .Where(x => x.TicketPrice >= min && x.TicketPrice <= max);
+
+            return events;
+        }
+
+        public IEnumerable GetPlaysByPrice(int min, int max)
+        {
+            var events = context.Plays
+                                    .Where(x => x.TicketPrice >= min && x.TicketPrice <= max);
+
+            return events;
+        }
+
+        public IEnumerable GetPopularsByPrice(int min, int max)
+        {
+            var events = context.Populars
+                                    .Where(x => x.TicketPrice >= min && x.TicketPrice <= max);
+
+            return events;
+        }
+
+        public IEnumerable GetSportsByPrice(int min, int max)
+        {
+            var events = context.Sports
+                                    .Where(x => x.TicketPrice >= min && x.TicketPrice <= max);
+
+            return events;
         }
     }
 }

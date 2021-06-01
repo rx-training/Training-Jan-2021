@@ -1,1 +1,13 @@
-<p>comedies works!</p>
+<div class="row slick-recommended-movies" id="laughterTherapy">
+    <div class="col-sm-12 col-md-4 col-lg-3" *ngFor="let event of finalList">
+        <div>
+            <div class="slide-content">
+                <a href="#" class="text-decoration-none">
+                    <img [src]="'../../assets/' + event.image" alt="" loading="lazy" class="w-100 rounded">
+                    <h6 style="color: black;" class="pt-3">{{event.event}}</h6>
+                    <h6 class="text-muted font-weight-normal d-none d-lg-block">{{event.eventVenue}}</h6>
+                </a>
+            </div>
+        </div>
+    </div>                 
+</div>

@@ -47,6 +47,12 @@ namespace BookMyShowAPI.Controllers
             return Ok(movies.GetMoviesByFilmCategory(filmCategory));
         }
 
+        [HttpGet("Genres/{genre}/Languages/{language}")]
+        public ActionResult<IEnumerable<Movie>> GetMovieByGenreLanguage(string genre, string language)
+        {
+            return Ok(movies.GetMoviesByGenreLanguage(genre, language));
+        }
+
         // GET: api/BookMyShow/Movies/5
         [HttpGet("{id}")]
         public ActionResult<Movie> GetMovie(int id)

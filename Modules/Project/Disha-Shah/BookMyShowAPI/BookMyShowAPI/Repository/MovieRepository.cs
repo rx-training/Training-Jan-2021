@@ -394,5 +394,14 @@ namespace BookMyShowAPI.Repository
 
             return seats;
         }
+
+        public IEnumerable GetMoviesByGenreLanguage(string genre, string language)
+        {
+            var movie = context.VMovies
+                                .Where(x => x.Language == language && x.Genre == genre)
+                                .ToList();
+
+            return movie;
+        }
     }
 }

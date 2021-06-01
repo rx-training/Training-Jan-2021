@@ -1,0 +1,43 @@
+<div class="bg-light">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <h4>Filters</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Genre</h5>
+                        <div class="mb-3">
+                            <select class="custom-select" (change)="changeGenre($event)">
+                                <option selected>Choose Genre</option>
+                                <option *ngFor = "let genre of genresList">
+                                    {{genre.genre1}}
+                                </option>
+                            </select>
+                        </div>
+                        <h5>Language</h5>
+                        <div class="mb-3">
+                            <select class="custom-select" (change)="changeLanguage($event)">
+                                <option selected>Choose Language</option>
+                                <option *ngFor = "let language of languagesList">
+                                    {{language.language1}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-9">
+                <h4>Movies</h4>
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 mb-4" *ngFor = "let movie of moviesList">
+                        <a href="#" class="text-decoration-none">
+                            <img [src]="'../../assets/' + movie.image" alt="" loading="lazy" class="w-100 rounded">
+                            <h6 style="color: black;" class="pt-3">{{movie.name}}</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

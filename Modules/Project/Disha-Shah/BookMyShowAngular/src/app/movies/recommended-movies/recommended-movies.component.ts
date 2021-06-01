@@ -13,6 +13,8 @@ export class RecommendedMoviesComponent implements OnInit {
   moviesList: Array<IMovies> = [];
 
   genresList: Array<any> = [];
+
+  finalList: Array<IMovies> = [];
   
   // getMovies(): void{
   //   this.service.getMovies()
@@ -60,7 +62,9 @@ export class RecommendedMoviesComponent implements OnInit {
           console.log(e);
         })
       }),
-      console.log(this.moviesList)
+      console.log(this.moviesList),
+      this.finalList = this.moviesList.slice(0,10),
+      console.log(this.finalList)
     });  
   }
 

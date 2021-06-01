@@ -22,25 +22,31 @@ namespace BookMyShowAPI.IRepository
         public IEnumerable GetAllActivities();
         public IEnumerable GetActivityByName(string activity);
         public IEnumerable GetActivityByCity(string city);
+        public IEnumerable GetActivitiesByPrice(int min, int max);
 
         public IEnumerable GetAllComedys();
         public IEnumerable GetComedyByName(string comedy);
         public IEnumerable GetComedyByCity(string city);
+        public IEnumerable GetComedyByPrice(int min, int max);
 
         public IEnumerable GetAllOutdoors();
         public IEnumerable GetOutdoorsByName(string outdoor);
         public IEnumerable GetOutdoorsByCity(string city);
+        public IEnumerable GetOutdoorsByPrice(int min, int max);
 
         public IEnumerable GetAllPlays();
         public IEnumerable GetPlaysByName(string play);
         public IEnumerable GetPlaysByCity(string city);
+        public IEnumerable GetPlaysByPrice(int min, int max);
 
         public IEnumerable GetAllPopulars();
         public IEnumerable GetPopularsByName(string popular);
         public IEnumerable GetPopularsByCity(string city);
+        public IEnumerable GetPopularsByPrice(int min, int max);
 
         public IEnumerable GetAllSports();
         public IEnumerable GetSportsByName(string sport);
         public IEnumerable GetSportsByCity(string city);
+        public IEnumerable GetSportsByPrice(int min, int max);
     }
 }

@@ -1,4 +1,4 @@
-export interface IComedies{
+export interface IActivities{
     eventId: number;
     event: string;
     image: string;
@@ -18,5 +18,6 @@ export interface IComedies{
     showTimingId: number,
     languageId: number,
     language: string,
-    showTimings: Array<any>
+    showTimings: Array<any>,
+    languages: Array<any>
 }
