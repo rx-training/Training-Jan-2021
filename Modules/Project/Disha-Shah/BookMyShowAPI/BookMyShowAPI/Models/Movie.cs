@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -24,6 +25,9 @@ namespace BookMyShowAPI.Models
         public int CertificationId { get; set; }
         public bool? IsRecommended { get; set; }
         public bool? IsPremiere { get; set; }
+        public string BackgroundImage { get; set; }
+        public string Cast { get; set; }
+        public string CastImages { get; set; }
 
         public virtual Certification Certification { get; set; }
         public virtual ICollection<MovieFilmCategory> MovieFilmCategories { get; set; }

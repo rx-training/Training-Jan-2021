@@ -255,6 +255,41 @@ namespace BookMyShowAPI.Models
                     .HasForeignKey(d => d.EventVenueShowTimingId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("EventVenueShowTimings_EventVenueShowTimingId_FK");
+
+                entity.Property(e => e.MinAge)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.BackgroundImage)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.About)
+                    .HasMaxLength(5000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Note)
+                    .HasMaxLength(10000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ArtistName)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ArtistImage)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Disclaimer)
+                    .HasMaxLength(20000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FAQs)
+                    .HasMaxLength(20000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TermsAndConditions)
+                    .HasMaxLength(20000)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<EventBooking>(entity =>
@@ -410,6 +445,18 @@ namespace BookMyShowAPI.Models
                     .HasForeignKey(d => d.CertificationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Certifications_CertificationId_FK");
+
+                entity.Property(e => e.BackgroundImage)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Cast)
+                    .HasMaxLength(2000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CastImages)
+                    .HasMaxLength(10000)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<MovieBooking>(entity =>

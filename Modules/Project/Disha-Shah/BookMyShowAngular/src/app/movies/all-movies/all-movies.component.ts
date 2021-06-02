@@ -35,7 +35,7 @@ export class AllMoviesComponent implements OnInit, OnChanges {
   }
 
   filterRoute(){
-    if(this.genre == 'Choose Genre' && this.language == 'Choose Language')
+    if((this.genre == 'Choose Genre' && this.language == 'Choose Language') || (this.genre == '' && this.language == 'Choose Language') || (this.genre == 'Choose Genre' && this.language == ''))
     {
       this.router.navigate(['home/movies']);
       this.getMovies();

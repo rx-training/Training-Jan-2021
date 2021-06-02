@@ -17,7 +17,7 @@
         <div class="col-lg-3" *ngFor="let movie of finalList">
             <div>
                 <div class="slide-content">
-                    <a href="#">
+                    <a routerLink="/movies/{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" >
                         <img [src]="'../../assets/' + movie.image" alt="" loading="lazy" class="w-100 rounded">
                     </a>
                     <h6 style="color: white;" class="pt-3">{{movie.name}}</h6>
@@ -51,7 +51,7 @@
                     <div class="carousel-item active pt-3 pb-5">
                         <div class="d-flex flex-row flex-fill py-3">
                             <div class="flex-grow-1 pr-3">
-                                <a href="#">
+                                <a routerLink="/movies/{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" >
                                     <img [src]="'../../../assets/' + movie.image" alt="" loading="lazy" class="w-100 rounded">
                                 </a>
                             </div>
@@ -89,7 +89,7 @@
                     <div class="carousel-item pt-3 pb-5">
                         <div class="d-flex flex-row flex-fill py-3">
                             <div class="flex-grow-1 pr-3">
-                                <a href="#">
+                                <a routerLink="/movies/{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" >
                                     <img [src]="'../../../assets/' + movie.image" alt="" loading="lazy" class="w-100 rounded">
                                 </a>
                             </div>

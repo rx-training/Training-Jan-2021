@@ -50,7 +50,7 @@ export class AllEventsComponent implements OnInit, OnChanges {
   }
 
   filterRoute(){
-    if(this.category == 'Choose Category' && this.price == 'Choose Price')
+    if((this.category == 'Choose Category' && this.price == 'Choose Price') || (this.category == '' && this.price == 'Choose Price') || (this.category == 'Choose Category' && this.price == ''))
     {
       this.router.navigate(['home/events']);
       this.getEvents();

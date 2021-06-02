@@ -33,6 +33,9 @@ namespace BookMyShowAPI.Repository
                          MovieId = x.MovieId,
                          Name = x.Name,
                          Time = x.Time,
+                         BackgroundImage = x.BackgroundImage,
+                         Cast = x.Cast,
+                         CastImages= x.CastImages,
                          MovieGenres = context.MovieGenres.Where(m => m.MovieId == x.MovieId).ToArray(),
                          MovieFilmCategories = context.MovieFilmCategories.Where(m => m.MovieId == x.MovieId).ToArray(),
                          MovieLanguages = context.MovieLanguages.Where(m => m.MovieId == x.MovieId).ToArray(),
@@ -50,11 +53,38 @@ namespace BookMyShowAPI.Repository
         // Get information of a particular movie
         public IEnumerable GetMovieById(int id)
         {
-            var movie = context.VMovies
-                                .Where(x=>x.MovieId==id)
-                                .ToList();
+            var movies = context.Movies
+                                .Where(x=>x.MovieId == id);
 
-            return movie;
+            var m1 = from x in movies
+                     select new Movie
+                     {
+                         About = x.About,
+                         Certification = x.Certification,
+                         CertificationId = x.CertificationId,
+                         DateOfRelease = x.DateOfRelease,
+                         Image = x.Image,
+                         IsPremiere = x.IsPremiere,
+                         IsRecommended = x.IsRecommended,
+                         MovieId = x.MovieId,
+                         Name = x.Name,
+                         Time = x.Time,
+                         BackgroundImage = x.BackgroundImage,
+                         Cast = x.Cast,
+                         CastImages = x.CastImages,
+                         MovieGenres = context.MovieGenres.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieFilmCategories = context.MovieFilmCategories.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieLanguages = context.MovieLanguages.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         ScreensMovies = context.ScreensMovies.Where(m => m.MovieId == x.MovieId).ToArray()
+                     };
+
+            return m1;
+
+            //var movie = context.VMovies
+            //                    .Where(x=>x.MovieId==id)
+            //                    .ToList();
+
+            //return movie;
         }
 
         // Add Movie
@@ -305,6 +335,40 @@ namespace BookMyShowAPI.Repository
                                 .Distinct();
 
             return theatres;
+        }
+
+        public IEnumerable GetShowTimingsByTheatre(int id, string language, string filmCategory, int theatreId)
+        {
+            var movie = context.Movies.SingleOrDefault(x => x.MovieId == id);
+
+            var showTimings = context.TheatresMovies
+                                .Where(x => x.Movie == movie.Name && x.Language == language && x.FilmCategory == filmCategory && x.TheatreId == theatreId)
+                                .Select(x => new TheatresMovie
+                                {
+                                    Movie = x.Movie,
+                                    About = x.About,
+                                    DateOfRelease = x.DateOfRelease,
+                                    Image = x.Image,
+                                    IsPremiere = x.IsPremiere,
+                                    IsRecommended = x.IsRecommended,
+                                    Time = x.Time,
+                                    Certification = x.Certification,
+                                    CertificationId = x.CertificationId,
+                                    Language = x.Language,
+                                    LanguageId = x.LanguageId,
+                                    FilmCategory = x.FilmCategory,
+                                    FilmCategoryId = x.FilmCategoryId,
+                                    TheatreId = x.TheatreId,
+                                    Theatre = x.Theatre,
+                                    Address = x.Address,
+                                    City = x.City,
+                                    CityId = x.CityId,
+                                    ShowTime = x.ShowTime,
+                                    ShowTimingId = x.ShowTimingId
+                                })
+                                .Distinct();
+
+            return showTimings;
         }
 
         // Get Seatcategory and seats for a particular movie and theatre

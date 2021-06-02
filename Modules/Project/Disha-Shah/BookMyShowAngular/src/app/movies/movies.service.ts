@@ -21,6 +21,11 @@ export class MoviesService {
     return this.http.get<IMovies[]>(this.moviesUrl);
   }
 
+  getMovie(id: number): Observable<IMovies[]> {
+    const url = `${this.moviesUrl}/${id}`; 
+    return this.http.get<IMovies[]>(url);
+  }
+
   getMoviesByGenre(genre: string): Observable<IMovies[]>{
     const url = `${this.moviesUrl}/Genres/${genre}`; 
     return this.http.get<IMovies[]>(url);
@@ -33,6 +38,16 @@ export class MoviesService {
   
   getMoviesByGenreLanguage(genre: string, language: string): Observable<IMovies[]>{
     const url = `${this.moviesUrl}/Genres/${genre}/Languages/${language}`;
+    return this.http.get<IMovies[]>(url);
+  }
+
+  getFilmCategoriesByLanguages(id: number, language: string): Observable<IMovies[]>{
+    const url = `${this.moviesUrl}/${id}/Languages/${language}/FilmCategories`;
+    return this.http.get<IMovies[]>(url);
+  }
+
+  getTheatresBySelectedMovieCategory(id: number, language: string, filmCategory: string): Observable<IMovies[]>{
+    const url = `${this.moviesUrl}/${id}/Languages/${language}/FilmCategories/${filmCategory}/Theatres`;
     return this.http.get<IMovies[]>(url);
   }
   

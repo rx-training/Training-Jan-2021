@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { AllActivitiesComponent } from './events/all-activities/all-activities.component';
 import { AllEventsComponent } from './events/all-events/all-events.component';
 import { AllPlaysComponent } from './events/all-plays/all-plays.component';
@@ -7,6 +8,8 @@ import { AllSportsComponent } from './events/all-sports/all-sports.component';
 import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-movies-events.component';
 import { HomeComponent } from './home/home.component';
 import { AllMoviesComponent } from './movies/all-movies/all-movies.component';
+import { MovieComponent } from './movies/movie/movie/movie.component';
+import { SelectShowTimeComponent } from './movies/movie/select-show-time/select-show-time.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -62,6 +65,19 @@ const routes: Routes = [
       ]
     }
   ]  },
+  {
+    path: 'movies',
+    children: [
+      {
+        path: ':name/:id',
+        component: MovieComponent
+      },
+      {
+        path: ':name/:id/showTimings/:language/:category',
+        component: SelectShowTimeComponent
+      }
+    ]
+  },
   { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

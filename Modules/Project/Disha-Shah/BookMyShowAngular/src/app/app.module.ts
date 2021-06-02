@@ -26,6 +26,8 @@ import { AllEventsComponent } from './events/all-events/all-events.component';
 import { AllPlaysComponent } from './events/all-plays/all-plays.component';
 import { AllSportsComponent } from './events/all-sports/all-sports.component';
 import { AllActivitiesComponent } from './events/all-activities/all-activities.component';
+import { MovieComponent } from './movies/movie/movie/movie.component';
+import { SelectShowTimeComponent } from './movies/movie/select-show-time/select-show-time.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { AllActivitiesComponent } from './events/all-activities/all-activities.c
     AllEventsComponent,
     AllPlaysComponent,
     AllSportsComponent,
-    AllActivitiesComponent
+    AllActivitiesComponent,
+    MovieComponent,
+    SelectShowTimeComponent
   ],
   imports: [
     BrowserModule,

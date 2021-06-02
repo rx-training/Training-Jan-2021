@@ -55,6 +55,10 @@
   margin-top: -20px;
   margin-right: -10px; }
 
+.movieContent {
+  color: white;
+}
+
 @media only screen and (max-width: 575px) {
   #main-content {
     margin-left: 20px; }
@@ -69,7 +73,11 @@
   .slick-recommended-movies .slick-next:before, .slick-entertainment .slick-next:before {
     display: none; }
   .below-navbar {
-    width: 104%; } }
+    width: 104%; }
+  .movieContent{
+    padding: 20px;
+  }
+}
 
 .col-2 img {
   margin-top: 100px;
@@ -86,7 +94,11 @@
   .slick-recommended-movies .slick-next:before, .slick-entertainment .slick-next:before {
     display: none; }
   .below-navbar {
-    width: 104%; } }
+    width: 104%; }
+  .movieBgImg{
+    margin-right: -30px;
+  }
+}
 
 #outdoor-events .badge {
   font-size: medium; }

@@ -1,0 +1,68 @@
+<div class="showTimeHeader bg-dark">
+    <div class="container">
+        <div class="d-flex flex-row flex-wrap justify-content-between">
+            
+            <div class="pt-4 pb-2" id="showTimeMovie">
+                <h3 class="text-white h2 font-weight-normal">{{movie.name}}</h3>
+                <div class=" d-flex flex-row flex-wrap">
+                    <h6 class="btn btn-outline-light rounded-circle btn-sm mx-2">{{movie.certification.certification1}}</h6>
+                    <h6 class="btn btn-outline-light rounded-pill btn-sm mx-2" *ngFor = "let genres of movie.movieGenres; let l = last">
+                        <span class="font-weight-normal">
+                            {{genres.genre}}
+                        </span>
+                    </h6>
+                    <h6 class="text-white font-weight-light mx-2">{{dateOfRelease}}</h6>
+                    <h6 class="text-white font-weight-light mx-2">{{movie.time}}</h6>
+                </div>
+            </div>
+
+            <div class="pt-4 pb-2">
+                <h3 class="text-white h5 font-weight-normal">Cast:</h3>
+                    <span class="col" *ngFor = "let cast of castImagesList; let i = index">
+                        <img [src]="'../../../assets/' + cast" alt="" class="img-fluid rounded-circle" style="width: 50px; height: 50px;">
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="bg-white pt-2 pb-3">
+        <div class="container">
+            <div class="d-flex flex-row justify-content-between bg-white">
+                <div class="py-1" id="showDate">
+                    <ng-container *ngFor = "let date of datesList; let f = first">
+                        <ng-container *ngIf = "f==true">
+                            <a routerLink = "/movies/{{movie.name}}/{{movie.movieId}}/showTimings/{{language}}/{{category}}" id="showDateLink" class="btn btn-outline-danger mx-3 text-decoration-none">{{date}}</a>
+                        </ng-container>
+                        <ng-container *ngIf = "f==false">
+                            <a routerLink = "/movies/{{movie.name}}/{{movie.movieId}}/showTimings/{{language}}/{{category}}" id="showDateLink" class="btn btn-outline-danger mx-3 text-decoration-none">{{date}}</a>
+                        </ng-container>
+                    </ng-container>
+                </div>
+
+                <div class="py-1" id="showCategory">
+                    
+                </div>
+            </div>
+
+            <div class="pt-3">
+                <div class="d-flex flex-row flex-wrap justify-content-end">
+                    <small class="h6" style="color: green;">•&nbsp;</small><small>AVAILABLE</small>
+                    <small class="h6 ml-2" style="color: red;">•&nbsp;</small><small>FAST FILLING</small>
+                </div>
+                <hr>
+                <div id="theatreSelect">
+                    <div class="row">
+                        <div class="col-md-3" id="showTheatreName">
+
+                        </div>
+                        <div class="col-md-9" id="showTimings">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

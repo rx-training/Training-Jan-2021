@@ -24,6 +24,9 @@ export interface IMovies{
     time: string;
     isRecommended: boolean;
     isPremiere: boolean;
+    backgroundImage: string;
+    cast: string;
+    castImages: string;
     certificationId: number;
     certification: any;
     movieFilmCategories: Array<any>;
