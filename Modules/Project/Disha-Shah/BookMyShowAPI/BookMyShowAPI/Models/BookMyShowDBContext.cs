@@ -985,6 +985,8 @@ namespace BookMyShowAPI.Models
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+                entity.Property(e => e.EndDate).HasColumnType("date");
             });
 
             modelBuilder.Entity<User>(entity =>

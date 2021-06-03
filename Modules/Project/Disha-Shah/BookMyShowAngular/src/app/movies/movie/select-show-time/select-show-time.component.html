@@ -18,9 +18,9 @@
 
             <div class="pt-4 pb-2">
                 <h3 class="text-white h5 font-weight-normal">Cast:</h3>
-                    <span class="col" *ngFor = "let cast of castImagesList; let i = index">
-                        <img [src]="'../../../assets/' + cast" alt="" class="img-fluid rounded-circle" style="width: 50px; height: 50px;">
-                    </span>
+                <span class="col" *ngFor = "let cast of castImagesList; let i = index">
+                    <img [src]="'../../../../assets/' + cast" alt="" class="img-fluid rounded-circle" style="width: 50px; height: 50px;">
+                </span>
             </div>
         </div>
     </div>
@@ -32,17 +32,12 @@
             <div class="d-flex flex-row justify-content-between bg-white">
                 <div class="py-1" id="showDate">
                     <ng-container *ngFor = "let date of datesList; let f = first">
-                        <ng-container *ngIf = "f==true">
-                            <a routerLink = "/movies/{{movie.name}}/{{movie.movieId}}/showTimings/{{language}}/{{category}}" id="showDateLink" class="btn btn-outline-danger mx-3 text-decoration-none">{{date}}</a>
-                        </ng-container>
-                        <ng-container *ngIf = "f==false">
-                            <a routerLink = "/movies/{{movie.name}}/{{movie.movieId}}/showTimings/{{language}}/{{category}}" id="showDateLink" class="btn btn-outline-danger mx-3 text-decoration-none">{{date}}</a>
-                        </ng-container>
+                        <a routerLink = "{{date}}" routerLinkActive="active" id="showDateLink" class="btn btn-outline-danger mx-3 text-decoration-none" (click)="setTheatres()">{{date}}</a>
                     </ng-container>
                 </div>
 
                 <div class="py-1" id="showCategory">
-                    
+                    <div class="border-bottom border-danger">{{language}}-{{category}}</div>
                 </div>
             </div>
 
@@ -54,12 +49,7 @@
                 <hr>
                 <div id="theatreSelect">
                     <div class="row">
-                        <div class="col-md-3" id="showTheatreName">
-
-                        </div>
-                        <div class="col-md-9" id="showTimings">
-
-                        </div>
+                        <router-outlet></router-outlet>
                     </div>
                 </div>
             </div>

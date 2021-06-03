@@ -330,7 +330,8 @@ namespace BookMyShowAPI.Repository
                                     City = x.City,
                                     CityId = x.CityId,
                                     ShowTime=x.ShowTime,
-                                    ShowTimingId=x.ShowTimingId
+                                    ShowTimingId=x.ShowTimingId,
+                                    EndDate = x.EndDate
                                 })
                                 .Distinct();
 
@@ -364,7 +365,8 @@ namespace BookMyShowAPI.Repository
                                     City = x.City,
                                     CityId = x.CityId,
                                     ShowTime = x.ShowTime,
-                                    ShowTimingId = x.ShowTimingId
+                                    ShowTimingId = x.ShowTimingId,
+                                    EndDate = x.EndDate
                                 })
                                 .Distinct();
 

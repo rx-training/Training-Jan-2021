@@ -19,7 +19,7 @@ import { MoviesService } from '../../movies.service';
 export class MovieComponent implements OnInit {
 
   movies: Array<IMovies> = [];
-  movie: any;
+  movie: IMovies = {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
   dateOfRelease: any;
   languagesList: Array<ILanguages> = [];
   genresList: Array<IGenres> = [];

@@ -9,6 +9,8 @@ import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-
 import { HomeComponent } from './home/home.component';
 import { AllMoviesComponent } from './movies/all-movies/all-movies.component';
 import { MovieComponent } from './movies/movie/movie/movie.component';
+import { SeatingComponent } from './movies/movie/seating/seating.component';
+import { SelectDateComponent } from './movies/movie/select-date/select-date.component';
 import { SelectShowTimeComponent } from './movies/movie/select-show-time/select-show-time.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -74,7 +76,16 @@ const routes: Routes = [
       },
       {
         path: ':name/:id/showTimings/:language/:category',
-        component: SelectShowTimeComponent
+        component: SelectShowTimeComponent, children: [
+          {
+            path: ':date',
+            component: SelectDateComponent
+          }
+        ]
+      },
+      {
+        path: ':name/:id/showTimings/:language/:category/:date/:theatre/:theatreId/:showTime/:numberOfSeats',
+        component: SeatingComponent
       }
     ]
   },

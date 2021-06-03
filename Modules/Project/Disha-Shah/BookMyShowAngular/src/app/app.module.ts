@@ -28,6 +28,9 @@ import { AllSportsComponent } from './events/all-sports/all-sports.component';
 import { AllActivitiesComponent } from './events/all-activities/all-activities.component';
 import { MovieComponent } from './movies/movie/movie/movie.component';
 import { SelectShowTimeComponent } from './movies/movie/select-show-time/select-show-time.component';
+import { SelectDateComponent } from './movies/movie/select-date/select-date.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SeatingComponent } from './movies/movie/seating/seating.component';
 
 @NgModule({
   declarations: [
@@ -52,10 +55,13 @@ import { SelectShowTimeComponent } from './movies/movie/select-show-time/select-
     AllSportsComponent,
     AllActivitiesComponent,
     MovieComponent,
-    SelectShowTimeComponent
+    SelectShowTimeComponent,
+    SelectDateComponent,
+    SeatingComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

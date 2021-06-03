@@ -1,9 +1,9 @@
 <div>
-    <div [ngStyle]="{'background-image': 'url(../../../assets/' + movie.backgroundImage + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover'}" class="movieBgImg">    
+    <div [ngStyle]="{'background-image': 'url(../../../../assets/' + movie.backgroundImage + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover'}" class="movieBgImg">    
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-4 col-lg-3">
-                    <img [src]="'../../../assets/' + movie.image" alt="" class="img-fluid rounded " id="movieImg">
+                    <img [src]="'../../../../assets/' + movie.image" alt="" class="img-fluid rounded " id="movieImg">
                 </div>
                 <div class="col-md-8 col-lg-9 align-self-center" class="movieContent">
                     <h3 class="pb-3">{{movie.name}}</h3>
@@ -54,7 +54,7 @@
             <h4>Cast</h4>
             <div class="row">
                 <div class="col text-center" *ngFor = "let cast of castImagesList; let i = index">
-                    <img [src]="'../../../assets/' + cast" alt="" class="img-fluid rounded-circle w-50 text-center">
+                    <img [src]="'../../../../assets/' + cast" alt="" class="img-fluid rounded-circle w-50 text-center">
                     <p class="lead">
                         {{castNamesList[i][0]}}<br>
                         as {{castNamesList[i][1]}}

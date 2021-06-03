@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { element } from 'protractor';
 import { Observable } from 'rxjs';
 import { IMovies } from '../models/IMovies';
 
@@ -7,6 +8,9 @@ import { IMovies } from '../models/IMovies';
   providedIn: 'root'
 })
 export class MoviesService {
+
+  theatresList: Array<any> = [];
+  movieId: number = 0;
 
   private moviesUrl = 'https://localhost:44380/api/BookMyShow/Movies';  // URL to web api
 
@@ -48,9 +52,39 @@ export class MoviesService {
 
   getTheatresBySelectedMovieCategory(id: number, language: string, filmCategory: string): Observable<IMovies[]>{
     const url = `${this.moviesUrl}/${id}/Languages/${language}/FilmCategories/${filmCategory}/Theatres`;
-    return this.http.get<IMovies[]>(url);
+    return this.http.get<any[]>(url);
   }
-  
+
+  getShowTimingsByTheatre(id: number, language: string, filmCategory: string, theatreId: number): Observable<any[]>{
+    const url = `${this.moviesUrl}/${id}/Languages/${language}/FilmCategories/${filmCategory}/Theatres/${theatreId}/ShowTimings`;
+    return this.http.get<any[]>(url);
+  }
+
+  getSeatsCategoryByShowTime(id: number, language: string, filmCategory: string, theatreId: number, showTime: string): Observable<any[]>{
+    const url = `${this.moviesUrl}/${id}/Languages/${language}/FilmCategories/${filmCategory}/Theatres/${theatreId}/ShowTimings/${showTime}/SeatCategories`;
+    return this.http.get<any[]>(url);
+  }
+
+  getSeatsBySeatCategory(id: number, language: string, filmCategory: string, theatreId: number, showTime: string, seatCategory: string): Observable<any[]>{
+    const url = `${this.moviesUrl}/${id}/Languages/${language}/FilmCategories/${filmCategory}/Theatres/${theatreId}/ShowTimings/${showTime}/SeatsCategories/${seatCategory}/Seats`;
+    return this.http.get<any[]>(url);
+  }
+
+  setTheatres(theatres: Array<any>, id: number){
+    this.theatresList = theatres;
+    this.movieId = id;
+    console.log(this.theatresList);
+  }
+
+  getTheatres(){
+    console.log(this.theatresList);
+    return this.theatresList;
+  }
+
+  getMovieId(){
+    return this.movieId;
+  }
+
   // /** POST: add a new hero to the server */
   // addStudent(student: IStudent): Observable<IStudent> {
   //   return this.http.post<IStudent>(this.studentsUrl, student, this.httpOptions);

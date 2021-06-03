@@ -17,7 +17,7 @@ import { MoviesService } from '../../movies.service';
 export class SelectShowTimeComponent implements OnInit {
 
   movies: Array<IMovies> = [];
-  movie: any;
+  movie: IMovies = {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
   dateOfRelease: any;
   genresList: Array<IGenres> = [];
   castImagesList: Array<any> = [];
@@ -28,6 +28,8 @@ export class SelectShowTimeComponent implements OnInit {
   
   getMovie(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    const language = this.route.snapshot.paramMap.get('language')!;
+    const category = this.route.snapshot.paramMap.get('category')!;
     this.service.getMovie(id)
     .subscribe(movies => {
       this.movies = movies,
@@ -63,11 +65,15 @@ export class SelectShowTimeComponent implements OnInit {
         console.log(this.theatres),
         this.language = language,
         this.category = category,
-        this.datesList.push(new Date().getDate() + '/' + (new Date().getMonth() + 1)),
-        this.datesList.push((new Date().getDate() + 1) + '/' + (new Date().getMonth() + 1)),
-        this.datesList.push((new Date().getDate() + 2) + '/' + (new Date().getMonth() + 1)),
-        this.datesList.push((new Date().getDate() + 3) + '/' + (new Date().getMonth() + 1))
+        this.datesList.push(new Date().getDate() + '-' + (new Date().getMonth() + 1)),
+        this.datesList.push((new Date().getDate() + 1) + '-' + (new Date().getMonth() + 1)),
+        this.datesList.push((new Date().getDate() + 2) + '-' + (new Date().getMonth() + 1)),
+        this.datesList.push((new Date().getDate() + 3) + '-' + (new Date().getMonth() + 1))
       });
+  }
+
+  setTheatres(){
+    this.service.setTheatres(this.theatres, this.movie.movieId);
   }
 
   constructor(
@@ -80,6 +86,7 @@ export class SelectShowTimeComponent implements OnInit {
     this.getTheatres();
     this.getMovie();
     this.getGenres();
+    this.setTheatres();
   }
 
 }

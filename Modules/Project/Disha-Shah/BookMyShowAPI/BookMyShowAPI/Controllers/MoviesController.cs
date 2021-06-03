@@ -109,6 +109,19 @@ namespace BookMyShowAPI.Controllers
             return Ok(theatres);
         }
 
+        [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreId}/ShowTimings")]
+        public ActionResult<TheatresMovie> GetShowTimings(int id, string language, string filmCategory, int theatreId)
+        {
+            var showTimings = movies.GetShowTimingsByTheatre(id, language, filmCategory, theatreId);
+
+            if (showTimings == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(showTimings);
+        }
+
         // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories/2D/Theatres/4/ShowTimings/03:00 PM/SeatCategories
         [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreid}/ShowTimings/{showTime}/SeatCategories")]
         public ActionResult<TheatresMovie> GetSeatCategories(int id, string language, string filmCategory, int theatreid, string showTime)
