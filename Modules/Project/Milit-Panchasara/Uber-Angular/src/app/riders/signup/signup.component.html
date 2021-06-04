@@ -1,0 +1,69 @@
+<div id="header" class="w-100" style="height: 40px !important;">
+</div>
+<div class="text-center mx-auto" style="width: 500px;">
+    <div class="mb-4">
+        <img src="../../../assets/img/signup-logo.png" alt="" height="100px" style="margin-top:-20px;" >
+    </div>
+    <h2>Sign up with Uber</h2>
+    <div class="card card-body mx-auto text-left border-0">
+        <form [formGroup]="signUpForm" >
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="" class="small">First Name (required)</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="First name" formControlName="firstName">
+                    <ng-container *ngIf="!signUpForm.controls.firstName.valid && signUpForm.controls.firstName.touched && signUpForm.controls.firstName.errors != null">
+                        <span class="small text-danger" *ngIf="signUpForm.controls.firstName.errors.required">This field cannot be empty.</span>
+                        <span class="small text-danger" *ngIf="signUpForm.controls.firstName.errors.pattern">Numbers and signs are not allowed.</span>
+                    </ng-container>
+                    
+                </div>
+                <div class="col-12 col-md-6 mt-3 mt-md-0">
+                    <label for="" class="small">Surname (required)</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Surname" formControlName="surName">
+                    <ng-container *ngIf="!signUpForm.controls.surName.valid && signUpForm.controls.surName.touched && signUpForm.controls.surName.errors != null">
+                        <span class="small text-danger" *ngIf="signUpForm.controls.surName.errors.required">This field cannot be empty.</span>
+                        <span class="small text-danger" *ngIf="signUpForm.controls.surName.errors.pattern">Numbers and signs are not allowed.</span>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="" class="small">Enter your phone number (required)</label>
+                <div class="input-group">
+                    <div class=" input-group-prepend border">
+                        <span class="pt-3"><h6> <i class="fa fa-angle-down"></i> +91&nbsp;</h6></span>
+                    </div>
+                    <input class="form-control" type="text" id="" placeholder="Phone number" formControlName="contactNumber">
+                </div>
+                <ng-container *ngIf="!signUpForm.controls.contactNumber.valid && signUpForm.controls.contactNumber.touched && signUpForm.controls.contactNumber.errors != null">
+                    <span class="small text-danger" *ngIf="signUpForm.controls.contactNumber.errors.required">This field cannot be empty.</span>
+                    <span class="small text-danger" *ngIf="signUpForm.controls.contactNumber.errors.pattern">Contact number should be 10 digits long.</span>
+                </ng-container>
+            </div>
+            <div class="form-group mt-3">
+                <label for="" class="small">Enter your email address (required)</label>
+                <input type="email" class="form-control form-control-sm" placeholder="Email" formControlName="email">
+                <ng-container *ngIf="!signUpForm.controls.email.valid && signUpForm.controls.email.touched && signUpForm.controls.email.errors != null">
+                    <span class="small text-danger" *ngIf="signUpForm.controls.email.errors.required">This field cannot be empty.</span>
+                    <span class="small text-danger" *ngIf="signUpForm.controls.email.errors.email">Invalid email.</span></ng-container>
+            </div>
+            <div class="form-group mt-3">
+                <label for="" class="small">Enter a password (required)</label>
+                <input type="password" class="form-control form-control-sm" placeholder="Password" formControlName="password">
+                <ng-container *ngIf="!signUpForm.controls.password.valid && signUpForm.controls.password.touched && signUpForm.controls.password.errors != null">
+                    <span class="small text-danger" *ngIf="signUpForm.controls.password.errors.required">This field cannot be empty.</span>
+                </ng-container>
+            </div>
+            <button type="button" [disabled]="signUpForm.invalid || submitingForm" (click)="submitForm()"  class="btn btn-block btn-primary p-2 pl-3 mt-5" style="height: 50px !important; background-color: rgb(17, 147, 154) !important; text-align: left; font-weight:bold; border-radius: 0;">SIGN UP</button>
+        </form>
+    </div>
+    <!-- <a (click)="verifyPasswordAndRedirect();" class="btn btn-dark btn-black m-3" style="width:90%;height: 60px;"><h5 class="mt-2">Next</h5></a> -->
+    <div class="text-left ml-4">
+        <p href="" class=" text-decoration-none" style="font-size: x-small;">By clicking "Sign up", you agree to Uber's Terms of Use and acknowledge you have
+             read the Privacy Policy. You also consent to receive calls or SMS messages, including by automated dialler, from Uber and its affiliates to the number 
+             you provide for informational and/or marketing purposes. Consent to receive marketing messages is not a condition of using Uber’s services. 
+             You understand that you may opt out by texting “STOP” to 89203.</p>
+    </div>
+    <div class="mt-5">
+        
+    </div>
+</div>

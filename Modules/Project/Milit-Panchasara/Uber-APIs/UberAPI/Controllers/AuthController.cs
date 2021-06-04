@@ -156,8 +156,33 @@ namespace UberAPI.Controllers
 
             // generate login token for a user
             var newToken = await userRepo.GetToken(newUser);
+
+            long id = 0;
+            string userId = newUser.Id;
+
+            switch (userRole.ToLower())
+            {
+                case "rider":
+                    id = riderRepo.Find(x => x.UserId == userId).First().RiderId;
+                    break;
+
+                case "driver":
+                    id = driverRepo.Find(x => x.UserId == userId).First().DriverId;
+                    break;
+
+                case "admin":
+                    id = adminRepo.Find(x => x.UserId == userId).First().Id;
+                    break;
+
+                default:
+                    break;
+            }
+
             return Ok(new
             {
+                id = id,
+                userId = newUser.Id,
+                userRole = userRole,
                 token = newToken
             });
         }
@@ -229,9 +254,33 @@ namespace UberAPI.Controllers
 
             // generate login token for a user
             var newToken = await userRepo.LoginUser(userId);
+
+            long id = 0;
+
+            switch (userRole.ToLower())
+            {
+                case "rider":
+                    id = riderRepo.Find(x => x.UserId == userId).First().RiderId;
+                    break;
+
+                case "driver":
+                    id = driverRepo.Find(x => x.UserId == userId).First().DriverId;
+                    break;
+
+                case "admin":
+                    id = adminRepo.Find(x => x.UserId == userId).First().Id;
+                    break;
+
+                default:
+                    break;
+            }
+
             return Ok(new
             {
-                token = newToken,
+                id = id,
+                userId = userId,
+                userRole = userRole,
+                token = newToken
             });
 
         }
@@ -290,7 +339,8 @@ namespace UberAPI.Controllers
 
             BodyBuilder bodyBuilder = new BodyBuilder();
             bodyBuilder.HtmlBody = "<h1>Hello!</h1>";
-            bodyBuilder.HtmlBody += "<a href='" + confirmationLink + "'>Click here</a>";
+            bodyBuilder.HtmlBody += "<p> Please verify your email for your Uber account.<br>";
+            bodyBuilder.HtmlBody += "<a href='" + confirmationLink + "'>Click here</a> to verify.";
 
             message.Body = bodyBuilder.ToMessageBody();
 

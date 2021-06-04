@@ -1,0 +1,26 @@
+<div class=" mx-lg-5 my-lg-4 m-0 card" style="z-index: 1;border-radius: 0;width: 400px; height: 75%;position: absolute;">
+    <div class="card-header bg-primary d-none d-lg-block" style="border-radius: 0;">
+        <h1 class=" text-white">Ongoing Trip</h1>
+    </div>
+    <div class="card-body">
+        <h3 class="m-3 mt-4">{{trip.rideName}}</h3>
+        <h3 id="pickup-txt" class="m-3">From {{trip.sourceLocation}}</h3>
+        <h3 id="destination-txt" class="m-3">To {{trip.destinationLocation}}</h3>
+        <h4 id="trip-start-time" class="m-3" *ngIf="trip.startTime != null">Your trip started at {{ trip.startTime.split('T')[1].split('.')[0]}}</h4>
+        <h5 class="m-3" *ngIf="trip.status == 'New'">{{trip.driverName}} will reach at your pickup location soon.</h5>
+        <h5 class="m-3">Driver: {{trip.driverName}} <br> {{trip.vehicleBrand}} {{trip.vehicleName}} ({{trip.registrationNo}})</h5>
+        <hr> 
+        <h4 class="m-3" id="payment-amount">Payment Amount: {{trip.estimatedFairAmount | number:'1.2-2'}}</h4>
+        <p class="mx-3">Payment Type: <i class="fa fa-money text-success" style="background-color: greenyellow;"></i> Cash<i class="fa fa-angle-down float-right font-weight-bold"></i></p>
+        
+        <div class="pb-3 px-3" >
+            <button class="btn btn-dark btn-black w-100" id="bookRide-btn" (click)="cancelTrip()"><h4>Cancel Trip</h4></button>
+        </div>
+            
+    </div>
+</div>
+
+<div id="map">
+    <google-map height="90vh" width="100hw" [center]="{'lat':lat, 'lng':lng}" [zoom]="12"></google-map>
+</div>
+

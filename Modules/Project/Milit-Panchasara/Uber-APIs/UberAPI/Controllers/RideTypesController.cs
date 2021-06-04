@@ -36,6 +36,7 @@ namespace UberAPI.Controllers
         [HttpPost]
         public ActionResult<RideType> PostRideTypes(RideType rideType)
         {
+            rideType.CreatedAt = DateTime.Now;
             var newRideType = rideTypeRepo.Add(rideType);
 
             return newRideType;
@@ -47,6 +48,7 @@ namespace UberAPI.Controllers
         public ActionResult<RideType> PutRideTypes(int id, RideType rideType)
         {
             rideType.RideTypeId = id;
+            rideType.ModifiedAt = DateTime.Now;
             var newRideType = rideTypeRepo.Update(rideType);
 
             return newRideType;

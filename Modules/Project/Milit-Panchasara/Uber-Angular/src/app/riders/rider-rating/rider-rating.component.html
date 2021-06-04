@@ -1,0 +1,18 @@
+<div class="container my-3">
+    <div class="card" data-aos="fade-up">
+        <div class="card-header bg-dark text-white"><h3>Rate a driver</h3></div>
+        <div class="card-body">
+            <div>
+                <span (mouseover)="highlistStars(1)"><i id="star-1" (click)="setRating(1)"   class="fa fa-star-o"></i></span>
+                <span (mouseover)="highlistStars(2)"><i id="star-2" (click)="setRating(2)"   class="fa fa-star-o"></i></span>
+                <span (mouseover)="highlistStars(3)"><i id="star-3" (click)="setRating(3)"   class="fa fa-star-o"></i></span>
+                <span (mouseover)="highlistStars(4)"><i id="star-4" (click)="setRating(4)"   class="fa fa-star-o"></i></span>
+                <span (mouseover)="highlistStars(5)"><i id="star-5" (click)="setRating(5)"   class="fa fa-star-o"></i></span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger" (click)="submitRating()">Submit</button>
+                <button type="button" class="btn btn-dark" (click)="skipRating()">Skip</button>
+            </div>
+        </div>
+    </div>
+</div>

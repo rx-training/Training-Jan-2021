@@ -36,6 +36,7 @@ namespace UberAPI.Code.RepositoryDB
 
                 // assigning random driver to trip who is currently not doing any trips
                 var driverIds = context.Drivers.Include(x => x.Trips).Include(x => x.Vehicles).Where(x => !x.Trips.Any(x => x.Status == "Started" || x.Status == "New") && x.Vehicles.Any(x => x.CurrentRideTypeId == rideType.RideTypeId)).Select(x => x.DriverId).ToList();
+                if (driverIds.Count == 0) return null;
                 var index = new Random().Next(driverIds.Count);
                 var driver = driverIds[index];
 

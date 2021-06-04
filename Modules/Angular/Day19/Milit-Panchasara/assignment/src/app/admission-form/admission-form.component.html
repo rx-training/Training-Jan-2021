@@ -324,7 +324,7 @@
                             </div>
                         </div>
                         <hr>
-                        <button type="button" (click)="submitForm('add')" *ngIf="index == -1" [ngClass]="{'disabled': admissionForm.invalid && false}" class="btn btn-primary my-3">Add</button>
+                        <button type="button" (click)="submitForm('add')" *ngIf="index == -1" [ngClass]="{'disabled': admissionForm.invalid}" class="btn btn-primary my-3">Add</button>
                         <button type="button" (click)="submitForm('edit')" *ngIf="index != -1" [ngClass]="{'disabled': admissionForm.invalid}" class="btn btn-primary my-3">Update</button>
                     </form>
                 </div>

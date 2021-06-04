@@ -1,0 +1,14 @@
+#contact-input:focus {
+    border: none !important;
+    box-shadow: none !important;
+    border-bottom: black solid 2px !important;
+    border-radius: 0;
+}
+
+.btn-black {
+        background-color: black !important;
+        border: none;
+        font-size: 18px;
+        border-radius: 0;
+        padding: 10px 15px;
+}

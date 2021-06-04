@@ -1,0 +1,25 @@
+<div class="container pt-3">
+    <button class="btn btn-outline-dark float-right m-2" (click)="logoutAdmin()">Log Out</button>
+    <h1 class="display-4">Uber Admin</h1>
+    <hr style="background-color: black; height: 3px;">
+    <div class="row text-center">
+        <div class="col-3">
+            <h1 id="totalRiderCount">Riders: <b>{{ localAdminService.allData.riders.length}}</b></h1><br>
+            <a routerLink="/admin/riders" class="btn btn-outline-dark btn-sm"><h3>View Riders Data</h3></a>
+        </div>
+        <div class="col-3">
+            <h1 id="totalTripCount">Trips: <b>{{ localAdminService.allData.trips.length}}</b></h1><br>
+            <a routerLink="/admin/trips" class="btn btn-outline-dark btn-sm"><h3>View Trips Data</h3></a>
+        </div>
+        <div class="col-3">
+            <h1 id="totalDriverCount">Drivers: <b>{{ localAdminService.allData.drivers.length}}</b></h1><br>
+            <a routerLink="/admin/drivers" class="btn btn-outline-dark btn-sm"><h3>View Drivers Data</h3></a>
+        </div>
+        <div class="col-3">
+            <h1 id="totalDriverCount">Ride Types: <b>{{ localAdminService.allData.rideTypes.length}}</b></h1><br>
+            <a routerLink="/admin/ridetypes" class="btn btn-outline-dark btn-sm"><h3>Ride Types</h3></a>
+        </div>
+    </div>
+</div>
+<hr>
+<router-outlet></router-outlet>
