@@ -3,18 +3,18 @@ import { Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
-import { EventsService } from '../events.service';
+import { EventsService } from '../../events.service';
 
 @Component({
-  selector: 'app-all-activities',
-  templateUrl: './all-activities.component.html',
-  styleUrls: ['./all-activities.component.css']
+  selector: 'app-all-sports',
+  templateUrl: './all-sports.component.html',
+  styleUrls: ['./all-sports.component.css']
 })
-export class AllActivitiesComponent implements OnInit {
+export class AllSportsComponent implements OnInit {
 
-  activitiesList: Array<IActivities> = [];
+  sportsList: Array<IActivities> = [];
 
-  uniqueActivitiesList: Array<IActivities> = [];
+  uniqueSportsList: Array<IActivities> = [];
 
   finalList: Array<IActivities> = [];
 
@@ -36,25 +36,25 @@ export class AllActivitiesComponent implements OnInit {
   filterRoute(){
     if(this.price == 'Choose Price')
     {
-      this.router.navigate(['home/activities']);
-      this.getActivities();
+      this.router.navigate(['home/sports']);
+      this.getSports();
     }
     else if(this.price != 'Choose Price'){
-      this.router.navigate(['home/activities/filter'], {queryParams: {'price': this.price}});
-      this.finalList = this.uniqueActivitiesList.filter(x => x.ticketPrice>=this.min && x.ticketPrice<=this.max);
+      this.router.navigate(['home/sports/filter'], {queryParams: {'price': this.price}});
+      this.finalList = this.uniqueSportsList.filter(x => x.ticketPrice>=this.min && x.ticketPrice<=this.max);
     }
   }
 
-  getActivities(): void{
-    this.service.getActivities()
-    .subscribe((activities: any[]) => {
-      this.activitiesList = activities,
-      this.uniqueActivitiesList = this.activitiesList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
-      this.uniqueActivitiesList.forEach(element => {
+  getSports(): void{
+    this.service.getSports()
+    .subscribe((sports: any[]) => {
+      this.sportsList = sports,
+      this.uniqueSportsList = this.sportsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
+      this.uniqueSportsList.forEach(element => {
         element.showTimings = [];
         element.languages = [];
         this.languages = [];
-        this.activitiesList.forEach(item => {
+        this.sportsList.forEach(item => {
           if(item.eventId == element.eventId){
             element.showTimings.push({"showTime": item.showTime});
             this.languages.push({"language": item.language});
@@ -64,7 +64,7 @@ export class AllActivitiesComponent implements OnInit {
       element.languages = [...new Set(this.languages.map(i => i.language))];
       })
 
-      this.finalList = this.uniqueActivitiesList
+      this.finalList = this.uniqueSportsList
     });  
   }
 
@@ -81,7 +81,8 @@ export class AllActivitiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLanguages();
-    this.getActivities();
+    this.getSports();
   }
+
 
 }

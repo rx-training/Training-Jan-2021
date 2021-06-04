@@ -41,14 +41,14 @@
 <div class="container mt-2" style="padding-bottom: 50px;">
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="someID">
            <ng-container *ngFor = "let seatCategory of uniqueSeatsCategories">
 
             <small class="text-muted h6 font-weight-normal">{{seatCategory.seatCategory}}-Rs.{{seatCategory.price}}<hr></small>
            
-            <div class="row">
-                <div class="col-3" *ngFor = "let seat of seatsCategories">
-                    <div class="btn btn-outline-success p-2 mb-2" *ngIf="seat.seatCategory == seatCategory.seatCategory" (click)="selectSeat($event)">{{seat.seatNo}}</div>
+            <div class="row" >
+                <div class="col-3" *ngFor = "let seat of seatsCategories" >
+                    <button type="button" class="btn btn-outline-success p-2 mb-2" *ngIf="seat.seatCategory == seatCategory.seatCategory" (click)="selectSeat($event, seatCategory.seatCategory, seatCategory.price, seatCategory.screenId)" [disabled]="seat.isBooked" [ngStyle]="seat.isBooked?{'background-color': 'gray', 'color': 'white'} : {}">{{seat.seatNo}}</button>
                 </div>
             </div>
                 
@@ -78,12 +78,12 @@
     <div class="row py-3">
         <div class="col-md-4"></div>
         <div class="col-md-4 text-center">
-            <div id="symbolInfo">
+            <div id="symbolInfo" [ngStyle]="{'display': bookInfo}">
                 <div class="btn btn-secondary mx-1 p-2"></div>Sold
                 <div class="btn btn-outline-success ml-3 mr-1 p-2"></div>Available
                 <div class="btn btn-success ml-3 mr-1 p-2"></div>Selected
             </div>
-            <a href="#" class="btn btn-danger btn-block" id="proceedToPay" data-toggle="modal" data-target="#selectedSeatsModal">Proceed to Pay</a>
+            <a href="#"  [ngStyle]="{'display': bookButton}" class="btn btn-danger btn-block" id="proceedToPay" data-toggle="modal" data-target="#selectedSeatsModal">Proceed to Pay</a>
         </div>
         <div class="col-md-4"></div>
     </div>
@@ -100,14 +100,69 @@
     <div class="modal-body">
         <table class="table table-borderless">
             <tbody id="bookingSummary">
-                <tr>
-                    <td id="screenDetails">Recliner:</td>
-                
-                    <td id="amountDetails"></td>
-                </tr>
+                    <tr *ngIf="selectedExecutiveSeatsList.length != 0">
+                        Executive(Rs.200):
+                        <td>
+                            <ng-container *ngFor="let seat of selectedExecutiveSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            {{executiveTotal}}
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="selectedPremiumSeatsList.length != 0">
+                        Premium(Rs.250):
+                        <td>
+                            <ng-container *ngFor="let seat of selectedPremiumSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            {{premiumTotal}}
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="selectedNormalSeatsList.length != 0">
+                        Normal(Rs.150):
+                        <td>
+                            <ng-container *ngFor="let seat of selectedNormalSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            {{normalTotal}}
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="selectedReclinerSeatsList.length != 0">
+                        Recliner(Rs.630):
+                        <td>
+                            <ng-container *ngFor="let seat of selectedReclinerSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            {{reclinerTotal}}
+                        </td>
+                    </tr>
                 <tr class="bg-light">
                     <td>Amount Payable</td>
-                    <td id="finalAmount"></td>
+                    <td></td>
+                    <td id="finalAmount">{{totalAmount}}</td>
                 </tr>
             </tbody>
         </table>

@@ -1,17 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { AllActivitiesComponent } from './events/all-activities/all-activities.component';
-import { AllEventsComponent } from './events/all-events/all-events.component';
-import { AllPlaysComponent } from './events/all-plays/all-plays.component';
-import { AllSportsComponent } from './events/all-sports/all-sports.component';
 import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-movies-events.component';
 import { HomeComponent } from './home/home.component';
-import { AllMoviesComponent } from './movies/all-movies/all-movies.component';
-import { MovieComponent } from './movies/movie/movie/movie.component';
-import { SeatingComponent } from './movies/movie/seating/seating.component';
-import { SelectDateComponent } from './movies/movie/select-date/select-date.component';
-import { SelectShowTimeComponent } from './movies/movie/select-show-time/select-show-time.component';
+import { MoviesSearchComponent } from './movies/movies-search/movies-search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -23,71 +14,32 @@ const routes: Routes = [
     },
     {
       path: 'movies',
-      component: AllMoviesComponent, children: [
-        {
-          path: 'filter',
-          component: AllMoviesComponent
-        }
-      ]
+      loadChildren: () => import('./movies/allMovies/all-movies.module').then(m => m.AllMoviesModule)
     },
     {
       path: 'events',
-      component: AllEventsComponent, children: [
-        {
-          path: 'filter',
-          component: AllEventsComponent
-        }
-      ]
+      loadChildren: () => import('./events/allEvents/all-events.module').then(m => m.AllEventsModule)
     },
     {
       path: 'plays',
-      component: AllPlaysComponent, children: [
-        {
-          path: 'filter',
-          component: AllPlaysComponent
-        }
-      ]
+      loadChildren: () => import('./events/allPlays/all-plays.module').then(m => m.AllPlaysModule)
     },
     {
       path: 'sports',
-      component: AllSportsComponent, children: [
-        {
-          path: 'filter',
-          component: AllSportsComponent
-        }
-      ]
+      loadChildren: () => import('./events/allSports/all-sports.module').then(m => m.AllSportsModule)
     },
     {
       path: 'activities',
-      component: AllActivitiesComponent, children: [
-        {
-          path: 'filter',
-          component: AllActivitiesComponent
-        }
-      ]
+      loadChildren: () => import('./events/allActivities/all-activities.module').then(m => m.AllActivitiesModule)
     }
   ]  },
   {
     path: 'movies',
-    children: [
-      {
-        path: ':name/:id',
-        component: MovieComponent
-      },
-      {
-        path: ':name/:id/showTimings/:language/:category',
-        component: SelectShowTimeComponent, children: [
-          {
-            path: ':date',
-            component: SelectDateComponent
-          }
-        ]
-      },
-      {
-        path: ':name/:id/showTimings/:language/:category/:date/:theatre/:theatreId/:showTime/:numberOfSeats',
-        component: SeatingComponent
-      }
-    ]
+    loadChildren: () => import('./movies/movie/movie.module').then(m => m.MovieModule)
+  },
+  {
+    path: 'explore',
+    component: MoviesSearchComponent
   },
   { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

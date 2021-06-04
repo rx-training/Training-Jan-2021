@@ -23,7 +23,7 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/MovieBookings
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpGet]
         public ActionResult<IEnumerable<MovieBooking>> GetMovieBookings()
         {

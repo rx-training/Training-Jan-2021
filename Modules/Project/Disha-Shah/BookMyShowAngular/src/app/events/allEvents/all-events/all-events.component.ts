@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
-import { EventsService } from '../events.service';
+import { EventsService } from '../../events.service';
 
 @Component({
   selector: 'app-all-events',

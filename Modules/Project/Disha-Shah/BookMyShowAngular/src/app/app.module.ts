@@ -21,16 +21,13 @@ import { UserFooterComponent } from './user-footer/user-footer.component';
 import { UserTopSliderComponent } from './user-top-slider/user-top-slider.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-movies-events.component';
-import { AllMoviesComponent } from './movies/all-movies/all-movies.component';
-import { AllEventsComponent } from './events/all-events/all-events.component';
-import { AllPlaysComponent } from './events/all-plays/all-plays.component';
-import { AllSportsComponent } from './events/all-sports/all-sports.component';
-import { AllActivitiesComponent } from './events/all-activities/all-activities.component';
-import { MovieComponent } from './movies/movie/movie/movie.component';
-import { SelectShowTimeComponent } from './movies/movie/select-show-time/select-show-time.component';
-import { SelectDateComponent } from './movies/movie/select-date/select-date.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { SeatingComponent } from './movies/movie/seating/seating.component';
+import { MovieBookingsService } from './movies/movie-bookings.service';
+import { EventsService } from './events/events.service';
+import { FilmCategoryService } from './movies/film-category.service';
+import { MoviesSearchComponent } from './movies/movies-search/movies-search.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterService } from './auth/register.service';
 
 @NgModule({
   declarations: [
@@ -49,25 +46,18 @@ import { SeatingComponent } from './movies/movie/seating/seating.component';
     UserTopSliderComponent,
     PageNotFoundComponent,
     HomeAllMoviesEventsComponent,
-    AllMoviesComponent,
-    AllEventsComponent,
-    AllPlaysComponent,
-    AllSportsComponent,
-    AllActivitiesComponent,
-    MovieComponent,
-    SelectShowTimeComponent,
-    SelectDateComponent,
-    SeatingComponent
+    MoviesSearchComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [MoviesService, GenreService, LanguageService],
+  providers: [MoviesService, GenreService, LanguageService, MovieBookingsService, EventsService, FilmCategoryService, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,10 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IMovies } from 'src/app/models/IMovies';
 import { MoviesService } from '../../movies.service';
 import * as $ from 'jquery';
+import { MovieBookingsService } from '../../movie-bookings.service';
+import { IMovieBookings } from 'src/app/models/IMovieBookings';
 
 @Component({
   selector: 'app-seating',
@@ -27,7 +29,18 @@ export class SeatingComponent implements OnInit, OnChanges {
   uniqueSeatsCategories: Array<any> = [];
   seatsList: Array<any> = [];
   count: number = 0;
-  selectedSeatsList: Array<any> = [];
+  selectedExecutiveSeatsList: Array<any> = [];
+  selectedNormalSeatsList: Array<any> = [];
+  selectedPremiumSeatsList: Array<any> = [];
+  selectedReclinerSeatsList: Array<any> = [];
+  bookButton: string = "none";
+  bookInfo: string = "block";
+  executiveTotal: number = 0;
+  normalTotal: number = 0;
+  premiumTotal: number = 0;
+  reclinerTotal: number = 0;
+  totalAmount: number = 0;
+  screenId: number = 0;
 
   getMovieInfo(){
     this.movieName = this.route.snapshot.paramMap.get('name');
@@ -67,17 +80,41 @@ export class SeatingComponent implements OnInit, OnChanges {
     })
   }
 
-  selectSeat(e: any){
+  selectSeat(e: any, seatCategory: string, price: number, screenId: number){
     if(this.count != this.noOfSeats && !(e.target.classList.contains("disabled")) && !(e.target.classList.contains("btn-success"))){
       e.target.classList.add("btn-success");
       e.target.classList.remove("btn-outline-success");
-      this.selectedSeatsList.push(e.target.innerText);
+      if(seatCategory == 'Executive')
+      {
+        this.selectedExecutiveSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        this.executiveTotal += price;
+      }
+      else if(seatCategory == 'Premium')
+      {
+        this.selectedPremiumSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        this.premiumTotal += price;
+      }
+      else if(seatCategory == 'Normal')
+      {
+        this.selectedNormalSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        this.normalTotal += price;
+      }
+      else if(seatCategory == 'Recliner')
+      {
+        this.selectedReclinerSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        this.reclinerTotal += price;
+      }
+      this.totalAmount += price;
+      this.screenId = screenId;
       this.count++;
+      if(this.count==this.noOfSeats){
+        this.bookButton="block";
+        this.bookInfo="none";
+      }
     }
-    console.log(this.selectedSeatsList)
   }
 
-  constructor(private route: ActivatedRoute, private service: MoviesService) { }
+  constructor(private _elementRef : ElementRef, private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService) { }
 
   ngOnChanges(){
   }

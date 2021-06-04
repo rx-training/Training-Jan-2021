@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { element } from 'protractor';
 import { LanguageService } from 'src/app/language.service';
 import { IMovies } from 'src/app/models/IMovies';
-import { GenreService } from '../genre.service';
-import { MoviesService } from '../movies.service';
+import { GenreService } from '../../genre.service';
+import { MoviesService } from '../../movies.service';
 
 @Component({
   selector: 'app-all-movies',

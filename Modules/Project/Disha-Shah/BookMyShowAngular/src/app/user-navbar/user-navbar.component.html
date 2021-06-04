@@ -20,9 +20,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
                 </div>
-                <input type="search" class="form-control"
-                    placeholder="Search for Movies, Events, Plays, Sports and Activities" size="60">
+                <button class="btn btn-light" routerLink="/explore"
+                 size="60">Search for Movies, Events, Plays, Sports and Activities</button>
             </div>
+
+            <!-- <app-movies-search></app-movies-search> -->
         </form>
 
         <div class="dropdown d-none d-lg-block">
@@ -374,25 +376,9 @@
                 </button>
             </div>
             <div class="modal-body text-center">
-                <form class="mb-4">
-                    <select class="custom-select mb-3" id="loginCategory">
-                        
-                        <option selected name="logCategory" value="User">User</option>
-                        <option name="logCategory" value="Admin">Admin</option>
-                        
-                    </select>
-                    <div class="form-group">
-                        <input type="number" name="" id="loginNo" class="form-control" placeholder="Enter Contact Number"
-                         max="10" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="" id="loginPass" class="form-control" placeholder="Enter Password"
-                            required>
-                    </div>
-                    <input type="submit" value="Login" class="btn btn-danger btn-block" id="btnLogin">
-                </form>
+                <app-login></app-login>
 
-                <a href="#" class="text-danger" id="next-trigger"><small>Don't have a account? Register
+                <a class="text-danger" id="next-trigger"><small>Don't have a account? Register
                         Yourself</small></a>
             </div>
 
@@ -411,26 +397,9 @@
                 </button>
             </div>
             <div class="modal-body text-center">
-                <form class="mb-4">
-                    <div class="form-group">
-                        <input type="text" name="" id="userName" class="form-control" placeholder="Enter Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="" id="userContact" class="form-control" placeholder="Enter Contact Number"
-                            maxlength="10" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="" id="userPassword" class="form-control" placeholder="Enter Password"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="" id="userConfirm" class="form-control" placeholder="Confirm Password"
-                            required>
-                    </div>
-                    <input type="submit" value="Register" class="btn btn-danger btn-block" id="btnRegister">
-                </form>
+                <app-register></app-register>
 
-                <a href="#" class="text-danger" id="back-trigger" data-dismiss="modal"><small>Already have an
+                <a class="text-danger" id="back-trigger" data-dismiss="modal"><small>Already have an
                         account? Login</small></a>
             </div>
 

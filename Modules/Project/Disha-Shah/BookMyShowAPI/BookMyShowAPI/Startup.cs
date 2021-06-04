@@ -137,9 +137,9 @@ namespace BookMyShowAPI
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors("BookMyShowPolicy");
 
-            app.UseCors("MyPolicy");
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

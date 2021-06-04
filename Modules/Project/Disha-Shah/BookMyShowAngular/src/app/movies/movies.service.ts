@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { element } from 'protractor';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { IMovies } from '../models/IMovies';
 
 @Injectable({
@@ -83,6 +83,15 @@ export class MoviesService {
 
   getMovieId(){
     return this.movieId;
+  }
+
+  /* GET heroes whose name contains search term */
+  searchHeroes(term: string): Observable<IMovies[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<IMovies[]>(`${this.moviesUrl}/?name=${term}`);
   }
 
   // /** POST: add a new hero to the server */

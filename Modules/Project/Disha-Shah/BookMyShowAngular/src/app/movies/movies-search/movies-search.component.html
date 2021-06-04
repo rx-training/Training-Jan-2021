@@ -1,0 +1,54 @@
+    <!-- <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+        </div>
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" class="form-control"
+            placeholder="Search for Movies, Events, Plays, Sports and Activities" size="60">-->
+
+            <!-- <input type="text" [(ngModel)] = "searchBox" class="form-control"
+            placeholder="Search for Movies, Events, Plays, Sports and Activities" size="60"> -->
+    <!--</div>
+    
+    <ul class="search-result">
+        <li *ngFor="let hero of heroes$ | async" >
+            {{hero.name}}
+        </li>
+    </ul>
+ -->
+   
+<!--
+    <div id="search-component">
+    <label for="search-box">Hero Search</label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  
+    <ul class="search-result">
+      <li *ngFor="let hero of heroes$ | async" >
+        <a routerLink="/detail/{{hero.id}}">
+          {{hero.name}}
+        </a>
+      </li>
+    </ul>
+</div>
+-->
+<div class="bg-light py-5 text-center">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities" size="160" [(ngModel)] = "searchText.name" class="form-control" />
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div class="container pt-3">
+    <div *ngFor = "let movie of moviesList">
+        <ng-container *ngIf="movie.name == searchText.name">
+            <h5 routerLink="/movies/{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" class="text-danger font-weight-normal">{{movie.name}}</h5>
+        </ng-container>
+    </div>
+
+    <div *ngFor = "let event of uniqueEventsList">
+        <ng-container *ngIf="event.event == searchText.name">
+            <h5 class="text-danger font-weight-normal">{{event.event}}</h5>
+        </ng-container>
+    </div>
+</div>

@@ -42,15 +42,18 @@ namespace BookMyShowAPI.Controllers
         {
             var username = "";
             var pass = "";
+            var role = "";
             if (users.FindName(model.Username) != null && otp == 1234)
             {
                 username = model.Username;
                 pass = users.FindName(model.Username).Password;
+                role = "User";
             }
             else if (admins.FindName(model.Username) != null && otp == 1234)
             {
                 username = model.Username;
                 pass = admins.FindName(model.Username).Password;
+                role = "Admin";
             }
             else
             {
@@ -68,6 +71,8 @@ namespace BookMyShowAPI.Controllers
             {
                 return Ok(new
                 {
+                    role = role,
+                    username = username,
                     token = newToken
                 });
             }
