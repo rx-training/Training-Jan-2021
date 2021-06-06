@@ -90,6 +90,11 @@ namespace BookMyShowAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
             }
 
+            if (users.FindContact(model.PhoneNumber) != null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Contact No. already exists!" });
+            }
+
             var result = await users.RegisterUser(model);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
@@ -108,6 +113,11 @@ namespace BookMyShowAPI.Controllers
             if (admins.FindName(model.Username) != null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Admin already exists!" });
+            }
+
+            if (admins.FindContact(model.PhoneNumber) != null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Contact no. already exists!" });
             }
 
             var result = await admins.RegisterAdmin(model);

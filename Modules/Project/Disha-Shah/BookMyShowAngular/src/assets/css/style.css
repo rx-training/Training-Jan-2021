@@ -37,7 +37,8 @@
     font-size: 35px; }
   .sidenav .sidebar-icons {
     position: absolute;
-    right: 20px; }
+    right: 20px;
+  }
 
 .slick-dots li.slick-active button:before {
   color: black !important; }

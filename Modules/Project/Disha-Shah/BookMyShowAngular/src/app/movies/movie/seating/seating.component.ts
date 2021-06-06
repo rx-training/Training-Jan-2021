@@ -86,22 +86,94 @@ export class SeatingComponent implements OnInit, OnChanges {
       e.target.classList.remove("btn-outline-success");
       if(seatCategory == 'Executive')
       {
-        this.selectedExecutiveSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        if(!localStorage.selectedExecutiveSeatsList){
+          let selectedExecutiveSeat = [{
+            category:seatCategory, 
+            seatNo: e.target.innerText, 
+            ticketPrice: price
+          }]
+
+          localStorage.setItem("selectedExecutiveSeatsList", JSON.stringify(selectedExecutiveSeat));
+        }
+        else{
+          var selectedExecutiveSeatsArray = JSON.parse(localStorage.getItem("selectedExecutiveSeatsList"));
+            var selectedExecutiveSeatsListDetails = {
+              category:seatCategory, 
+              seatNo: e.target.innerText, 
+              ticketPrice: price
+            }
+            selectedExecutiveSeatsArray.push(selectedExecutiveSeatsListDetails);
+            localStorage.setItem("selectedExecutiveSeatsList", JSON.stringify(selectedExecutiveSeatsArray));
+        }
         this.executiveTotal += price;
       }
       else if(seatCategory == 'Premium')
       {
-        this.selectedPremiumSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        if(!localStorage.selectedPremiumSeatsList){
+          let selectedPremiumSeat = [{
+            category:seatCategory, 
+            seatNo: e.target.innerText, 
+            ticketPrice: price
+          }]
+
+          localStorage.setItem("selectedPremiumSeatsList", JSON.stringify(selectedPremiumSeat));
+        }
+        else{
+          var selectedPremiumSeatsArray = JSON.parse(localStorage.getItem("selectedPremiumSeatsList"));
+            var selectedPremiumSeatsListDetails = {
+              category:seatCategory, 
+              seatNo: e.target.innerText, 
+              ticketPrice: price
+            }
+            selectedPremiumSeatsArray.push(selectedPremiumSeatsListDetails);
+            localStorage.setItem("selectedPremiumSeatsList", JSON.stringify(selectedPremiumSeatsArray));
+        }
         this.premiumTotal += price;
       }
       else if(seatCategory == 'Normal')
       {
-        this.selectedNormalSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        if(!localStorage.selectedNormalSeatsList){
+          let selectedNormalSeat = [{
+            category:seatCategory, 
+            seatNo: e.target.innerText, 
+            ticketPrice: price
+          }]
+
+          localStorage.setItem("selectedNormalSeatsList", JSON.stringify(selectedNormalSeat));
+        }
+        else{
+          var selectedNormalSeatsArray = JSON.parse(localStorage.getItem("selectedNormalSeatsList"));
+            var selectedNormalSeatsListDetails = {
+              category:seatCategory, 
+              seatNo: e.target.innerText, 
+              ticketPrice: price
+            }
+            selectedNormalSeatsArray.push(selectedNormalSeatsListDetails);
+            localStorage.setItem("selectedNormalSeatsList", JSON.stringify(selectedNormalSeatsArray));
+        }
         this.normalTotal += price;
       }
       else if(seatCategory == 'Recliner')
       {
-        this.selectedReclinerSeatsList.push({category:seatCategory, seatNo: e.target.innerText, ticketPrice: price});
+        if(!localStorage.selectedReclinerSeatsList){
+          let selectedReclinerSeat = [{
+            category:seatCategory, 
+            seatNo: e.target.innerText, 
+            ticketPrice: price
+          }]
+
+          localStorage.setItem("selectedReclinerSeatsList", JSON.stringify(selectedReclinerSeat));
+        }
+        else{
+          var selectedReclinerSeatsArray = JSON.parse(localStorage.getItem("selectedReclinerSeatsList"));
+            var selectedReclinerSeatsListDetails = {
+              category:seatCategory, 
+              seatNo: e.target.innerText, 
+              ticketPrice: price
+            }
+            selectedReclinerSeatsArray.push(selectedReclinerSeatsListDetails);
+            localStorage.setItem("selectedReclinerSeatsList", JSON.stringify(selectedReclinerSeatsArray));
+        }
         this.reclinerTotal += price;
       }
       this.totalAmount += price;
@@ -111,10 +183,17 @@ export class SeatingComponent implements OnInit, OnChanges {
         this.bookButton="block";
         this.bookInfo="none";
       }
+      console.log(this.selectedExecutiveSeatsList)
     }
   }
 
-  constructor(private _elementRef : ElementRef, private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService) { }
+  doLogin(){
+    if(!localStorage.logged_in_user){
+      alert("Please login to book your show");
+    }
+  }
+
+  constructor(private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService) { }
 
   ngOnChanges(){
   }

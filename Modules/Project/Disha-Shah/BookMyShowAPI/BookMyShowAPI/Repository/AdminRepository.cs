@@ -98,6 +98,12 @@ namespace BookMyShowAPI.Repository
             return registeredAdmin;
         }
 
+        public Admin FindContact(string contact)
+        {
+            var registeredAdmin = context.Admins.SingleOrDefault(x => x.ContactNo == contact);
+            return registeredAdmin;
+        }
+
         // Confirm Email
         public async Task<Response> ConfirmEmailAsync(string userId, string token)
         {

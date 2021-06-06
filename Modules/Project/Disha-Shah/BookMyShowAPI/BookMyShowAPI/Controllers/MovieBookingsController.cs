@@ -31,7 +31,7 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/MovieBookings/9845125623
-        [Authorize(Roles = UserRoles.Admin)]
+        [Authorize]
         [HttpGet("{contactno}")]
         public ActionResult<IEnumerable<MovieBooking>> GetMovieBookingsByContact(string contactno)
         {
@@ -48,7 +48,7 @@ namespace BookMyShowAPI.Controllers
         // POST: api/BookMyShow/MovieBookings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = UserRoles.User)]
         public ActionResult PostMovieBooking(MovieBookingDTO movie)
         {
             if (!ModelState.IsValid)

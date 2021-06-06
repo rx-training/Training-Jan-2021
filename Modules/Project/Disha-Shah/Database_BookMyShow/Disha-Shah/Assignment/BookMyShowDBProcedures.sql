@@ -1781,9 +1781,9 @@ END
 EXECUTE prcEventBook N'{  
 						"TicketCount": "2",
 						"Event": "Sunday Brunch at the Nine Restaurant",
-						"UserContact": "9429410249",
+						"UserContact": "7984430171",
 						"EventVenue": "Snow World: Ahmedabad",
-						"ShowTiming": "3:00 PM",
+						"ShowTiming": "8:00 PM",
 						"EventType": "Food & Drinks",
 						"DateOfEvent": "2021-02-14"
 					}'; 

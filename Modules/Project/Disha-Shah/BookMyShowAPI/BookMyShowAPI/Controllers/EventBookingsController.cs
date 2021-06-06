@@ -31,7 +31,7 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/EventBookings/5
-        [Authorize(Roles = UserRoles.Admin)]
+        [Authorize]
         [HttpGet("{contactno}")]
         public ActionResult<IEnumerable<EventBooking>> GetEventBookingsByContact(string contactno)
         {

@@ -16,15 +16,11 @@
             </svg></a>
 
         <form class="form-inline mr-auto d-none d-md-block">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-                </div>
-                <button class="btn btn-light" routerLink="/explore"
-                 size="60">Search for Movies, Events, Plays, Sports and Activities</button>
-            </div>
+               
+            <button class="btn btn-light text-muted" routerLink="/explore" size="60">
+                <i class="fa fa-search mr-2"></i>Search for Movies, Events, Plays, Sports and Activities
+            </button>
 
-            <!-- <app-movies-search></app-movies-search> -->
         </form>
 
         <div class="dropdown d-none d-lg-block">
@@ -36,17 +32,17 @@
 
         </div>
 
-        <div id="homeSignIn">
+        <div id="homeSignIn" *ngIf="IsLoggedIn == false">
             <form class="form-inline d-none d-lg-block float-left">
                 <a class="btn btn-danger btn-sm mr-3 ml-0 mt-2" data-toggle="modal" data-target="#loginModal">Sign in</a>
             </form>
         </div>
 
-        <!-- <div id="homeSignedIn" class="text-white">
+        <div id="homeSignedIn" *ngIf="IsLoggedIn == true" class="text-white mr-2">
             <div class="d-none d-lg-block">
-                <i class="fa fa-user-circle"></i><span id="signedUserName"></span>
+                <i class="fa fa-user-circle mr-1"></i><span id="signedUserName">Hi, {{username}}</span>
             </div>
-        </div> -->
+        </div>
 
         <div class="d-none d-lg-block float-left"><span class="menulines" onclick="openNav()"><i class="fa fa-bars"></i></span>
         </div>
@@ -73,7 +69,7 @@
 <div class="sidenav text-primary d-lg-block" id="mySidenav">
     <h5 class="bg-dark text-white py-4 pl-3" style="margin-top: -25px;">Hey!</h5>
     <a href="javascript:void(0)" class="closebtn text-white" onclick="closeNav()">&times;</a>
-    <div id="sidebar-loginbtn">
+    <div id="sidebar-loginbtn" *ngIf="IsLoggedIn == false">
         <div class="d-flex flex-row align-items-center shadow p-2 bg-white rounded">
             <img src="https://in.bmscdn.com/webin/movies/superstar/rewards_login.png" alt="" class="img-fluid pr-1"
                 width="40" height="40">
@@ -90,72 +86,78 @@
             </path>
         </svg>
         &nbsp;Notifications
-        <!-- <span class="sidebar-icons">
-            <svg width="6" height="11" xmlns="http://www.w3.org/2000/svg">
-                <title>Right Arrow</title>
-                <path
-                    d="M.627.958a.572.572 0 0 1 0-.747.447.447 0 0 1 .679 0l4.04 4.469a.569.569 0 0 1 0 .75L1.307 9.9a.447.447 0 0 1-.68 0 .572.572 0 0 1 0-.747l3.706-4.097L.627.958z"
-                    fill="#999"></path>
+    </a>
+    <hr>
+    <a href="#" type="button" class="px-3 sidebar-items" [style.pointer-events]="IsLoggedIn?'auto':'none'" [ngClass]="!IsLoggedIn ? 'text-muted' : ''">
+        <div class="row pl-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M16.121 16.793l2.829 2.828-2.829 2.829-.707-.707 2.122-2.122-2.122-2.121.707-.707zm3 0l2.829 2.828-2.829 2.829-.707-.707 2.122-2.122-2.122-2.121.707-.707zM12 2c5.523 0 10 4.477 10 10 0 1.27-.237 2.509-.693 3.665l-.144.345-1.085-.477.308-.26a9 9 0 1 0-6.577 5.544l.2.98c-.656.135-1.328.203-2.009.203-5.523 0-10-4.477-10-10S6.477 2 12 2zm-.178 5.01l.014.01H15v1h-2.113a3.493 3.493 0 0 1 .613 2H15v1l-1.651.001a3.503 3.503 0 0 1-2.943 2.456l-.201.017 3.149 3.149-.708.707-3.996-3.996a.5.5 0 0 1 .268-.847l.086-.007H10a2.5 2.5 0 0 0 2.283-1.48h-3.78v-1H12.5L12.5 10c0-.789-.368-1.513-.974-1.98H8.504v-1h3.313l.005-.01z">
+                </path>
             </svg>
-
-        </span> -->
-    </a>
-    <hr>
-    <a href="#" class="px-3 sidebar-items">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-            <path fill="#666" fill-rule="evenodd"
-                d="M16.121 16.793l2.829 2.828-2.829 2.829-.707-.707 2.122-2.122-2.122-2.121.707-.707zm3 0l2.829 2.828-2.829 2.829-.707-.707 2.122-2.122-2.122-2.121.707-.707zM12 2c5.523 0 10 4.477 10 10 0 1.27-.237 2.509-.693 3.665l-.144.345-1.085-.477.308-.26a9 9 0 1 0-6.577 5.544l.2.98c-.656.135-1.328.203-2.009.203-5.523 0-10-4.477-10-10S6.477 2 12 2zm-.178 5.01l.014.01H15v1h-2.113a3.493 3.493 0 0 1 .613 2H15v1l-1.651.001a3.503 3.503 0 0 1-2.943 2.456l-.201.017 3.149 3.149-.708.707-3.996-3.996a.5.5 0 0 1 .268-.847l.086-.007H10a2.5 2.5 0 0 0 2.283-1.48h-3.78v-1H12.5L12.5 10c0-.789-.368-1.513-.974-1.98H8.504v-1h3.313l.005-.01z">
-            </path>
-        </svg>
-        &nbsp; QuickPay
-            <span class="sidebar-icons">
+            &nbsp; QuickPay
+            <span class="sidebar-icons" [ngStyle]="{'display': display}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="#666" fill-rule="evenodd"
                         d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
                     </path>
                 </svg>
             </span>
+        </div>
     </a>
     <hr>
-    <a href="#" class="px-3 sidebar-items">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-            <path fill="#666" fill-rule="evenodd"
-                d="M9.5 2A3.5 3.5 0 0 1 13 5.5V6h3l.375 6H22v3a2 2 0 1 0 0 4v3H2L3 6h3v-.5A3.5 3.5 0 0 1 9.5 2zM21 13H7v1.17a3.001 3.001 0 0 1 0 5.66V21h14v-1.17a3.001 3.001 0 0 1 0-5.66V13zM6 7H3.94l-.876 14H6v-2a2 2 0 1 0 0-4v-3h9.372l-.311-5H13v2h-1V7H7v2H6V7zm8 7.5l.735 1.489 1.643.238-1.19 1.16.281 1.636L14 18.25l-1.47.773.281-1.637-1.189-1.159 1.643-.238L14 14.5zM9.5 3A2.5 2.5 0 0 0 7 5.5V6h5v-.5A2.5 2.5 0 0 0 9.5 3z">
-            </path>
-        </svg>
-        &nbsp;Booking History
-            <span class="sidebar-icons">
+    <a routerLink="/bookinghistory" routerLinkActive="active" class="px-3 sidebar-items" [style.pointer-events]="IsLoggedIn?'auto':'none'" [ngClass]="!IsLoggedIn ? 'text-muted' : ''">
+        <div class="row pl-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M9.5 2A3.5 3.5 0 0 1 13 5.5V6h3l.375 6H22v3a2 2 0 1 0 0 4v3H2L3 6h3v-.5A3.5 3.5 0 0 1 9.5 2zM21 13H7v1.17a3.001 3.001 0 0 1 0 5.66V21h14v-1.17a3.001 3.001 0 0 1 0-5.66V13zM6 7H3.94l-.876 14H6v-2a2 2 0 1 0 0-4v-3h9.372l-.311-5H13v2h-1V7H7v2H6V7zm8 7.5l.735 1.489 1.643.238-1.19 1.16.281 1.636L14 18.25l-1.47.773.281-1.637-1.189-1.159 1.643-.238L14 14.5zM9.5 3A2.5 2.5 0 0 0 7 5.5V6h5v-.5A2.5 2.5 0 0 0 9.5 3z">
+                </path>
+            </svg>
+            &nbsp;Booking History
+            <span class="sidebar-icons" [ngStyle]="{'display': display}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="#666" fill-rule="evenodd"
                         d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
                     </path>
                 </svg>
             </span>
+        </div>
     </a>
     <hr>
-    <a href="#" class="px-3 sidebar-items">
-        <svg width="20" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M3.5 0.450012C1.98122 0.450012 0.75 1.68123 0.75 3.20001L0.75 11.9667L0.75 13.1333C0.75 14.6521 1.98122 15.8833 3.5 15.8833L7.58137 15.8833L7.19803 18.1833H5.93335C5.51914 18.1833 5.18335 18.5191 5.18335 18.9333C5.18335 19.3476 5.51914 19.6833 5.93335 19.6833L16.0667 19.6833C16.4809 19.6833 16.8167 19.3476 16.8167 18.9333C16.8167 18.5191 16.4809 18.1833 16.0667 18.1833H14.8021L14.4187 15.8833L18.5 15.8833C20.0188 15.8833 21.25 14.6521 21.25 13.1333V11.9667L21.25 3.20001C21.25 1.68123 20.0188 0.450012 18.5 0.450012L3.5 0.450012ZM19.75 11.2167V3.20001C19.75 2.50966 19.1904 1.95001 18.5 1.95001L3.5 1.95001C2.80965 1.95001 2.25 2.50966 2.25 3.20001L2.25 11.2167L19.75 11.2167ZM2.25 12.7167L19.75 12.7167V13.1333C19.75 13.8237 19.1904 14.3833 18.5 14.3833L13.538 14.3833C13.5365 14.3833 13.5349 14.3833 13.5334 14.3833H8.46671C8.46516 14.3833 8.4636 14.3833 8.46205 14.3833L3.5 14.3833C2.80964 14.3833 2.25 13.8237 2.25 13.1333V12.7167ZM9.10206 15.8833H12.898L13.2814 18.1833L8.71873 18.1833L9.10206 15.8833ZM9.05302 3.81177C9.46927 3.57284 9.97603 3.5521 10.4105 3.75634L10.4116 3.75685L13.3496 5.14376C13.9171 5.39728 14.2832 5.96098 14.2832 6.58335C14.2832 7.20571 13.9171 7.76942 13.3496 8.02293L10.4105 9.41035C9.97595 9.61463 9.4691 9.59384 9.05281 9.3548C8.6235 9.11022 8.35598 8.65631 8.35008 8.16212L8.34998 8.15317L8.35003 5.00514C8.35556 4.51061 8.6233 4.05629 9.05302 3.81177ZM9.85003 5.1505L12.7175 6.50411C12.724 6.50719 12.7306 6.51017 12.7372 6.51306C12.7651 6.52527 12.7832 6.55286 12.7832 6.58335C12.7832 6.61383 12.7651 6.64142 12.7372 6.65363L12.7261 6.6586L12.7175 6.66258L9.85003 8.01619L9.85003 5.1505Z"
-                fill="#777"></path>
-        </svg>
-        &nbsp;Stream History
-    </a>
-    <hr>
-    <a href="#" class="px-3 sidebar-items">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-            <path fill="#666" fill-rule="evenodd"
-                d="M14.5 2a2.5 2.5 0 0 1 2.44 3.047L18.6 3.8l.6.8L17.333 6H20a1 1 0 0 1 1 1v4h-1v11H4V11H3V7a1 1 0 0 1 1-1h2.667L4.8 4.6l.6-.8 1.66 1.247A2.5 2.5 0 0 1 14.5 2zm-3 9H5v10h6.5v-2.041a3 3 0 0 1 0-5.918V11zm7.5 0h-6.5v2.042a3 3 0 0 1 0 5.916V21H19V11zm-7 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-.5-7H4v3h7.5V7zM20 7h-7.5v3H20V7zm-5.5-4A1.5 1.5 0 0 0 13 4.5V6h1.5a1.5 1.5 0 0 0 0-3zm-5 0a1.5 1.5 0 0 0-.144 2.993L9.5 6H11V4.5A1.5 1.5 0 0 0 9.5 3z">
-            </path>
-        </svg>
-        &nbsp; Rewards
-            <span class="sidebar-icons">
+    <a href="#" class="px-3 sidebar-items" [style.pointer-events]="IsLoggedIn?'auto':'none'" [ngClass]="!IsLoggedIn ? 'text-muted' : ''">
+        <div class="row pl-3">
+            <svg width="20" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M3.5 0.450012C1.98122 0.450012 0.75 1.68123 0.75 3.20001L0.75 11.9667L0.75 13.1333C0.75 14.6521 1.98122 15.8833 3.5 15.8833L7.58137 15.8833L7.19803 18.1833H5.93335C5.51914 18.1833 5.18335 18.5191 5.18335 18.9333C5.18335 19.3476 5.51914 19.6833 5.93335 19.6833L16.0667 19.6833C16.4809 19.6833 16.8167 19.3476 16.8167 18.9333C16.8167 18.5191 16.4809 18.1833 16.0667 18.1833H14.8021L14.4187 15.8833L18.5 15.8833C20.0188 15.8833 21.25 14.6521 21.25 13.1333V11.9667L21.25 3.20001C21.25 1.68123 20.0188 0.450012 18.5 0.450012L3.5 0.450012ZM19.75 11.2167V3.20001C19.75 2.50966 19.1904 1.95001 18.5 1.95001L3.5 1.95001C2.80965 1.95001 2.25 2.50966 2.25 3.20001L2.25 11.2167L19.75 11.2167ZM2.25 12.7167L19.75 12.7167V13.1333C19.75 13.8237 19.1904 14.3833 18.5 14.3833L13.538 14.3833C13.5365 14.3833 13.5349 14.3833 13.5334 14.3833H8.46671C8.46516 14.3833 8.4636 14.3833 8.46205 14.3833L3.5 14.3833C2.80964 14.3833 2.25 13.8237 2.25 13.1333V12.7167ZM9.10206 15.8833H12.898L13.2814 18.1833L8.71873 18.1833L9.10206 15.8833ZM9.05302 3.81177C9.46927 3.57284 9.97603 3.5521 10.4105 3.75634L10.4116 3.75685L13.3496 5.14376C13.9171 5.39728 14.2832 5.96098 14.2832 6.58335C14.2832 7.20571 13.9171 7.76942 13.3496 8.02293L10.4105 9.41035C9.97595 9.61463 9.4691 9.59384 9.05281 9.3548C8.6235 9.11022 8.35598 8.65631 8.35008 8.16212L8.34998 8.15317L8.35003 5.00514C8.35556 4.51061 8.6233 4.05629 9.05302 3.81177ZM9.85003 5.1505L12.7175 6.50411C12.724 6.50719 12.7306 6.51017 12.7372 6.51306C12.7651 6.52527 12.7832 6.55286 12.7832 6.58335C12.7832 6.61383 12.7651 6.64142 12.7372 6.65363L12.7261 6.6586L12.7175 6.66258L9.85003 8.01619L9.85003 5.1505Z"
+                    fill="#777"></path>
+            </svg>
+            &nbsp;Stream History
+            <span class="sidebar-icons" [ngStyle]="{'display': display}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="#666" fill-rule="evenodd"
                         d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
                     </path>
                 </svg>
             </span>
+        </div>
+    </a>
+    <hr>
+    <a href="#" class="px-3 sidebar-items" [style.pointer-events]="IsLoggedIn?'auto':'none'" [ngClass]="!IsLoggedIn ? 'text-muted' : ''">
+        <div class="row pl-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M14.5 2a2.5 2.5 0 0 1 2.44 3.047L18.6 3.8l.6.8L17.333 6H20a1 1 0 0 1 1 1v4h-1v11H4V11H3V7a1 1 0 0 1 1-1h2.667L4.8 4.6l.6-.8 1.66 1.247A2.5 2.5 0 0 1 14.5 2zm-3 9H5v10h6.5v-2.041a3 3 0 0 1 0-5.918V11zm7.5 0h-6.5v2.042a3 3 0 0 1 0 5.916V21H19V11zm-7 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-.5-7H4v3h7.5V7zM20 7h-7.5v3H20V7zm-5.5-4A1.5 1.5 0 0 0 13 4.5V6h1.5a1.5 1.5 0 0 0 0-3zm-5 0a1.5 1.5 0 0 0-.144 2.993L9.5 6H11V4.5A1.5 1.5 0 0 0 9.5 3z">
+                </path>
+            </svg>
+            &nbsp; Rewards
+            <span class="sidebar-icons" [ngStyle]="{'display': display}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#666" fill-rule="evenodd"
+                        d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
+                    </path>
+                </svg>
+            </span>
+        </div>
     </a>
     <hr>
     <a href="#" class="px-3">
@@ -176,25 +178,27 @@
         &nbsp;Help & Support
     </a>
     <hr>
-    <a href="#" class="px-3 sidebar-items">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-            <path fill="#666" fill-rule="evenodd"
-                d="M14 2c.25 0 .46.18.49.42l.38 2.65c.61.25 1.17.58 1.69.98l2.49-1a.5.5 0 0 1 .61.22l2 3.46c.12.22.07.49-.12.64l-2.11 1.65c.04.32.07.64.07.98 0 .34-.03.66-.07.98l2.11 1.65c.19.15.24.42.12.64l-2 3.46c-.09.16-.26.25-.43.25-.06 0-.12-.01-.18-.03l-2.49-1c-.52.39-1.08.73-1.69.98l-.38 2.65c-.03.24-.24.42-.49.42h-4c-.25 0-.46-.18-.49-.42l-.38-2.65c-.61-.25-1.17-.58-1.69-.98l-2.49 1a.5.5 0 0 1-.61-.22l-2-3.46a.505.505 0 0 1 .12-.64l2.11-1.65A7.93 7.93 0 0 1 4.5 12c0-.33.03-.66.07-.98L2.46 9.37a.493.493 0 0 1-.12-.64l2-3.46c.09-.16.26-.25.43-.25.06 0 .12.01.18.03l2.49 1c.52-.39 1.08-.73 1.69-.98l.38-2.65c.03-.24.24-.42.49-.42zm-.437 1h-3.126l-.398 2.778-.53.217a6.672 6.672 0 0 0-1.469.855l-.45.338-.523-.21-2.076-.836-1.568 2.712 2.21 1.727-.07.563A6.881 6.881 0 0 0 5.5 12c0 .251.02.524.062.856l.07.563-.446.349-1.763 1.378 1.567 2.71 2.607-1.047.453.348c.461.355.945.637 1.46.848l.529.217.08.566.318 2.212h3.126l.398-2.778.53-.217a6.672 6.672 0 0 0 1.469-.855l.45-.338.523.21 2.076.836 1.568-2.712-2.21-1.727.07-.563A6.73 6.73 0 0 0 18.5 12c0-.258-.02-.518-.062-.856l-.07-.563.446-.349 1.763-1.378-1.567-2.71-2.607 1.047-.453-.348a6.305 6.305 0 0 0-1.46-.848l-.529-.217-.08-.566L13.562 3zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6z">
-            </path>
-        </svg>
-        &nbsp; Settings
-            <span class="sidebar-icons">
+    <a href="#" class="px-3 sidebar-items" [style.pointer-events]="IsLoggedIn?'auto':'none'" [ngClass]="!IsLoggedIn ? 'text-muted' : ''">
+        <div class="row pl-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#666" fill-rule="evenodd"
+                    d="M14 2c.25 0 .46.18.49.42l.38 2.65c.61.25 1.17.58 1.69.98l2.49-1a.5.5 0 0 1 .61.22l2 3.46c.12.22.07.49-.12.64l-2.11 1.65c.04.32.07.64.07.98 0 .34-.03.66-.07.98l2.11 1.65c.19.15.24.42.12.64l-2 3.46c-.09.16-.26.25-.43.25-.06 0-.12-.01-.18-.03l-2.49-1c-.52.39-1.08.73-1.69.98l-.38 2.65c-.03.24-.24.42-.49.42h-4c-.25 0-.46-.18-.49-.42l-.38-2.65c-.61-.25-1.17-.58-1.69-.98l-2.49 1a.5.5 0 0 1-.61-.22l-2-3.46a.505.505 0 0 1 .12-.64l2.11-1.65A7.93 7.93 0 0 1 4.5 12c0-.33.03-.66.07-.98L2.46 9.37a.493.493 0 0 1-.12-.64l2-3.46c.09-.16.26-.25.43-.25.06 0 .12.01.18.03l2.49 1c.52-.39 1.08-.73 1.69-.98l.38-2.65c.03-.24.24-.42.49-.42zm-.437 1h-3.126l-.398 2.778-.53.217a6.672 6.672 0 0 0-1.469.855l-.45.338-.523-.21-2.076-.836-1.568 2.712 2.21 1.727-.07.563A6.881 6.881 0 0 0 5.5 12c0 .251.02.524.062.856l.07.563-.446.349-1.763 1.378 1.567 2.71 2.607-1.047.453.348c.461.355.945.637 1.46.848l.529.217.08.566.318 2.212h3.126l.398-2.778.53-.217a6.672 6.672 0 0 0 1.469-.855l.45-.338.523.21 2.076.836 1.568-2.712-2.21-1.727.07-.563A6.73 6.73 0 0 0 18.5 12c0-.258-.02-.518-.062-.856l-.07-.563.446-.349 1.763-1.378-1.567-2.71-2.607 1.047-.453-.348a6.305 6.305 0 0 0-1.46-.848l-.529-.217-.08-.566L13.562 3zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6z">
+                </path>
+            </svg>
+            &nbsp; Settings
+            <span class="sidebar-icons" [ngStyle]="{'display': display}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="#666" fill-rule="evenodd"
                         d="M12 2a4 4 0 0 1 4 4v2h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4zm5 7H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-11a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z">
                     </path>
                 </svg>
             </span>
+        </div>
     </a>
-    <div id="sidebar-logoutbtn">
+    <div id="sidebar-logoutbtn" *ngIf="IsLoggedIn == true">
         <div class="d-flex flex-row align-items-center p-2 bg-white rounded">
             
-            <a class="btn btn-outline-danger py-1 btn-block">Sign Out</a>
+            <a routerLink="/home" routerLinkActive="active" class="btn btn-outline-danger py-1 btn-block" (click)="logout()">Sign Out</a>
 
         </div>
     </div>

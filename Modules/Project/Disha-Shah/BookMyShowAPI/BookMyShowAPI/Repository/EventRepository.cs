@@ -15,6 +15,37 @@ namespace BookMyShowAPI.Repository
 
         }
 
+        public IEnumerable GetAllUniqueEvents()
+        {
+            var events = context.Events;
+
+            var e1 = from x in events
+                     select new Event
+                     {
+                         About = x.About,
+                         ArtistImage = x.ArtistImage,
+                         ArtistName = x.ArtistName,
+                         BackgroundImage = x.BackgroundImage,
+                         DateOfEvent = x.DateOfEvent,
+                         Disclaimer = x.Disclaimer,
+                         EventId = x.EventId,
+                         EventType = context.EventTypes.SingleOrDefault(e => e.EventTypeId == x.EventTypeId),
+                         EventTypeId = x.EventTypeId,
+                         FAQs = x.FAQs,
+                         Image = x.Image,
+                         MinAge = x.MinAge,
+                         Name = x.Name,
+                         Note = x.Note,
+                         TermsAndConditions = x.TermsAndConditions,
+                         TicketPrice = x.TicketPrice,
+                         Time = x.Time,
+                         EventLanguages = context.EventLanguages.Where(e => e.EventId == x.EventId).ToArray(),
+                         EventVenueShowTimingId = x.EventVenueShowTimingId
+                     };
+
+            return e1;
+        }
+
         // Get information of all events
         public IEnumerable GetAllEvents()
         {

@@ -85,15 +85,6 @@ export class MoviesService {
     return this.movieId;
   }
 
-  /* GET heroes whose name contains search term */
-  searchHeroes(term: string): Observable<IMovies[]> {
-    if (!term.trim()) {
-      // if not search term, return empty hero array.
-      return of([]);
-    }
-    return this.http.get<IMovies[]>(`${this.moviesUrl}/?name=${term}`);
-  }
-
   // /** POST: add a new hero to the server */
   // addStudent(student: IStudent): Observable<IStudent> {
   //   return this.http.post<IStudent>(this.studentsUrl, student, this.httpOptions);

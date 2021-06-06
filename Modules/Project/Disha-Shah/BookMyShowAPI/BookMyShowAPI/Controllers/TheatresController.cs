@@ -33,7 +33,7 @@ namespace BookMyShowAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<Theatre> GetTheatre(int id)
         {
-            var theatre = theatres.GetById(id);
+            var theatre = theatres.GetTheatreById(id);
 
             if (theatre == null)
             {

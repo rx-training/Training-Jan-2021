@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ILogin } from '../../models/ILogin';
 import { RegisterService } from '../register.service';
 
@@ -31,9 +32,10 @@ export class LoginComponent implements OnInit {
     this.doLogin(user);
 
     this.loginForm.reset();
+    window.location.reload();
   }
 
-  constructor(private fb: FormBuilder, private service: RegisterService) { 
+  constructor(private fb: FormBuilder, private service: RegisterService, private router: Router) { 
     this.loginForm = this.fb.group({
       userName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
       password: ['', Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{9,10}$')])],

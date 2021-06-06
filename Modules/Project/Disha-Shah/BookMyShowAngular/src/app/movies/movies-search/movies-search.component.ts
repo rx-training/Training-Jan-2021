@@ -17,33 +17,13 @@ import { MoviesService } from '../movies.service';
 })
 export class MoviesSearchComponent implements OnInit {
 
-  // heroes$!: Observable<IMovies[]>;
-  
-  // private searchTerms = new Subject<string>();
-
-  // constructor(private heroService: MoviesService) {}
-
-  // // Push a search term into the observable stream.
-  // search(term: string): void {
-  //   this.searchTerms.next(term);
-  // }
-
-  // ngOnInit(): void {
-  //   this.heroes$ = this.searchTerms.pipe(
-  //     // wait 300ms after each keystroke before considering the term
-  //     debounceTime(300),
-
-  //     // ignore new term if same as previous term
-  //     distinctUntilChanged(),
-
-  //     // switch to new search observable each time the term changes
-  //     switchMap((term: string) => this.heroService.searchHeroes(term)),
-  //   );
-  // }
-
   moviesList: Array<IMovies> = [];
   eventsList: Array<IActivities> = [];
   uniqueEventsList: Array<IActivities> = [];
+
+  IsMovieFound: boolean = false;
+  IsEventFound: boolean = false;
+  IsResult: boolean = false;
 
   searchText: IMovies =  {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
 
@@ -60,6 +40,30 @@ export class MoviesSearchComponent implements OnInit {
       this.eventsList = events
       this.uniqueEventsList = this.eventsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i)
     })
+  }
+
+  result(){
+    this.moviesList.forEach(item => {
+      if(item.name.toLowerCase().includes(this.searchText.name.toLowerCase())){
+        this.IsMovieFound=true;
+      }
+    })
+
+    this.uniqueEventsList.forEach(item => {
+      if(item.event.toLowerCase().includes(this.searchText.name.toLowerCase())){
+        this.IsEventFound=true;
+      }
+    })
+
+    if(this.IsMovieFound==true || this.IsEventFound==true){
+      this.IsResult = true;
+    }
+    else{
+      this.IsResult = false;
+    }
+
+    this.IsEventFound = false;
+    this.IsMovieFound = false;
   }
 
   constructor(private service: MoviesService, private eventsService: EventsService) {}

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -137,6 +138,12 @@ namespace BookMyShowAPI.Repository
             return registeredUser;
         }
 
+        public User FindContact(string contact)
+        {
+            var registeredUser = context.Users.SingleOrDefault(x => x.ContactNo == contact);
+            return registeredUser;
+        }
+
         // Confirm email
         public async Task<Response> ConfirmEmailAsync(string userId, string token)
         {
@@ -182,6 +189,13 @@ namespace BookMyShowAPI.Repository
             }
 
             return false;
+        }
+
+        public IEnumerable GetAllUsers()
+        {
+            var users = context.Users;
+
+            return users;
         }
     }
 }

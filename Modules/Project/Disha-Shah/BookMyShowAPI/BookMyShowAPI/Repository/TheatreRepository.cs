@@ -15,6 +15,24 @@ namespace BookMyShowAPI.Repository
 
         }
 
+        public IEnumerable GetTheatreById(int id)
+        {
+            var theatre = context.Theatres
+                                .Where(x => x.TheatreId == id);
+
+            var t1 = from x in theatre
+                     select new Theatre
+                     {
+                         TheatreId = x.TheatreId,
+                         Address = x.Address,
+                         Name = x.Name,
+                         CityId = x.CityId,
+                         City = context.Cities.SingleOrDefault(t => t.CityId == x.CityId)
+                     };
+
+            return t1;
+        }
+
         // Add Theatre
         public override void Create(Theatre theatre)
         {

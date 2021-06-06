@@ -21,6 +21,16 @@ export class EventsService {
     return this.http.get<IActivities[]>(this.eventsUrl);
   }
 
+  getUniqueEvents(): Observable<any[]> {
+    const url = `${this.eventsUrl}/UniqueEvents`;
+    return this.http.get<any[]>(url);
+  } 
+
+  getEvent(id: number): Observable<IActivities[]> {
+    const url = `${this.eventsUrl}/${id}`; 
+    return this.http.get<IActivities[]>(url);
+  }
+
   /** GET students from the server */
   getActivities(): Observable<IActivities[]> {
     const url = `${this.eventsUrl}/Activities`;

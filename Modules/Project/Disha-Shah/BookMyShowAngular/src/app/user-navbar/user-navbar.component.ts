@@ -1,32 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegisterService } from '../auth/register.service';
 
 @Component({
   selector: 'app-user-navbar',
   templateUrl: './user-navbar.component.html',
   styleUrls: ['./user-navbar.component.css']
 })
-export class UserNavbarComponent implements OnInit {
+export class UserNavbarComponent implements OnInit, OnChanges {
 
-  /*
-$("#next-trigger").click(function(){
-  $('#loginModal').modal('hide');
-  $('#registerModal').modal('show');
-});
+  IsLoggedIn: boolean = false;
+  display: string = "block";
+  userInfo: any;
+  username: string = '';
 
+  IsUserLoggedIn()
+  {
+    if(localStorage.logged_in_user){
+      this.IsLoggedIn = true;
+      this.display = "none";
+      this.userInfo = JSON.parse(localStorage.getItem("logged_in_user"));
+      this.username = this.userInfo.username;
+    }
+    else{
+      this.IsLoggedIn = false;
+    }
+  }
 
-$("#back-trigger").click(function(){
-  $('#registerModal').modal('hide');
-  $('#loginModal').modal('show');
-}) */
+  logout() {
+    this.registerService.logoutUser();
+    this.IsLoggedIn = false;
+    this.display = "block";
 
-// toRegister(){
+    alert("You have successfully logged out");
+  }
 
-// }
+  constructor(private registerService: RegisterService, private router: Router) { }
 
-  constructor() { }
+  ngOnChanges(){
+    this.IsUserLoggedIn();
+  }
 
   ngOnInit(): void {
     this.loadScript('../../../assets/js/main.js');
+    this.IsUserLoggedIn();
   }
 
   loadScript(url: any){

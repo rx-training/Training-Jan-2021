@@ -1,0 +1,111 @@
+<div class="py-4">
+    <div class="container">
+        <h1 class="display-4">Booking Summary</h1>
+
+        <table class="table table-borderless">
+            <tbody id="bookingSummary">
+                    <tr *ngIf="selectedExecutiveSeatsList != null">
+                        <td>Executive(Rs.200):
+                            <ng-container *ngFor="let seat of selectedExecutiveSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+
+                            <ng-container *ngIf = "selectedExecutiveSeatsList.length == 1">
+                                ({{selectedExecutiveSeatsList.length}} Ticket)
+                            </ng-container>
+                            <ng-container *ngIf = "selectedExecutiveSeatsList.length != 1">
+                                ({{selectedExecutiveSeatsList.length}} Tickets)
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            Rs.{{executiveTotal}}
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="selectedPremiumSeatsList != null">
+                        <td>Premium(Rs.250):
+                            <ng-container *ngFor="let seat of selectedPremiumSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+                            
+                            <ng-container *ngIf = "selectedPremiumSeatsList.length == 1">
+                                ({{selectedPremiumSeatsList.length}} Ticket)
+                            </ng-container>
+                            <ng-container *ngIf = "selectedPremiumSeatsList.length != 1">
+                                ({{selectedPremiumSeatsList.length}} Tickets)
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            Rs.{{premiumTotal}}
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="selectedNormalSeatsList != null">
+                        <td>Normal(Rs.150):
+                            <ng-container *ngFor="let seat of selectedNormalSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+                            
+                            <ng-container *ngIf = "selectedNormalSeatsList.length == 1">
+                                ({{selectedNormalSeatsList.length}} Ticket)
+                            </ng-container>
+                            <ng-container *ngIf = "selectedNormalSeatsList.length != 1">
+                                ({{selectedNormalSeatsList.length}} Tickets)
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            Rs.{{normalTotal}}
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="selectedReclinerSeatsList != null">
+                        <td>Recliner(Rs.630):
+                            <ng-container *ngFor="let seat of selectedReclinerSeatsList">
+                                <ng-container id="screenDetails">                                
+                                    {{seat.seatNo}}
+                                </ng-container>
+                            </ng-container>
+                            
+                            <ng-container *ngIf = "selectedReclinerSeatsList.length == 1">
+                                ({{selectedReclinerSeatsList.length}} Ticket)
+                            </ng-container>
+                            <ng-container *ngIf = "selectedReclinerSeatsList.length != 1">
+                                ({{selectedReclinerSeatsList.length}} Tickets)
+                            </ng-container>
+                        </td>
+
+                        <td id="amountDetails">
+                            Rs.{{reclinerTotal}}
+                        </td>
+                    </tr>
+                    
+            </tbody>
+            <tfoot>
+                <tr class="bg-light">
+                    <td>Amount Payable</td>
+                    <td id="finalAmount">Rs.{{totalAmount}}</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="row p-3">
+            <div class="col-md-6">
+                <button routerLink="/home" routerLinkActive="active" type="button" class="btn btn-secondary btn-block" data-dismiss="modal" id="cancelBooking" (click)="cancelBooking()">Cancel</button>
+        
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-danger btn-block" id="finalPayment" (click)="doBooking()">Proceed</button>
+        
+            </div>
+        </div>
+    </div>
+</div>

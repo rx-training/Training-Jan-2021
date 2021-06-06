@@ -9,6 +9,7 @@ namespace BookMyShowAPI.IRepository
 {
     public interface IEvent : IGenericInterface<Event>
     {
+        public IEnumerable GetAllUniqueEvents();
         public IEnumerable GetAllEvents();
         public IEnumerable GetEventById(int id);
 

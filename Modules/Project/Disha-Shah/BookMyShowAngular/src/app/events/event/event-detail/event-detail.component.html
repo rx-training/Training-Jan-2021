@@ -1,0 +1,152 @@
+<div class="bg-light">
+    <div class="container">
+        <div class="card mb-3">
+            <img class="card-img-top" [src]="'../../../../../../assets/' + eventBgImg" alt="Card image cap">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h5 class="card-title h4">{{event.event}}</h5>
+                        <p class="card-text">{{event.eventType}} | 
+                            <ng-container *ngFor="let language of event.languages; let l = last">
+                                <ng-container *ngIf="l==true">
+                                    {{language}}
+                                </ng-container>
+                                <ng-container *ngIf="l==false">
+                                    {{language}},
+                                </ng-container>
+                            </ng-container>
+                            | {{minAge}}yrs +
+                        </p>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ticketModal">Register</button>
+                    </div>
+                </div>
+                <hr>
+                {{dateToWatch}} at 
+                <ng-container *ngIf = "event.showTime.hours < 10">
+                    0{{event.showTime.hours}}:
+                </ng-container>
+                <ng-container *ngIf = "event.showTime.hours >= 10">
+                    {{event.showTime.hours}}:
+                </ng-container>
+                <ng-container *ngIf = "event.showTime.minutes < 10">
+                    0{{event.showTime.minutes}}
+                </ng-container>
+                <ng-container *ngIf = "event.showTime.minutes >= 10">
+                    {{event.showTime.minutes}}
+                </ng-container> &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-map-marker mr-2"></i>{{event.eventVenue}} | Rs.{{event.ticketPrice}}
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Share this event</h5>
+                        <div class="card-text">
+                            <a href="#" [ngStyle]="{'color': 'black'}"><i class="fa fa-facebook fa-2x mr-3"></i></a>
+                            <a href="#" [ngStyle]="{'color': 'black'}"><i class="fa fa-twitter fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="card" [ngStyle]="{'background':'rgb(255, 249, 227)'}">
+                            <div class="card-body">
+                                <h5 class="card-title">Note</h5>
+                                <div class="card-text">
+                                    {{note}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <h5 class="font-weight-normal">About</h5>
+                            <h6 class="font-weight-normal">{{about}}</h6>
+                        </div>
+
+                        <div id="accordion" class="mt-3">
+                            <div class="card">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                  <a [ngStyle]="{'color':'black'}" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Disclaimer
+                                  </a>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    {{disclaimer}}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                  <a [ngStyle]="{'color':'black'}" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Terms & Conditions
+                                  </a>
+                                </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    {{termsConditions}}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ticketModalLabel">How many tickets?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-muted small">
+            <select class="custom-select" id="seatSelect" (change)="noOfSeats($event)">
+                <option selected name="seats" value="1">1</option>
+                <option name="seats" value="2">2</option>
+                <option name="seats" value="3">3</option>
+                <option name="seats" value="4">4</option>
+            </select>
+            <hr>
+            <div class="row">
+                <div class="col text-center py-3">
+                    <small class="text-muted h6 font-weight-normal">Available: {{event.totalTickets}} Tickets</small><br>
+                    <small class="h6 font-weight-normal text-dark">Rs.{{event.ticketPrice}}</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row p-3">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Cancel</button>
+            </div>
+            <div class="col-md-6">
+                <button routerLink = "{{numberOfSeats}}/confirmBooking" routerLinkActive="active" type="button" class="btn btn-danger btn-block" data-dismiss="modal" (click)="doLogin()">Proceed</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -28,6 +28,9 @@ import { MoviesSearchComponent } from './movies/movies-search/movies-search.comp
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterService } from './auth/register.service';
+import { UserBookingHistoryComponent } from './user-booking-history/user-booking-history.component';
+import { EventDetailComponent } from './events/event/event-detail/event-detail.component';
+import { EventModule } from './events/event/event.module';
 
 @NgModule({
   declarations: [
@@ -48,14 +51,17 @@ import { RegisterService } from './auth/register.service';
     HomeAllMoviesEventsComponent,
     MoviesSearchComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UserBookingHistoryComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EventModule
   ],
   providers: [MoviesService, GenreService, LanguageService, MovieBookingsService, EventsService, FilmCategoryService, RegisterService],
   bootstrap: [AppComponent]

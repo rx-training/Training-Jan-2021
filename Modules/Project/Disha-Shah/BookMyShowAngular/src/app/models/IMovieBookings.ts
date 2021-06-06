@@ -13,6 +13,9 @@ export interface IMovieBookings{
     filmCategory: string;
     dateToWatch: Date;
     totalTickets: number;
+    image?: string;
+    certification?: string;
+    dateOfMovie?: string;
 }
 /*
 {

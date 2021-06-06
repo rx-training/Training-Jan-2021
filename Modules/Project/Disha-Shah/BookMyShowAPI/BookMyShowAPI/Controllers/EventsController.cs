@@ -22,6 +22,12 @@ namespace BookMyShowAPI.Controllers
             events = context;
         }
 
+        [HttpGet("UniqueEvents")]
+        public ActionResult<IEnumerable<Event>> GetUniqueEvents()
+        {
+            return Ok(events.GetAllUniqueEvents());
+        }
+
         // GET: api/BookMyShow/Events
         [HttpGet]
         public ActionResult<IEnumerable<Event>> GetEvents()
