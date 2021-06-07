@@ -1,0 +1,93 @@
+<div class="bg-light">
+    <div class="d-flex p-4 justify-content-between">
+        <h1 class="h4">Latest Movies</h1>
+        <button class="btn btn-danger px-md-5" data-toggle="modal" data-target="#addMovieModal">Add Movie&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+    </div>
+    <div class="table-responsive w-100">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Film</th>
+                    <th>Language</th>
+                    <th>Time</th>
+                    <th>Genre</th>
+                    <th>Certification</th>
+                    <th>Date Of Release</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tblMovie">
+
+                <tr *ngFor="let movie of moviesList">
+                    <td>{{movie.movieId}}</td>
+                    <td>{{movie.name}}</td>
+                    <td><img [src]="'../../../../../assets/' + movie.image" alt='' class='img-fluid rounded' style='width:70px'></td>
+                    <td>
+                        <ng-container *ngFor="let category of movie.movieFilmCategories; let l=last">
+                            <ng-container *ngIf="l==false">
+                                {{category.filmCategory}},
+                            </ng-container>
+                            <ng-container *ngIf="l==true">
+                                {{category.filmCategory}}
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                    <td>
+                        <ng-container *ngFor="let language of movie.movieLanguages; let l=last">
+                            <ng-container *ngIf="l==false">
+                                {{language.language}},
+                            </ng-container>
+                            <ng-container *ngIf="l==true">
+                                {{language.language}}
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                    <td>{{movie.time}}</td>
+                    <td>
+                        <ng-container *ngFor="let genre of movie.movieGenres; let l=last">
+                            <ng-container *ngIf="l==false">
+                                {{genre.genre}},
+                            </ng-container>
+                            <ng-container *ngIf="l==true">
+                                {{genre.genre}}
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                    <td>{{movie.certification.certification1}}</td>
+                    <td>{{movie.dateOfRelease}}</td>
+                    <td>
+                        <div class='d-md-block d-lg-inline'>
+                            <a routerLink="./{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class='fa fa-2x fa-pencil'></i>
+                            </a>
+                            <a class='text-dark m-1' (click)="removeMovie(movie.movieId)">
+                                <i class='fa fa-2x fa-trash'></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title mx-3" id="addMovieModalLabel">Add Movie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body mx-3">
+            <app-add-movie></app-add-movie>
+        </div>
+    </div>
+    </div>
+</div>

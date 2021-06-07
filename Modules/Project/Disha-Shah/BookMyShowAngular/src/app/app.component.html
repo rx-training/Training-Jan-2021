@@ -1,5 +1,17 @@
-<app-user-navbar></app-user-navbar>
+<!-- <ng-container *ngIf="userRole == 'User' || userRole == '' || adminRole != 'Admin'">
+    <app-user-navbar></app-user-navbar>
+
+    <router-outlet></router-outlet>
+
+    <app-user-footer></app-user-footer> -->
+    <!-- <app-user-home></app-user-home> -->
+<!-- </ng-container>
+<ng-container *ngIf="adminRole != 'Admin'">
+    <app-admin-dashboard></app-admin-dashboard>
+</ng-container> -->
+
+<app-user-navbar *ngIf="adminRole != 'Admin'"></app-user-navbar>
 
 <router-outlet></router-outlet>
 
-<app-user-footer></app-user-footer>
+<app-user-footer *ngIf="adminRole != 'Admin'"></app-user-footer>

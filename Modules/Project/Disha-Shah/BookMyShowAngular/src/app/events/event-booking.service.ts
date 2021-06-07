@@ -10,18 +10,27 @@ export class EventBookingService {
 
   private eventBookingsUrl = 'https://localhost:44380/api/BookMyShow/EventBookings';  // URL to web api
   loginToken = '';
+  adminLoginToken = '';
 
   getToken(){
     const tokenObj: any = JSON.parse(localStorage.getItem("logged_in_user"));
     this.loginToken = tokenObj.token;
-    console.log(this.loginToken);
+  }
+
+  getAdminToken(){
+    const tokenObj: any = JSON.parse(localStorage.getItem("logged_in_admin"));
+    this.adminLoginToken = tokenObj.token;
   }
 
   constructor(private http: HttpClient) {  }
 
   /** GET students from the server */
   getEventBookings(): Observable<IEventBookings[]> {
-    return this.http.get<IEventBookings[]>(this.eventBookingsUrl);
+    this.getAdminToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.adminLoginToken}` })
+    };  
+    return this.http.get<IEventBookings[]>(this.eventBookingsUrl, httpOptions);
   }
 
   getEventBookingsByContact(contact: string): Observable<IEventBookings[]> {

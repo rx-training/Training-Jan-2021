@@ -15,11 +15,16 @@ export class LoginComponent implements OnInit {
 
   otp: number = 0;
 
+  loginRole: any;
+
   doLogin(user: ILogin): void {
     this.otp = this.loginForm.value.otp;
     console.log(this.otp);
     this.service.loginUser(user, this.otp)
-    .subscribe();
+    .subscribe(data => {
+      this.loginRole = data
+      console.log(this.loginRole.role);
+    });
   }
 
   loginSubmit(){
@@ -32,7 +37,15 @@ export class LoginComponent implements OnInit {
     this.doLogin(user);
 
     this.loginForm.reset();
-    window.location.reload();
+
+    // if(this.loginRole.role == "User"){
+    //   window.location.reload();
+    //   this.router.navigate(['/home']);
+    // }
+    // else if(this.loginRole.role == "Admin"){
+    //   window.location.reload();
+    //   this.router.navigate(['/admin-dashboard']);
+    // }
   }
 
   constructor(private fb: FormBuilder, private service: RegisterService, private router: Router) { 

@@ -11,12 +11,19 @@ export class MoviesService {
 
   theatresList: Array<any> = [];
   movieId: number = 0;
+  loginToken = '';
+
+  getToken(){
+    const tokenObj: any = JSON.parse(localStorage.getItem("logged_in_admin"));
+    this.loginToken = tokenObj.token;
+    console.log(this.loginToken);
+  }
 
   private moviesUrl = 'https://localhost:44380/api/BookMyShow/Movies';  // URL to web api
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  // };
 
   constructor(private http: HttpClient) {  }
 
@@ -83,6 +90,37 @@ export class MoviesService {
 
   getMovieId(){
     return this.movieId;
+  }
+
+  /** POST: add a new hero to the server */
+  addMovie(movie: any): Observable<any> {
+    this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
+    };  
+    console.log(httpOptions);
+    return this.http.post<any>(this.moviesUrl, movie, httpOptions);
+  }
+
+  /** POST: add a new hero to the server */
+  addGenreForMovie(movieId: number, genre: string): Observable<any> {
+    const url = `${this.moviesUrl}/${movieId}/Genres`; 
+    this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
+    };  
+    console.log(httpOptions);
+    return this.http.post<any>(url, genre, httpOptions);
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteMovie(id: number): Observable<IMovies> {
+    const url = `${this.moviesUrl}/${id}`;
+    this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
+    }; 
+    return this.http.delete<IMovies>(url, httpOptions);
   }
 
   // /** POST: add a new hero to the server */

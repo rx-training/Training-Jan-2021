@@ -11,6 +11,7 @@ namespace BookMyShowAPI.IRepository
     {
         public IEnumerable GetAllMovies();
         public IEnumerable GetMovieById(int id);
+        public void CreateMovie(MovieDTO movie);
 
         public IEnumerable GetMoviesByLangugage(string language);
         public void CreateMovieLanguages(int id, string language);

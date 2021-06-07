@@ -88,23 +88,82 @@ namespace BookMyShowAPI.Repository
         }
 
         // Add Movie
-        public override void Create(Movie movie)
+        public void CreateMovie(MovieDTO movie)
         {
-            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == movie.Certification.Certification1);
+            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == movie.Certification);
+
+            //var newMovie = new Movie
+            //{
+            //    Name = movie.Name,
+            //    About = movie.About,
+            //    Image = movie.Image,
+            //    DateOfRelease = movie.DateOfRelease,
+            //    Time = movie.Time,
+            //    IsRecommended = movie.IsRecommended,
+            //    IsPremiere = movie.IsPremiere,
+            //    CertificationId = certification.CertificationId
+            //};
 
             context.Movies.Add(new Movie()
             {
                 Name = movie.Name,
-                About=movie.About,
-                Image=movie.Image,
-                DateOfRelease=movie.DateOfRelease,
-                Time=movie.Time,
-                IsRecommended=movie.IsRecommended,
-                IsPremiere=movie.IsPremiere,
-                CertificationId=certification.CertificationId
+                About = movie.About,
+                Image = movie.Image,
+                DateOfRelease = movie.DateOfRelease,
+                Time = movie.Time,
+                IsRecommended = movie.IsRecommended,
+                IsPremiere = movie.IsPremiere,
+                CertificationId = certification.CertificationId,
+                BackgroundImage = movie.BackgroundImage,
+                Cast = movie.Cast,
+                CastImages = movie.CastImages
             });
 
             context.SaveChanges();
+
+            var movies = context.Movies.ToList();
+            var totalMovies = movies.Count();
+            var movieId = movies[totalMovies - 2].MovieId;
+
+            foreach (var item in movie.Genres)
+            {
+                var gen = context.Genres.SingleOrDefault(x => x.Genre1 == item);
+
+                context.MovieGenres.Add(new MovieGenre()
+                {
+                    MovieId = movieId + 1,
+                    GenreId = gen.GenreId
+                });
+
+                context.SaveChanges();
+            }
+
+            foreach (var item in movie.Languages)
+            {
+                var lang = context.Languages.SingleOrDefault(x => x.Language1 == item);
+
+                context.MovieLanguages.Add(new MovieLanguage()
+                {
+                    MovieId = movieId + 1,
+                    LanguageId = lang.LanguageId
+                });
+
+                context.SaveChanges();
+            }
+
+            foreach (var item in movie.FilmCategories)
+            {
+                var film = context.FilmCategories.SingleOrDefault(x => x.FilmCategory1 == item);
+
+                context.MovieFilmCategories.Add(new MovieFilmCategory()
+                {
+                    MovieId = movieId + 1,
+                    FilmCategoryId = film.FilmCategoryId
+                });
+
+                context.SaveChanges();
+            }
+
         }
 
         // Update Movie

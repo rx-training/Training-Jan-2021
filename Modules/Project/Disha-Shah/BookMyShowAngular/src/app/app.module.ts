@@ -31,6 +31,11 @@ import { RegisterService } from './auth/register.service';
 import { UserBookingHistoryComponent } from './user-booking-history/user-booking-history.component';
 import { EventDetailComponent } from './events/event/event-detail/event-detail.component';
 import { EventModule } from './events/event/event.module';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminModule } from './admin/admin.module';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,10 @@ import { EventModule } from './events/event/event.module';
     RegisterComponent,
     LoginComponent,
     UserBookingHistoryComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    AdminDashboardComponent,
+    UserHomeComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +69,10 @@ import { EventModule } from './events/event/event.module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    EventModule
+    EventModule,
+    AdminModule
   ],
-  providers: [MoviesService, GenreService, LanguageService, MovieBookingsService, EventsService, FilmCategoryService, RegisterService],
+  providers: [DatePipe, MoviesService, GenreService, LanguageService, MovieBookingsService, EventsService, FilmCategoryService, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

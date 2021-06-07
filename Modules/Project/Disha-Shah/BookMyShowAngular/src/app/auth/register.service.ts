@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { IRegister } from '../models/IRegister';
 import {map, catchError} from 'rxjs/operators';
 import { ILogin } from '../models/ILogin';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class RegisterService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient, private router: Router) {  }
 
   /** POST: add a new hero to the server */
   addUser(user: IRegister): Observable<IRegister> {
@@ -43,9 +44,13 @@ export class RegisterService {
       map((data: any) => {
         console.log(data);
         if(data.role == 'User'){
+          window.location.reload();
+          this.router.navigate(['/home']);
           localStorage.logged_in_user = JSON.stringify(data);
         }
         if(data.role == 'Admin'){
+          window.location.assign('/admin-dashboard');
+          //this.router.navigate(['/admin-dashboard']);
           localStorage.logged_in_admin = JSON.stringify(data);
         }
         alert("Successfully logged in");

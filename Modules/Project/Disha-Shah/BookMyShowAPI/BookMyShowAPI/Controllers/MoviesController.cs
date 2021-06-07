@@ -168,12 +168,12 @@ namespace BookMyShowAPI.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize(Roles = UserRoles.Admin)]
-        public ActionResult<Movie> PostMovie(Movie movie)
+        public ActionResult<MovieDTO> PostMovie(MovieDTO movie)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            movies.Create(movie);
+            movies.CreateMovie(movie);
 
             return Ok();
         }

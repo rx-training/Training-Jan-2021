@@ -48,5 +48,20 @@ namespace BookMyShowAPI.Repository
         {
             return context.Set<T>().Where(predicate);
         }
+
+        public bool Any(Func<T, bool> predicate)
+        {
+            return context.Set<T>().Any(predicate);
+        }
+
+        public bool Any()
+        {
+            return context.Set<T>().Any();
+        }
+
+        public int Count(Func<T, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminGuard } from './auth/admin.guard';
 import { UserGuard } from './auth/user.guard';
 import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-movies-events.component';
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'bookinghistory',
     component: UserBookingHistoryComponent
+  },
+  {
+    path: 'admin-dashboard',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
