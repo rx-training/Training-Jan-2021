@@ -42,9 +42,9 @@ export class RiderSelectRideComponent implements OnInit {
         this.router.navigate(['/rider/current-trip']);
       }, 1500);
     });
-    // console.log(this.tripService.source);
   }
 
+  // calculating distance using coordinates of source and destination.
   calculateDistance() {
     return parseFloat((this.getDistanceFromLatLonInKm(this.source.latitude, this.source.longitude, this.destination.latitude, this.destination.longitude)).toFixed(2));
   }
@@ -73,7 +73,6 @@ export class RiderSelectRideComponent implements OnInit {
         if(this.rideTypes[i-1].rideTypeId == rideId) {
             document.getElementById('ride_' + this.rideTypes[i-1].rideTypeId).style.background = 'rgb(224, 235, 255)';
             document.getElementById('ride_' + this.rideTypes[i-1].rideTypeId).classList.add("active");
-            // document.getElementById('bookRide-btn').disabled = false;
             this.isSelected=true;
             this.selectedType = this.rideTypes[i-1];
             this.tripService.selectedType = this.selectedType

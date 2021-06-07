@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // stores number and redirects to password page
   passNumber() {
     if(this.contactNumber != null && this.contactNumber.toString().length != 10) {
       this.isWrong = true;

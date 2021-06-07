@@ -30,16 +30,20 @@ export class LoginPasswordFormComponent implements OnInit {
     this.contactNumber = this.authService.loginContactNumber;
   }
 
+  // sends request to api if password is given
   verifyPasswordAndRedirect() {
     this.submitingForm = true;
     this.authService.loginPassword = this.passwordInput;
     this.authService.loginRider()
     .subscribe(x => {
+
+      // save user data and session data if response is received.
       this.isWrong = false;
       let encryptedUser = (CryptoJS.AES.encrypt(JSON.stringify(x), this.cryptoPassword)).toString();
       localStorage.setItem('user',encryptedUser);
       localStorage.setItem('session',CryptoJS.AES.encrypt((new Date()).toString(), this.cryptoPassword).toString());
       
+      //call get profile api to get profile data
       this.riderService.getProfileData().subscribe(x => {
         this.riderService.setData(x);
       },
@@ -60,9 +64,5 @@ export class LoginPasswordFormComponent implements OnInit {
       }
       this.submitingForm = false;
     });
-  }
-
-  sendVerificationMail() {
-    // this.riderService
   }
 }

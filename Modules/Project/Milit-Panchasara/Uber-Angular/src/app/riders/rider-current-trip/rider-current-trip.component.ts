@@ -10,18 +10,23 @@ import { TripService } from 'src/app/services/trip.service';
 })
 export class RiderCurrentTripComponent implements OnInit {
 
+  // coordinates for center of map in background.
   lat = 23.0225;
   lng = 72.5714;
+
   trip:RiderTripInterface;
   constructor(private tripService:TripService, private router:Router) { }
 
   ngOnInit(): void {
+    //redirect if no current trip available.
     if(this.tripService.currentTrip == null) {
       this.router.navigate(['/rider/dashboard']);
     }
     
     this.trip = this.tripService.currentTrip;
     console.log(this.trip);
+
+    // start and complete trip after 5 seconds and 10 seconds interval respectively.
     if(this.tripService.currentTrip.status == 'New') {
       setTimeout(() => {
         this.tripService.startNewTrip().subscribe(x => {
@@ -49,6 +54,7 @@ export class RiderCurrentTripComponent implements OnInit {
     }
   }
 
+  //cancelling trip.
   cancelTrip() {
     this.tripService.cancelTrip()
     .subscribe(x => {

@@ -31,7 +31,6 @@ export class AuthGuard implements CanActivate {
           return false;
         }
 
-        // let decryptedUser = (CryptoJS.AES.decrypt(localStorage.getItem('user'), GlobalConstants.cryptoPassword)).toString(CryptoJS.enc.Utf8);
         let decryptedSession = (CryptoJS.AES.decrypt(localStorage.getItem('session'), GlobalConstants.cryptoPassword)).toString(CryptoJS.enc.Utf8);
         
         if((new Date(decryptedSession)).getTime() + (1000*60*60*3) < (new Date).getTime()) // 3 hours 
@@ -53,11 +52,6 @@ export class AuthGuard implements CanActivate {
 
         this.router.navigate(['/']);
       }
-
-      // if(user.userRole != 'rider'){
-      //   this.router.navigate(['/rider/login']);
-      //   return false;
-      // }
 
     return true;
   }

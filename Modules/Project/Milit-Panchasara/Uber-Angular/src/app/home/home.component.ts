@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   changeBGImage(type) {
+
+    //changes the background image on click
     switch (type) {
       case "earn":
           this.productsSection.nativeElement.style.backgroundImage = 'url("../../assets/img/Product-Masthead-Desktop.jpg")';

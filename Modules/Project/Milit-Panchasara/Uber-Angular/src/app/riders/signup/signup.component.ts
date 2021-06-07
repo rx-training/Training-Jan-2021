@@ -33,6 +33,7 @@ export class SignupComponent implements OnInit {
     this.submitingForm = true;
     this.authService.registerRider(this.signUpForm.value)
     .subscribe(x => {
+      // save retured user data and start session.
       let encryptedUser = (CryptoJS.AES.encrypt(JSON.stringify(x), GlobalConstants.cryptoPassword)).toString();
       localStorage.setItem('user',encryptedUser);
       
@@ -41,7 +42,6 @@ export class SignupComponent implements OnInit {
       },
       error => {
         if(error.status == 0) {
-          // alert("Something went wrong!");
           this.router.navigate(['/']);
         }
       });
