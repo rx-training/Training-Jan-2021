@@ -1,0 +1,21 @@
+<div class="row">
+    <aside class="col-12 col-md-3 mt-3">
+        <a routerLink="/rider/dashboard" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Request a ride</a>
+        <a routerLink="/rider/trips" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item active">My trips</a>
+        <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Wallet</a>
+        <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Free rides</a>
+        <a routerLink="/rider/profile" style="margin-left: 40%; height: 50px; padding-top: 12px; width: auto !important;" class="dropdown-item">Profile settings</a>
+        <a href="" style="margin-left: 40%; height: 50px; padding-top: 12px;  width: auto !important;" class="dropdown-item">Tax profile</a>
+    </aside>
+    <div class="col-8 my-3 ml-5 pl-5">
+        <div *ngFor="let trip of allTrips.slice(0, showRecords)" class="card card-body col-12">
+            <p class="my-1">From <span class="h5">{{trip.sourceLocation}}</span>, To <span class="h5">{{trip.destinationLocation}}</span></p>
+            <p class="my-1">Start time: <span *ngIf="trip.startTime==null">-</span>{{trip.startTime}}, End Time: <span *ngIf="trip.endTime==null">-</span>{{trip.endTime}}</p>
+            <p class="my-1">Amount paid: <span *ngIf="trip.cancelledBy=='Rider'" class="h5">0.00 &#8377;</span><span class="h5" *ngIf="trip.cancelledBy==null">{{trip.actualFairAmount | number:'1.2-2'}} &#8377;</span></p>
+            <p class="my-1">Driver: <span class="h5">{{trip.driverName}} - {{trip.vehicleBrand}} {{trip.vehicleName}} ({{trip.registrationNo}})</span></p>
+        </div>
+        <div class="text-center my-2">
+            <a class="text-primary h6" *ngIf="allTrips.length > showRecords" (click)="showMore()">Show more</a>
+        </div>
+    </div>
+</div>

@@ -36,12 +36,22 @@ export class RiderHomeComponent implements OnInit {
 
     this.riderService.getProfileData().subscribe(x => {
       this.profileData = x as RiderProfile;
+
+      console.log(x);
+      
       this.riderService.setData(x);
     }, 
     error => {
+      console.log(error);
       if(error.status == 0) {
         // alert("Something went wrong!");
         this.router.navigate(['/']);
+      }
+      else if(error.status == 500){
+        localStorage.removeItem('user');
+        localStorage.removeItem('session');
+        this.router.navigate(['/']);
+        alert(error.error.message);
       }
     });
     this.tripService.getTrips()

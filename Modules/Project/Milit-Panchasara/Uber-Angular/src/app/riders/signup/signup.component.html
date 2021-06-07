@@ -51,6 +51,7 @@
                 <input type="password" class="form-control form-control-sm" placeholder="Password" formControlName="password">
                 <ng-container *ngIf="!signUpForm.controls.password.valid && signUpForm.controls.password.touched && signUpForm.controls.password.errors != null">
                     <span class="small text-danger" *ngIf="signUpForm.controls.password.errors.required">This field cannot be empty.</span>
+                    <span class="small text-danger" *ngIf="signUpForm.controls.password.errors.pattern">Password should contain atleast 1 capital, 1 small letter, 1 number, 1 special character and 6 character long.</span>
                 </ng-container>
             </div>
             <button type="button" [disabled]="signUpForm.invalid || submitingForm" (click)="submitForm()"  class="btn btn-block btn-primary p-2 pl-3 mt-5" style="height: 50px !important; background-color: rgb(17, 147, 154) !important; text-align: left; font-weight:bold; border-radius: 0;">SIGN UP</button>

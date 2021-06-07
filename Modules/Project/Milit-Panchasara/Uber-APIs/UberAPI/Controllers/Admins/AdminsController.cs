@@ -50,7 +50,7 @@ namespace UberAPI.Controllers.Admins
                 return new Response() { Status = "0", Message = "Error occured!" };
             }
         }
-
+    
         //POST: api/admins/allUsers
         [HttpGet("allUsers")]
         public ActionResult<object> GetUsers()

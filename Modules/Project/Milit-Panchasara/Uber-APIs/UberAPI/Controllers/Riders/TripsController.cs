@@ -44,7 +44,7 @@ namespace UberAPI.Controllers.Riders
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
             }
 
-            return tripRepo.GetAllTrips(id).ToList();
+            return tripRepo.GetAllTrips(id).OrderByDescending(x => x.TripId).ToList();
         }
 
         // GET: api/rider/{id}/trips/{tripId}

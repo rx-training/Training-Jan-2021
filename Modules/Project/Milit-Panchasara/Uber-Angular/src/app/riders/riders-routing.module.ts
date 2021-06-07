@@ -13,6 +13,7 @@ import { RiderRatingComponent } from './rider-rating/rider-rating.component';
 import { RiderSelectRideComponent } from './rider-select-ride/rider-select-ride.component';
 import { RiderSourceComponent } from './rider-source/rider-source.component';
 import { RiderGuard } from './rider.guard';
+import { RiderTripListComponent } from './rider-trip-list/rider-trip-list.component';
 
 const routes: Routes = [
   // {path: '' , component: },
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'current-trip', component: RiderCurrentTripComponent, canActivate:[AuthGuard, RiderGuard]},
   {path:'trip-rating', component: RiderRatingComponent, canActivate:[AuthGuard, RiderGuard]},
   {path:'profile', component: RiderProfileComponent, canActivate:[AuthGuard, RiderGuard]},
+  {path:'trips', component: RiderTripListComponent, canActivate:[AuthGuard, RiderGuard]},
 
   {path:'**', component: HomeComponent}
 ];

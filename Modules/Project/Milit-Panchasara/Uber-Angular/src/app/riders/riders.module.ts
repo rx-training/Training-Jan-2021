@@ -15,6 +15,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { RiderRatingComponent } from './rider-rating/rider-rating.component';
 import { RiderProfileComponent } from './rider-profile/rider-profile.component';
 import { SignupComponent } from './signup/signup.component';
+import { RiderTripListComponent } from './rider-trip-list/rider-trip-list.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SignupComponent } from './signup/signup.component';
     RiderCurrentTripComponent,
     RiderRatingComponent,
     RiderProfileComponent,
-    SignupComponent
+    SignupComponent,
+    RiderTripListComponent
   ],
   imports: [
     CommonModule,

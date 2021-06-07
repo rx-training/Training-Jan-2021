@@ -5,6 +5,7 @@ import * as CryptoJS from 'crypto-js';
 import { RiderProfileInterface } from '../models/RiderProfile';
 import { Observable, Subject } from 'rxjs';
 import { LoggedInUserInterface } from '../models/LoggedInUser';
+import { RiderTripInterface } from '../models/RiderTrip';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,15 @@ export class RiderService {
 
     return this.httpClient.get<any>(GlobalConstants.apiBaseURL + "/Auth/rider/sendEmail/" + user.id, {headers:header}).subscribe(x => {console.log(x);
     });
+  }
+
+  getAllTrips() {
+    let decryptedUser = (CryptoJS.AES.decrypt(localStorage.getItem('user'), GlobalConstants.cryptoPassword)).toString(CryptoJS.enc.Utf8);
+    let user:LoggedInUserInterface = JSON.parse(decryptedUser);
+    
+    let header:HttpHeaders = new HttpHeaders({"Authorization":"Bearer " + user.token})
+
+    return this.httpClient.get<RiderTripInterface[]>(GlobalConstants.apiBaseURL + "/rider/" + user.id + "/trips", {headers:header});
   }
   
 }
