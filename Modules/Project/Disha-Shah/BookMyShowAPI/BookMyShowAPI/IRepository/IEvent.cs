@@ -13,8 +13,8 @@ namespace BookMyShowAPI.IRepository
         public IEnumerable GetAllEvents();
         public IEnumerable GetEventById(int id);
 
-        public void CreateEvent(Event entity, string showTime);
-        public void UpdateEvent(int id, string showTime, Event entity);
+        public void CreateEvent(EventDTO entity);
+        public void UpdateEvent(EventDTO entity);
 
         public IEnumerable GetEventsByLangugage(string language);
         public void CreateEventLanguages(int id, string language);

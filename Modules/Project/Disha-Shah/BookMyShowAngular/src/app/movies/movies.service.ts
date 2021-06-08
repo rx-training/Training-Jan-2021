@@ -102,17 +102,6 @@ export class MoviesService {
     return this.http.post<any>(this.moviesUrl, movie, httpOptions);
   }
 
-  /** POST: add a new hero to the server */
-  addGenreForMovie(movieId: number, genre: string): Observable<any> {
-    const url = `${this.moviesUrl}/${movieId}/Genres`; 
-    this.getToken();
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
-    };  
-    console.log(httpOptions);
-    return this.http.post<any>(url, genre, httpOptions);
-  }
-
   /** DELETE: delete the hero from the server */
   deleteMovie(id: number): Observable<IMovies> {
     const url = `${this.moviesUrl}/${id}`;
@@ -121,6 +110,16 @@ export class MoviesService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
     }; 
     return this.http.delete<IMovies>(url, httpOptions);
+  }
+
+  /** PUT: update the hero on the server */
+  updateMovie(movie: any): Observable<any> {
+    const url = `${this.moviesUrl}/${movie.movieId}`;
+    this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
+    }; 
+    return this.http.put(url, movie, httpOptions);
   }
 
   // /** POST: add a new hero to the server */

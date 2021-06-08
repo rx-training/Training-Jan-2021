@@ -8,13 +8,16 @@ import { IActivities } from '../models/IActivities';
 })
 export class EventsService {
 
+  loginToken='';
+
   private eventsUrl = 'https://localhost:44380/api/BookMyShow/Events';  // URL to web api
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
   constructor(private http: HttpClient) {  }
+  
+  getToken(){
+    const tokenObj: any = JSON.parse(localStorage.getItem("logged_in_admin"));
+    this.loginToken = tokenObj.token;
+  }
 
   /** GET students from the server */
   getEvents(): Observable<IActivities[]> {
@@ -102,4 +105,35 @@ export class EventsService {
     const url = `${this.eventsUrl}/Sports/Price/${min}/${max}`;
     return this.http.get<IActivities[]>(url);
   }
+  
+  /** POST: add a new hero to the server */
+  addEvent(event: any): Observable<any> {
+    this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
+    };  
+    console.log(httpOptions);
+    return this.http.post<any>(this.eventsUrl, event, httpOptions);
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteEvent(id: number): Observable<IActivities> {
+    const url = `${this.eventsUrl}/${id}`;
+    this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
+    }; 
+    return this.http.delete<IActivities>(url, httpOptions);
+  }
+
+  /** PUT: update the hero on the server */
+  updateEvent(event: any): Observable<any> {
+    const url = `${this.eventsUrl}/${event.eventId}`;
+    this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.loginToken}` })
+    }; 
+    return this.http.put(url, event, httpOptions);
+  }
+
 }

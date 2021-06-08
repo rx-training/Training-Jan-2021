@@ -189,6 +189,10 @@ export class SeatingComponent implements OnInit, OnChanges {
 
   doLogin(){
     if(!localStorage.logged_in_user){
+      localStorage.removeItem("selectedExecutiveSeatsList");
+      localStorage.removeItem("selectedPremiumSeatsList");
+      localStorage.removeItem("selectedNormalSeatsList");
+      localStorage.removeItem("selectedReclinerSeatsList");
       alert("Please login to book your show");
     }
   }

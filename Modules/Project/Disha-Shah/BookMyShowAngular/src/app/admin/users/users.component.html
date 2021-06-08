@@ -1,0 +1,27 @@
+<div class="bg-light">
+    <div class="d-flex p-4 justify-content-between">
+        <h1 class="h4">Latest Users</h1>
+    </div>
+    <div class="table-responsive w-100">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>User Id</th>
+                    <th>Username</th>
+                    <th>Email id</th>
+                    <th>Contact No</th>
+                </tr>
+            </thead>
+            <tbody id="tblActivities">
+
+                <tr *ngFor = "let user of usersList">
+                    <td>{{user.userId}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.contactNo}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

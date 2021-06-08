@@ -35,7 +35,7 @@
             <label for="movieFilm" class="col-sm-3 col-form-label h5">Film<span class="text-danger"> *</span></label>
             <div class="col-sm-9 d-flex flex-row flex-wrap">
                 <div class="form-check mr-2 mt-2" *ngFor = "let category of filmCategoriesList; let i = index">
-                    <input class="form-check-input" type="checkbox" [value]="category.filmCategory1" name="film" (change)="selectFilmCategory(i, $event)">
+                    <input class="form-check-input" type="checkbox" [value]="category.filmCategory1" name="film" [id]="category.filmCategory1" (change)="selectFilmCategory(i, $event)">
                     <label class="form-check-label" [for]="category.filmCategory1">
                         {{category.filmCategory1}}
                     </label>
@@ -50,7 +50,7 @@
                     *</span></label>
             <div class="col-sm-9 d-flex flex-row flex-wrap">
                 <div class="form-check mr-2 mt-2" *ngFor = "let language of languagesList; let i = index">
-                    <input class="form-check-input" type="checkbox" [value]="language.language1" name="language" (change)="selectLanguage(i, $event)">
+                    <input class="form-check-input" type="checkbox" [value]="language.language1" name="language" [id]="language.language1" (change)="selectLanguage(i, $event)">
                     <label class="form-check-label" [for]="language.language1">
                         {{language.language1}}
                     </label>
@@ -72,9 +72,9 @@
 
         <div class="form-group row">
             <label for="movieGenre" class="col-sm-3 col-form-label h5">Genre<span class="text-danger"> *</span></label>
-            <div class="col-sm-9 d-flex flex-row flex-wrap">
+            <div class="col-sm-9 d-flex flex-row flex-wrap" id="genres">
                 <div class="form-check mr-2 mt-2" *ngFor = "let genre of genresList; let i = index">
-                    <input class="form-check-input" type="checkbox" [value]="genre.genre1" name="genre" (change) ="selectGenre(i, $event)">
+                    <input class="form-check-input" type="checkbox" [value]="genre.genre1" name="genre" [id]="genre.genre1" (change) ="selectGenre(i, $event)">
                     <label class="form-check-label" [for]="genre.genre1">
                         {{genre.genre1}}
                     </label>
@@ -145,46 +145,8 @@
 
         </div>
 
-        <!--form array for emergency contacts-->
-        <div formArrayName="cast">
-            <h5>Casts</h5>
-            <div *ngFor="let cast of getCasts.controls; let i=index">
-
-                <!--form group for emergency contact's list-->
-                <div [formGroupName]="i">
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label>
-                                Actor:
-                            </label>
-                            <input type="text" name="" id="" formControlName="actor" class="form-control" required>
-
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label>
-                                Character:
-                            </label>
-                            <input type="text" name="" id="" formControlName="character" class="form-control"
-                                required>
-
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label>
-                                Image:
-                            </label>
-                            <input  type="file" class="form-control-file" name="" id="" formControlName="image" (change) = "getCastImage(i, $event)" required>
-                            <img [src]="'../../../../../assets/' + castImages[i]" alt="" id="movieImageShow" class="img-fluid w-25 mt-3">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <button (click)="addCasts()" class="btn btn-secondary" type="button">Add Cast</button>
-
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-danger btn-lg" id="saveMovie">Update</button>
         </div>
-
-        <button type="submit" class="btn btn-danger btn-lg mt-3" id="saveMovie">Add</button>
     </form>
 </div>

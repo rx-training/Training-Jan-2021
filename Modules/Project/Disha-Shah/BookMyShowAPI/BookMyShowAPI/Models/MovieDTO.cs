@@ -7,6 +7,7 @@ namespace BookMyShowAPI.Models
 {
     public class MovieDTO
     {
+        public int MovieId { get; set; }
         public string Name { get; set; }
         public string Time { get; set; }
         public string Image { get; set; }

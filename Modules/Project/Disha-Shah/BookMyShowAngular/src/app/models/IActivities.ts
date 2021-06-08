@@ -19,5 +19,14 @@ export interface IActivities{
     languageId: number,
     language: string,
     showTimings: Array<any>,
-    languages: Array<any>
+    languages: Array<any>,
+    about?: string,
+    artistImage?: string,
+    artistName?: string,
+    backgroundImage?: string,
+    disclaimer?: string,
+    faqs?: string,
+    minAge?: number,
+    note?: string,
+    termsAndConditions?: string
 }

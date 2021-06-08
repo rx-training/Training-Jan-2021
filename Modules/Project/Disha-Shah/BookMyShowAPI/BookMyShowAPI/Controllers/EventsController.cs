@@ -347,28 +347,28 @@ namespace BookMyShowAPI.Controllers
 
         // PUT: api/BookMyShow/Events/5/ShowTimes/03:00 PM
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}/ShowTimes/{showTime}")]
+        [HttpPut("{id}")]
         [Authorize(Roles = UserRoles.Admin)]
-        public IActionResult PutEvent(int id, string showTime, Event entity)
+        public IActionResult PutEvent(EventDTO entity)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            events.UpdateEvent(id, showTime, entity);
+            events.UpdateEvent(entity);
 
             return Ok();
         }
 
         // POST: api/BookMyShow/Events/ShowTimes/03:00 PM
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost("ShowTimes/{showTime}")]
+        [HttpPost]
         [Authorize(Roles = UserRoles.Admin)]
-        public ActionResult<Event> PostEvent(Event entity, string showTime)
+        public ActionResult PostEvent(EventDTO entity)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            events.CreateEvent(entity, showTime);
+            events.CreateEvent(entity);
 
             return Ok();
         }

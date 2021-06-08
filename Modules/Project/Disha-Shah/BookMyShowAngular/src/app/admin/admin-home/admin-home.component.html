@@ -32,7 +32,7 @@
                 
                 </li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link text-white" id="logoutBtn"><i class="fa fa-user-times"></i> Logout</a>
+                    <a class="nav-link text-white" id="logoutBtn" (click)="logout()"><i class="fa fa-user-times"></i> Logout</a>
                 </li>
             </ul>
         </div>            
@@ -62,7 +62,7 @@
                 </li>
                 
                 <li>
-                    <a routerLink="day15assignment" routerLinkActive="active" class="pl-5">Movie Bookings</a>
+                    <a routerLink="./movie-bookings" routerLinkActive="active" class="pl-5">Movie Bookings</a>
                 </li>
                         
             </ul>
@@ -73,23 +73,19 @@
             <ul class="collapse list-unstyled" id="eventsMenu">
                 
                 <li>
-                    <a routerLink="day15practice3" routerLinkActive="active" class="pl-5">Events</a>
+                    <a routerLink="./events" routerLinkActive="active" class="pl-5">Events</a>
                 </li>
             
                 
                 <li>
-                    <a routerLink="day15assignment" routerLinkActive="active" class="pl-5">Event Bookings</a>
+                    <a routerLink="./event-bookings" routerLinkActive="active" class="pl-5">Event Bookings</a>
                 </li>
                         
             </ul>
         </li>
 
         <li>
-            <a href="comedy.html">Users</a>
-            
-        </li>
-        <li>
-            <a href="plays.html">Admins</a>
+            <a routerLink="./users" routerLinkActive="active" >Users</a>
             
         </li>
         

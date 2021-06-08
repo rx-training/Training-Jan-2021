@@ -107,7 +107,7 @@
         <div class="col-sm-9">
             <input type="date" class="form-control" id="movieReleaseDate" formControlName="dateOfRelease">
             <small class="text-danger" *ngIf="addMovieForm.controls.dateOfRelease.invalid && (addMovieForm.controls.dateOfRelease.dirty || addMovieForm.controls.dateOfRelease.touched)" id="errName">
-                date of Release is required
+                Date of Release is required
             </small>
         </div>
 
@@ -118,7 +118,7 @@
         <div class="col-sm-9">
             <textarea name="" id="movieAbout" rows="3" class="form-control" formControlName="about"></textarea>
             <small class="text-danger" *ngIf="addMovieForm.controls.about.invalid && (addMovieForm.controls.about.dirty || addMovieForm.controls.about.touched)" id="errName">
-                date of Release is required
+                About is required
             </small>
         </div>
     </div>
@@ -144,12 +144,12 @@
 
     </div>
 
-     <!--form array for emergency contacts-->
+     <!--form array for casts-->
      <div formArrayName="cast">
         <h5>Casts</h5>
         <div *ngFor="let cast of getCasts.controls; let i=index">
 
-            <!--form group for emergency contact's list-->
+            <!--form group for casts list-->
             <div [formGroupName]="i">
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -184,5 +184,7 @@
 
     </div>
 
-    <button type="submit" class="btn btn-danger btn-lg mt-3" id="saveMovie">Add</button>
+    <div class="text-center">
+        <button type="submit" class="btn btn-danger btn-lg" id="saveMovie">Add</button>
+    </div>
 </form>

@@ -167,11 +167,11 @@ namespace BookMyShowAPI.Repository
         }
 
         // Update Movie
-        public override void Update(int id, Movie entity)
+        public void Update(MovieDTO entity)
         {
-            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == entity.Certification.Certification1);
+            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == entity.Certification);
 
-            var existingMovie = context.Movies.Where(s => s.MovieId == id)
+            var existingMovie = context.Movies.Where(s => s.MovieId == entity.MovieId)
                                                     .SingleOrDefault<Movie>();
 
             existingMovie.Name = entity.Name;
@@ -182,8 +182,65 @@ namespace BookMyShowAPI.Repository
             existingMovie.IsRecommended = entity.IsRecommended;
             existingMovie.IsPremiere = entity.IsPremiere;
             existingMovie.CertificationId = certification.CertificationId;
+            existingMovie.BackgroundImage = entity.BackgroundImage;
+            existingMovie.Cast = entity.Cast;
+            existingMovie.CastImages = entity.CastImages;
 
             context.SaveChanges();
+
+            var existingGenres = context.MovieGenres.Where(x => x.MovieId == entity.MovieId).ToList();
+
+            context.MovieGenres.RemoveRange(existingGenres);
+            context.SaveChanges();
+
+            foreach (var item in entity.Genres)
+            {
+                var gen = context.Genres.SingleOrDefault(x => x.Genre1 == item);
+
+                context.MovieGenres.Add(new MovieGenre()
+                {
+                    MovieId = entity.MovieId,
+                    GenreId = gen.GenreId
+                });
+
+                context.SaveChanges();
+            }
+
+            var existingLang = context.MovieLanguages.Where(x => x.MovieId == entity.MovieId).ToList();
+
+            context.MovieLanguages.RemoveRange(existingLang);
+            context.SaveChanges();
+
+            foreach (var item in entity.Languages)
+            {
+                var gen = context.Languages.SingleOrDefault(x => x.Language1 == item);
+
+                context.MovieLanguages.Add(new MovieLanguage()
+                {
+                    MovieId = entity.MovieId,
+                    LanguageId = gen.LanguageId
+                });
+
+                context.SaveChanges();
+            }
+
+            var existingFilm = context.MovieFilmCategories.Where(x => x.MovieId == entity.MovieId).ToList();
+
+            context.MovieFilmCategories.RemoveRange(existingFilm);
+            context.SaveChanges();
+
+            foreach (var item in entity.FilmCategories)
+            {
+                var gen = context.FilmCategories.SingleOrDefault(x => x.FilmCategory1 == item);
+
+                context.MovieFilmCategories.Add(new MovieFilmCategory()
+                {
+                    MovieId = entity.MovieId,
+                    FilmCategoryId = gen.FilmCategoryId
+                });
+
+                context.SaveChanges();
+            }
 
         }
 

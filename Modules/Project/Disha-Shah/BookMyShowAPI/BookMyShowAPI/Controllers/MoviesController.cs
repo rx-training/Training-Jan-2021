@@ -154,12 +154,12 @@ namespace BookMyShowAPI.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = UserRoles.Admin)]
-        public IActionResult PutMovie(int id, Movie movie)
+        public IActionResult PutMovie(MovieDTO movie)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            movies.Update(id, movie);
+            movies.Update(movie);
 
             return Ok();
         }

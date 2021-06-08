@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/auth/register.service';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
@@ -9,7 +11,16 @@ export class AdminHomeComponent implements OnInit {
   adminInfo: any;
   adminName: string = '';
 
-  constructor() { }
+  logout() {
+    this.registerService.logoutAdmin();
+
+    alert("You have successfully logged out");
+
+    window.location.assign('/home');
+  }
+
+
+  constructor(private registerService: RegisterService, private router: Router) { }
 
   getLoggedAdminInfo(){
     this.adminInfo = JSON.parse(localStorage.getItem("logged_in_admin"))

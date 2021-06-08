@@ -84,21 +84,21 @@ namespace BookMyShowAPI.Repository
         }
 
         // Add event
-        public void CreateEvent(Event entity, string showTime)
+        public void CreateEvent(EventDTO entity)
         {
             var eventType = context.EventTypes
-                                .SingleOrDefault(x => x.EventType1 == entity.EventType.EventType1);
+                                .SingleOrDefault(x => x.EventType1 == entity.EventType);
 
             var eventVenue = context.EventVenues
-                                    .SingleOrDefault(x => x.Name == entity.EventVenueShowTiming.EventVenue.Name);
+                                    .SingleOrDefault(x => x.Name == entity.EventVenue);
 
-            TimeSpan ts = DateTime.Parse(showTime).TimeOfDay;
+            TimeSpan ts = DateTime.Parse(entity.ShowTime).TimeOfDay;
 
             var showTiming = context.ShowTimings
                                 .SingleOrDefault(x => x.ShowTime == ts);
 
             var eventVenueShowTiming = context.EventVenueShowTimings
-                                            .SingleOrDefault(x => x.EventVenueId == eventType.EventTypeId && x.ShowTimingId == showTiming.ShowTimingId);
+                                            .SingleOrDefault(x => x.EventVenueId == eventVenue.EventVenueId && x.ShowTimingId == showTiming.ShowTimingId);
 
             context.Events.Add(new Event()
             {
@@ -108,31 +108,57 @@ namespace BookMyShowAPI.Repository
                 Time = entity.Time,
                 DateOfEvent = entity.DateOfEvent,
                 EventTypeId = eventType.EventTypeId,
-                EventVenueShowTimingId= eventVenueShowTiming.EventVenueShowTimingId
+                EventVenueShowTimingId= eventVenueShowTiming.EventVenueShowTimingId,
+                About = entity.About,
+                ArtistImage = entity.ArtistImage,
+                ArtistName = entity.ArtistName,
+                BackgroundImage = entity.BackgroundImage,
+                Disclaimer = entity.Disclaimer,
+                FAQs = entity.FAQs,
+                MinAge = entity.MinAge,
+                Note = entity.Note,
+                TermsAndConditions = entity.TermsAndConditions
             });
 
             context.SaveChanges();
+
+            var events = context.Events.ToList();
+            var totalEvents = events.Count();
+            var eventId = events[totalEvents - 2].EventId;
+
+            foreach (var item in entity.Languages)
+            {
+                var lang = context.Languages.SingleOrDefault(x => x.Language1 == item);
+
+                context.EventLanguages.Add(new EventLanguage()
+                {
+                    EventId = eventId + 1,
+                    LanguageId = lang.LanguageId
+                });
+
+                context.SaveChanges();
+            }
         }
 
         // Update event
-        public void UpdateEvent(int id, string showTime, Event entity)
+        public void UpdateEvent(EventDTO entity)
         {
             var eventType = context.EventTypes
-                                .SingleOrDefault(x => x.EventType1 == entity.EventType.EventType1);
+                                .SingleOrDefault(x => x.EventType1 == entity.EventType);
 
             var eventVenue = context.EventVenues
-                                    .SingleOrDefault(x => x.Name == entity.EventVenueShowTiming.EventVenue.Name);
+                                    .SingleOrDefault(x => x.Name == entity.EventVenue);
 
-            TimeSpan ts = DateTime.Parse(showTime).TimeOfDay;
+            TimeSpan ts = DateTime.Parse(entity.ShowTime).TimeOfDay;
 
             var showTiming = context.ShowTimings
                                 .SingleOrDefault(x => x.ShowTime == ts);
 
             var eventVenueShowTiming = context.EventVenueShowTimings
-                                            .SingleOrDefault(x => x.EventVenueId == eventType.EventTypeId && x.ShowTimingId == showTiming.ShowTimingId);
+                                            .SingleOrDefault(x => x.EventVenueId == eventVenue.EventVenueId && x.ShowTimingId == showTiming.ShowTimingId);
 
 
-            var existingEvent = context.Events.Where(s => s.EventId == id)
+            var existingEvent = context.Events.Where(s => s.EventId == entity.EventId)
                                                     .SingleOrDefault<Event>();
 
             existingEvent.Name = entity.Name;
@@ -142,8 +168,35 @@ namespace BookMyShowAPI.Repository
             existingEvent.DateOfEvent = entity.DateOfEvent;
             existingEvent.EventTypeId = eventType.EventTypeId;
             existingEvent.EventVenueShowTimingId = eventVenueShowTiming.EventVenueShowTimingId;
+            existingEvent.Disclaimer = entity.Disclaimer;
+            existingEvent.BackgroundImage = entity.BackgroundImage;
+            existingEvent.ArtistName = entity.ArtistName;
+            existingEvent.ArtistImage = entity.ArtistImage;
+            existingEvent.About = entity.About;
+            existingEvent.FAQs = entity.FAQs;
+            existingEvent.MinAge = entity.MinAge;
+            existingEvent.Note = entity.Note;
+            existingEvent.TermsAndConditions = entity.TermsAndConditions;
 
             context.SaveChanges();
+
+            var existingLang = context.EventLanguages.Where(x => x.EventId == entity.EventId).ToList();
+
+            context.EventLanguages.RemoveRange(existingLang);
+            context.SaveChanges();
+
+            foreach (var item in entity.Languages)
+            {
+                var gen = context.Languages.SingleOrDefault(x => x.Language1 == item);
+
+                context.EventLanguages.Add(new EventLanguage()
+                {
+                    EventId = entity.EventId,
+                    LanguageId = gen.LanguageId
+                });
+
+                context.SaveChanges();
+            }
 
         }
 

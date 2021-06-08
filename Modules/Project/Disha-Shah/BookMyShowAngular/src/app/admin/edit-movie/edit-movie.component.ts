@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { ICertifications } from 'src/app/models/ICertifications';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
@@ -28,6 +28,8 @@ export class EditMovieComponent implements OnInit, OnChanges {
   lastMovieId: number = 0;
 
   selectedFilmCategories: Array<string> = [];
+  selectedLanguages: Array<string> = [];
+  selectedGenres: Array<string> = [];
 
   addMovieForm;
   movieImage: string = "";
@@ -35,7 +37,7 @@ export class EditMovieComponent implements OnInit, OnChanges {
   casts: Array<any> = [];
   castImages: Array<any> = [];
 
-
+  id: number = 0;
   movies: Array<IMovies> = [];
   movie: IMovies = {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
 
@@ -69,40 +71,68 @@ export class EditMovieComponent implements OnInit, OnChanges {
 
   movieSubmit(){
     console.log(this.addMovieForm.value)
-    this.addMovieForm.value.cast.forEach(item => {
-      this.casts.push(item.actor + '-' + item.character)
+    console.log(this.movieImage)
+    console.log(this.movieBgImage)
+
+    let selectedGenres: Array<string> = [];
+    let selectedLanguages: Array<string> = [];
+    let selectedCategories: Array<string> = [];
+
+    this.genresList.forEach(element => {
+      const ele = document.getElementById(element.genre1) as unknown as HTMLInputElement;
+      if(ele.checked == true){
+        selectedGenres.push(ele.value)
+      }
     })
-    console.log(this.casts)
+
+    this.languagesList.forEach(element => {
+      const ele = document.getElementById(element.language1) as unknown as HTMLInputElement;
+      if(ele.checked == true){
+        selectedLanguages.push(ele.value)
+      }
+    })
+
+    this.filmCategoriesList.forEach(element => {
+      const ele = document.getElementById(element.filmCategory1) as unknown as HTMLInputElement;
+      if(ele.checked == true){
+        selectedCategories.push(ele.value)
+      }
+    })
+
+    console.log(selectedCategories)
+    console.log(selectedLanguages)
+    console.log(selectedGenres)
 
     var newMovie: any = {
+      "movieId": this.id,
       "name": this.addMovieForm.value.name,
       "time": this.addMovieForm.value.time,
-      "image": "images/" + this.movieImage,
+      "image": this.movieImage,
       "dateOfRelease": this.addMovieForm.value.dateOfRelease,
       "about": this.addMovieForm.value.about,
       "certification": this.addMovieForm.value.certification,
       "isRecommended": this.addMovieForm.value.isRecommended,
       "isPremiere": this.addMovieForm.value.isPremiere,
-      "backgroundImage": "images/" + this.movieBgImage,
-      "cast": this.casts.join(','),
-      "castImages": this.castImages.join(','),
-      "genres": this.addMovieForm.value.genres,
-      "languages": this.addMovieForm.value.languages,
-      "filmCategories": this.addMovieForm.value.filmCategories
+      "backgroundImage": this.movieBgImage,
+      "cast": this.movie.cast,
+      "castImages": this.movie.castImages,
+      "genres": selectedGenres,
+      "languages": selectedLanguages,
+      "filmCategories": selectedCategories
     }
 
     console.log(newMovie);
-    this.addMovie(newMovie);
+    this.updateMovie(newMovie);
 
-    alert("Movie added successfully");
+    alert("Movie updated successfully");
 
     this.addMovieForm.reset();
 
-    window.location.reload();
+    this.router.navigate(['/admin-dashboard/movies']);
   }
 
-  addMovie(newMovie: any): void {
-    this.moviesService.addMovie(newMovie)
+  updateMovie(newMovie: any): void {
+    this.moviesService.updateMovie(newMovie)
     .subscribe();
   }
 
@@ -168,6 +198,7 @@ export class EditMovieComponent implements OnInit, OnChanges {
   }
 
   selectFilmCategory(i: number, e: any){
+  
     const filmCategories: FormArray = this.addMovieForm.get('filmCategories') as FormArray;
 
     if (e.target.checked) {
@@ -184,8 +215,8 @@ export class EditMovieComponent implements OnInit, OnChanges {
   }
 
   getMovie(){
-    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.moviesService.getMovie(id)
+    this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    this.moviesService.getMovie(this.id)
     .subscribe(movies => {
       this.movies = movies,
       this.movies.forEach(element => {
@@ -215,13 +246,19 @@ export class EditMovieComponent implements OnInit, OnChanges {
       this.movie.movieFilmCategories.forEach(item => {
         this.selectedFilmCategories.push(item.filmCategory)
       }),
-      console.log(this.selectedFilmCategories),
+      this.movie.movieLanguages.forEach(item => {
+        this.selectedLanguages.push(item.language)
+      }),
+      this.movie.movieGenres.forEach(item => {
+        this.selectedGenres.push(item.genre)
+      }),
+      
       console.log(this.movie),
       this.addMovieForm.patchValue({
         name: this.movie.name,
         time:  this.movie.time,
         image: this.movie.image,
-        dateOfRelease: this.datepipe.transform(this.movie.dateOfRelease, 'yyyy-MM-dd'), //new Date(new Date(this.movie.dateOfRelease).getFullYear() + "-" + (new Date(this.movie.dateOfRelease).getMonth() + 1) + "-" + new Date(this.movie.dateOfRelease).getDate()),
+        dateOfRelease: this.datepipe.transform(this.movie.dateOfRelease, 'yyyy-MM-dd'),
         about: this.movie.about,
         certification: this.movie.certification.certification1,
         isRecommended: this.movie.isRecommended,
@@ -231,6 +268,32 @@ export class EditMovieComponent implements OnInit, OnChanges {
 
       this.movieImage = this.addMovieForm.value.image
       this.movieBgImage = this.addMovieForm.value.backgroundImage
+
+      this.selectedFilmCategories.forEach(item => {
+        this.filmCategoriesList.forEach(element => {
+          if(item == element.filmCategory1){
+            const ele = document.getElementById(element.filmCategory1) as unknown as HTMLInputElement;
+            ele.checked = true;
+          }
+        })
+      }),
+      this.selectedLanguages.forEach(item => {
+        this.languagesList.forEach(element => {
+          if(item == element.language1){
+            const ele = document.getElementById(element.language1) as unknown as HTMLInputElement;
+            ele.checked = true;
+          }
+        })
+      }),
+      this.selectedGenres.forEach(item => {
+        this.genresList.forEach(element => {
+          if(item == element.genre1){
+            const ele = document.getElementById(element.genre1) as unknown as HTMLInputElement;
+            ele.checked = true;
+          }
+        })
+      })
+
     })
   }
   
@@ -242,7 +305,8 @@ export class EditMovieComponent implements OnInit, OnChanges {
     private languagesService: LanguageService,
     private filmCategoriesService: FilmCategoryService,
     private route: ActivatedRoute,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+    private router: Router
     ) { 
     this.addMovieForm = this.fb.group({
       name: ['', Validators.compose([Validators.required])],
@@ -254,13 +318,6 @@ export class EditMovieComponent implements OnInit, OnChanges {
       isRecommended: [false, Validators.required],
       isPremiere: [false, Validators.required],
       backgroundImage: ['', Validators.required],
-      cast: this.fb.array([
-        this.fb.group({
-          actor: ['', Validators.compose([Validators.required])],
-          character: ['', Validators.compose([Validators.required])],
-          image: ['', Validators.compose([Validators.required])]
-        })
-      ]),
       genres: this.fb.array([]),
       languages: this.fb.array([]),
       filmCategories: this.fb.array([])
@@ -268,8 +325,6 @@ export class EditMovieComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(){
-    console.log("hello");
-
     
   }
 
