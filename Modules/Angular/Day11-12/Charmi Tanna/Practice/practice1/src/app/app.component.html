@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-6 text-left bg-white rounded shodow">
+      <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+        <div ngModelGroup ="userDetail" #userDetail="ngModelGroup">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email" ngModel required #email="ngModel"> 
+          <span *ngIf="!userDetail.valid && userDetail.touched" class="text-danger">Please enter valid user details</span>
+        </div>
+      </div>
+        <div class="form-group">
+         <label>Select Course</label>
+         <select class="form-control" id="course" name="course" ngModel required>
+           <option value="Angular">Angular</option>
+           <option value="HTML">HTML</option>
+           <option value="JavaScript">JavaScript</option>
+         </select>
+        </div>
+        <div class="form-group">
+          <div class="custom-control custom-radio" *ngFor="let gender of genders">
+            <input type="radio" id="{{gender.id}}" class="custom-control-input" id="gender.id" name="gender" value="{{gender.value}}" [ngModel]="defaultGender">
+            <label class="custom-control-label" for="{{gender.id}}">{{gender.value}}</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+      </form>
+    </div>
+    </div>
+    <div class="row justify-content-center mt-2" *ngIf="submitted">
+      <div class="col-md-10 text-left bg-white">
+        <h2>Form Data</h2>
+        <p>Username:<strong>{{formData.username}}</strong></p>
+        <p>Email:<strong>{{formData.email}}</strong></p>
+        <p>Course:<strong>{{formData.course}}</strong></p>
+        <p>Gender:<strong>{{formData.gender}}</strong></p>
+      </div>
+  </div>
+</body>
+
+</html>
+<router-outlet></router-outlet>
+<app-dynamic></app-dynamic>

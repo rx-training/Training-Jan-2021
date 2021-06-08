@@ -1,0 +1,9 @@
+<p>student-component works!</p>
+<div *ngFor="let student of list">
+    <span>{{student.ID}}</span><span>{{student.Name}}</span><span>{{student.Address}}</span>
+</div>
+
+<input type="text" [(ngModel)]="student.ID">
+<input type="text" [(ngModel)]="student.Name">
+<input type="text" [(ngModel)]="student.Address">
+<button (click)="Submit()">Submit Data</button>

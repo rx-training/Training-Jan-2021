@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+<div class="container">
+
+    <form [formGroup]="studentForm" (ngSubmit)="onFormSubmit(studentForm.value)">
+        <div class="form-group">
+            <label>Student ID</label>
+            <input type="number" formControlName="sid" placeholder="Enter Student ID">
+            <!-- <span *ngIf="!studentForm.get('StudentID').value && studentForm.get('StudentID').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Student First Name</label>
+            <input type="text" formControlName="sfirstName" placeholder="Enter Student First Name">
+            <!-- <span *ngIf="!studentForm.get('StudentFName').value && studentForm.get('StudentFName').touched"></span> -->
+        </div>
+        <div class="form-group">
+            <label>Student Middle Name</label>
+            <input type="text" formControlName="smiddleName" placeholder="Enter Student Middle Name">
+            <!-- <span *ngIf="!studentForm.get('StudentMName').value && studentForm.get('StudentMName').touched"></span> -->
+        </div>
+
+
+        <div class="form-group">
+            <label>Student Last Name</label>
+            <input type="text" formControlName="slastName" placeholder="Enter Student Last Name">
+            <!-- <span *ngIf="!studentForm.get('StudentLName').value && studentForm.get('StudentLName').touched"></span> -->
+        </div>
+
+
+        <div class="form-group">
+            <label>Student Date Of Birth</label>
+            <input type="datetime-local" formControlName="dob">
+            <!-- <span *ngIf="!studentForm.get('StudentDOB').value && studentForm.get('StudentDOB').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Student Place Of Birth</label>
+            <input type="text" formControlName="placeOfBirth" placeholder="Enter Date Of Birth">
+            <!-- <span
+                *ngIf="!studentForm.get('StudentPlaceOfBirth').value && studentForm.get('StudentPlaceOfBirth').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Student First Language</label>
+            <input type="text" formControlName="firstLanguage" placeholder="Enter Date Of Birth">
+            <!-- <span
+                *ngIf="!studentForm.get('StudentFirstLanguage').value && studentForm.get('StudentFirstLanguage').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Student City</label>
+            <input type="text" formControlName="city" placeholder="Enter City">
+            <!-- <span *ngIf="!studentForm.get('StudentCity').value && studentForm.get('StudentCity').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Student State</label>
+            <input type="text" formControlName="state" placeholder="Enter state">
+            <!-- <span *ngIf="!studentForm.get('StudentState').value && studentForm.get('StudentState').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Student Country</label>
+            <input type="text" formControlName="country" placeholder="Enter Country">
+            <!-- <span *ngIf="!studentForm.get('StudentCountry').value && studentForm.get('StudentCountry').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Pin Number</label>
+            <input type="text" formControlName="pin" placeholder="Enter Pin Number">
+            <!-- <span *ngIf="!studentForm.get('StudentPin').value && studentForm.get('StudentPin').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's First Name</label>
+            <input type="text" formControlName="ffirstName" placeholder="Enter Father's First Name">
+            <!-- <span *ngIf="!studentForm.get('SFFName').value && studentForm.get('SFFName').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's Middle Name</label>
+            <input type="text" formControlName="fmiddleName" placeholder="Enter Father's Middle Name">
+            <!-- <span *ngIf="!studentForm.get('SFMName').value && studentForm.get('SFMName').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's Last Name</label>
+            <input type="text" formControlName="flastName" placeholder="Enter Father's Last Name">
+            <!-- <span *ngIf="!studentForm.get('SFLName').value && studentForm.get('SFLName').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's Email</label>
+            <input type="text" formControlName="femail" placeholder="Enter Father's Email">
+            <!-- <span *ngIf="!studentForm.get('SFEmail').value && studentForm.get('SFEmail').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's Education</label>
+            <input type="text" formControlName="feducationQualification" placeholder="Enter Father's Education">
+            <!-- <span *ngIf="!studentForm.get('SFEducation').value && studentForm.get('SFEducation').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's Profession</label>
+            <input type="text" formControlName="fprofession" placeholder="Enter Father's Profession">
+            <!-- <span *ngIf="!studentForm.get('SFProfession').value && studentForm.get('SFProfession').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's Designation</label>
+            <input type="text" formControlName="fdesignation" placeholder="Enter Father's Designation">
+            <!-- <span *ngIf="!studentForm.get('SFDesignation').value && studentForm.get('SFDesignation').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Father's Phone Number</label>
+            <input type="number" formControlName="fphone" placeholder="Enter Father's Phone Number">
+            <!-- <span *ngIf="!studentForm.get('SFPhone').value && studentForm.get('SFPhone').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's First Name</label>
+            <input type="text" formControlName="mfirstName" placeholder="Enter Mother's First Name">
+            <!-- <span *ngIf="!studentForm.get('SMFName').value && studentForm.get('SMFName').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's Middle Name</label>
+            <input type="text" formControlName="mmiddleName" placeholder="Enter Mother's Middle Name">
+            <!-- <span *ngIf="!studentForm.get('SMMName').value && studentForm.get('SMMName').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's Last Name</label>
+            <input type="text" formControlName="mlastName" placeholder="Enter Mother's Last Name">
+            <!-- <span *ngIf="!studentForm.get('SMLName').value && studentForm.get('SMLName').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's Email</label>
+            <input type="text" formControlName="memail" placeholder="Enter Mother's Email">
+            <!-- <span *ngIf="!studentForm.get('SMEmail').value && studentForm.get('SMEmail').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's Education</label>
+            <input type="text" formControlName="meducationQualification" placeholder="Enter Mother's Education Qualification">
+            <!-- <span *ngIf="!studentForm.get('SMEducation').value && studentForm.get('SMEducation').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's Profession</label>
+            <input type="text" formControlName="mprofession" placeholder="Enter Mother's Profession">
+            <!-- <span *ngIf="!studentForm.get('SMProfession').value && studentForm.get('SMProfession').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's Designation</label>
+            <input type="text" formControlName="mdesignation" placeholder="Enter Mother's Designation">
+            <!-- <span *ngIf="!studentForm.get('SMDesignation').value && studentForm.get('SMDesignation').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Mother's Phone Number</label>
+            <input type="text" formControlName="mphone" placeholder="Enter Mother's Phone Number">
+            <!-- <span *ngIf="!studentForm.get('SMPhone').value && studentForm.get('SMPhone).touched"></span> -->
+        </div>
+        <label>Enter Emergency Contact List</label>
+        <div class="form-group">
+            <label>Relation</label>
+            <input type="text" formControlName="relation" placeholder="Enter Relation">
+            <!-- <span *ngIf="!studentForm.get('SRelation').value && studentForm.get('SRelation').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Number</label>
+            <input type="text" formControlName="number" placeholder="Enter Number">
+            <!-- <span *ngIf="!studentForm.get('SRNumber').value && studentForm.get('SRNumber').touched"></span> -->
+        </div>
+
+        <div class="form-group">
+            <label>Reference Details</label>
+            <input type="text" formControlName="refernceDetail" placeholder="Enter Mother's Designation">
+            <!-- <span *ngIf="!studentForm.get('SRDetails').value && studentForm.get('SRDetails').touched"></span> -->
+        </div>
+
+        <!-- <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">Submit</button> -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="updateForm(studentForm.controls.sid.value,studentForm.value)">Update</button>
+        <button type="reset" class="btn btn-primary" (click)="resetForm()">Reset</button>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Student ID</th>
+                        <th scope="col">Student First Name</th>
+                        <th scope="col">Student Middle Name</th>
+                        <th scope="col">Student Last Name</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Place Of Birth</th>
+                        <th scope="col">First Language</th>
+                        <th scope="col">Pin</th>
+                        <th scope="col">Father First Name</th>
+                        <th scope="col">Father Middle Name</th>
+                        <th scope="col">Father Last Name</th>
+                        <th scope="col">Father Email</th>
+                        <th scope="col">Father Education</th>
+                        <th scope="col">Father Profession</th>
+                        <th scope="col">Father Designation</th>
+                        <th scope="col">Father Phone</th>
+                        <th scope="col">Mother First Name</th>
+                        <th scope="col">Mother Middle Name</th>
+                        <th scope="col">Mother Last Name</th>
+                        <th scope="col">Mother Email</th>
+                        <th scope="col">Mother Education</th>
+                        <th scope="col">Mother Profession</th>
+                        <th scope="col">Mother Designation</th>
+                        <th scope="col">Relation</th>
+                        <th scope="col">Number</th>
+                        <th scope="col">Reference Details</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let student of allStudents ">
+                        <td>{{student.sid}}</td>
+                        <td>{{student.sfirstName}}</td>
+                        <td>{{student.smiddleName}}</td>
+                        <td>{{student.slastName}}</td>
+                        <td>{{student.dob}}</td>
+                        <td>{{student.placeOfBirth}}</td>
+                        <td>{{student.firstLanguage}}</td>
+                        <td>{{student.city}}</td>
+                        <td>{{student.state}}</td>
+                        <td>{{student.country}}</td>
+                        <td>{{student.pin}}</td>
+                        <td>{{student.ffirstName}}</td>
+                        <td>{{student.fmiddleName}}</td>
+                        <td>{{student.flastName }}</td>
+                        <td>{{student.femail}}</td>
+                        <td>{{student.feducationQualification}}</td>
+                        <td>{{student.fprofession}}</td>
+                        <td>{{student.fdesignation}}</td>
+                        <td>{{student.fphone}}</td>
+                        <td>{{student.mfirstName }}</td>
+                        <td>{{student.mmiddleName}}</td>
+                        <td>{{student.mlastName}}</td>
+                        <td>{{student.memail}}</td>
+                        <td>{{student.meducationQualification}}</td>
+                        <td>{{student.mprofession}}</td>
+                        <td>{{student.mdesignation}}</td>
+                        <td>{{student.mphone}}</td>
+                        <td>{{student.relation}}</td>
+                        <td>{{student.number}}</td>
+                        <td>{{student.refernceDetail}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" 
+                                (click)="loadStudentToEdit(student.sid)">Edit</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" 
+                                (click)="deleteEmployee(student.sid)">Delete</button>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            </div>
+    </form>
+</div>
+</body>
