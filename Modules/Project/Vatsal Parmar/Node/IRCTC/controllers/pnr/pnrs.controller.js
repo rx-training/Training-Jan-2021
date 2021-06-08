@@ -42,7 +42,7 @@ router.post("/", verifytoken, PnrController.insertPnr);
 //To get all pnrs
 router.get("/", verifyAdminToken, PnrController.get);
 //To get an single pnr by id
-router.get("/:pnrId", verifytoken, PnrController.getPnr);
+router.get("/:pnrId", PnrController.getPnr);
 //To update pnr
 router.put("/:pnrId", verifytoken, PnrController.updatePnr);
 //To delete a pnr

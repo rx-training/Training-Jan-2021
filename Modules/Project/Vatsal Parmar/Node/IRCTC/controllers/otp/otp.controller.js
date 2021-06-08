@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 var router = express.Router();
 
-const EMAIL = process.env.USER;
+const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 
 var otp;
@@ -27,7 +27,8 @@ class Otp {
       html: `<h1 style="color:orange;">Here is your verification otp:</h1><h2 style="color:blue;">${otp}</h2>`, // html body
     });
 
-    res.send(`Otp sent: ${info.messageId}`);
+    console.log(`Otp sent: ${info.messageId}`);
+    res.status(200).send(`${otp}`);
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
   }
   static async verifyOtp(req, res) {

@@ -76,7 +76,7 @@ class PnrDomain {
             { new: true }
           );
           for (let i = 0; i < pnr.passengers.length; i++) {
-            const seat = travel_class.seats.id(pnr.passengers[i].seat_no);
+            const seat = travel_class.seats.id(pnr.passengers[i].seat_id);
             seat.is_booked = true;
           }
           travel_class.save();
@@ -88,7 +88,7 @@ class PnrDomain {
           const result = await pnr.save();
 
           let email = user.email;
-
+          // console.log(email);
           let transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -105,15 +105,15 @@ class PnrDomain {
                 <p style="color:blue;">Train : ${train.train_name}</p>
                 <p style="color:blue;">From : ${from.station_name} &nbsp;&nbsp; Time : ${fromTime[0].arr_time}</p>
                 <p style="color:blue;">To : ${to.station_name} &nbsp;&nbsp; Time : ${toTime[0].arr_time}</p>
-                <p style="color:blue;">Date : ${data.booking_date}</p>
+                <p style="color:blue;">Date : ${data.journey_date}</p>
                 <p style="color:blue;">Price : ${data.ticket_price}</p>`, // html body
           });
-
-          res.send(`Ticket sent: ${info.messageId}`);
+          if (info) {
+            res.send(result._id);
+          }
         } else {
           res.send("Train Full");
         }
-
         // res.send(result);
       } catch (e) {
         res.send(e.message);
@@ -121,13 +121,45 @@ class PnrDomain {
     }
   }
   //To delete a pnr
+  // async deletePnr(req, res) {
+  //   let id = req.params.pnrId;
+  //   const passenger = await PnrModel.findByIdAndDelete(id);
+  //   if (passenger) {
+  //     res.send("Passenger Record Deleted Successfully");
+  //   } else {
+  //     res.status(404).send("Passenger Not Found");
+  //   }
+  // }
   async deletePnr(req, res) {
     let id = req.params.pnrId;
-    const passenger = await PnrModel.findByIdAndDelete(id);
-    if (passenger) {
-      res.send("Passenger Record Deleted Successfully");
+
+    const pnr = await PnrModel.findById(id);
+    const travel_class = await StatusModel.findById(pnr.travel_class);
+    const passengers = pnr.passengers;
+
+    if (passengers) {
+      for (let i = 0; i < passengers.length; i++) {
+        let seatId = passengers[i].seat_id;
+        //passenger.remove();
+        let av_seat = travel_class.avail_seat;
+        let booked = travel_class.booked_seat;
+        av_seat = av_seat + 1;
+        booked = booked - 1;
+        const result = await StatusModel.findByIdAndUpdate(
+          pnr.travel_class,
+          { $set: { avail_seat: av_seat, booked_seat: booked } },
+          { new: true }
+        );
+        //console.log(travel_class);
+        const seat = travel_class.seats.id(seatId);
+        seat.is_booked = false;
+        travel_class.save();
+      }
+      const result = await PnrModel.findByIdAndDelete(id);
+      //console.log(result);
+      res.send("Ticket Cancled");
     } else {
-      res.status(404).send("Passenger Not Found");
+      res.status(404).send("Pnr not found");
     }
   }
   //To update a pnr

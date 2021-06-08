@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const seatsSchema = new mongoose.Schema({
+  _id: { type: String, required: true, trim: true },
   seat_no: {
     type: String,
     required: true,

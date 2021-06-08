@@ -30,6 +30,11 @@ class UserController {
     const userDomain = new UserDomain();
     userDomain.deleteUser(req, res);
   }
+  //to get pnrs by user_id
+  static async getPnrs(req, res) {
+    const userDomain = new UserDomain();
+    userDomain.getPnrs(req, res);
+  }
 }
 
 //To insert user
@@ -42,5 +47,7 @@ router.get("/:userId", verifytoken, UserController.getUser);
 router.put("/:userId", verifytoken, UserController.updateUser);
 //To delete a user
 router.delete("/:userId", verifytoken, UserController.deleteUser);
+//to get pnrs by user_id
+router.get("/:userId/pnrs", verifytoken, UserController.getPnrs);
 
 module.exports = router;

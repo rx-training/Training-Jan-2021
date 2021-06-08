@@ -34,13 +34,16 @@ class StatusController {
 
 //To insert status
 router.post("/", verifyAdminToken, StatusController.insertStatus);
-//To get all statuss
+//To get all status
 router.get("/", verifyAdminToken, StatusController.get);
 //To get an single status by id
-router.get("/:statusId", verifyAdminToken, StatusController.getStatus);
+router.get("/:statusId", verifytoken, StatusController.getStatus);
 //To update status
 router.put("/:statusId", verifyAdminToken, StatusController.updateStatus);
 //To delete a status
 router.delete("/:statusId", verifyAdminToken, StatusController.deleteStatus);
+
+//for testing
+// router.get("/:statusId", StatusController.getStatus);
 
 module.exports = router;

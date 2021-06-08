@@ -3,13 +3,18 @@ const StatusModel = require("../models/status.model");
 class StatusDomain {
   //To get all status
   async getAllStatus(req, res) {
-    const status = await StatusModel.find();
+    const status = await StatusModel.find()
+      .populate("train", "train_name")
+      .sort({ train: 1 });
     res.send(status);
   }
   //To get status
   async getStatus(req, res) {
     let id = req.params.statusId;
-    const status = await StatusModel.findById(id);
+    const status = await StatusModel.findById(id).populate(
+      "train",
+      "train_name"
+    );
     if (status) {
       res.send(status);
     } else {
@@ -28,7 +33,9 @@ class StatusDomain {
     } else {
       try {
         const result = await status.save();
-        res.send(result);
+        if (result) {
+          res.send("success");
+        }
       } catch (e) {
         res.send(e.message);
       }
@@ -39,7 +46,7 @@ class StatusDomain {
     let id = req.params.statusId;
     const status = await StatusModel.findByIdAndDelete(id);
     if (status) {
-      res.send("status Record Deleted Successfully");
+      res.send("success");
     } else {
       res.status(404).send("Status Not Found");
     }
@@ -48,7 +55,7 @@ class StatusDomain {
   async updateStatus(req, res) {
     //getting user input
     let data = req.body;
-    let id = req.params.userId;
+    let id = req.params.statusId;
 
     const status = new StatusModel(data);
     const { error, value } = status.joiValidate(data);
@@ -64,7 +71,7 @@ class StatusDomain {
           { new: true }
         );
         if (result) {
-          res.send(result);
+          res.send("success");
         } else {
           res.status(404).send("Status Not Found");
         }

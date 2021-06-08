@@ -1,0 +1,148 @@
+:root {
+  --primaryColor: rgb(1, 1, 139);
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 3px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.banner {
+  max-height: 100vh;
+  background: url("./images/home_page_banner.jpg") center/cover no-repeat;
+}
+.banner-heading {
+  font-weight: 600;
+  margin-top: 100px;
+}
+
+.tab {
+  background-color: var(--primaryColor);
+  color: white;
+  width: 48%;
+  text-decoration: none !important;
+}
+.tab:hover {
+  cursor: pointer;
+  background-color: rgb(86, 86, 185);
+  color: white;
+}
+
+.heading {
+  color: var(--primaryColor);
+  font-weight: 700;
+}
+.notice {
+  color: var(--primaryColor);
+  font-weight: bold;
+}
+.icons {
+  font-size: 60px;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 15px;
+  margin-bottom: 5px;
+}
+.icon-container {
+  margin: 10px 20px;
+}
+@media screen and (max-width: 768px) {
+  .banner {
+    min-height: 80vh;
+    background: white;
+  }
+}
+
+.footer {
+  background-color: var(--primaryColor);
+  color: white;
+}
+.footer-icon {
+  font-size: 25px;
+  margin: 0 10px;
+}
+.footer-icon:hover {
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.register {
+  background-color: rgb(222, 243, 252);
+}
+/* search bar */
+.search-bar {
+  background-color: var(--primaryColor);
+}
+/* end of search bar */
+/* train card */
+.train-card-secondary {
+  background-color: rgb(247, 236, 236);
+}
+/* end of train card */
+/* error page */
+.error-container {
+  min-height: 80vh;
+  background: url("./images/home_page_banner.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-link {
+  background-color: var(--primaryColor);
+  display: block;
+  color: white;
+  padding: 10px;
+  width: 40%;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: large;
+}
+.btn-link:hover {
+  text-decoration: none;
+  background-color: rgb(86, 86, 185);
+  color: white;
+}
+/* end of error page */
+/* login page */
+.login-container {
+  /* background-color: rgb(222, 243, 252); */
+  background-color: rgb(247, 236, 236);
+}
+.login-btn {
+  background-color: var(--primaryColor);
+  color: white;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  border: none;
+}
+
+.login-btn:hover {
+  background-color: rgb(86, 86, 185);
+}
+.heading-container {
+  background-color: var(--primaryColor);
+  color: white;
+  padding: 10px;
+}
+/* end of login page */
+
+/* admin nav */
+.admin-nav-link {
+  color: white;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  background-color: var(--primaryColor);
+}
+.admin-nav-link:hover {
+  text-decoration: none;
+  background-color: rgb(86, 86, 185);
+  color: white;
+}
+.heading-primary {
+  background-color: var(--primaryColor);
+}
+/* end of admin nav */

@@ -49,7 +49,7 @@ router.put("/train/:trainId", verifyAdminToken, TrainController.updateTrain);
 //To delete a train
 router.delete("/train/:trainId", verifyAdminToken, TrainController.deleteTrain);
 //To search train
-router.use("/search", verifytoken, search);
+router.use("/search", search);
 //To get all pnrs in train
 router.get("/pnrs/:trainId", verifyAdminToken, TrainController.getPnrs);
 

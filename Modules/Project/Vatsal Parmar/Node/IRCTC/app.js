@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 var createError = require("http-errors");
 const mainRouter = require("./controllers/index");
+const cors = require("cors");
 var mongoDB = "mongodb://localhost/irctc";
 
 mongoose
@@ -15,10 +16,11 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use("/", mainRouter);
 
 // catch 404 and forward to error handler

@@ -28,7 +28,9 @@ class StationDomain {
     } else {
       try {
         const result = await station.save();
-        res.send(result);
+        if (result) {
+          res.send("success");
+        }
       } catch (e) {
         res.send(e.message);
       }
@@ -39,7 +41,7 @@ class StationDomain {
     let id = req.params.stationId;
     const station = await StationModel.findByIdAndDelete(id);
     if (station) {
-      res.send("Station Record Deleted Successfully");
+      res.send("success");
     } else {
       res.status(404).send("Station Not Found");
     }
@@ -64,7 +66,7 @@ class StationDomain {
           { new: true }
         );
         if (result) {
-          res.send(result);
+          res.send("success");
         } else {
           res.status(404).send("Station Not Found");
         }
