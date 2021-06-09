@@ -1,0 +1,17 @@
+<small class="text-danger">* Required</small>
+<form [formGroup] = "addNavbarForm" (ngSubmit)="componentSubmit()">
+
+    <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="navbarComponentName" formControlName="name">
+            <small class="text-danger" *ngIf="addNavbarForm.controls.name.invalid && (addNavbarForm.controls.name.dirty || addNavbarForm.controls.name.touched)" id="errName">
+                Name is required
+            </small>
+        </div>
+    </div>
+    
+    <div class="text-center">
+        <button type="submit" class="btn btn-danger btn-lg" id="saveActivity" [disabled]="!addNavbarForm.valid">Add</button>
+    </div>
+</form>

@@ -34,12 +34,14 @@
         <label for="movieFilm" class="col-sm-3 col-form-label h5">Film<span class="text-danger"> *</span></label>
         <div class="col-sm-9 d-flex flex-row flex-wrap">
             <div class="form-check mr-2 mt-2" *ngFor = "let category of filmCategoriesList; let i = index">
-                <input class="form-check-input" type="checkbox" [value]="category.filmCategory1" name="film" (change)="selectFilmCategory(i, $event)">
+                <input class="form-check-input" type="checkbox" [value]="category.filmCategory1" name="film" (change)="selectFilmCategory(i, $event)" required>
                 <label class="form-check-label" [for]="category.filmCategory1">
                     {{category.filmCategory1}}
                 </label>
             </div>
-            <small class="text-danger mt-2" id="errFilm"></small>
+            <small class="text-danger mt-2" *ngIf="addMovieForm.controls.filmCategories.length == 0" id="errFilm">
+                Film Category is required
+            </small>
         </div>
 
     </div>
@@ -53,8 +55,10 @@
                 <label class="form-check-label" [for]="language.language1">
                     {{language.language1}}
                 </label>
-            </div>
-            <small class="text-danger mt-2" id="errLanguage"></small>
+            </div><br>
+            <small class="text-danger mt-2" *ngIf="addMovieForm.controls.languages.length == 0" id="errLanguage">
+                Language is required
+            </small>
         </div>
 
     </div>
@@ -77,8 +81,10 @@
                 <label class="form-check-label" [for]="genre.genre1">
                     {{genre.genre1}}
                 </label>
-            </div>
-            <small class="text-danger" id="errGenre"></small>
+            </div><br>
+            <small class="text-danger" *ngIf="addMovieForm.controls.genres.length == 0" id="errGenre">
+                Genre is required
+            </small>
         </div>
 
     </div>
@@ -124,8 +130,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="movieCategory" class="col-sm-3 col-form-label h5">Category<span class="text-danger">
-                *</span></label>
+        <label for="movieCategory" class="col-sm-3 col-form-label h5">Category</label>
         <div class="col-sm-9 d-flex flex-row flex-wrap">
             <div class="form-check mr-2 mt-2">
                 <input class="form-check-input" type="checkbox" value="Recommended" name="category" id="Recommended" formControlName="isRecommended">
@@ -139,7 +144,6 @@
                     Premiere
                 </label>
             </div>
-            <small class="text-danger mt-2" id="errCategory"></small>
         </div>
 
     </div>
@@ -157,7 +161,9 @@
                             Actor:
                         </label>
                         <input type="text" name="" id="" formControlName="actor" class="form-control" required>
-
+                        <small class="text-danger" *ngIf="getCastsGroup(i).controls.actor.invalid && (getCastsGroup(i).controls.actor.dirty || getCastsGroup(i).controls.actor.touched)" id="errName">
+                            Actor is required
+                        </small>
                     </div>
 
                     <div class="form-group col-md-4">
@@ -166,7 +172,9 @@
                         </label>
                         <input type="text" name="" id="" formControlName="character" class="form-control"
                             required>
-
+                        <small class="text-danger" *ngIf="getCastsGroup(i).controls.character.invalid && (getCastsGroup(i).controls.character.dirty || getCastsGroup(i).controls.character.touched)" id="errName">
+                            Character is required
+                        </small>
                     </div>
 
                     <div class="form-group col-md-4">
@@ -175,6 +183,9 @@
                         </label>
                         <input  type="file" class="form-control-file" name="" id="" formControlName="image" (change) = "getCastImage(i, $event)" required>
                         <img [src]="'../../../../../assets/' + castImages[i]" alt="" id="movieImageShow" class="img-fluid w-25 mt-3">
+                        <small class="text-danger" *ngIf="getCastsGroup(i).controls.image.invalid && (getCastsGroup(i).controls.image.dirty || getCastsGroup(i).controls.image.touched)" id="errName">
+                            Actor Image is required
+                        </small>
                     </div>
 
                 </div>
@@ -185,6 +196,6 @@
     </div>
 
     <div class="text-center">
-        <button type="submit" class="btn btn-danger btn-lg" id="saveMovie">Add</button>
+        <button type="submit" class="btn btn-danger btn-lg" id="saveMovie" [disabled]="!addMovieForm.valid">Add</button>
     </div>
 </form>

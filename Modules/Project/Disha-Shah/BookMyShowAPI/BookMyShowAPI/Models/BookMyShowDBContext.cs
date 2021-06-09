@@ -23,6 +23,7 @@ namespace BookMyShowAPI.Models
         public virtual DbSet<Certification> Certifications { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Comedy> Comedys { get; set; }
+        public virtual DbSet<DynamicNavbar> DynamicNavbars { get; set; }
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<EventBooking> EventBookings { get; set; }
         public virtual DbSet<EventLanguage> EventLanguages { get; set; }
@@ -222,6 +223,15 @@ namespace BookMyShowAPI.Models
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<DynamicNavbar>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("Name");
+
             });
 
             modelBuilder.Entity<Event>(entity =>

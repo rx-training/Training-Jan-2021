@@ -1,90 +1,92 @@
-<!--Navbar-->
-<div class="navbar navbar-dark bg-dark py-sm-2 py-md-3">
-        
-    <div>
-        <div class="float-left ml-5">
-            <div class="row text-white">
-                
-                    <h5 id="movieName">{{movieName}}</h5>
-                
-                    <h6 class="ml-2 rounded-circle border p-1" id="movieCerification">{{movie.certification.certification1}}</h6>
-                
-            </div>
-            <div class="row text-muted">
-            <h6 class="font-weight-normal" id="selectedTheatre">
-                {{theatre}} at 
-                <ng-container *ngIf = "showTimeArray[0] < 10">
-                    0{{showTimeArray[0]}}:
-                </ng-container>
-                <ng-container *ngIf = "showTimeArray[0] >= 10">
-                    {{showTimeArray[0]}}:
-                </ng-container>
-                <ng-container *ngIf = "showTimeArray[1] < 10">
-                    0{{showTimeArray[1]}}
-                </ng-container>
-                <ng-container *ngIf = "showTimeArray[1] >= 10">
-                    {{showTimeArray[1]}}
-                </ng-container>
-                on {{date}}
-            </h6>
-            </div>
-        </div>
-    </div>
-    <div class="float-right">
-        <h5 class="text-white font-weight-normal h6 mr-5" id="ticketQty">{{noOfSeats}} Tickets</h5>
-    </div>
-
-</div>
-
-<!--seating arrangement-->
-<div>
-<div class="container mt-2" style="padding-bottom: 50px;">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4" id="someID">
-           <ng-container *ngFor = "let seatCategory of uniqueSeatsCategories">
-
-            <small class="text-muted h6 font-weight-normal">{{seatCategory.seatCategory}}-Rs.{{seatCategory.price}}<hr></small>
-           
-            <div class="row" >
-                <div class="col-3" *ngFor = "let seat of seatsCategories" >
-                    <button type="button" class="btn btn-outline-success p-2 mb-2" *ngIf="seat.seatCategory == seatCategory.seatCategory" (click)="selectSeat($event, seatCategory.seatCategory, seatCategory.price, seatCategory.screenId)" [disabled]="seat.isBooked" [ngStyle]="seat.isBooked?{'background-color': 'gray', 'color': 'white'} : {}">{{seat.seatNo}}</button>
+<div id="seating">
+    <!--Navbar-->
+    <div class="navbar navbar-dark bg-dark py-sm-2 py-md-3">
+            
+        <div>
+            <div class="float-left ml-5">
+                <div class="row text-white">
+                    
+                        <h5 id="movieName">{{movieName}}</h5>
+                    
+                        <h6 class="ml-2 rounded-circle border p-1" id="movieCerification">{{movie.certification.certification1}}</h6>
+                    
+                </div>
+                <div class="row text-muted">
+                <h6 class="font-weight-normal" id="selectedTheatre">
+                    {{theatre}} at 
+                    <ng-container *ngIf = "showTimeArray[0] < 10">
+                        0{{showTimeArray[0]}}:
+                    </ng-container>
+                    <ng-container *ngIf = "showTimeArray[0] >= 10">
+                        {{showTimeArray[0]}}:
+                    </ng-container>
+                    <ng-container *ngIf = "showTimeArray[1] < 10">
+                        0{{showTimeArray[1]}}
+                    </ng-container>
+                    <ng-container *ngIf = "showTimeArray[1] >= 10">
+                        {{showTimeArray[1]}}
+                    </ng-container>
+                    on {{date}}
+                </h6>
                 </div>
             </div>
-                
-           </ng-container>
-            
         </div>
-        <div class="col-md-4"></div>
-        
+        <div class="float-right">
+            <h5 class="text-white font-weight-normal h6 mr-5" id="ticketQty">{{noOfSeats}} Tickets</h5>
+        </div>
+
     </div>
 
-    <div class="pt-5">
+    <!--seating arrangement-->
+    <div>
+    <div class="container mt-2" style="padding-bottom: 50px;">
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 262 22" id="icon-screen"><g fill="none" fill-rule="evenodd" opacity=".3"><use fill="#E1E8F1" xlink:href="#da"></use><path stroke="#4F91FF" stroke-width=".65" d="M27.19.33L1.34 13.7h257.32L232.81.32H27.2z"></path><path fill="#8FB9FF" d="M28.16 2.97h203.86l17.95 9.14H10.35z"></path><use fill="#E3ECFA" xlink:href="#db"></use><path stroke="#4F91FF" stroke-width=".65" d="M.56 14.2l3.07 5.41h252.74l3.07-5.4H.56z"></path></g></svg>
-                <small style="margin-left: 100px;">All eyes this way please!</small>
+            <div class="col-md-4" id="someID">
+            <ng-container *ngFor = "let seatCategory of uniqueSeatsCategories">
+
+                <small class="text-muted h6 font-weight-normal">{{seatCategory.seatCategory}}-Rs.{{seatCategory.price}}<hr></small>
+            
+                <div class="row" >
+                    <div class="col-3" *ngFor = "let seat of seatsCategories" >
+                        <button type="button" class="btn btn-outline-success p-2 mb-2" *ngIf="seat.seatCategory == seatCategory.seatCategory" (click)="selectSeat($event, seatCategory.seatCategory, seatCategory.price, seatCategory.screenId)" [disabled]="seat.isBooked" [ngStyle]="seat.isBooked?{'background-color': 'gray', 'color': 'white'} : {}">{{seat.seatNo}}</button>
+                    </div>
+                </div>
+                    
+            </ng-container>
+                
+            </div>
+            <div class="col-md-4"></div>
+            
+        </div>
+
+        <div class="pt-5">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 262 22" id="icon-screen"><g fill="none" fill-rule="evenodd" opacity=".3"><use fill="#E1E8F1" xlink:href="#da"></use><path stroke="#4F91FF" stroke-width=".65" d="M27.19.33L1.34 13.7h257.32L232.81.32H27.2z"></path><path fill="#8FB9FF" d="M28.16 2.97h203.86l17.95 9.14H10.35z"></path><use fill="#E3ECFA" xlink:href="#db"></use><path stroke="#4F91FF" stroke-width=".65" d="M.56 14.2l3.07 5.41h252.74l3.07-5.4H.56z"></path></g></svg>
+                    <small style="margin-left: 100px;">All eyes this way please!</small>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+
+    <!--footer-->
+    <div class="bg-light" style="margin-right: 15px;">
+        <div class="row py-3">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center">
+                <div id="symbolInfo" [ngStyle]="{'display': bookInfo}">
+                    <div class="btn btn-secondary mx-1 p-2"></div>Sold
+                    <div class="btn btn-outline-success ml-3 mr-1 p-2"></div>Available
+                    <div class="btn btn-success ml-3 mr-1 p-2"></div>Selected
+                </div>
+                <a routerLink = "confirmBooking" routerLinkActive="active" [ngStyle]="{'display': bookButton}" class="btn btn-danger btn-block" id="proceedToPay" (click)="doLogin()">Proceed to Pay</a>
             </div>
             <div class="col-md-4"></div>
         </div>
-        
-    </div>
-</div>
-</div>
-
-<!--footer-->
-<div class="bg-light" style="margin-right: 15px;">
-    <div class="row py-3">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 text-center">
-            <div id="symbolInfo" [ngStyle]="{'display': bookInfo}">
-                <div class="btn btn-secondary mx-1 p-2"></div>Sold
-                <div class="btn btn-outline-success ml-3 mr-1 p-2"></div>Available
-                <div class="btn btn-success ml-3 mr-1 p-2"></div>Selected
-            </div>
-            <a routerLink = "confirmBooking" routerLinkActive="active" [ngStyle]="{'display': bookButton}" class="btn btn-danger btn-block" id="proceedToPay" (click)="doLogin()">Proceed to Pay</a>
-        </div>
-        <div class="col-md-4"></div>
     </div>
 </div>

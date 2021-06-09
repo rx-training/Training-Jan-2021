@@ -1,0 +1,153 @@
+<div class="container">
+    <div>
+        <h1 class="font-weight-normal">{{event.event}} Details</h1>
+        <div class="row">
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col font-weight-normal">Event Id:</h4>
+                    <h5 class="col font-weight-normal">{{event.eventId}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Image:</h4>
+                    <div class="col ">
+                        <img [src]="'../../../../../assets/' + event.image" alt="" class="img-fluid rounded w-100 ">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Large Image:</h4>
+                    <div class="col ">
+                        <img [src]="'../../../../../assets/' + eventBgImg" alt="" class="img-fluid rounded w-100 ">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Event date:</h4>
+                    <h5 class="col font-weight-normal">{{event.dateOfEvent}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Time:</h4>
+                    <h5 class="col font-weight-normal ">{{event.time}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Event Type:</h4>
+                    <h5 class="col font-weight-normal">{{event.eventType}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Event Venue:</h4>
+                    <h5 class="col font-weight-normal">{{event.eventVenue}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Address:</h4>
+                    <h5 class="col font-weight-normal" style="height: 100px;overflow: auto;">{{event.address}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Showtime:</h4>
+                    <h5 class="col font-weight-normal">
+                        <ng-container *ngIf = "event.showTime.hours < 10">
+                            0{{event.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf = "event.showTime.hours >= 10">
+                            {{event.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf = "event.showTime.minutes < 10">
+                            0{{event.showTime.minutes}}
+                        </ng-container>
+                        <ng-container *ngIf = "event.showTime.minutes >= 10">
+                            {{event.showTime.minutes}}
+                        </ng-container>
+                    </h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Artist Name:</h4>
+                    <h5 class="col font-weight-normal">{{artistName}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Artist Image:</h4>
+                    <div class="col ">
+                        <img [src]="'../../../../../assets/' + artistImage" alt="" class="img-fluid rounded w-100 ">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Languages:</h4>
+                    <h5 class="col font-weight-normal">
+                        <span *ngFor = "let language of event.languages; let l = last" class="font-weight-normal">
+                            <span *ngIf = "l==true">
+                                {{language}}
+                            </span>
+                            <span *ngIf = "l==false">
+                                {{language}},
+                            </span>
+                        </span>
+                    </h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">About:</h4>
+                    <h5 class="col font-weight-normal" style="height: 100px;overflow: auto;">{{about}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Min Age:</h4>
+                    <h5 class="col font-weight-normal">{{minAge}}yrs+</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Ticket price:</h4>
+                    <h5 class="col font-weight-normal">{{event.ticketPrice}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Note:</h4>
+                    <h5 class="col font-weight-normal" style="height: 100px;overflow: auto;">{{note}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">FAQs:</h4>
+                    <h5 class="col font-weight-normal" style="height: 100px;overflow: auto;">{{faqs}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Disclaimer:</h4>
+                    <h5 class="col font-weight-normal" style="height: 100px;overflow: auto;">{{disclaimer}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Terms & Conditions:</h4>
+                    <h5 class="col font-weight-normal" style="height: 100px;overflow: auto;">{{termsConditions}}</h5>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</div>

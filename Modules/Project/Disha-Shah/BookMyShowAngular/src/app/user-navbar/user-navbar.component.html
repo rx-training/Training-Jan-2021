@@ -56,7 +56,7 @@
                     <a href="#"><small class="text-white">Ahmedabad &gt;</small></a>
                 </div>
             </div>
-            <a href="#">
+            <a routerLink="/explore" routerLinkActive="active">
                 <span class="flex-grow-1 text-right text-white">
                     <i class="fa fa-search fa-2x"></i>
                 </span>
@@ -209,31 +209,10 @@
     <div class="container">
         <div class="d-none d-md-block">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link py-0" routerLink="/home/movies" routerLinkActive="active">Movies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link py-0" href="#">Stream<span class="badge text-danger">NEW</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link py-0" routerLink="/home/events" routerLinkActive="active">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link py-0" routerLink="/home/plays" routerLinkActive="active">Plays</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link py-0" routerLink="/home/sports" routerLinkActive="active">Sports</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link py-0" routerLink="/home/activities" routerLinkActive="active">Activities</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link py-0" href="#">Fanhood</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link py-0" href="#">Buzz</a>
-                </li>
 
+                <li class="nav-item" *ngFor = "let navbar of dynamicNavbarsList">
+                    <a class="nav-link py-0" routerLink="/home/{{(navbar.name).toLowerCase()}}" routerLinkActive="active">{{navbar.name}}</a>
+                </li>
 
             </ul>
         </div>

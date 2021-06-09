@@ -24,6 +24,8 @@ export class MoviesComponent implements OnInit {
 
   filmCategoryList: Array<any> = [];
 
+  castImagesList: Array<any> = [];
+
   getMovies(): void{
     this.service.getMovies()
     .subscribe((movies: any[]) => {
@@ -51,7 +53,12 @@ export class MoviesComponent implements OnInit {
           })
         })
       }),
-      console.log(this.moviesList)
+      console.log(this.moviesList),
+
+      this.moviesList.forEach(item => {
+        this.castImagesList.push(item.castImages.split(','))
+      })
+
     });  
   }
 

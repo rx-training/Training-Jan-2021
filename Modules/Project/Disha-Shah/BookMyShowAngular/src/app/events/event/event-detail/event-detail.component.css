@@ -1,0 +1,5 @@
+@media only screen and (max-width: 575px) {
+    #event-detail{
+        margin-top: 80px;
+    }
+}

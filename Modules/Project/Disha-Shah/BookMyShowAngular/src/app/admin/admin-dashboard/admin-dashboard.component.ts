@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DynamicNavbarService } from 'src/app/dynamic-navbar.service';
 import { EventBookingService } from 'src/app/events/event-booking.service';
 import { EventsService } from 'src/app/events/events.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -20,6 +21,7 @@ export class AdminDashboardComponent implements OnInit {
   totalUsers: number = 0;
   totalMovieBookings: number = 0;
   totalEventBookings: number = 0;
+  totalNavbarComponents: number = 0;
 
   getMoviesLength(){
     this.moviesService.getMovies()
@@ -56,12 +58,20 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
+  getNavbars(){
+    this.navbarService.getDynamicNavbars()
+    .subscribe(navbars => {
+      this.totalNavbarComponents = navbars.length
+    })
+  }
+
   constructor(
     private moviesService: MoviesService, 
     private eventsService: EventsService, 
     private movieBookingsService: MovieBookingsService,
     private eventBookingsService: EventBookingService,
-    private userService: UserService
+    private userService: UserService,
+    private navbarService: DynamicNavbarService
   ) { }
 
   ngOnInit(): void {
@@ -70,6 +80,7 @@ export class AdminDashboardComponent implements OnInit {
     this.getMovieBookingsLength();
     this.getEventBookingsLength();
     this.getUsersLength();
+    this.getNavbars();
   }
 
 }

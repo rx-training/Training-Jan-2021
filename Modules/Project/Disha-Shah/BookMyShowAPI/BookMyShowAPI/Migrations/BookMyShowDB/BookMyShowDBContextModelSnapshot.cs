@@ -269,6 +269,24 @@ namespace BookMyShowAPI.Migrations.BookMyShowDB
                     b.ToView("Comedys");
                 });
 
+            modelBuilder.Entity("BookMyShowAPI.Models.DynamicNavbar", b =>
+                {
+                    b.Property<int>("NavbarId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Name");
+
+                    b.HasKey("NavbarId");
+
+                    b.ToTable("DynamicNavbars");
+                });
+
             modelBuilder.Entity("BookMyShowAPI.Models.Event", b =>
                 {
                     b.Property<int>("EventId")
@@ -1471,9 +1489,6 @@ namespace BookMyShowAPI.Migrations.BookMyShowDB
 
                     b.Property<int>("ShowTimingId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("date");
 
                     b.Property<string>("Theatre")
                         .IsRequired()

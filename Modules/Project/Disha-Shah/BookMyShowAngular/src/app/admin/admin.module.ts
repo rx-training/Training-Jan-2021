@@ -12,6 +12,10 @@ import { AddEventComponent } from './add-event/add-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { EventBookingsComponent } from './event-bookings/event-bookings.component';
 import { UsersComponent } from './users/users.component';
+import { MoviesDetailComponent } from './movies-detail/movies-detail.component';
+import { EventsDetailComponent } from './events-detail/events-detail.component';
+import { NavbarsComponent } from './navbars/navbars.component';
+import { AddNavbarComponent } from './add-navbar/add-navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { UsersComponent } from './users/users.component';
     AddEventComponent,
     EditEventComponent,
     EventBookingsComponent,
-    UsersComponent
+    UsersComponent,
+    MoviesDetailComponent,
+    EventsDetailComponent,
+    NavbarsComponent,
+    AddNavbarComponent
   ],
   imports: [
     CommonModule,

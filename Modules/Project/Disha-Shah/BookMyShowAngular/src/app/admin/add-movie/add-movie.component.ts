@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LanguageService } from 'src/app/language.service';
 import { ICertifications } from 'src/app/models/ICertifications';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
@@ -127,6 +127,10 @@ export class AddMovieComponent implements OnInit {
     }));
   }
 
+  getCastsGroup(i: number){
+    return <FormGroup>(<FormArray>this.addMovieForm.get('cast')).get(i.toString());
+  }
+
   selectGenre(i: number, e: any){
     const genres: FormArray = this.addMovieForm.get('genres') as FormArray;
 
@@ -200,9 +204,9 @@ export class AddMovieComponent implements OnInit {
           image: ['', Validators.compose([Validators.required])]
         })
       ]),
-      genres: this.fb.array([]),
-      languages: this.fb.array([]),
-      filmCategories: this.fb.array([])
+      genres: this.fb.array([], Validators.required),
+      languages: this.fb.array([], Validators.required),
+      filmCategories: this.fb.array([], Validators.required)
     });
   }
   ngOnInit(): void {

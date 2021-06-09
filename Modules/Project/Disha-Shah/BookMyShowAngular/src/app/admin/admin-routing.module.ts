@@ -6,9 +6,12 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { EventBookingsComponent } from './event-bookings/event-bookings.component';
+import { EventsDetailComponent } from './events-detail/events-detail.component';
 import { EventsComponent } from './events/events.component';
 import { MovieBookingsComponent } from './movie-bookings/movie-bookings.component';
+import { MoviesDetailComponent } from './movies-detail/movies-detail.component';
 import { MoviesComponent } from './movies/movies.component';
+import { NavbarsComponent } from './navbars/navbars.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
@@ -28,7 +31,11 @@ const routes: Routes = [
             component: MoviesComponent
           },
           {
-            path: 'movies/:name/:id',
+            path: 'movies/detail/:name/:id',
+            component: MoviesDetailComponent
+          },
+          {
+            path: 'movies/edit/:name/:id',
             component: EditMovieComponent
           },
           { path: 'movie-bookings', 
@@ -38,7 +45,11 @@ const routes: Routes = [
             component: EventsComponent
           },
           {
-            path: 'events/:name/:id',
+            path: 'events/detail/:name/:id',
+            component: EventsDetailComponent
+          },
+          {
+            path: 'events/edit/:name/:id',
             component: EditEventComponent
           },
           { path: 'event-bookings', 
@@ -46,6 +57,9 @@ const routes: Routes = [
           },
           { path: 'users', 
             component: UsersComponent
+          },
+          { path: 'navbar-components', 
+            component: NavbarsComponent
           }
         ]
       }

@@ -32,7 +32,6 @@ import { UserBookingHistoryComponent } from './user-booking-history/user-booking
 import { EventDetailComponent } from './events/event/event-detail/event-detail.component';
 import { EventModule } from './events/event/event.module';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
-import { UserHomeComponent } from './user-home/user-home.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminModule } from './admin/admin.module';
 import {DatePipe} from '@angular/common';
@@ -60,7 +59,6 @@ import {DatePipe} from '@angular/common';
     UserBookingHistoryComponent,
     EventDetailComponent,
     AdminDashboardComponent,
-    UserHomeComponent,
     AdminHomeComponent
   ],
   imports: [

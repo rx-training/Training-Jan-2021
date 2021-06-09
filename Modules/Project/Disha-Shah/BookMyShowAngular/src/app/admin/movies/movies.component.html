@@ -6,61 +6,29 @@
     <div class="table-responsive w-100">
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
-                <tr>
+                <tr class="text-center">
                     <th>Id</th>
                     <th>Name</th>
                     <th>Image</th>
-                    <th>Film</th>
-                    <th>Language</th>
                     <th>Time</th>
-                    <th>Genre</th>
-                    <th>Certification</th>
                     <th>Date Of Release</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="tblMovie">
 
-                <tr *ngFor="let movie of moviesList">
+                <tr *ngFor="let movie of moviesList; let i = index" class="text-center">
                     <td>{{movie.movieId}}</td>
                     <td>{{movie.name}}</td>
                     <td><img [src]="'../../../../../assets/' + movie.image" alt='' class='img-fluid rounded' style='width:70px'></td>
-                    <td>
-                        <ng-container *ngFor="let category of movie.movieFilmCategories; let l=last">
-                            <ng-container *ngIf="l==false">
-                                {{category.filmCategory}},
-                            </ng-container>
-                            <ng-container *ngIf="l==true">
-                                {{category.filmCategory}}
-                            </ng-container>
-                        </ng-container>
-                    </td>
-                    <td>
-                        <ng-container *ngFor="let language of movie.movieLanguages; let l=last">
-                            <ng-container *ngIf="l==false">
-                                {{language.language}},
-                            </ng-container>
-                            <ng-container *ngIf="l==true">
-                                {{language.language}}
-                            </ng-container>
-                        </ng-container>
-                    </td>
                     <td>{{movie.time}}</td>
-                    <td>
-                        <ng-container *ngFor="let genre of movie.movieGenres; let l=last">
-                            <ng-container *ngIf="l==false">
-                                {{genre.genre}},
-                            </ng-container>
-                            <ng-container *ngIf="l==true">
-                                {{genre.genre}}
-                            </ng-container>
-                        </ng-container>
-                    </td>
-                    <td>{{movie.certification.certification1}}</td>
                     <td>{{movie.dateOfRelease}}</td>
                     <td>
                         <div class='d-md-block d-lg-inline'>
-                            <a routerLink="./{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" class='text-dark m-1'>
+                            <a routerLink="./detail/{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class="fa fa-2x fa-eye"></i>
+                            </a>
+                            <a routerLink="./edit/{{movie.name}}/{{movie.movieId}}" routerLinkActive="active" class='text-dark m-1'>
                                 <i class='fa fa-2x fa-pencil'></i>
                             </a>
                             <a class='text-dark m-1' (click)="removeMovie(movie.movieId)">

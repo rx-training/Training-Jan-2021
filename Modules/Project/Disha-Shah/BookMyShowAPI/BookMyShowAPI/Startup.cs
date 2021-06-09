@@ -57,6 +57,7 @@ namespace BookMyShowAPI
             services.AddTransient<IBookingHistory, BookingHistoryRepository>();
             services.AddTransient<IUser, UserRepository>();
             services.AddTransient<IAdmin, AdminRepository>();
+            services.AddTransient<IDynamicNavbar, DynamicNavbarRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

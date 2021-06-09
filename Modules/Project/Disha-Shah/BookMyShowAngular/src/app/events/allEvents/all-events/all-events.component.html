@@ -30,7 +30,7 @@
             <div class="col-lg-9">
                 <h4>Events</h4>
                 <div class="row">
-                    <div class="col-md-4 col-lg-3 mb-4" *ngFor = "let e of uniqueEventsList">
+                    <div class="col-6 col-md-4 col-lg-3 mb-4" *ngFor = "let e of uniqueEventsList">
                         <a routerLink="/events/{{e.event}}/{{e.eventId}}" routerLinkActive="active"class="text-decoration-none">
                             <img [src]="'../../assets/' + e.image" alt="" loading="lazy" class="w-100 rounded">
                             <h6 style="color: black;" class="pt-3">{{e.event}}</h6>

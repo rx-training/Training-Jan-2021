@@ -229,6 +229,7 @@ export class EditEventComponent implements OnInit {
         ticketPrice: this.event.ticketPrice,
         eventType: this.event.eventType,
         eventVenue: this.event.eventVenue,
+        showTime: this.event.showTime.hours + ':' + this.event.showTime.minutes,
         minAge: this.minAge,
         note: this.note,
         disclaimer: this.disclaimer,

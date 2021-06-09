@@ -6,85 +6,31 @@
     <div class="table-responsive w-100">
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
-                <tr>
+                <tr class="text-center">
                     <th>Id</th>
                     <th>Name</th>
                     <th>Image</th>
-                    <th>Language</th>
-                    <th>About</th>
-                    <th>Artist Image</th>
-                    <th>Artist Name</th>
-                    <th>Large Image</th>
-                    <th>Disclaimer</th>
-                    <th>FAQs</th>
-                    <th>Note</th>
-                    <th>Terms And Conditions</th>
                     <th>Date of Event</th>
                     <th>Time</th>
                     <th>Event Type</th>
                     <th>Event Venue</th>
-                    <th>Address</th>
                     <th>Show Time</th>
-                    <th>Min Age</th>
                     <th>Ticket Price</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="tblActivities">
 
-                <tr *ngFor = "let event of events">
+                <tr *ngFor = "let event of events" class="text-center">
                     <td>{{event.eventId}}</td>
                     <td>{{event.event}}</td>
                     <td>
                         <img [src]="'../../../assets/' + event.image" alt='' class='img-fluid rounded' style='width:70px'>
                     </td>
-                    <td>
-                        <ng-container *ngFor="let language of event.languages; let l = last">
-                            <ng-container *ngIf="l==false">
-                                {{language}},
-                            </ng-container>
-                            <ng-container *ngIf="l==true">
-                                {{language}}
-                            </ng-container>
-                        </ng-container>
-                    </td>
-                    <td>
-                        <div style="height: 100px; overflow: auto;">
-                            {{event.about}}
-                        </div>
-                    </td>
-                    <td>
-                        <img [src]="'../../../assets/' + event.artistImage" alt='' class='img-fluid rounded' style='width:70px'>
-                    </td>
-                    <td>{{event.artistName}}</td>
-                    <td>
-                        <img [src]="'../../../assets/' + event.backgroundImage" alt='' class='img-fluid rounded' style='width:70px'>
-                    </td>
-                    <td>
-                        <div style="height: 100px; overflow: auto;">
-                            {{event.disclaimer}}
-                        </div>
-                    </td>
-                    <td >
-                        <div style="height: 100px; overflow: auto;">
-                            {{event.faqs}}
-                        </div>
-                    </td>
-                    <td>
-                        <div style="height: 100px; overflow: auto;">
-                            {{event.note}}
-                        </div>
-                    </td>
-                    <td>
-                        <div style="height: 100px; overflow: auto;">
-                            {{event.termsAndConditions}}
-                        </div>
-                    </td>
                     <td>{{event.dateOfEvent}}</td>
                     <td>{{event.time}}</td>
                     <td>{{event.eventType}}</td>
                     <td>{{event.eventVenue}}</td>
-                    <td>{{event.address}}</td>
                     <td>
                         <ng-container *ngIf="event.showTime.hours < 10">
                             0{{event.showTime.hours}}:
@@ -99,11 +45,13 @@
                             {{event.showTime.minutes}}
                         </ng-container>
                     </td>
-                    <td>{{event.minAge}}</td>
                     <td>{{event.ticketPrice}}</td>
                     <td>
                         <div class='d-md-block d-lg-inline'>
-                            <a routerLink="./{{event.event}}/{{event.eventId}}" routerLinkActive="active" class='text-dark m-1'>
+                            <a routerLink="./detail/{{event.event}}/{{event.eventId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class="fa fa-2x fa-eye"></i>
+                            </a>
+                            <a routerLink="./edit/{{event.event}}/{{event.eventId}}" routerLinkActive="active" class='text-dark m-1'>
                                 <i class='fa fa-2x fa-pencil'></i>
                             </a>
                             <a class='text-dark m-1' (click)="removeEvent(event.eventId)">

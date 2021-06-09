@@ -1,5 +1,5 @@
 const openNav = () => {
-    document.getElementById('mySidenav').style.width = "400px"
+    document.getElementById('mySidenav').style.width = "375px"
 }
 
 const closeNav = () => {

@@ -34,14 +34,18 @@
         <div class="form-group row">
             <label for="artistName" class="col-sm-3 col-form-label h5">Artist Name</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="artistName" formControlName="artistName">
-                
+                <small class="text-danger" *ngIf="addEventForm.controls.artistName.invalid && (addEventForm.controls.artistName.dirty || addEventForm.controls.artistName.touched)" id="errName">
+                    Artist Name is required
+                </small>
             </div>
         </div>
         <div class="form-group row">
             <label for="artistImage" class="col-sm-3 col-form-label h5">Artist Image</label>
             <div class="col-sm-9" id="parentImg">
                 <input type="file" class="form-control-file" id="artistImage" (change)="getArtistImage($event)">
+                <small class="text-danger" *ngIf="addEventForm.controls.artistImage.invalid && (addEventForm.controls.artistImage.dirty || addEventForm.controls.artistImage.touched)" id="errName">
+                    Artist Image is required
+                </small>
                 <img [src]="'../../../../../assets/' + artistImage" alt="" id="artistImageShow" class="img-fluid w-25 mt-3">
             </div>
         </div>
@@ -66,7 +70,9 @@
                         {{language.language1}}
                     </label>
                 </div>
-                <small class="text-danger mt-2" id="errLanguage"></small>
+                <small class="text-danger mt-2" *ngIf="addEventForm.controls.languages.length == 0" id="errLanguage">
+                    Language is required
+                </small>
             </div>
 
         </div>
@@ -95,11 +101,14 @@
                     *</span></label>
             <div class="col-sm-9">
                 <select class="custom-select" formControlName="eventType">
-                    <option selected>Choose Event Type</option>
+                    <option selected value="">Choose Event Type</option>
                     <option *ngFor = "let eventType of eventTypesList">
                         {{eventType.eventType1}}
                     </option>
                 </select>
+                <small class="text-danger" *ngIf="addEventForm.controls.eventType.invalid && (addEventForm.controls.eventType.dirty || addEventForm.controls.eventType.touched)" id="errName">
+                    Event Type is required
+                </small>
             </div>
         </div>
         <div class="form-group row">
@@ -107,12 +116,14 @@
                     *</span></label>
             <div class="col-sm-9">
                 <select class="custom-select" formControlName="eventVenue" [(ngModel)]="selectVenue" (change)="getShowTiming();">
-                    <option selected>Choose Event Venue</option>
+                    <option selected value="">Choose Event Venue</option>
                     <option *ngFor = "let eventVenue of eventVenuesList" value={{eventVenue.name}}>
                         {{eventVenue.name}}
                     </option>
                 </select>
-
+                <small class="text-danger" *ngIf="addEventForm.controls.eventVenue.invalid && (addEventForm.controls.eventVenue.dirty || addEventForm.controls.eventVenue.touched)" id="errName">
+                    Event Venue is required
+                </small>
             </div>
         </div>
         <div class="form-group row">
@@ -120,12 +131,14 @@
                     *</span></label>
             <div class="col-sm-9">
                 <select class="custom-select" formControlName="showTime" >
-                    <option selected>Choose Show Time</option>
+                    <option selected value="">Choose Show Time</option>
                     <option *ngFor = "let showTime of showTimingsList" >
                         {{showTime.showTime.hours}}:{{showTime.showTime.minutes}}
                     </option>
                 </select>
-
+                <small class="text-danger" *ngIf="addEventForm.controls.showTime.invalid && (addEventForm.controls.showTime.dirty || addEventForm.controls.showTime.touched)" id="errName">
+                    Show time is required
+                </small>
             </div>
         </div>
 
@@ -178,7 +191,7 @@
         </div>
 
         <div class="text-center mb-3">
-            <button type="submit" class="btn btn-danger btn-lg" id="saveActivity">Update</button>
+            <button type="submit" class="btn btn-danger btn-lg" id="saveActivity" [disabled]="!addEventForm.valid">Update</button>
         </div>
 
     </form>

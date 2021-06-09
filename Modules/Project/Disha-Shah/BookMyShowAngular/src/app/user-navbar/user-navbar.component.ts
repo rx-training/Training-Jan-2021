@@ -1,6 +1,8 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterService } from '../auth/register.service';
+import { DynamicNavbarService } from '../dynamic-navbar.service';
+import { IDynamicNavbar } from '../models/IDynamicNavbar';
 
 @Component({
   selector: 'app-user-navbar',
@@ -13,6 +15,7 @@ export class UserNavbarComponent implements OnInit, OnChanges {
   display: string = "block";
   userInfo: any;
   username: string = '';
+  dynamicNavbarsList: Array<IDynamicNavbar> = [];
 
   IsUserLoggedIn()
   {
@@ -35,7 +38,15 @@ export class UserNavbarComponent implements OnInit, OnChanges {
     alert("You have successfully logged out");
   }
 
-  constructor(private registerService: RegisterService, private router: Router) { }
+  getDynamicNavbars(){
+    this.dynamicNavbarService.getDynamicNavbars()
+    .subscribe(dynamicNavbars => {
+      this.dynamicNavbarsList = dynamicNavbars,
+      console.log('dynamic navbar' + this.dynamicNavbarsList)
+    })
+  }
+
+  constructor(private registerService: RegisterService, private router: Router, private dynamicNavbarService: DynamicNavbarService) { }
 
   ngOnChanges(){
     this.IsUserLoggedIn();
@@ -44,6 +55,7 @@ export class UserNavbarComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.loadScript('../../../assets/js/main.js');
     this.IsUserLoggedIn();
+    this.getDynamicNavbars();
   }
 
   loadScript(url: any){
