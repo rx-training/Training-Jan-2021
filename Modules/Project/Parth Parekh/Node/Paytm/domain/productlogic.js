@@ -9,9 +9,8 @@ class ProductData {
             try {
                 const result = await ProductModel.find({
                     ProductName: productname,
-                })
-                    .populate("ProductCategory", "CategoryName -_id")
-                    .select("ProductName  ProductType ProductPrice -_id");
+                }).populate("ProductCategory");
+
                 if (result.length < 1) {
                     return res.send("Not Found ");
                 } else {
@@ -22,9 +21,9 @@ class ProductData {
             }
         } else {
             try {
-                const result = await ProductModel.find()
-                    .populate("ProductCategory", "CategoryName -_id")
-                    .select("ProductName  ProductType ProductPrice -_id");
+                const result = await ProductModel.find().populate(
+                    "ProductCategory"
+                );
                 if (result.length < 1) {
                     return res.status(404).send("No Products Available !!");
                 } else {
@@ -38,27 +37,50 @@ class ProductData {
 
     async getProductDetailsFromId(req, res) {
         try {
-            const result = await ProductModel.findById(req.params.id)
-                .populate("ProductCategory", "CategoryName -_id")
-                .select("ProductName  ProductType ProductPrice -_id");
+            const result = await ProductModel.findById(req.params.id).populate(
+                "ProductCategory"
+            );
             res.send(result);
         } catch (ex) {
-            res.send("Product Not Available !!");
+            res.status(404).send("Product Not Available !!");
         }
     }
 
     async addProduct(req, res) {
         const data = req.body;
-        const productObject = new ProductModel(data);
-        const { error, value } = productObject.joivalidate(data);
-        if (error) {
-            return res.status(400).send(error.details[0].message);
+        // console.log(req.files);
+        let dd = [];
+        for (let i of req.files.moreInfo) {
+            dd.push(`http://localhost:9000/${i.path}`);
         }
+        const pdata = {
+            ProductName: data.ProductName,
+            ProductCategory: data.ProductCategory,
+            Rating: parseFloat(data.Rating),
+            ProductType: data.ProductType,
+            image: `http://localhost:9000/${req.files.image[0].path}`,
+            featured: data.featured,
+            moreInfo: dd,
+            Spec: data.Spec,
+            ProductPrice: parseInt(data.ProductPrice),
+            Qty: parseInt(data.Qty),
+        };
+        // console.log(pdata);
+        const productObject = new ProductModel(pdata);
+
+        // const { error, value } = productObject.joivalidate(pdata);
+        // if (error) {
+        //     console.log("validate error");
+        //     return res.status(400).send(error.details[0].message);
+        // }
+
         try {
             const result = await productObject.save();
-            res.send(result);
+            console.log(result);
+            return res.status(200).send(result);
         } catch (ex) {
-            res.send(ex.message);
+            console.log(ex.message);
+            res.status(400).send(ex.message);
         }
     }
     async deleteProduct(req, res) {
@@ -71,8 +93,19 @@ class ProductData {
     }
     async updateProductDetails(req, res) {
         const data = req.body;
-        const productObject = new ProductModel(data);
-        const { error, value } = productObject.joivalidate(data);
+
+        const pdata = {
+            ProductName: data.ProductName,
+            ProductCategory: data.ProductCategory,
+            Rating: parseFloat(data.Rating),
+            ProductType: data.ProductType,
+            featured: data.featured,
+            Spec: data.Spec,
+            ProductPrice: parseInt(data.ProductPrice),
+            Qty: parseInt(data.Qty),
+        };
+        const productObject = new ProductModel(pdata);
+        const { error, value } = productObject.joivalidate(pdata);
         if (error) {
             return res.status(400).send(error.details[0].message);
         }
@@ -80,7 +113,7 @@ class ProductData {
             const result = await ProductModel.findByIdAndUpdate(
                 req.params.id,
                 {
-                    $set: data,
+                    $set: pdata,
                 },
                 { new: true }
             );

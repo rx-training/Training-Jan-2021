@@ -6,16 +6,11 @@ const orderScehma = new mongoose.Schema({
         ref: "product",
     },
     ProductName: { type: String },
-    Quantity: { type: Number, min: 1, default: 1, required: true },
-    totalAmount: { type: Number, required: true },
+    size: { type: String },
+    amount: { type: Number, required: true },
     Shipping_Address: { type: String },
     DeliveredOn: { type: String },
     OrderDate: { type: Date, default: Date.now },
-    PaymentStatus: {
-        type: String,
-        default: "Pending",
-        enum: ["Pending", "Done"],
-    },
 });
 
 module.exports = orderScehma;

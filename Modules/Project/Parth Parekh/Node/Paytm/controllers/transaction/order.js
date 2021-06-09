@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router({mergeParams : true});
+const router = express.Router({ mergeParams: true });
 const UserData = require("../../domain/userlogic");
 //const adminverifytoken = require("../../middleware/adminverifytoken");
 const verifytoken = require("../../middleware/verifytoken");
@@ -9,7 +9,7 @@ class TransactionController {
         const userData = new UserData();
         userData.getOrderDetailsOfUser(req, res);
     }
-    static async orderPayment(req,res){
+    static async orderPayment(req, res) {
         const userData = new UserData();
         userData.orderPayment(req, res);
     }
@@ -18,6 +18,6 @@ class TransactionController {
 //Get Methods
 router.get("/", [verifytoken], TransactionController.getOrderDetailsOfUser);
 
-router.put("/payment", [verifytoken],TransactionController.orderPayment);
+router.post("/payment", [verifytoken], TransactionController.orderPayment);
 
 module.exports = router;

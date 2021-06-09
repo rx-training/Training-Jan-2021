@@ -12,9 +12,7 @@ const PASS = process.env.PASS;
 class UserData {
     async getAllUserData(req, res) {
         try {
-            const result = await UserModel.find().select(
-                "name email mobileno balance orders transactions -_id"
-            );
+            const result = await UserModel.find();
             res.send(result);
         } catch {
             return res.status(404).send("Users Not Available !!");
@@ -22,9 +20,7 @@ class UserData {
     }
     async getUserDetailsFromId(req, res) {
         try {
-            const result = await UserModel.findById(req.params.id).select(
-                "name email mobileno balance orders transactions -_id"
-            );
+            const result = await UserModel.findById(req.params.id);
             if (!result) {
                 return res
                     .status(404)
@@ -74,21 +70,21 @@ class UserData {
         const password = req.body.password;
 
         const result = await UserModel.find({ email: email });
-        //console.log(result);
+        // console.log(result);
 
         if (result.length < 1) {
-            return res.send("User Not Register ,Register First !!");
+            return res.status(404).send("User Not Register ,Register First !!");
         } else {
             bcrypt.compare(
                 password,
                 result[0].password,
-                async function (err, result) {
+                async function (err, result1) {
                     if (err) {
-                        res.status(404).json({
+                        res.status(401).json({
                             message: "user not Registered",
                         });
                     }
-                    if (result) {
+                    if (result1) {
                         let userData = {
                             email: email,
                             password: password,
@@ -96,12 +92,14 @@ class UserData {
                         let token = jwt.sign(userData, "private", {
                             expiresIn: "1h",
                         });
+
                         res.status(200).json({
+                            userId: result[0]._id,
                             message: "Login Successfull",
                             jwttoken: token,
                         });
                     } else {
-                        res.send("email and password not match");
+                        res.status(401).send("email and password not match");
                     }
                 }
             );
@@ -110,22 +108,52 @@ class UserData {
 
     async updateUser(req, res) {
         const data = req.body;
-        const userObject = new UserModel(data);
-        const { error, value } = userObject.joivalidate(data);
-        if (error) {
-            return res.status(400).send(error.details[0].message);
-        }
-        try {
-            const result = await UserModel.findByIdAndUpdate(
-                req.params.id,
-                {
-                    $set: data,
-                },
-                { new: true }
-            );
-            res.send(result);
-        } catch (ex) {
-            res.send(ex.message);
+        const id2 = req.params.id2;
+        if (id2 == 1) {
+            const userObject = new UserModel(data);
+            const { error, value } = userObject.joivalidate(data);
+            if (error) {
+                return res.status(400).send(error.details[0].message);
+            }
+            try {
+                const result = await UserModel.findByIdAndUpdate(
+                    req.params.id,
+                    {
+                        $set: data,
+                    },
+                    { new: true }
+                );
+                return res.status(200).send(result);
+            } catch (ex) {
+                return res.status(400).send(ex.message);
+            }
+        } else if (id2 == 2) {
+            bcrypt.hash(data.password, 10, async function (err, hash) {
+                if (err) {
+                    return res.status(400).send("Password error");
+                } else {
+                    const updateData = {
+                        name: data.name,
+                        email: data.email,
+                        password: hash,
+                        mobileno: data.mobileno,
+                    };
+                    try {
+                        const result = await UserModel.findByIdAndUpdate(
+                            req.params.id,
+                            {
+                                $set: updateData,
+                            },
+                            { new: true }
+                        );
+                        return res.status(200).send(result);
+                    } catch (ex) {
+                        return res.status(400).send(ex.message);
+                    }
+                }
+            });
+        } else {
+            return res.status(400).send("Error");
         }
     }
     async deleteUser(req, res) {
@@ -142,9 +170,7 @@ class UserData {
         try {
             const result = await UserModel.findById(userId);
             //console.log(result);
-            res.send(
-                `Balance : ${result.balance} \n Transaction Details :\n  ${result.transactions}`
-            );
+            res.send(result);
         } catch (ex) {
             return res.status(404).send("User Not Found");
         }
@@ -163,85 +189,70 @@ class UserData {
     }
     async orderPayment(req, res) {
         const userId = req.body.userId;
-        const orderId = req.body.orderId;
+        const ProductId = req.body.Product;
+        const ProductName = req.body.ProductName;
+        const Shipping_Address = req.body.Shipping_Address;
         const amount = req.body.amount;
+        const size = req.body.size;
 
         try {
             const userData = await UserModel.findById(userId);
-            const orderData = userData.orders.id(orderId);
-            if (!orderData) {
-                return res.send(`Order Is Not Available For Id ${orderId}`);
-            } else {
-                if (orderData.PaymentStatus == "Done") {
-                    return res.send("Payment Failed");
+
+            if (userData.balance >= amount) {
+                userData.balance = userData.balance - amount;
+
+                const orderData = {
+                    Product: ProductId,
+                    ProductName: ProductName,
+                    size: size,
+                    amount: amount,
+                    Shipping_Address: Shipping_Address,
+                    DeliveredOn: "4-5 Working Days",
+                };
+
+                userData.orders.push(orderData);
+                userData.save();
+
+                const productData = await ProductModel.findById(ProductId);
+
+                //console.log(productData);
+                if (productData.Qty <= 0) {
+                    productData.Qty = 0;
                 } else {
-                    if (orderData.totalAmount === amount) {
-                        if (userData.balance >= amount) {
-                            userData.balance = userData.balance - amount;
+                    productData.Qty = productData.Qty - 1;
+                    productData.save();
 
-                            const product = await ProductModel.findById(
-                                orderData.Product
-                            ).select("ProductName -_id");
-                            //console.log(product);
+                    res.status(200).send("Payment SuccessFully Done");
+                    //Sending Payment SuccessFull Mail
+                    let email = userData.email;
+                    //console.log(email);
 
-                            const duplicateData = {
-                                _id: orderData._id,
-                                Quantity: orderData.Quantity,
-                                PaymentStatus: "Done",
-                                Product: orderData.Product,
-                                ProductName: product.ProductName,
-                                totalAmount: orderData.totalAmount,
-                                Shipping_Address: orderData.Shipping_Address,
-                                DeliveredOn: "4-5 Working Days",
-                                OrderDate: orderData.OrderDate,
-                            };
-                            orderData.remove();
-                            userData.orders.push(duplicateData);
-                            userData.save();
-
-                            const productData = await ProductModel.findById(
-                                duplicateData.Product
-                            );
-                            //console.log(productData);
-                            productData.Qty = productData.Qty - 1;
-                            productData.save();
-
-                            res.send("Payment SuccessFully Done");
-                            //Sending Payment SuccessFull Mail
-                            let email = userData.email;
-                            //console.log(email);
-
-                            let transporter = nodemailer.createTransport({
-                                service: "gmail",
-                                auth: {
-                                    user: USER,
-                                    pass: PASS,
-                                },
-                            });
-                            try {
-                                let info = await transporter.sendMail({
-                                    from: USER,
-                                    to: email,
-                                    subject: "Payment Successfull",
-                                    html: `<h3>Product : ${duplicateData.ProductName}</h3>
-                                    <h3>PaymentStatus : ${duplicateData.PaymentStatus}</h3>
-                                    <h3>Amount : ${duplicateData.totalAmount}</h3>
-                                    <h3>Quantity : ${duplicateData.Quantity}</h3>
-                                    <h3>Shipping Address : ${duplicateData.Shipping_Address}</h3>
-                                    <h3> Delivery on : ${duplicateData.DeliveredOn}</h3>`,
-                                });
-                            } catch (ex) {
-                                res.send("Error Occurs");
-                            }
-                        } else {
-                            return res.send(`Insufficient Balance !!`);
-                        }
-                    } else {
-                        return res.send(
-                            `Enter Amount : ${orderData.totalAmount} For Payment`
-                        );
+                    let transporter = nodemailer.createTransport({
+                        service: "gmail",
+                        auth: {
+                            user: USER,
+                            pass: PASS,
+                        },
+                    });
+                    try {
+                        let info = await transporter.sendMail({
+                            from: USER,
+                            to: email,
+                            subject: "Payment Successfull",
+                            html: `<h3 style ='color:green'>Product : ${ProductName}</h3>
+                                    
+                                    <h3 style ='color : green'>Amount : ${amount}</h3>
+                                    
+                                    <h3>Shipping Address : ${Shipping_Address}</h3>
+                                    <h3> Delivery In : 4-5 Working Days </h3>`,
+                        });
+                    } catch (ex) {
+                        console.log("mail not send");
+                        res.send("Error Occurs");
                     }
                 }
+            } else {
+                return res.status(403).send(`Insufficient Balance !!`);
             }
         } catch (ex) {
             return res.status(404).send("User Not Found");
@@ -249,62 +260,57 @@ class UserData {
     }
 
     async paymentLogic(req, res) {
-        const senderId = req.body.senderId;
-        const receiverId = req.body.receiverId;
+        const mobileno = req.body.mobileno;
         const amount = req.body.amount;
+        const senderId = req.body.senderId;
 
-        if (isNaN(amount)) {
-            return res.send("Amount Should be in Number");
-        } else {
-            //Check Amount is Greaterthen 10
-            if (amount < 10) {
-                return res.send("Amount Atleast 10 or Greater than 10");
-            } else {
-                const senderData = await UserModel.findById(senderId);
-                if (!senderData) {
-                    return res.status(404).send("SenderId Not Found");
-                }
-
-                const receiverData = await UserModel.findById(receiverId);
-                if (!receiverData) {
-                    return res.status(404).send("ReceiverId Not Found");
-                }
-
-                //Check For Sufficient Balance
-                if (senderData.balance >= amount) {
-                    //Deduct Balance from Sender
-                    senderData.balance = senderData.balance - amount;
-
-                    //Add Balance in  Receiver
-                    receiverData.balance = receiverData.balance + amount;
-
-                    const transactionSenderData = {
-                        amount: amount,
-                        YourId: senderId,
-                        receiverName: receiverData.name,
-                        receiverMobileNo: receiverData.mobileno,
-                        receiverId: receiverId,
-                        paymentType: "Send",
-                    };
-                    senderData.transactions.push(transactionSenderData);
-                    senderData.save();
-
-                    const transactionReceiverData = {
-                        amount: amount,
-                        senderId: senderId,
-                        senderName: senderData.name,
-                        senderMobileNo: senderData.mobileno,
-                        YourId: receiverId,
-                        paymentType: "Received",
-                    };
-                    receiverData.transactions.push(transactionReceiverData);
-                    receiverData.save();
-
-                    res.status(200).send("Transaction Successfully Done");
-                } else {
-                    return res.send("Insufficient Balance");
-                }
+        try {
+            const receiverData = await UserModel.find({ mobileno: mobileno });
+            console.log(receiverData);
+            if (receiverData.length < 1) {
+                return res.status(404).send("ReceiverId Not Found");
             }
+
+            const senderData = await UserModel.findById(senderId);
+            if (!senderData) {
+                return res.status(404).send("SenderId Not Found");
+            }
+            console.log(senderData);
+            if (senderData.balance >= amount) {
+                //Deduct Balance from Sender
+                senderData.balance = senderData.balance - amount;
+
+                //Add Balance in  Receiver
+                receiverData[0].balance = receiverData[0].balance + amount;
+
+                const transactionSenderData = {
+                    amount: amount,
+                    YourId: senderId,
+                    receiverName: receiverData[0].name,
+                    receiverMobileNo: receiverData[0].mobileno,
+                    receiverId: receiverData[0]._id,
+                    paymentType: "Send",
+                };
+                senderData.transactions.push(transactionSenderData);
+                senderData.save();
+
+                const transactionReceiverData = {
+                    amount: amount,
+                    senderId: senderId,
+                    senderName: senderData.name,
+                    senderMobileNo: senderData.mobileno,
+                    YourId: receiverData[0]._id,
+                    paymentType: "Received",
+                };
+                receiverData[0].transactions.push(transactionReceiverData);
+                receiverData[0].save();
+
+                res.status(200).send("Transaction Successfully Done");
+            } else {
+                return res.status(402).send("Insufficient Balance");
+            }
+        } catch (error) {
+            return res.status(404).send("Something went wrong");
         }
     }
 
@@ -321,7 +327,9 @@ class UserData {
                 return res.send("Enter Valid Amount");
             } else {
                 if (MoneyToBeAdded <= 0) {
-                    return res.send("Enter Amount Should Be Atleast 1 or More");
+                    return res
+                        .status(404)
+                        .send("Enter Amount Should Be Atleast 1 or More");
                 } else {
                     userData.balance = userData.balance + MoneyToBeAdded;
                     const transactionUserData = {

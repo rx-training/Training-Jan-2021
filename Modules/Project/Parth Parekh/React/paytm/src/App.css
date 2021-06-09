@@ -1,0 +1,144 @@
+body {
+    background-color: #eaeff3;
+    overflow-x: hidden;
+}
+#secondnavabr {
+    height: 200px;
+    background-color: #012b72;
+}
+#Paytm-footer {
+    background-color: #012b72;
+}
+.bg-paytm {
+    background-color: #012b72;
+}
+.react-icons {
+    margin: 0 12px;
+    font-size: 1.7rem;
+    color: white;
+}
+.hover-effect:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s linear;
+}
+.container-fuild {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.fontInfo {
+    font-size: 22px;
+    margin: auto 1rem;
+    letter-spacing: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main-container {
+    margin-top: 84px;
+}
+
+@media screen and (max-width: 568px) {
+    .main-container {
+        margin-top: 86px;
+    }
+}
+
+.logo {
+    margin: 0 4rem;
+}
+.nav-links {
+    cursor: pointer;
+}
+.navwrapper {
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 0 !important;
+    z-index: 1;
+
+    font-size: 20px;
+    text-align: center;
+}
+
+.hovereffect:hover {
+    box-shadow: 4px 6px 17px -2px rgba(29, 26, 26, 0.76);
+    -webkit-box-shadow: 4px 6px 17px -2px rgba(29, 26, 26, 0.76);
+    -moz-box-shadow: 4px 6px 17px -2px rgba(29, 26, 26, 0.76);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-size: 18px;
+}
+.boxeffect {
+    box-shadow: 4px 6px 17px -2px rgba(29, 26, 26, 0.76);
+    -webkit-box-shadow: 4px 6px 17px -2px rgba(29, 26, 26, 0.76);
+    -moz-box-shadow: 4px 6px 17px -2px rgba(29, 26, 26, 0.76);
+
+    cursor: pointer;
+}
+.boxeffect:hover {
+    box-shadow: 10px 26px 17px -2px rgba(53, 226, 212, 0.76);
+    -webkit-box-shadow: 4px 6px 4px -2px rgba(19, 226, 233, 0.76);
+    -moz-box-shadow: 4px 6px 17px -2px rgba(133, 37, 197, 0.76);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-size: 18px;
+}
+.singlehovereffect:hover {
+    box-shadow: 4px 6px 17px -2px rgba(29, 26, 26, 0.76);
+
+    border-left: 3px solid red;
+    transition: all 0.7s ease-in-out;
+    cursor: pointer;
+}
+
+.ratingbtn {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+    display: inline-block;
+    background-color: #ffc81d;
+    border-radius: 2px;
+    padding: 4px;
+}
+
+.linkstyle {
+    color: grey !important;
+    text-decoration: none !important;
+    margin: 2px !important;
+}
+.linkstyle:hover {
+    color: black !important;
+}
+
+.mainRupee {
+    font-size: 2.2rem;
+    color: #165182;
+    margin-left: 5px;
+}
+.icons {
+    font-size: 2rem;
+    color: #165182;
+    margin: 3px;
+}
+.icons1 {
+    font-size: 1.3rem;
+    color: #165182;
+    margin: 0 10px;
+}
+.admin-icon {
+    font-size: 2.5rem;
+    color: #012b72;
+    margin: 5px;
+}
+
+.transaction {
+    overflow-y: auto;
+    height: 390px;
+    font-family: initial;
+    box-shadow: 2px 4px 12px -2px rgba(29, 26, 26, 0.76);
+}
+
+.order {
+    overflow-y: auto;
+    height: 320px;
+    font-family: initial;
+    box-shadow: 2px 4px 12px -2px rgba(29, 26, 26, 0.76);
+}
