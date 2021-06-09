@@ -50,8 +50,8 @@ const Dashboard = (props) => {
         </div>
       ) : (
         <div className="container-fluid">
-          <div className="row">
-            <AdminNav />
+          <div className="row mt-3 mb-2">
+            <AdminNav active="trains" />
             <div className="col-md-9">
               <Trains
                 trains={trains}

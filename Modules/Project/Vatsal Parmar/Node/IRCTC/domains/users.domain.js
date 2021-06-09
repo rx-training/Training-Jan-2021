@@ -54,7 +54,7 @@ class UserDomain {
     let id = req.params.userId;
     const user = await UserModel.findByIdAndDelete(id);
     if (user) {
-      res.send("User Record Deleted Successfully");
+      res.send("success");
     } else {
       res.status(404).send("User Not Found");
     }

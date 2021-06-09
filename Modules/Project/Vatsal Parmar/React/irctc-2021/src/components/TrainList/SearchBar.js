@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TrainContext } from "../../context/context";
 import TrainServices from "../../Services/TrainServices";
 
@@ -6,8 +6,19 @@ const SearchBar = ({ setLoading }) => {
   const value = useContext(TrainContext);
   const { setSearchQuery, searchQuery, setAvailTrains, syncStorage } = value;
   const { date, from, to, travelClass, travelType } = searchQuery;
+  const [stations, setStations] = useState([]);
+  const [toStations, setToStations] = useState([]);
   //console.log(date);
   //functionality
+  useEffect(() => {
+    TrainServices.getStations().then((res) => {
+      let stationsData = res.data;
+      setStations(stationsData);
+      let toData = stationsData.filter((item) => item.station_name !== from);
+      setToStations(toData);
+    });
+  }, []);
+
   const searchTrain = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -22,24 +33,32 @@ const SearchBar = ({ setLoading }) => {
       <div className="row">
         <div className="col-md-1"></div>
         <div className="form-group col-md-2">
-          <input
-            className="form-control text-primary"
-            required
-            placeholder="From"
+          <select
+            className="form-control"
             value={from}
             onChange={(e) => {
               setSearchQuery({
                 ...searchQuery,
                 from: e.target.value,
               });
+              let to = stations.filter(
+                (item) => item.station_name !== e.target.value
+              );
+              setToStations(to);
             }}
-          />
+            required
+          >
+            <option value="">-- From --</option>
+            {stations.map((station) => (
+              <option value={station.station_name} key={station._id}>
+                {station.station_name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="form-group col-md-2">
-          <input
-            className="form-control text-primary"
-            required
-            placeholder="To"
+          <select
+            className="form-control"
             value={to}
             onChange={(e) => {
               setSearchQuery({
@@ -47,11 +66,19 @@ const SearchBar = ({ setLoading }) => {
                 to: e.target.value,
               });
             }}
-          />
+            required
+          >
+            <option value="">-- To --</option>
+            {toStations.map((station) => (
+              <option value={station.station_name} key={station._id}>
+                {station.station_name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="form-group col-md-2">
           <select
-            className="form-control text-primary"
+            className="form-control"
             id="ticketType"
             value={travelType}
             onChange={(e) => {
@@ -72,7 +99,8 @@ const SearchBar = ({ setLoading }) => {
         <div className="form-group col-md-2">
           <input
             type="date"
-            className="form-control text-primary"
+            className="form-control"
+            min={new Date().toISOString().split("T")[0]}
             required
             value={date}
             onChange={(e) => {
@@ -85,7 +113,7 @@ const SearchBar = ({ setLoading }) => {
         </div>
         <div className="form-group col-md-2">
           <select
-            className="form-control text-primary"
+            className="form-control"
             id="seatType"
             value={travelClass}
             onChange={(e) => {

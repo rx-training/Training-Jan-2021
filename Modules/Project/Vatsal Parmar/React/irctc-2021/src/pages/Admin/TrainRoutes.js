@@ -43,8 +43,8 @@ const TrainRoutes = (props) => {
   };
   return (
     <div className="container-fluid">
-      <div className="row">
-        <AdminNav />
+      <div className="row mt-3 mb-2">
+        <AdminNav active="routes" />
         <div className="col-md-9">
           {loading ? (
             <div className="d-flex justify-content-center align-items-center">

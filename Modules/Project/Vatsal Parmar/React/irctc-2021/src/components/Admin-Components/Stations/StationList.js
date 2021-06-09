@@ -5,15 +5,17 @@ const StationList = ({ stations, deleteStation, editStation }) => {
     <table className="table table-hover table-bordered">
       <thead className="thead-light">
         <tr>
+          <th scope="col">#</th>
           <th scope="col">Station Name</th>
           <th scope="col">Update</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody className="text-capitalize">
-        {stations.map((item) => {
+        {stations.map((item, index) => {
           return (
             <tr key={item._id}>
+              <th scope="row">{index + 1}</th>
               <td>{item.station_name}</td>
               <td>
                 <button

@@ -44,6 +44,8 @@ class TrainDomain {
   async deleteTrain(req, res) {
     let id = req.params.trainId;
     const train = await TrainModel.findByIdAndDelete(id);
+    const result = await StatusModel.deleteMany({ train: id });
+    const routes = await RouteModel.deleteMany({ train: id });
     if (train) {
       res.send("Train Record Deleted Successfully");
     } else {

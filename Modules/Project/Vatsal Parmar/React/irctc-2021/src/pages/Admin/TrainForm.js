@@ -85,23 +85,43 @@ const TrainForm = (props) => {
     if (validateForm(errors)) {
       setLoading(true);
       if (id === "_add") {
-        TrainServices.addTrain({ ...train, days: trainDays })
-          .then((res) => {
-            if (res.data === "success") {
-              setLoading(false);
-              props.history.push("/dashboard");
-            }
-          })
-          .catch((error) => {
-            //setLoading(false);
-            if (error.response.status === 401) {
-              removeUserSession();
-              window.location.href = "/login";
-            }
-            if (error.response.status === 400) {
-              console.log(error.response.data);
-            }
-          });
+        if (trainDays) {
+          TrainServices.addTrain({ ...train, days: trainDays })
+            .then((res) => {
+              if (res.data === "success") {
+                setLoading(false);
+                props.history.push("/dashboard");
+              }
+            })
+            .catch((error) => {
+              //setLoading(false);
+              if (error.response.status === 401) {
+                removeUserSession();
+                window.location.href = "/login";
+              }
+              if (error.response.status === 400) {
+                console.log(error.response.data);
+              }
+            });
+        } else {
+          TrainServices.addTrain({ ...train })
+            .then((res) => {
+              if (res.data === "success") {
+                setLoading(false);
+                props.history.push("/dashboard");
+              }
+            })
+            .catch((error) => {
+              //setLoading(false);
+              if (error.response.status === 401) {
+                removeUserSession();
+                window.location.href = "/login";
+              }
+              if (error.response.status === 400) {
+                console.log(error.response.data);
+              }
+            });
+        }
       } else {
         TrainServices.editTrain(id, { ...train, days: trainDays })
           .then((res) => {

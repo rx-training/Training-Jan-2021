@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import AdminNav from "../../components/Admin-Components/Navbar";
 import TrainServices from "../../Services/TrainServices";
 import loadingImg from "../../images/loading.gif";
-import StatusList from "../../components/Admin-Components/Status/StatusList";
+import UserList from "../../components/Admin-Components/Users/UserList";
 import { removeUserSession } from "../../Utils/Common";
 
-const Status = (props) => {
-  const [trainStatus, setTrainStatus] = useState([]);
+const Users = () => {
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setLoading(true);
-    TrainServices.getTrainStatus()
+    TrainServices.getUsers()
       .then((res) => {
-        setTrainStatus(res.data);
+        setUsers(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -23,8 +24,9 @@ const Status = (props) => {
         }
       });
   }, []);
-  const deleteTrainStatus = (id) => {
-    TrainServices.deleteTrainStatus(id)
+
+  const deleteUser = (id) => {
+    TrainServices.deleteUser(id)
       .then((res) => {
         if (res.data === "success") {
           window.location.reload();
@@ -38,13 +40,10 @@ const Status = (props) => {
         }
       });
   };
-  const editTrainStatus = (id) => {
-    props.history.push(`/dashboard/status/${id}`);
-  };
   return (
     <div className="container-fluid">
       <div className="row mt-3 mb-2">
-        <AdminNav active="status" />
+        <AdminNav active="users" />
         <div className="col-md-9">
           {loading ? (
             <div className="d-flex justify-content-center align-items-center">
@@ -52,18 +51,7 @@ const Status = (props) => {
             </div>
           ) : (
             <div>
-              <StatusList
-                trainStatus={trainStatus}
-                deleteTrainStatus={deleteTrainStatus}
-                editTrainStatus={editTrainStatus}
-              />
-              <button
-                className="btn btn-lg btn-success mb-3"
-                type="button"
-                onClick={() => props.history.push("/dashboard/status/_add")}
-              >
-                Add Class
-              </button>
+              <UserList users={users} deleteUser={deleteUser} />
             </div>
           )}
         </div>
@@ -72,4 +60,4 @@ const Status = (props) => {
   );
 };
 
-export default Status;
+export default Users;

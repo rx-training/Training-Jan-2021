@@ -35,7 +35,7 @@ class StationController {
 //To insert station
 router.post("/", verifyAdminToken, StationController.insertStation);
 //To get all stations
-router.get("/", verifyAdminToken, StationController.get);
+router.get("/", StationController.get);
 //To get an single station by id
 router.get("/:stationId", verifyAdminToken, StationController.getStation);
 //To update station

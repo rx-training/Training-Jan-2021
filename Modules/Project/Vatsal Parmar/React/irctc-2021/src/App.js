@@ -22,6 +22,7 @@ import TrainRoutes from "./pages/Admin/TrainRoutes";
 import TrainRoutesForm from "./pages/Admin/TrainRoutesForm";
 import Status from "./pages/Admin/Status";
 import StatusForm from "./pages/Admin/StatusForm";
+import Users from "./pages/Admin/Users";
 //nav bar
 import MainNav from "./components/Navbar";
 //footer
@@ -75,6 +76,7 @@ function App() {
           path="/dashboard/status/:id"
           component={StatusForm}
         />
+        <PrivateRoute exact path="/dashboard/users" component={Users} />
         <Route component={Error} />
       </Switch>
       <Footer />

@@ -116,12 +116,7 @@ class TrainServices {
   }
   // for stations
   getStations() {
-    const token = getToken();
-    return axios.get(`${TRAIN_API_BASE_URL}stations/`, {
-      headers: {
-        "x-access-token": token,
-      },
-    });
+    return axios.get(`${TRAIN_API_BASE_URL}stations/`);
   }
   addStation(data) {
     const token = getToken();
@@ -232,6 +227,23 @@ class TrainServices {
   deleteTrainStatus(id) {
     const token = getToken();
     return axios.delete(`${TRAIN_API_BASE_URL}status/${id}`, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
+  }
+  // for users
+  getUsers() {
+    const token = getToken();
+    return axios.get(`${TRAIN_API_BASE_URL}users/`, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
+  }
+  deleteUser(id) {
+    const token = getToken();
+    return axios.delete(`${TRAIN_API_BASE_URL}users/${id}`, {
       headers: {
         "x-access-token": token,
       },

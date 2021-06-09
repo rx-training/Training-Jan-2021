@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Services from "../components/TrainSearch/Services";
 import Holidays from "../components/TrainSearch/Holidays";
 import { TrainContext } from "../context/context";
@@ -11,8 +11,19 @@ const TrainSearch = (props) => {
   const value = useContext(TrainContext);
   const { setSearchQuery, searchQuery, setAvailTrains, syncStorage } = value;
   const { date, from, to, travelClass, travelType } = searchQuery;
+  const [stations, setStations] = useState([]);
+  const [toStations, setToStations] = useState([]);
 
   //functionality
+  useEffect(() => {
+    TrainServices.getStations().then((res) => {
+      let stationsData = res.data;
+      setStations(stationsData);
+      let toData = stationsData.filter((item) => item.station_name !== from);
+      setToStations(toData);
+    });
+  }, []);
+
   const searchTrain = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -60,24 +71,36 @@ const TrainSearch = (props) => {
                     <div className="col-md-7">
                       <div className="form-group">
                         <label htmlFor="from"></label>
-                        <input
+                        <select
                           className="form-control"
-                          placeholder="From"
                           value={from}
                           onChange={(e) => {
                             setSearchQuery({
                               ...searchQuery,
                               from: e.target.value,
                             });
+                            let to = stations.filter(
+                              (item) => item.station_name !== e.target.value
+                            );
+                            setToStations(to);
                           }}
                           required
-                        />
+                        >
+                          <option value="">-- From --</option>
+                          {stations.map((station) => (
+                            <option
+                              value={station.station_name}
+                              key={station._id}
+                            >
+                              {station.station_name}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <div className="form-group mt-n4">
                         <label htmlFor="to"></label>
-                        <input
+                        <select
                           className="form-control"
-                          placeholder="To"
                           value={to}
                           onChange={(e) => {
                             setSearchQuery({
@@ -86,7 +109,17 @@ const TrainSearch = (props) => {
                             });
                           }}
                           required
-                        />
+                        >
+                          <option value="">-- To --</option>
+                          {toStations.map((station) => (
+                            <option
+                              value={station.station_name}
+                              key={station._id}
+                            >
+                              {station.station_name}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <div className="form-group">
                         <select
@@ -106,40 +139,6 @@ const TrainSearch = (props) => {
                           <option value="TATKAL">TATKAL</option>
                         </select>
                       </div>
-                      {/* <div className="form-check d-inline">
-                        <label className="form-check-label">
-                          <input
-                            type="checkbox"
-                            className="form-check-input"
-                            value="option1"
-                            id="op1"
-                          />
-                          Divyaang Concession
-                        </label>
-                      </div>
-                      <div className="form-check d-inline">
-                        <label className="form-check-label">
-                          <input
-                            type="checkbox"
-                            className="form-check-input"
-                            value="option1"
-                            id="op2"
-                            defaultChecked
-                          />
-                          Flexible With Date
-                        </label>
-                      </div>
-                      <div className="form-check d-inline">
-                        <label className="form-check-label">
-                          <input
-                            type="checkbox"
-                            className="form-check-input"
-                            value="option1"
-                            id="op3"
-                          />
-                          Train With Available Berth
-                        </label>
-                      </div> */}
                     </div>
                     <div className="col-md-5">
                       <div className="form-group mt-4">

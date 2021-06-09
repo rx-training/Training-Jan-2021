@@ -338,16 +338,14 @@ const StatusForm = (props) => {
                 <option value={false}>Not Booked</option>
                 <option value={true}>Booked</option>
               </select>
+
               <button
                 className={
                   editMode ? "btn btn-primary ml-3" : "btn btn-success ml-3"
                 }
                 onClick={addSeat}
                 type="button"
-                disabled={
-                  seats.length >= trainStatus.avail_seat ||
-                  singleSeat.seat_no.length === 0
-                }
+                disabled={singleSeat.seat_no.length === 0}
               >
                 {editMode ? <FaPen /> : <FaPlus />}
               </button>
@@ -360,7 +358,7 @@ const StatusForm = (props) => {
                       <p className="m-0">Seat No : {seat.seat_no}</p>
                       <p className="m-0">
                         Status :{" "}
-                        {seat.is_booked === "true" ? "Booked" : "Not Booked"}
+                        {seat.is_booked === true ? "Booked" : "Not Booked"}
                       </p>
                     </span>
                     <span>
