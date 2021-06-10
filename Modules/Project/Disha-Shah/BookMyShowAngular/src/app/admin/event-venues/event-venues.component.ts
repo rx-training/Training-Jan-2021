@@ -18,6 +18,11 @@ export class EventVenuesComponent implements OnInit {
     })
   }
 
+  removeEventVenue(id: number){
+    this.eventVenuesList = this.eventVenuesList.filter(h => h.eventVenueId !== id);
+    this.eventVenuesService.deleteEventVenue(id).subscribe();
+  }
+
   constructor(private eventVenuesService: EventVenuesService) { }
 
   ngOnInit(): void {

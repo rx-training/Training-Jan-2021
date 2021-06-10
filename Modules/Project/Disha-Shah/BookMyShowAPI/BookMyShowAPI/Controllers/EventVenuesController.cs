@@ -61,12 +61,12 @@ namespace BookMyShowAPI.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = UserRoles.Admin)]
-        public IActionResult PutEventVenue(int id, EventVenue eventVenue)
+        public IActionResult PutEventVenue(EventVenueDTO eventVenue)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            eventVenues.Update(id, eventVenue);
+            eventVenues.UpdateEventVenue(eventVenue);
 
             return Ok();
         }
@@ -75,12 +75,12 @@ namespace BookMyShowAPI.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize(Roles = UserRoles.Admin)]
-        public ActionResult<EventVenue> PostEventVenue(EventVenue eventVenue)
+        public ActionResult<EventVenue> PostEventVenue(EventVenueDTO eventVenue)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            eventVenues.Create(eventVenue);
+            eventVenues.CreateEventVenue(eventVenue);
 
             return Ok();
         }

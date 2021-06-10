@@ -36,7 +36,12 @@ export class EventVenuesDetailComponent implements OnInit {
         this.addedShowTimings.push(item.showTimingId)
       }),
 
-      this.showTimingsService.getShowTimings()
+      this.getShowTimings();
+    })
+  }
+
+  getShowTimings(){
+    this.showTimingsService.getShowTimings()
       .subscribe(showTimings => {
         this.allShowTimings = showTimings
         this.allShowTimings.forEach(item => {
@@ -51,11 +56,6 @@ export class EventVenuesDetailComponent implements OnInit {
 
         console.log(this.notAddedShowTimings)
       })
-    })
-  }
-
-  getShowTimings(){
-    
   }
 
   showTimingSubmit(){
@@ -109,7 +109,6 @@ export class EventVenuesDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEventVenue();
-    this.getShowTimings();
   }
 
 }

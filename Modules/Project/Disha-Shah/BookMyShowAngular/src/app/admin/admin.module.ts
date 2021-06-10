@@ -18,6 +18,8 @@ import { NavbarsComponent } from './navbars/navbars.component';
 import { AddNavbarComponent } from './add-navbar/add-navbar.component';
 import { EventVenuesComponent } from './event-venues/event-venues.component';
 import { EventVenuesDetailComponent } from './event-venues-detail/event-venues-detail.component';
+import { AddEventVenueComponent } from './add-event-venue/add-event-venue.component';
+import { EditEventVenueComponent } from './edit-event-venue/edit-event-venue.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EventVenuesDetailComponent } from './event-venues-detail/event-venues-d
     NavbarsComponent,
     AddNavbarComponent,
     EventVenuesComponent,
-    EventVenuesDetailComponent
+    EventVenuesDetailComponent,
+    AddEventVenueComponent,
+    EditEventVenueComponent
   ],
   imports: [
     CommonModule,

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from '../auth/admin.guard';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { EditEventVenueComponent } from './edit-event-venue/edit-event-venue.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { EventBookingsComponent } from './event-bookings/event-bookings.component';
@@ -64,6 +65,10 @@ const routes: Routes = [
           {
             path: 'event-venues/detail/:name/:id',
             component: EventVenuesDetailComponent
+          },
+          {
+            path: 'event-venues/edit/:name/:id',
+            component: EditEventVenueComponent
           },
           { path: 'users', 
             component: UsersComponent

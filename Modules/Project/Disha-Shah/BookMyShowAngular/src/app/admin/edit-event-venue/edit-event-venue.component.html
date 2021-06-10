@@ -1,0 +1,54 @@
+<div class="container mt-4">
+    <small class="text-danger">* Required</small>
+    <form [formGroup] = "addEventVenueForm" (ngSubmit)="eventVenueSubmit()">
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="eventVenueName" formControlName="name">
+                <small class="text-danger" *ngIf="addEventVenueForm.controls.name.invalid && (addEventVenueForm.controls.name.dirty || addEventVenueForm.controls.name.touched)" id="errName">
+                    Name is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="col-sm-3 col-form-label h5">Address<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="eventVenueName" formControlName="address">
+                <small class="text-danger" *ngIf="addEventVenueForm.controls.address.invalid && (addEventVenueForm.controls.address.dirty || addEventVenueForm.controls.address.touched)" id="errName">
+                    Address is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="city" class="col-sm-3 col-form-label h5">City<span class="text-danger">
+                    *</span></label>
+            <div class="col-sm-9">
+                <select class="custom-select" formControlName="city">
+                    <option selected value="">Choose City</option>
+                    <option *ngFor = "let city of citiesList">
+                        {{city.name}}
+                    </option>
+                </select>
+                <small class="text-danger" *ngIf="addEventVenueForm.controls.city.invalid && (addEventVenueForm.controls.city.dirty || addEventVenueForm.controls.city.touched)" id="errName">
+                    City is required
+                </small>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="totalTickets" class="col-sm-3 col-form-label h5">Total Tickets<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="totalTickets" formControlName="totalTickets">
+                <small class="text-danger" *ngIf="addEventVenueForm.controls.totalTickets.invalid && (addEventVenueForm.controls.totalTickets.dirty || addEventVenueForm.controls.totalTickets.touched)" id="errName">
+                    Total Tickets is required
+                </small>
+            </div>
+        </div>
+        
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-danger btn-lg" id="saveActivity" [disabled]="!addEventVenueForm.valid">Update</button>
+        </div>
+    </form>
+</div>

@@ -98,11 +98,3 @@ $("#back-trigger").click(function(){
   $('#registerModal').modal('hide');
   $('#loginModal').modal('show');
 })
-
-// const openNav = () => {
-//   document.getElementById('mySidenav').style.width = "400px"
-// }
-
-// const closeNav = () => {
-//   document.getElementById('mySidenav').style.width = "0px"
-// }
