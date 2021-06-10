@@ -1,0 +1,8 @@
+<p>student works!</p>
+<div>
+    <ul>
+        <li (click)="onSelect(item)" *ngFor="let item of arr">
+            <span>{{item.StudentID}}</span>{{item.StudentName}}
+        </li>
+    </ul>
+</div>
