@@ -1,0 +1,212 @@
+<body>
+  <div class="text-center my-5 mx-5 border border-primary background">
+    <div class="text-primary h4 my-5"> Student Admission </div>
+    <div class="my-5 text-center">
+        <form class="form-horizontal" [formGroup]="Studentform">
+            <!--Name-->
+            <div class="text-info h4"> Full Name </div>
+            <div formGroupName="name ">
+                <div class="form-group mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label px-1" for="First">First Name :</label>
+                    <div class=" ">
+                      <input type="text" class="form-control" formControlName="fname" id="fname">
+                    </div>
+                </div>
+                <div class="form-group mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label px-1" for="First">Middle Name :</label>
+                    <div class="">
+                      <input type="text" class="form-control" formControlName="mname" id="mname">
+                    </div>
+                </div>
+                <div class="form-group mx-sm-4 mx-lg-2  form-inline">
+                    <label class="control-label px-1" for="First">Last Name :</label>
+                    <div class="">
+                      <input type="text" class="form-control" formControlName="lname" id="lname">
+                    </div>
+                </div>
+            </div>
+            <!--Dob-->
+            <div class="form-group form-inline col-md-6 col-lg-6 col-sm-  float-left">
+              <label class="control-label col-sm-2" for="DOB">DOB : </label>
+              <div class="col-sm-3">
+                <input type="date" class="form-control" formControlName="dob" id="Dob">
+              </div>
+            </div>
+            <!--Place of Birth-->
+            <div class="form-group form-inline ">
+                <label class="control-label col-sm-4" for="pob">Place of Birth : </label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="POB" id="Pob">
+                </div>
+            </div>
+            <!--First Language-->
+            <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="FL">First Language : </label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="Flang" id="fl">
+                </div>
+            </div>
+            <!-- Address -->
+            <div formGroupName="address " >
+                <div class="form-group form-inline">
+                    <label class="control-label col-sm-2" for="First">City :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="city" id="City">
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label class="control-label col-sm-2" for="State">State :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="state" id="State">
+                    </div>
+                </div>
+                <div class="form-group form-inline">
+                    <label class="control-label col-sm-2" for="Cpin">Country Pin :</label>
+                    <div class="col-sm-3">
+                      <input type="number" class="form-control" formControlName="cpin" id="Cpin">
+                    </div>
+                </div>
+            </div>
+            <!--Father Name-->
+            <div class="text-center text-primary my-5 mx-5">Father Name</div>
+            <div formGroupName="fathername">
+                    <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label col-sm-4" for="Fname">First Name :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="Ffname" id="fname">
+                    </div>
+                </div>
+                <div class="form-group mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label col-sm-5 pr-1" for="Mname">Middle Name :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="Fmname" id="mname">
+                    </div>
+                </div>
+                <div class="form-group mx-sm-4 mx-lg-2 form-inline ">
+                    <label class="control-label col-sm-4" for="Lname">Last Name :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="Flname" id="lname">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="">Email :</label>
+                <div class="col-sm-3">
+                  <input type="email" class="form-control" formControlName="Femil" id="FEmails">
+                </div>
+            </div>
+              <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="">Education Qualification :</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="Fedq" id="Edq">
+                </div>
+              </div>
+              <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="">Profession :</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="Fprof" id="Professions">
+                </div>
+              </div>
+              <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="">Designation :</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="Fdesi" id="Designations">
+                </div>
+              </div>
+            <div class="form-group form-inline">
+              <label class="control-label col-sm-2" for="pwd">Phone :</label>
+              <div class="col-sm-3">
+                <input type="number" class="form-control" formControlName="Fphone" id="phones">
+              </div>
+            </div>
+            <!--Mother Name-->
+            <div class="text-center text-primary my-5">Mother Name</div>
+            <div formGroupName="mothername" >
+                <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label col-sm-4" >First Name :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="mfname" id="fname">
+                    </div>
+                </div>
+                    <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label col-sm-5 pr-1" >Middle Name :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="mname" id="mname">
+                    </div>
+                </div>
+                <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline ">
+                    <label class="control-label col-sm-4" >Last Name :</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" formControlName="lname" id="lname">
+                </div>
+            </div>
+            <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="Email">Email :</label>
+                <div class="col-sm-3">
+                  <input type="email" class="form-control" formControlName="memail" id="mEmails">
+                </div>
+            </div>
+            <div class="form-group form-inline">
+                <label class="control-label col-sm-3" for="">Education Qualification :</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="medq" id="mEdqs">
+                </div>
+              </div>
+              <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="">Profession :</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="mProfessions" formControlName="Mprof">
+                </div>
+              </div>
+              <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="">Designation :</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" formControlName="mdes" id="mDesignations">
+                </div>
+              </div>
+              <div class="form-group form-inline">
+              <label class="control-label col-sm-2" for="">Phone :</label>
+              <div class="col-sm-3">
+                <input type="number" class="form-control" formControlName="mPhone" id="mphones">
+              </div>
+              </div>
+            </div>
+            <!--Emergency Contact List -->
+            <div formArrayName="EmergencyContactList ">
+                <div *ngFor="let item of getEmergencyContactList.controls ; let idx=index">
+                    <div  class="form-inline" [formGroupName]="idx">
+                      <label class="control-label col-sm-2" for="">Relation :</label>
+                      <div class="col-sm-3">
+                        <input type="text" formControlName="Relation"/>
+                      </div>
+                      <label class="control-label col-sm-2" for="">Number :</label>
+                      <div class="col-sm-3">
+                        <input type="number" formControlName="Number"/>
+                      </div>
+                    </div> 
+                </div>
+            </div>
+            <!--Reference Detials-->
+            <div formArrayName="ReferenceDetails">
+                <div *ngFor="let item of getReferenceDetails.controls ; let idx=index">
+                    <div [formGroupName]="idx" class="form-inline">
+                      <label class="control-label col-sm-2" for="">Reference Through :</label>
+                      <div class="col-sm-3">
+                        <input type="text" formControlName="ReferenceThrough"/>
+                      </div>
+                      <label class="control-label col-sm-2" for="">Address with Tel No :</label>
+                      <div class="col-sm-3">
+                        <input type="number" formControlName="AddresswithTelNo"/>
+                      </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+        </form>
+    </div>
+  </div>    
+</body>
