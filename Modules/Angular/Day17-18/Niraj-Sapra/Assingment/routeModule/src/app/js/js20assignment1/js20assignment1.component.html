@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Day Practice </title>
+       
+    </head>
+    <body>
+        <div class="container">
+            <div class="my-2 card w-75 mx-auto">
+                <div class="card-header text-center">java Script  marge both task</div>
+                <div class="card-body text-center my-2">
+                    <!-- <div class="my-1">
+                        <input type="number" name="cirle" id="circleredius" placeholder="Enter radis of circle">
+                    </div>
+                    <div class="my-1"><input type="button" onclick="return Area()" class="btn btn-primary my-2 p-2" value="Submit"></div> -->
+                    <div id="answer"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        fetch ("data.json")
+        .then(x => x.text())
+        .then(y => document.getElementById("answer").innerHTML = y)
+        .then(z => localStorage.setItem("dataofjson", z));
+        console.log(localStorage.getItem("dataofjson"));
+    </script>
+</html>

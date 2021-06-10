@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>
+            prectice1
+        </title>
+      
+    </head>
+    <body>
+    <div class="text-center text-white bg-dark p-4 w-25 mx-auto my-5">    
+        <p id="demo"></p>
+    </div>
+    <script>
+        function WordSpace(str){
+            var arr = str.split(" ");
+            for(i=0;i<arr.length;i++){
+                console.log(arr[i]+" ");
+                document.getElementById("demo").innerHTML = arr[i] +" ";
+            }              
+        }
+        WordSpace("Hello i am complete second prectical");
+
+        
+    </script>
+    </body>
+</html>

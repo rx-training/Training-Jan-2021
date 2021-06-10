@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Practice first</title>
+      
+    </head>
+    <body>
+        <div class="container">
+            <div class="my-2 card w-25 mx-auto">
+                <div class="card-header text-center">prctice 1</div>
+                <div class="card-body text-center my-2">
+                    <div class="my-1">
+                        <input type="number" name="cirle" id="circleredius" placeholder="Enter radis of circle">
+                    </div>
+                    <div class="my-1"><input type="button" onclick="return Area()" class="btn btn-primary my-2 p-2" value="Submit"></div>
+                    <div id="answer"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function Area(){
+            var r = document.getElementById('circleredius').value;
+            var areas = function (red){return red*red*3.14};
+            console.log(areas);    
+            document.getElementById('answer').innerHTML = areas(r);
+        }
+    </script>
+</html>
