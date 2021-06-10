@@ -1,0 +1,27 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+export default function Product({ product }) {
+  const { _id: id, imgurls, productName } = product;
+  return (
+    <div className="col-6 col-md-4 col-lg-2 my-2">
+      <Link to={`/dashboard/products/${id}`} className="card-link">
+        <div className="card product-card" style={{ border: "none" }}>
+          <div className="card-body">
+            <div>
+              <img
+                className="img-fluid rounded"
+                src={imgurls[0]}
+                alt={productName}
+                width="100%"
+              />
+            </div>
+          </div>
+          <div className="text-center">
+            <div className="text-muted pb-3">{productName}</div>
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+}
