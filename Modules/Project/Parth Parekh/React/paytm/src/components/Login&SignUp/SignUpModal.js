@@ -252,7 +252,7 @@ export default function SignUpModal(props) {
                                 ""
                             )}
                             <div className="row">
-                                <div className="col-md-4">
+                                <div className="col-md-4 my-2">
                                     <button
                                         type="button"
                                         className="btn  btn-primary btn-block"
@@ -281,7 +281,6 @@ export default function SignUpModal(props) {
                                         className="btn  btn-secondary btn-block"
                                         style={{ borderRadius: "25px" }}
                                         onClick={verifyOTP}
-                                        
                                     >
                                         Verify OTP
                                     </button>

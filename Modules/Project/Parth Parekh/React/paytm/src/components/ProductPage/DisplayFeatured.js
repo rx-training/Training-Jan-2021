@@ -19,12 +19,7 @@ export default function DisplayFeatured(props) {
                         key={index}
                     >
                         <div className="mx-auto ">
-                            <img
-                                src={item.image}
-                                alt={index}
-                                className=""
-                                height="230px"
-                            />
+                            <img src={item.image} alt={index} height="230px" />
                         </div>
 
                         <h5> {item.ProductName}</h5>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PaytmServices from "../../Services/paytmServices";
 import { setUserSession } from "../../Utils/Common";
 import Spinners from "../dummyPage/Spinners";
+import { Link } from "react-router-dom";
 
 export default function LoginModal() {
     const [errors, SetErrors] = useState({
@@ -167,7 +168,7 @@ export default function LoginModal() {
                                     </div>
 
                                     <div className="row">
-                                        <div className="col-md-6">
+                                        <div className="col-md-5">
                                             <button
                                                 type="submit"
                                                 className="btn btn-primary btn-block"
@@ -175,6 +176,14 @@ export default function LoginModal() {
                                             >
                                                 Login
                                             </button>
+                                        </div>
+                                        <div className="col-md-6 mt-2">
+                                            <small>
+                                                don't have account ?{" "}
+                                                <Link to="/signup">
+                                                    Sign up{" "}
+                                                </Link>
+                                            </small>
                                         </div>
                                     </div>
                                 </form>
