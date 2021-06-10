@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 var createError = require("http-errors");
 const mainRouter = require("./controllers/index");
 const cors = require("cors");
-var mongoDB = "mongodb://localhost/irctc";
+var mongoDB = "mongodb://localhost/irctc-2021";
 
 mongoose
   .connect(mongoDB, {

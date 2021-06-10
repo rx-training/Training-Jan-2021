@@ -11,6 +11,7 @@ const TrainList = (props) => {
     syncStorage();
   }, []);
   const book = (id) => {
+    syncStorage();
     props.history.push(`/trains/${id}`);
   };
   return (

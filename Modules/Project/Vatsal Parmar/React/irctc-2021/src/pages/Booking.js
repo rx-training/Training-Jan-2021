@@ -9,6 +9,7 @@ import loadingImg from "../images/loading.gif";
 const Booking = (props) => {
   const [loading, setLoading] = useState(false);
   const { bookingDetails, setBookingDetails } = useContext(TrainContext);
+  // console.log(bookingDetails);
   const id = props.match.params.id;
   const [classDetails, setClassDetails] = useState({ seats: [] });
   const [passengers, setPassengers] = useState([]);

@@ -76,7 +76,7 @@ const SearchBar = ({ setLoading }) => {
             ))}
           </select>
         </div>
-        <div className="form-group col-md-2">
+        {/* <div className="form-group col-md-2">
           <select
             className="form-control"
             id="ticketType"
@@ -94,7 +94,7 @@ const SearchBar = ({ setLoading }) => {
             <option value="DIVYAANG">DIVYAANG</option>
             <option value="TATKAL">TATKAL</option>
           </select>
-        </div>
+        </div> */}
 
         <div className="form-group col-md-2">
           <input
@@ -132,49 +132,11 @@ const SearchBar = ({ setLoading }) => {
             <option value="REGULAR">REGULAR</option>
           </select>
         </div>
-      </div>
-      <div className="row text-center">
-        {/* <div className="col-md-1"></div> */}
-        {/* <div className="form-check col-md-2">
-          <label className="form-check-label text-white">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              value="option1"
-              id="op1"
-            />
-            Divyaang Concession
-          </label>
+        <div className="col-md-2">
+          <button type="submit" className="btn btn-warning">
+            Modify Search
+          </button>
         </div>
-        <div className="form-check col-md-2">
-          <label className="form-check-label text-white">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              value="option1"
-              defaultChecked
-              id="op2"
-            />
-            Flexible With Date
-          </label>
-        </div>
-        <div className="form-check col-md-2">
-          <label className="form-check-label text-white">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              value="option1"
-              id="op3"
-            />
-            Train With Available Berth
-          </label>
-        </div> */}
-        <button
-          type="submit"
-          className="btn btn-warning col-md-2 col-10 mx-auto"
-        >
-          Modify Search
-        </button>
       </div>
     </form>
   );

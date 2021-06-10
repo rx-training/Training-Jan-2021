@@ -5,6 +5,7 @@ import { TrainContext } from "../context/context";
 import { Link } from "react-router-dom";
 import TrainServices from "../Services/TrainServices";
 import loadingImg from "../images/loading.gif";
+import { RiArrowUpDownFill } from "react-icons/ri";
 
 const TrainSearch = (props) => {
   const [loading, setLoading] = useState(false);
@@ -97,6 +98,9 @@ const TrainSearch = (props) => {
                           ))}
                         </select>
                       </div>
+                      <h5 className="text-center text-primary mt-n2">
+                        <RiArrowUpDownFill />
+                      </h5>
                       <div className="form-group mt-n4">
                         <label htmlFor="to"></label>
                         <select
@@ -121,7 +125,7 @@ const TrainSearch = (props) => {
                           ))}
                         </select>
                       </div>
-                      <div className="form-group">
+                      {/* <div className="form-group">
                         <select
                           className="form-control"
                           value={travelType}
@@ -138,7 +142,7 @@ const TrainSearch = (props) => {
                           <option value="DIVYAANG">DIVYAANG</option>
                           <option value="TATKAL">TATKAL</option>
                         </select>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="col-md-5">
                       <div className="form-group mt-4">

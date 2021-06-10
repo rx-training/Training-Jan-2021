@@ -13,7 +13,7 @@ const List = ({ book, loading }) => {
     let mm = rowDate.getMonth();
     let yyyy = rowDate.getFullYear();
     if (rowDate.getMonth() < 10) {
-      mm = `0${rowDate.getMonth()}`;
+      mm = `0${rowDate.getMonth() + 1}`;
     }
     if (rowDate.getDate() < 10) {
       dd = `0${rowDate.getDate()}`;
@@ -23,9 +23,9 @@ const List = ({ book, loading }) => {
   };
   const sortData = (trains) => {
     let sorted = trains;
-    // if (searchQuery.date) {
-    //   sorted = sorted.filter((item) => item.date === searchQuery.date);
-    // }
+    if (searchQuery.date) {
+      sorted = sorted.filter((item) => item.date === searchQuery.date);
+    }
     if (searchQuery.travelClass) {
       sorted = sorted.map((item) => {
         item.travel_class = item.travel_class.filter(
@@ -45,7 +45,6 @@ const List = ({ book, loading }) => {
     });
     setTrainList(sortData(trains));
   }, [availTrains]);
-  //console.log(trainList);
 
   const { date, travelClass } = searchQuery;
 
