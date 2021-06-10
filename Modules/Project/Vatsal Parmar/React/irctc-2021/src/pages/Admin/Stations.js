@@ -42,7 +42,7 @@ const Stations = (props) => {
     props.history.push(`/dashboard/stations/${id}`);
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ minHeight: "72vh" }}>
       <div className="row mt-3 mb-2">
         <AdminNav active="stations" />
         <div className="col-md-9">

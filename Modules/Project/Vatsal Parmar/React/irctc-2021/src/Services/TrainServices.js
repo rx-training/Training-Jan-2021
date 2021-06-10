@@ -36,7 +36,7 @@ class TrainServices {
       },
     });
   }
-  cancleTicket(pnrId) {
+  cancelTicket(pnrId) {
     const token = getToken();
     return axios.delete(`${TRAIN_API_BASE_URL}pnrs/${pnrId}`, {
       headers: {

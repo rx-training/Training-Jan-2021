@@ -41,7 +41,7 @@ const Users = () => {
       });
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ minHeight: "72vh" }}>
       <div className="row mt-3 mb-2">
         <AdminNav active="users" />
         <div className="col-md-9">

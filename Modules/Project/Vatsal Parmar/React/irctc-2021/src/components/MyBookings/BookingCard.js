@@ -4,7 +4,7 @@ import loadingImg from "../../images/loading.gif";
 const BookingCard = ({
   pnr: { journey_date, from, to, ticket_price, train, _id },
   viewTicket,
-  cancleBooking,
+  cancelBooking,
 }) => {
   const [isCancleAvail, setIsCancleAvail] = useState(false);
   var d1 = new Date();
@@ -42,9 +42,9 @@ const BookingCard = ({
             <button
               className="ml-2 btn btn-sm btn-danger"
               type="button"
-              onClick={() => cancleBooking(_id)}
+              onClick={() => cancelBooking(_id)}
             >
-              Cancle Ticket
+              Cancel Ticket
             </button>
           )}
         </div>

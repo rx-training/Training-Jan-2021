@@ -26,8 +26,8 @@ const MyBookings = (props) => {
   const viewTicket = (pnr) => {
     props.history.push(`/ticket/${pnr}`);
   };
-  const cancleBooking = (id) => {
-    TrainServices.cancleTicket(id)
+  const cancelBooking = (id) => {
+    TrainServices.cancelTicket(id)
       .then((res) => {
         if (res.data === "Ticket Cancled") {
           props.history.push("/user");
@@ -42,7 +42,7 @@ const MyBookings = (props) => {
       });
   };
   return (
-    <div>
+    <div style={{ minHeight: "75vh" }}>
       <h3 className="text-center bg-primary p-2">My Bookings</h3>
       {loading ? (
         <div className="d-flex justify-content-center align-items-center">
@@ -57,7 +57,7 @@ const MyBookings = (props) => {
                   key={item._id}
                   pnr={item}
                   viewTicket={viewTicket}
-                  cancleBooking={cancleBooking}
+                  cancelBooking={cancelBooking}
                 />
               ))}
             </div>

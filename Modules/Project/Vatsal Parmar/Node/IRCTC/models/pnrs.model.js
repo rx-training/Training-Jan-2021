@@ -20,7 +20,7 @@ const passengerSchema = new mongoose.Schema({
   },
   seat_no: { type: String, trim: true, uppercase: true, default: 0 },
   seat_id: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
     trim: true,
   },

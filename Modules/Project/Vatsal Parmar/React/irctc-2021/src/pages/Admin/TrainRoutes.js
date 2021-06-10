@@ -42,7 +42,7 @@ const TrainRoutes = (props) => {
     props.history.push(`/dashboard/train-routes/${id}`);
   };
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ minHeight: "72vh" }}>
       <div className="row mt-3 mb-2">
         <AdminNav active="routes" />
         <div className="col-md-9">
