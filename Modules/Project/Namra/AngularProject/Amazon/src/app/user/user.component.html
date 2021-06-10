@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 text-center mt-5">
+            <img src="../../assets/Image/user.png" class="userImage img-fluid" alt="">
+        </div>
+        <div class="col-md-8 p-3 mt-5">
+            <table class="table">
+                <tr>
+                    <td>
+                        Full Name :
+                    </td>
+                    <td>
+                        {{user.userFirstName}} {{user.userMiddleName}} {{user.userLastName}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contact number:</td>
+                    <td>
+                        {{user.userContactNo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        {{user.userEmail}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Login </td>
+                    <td>
+                        {{user.userLogIn}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>BirthDate</td>
+                    <td>
+                        {{user.userBirthDate}}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="float-right btn btn-outline-danger" (click)="LogOut()">Logout</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

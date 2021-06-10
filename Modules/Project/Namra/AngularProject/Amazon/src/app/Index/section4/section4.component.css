@@ -1,0 +1,14 @@
+
+i:hover{
+    color : rgb(255, 161, 73);
+    text-shadow: 2px 2px #000000;
+}
+
+@media screen and (max-width : 600px) {
+    h2{
+        font-size: 14px;
+    }
+    .section4Sign{
+        font-size: 35px;
+    }
+}

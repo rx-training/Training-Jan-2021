@@ -38,14 +38,18 @@ namespace AmazonDemo.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserAddress> UserAddresses { get; set; }
 
-        
+        public virtual DbSet<ProductImage> ProductImages{ get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            
+            modelBuilder.Entity<ProductImage>()
+                .HasKey(s => s.ImageId);
+
             modelBuilder.Entity<Admin>(entity =>
             {
                 entity.ToTable("Admin");

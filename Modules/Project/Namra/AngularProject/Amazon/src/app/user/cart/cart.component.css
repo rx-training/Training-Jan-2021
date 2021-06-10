@@ -1,0 +1,31 @@
+.cartImg{
+    max-height: 250px;
+}
+.card .button{
+    position: absolute;
+    top: -2%;
+    left: 90%;    
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+.cart1:hover{
+    transform : scale(1.01);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width : 600px) {
+    .display-1{
+        font-size: xx-large;
+    }
+}
+.newPrice{
+    text-decoration: line-through;
+    color : red;
+}
+.cartLogo{
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

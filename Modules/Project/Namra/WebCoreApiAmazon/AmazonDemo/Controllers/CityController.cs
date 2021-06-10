@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AmazonDemo.Controllers
 {
-    [Authorize(Roles = UserRolesAmazon.Admin)]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class CityController : ControllerBase
@@ -32,12 +31,23 @@ namespace AmazonDemo.Controllers
         {
             return city.GetAll();
         }
+        [HttpGet("{CityName}")]
+        public IEnumerable<City> GetByCityName(string CityName)
+        {
+            return city.Find(s => s.CityName.ToLower().Contains(CityName.ToLower()));
+        }
 
         //To get city data by id
         [HttpGet("{Id}")]
         public City GetById(int Id)
         {
             return city.GetById(Id);
+        }
+
+        [HttpGet("{StateId}")]
+        public IEnumerable<City> GetByStateId(int StateId)
+        {
+            return city.Find(s => s.StateId == StateId);
         }
 
         //To check whether cityname exist or not

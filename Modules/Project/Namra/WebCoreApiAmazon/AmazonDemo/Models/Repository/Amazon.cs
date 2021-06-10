@@ -16,7 +16,7 @@ namespace AmazonDemo.Models.Repository
         }
         public bool Any(Func<T, bool> predicate)
         {
-            return context.Set<T>().Any(predicate);
+            return context.Set<T>().AsNoTracking().Any(predicate);
         }
 
         public bool Any()
@@ -43,7 +43,7 @@ namespace AmazonDemo.Models.Repository
 
         public IEnumerable<T> Find(Func<T, bool> predicate)
         {
-            return context.Set<T>().Where(predicate);
+            return context.Set<T>().AsNoTracking().Where(predicate);
         }
 
         public IEnumerable<T> GetAll()

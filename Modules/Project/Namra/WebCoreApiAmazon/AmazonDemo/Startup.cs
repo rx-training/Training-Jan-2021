@@ -35,26 +35,39 @@ namespace AmazonDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors(
+                option =>
+                {
+                    option.AddPolicy(name: "policy1",
+                        builder =>
+                        {
+                            builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                        });
+                });
             // For Entity Framework  
             services.AddDbContext<AmazonContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
            
             services.AddTransient<IAdmin, RepoAdmin>();
             services.AddTransient<IBrand,RepoBrand>();
+            services.AddTransient<IProduct, RepoProduct>();
             services.AddTransient <ICart, RepoCart> ();
             services.AddTransient <ICategory,RepoCategory> ();
             services.AddScoped<ICity, RepoCity> ();
             services.AddTransient <ICountry, RepoCountry> ();
-            services.AddTransient <IOrder, RepoOrder> ();
+            services.AddTransient<IOrder, RepoOrder> ();
             services.AddTransient <IPlacedOrder, RepoPlacedOrder> ();
-            services.AddTransient <IProduct, RepoProduct> ();
             services.AddTransient <IProductDescription, RepoProductDescription> ();
             services.AddTransient <ISeller, RepoSeller> ();
             services.AddTransient <ISellerAddress, RepoSellerAddress> ();
             services.AddTransient <ISellerDeliverable,RepoSellerDeliverable> ();
             services.AddTransient <ISellerProduct,RepoSellerProduct> ();
             services.AddTransient <IState,RepoState> ();
-            services.AddTransient <IUser,RepoUser> ();
+            services.AddScoped <IUser,RepoUser> ();
             services.AddTransient <IUserAddress,RepoUserAddress> ();
+            services.AddTransient<IProductImage, RepoProductImage>();
 
 
             // For Identity  
@@ -97,6 +110,8 @@ namespace AmazonDemo
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("policy1");
 
             app.UseAuthentication();
 

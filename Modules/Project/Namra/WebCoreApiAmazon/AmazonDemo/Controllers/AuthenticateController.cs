@@ -76,7 +76,7 @@ namespace Day17RoleBased.Controllers
                 var token = new JwtSecurityToken(
                     issuer: _configuration["JWT:ValidIssuer"],
                     audience: _configuration["JWT:ValidAudience"],
-                    expires: DateTime.Now.AddHours(3),
+                    expires: DateTime.Now.AddMinutes(1),
                     claims: authClaims,
                     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                     );
@@ -84,7 +84,9 @@ namespace Day17RoleBased.Controllers
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                    expiration = token.ValidTo,
+                    status = 200,
+                    name = model.Username
                 });
             }
             return Unauthorized();
