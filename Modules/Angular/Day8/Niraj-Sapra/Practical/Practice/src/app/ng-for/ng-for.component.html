@@ -1,0 +1,46 @@
+<p class="h4 text-center text-info">ng-for Practice</p>
+
+<ul>
+    <li *ngFor="let item of studentList">
+    {{item.Name}}
+    </li>
+</ul>
+     
+
+<div >
+    <div class="h3  mt-5 mb-5">
+        Update
+        </div>
+        <div class="mt-5 mb-5">
+            <input type="text" [(ngModel)]= "name" >
+            <input type="text" [(ngModel)]= "stuAddress" >
+            <input type="text" [(ngModel)]= "submit" (click) = "Update()">
+        </div> 
+</div>
+<div>
+    <select (change)="changeclass($event)">
+        <option value=1> Red </option>
+        <option value=2> Green </option>
+    </select>      
+</div>
+        <table border="1px"  [ngClass]="themes">
+            <tr>
+                <th colspan="6" class="text-center"> Studnet Table </th>
+               
+            </tr>
+            <tr> 
+                <th> Studnet Id </th>
+                <th> Studnet Name </th>
+                <th> Studnet Address </th>
+                <th>  </th>
+                <th>  </th>
+            </tr>
+            <tr *ngFor="let item of studentList;let idx = index">
+                <td>{{item.Id}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.Address}}</td>
+                <td><button class="btn btn-warning" (click)="Edit(item.Id)">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="Remove(idx)">Delete</button></td>
+            </tr>
+        </table>
+    
