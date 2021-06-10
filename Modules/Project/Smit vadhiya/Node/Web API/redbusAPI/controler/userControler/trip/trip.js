@@ -8,8 +8,14 @@ class Trip{
     static async getMyTrip(req,res) {
         UserDomain.getMyTrip(req,res)
     }
+    static async cancelMyTrip(req,res) {
+        
+    }
+
 }
 
 router.get('/',Trip.getMyTrip) //display all trip till no from database 
+router.get('/id',Trip.cancelMyTrip) //display all trip till no from database 
+
 
 module.exports = router

@@ -12,7 +12,7 @@ class Operatores{
     //GET OPERATOR BY ID
     static async getOperatorById(req,res){
         var id =  parseInt(req.params.id)
-         const operator = await Collections.Operators.findById(id).populate('city','cityName -_id').select('-__v')
+        const operator = await Collections.Operators.findById(id).populate('city','cityName -_id').select('-__v')
         if(!operator) return res.status(404).send("Operator not found")
         res.send(operator)  
     }
@@ -106,7 +106,7 @@ class Operatores{
         bus = bus[0]
         res.send(bus)
         for( var i in body){
-           bus[i] = body[i]
+            bus[i] = body[i]
         }
         try {
             const result =await bus.save()

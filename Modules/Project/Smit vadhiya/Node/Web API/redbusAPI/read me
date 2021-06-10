@@ -3,7 +3,7 @@
 
 LOGIN :- 
 
-http://localhost:3000/redbus.in/admin/login
+http://localhost:3000/api/admin/login
      
     {
         "userid" : "admin",
@@ -11,17 +11,17 @@ http://localhost:3000/redbus.in/admin/login
     }
 
 
-GET : http://localhost:3000/redbus.in/admin/user/all  //GET ALL USER
+GET : http://localhost:3000/api/admin/user/all  //GET ALL USER
 GET : 
-GET : http://localhost:3000/redbus.in/admin/operator/all //GET ALL OPERATOR
+GET : http://localhost:3000/api/admin/operator/all //GET ALL OPERATOR
 GET : 
-GET : http://localhost:3000/redbus.in/admin/city/all //GWT ALL CITIES
+GET : http://localhost:3000/api/admin/city/all //GWT ALL CITIES
 GET : 
-GET : http://localhost:3000/redbus.in/admin/bus/all //GET ALL BUSES DETAILS
+GET : http://localhost:3000/api/admin/bus/all //GET ALL BUSES DETAILS
 GET : 
-GET : http://localhost:3000/redbus.in/admin/bus/:busid    //GET BUS DETAIL BU BUS NUMBER
+GET : http://localhost:3000/api/admin/bus/:busid    //GET BUS DETAIL BU BUS NUMBER
 GET : 
-GET : http://localhost:3000/redbus.in/admin/route/all  //GET ALL ROUTES
+GET : http://localhost:3000/api/admin/route/all  //GET ALL ROUTES
 
 GET : http://localhost:3000/api/admin/income/:year/ //get yearly income
 
@@ -32,7 +32,7 @@ GET : http://localhost:3000/api/admin/income/:year/:month //get monthly income
 ********************** OPERATOR  *************************
 
 SIGNUP :
- POST :  http://localhost:3000/redbus.in/operator/signup/
+ POST :  http://localhost:3000/api/operator/signup/
 
         BODYEXAMPLE
             {"firstName":"rahul",
@@ -50,11 +50,11 @@ SIGNUP :
         =>OTP WILL SENT TO YOUR MAIL ID VERIFY FROM SUCCESFULL SIGNUP
         
     VERIFY
-    POST : http://localhost:3000/redbus.in/operator/signup/verify/:otp
+    POST : http://localhost:3000/api/operator/signup/verify/:otp
 
 LOGIN : 
 
- POST :  http://localhost:3000/redbus.in/operator/login
+ POST :  http://localhost:3000/api/operator/login
 
     BODY : 
         {
@@ -66,14 +66,14 @@ LOGIN :
     ADD TOKEN TO HEADER WITH NAME "token" and go to this LINK
     ONLY PERTICULER OPERATOR CAN ACCES DATA WITH HIS/HER ID
 
- GET :  http://localhost:3000/redbus.in/operator/:id  //ONLY OPERATOR WITH ID 1 CAN ACCES THIS LINK IF LOGIN WITH ABOVE DATA
+ GET :  http://localhost:3000/api/operator/:id  //ONLY OPERATOR WITH ID 1 CAN ACCES THIS LINK IF LOGIN WITH ABOVE DATA
 
- PUT :  http://localhost:3000/redbus.in/operator/:id //ADD DATA WHICH YOUN WANT UPDATE IN BODY IN KEY VALUE PAIR
+ PUT :  http://localhost:3000/api/operator/:id //ADD DATA WHICH YOUN WANT UPDATE IN BODY IN KEY VALUE PAIR
 
- GET :  http://localhost:3000/redbus.in/operator/:id/mybus //GET ALL BUS UNDER THAT OPERATOR
+ GET :  http://localhost:3000/api/operator/:id/mybus //GET ALL BUS UNDER THAT OPERATOR
   
   
- POST :  http://localhost:3000/redbus.in/operator/1/mybus/add //ADD NEW BUS UNDER THAT OPERATOR
+ POST :  http://localhost:3000/api/operator/1/mybus/add //ADD NEW BUS UNDER THAT OPERATOR
         
         BODY : 
             {"_id":"GJ01MH3737",
@@ -86,9 +86,9 @@ LOGIN :
             "activeStatus":true,
             "rating":3.5}
 
-PUT :  http://localhost:3000/redbus.in/operator/1/mybus/:busid/update //UPDATE BUS BY ADD DATA TO BODY IN KEY VALYE PAIR
+PUT :  http://localhost:3000/api/operator/1/mybus/:busid/update //UPDATE BUS BY ADD DATA TO BODY IN KEY VALYE PAIR
 
-POST :  http://localhost:3000/redbus.in/operator/1/myroute //ADD NEW ROUTE OF HIS BUS
+POST :  http://localhost:3000/api/operator/1/myroute //ADD NEW ROUTE OF HIS BUS
 
         BODY : 
             {"busNumber":"GJ01GY4556",
@@ -100,7 +100,7 @@ POST :  http://localhost:3000/redbus.in/operator/1/myroute //ADD NEW ROUTE OF HI
             "toTime":"12:02:00"}
 
 
-GET :  http://localhost:3000/redbus.in/operator/1/myroute //GET ALL ROUTE COOVERED BY OPERATOR
+GET :  http://localhost:3000/api/operator/1/myroute //GET ALL ROUTE COOVERED BY OPERATOR
 
 
 
@@ -114,7 +114,7 @@ REFS: #203 and fixes#203 project file updated
 ***************** USER  *************************
 
 SIGNUP
-    http://localhost:3000/redbus.in/user/signup/
+    http://localhost:3000/api/user/signup/
 
         BODYEXAMPLE
             {"firstName":"mohit",
@@ -129,11 +129,11 @@ SIGNUP
         =>OTP WILL SENT TO YOUR MAIL ID VERIFY FROM SUCCESFULL SIGNUP
         
     VERIFY
-        http://localhost:3000/redbus.in/user/signup/verify/:otp
+        http://localhost:3000/api/user/signup/verify/:otp
 
 LOGIN : 
 
-    http://localhost:3000/redbus.in/user/login
+    http://localhost:3000/api/user/login
 
         body : 
             {
@@ -146,22 +146,22 @@ LOGIN :
     ADD TOKEN TO HEADER WITH NAME "token" and go to this LINK
     ONLY PERTICULER USER CAN ACCES DATA WITH HIS/HER ID
 
-GET :  http://localhost:3000/redbus.in/user/:id    //  ../user/2 can't acces data only ../user/1 can  
+GET :  http://localhost:3000/api/user/:id    //  ../user/2 can't acces data only ../user/1 can  
 
-PUT :  http://localhost:3000/redbus.in/user/:id/update  //UPDATE USERDATA BY ADD DATA TO BODY IN KEY VALYE PAIR
+PUT :  http://localhost:3000/api/user/:id/update  //UPDATE USERDATA BY ADD DATA TO BODY IN KEY VALYE PAIR
 
-GET : http://localhost:3000/redbus.in/user/:id/search  //get all buses which will travel to my route and i can select one from that 
+GET : http://localhost:3000/api/user/:id/search  //get all buses which will travel to my route and i can select one from that 
     
     BODY :
         ADD START CITYID,ENDCITYID AND DATE IN BODY LIKE THIS FOR SEARCH BUSES 
         { "id1" : 1 , "id2" : 4 , "date" : "2021-05-31"}
 
-POST :  http://localhost:3000/redbus.in/user/:id/search/newtrip  //select one bus and select seat you want from it and complete payment so your trip will be confirmed
+POST :  http://localhost:3000/api/user/:id/search/newtrip  //select one bus and select seat you want from it and complete payment so your trip will be confirmed
 
     BODY : 
         AFTER SEARCH BUS ADD ONE DATA FROM SEARCH BUS TO BODY AND ADD 
         "selectedSeat" FIELD ARRAY WITH SEAT NUMBERs YOU WANT TO SELECT 
         AND CHANGE CITYNAME WITH RESPECTIVE CITY ID 
 
-GET :  http://localhost:3000/redbus.in/user/:id/mytrip //GET ALL TRIP OF USER
+GET :  http://localhost:3000/api/user/:id/mytrip //GET ALL TRIP OF USER
 

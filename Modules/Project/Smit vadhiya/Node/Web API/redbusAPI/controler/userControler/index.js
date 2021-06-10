@@ -11,8 +11,7 @@ router.post('/signup/verify/:otp',userDomain.addData)
 
 router.use('/',userLogin)
 
-
-//router.use(security)
+router.use(security)
 router.use('/:id',user) //API USER (DISPLAY AND UPDATE USER'S DATA)
 
 module.exports = router

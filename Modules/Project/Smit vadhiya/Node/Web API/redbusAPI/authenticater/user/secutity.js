@@ -16,7 +16,7 @@ function  verify(req,res,next){
                      expiredAt: err.expiredAt
                 };
                 console.log(errordata);
-                return res.status(401).json({
+                return res.json({
                         message: 'Unauthorized Access'
                  });
             } 
@@ -31,7 +31,7 @@ function  verify(req,res,next){
                 console.log(decoded);
                 next();
             } else {
-            return res.status(401).json({ message: 'Please login'});
+            return res.json({ message: 'Please login'});
             }
         
          })

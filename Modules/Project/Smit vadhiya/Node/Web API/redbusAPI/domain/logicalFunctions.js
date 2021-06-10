@@ -92,8 +92,8 @@ class logicalFunctions{
     }
 
     static async remainingSeat(id,date){
-        var seat = await Collections.OccupiedSeats.find({routeId : id, Date : date})
-        seat = seat[0]  
+        var seat = await Collections.OccupiedSeats.findOne({routeId : id, Date : date})
+        console.log(seat);
         if(!seat) {
             var seat = new Collections.OccupiedSeats({
                 routeId: id,
@@ -122,9 +122,9 @@ class logicalFunctions{
     }
 
     static async updateBookedSeat(id,date,newSeat){
-        var seat = await Collections.OccupiedSeats.find({routeId : id, Date : date})
-        seat = seat[0]
-        
+        console.log(date);
+        var seat = await Collections.OccupiedSeats.findOne({routeId : id, Date : date})
+        console.log(seat);
         for(var i of newSeat){
             if(!seat.occupiedSeats.includes(i)){
                 seat.occupiedSeats.push(i)

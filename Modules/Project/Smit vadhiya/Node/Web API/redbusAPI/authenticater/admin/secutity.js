@@ -2,7 +2,7 @@ var jwt = require('jsonwebtoken')
 const Collections = require('../../models/index')
 const config = require('../../static/config') 
 
- function  verify(req,res,next){
+function  verify(req,res,next){
     var token = req.headers["token"]
     jwt.verify(token, global.config.secretKey,
          {
@@ -15,9 +15,7 @@ const config = require('../../static/config')
                      expiredAt: err.expiredAt
                 };
                 console.log(errordata);
-                return res.status(401).json({
-                        message: 'Unauthorized Access'
-                 });
+                return res.send('Unauthorized Access');
             } 
             req.decoded = decoded;
             next();

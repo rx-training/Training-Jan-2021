@@ -1,6 +1,7 @@
 const redbusApis = require('./controler/index')
 const mongoose = require('mongoose')
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 3000
 
@@ -12,6 +13,7 @@ mongoose.connect('mongodb://localhost/redbus',{useNewUrlParser: true, useUnified
 //START SERVER 
 app.listen(port, () => console.log(`redbus is listening on port ${port}!`))
 
+app.use(cors())
 //MIDDLEWARE FOR REQUEST JSON FROM BODY
 app.use(express.json())
 

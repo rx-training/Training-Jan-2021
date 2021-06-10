@@ -24,7 +24,7 @@ class Users{
                 newUser = userData.value 
                 var otp = Otp.createOtp() //CREATE OTP 
                 await mailTo(userData.value.email  //SENT MAIL
-                            ,"OTP verification","",
+                            ,"OTP verification","", 
                             "<h1> Your OTP : "+otp+"</h1>")
 
                 res.send("varification email is sent to your mail id");
@@ -42,9 +42,9 @@ class Users{
             try{
                 var myuser = new Collections.Users(newUser) 
                 const result = await myuser.save()
-                res.send(result)
+                res.send(result)        
             } catch(ex){
-                res.status(422).send(ex.message)
+                res.send(ex)
             }
         } else {
             res.send("wrong otp")
@@ -54,24 +54,27 @@ class Users{
     //ADD NEW TRIP
     static async postAddNewTrip(req,res){
         const userId = parseInt(req.params.id)
-        var data = req.body
         
+        const  {fromCity,
+                toCity,
+                routeId,
+                tripDate,
+                seatNo,
+                travelerList,
+                departureTime,
+                destinationTime,
+                ticketPrise,
+            }  = req.body
+
         const newData = {
-            fromCity: data.fromCity,
-            toCity: data.toCity,
-            userId: userId,
-            routeId: data.routeId,
-            bookIngDate: Date.now(),
-            tripDate: data.tripDate,
-            farePrice:(data.ticketPrise * parseInt(data.selectedSeat.length)),
-            totalSeat: data.selectedSeat.length,
-            seatNo: data.selectedSeat,
-            travelerList : data.travelerList,
-            departureTime : data.timeAtStartpoint,
-            destinationTime : data.timeAtEndpoint
+            fromCity,toCity,
+            routeId,userId,
+            seatNo,travelerList,
+            departureTime,destinationTime,
+            tripDate,bookIngDate: Date.now(),
+            farePrice:(ticketPrise * parseInt(seatNo.length)),
         }
-        console.log(newData);
-        data = validate.Trip.validate(newData)
+        var data = validate.Trip.validate(newData)
         if(data.error){
             res.send(data.error.message)
         } else {
@@ -89,6 +92,7 @@ class Users{
                 const result =await newTrip.save()
                 res.send(result); 
             } catch(ex){
+                console.log(ex.message);
                 res.send(ex.message)
             }
         }
@@ -97,25 +101,33 @@ class Users{
     static async getMyTrip(req,res){
         const userId = parseInt(req.params.id)
         const myTrip = await Collections.Trip.find({userId : userId})
-                .populate('fromCity','cityName -_id')
-                .populate('toCity','cityName -_id')
                 .populate({
                     path : 'routeId',
                     select : 'busNumber',
                     populate : {
                         path :'busNumber -_id',
                         select : 'busName'
+                        
                     }
                 })
-        if(myTrip.length == 0) return res.status(404).send("Trip not found")
+        if(myTrip.length == 0) return res.send([])
         res.send(myTrip)
     }
 
     static async getMyRoute(req,res){
-        const id1 = req.body.id1
-        const id2 = req.body.id2
+
+        const fromCityPar = req.body.fromCity
+        const toCityPar = req.body.toCity
+        var id1 =  await Collections.Cities.findOne({cityName : fromCityPar}).select('_id')
+        var id2 =  await Collections.Cities.findOne({cityName : toCityPar}).select('_id')
+        if(!id1 || !id2){
+            return res.send([])
+        }
+        id1=id1._id
+        id2=id2._id
+
         const date = new Date(req.body.date)
-        const allRoute = await Collections.MainRoute.find().populate('busNumber','rating busName busType')
+        const allRoute = await Collections.MainRoute.find().populate('busNumber')
 
         var allBuses = []
 
@@ -143,7 +155,7 @@ class Users{
                     timeAtEndpoint : timeAtEndpoint,
                     distance : distance,
                     busNumber : busNumber,
-                    ticketPrise : ticketPrise,
+                    ticketPrise : parseInt(ticketPrise),
                     totalAvailableSeat : remainingSeat.length,
                     tripDate : date,
                     availableSeat : remainingSeat,
@@ -151,7 +163,7 @@ class Users{
             allBuses.push(displayData)
             }
         }
-        res.send(allBuses)
+        res.send(allBuses) 
         
     }
 }

@@ -11,12 +11,16 @@ router.post('/login', async (req,res) => {
     }
     let token = jwt.sign(userdata, global.config.secretKey, {
           algorithm: global.config.algorithm,
-          expiresIn: '5m'
+          expiresIn: '1h'
           });
     if(userdata.username == 'admin' && userdata.password == 'admin'){
-        res.status(200).send("login succesful  " + token)
+        res.send({
+                    headers : {
+                        token : token
+                    }
+                })
     } else {
-        res.status(401).send("Login faild ")
+        res.send("Login failed")
     }
 })
 

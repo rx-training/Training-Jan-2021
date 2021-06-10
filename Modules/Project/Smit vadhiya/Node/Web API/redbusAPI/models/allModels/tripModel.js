@@ -3,12 +3,10 @@ const {Schema} = require('mongoose')
 
 const TripSchema = new Schema({
     fromCity:  {
-        type : Number,
-        ref : 'Cities'
+        type : String
     },
     toCity: {
-        type : Number,
-        ref : 'Cities'
+        type : String
     },
     userId: {
         type : Number,
@@ -29,8 +27,9 @@ const TripSchema = new Schema({
     bookIngDate: Date,
     tripDate: Date,
     farePrice: Number,
-    totalSeat: Number,
     seatNo: Array,
+    departureTime : String,
+    destinationTime :String,
 })
 
 const Trip = mongoose.model('Trip',TripSchema)
