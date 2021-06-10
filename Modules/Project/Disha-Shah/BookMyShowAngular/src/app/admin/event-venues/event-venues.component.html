@@ -1,0 +1,53 @@
+<div class="bg-light">
+    <div class="d-flex p-4 justify-content-between">
+        <h1 class="h4">Latest Event Venues</h1>
+    </div>
+    <div class="table-responsive w-100">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Event Venue Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Total tickets</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tblActivities">
+
+                <tr *ngFor = "let venue of eventVenuesList">
+                    <td>{{venue.eventVenueId}}</td>
+                    <td>{{venue.name}}</td>
+                    <td>{{venue.address}}</td>
+                    <td>{{venue.totalTickets}}</td>
+                    <td>
+                        <div class='d-md-block d-lg-inline'>
+                            <a routerLink="./detail/{{venue.name}}/{{venue.eventVenueId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class="fa fa-2x fa-eye"></i>
+                            </a>
+                            
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addNavbarModal" tabindex="-1" aria-labelledby="addNavbarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title mx-3" id="addNavbarModalLabel">Add Navbar Component</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body mx-3">
+            <app-add-navbar></app-add-navbar>
+        </div>
+    </div>
+    </div>
+</div>

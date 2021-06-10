@@ -16,6 +16,8 @@ import { MoviesDetailComponent } from './movies-detail/movies-detail.component';
 import { EventsDetailComponent } from './events-detail/events-detail.component';
 import { NavbarsComponent } from './navbars/navbars.component';
 import { AddNavbarComponent } from './add-navbar/add-navbar.component';
+import { EventVenuesComponent } from './event-venues/event-venues.component';
+import { EventVenuesDetailComponent } from './event-venues-detail/event-venues-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AddNavbarComponent } from './add-navbar/add-navbar.component';
     MoviesDetailComponent,
     EventsDetailComponent,
     NavbarsComponent,
-    AddNavbarComponent
+    AddNavbarComponent,
+    EventVenuesComponent,
+    EventVenuesDetailComponent
   ],
   imports: [
     CommonModule,

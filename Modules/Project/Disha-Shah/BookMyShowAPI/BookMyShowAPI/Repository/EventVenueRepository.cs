@@ -94,7 +94,7 @@ namespace BookMyShowAPI.Repository
                 .Where(s => s.EventVenueId== id && s.ShowTimingId == showTime.ShowTimingId)
                 .SingleOrDefault();
 
-            context.EventVenueShowTimings .Remove(eventVenueShowTiming);
+            context.EventVenueShowTimings.Remove(eventVenueShowTiming);
             context.SaveChanges();
         }
     }

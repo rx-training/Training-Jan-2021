@@ -5,7 +5,7 @@ import { AdminGuard } from './auth/admin.guard';
 import { UserGuard } from './auth/user.guard';
 import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-movies-events.component';
 import { HomeComponent } from './home/home.component';
-import { MoviesSearchComponent } from './movies/movies-search/movies-search.component';
+import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserBookingHistoryComponent } from './user-booking-history/user-booking-history.component';
 
@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   {
     path: 'explore',
-    component: MoviesSearchComponent
+    component: SearchComponent
   },
   {
     path: 'bookinghistory',

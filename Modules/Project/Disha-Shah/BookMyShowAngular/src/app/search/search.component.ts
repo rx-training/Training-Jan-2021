@@ -8,14 +8,14 @@ import {
 import { EventsService } from 'src/app/events/events.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { IMovies } from 'src/app/models/IMovies';
-import { MoviesService } from '../movies.service';
+import { MoviesService } from '../movies/movies.service';
 
 @Component({
-  selector: 'app-movies-search',
-  templateUrl: './movies-search.component.html',
-  styleUrls: ['./movies-search.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class MoviesSearchComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   moviesList: Array<IMovies> = [];
   eventsList: Array<IActivities> = [];

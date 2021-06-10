@@ -6,6 +6,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { EventBookingsComponent } from './event-bookings/event-bookings.component';
+import { EventVenuesDetailComponent } from './event-venues-detail/event-venues-detail.component';
+import { EventVenuesComponent } from './event-venues/event-venues.component';
 import { EventsDetailComponent } from './events-detail/events-detail.component';
 import { EventsComponent } from './events/events.component';
 import { MovieBookingsComponent } from './movie-bookings/movie-bookings.component';
@@ -54,6 +56,14 @@ const routes: Routes = [
           },
           { path: 'event-bookings', 
             component: EventBookingsComponent
+          },
+          {
+            path: 'event-venues',
+            component: EventVenuesComponent
+          },
+          {
+            path: 'event-venues/detail/:name/:id',
+            component: EventVenuesDetailComponent
           },
           { path: 'users', 
             component: UsersComponent

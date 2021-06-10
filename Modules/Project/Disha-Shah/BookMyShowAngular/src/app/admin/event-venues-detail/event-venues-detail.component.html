@@ -1,0 +1,88 @@
+<div class="container">
+    <div>
+        <h1 class="font-weight-normal">{{eventVenue.eventVenue}} Details</h1>
+        <div class="row">
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col font-weight-normal">Event Venue Id:</h4>
+                    <h5 class="col font-weight-normal">{{eventVenue.eventVenueId}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col font-weight-normal">Address:</h4>
+                    <h5 class="col font-weight-normal">{{eventVenue.address}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col font-weight-normal">City:</h4>
+                    <h5 class="col font-weight-normal">{{eventVenue.city}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col font-weight-normal">Total Tickets:</h4>
+                    <h5 class="col font-weight-normal">{{eventVenue.totalTickets}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col font-weight-normal">Show Timings:</h4>
+                    <h5 class="col font-weight-normal" >
+                        <ng-container *ngFor="let showTiming of showTimingsList; let l=last">
+                            <ng-container *ngIf="l==true">
+                                {{showTiming.showTime.hours}}:{{showTiming.showTime.minutes}}
+                            </ng-container>
+                            <ng-container *ngIf="l==false">
+                                {{showTiming.showTime.hours}}:{{showTiming.showTime.minutes}},
+                            </ng-container>
+                        </ng-container>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <form [formGroup] = "addShowTimingForm" (ngSubmit)="showTimingSubmit()">
+                    <div class="form-group">
+                        <label for="showTime" class="h4 ">Add Show Time:</label>
+                            <select class="custom-select" class="form-control" formControlName="showTime">
+                                <option selected value="">Choose Show Time</option>
+                                <option *ngFor = "let showTime of notAddedShowTimings">
+                                    {{showTime.showTime.hours}}:{{showTime.showTime.minutes}}
+                                </option>
+                            </select>
+                            
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger btn-lg" id="saveActivity" [disabled]="!addShowTimingForm.valid">Add</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col">
+                <form [formGroup] = "removeShowTimingForm" (ngSubmit)="removeShowTimingSubmit()">
+                    <div class="form-group">
+                        <label for="showTime" class="h4 ">Remove Show Time:</label>
+                            <select class="custom-select" class="form-control" formControlName="showTime">
+                                <option selected value="">Choose Show Time</option>
+                                <option *ngFor = "let showTime of showTimingsList">
+                                    {{showTime.showTime.hours}}:{{showTime.showTime.minutes}}
+                                </option>
+                            </select>
+                            
+                    </div>
+    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger btn-lg" id="saveActivity" [disabled]="!removeShowTimingForm.valid">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+
+    </div>
+</div>

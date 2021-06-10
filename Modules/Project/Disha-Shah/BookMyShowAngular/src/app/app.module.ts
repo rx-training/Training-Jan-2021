@@ -24,7 +24,7 @@ import { HomeAllMoviesEventsComponent } from './home-all-movies-events/home-all-
 import { MovieBookingsService } from './movies/movie-bookings.service';
 import { EventsService } from './events/events.service';
 import { FilmCategoryService } from './movies/film-category.service';
-import { MoviesSearchComponent } from './movies/movies-search/movies-search.component';
+import { SearchComponent } from './search/search.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterService } from './auth/register.service';
@@ -53,7 +53,7 @@ import {DatePipe} from '@angular/common';
     UserTopSliderComponent,
     PageNotFoundComponent,
     HomeAllMoviesEventsComponent,
-    MoviesSearchComponent,
+    SearchComponent,
     RegisterComponent,
     LoginComponent,
     UserBookingHistoryComponent,
