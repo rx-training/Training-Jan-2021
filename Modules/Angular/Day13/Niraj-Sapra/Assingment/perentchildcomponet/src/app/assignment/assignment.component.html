@@ -1,0 +1,265 @@
+<p>assignment works!</p>
+<div class="text-center my-5 mx-5 border border-primary background">
+    <div class="text-primary h4 my-5"> Student Admission </div>
+    <div class="my-5 text-center">
+        <form class="form-horizontal" [formGroup]="Studentform">
+            <!--Name-->
+            <span class="text-info h4"> Full Name </span>
+            <div formGroupName="name">
+                <div class="form-group mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label px-1" for="First">First Name :</label>
+                    <div class=" ">
+                      <input type="text" class="form-control" [(ngModel)]='firstname' formControlName="fname" id="fnames" required>
+                      <span *ngIf=" fname.invalid &&  (fname.touched || fname.dirty)"
+                      class="alert alert-danger">Name is Invalid</span>
+                    </div>
+                </div>
+                <!-- <div class="form-group mx-sm-4 mx-lg-2 form-inline float-left">
+                    <label class="control-label px-1" for="First">Middle Name :</label>
+                    <div class="">
+                      <input type="text" class="form-control" formControlName="mname" id="mname">
+                      <span *ngIf="mname.invalid && ! mname.untouched"
+                      class="alert alert-danger">Middle Name is Invalid</span>
+                    </div>
+                </div> -->
+                <div class="form-group mx-sm-4 mx-lg-2  form-inline">
+                    <label class="control-label px-1" for="First">Last Name :</label>
+                    <div class="">
+                      <input type="text" class="form-control" [(ngModel)]='lastname' formControlName="lname" id="lname">
+                      <span *ngIf="lname.invalid && !lname.untouched"
+                      class="alert alert-danger">Last Name is Invalid</span>
+                    </div>
+                </div> 
+            </div>
+            <!--Dob-->
+            <!-- <div class="form-group form-inline col-md-6 col-lg-6 col-sm-  float-left">
+                <label class="control-label col-sm-2" for="DOB">DOB : </label>
+                <div class="col-sm-3">
+                  <input type="date" class="form-control" formControlName="dob" id="Dob">
+                  <span *ngIf="dob.invalid && (dob.dirty || dob.touched)"
+                  class="alert alert-danger">date is Invalid</span>
+                </div>
+              </div> -->
+              <!--Place of Birth-->
+              <!-- <div class="form-group form-inline ">
+                  <label class="control-label col-sm-4" for="pob">Place of Birth : </label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName="POB" id="Pob">
+                    <span *ngIf="POB.invalid && (POB.dirty || POB.touched)"
+                    class="alert alert-danger">Place  of Birth is Invalid</span>
+                  </div>
+              </div> -->
+              <!-- First Language -->
+              <!-- <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="FL">First Language : </label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName="Flang" id="fl">
+                    <span *ngIf="Flang.invalid && (Flang.dirty || Flang.touched)"
+                    class="alert alert-danger">First Language is Invalid</span>
+                  </div>
+              </div> -->
+              <!-- Address -->
+               <!-- <div formGroupName="address " >
+                  <div class="form-group form-inline">
+                      <label class="control-label col-sm-2" for="First">City :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="city" id="City">
+                      <span *ngIf="city.invalid && (city.dirty || city.touched)"
+                    class="alert alert-danger">City is Invalid</span>
+                      </div>
+                  </div>
+                  <div class="form-group form-inline">
+                      <label class="control-label col-sm-2" for="State">State :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="state" id="State">
+                        <span *ngIf="state.invalid && (state.dirty || state.touched)"
+                    class="alert alert-danger">State is Invalid</span>
+                      </div>
+                  </div>
+                  <div class="form-group form-inline">
+                      <label class="control-label col-sm-2" for="Cpin">Country Pin :</label>
+                      <div class="col-sm-3">
+                        <input type="number" class="form-control" formControlName="cpin" id="Cpin">
+                        <span *ngIf="cpin.invalid && (cpin.dirty || cpin.touched)"
+                        class="alert alert-danger">Father Last Name is Invalid</span>
+                      </div>
+                  </div>
+              </div> -->
+              <!--Father Name-->
+              <!-- <div class="text-center text-primary my-5 mx-5">Father Name</div>
+              <div formGroupName="fathername">
+                      <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline float-left">
+                      <label class="control-label col-sm-4" for="Fname">First Name :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="Ffname" id="fname">
+                        <span *ngIf="Ffname.invalid && (Ffname.dirty || Ffname.touched)"
+                        class="alert alert-danger">Father First Name is Invalid</span>
+                      </div>
+                  </div>
+                  <div class="form-group mx-sm-4 mx-lg-2 form-inline float-left">
+                      <label class="control-label col-sm-5 pr-1" for="Mname">Middle Name :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="Fmname" id="mname">
+                      <span *ngIf="Fmname.invalid && (Fmname.dirty || Fmname.touched)"
+                      class="alert alert-danger">Father Middle Name is Invalid</span>
+                      </div>
+                  </div>
+                  <div class="form-group mx-sm-4 mx-lg-2 form-inline ">
+                      <label class="control-label col-sm-4" for="Lname">Last Name :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="Flname" id="lname">
+                        <span *ngIf="Flname.invalid && (Flname.dirty || Flname.touched)"
+                          class="alert alert-danger">Father Last Name is Invalid</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="">Email :</label>
+                  <div class="col-sm-3">
+                    <input type="email" class="form-control" formControlName="Femil" id="FEmails">
+                    <span *ngIf="Femil.invalid && (Femil.dirty || Femil.touched)  "
+                    class="alert alert-danger">Father Email  is Invalid</span>              
+                  </div>
+              </div>
+                <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="">Education Qualification :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName="Fedq" id="Edq">
+                    <span *ngIf="Fedq.invalid && (Fedq.dirty || Fedq.touched)"
+                          class="alert alert-danger">Father Education Qualification is Invalid</span>
+                  </div>
+                </div>
+                <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="">Profession :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName="Fprof" id="Professions">
+                    <span *ngIf="Fprof.invalid && (Fprof.dirty || Fprof.touched)"
+                          class="alert alert-danger">Father Profession is Invalid</span>
+                  </div>
+                </div>
+                <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="">Designation :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName="Fdesi" id="Designations">
+                    <span *ngIf="Fdesi.invalid && (Fdesi.dirty || Fdesi.touched)"
+                          class="alert alert-danger">Father Designation is Invalid</span>
+                  </div>
+                </div>
+              <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="pwd">Phone :</label>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control" formControlName="Fphone" id="phones">
+                  <span *ngIf="Fphone.invalid && (Fphone.dirty || Fphone.touched)"
+                          class="alert alert-danger">Father Phone no is Invalid</span>
+                </div>
+              </div>  -->
+              <!--Mother Name-->
+               <!-- <div class="text-center text-primary my-5">Mother Name</div>
+              <div formGroupName="mothername" >
+                  <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline float-left">
+                      <label class="control-label col-sm-4" >First Name :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="mfname" id="fname">
+                        <span *ngIf="mfname.invalid && (mfname.dirty || mfname.touched)"
+                          class="alert alert-danger">Mother First Name is Invalid</span>
+                      </div>
+                  </div>
+                      <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline float-left">
+                      <label class="control-label col-sm-5 pr-1" >Middle Name :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="mname" id="mname">
+                        <span *ngIf="mmname.invalid && (mmname.dirty || mmname.touched)"
+                          class="alert alert-danger">Mother First Middle is Invalid</span>
+                      </div>
+                  </div>
+                  <div class="form-group form-inline mx-sm-4 mx-lg-2 form-inline ">
+                      <label class="control-label col-sm-4" >Last Name :</label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" formControlName="lname" id="lname">
+                        <span *ngIf="mlname.invalid && (mlname.dirty || mlname.touched)"
+                          class="alert alert-danger">Mother Last Name is Invalid</span>
+                      </div>
+                  </div>
+              <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="Email">Email :</label>
+                  <div class="col-sm-3">
+                    <input type="email" class="form-control" formControlName="memail" id="mEmails">
+                    <span *ngIf="memail.invalid && (memail.dirty || memail.touched)"
+                          class="alert alert-danger">Mother Email is Invalid</span>
+                  </div>
+              </div>
+              <div class="form-group form-inline">
+                  <label class="control-label col-sm-3" for="">Education Qualification :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName="medq" id="mEdqs">
+                    <span *ngIf="medq.invalid && (medq.dirty || medq.touched)"
+                        class="alert alert-danger">Mother Education Qualification is Invalid</span>
+                  </div>
+                </div>
+                <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="">Profession :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="mProfessions" formControlName="Mprof">
+                    <span *ngIf="Mprof.invalid && (Mprof.dirty || Mprof.touched)"
+                          class="alert alert-danger">Mother Profession is Invalid</span>
+                  </div>
+                </div>
+                <div class="form-group form-inline">
+                  <label class="control-label col-sm-2" for="">Designation :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" formControlName="mdes" id="mDesignations">
+                    <span *ngIf="mdes.invalid && (mdes.dirty || mdes.touched)"
+                          class="alert alert-danger">Mother Designation is Invalid</span>
+                  </div>
+                </div>
+                <div class="form-group form-inline">
+                <label class="control-label col-sm-2" for="">Phone :</label>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control" formControlName="mPhone" id="mphones">
+                  <span *ngIf="mPhone.invalid && (mPhone.dirty || mPhone.touched)"
+                          class="alert alert-danger">Mother Phone no is Invalid</span>
+                </div>
+                </div>
+              </div>  -->
+              <!--Emergency Contact List -->
+               <!-- <div formArrayName="EmergencyContactList ">
+                  <div *ngFor="let item of EmergencyContactList.controls ; let idx=index">
+                      <div  class="form-inline" [formGroupName]="idx">
+                        <label class="control-label col-sm-2" for="">Relation :</label>
+                        <div class="col-sm-3">
+                          <input type="text" formControlName="Relation"/>
+              
+                       </div>
+                        <label class="control-label col-sm-2" for="">Number :</label>
+                        <div class="col-sm-3">
+                          <input type="number" formControlName="Number"/>
+              
+                        </div>
+                      </div> 
+                  </div>
+              </div> -->
+              <!--Reference Detials-->
+              <!-- <div formArrayName="ReferenceDetails">
+                  <div *ngFor="let item of ReferenceDetails.controls ; let idx=index">
+                      <div [formGroupName]="idx" class="form-inline">
+                        <label class="control-label col-sm-2" for="">Reference Through :</label>
+                        <div class="col-sm-3">
+                          <input type="text" formControlName="ReferenceThrough"/>
+                   
+                        </div>
+                        <label class="control-label col-sm-2" for="">Address with Tel No :</label>
+                        <div class="col-sm-3">
+                          <input type="number" formControlName="AddresswithTelNo"/>
+                   
+                        </div>
+                      </div> 
+                  </div>
+              </div> -->
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button  class="btn btn-primary" (click)="assignmentValueChanged()">Submit</button>
+                </div>
+              </div>
+        </form>
+    </div>
+</div>    

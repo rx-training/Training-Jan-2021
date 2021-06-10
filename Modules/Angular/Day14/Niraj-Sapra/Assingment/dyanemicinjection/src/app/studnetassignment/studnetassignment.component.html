@@ -1,0 +1,12 @@
+<p>------------------------------------studnetassignment works!---------------------------------------</p>
+<div *ngFor="let item of list">
+    <span>{{item.ID}}</span>
+    <span>{{item.Name}}</span>
+    <span><input type="button" value="update" (click)="update(item.ID)" ></span>
+    <span><input type="button" value="delete" (click)="delete(item.ID)"></span>
+    </div>
+    <input type="text" [(ngModel)]="students.ID">
+    <input type="text" [(ngModel)]="students.Name">
+    <input type="text" [(ngModel)]="students.Address">
+    <input type="button" value="click" (click)="submitdata()">
+<p>---------------------------------------------------------------------------------------------------</p>

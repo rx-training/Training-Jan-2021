@@ -1,0 +1,48 @@
+<p>perents works!</p>
+<!-- <app-child></app-child>-->
+<app-child (valueChange)='displayCounter($event)'></app-child>
+
+<app-stockstatus></app-stockstatus>
+<div class="container">
+    <br />
+    <h1 class="text-center">{{title}}</h1>
+    <table class="table">
+        <thead>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Stock</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td>{{p.id}}</td>
+                <td>{{p.title}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.stock}}</td>
+                <td><app-stockstatus [productId]='p.id' [stock]='p.stock' (stockValueChange)='changeStockValue($event)'></app-stockstatus></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-assignment></app-assignment>
+<div class="container">
+    <br />
+    <h1 class="text-center">{{studenttitle}}</h1>
+    <table class="table" border="2px">
+        <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>date of birth</th>
+        <th>Stock</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let S of students">
+                <td>{{S.id}}</td>
+                <td>{{S.name}}</td>
+                <td>{{S.price}}</td>
+                <td>{{S.stock}}</td>
+                <td><app-assignment [studentid]='S.id' [name]='S.name' (assignmentValueChanged)='changestudentname($event)'></app-assignment></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

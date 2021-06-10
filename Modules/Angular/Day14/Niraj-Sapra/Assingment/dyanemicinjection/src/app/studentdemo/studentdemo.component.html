@@ -1,0 +1,8 @@
+<p>studentdemo works!</p>
+<div *ngFor="let item of list">
+<span>{{item.ID}}</span><span>{{item.Name}}</span>
+</div>
+<input type="text" [(ngModel)]="student.ID">
+<input type="text" [(ngModel)]="student.Name">
+<input type="text" [(ngModel)]="student.Address">
+<input type="button" value="click" (click)="submitdata()">
