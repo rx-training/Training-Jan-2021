@@ -1,0 +1,19 @@
+<p>calculator works!</p>
+
+<div>Enter Two Digits :- </div>
+    <div>
+        <input [(ngModel)]="No1" type="number">
+    </div>
+    <div>
+        <input [(ngModel)]="No2" type="number">
+    </div>
+    <div>
+        <input type="button"  [value] = "addbtn" (click)= "Add()">
+    </div>
+    <div>
+        <input type="button"  [value] = "subbtn" (click)= "Sub()">
+    </div>
+    <div>
+        <input type="button"  [value] = "mulbtn" (click)= "Mul()">
+    </div>
+<div>

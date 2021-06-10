@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Swiggy.Authentication;
 using Swiggy.Models;
 using Swiggy.Models.IRepository;
 using System;
@@ -7,6 +9,7 @@ using System.Linq;
 
 namespace Swiggy.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     [Route("api/[controller]")]
     [ApiController]
     public class CreditmemoController : ControllerBase

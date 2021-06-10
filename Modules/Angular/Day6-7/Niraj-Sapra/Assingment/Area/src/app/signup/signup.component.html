@@ -1,0 +1,31 @@
+<div class="md-9">
+    <p class="h2 ">signup works!</p>
+    <div>
+        <h3>5. Create a signup component which contains field like Name,
+         Address, PanNumber and interpolate these information in the paragraph
+        </h3>
+    </div>
+    <div>Enter Name : </div>
+    <div>
+        <input [(ngModel)] = "Name" type="text">
+    </div>
+    <div>Enter Address : </div>
+    <div>
+        <input [(ngModel)] = "Address" type="text">
+    </div>
+    <div>Enter PanNumber : </div>
+    <div>
+        <input [(ngModel)] = "PanNumber" type="number">
+    </div>
+    <div>Choose photograph : </div>
+    <div>
+        <input [(ngModel)] = "Photograph" type="file">
+    </div>
+     <div>Get Signup User : </div>
+     <div>
+        <input class="btn btn-outline-info mt-4"  type="button" [value] = "Signup" (click) = "Signupuser()">
+    </div>
+    <div class="alert alert-success mt-4" role="alert">
+        {{Signupuser()}}
+    </div>
+</div>
