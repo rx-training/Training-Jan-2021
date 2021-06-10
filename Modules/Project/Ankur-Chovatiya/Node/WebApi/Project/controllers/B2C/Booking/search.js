@@ -11,9 +11,9 @@ class Search {
     static async searchFlight(req , res , next){
         // console.log(req.body);
         var searchObj = _.pick(req.body ,['TakeoffPoint','LandingPoint', 'TackoffDate', 'LandingDate','Economy'])
-        // console.log(searchObj);
-        model.Flight.find(searchObj).then(result =>{
-            
+        console.log(searchObj);
+        model.Flight.find(searchObj).populate('AirFare').populate('Route').populate('Aircraft').then(result =>{
+            console.log(result);
             res.send(result);
             next();
         }).catch(err=>{
@@ -29,8 +29,8 @@ class Search {
 
 
 
-
-router.post('/' ,[express.json() , auth] , Search.searchFlight);
+//, auth
+router.post('/' ,[express.json() ] , Search.searchFlight);
 
 
 module.exports = router;

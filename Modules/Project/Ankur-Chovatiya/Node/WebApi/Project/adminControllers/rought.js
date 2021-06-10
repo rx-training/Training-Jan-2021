@@ -12,6 +12,7 @@ class Route {
             res.send("data saved successfully!");
             next();
         }).catch(err =>{
+            if(err) throw err;
             res.send("unable to save data!");
             next();
         })

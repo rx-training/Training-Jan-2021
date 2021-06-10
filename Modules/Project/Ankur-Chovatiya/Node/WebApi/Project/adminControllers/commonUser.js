@@ -4,10 +4,19 @@ const app = express();
 const router = express.Router();
 const model = require('../MongoDB/model');
 const otp = require('../domain/otp');
+// const { result } = require('lodash');
 
 class CommonUser {
 
 
+    static async getUser(req , res , next){
+        model.CommonUser.findOne(req.body).then(result => {
+            console.log('login successfull');
+            res.send(result);
+        }).catch(err =>{
+            console.log(err);
+        })
+    }
 
     static async addUser(req , res , next) {
         let user = new model.CommonUser(req.body);
@@ -19,8 +28,8 @@ class CommonUser {
         // console.log(user.password);
         // send otp mail
 
-        let otps =await otp.GenerateOtp(user.emailId);
-        console.log(otps);
+        // let otps =await otp.GenerateOtp(user.emailId);
+        // console.log(otps);
 
         user.save().then(result =>{
             res.send("data saved successfully!");
@@ -46,6 +55,7 @@ class CommonUser {
 
 
 }
+router.post('/user' , [express.json()] , CommonUser.getUser);
 router.post('/addUser' ,[express.json()] ,CommonUser.addUser);
 router.delete('/:username/delete' , [express.json()] , CommonUser.deleteUser);
 module.exports = router;
