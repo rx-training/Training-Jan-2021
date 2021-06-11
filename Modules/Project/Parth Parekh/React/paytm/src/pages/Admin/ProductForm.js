@@ -54,7 +54,6 @@ export default function ProductForm(props) {
                         Rating: data.Rating,
                         featured: data.featured,
                         Spec: data.Spec,
-                        featured: data.featured,
                         image: data.image,
                         moreInfo: data.moreInfo,
                     });
@@ -164,6 +163,9 @@ export default function ProductForm(props) {
                     }}
                 >
                     <h1 className="text-center">Product</h1>
+                    {message.length > 0 && (
+                        <h3 className="text-center text-danger">{message}</h3>
+                    )}
                     <form
                         className="p-4 "
                         encType="mutlipart/form-data"
@@ -288,7 +290,9 @@ export default function ProductForm(props) {
                                 </div>
 
                                 <div className="col-md-4">
-                                    <label className="h5">More Images</label>
+                                    <label className="h5">
+                                        More Images (Max 3 Images)
+                                    </label>
                                     <input
                                         multiple
                                         type="file"

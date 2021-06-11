@@ -49,6 +49,9 @@ export default function AddMoney(props) {
     return (
         <div className="main-container">
             <div className="container my-5 p-5 text-capitalize">
+                {message.length > 0 && (
+                    <h3 className="text-center">{message}</h3>
+                )}
                 <h3 style={{ fontFamily: "monospace", letterSpacing: "3px" }}>
                     <img src={addmoney} alt="add Money" width="45" /> Add Money
                     To your Wallet

@@ -162,6 +162,9 @@ export default function AddProducts(props) {
                     className="col-md-11  mx-auto border border-primary my-3 bg-light"
                     style={{ fontFamily: "initial" }}
                 >
+                    {message.length > 0 && (
+                        <h3 className="text-center text-danger">{message}</h3>
+                    )}
                     <h1 className="text-center  p-2">
                         Products{" "}
                         <button
