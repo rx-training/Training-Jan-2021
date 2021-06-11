@@ -13,10 +13,10 @@ function SmallForm(props) {
     return (
         <>
         { <div>
-            <h1>{person}</h1>
+            <h1> {person} - Details</h1>
                 <div className="row my-3">
                     <div className="col form-inline">
-                    <select className="form-control" name={`${person}title`} value={data[`${person}title`]} onChange={(e) =>handleChange(e)}>
+                    <select className="form-control" name={`${person}title`} value={data[`${person}title`]} onChange={(e) =>handleChange(e)} required>
                         <option selected>Title</option>
                         <option value="Mr">Mr</option>
                         <option value="Mrs">Mrs</option>

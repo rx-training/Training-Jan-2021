@@ -3,13 +3,17 @@ import Seat from './Seat'
 import FlightSearch from '../services/FlightSearch'
 
 
+localStorage.btnCount = 0;
+    let btnCount = parseInt(localStorage.btnCount)
 
 function Seatmap(props) {
-    
-    const selectedFlight = JSON.parse(localStorage.getItem('selectedFlight'))
+        const selectedFlight = JSON.parse(localStorage.getItem('selectedFlight'))
     const returnSelectedflight = JSON.parse(localStorage.getItem('returnSelectedflight'))
     // console.log(selectedFlight.Aircraft.Seats);
-    
+    const LandingPoint = selectedFlight?.LandingPoint
+    const  TakeoffPoint = selectedFlight?.TakeoffPoint
+    const RTakeoffPoint = returnSelectedflight?.TakeoffPoint
+    const RLandingPoint = returnSelectedflight?.LandingPoint
     // const [leftSeats , setLeftSeats] = useState([['A01','A02','A03'] , ['B01','B02','B03'],['C1','C2','C3']])
     // const [rightSeats , setRightSeats] = useState([['D1','D2','D3'] , ['E1','E2','E3'] , ['F1','F2','F3']])
 
@@ -42,22 +46,39 @@ function Seatmap(props) {
     const [Rbtn , setRBtn] = useState(0)
     
 
-    const handleLinkClick = (e , person , seat) =>{ setTimeout(() => {
-        // console.log(seat);
-        if(btn < persons.length){
+    const handleLinkClick = (e , seat) =>{ setTimeout(() => {
+        console.log(seat);
+        // console.log(person);
+       
+        let person = persons[btnCount]
+        
+        console.log(person);
+        if(btn < persons.length && person !== undefined){
+            btnCount = btnCount + 1
+            person = persons[btnCount]
         let a = [...selectedSeat , seat]
         console.log(a);
         setSelectedSeat([...selectedSeat , seat])
         console.log(selectedSeat);
         setSeats( Seats.filter(s => s != a[btn] ))
         setBtn(btn + 1)
-        setPersonSeat(person)
+        
+        if(person !== undefined ){
+            setPersonSeat(person)
+        }
+        else{
+            setPersonSeat(persons[persons.length - 1])
+        }
+        
         console.log(person); }
     }, 1);
     }
     
-    const handleRLinkClick = (e , person ,seat) =>{ setTimeout(() => {
+    const handleRLinkClick = (e ,seat) =>{ setTimeout(() => {
+        btnCount = btnCount + 1
+        let person = persons[btnCount]
         if(Rbtn < persons.length){
+           
         let r = [...returnSelectedSeat , seat]
         setReturnSelectedSeat([...returnSelectedSeat , seat])
         setRSeats( RSeats.filter(s => s != r[Rbtn] ))
@@ -84,18 +105,19 @@ function Seatmap(props) {
     // seat updated into database
     
    
-   
     const [seatBtn , setSeatBtn] = useState(0)
     const [goseat , setGoseat] = useState(true)
     const [returnSeat , setreturnSeat] = useState(false)
-    
+    // const [submitBtn , setSubmit] = useState(0)
     const handleBtnClick = () => {
-
+        // console.log(btn);
         if(seatBtn == 0){
             setGoseat(false)
             setreturnSeat(true)
             
             if(TripType == 'Round Trip'){
+                console.log(TripType);
+                
                 setSeatBtn(seatBtn + 1)
                 setPersonSeat('Adult  1')
             }
@@ -114,15 +136,15 @@ function Seatmap(props) {
     }
 
     
-
+   
     return (
         <div className="container" id="seatSection">
             <h1 className="heading">Please Select Seats</h1>
             
 
-          {goseat && persons.map(p =>{ return personSeat == p && <Seat person={p} persons={persons} Seats={Seats} selectedSeat={selectedSeat} handleLinkClick={handleLinkClick} handleClick={handleClick}></Seat> })}
+          {goseat && persons.map(p =>{ return  (personSeat == p)  && <Seat person={p}  persons={persons} LandingPoint={LandingPoint} TakeoffPoint={TakeoffPoint} Seats={Seats} selectedSeat={selectedSeat} handleLinkClick={handleLinkClick} btnCount={btnCount} handleClick={handleClick}></Seat> })}
           {
-            returnSeat && TripType == 'Round Trip' && persons.map(p =>{ return personSeat == p && <Seat person={p} persons={persons} Seats={RSeats} selectedSeat={returnSelectedSeat} handleLinkClick={handleRLinkClick} handleClick={handleRClick} handleRLinkClick={handleRLinkClick}></Seat> })
+            returnSeat && TripType == 'Round Trip' && persons.map(p =>{ return personSeat == p && <Seat person={p} LandingPoint={RLandingPoint} TakeoffPoint={RTakeoffPoint} persons={persons} Seats={RSeats} selectedSeat={returnSelectedSeat} btnCount={btnCount}  handleClick={handleRClick} handleLinkClick={handleRLinkClick}></Seat> })
           }
             <div className="row my-5">
                 <div className="col"></div>

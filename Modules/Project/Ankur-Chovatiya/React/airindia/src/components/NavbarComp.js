@@ -6,7 +6,7 @@ import starlogo from '../img/star.png'
 import {FaUserLock} from 'react-icons/fa'
 
 
-function NavbarComp() {
+function NavbarComp(props) {
 
   const [isLogin , setIsLogin] = useState('')
 
@@ -28,6 +28,7 @@ function NavbarComp() {
     localStorage.removeItem('isLogin')
     localStorage.removeItem('token')
     window.location.reload()
+    // props.history.push('/')
   }
 
   return (
@@ -77,7 +78,8 @@ function NavbarComp() {
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav ml-5" id="navLinks">
       <li className="nav-item active ml-4">
-        <a className="nav-link" href="/AirIndia">Home </a>
+       { isLogin ? <a className="nav-link" href="/AirIndia">Home </a> :
+        <a className="nav-link" href="/login">Home </a>}
       </li>
       <li className="nav-item active ml-4">
         <a className="nav-link" href="/special-offers">Special Offers </a>

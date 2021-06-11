@@ -6,6 +6,8 @@ import { BsDot } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import BookingSummary from './BookingSummary';
 import BookingTotal from './BookingTotal';
+import {FaPen} from 'react-icons/fa'
+
 function FlightList(props) {
 
 
@@ -43,7 +45,7 @@ var returnSearchQuery = {}
     const handleClick = (e , id) =>{
         const p = e.target.innerText.split('- ')
         setprice(parseInt(p[1]))
-        console.log(price);
+        // console.log(price);
 
         setId(id)
         setSelectedFlight(flightList.find(flight => flight.FlightId === id))
@@ -93,12 +95,12 @@ var returnSearchQuery = {}
         <div>
          
           <div className="container">
-            <h1 className="flight-heading">{serchObj.TakeoffPoint} ---- <FaPlane></FaPlane> ----- {serchObj.LandingPoint} </h1>
+            <h1 className="flight-heading">{serchObj.TakeoffPoint} ---- <FaPlane></FaPlane> ----- {serchObj.LandingPoint}<a className="ml-5 " href="/AirIndia" style={{color:"blue" , fontSize:"20px"}}><FaPen></FaPen>Modify Your Search</a> </h1>
             <div className=" row container">
                 <div className="col-4">
            
                 </div>
-                <div className="col-8">
+             { flightList.length !== 0 ?  <div className="col-8">
                     <div className="row">
                         <div className="col-3 border p-2 service-type">
                             Web Special
@@ -114,9 +116,9 @@ var returnSearchQuery = {}
                             Flexible
                         </div>
                     </div>
-                </div>
+                </div> : null }
             </div>
-            {
+            { flightList.length !== 0 ?
                 flightList.map(flight => {
                     return (
                     
@@ -149,7 +151,7 @@ var returnSearchQuery = {}
 
                         
                     )
-                })}
+                }) : <h1 className="my-5">No Flights Available</h1>}
             </div>
             <div className="container">
            { showSummary && <BookingSummary {...props} flight={flight}></BookingSummary>} 
@@ -161,7 +163,7 @@ var returnSearchQuery = {}
                 <div className="col-4">
                    
                 </div>
-                <div className="col-8">
+             { returnFlightList.length !== 0 ?  <div className="col-8">
                     <div className="row">
                         <div className="col-3 border p-2 service-type">
                             Web Special
@@ -177,9 +179,9 @@ var returnSearchQuery = {}
                             Flexible
                         </div>
                     </div>
-                </div>
+                </div>  : null}
             </div>
-            {
+            { returnFlightList.length !== 0 ?
                 returnFlightList.map(flight => {
                     return (
                     
@@ -212,13 +214,13 @@ var returnSearchQuery = {}
 
                         
                     )
-                })}
+                }) : <h1 className="my-5">No Flights Available</h1>}
             </div>
             <div className="container">
            { showSummaryR &&<BookingSummary {...props} flight={returnFlight}></BookingSummary>} 
            </div></>}
            
-            <BookingTotal {...props} handleFinalClick={handleFinalClick}></BookingTotal>
+            <BookingTotal {...props} showBtnR={showSummaryR} showBtn={showSummary} handleFinalClick={handleFinalClick}></BookingTotal>
         </div>
     )
 }

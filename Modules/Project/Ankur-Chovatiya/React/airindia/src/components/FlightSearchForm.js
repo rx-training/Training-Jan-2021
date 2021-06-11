@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 
 
 
 function FlightSearchForm(props) {
 
+    const [err , setErr] = useState(null)
     const [searchDetails ,setSearchDetails] = useState({
         TripType : 'Round Trip',
         From : '',
@@ -16,23 +17,29 @@ function FlightSearchForm(props) {
         Adults: '1',
         Children : '0',
         Infants :'0',
-        Economy : '',
+        Economy : 'Bussiness',
         PromotionCode :''
 
        })
 
     const handleChange = (e) =>{
-        
+          
         setSearchDetails( (prev) =>{
             return {
                 ...prev , 
                 [e.target.name] : e.target.value 
             }
         }
-           
         )
-
     }
+    // const handleEdit = (e) => {
+    //     setSearchDetails({
+    //         ...searchDetails
+    //     })
+    // }
+
+
+   
 
     const handleSubmit = (e) =>{
 
@@ -52,13 +59,35 @@ function FlightSearchForm(props) {
             PromotionCode :searchDetails.PromotionCode ,
             
         }
+        const requiredValue = {
+            From : searchDetails.From ,
+            To : searchDetails.To ,
+            DepartingDate : searchDetails.DepartingDate ,
+            ReturningDate : searchDetails.DepartingDate ,
+            Economy : searchDetails.Economy ,
+            Adults : searchDetails.Economy, 
+            TripType : 'Round Trip',
+            Concession : false ,
+            ConcessionaryType : '',
+            // Adults: '1',
+            Children : '0',
+            Infants :'0',
+            // Economy : '',
+            PromotionCode :''
+
+        }
         // console.log(serchObj);
             const searchData = JSON.stringify(serchObj) 
             localStorage.setItem('searchData' , searchData);
+            sessionStorage.setItem('search',requiredValue )
             
         props.history.push(`${props.match.url}/select`)
     }
-
+    // useEffect(()=>{
+        // const data = sessionStorage.getItem('search')
+        // console.log(JSON.parse(data));
+    //     // setSearchDetails(JSON.parse(data))
+    // },[])
 
 
     console.log(searchDetails);
@@ -79,22 +108,22 @@ function FlightSearchForm(props) {
                 </div>
                 <div className="form-group row my-2">
                    <div className="col">
-                        <input type="text" className="form-control" placeholder="From" name="From" value={From} onChange={handleChange}></input>
+                        <input type="text" className="form-control" placeholder="From" name="From" value={From} onChange={handleChange} required></input>
                    </div>
                 </div>
                 <div className="form-group row">
                    <div className="col">
-                        <input type="text" className="form-control" placeholder="To" name="To" value={To} onChange={handleChange}></input>
+                        <input type="text" className="form-control" placeholder="To" name="To" value={To} onChange={handleChange} required></input>
                    </div>
                 </div>
                 <div className="form-group row my-0">
                    <div className="col-md-6">
                        <label className="ml-0">Departing :-</label>
-                        <input type="date" className="form-control" placeholder="Departing" name="DepartingDate" value={DepartingDate} onChange={handleChange} ></input >
+                        <input type="date" className="form-control" placeholder="Departing" name="DepartingDate" value={DepartingDate} onChange={handleChange} required></input >
                    </div>
                    <div className="col-md-6">
                    <label className="ml-0">Returning :-</label>
-                        <input type="date" className="form-control"  disabled={TripType == 'One Way'} placeholder="Returning" name="ReturningDate" value={ReturningDate} onChange={handleChange}></input>
+                        <input type="date" className="form-control"  disabled={TripType == 'One Way'} placeholder="Returning" name="ReturningDate" value={ReturningDate} onChange={handleChange} required></input>
                    </div>
                 </div>
                 <div className="row">
@@ -183,9 +212,9 @@ function FlightSearchForm(props) {
                 </div>
                 <div className=" form-group row">
                     <div className="col-6 my-0">
-                        <select className="custom-select" name="Economy" value={Economy} onChange={handleChange} >
+                        <select className="custom-select" name="Economy" value={Economy} onChange={handleChange} required >
                             <option selected>Economy</option>
-                            <option value="Bussiness">Business</option>
+                            <option value="Bussiness">Bussiness</option>
                             <option value="First">First</option>
                         </select>
                     </div>

@@ -60,7 +60,7 @@ function Home(props) {
                 </div>
 
 {/* crousele */}
-<div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators2" class="carousel slide my-4" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
@@ -73,10 +73,10 @@ function Home(props) {
                         {/* <img src="./img/crousel-1.jpg" class="d-block w-100" alt="..." width="50%" height="500px" / > */}
                         </div>
                         <div class="carousel-item">
-                        <img src="./img/slide-1.jpg" class="d-block w-100" alt="..." />
+                        <img src="./img/crousel-2.jpg" class="d-block w-100" alt="..." height="500px"/>
                         </div>
                         <div class="carousel-item">
-                        <img src="./img/slide-2.jpg" class="d-block w-100" alt="..." />
+                        <img src="./img/crousel-3.jpg" class="d-block w-100" alt="..." height="500px"/>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
@@ -88,6 +88,38 @@ function Home(props) {
                         <span class="sr-only">Next</span>
                     </a>
         </div>
+
+        {/* crousel 3 */}
+
+        <div id="carouselExampleIndicators3" class="carousel slide my-4" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+                    
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img src="./img/crousel-4.png" class="d-block w-100" alt="..." width="50%" height="500px" / >
+                        {/* <img src="./img/crousel-1.jpg" class="d-block w-100" alt="..." width="50%" height="500px" / > */}
+                        </div>
+                        <div class="carousel-item">
+                        <img src="./img/crousel-5.jpg" class="d-block w-100" alt="..." height="500px"/>
+                        </div>
+                        <div class="carousel-item">
+                        <img src="./img/crousel-6.png" class="d-block w-100" alt="..." height="500px"/>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+        </div>
+
                 {/* last images */}
                 <div className="row my-5 images">
                     <div className="col img">

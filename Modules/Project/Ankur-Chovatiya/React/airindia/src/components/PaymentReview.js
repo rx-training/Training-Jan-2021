@@ -5,6 +5,7 @@ import {BsExclamationCircle} from 'react-icons/bs'
 import {FaPlane} from 'react-icons/fa'
 import {FaUserAlt} from 'react-icons/fa'
 import BookingTotal from './BookingTotal'
+import FlightSearch from '../services/FlightSearch'
 
 function PaymentReview(props) {
 
@@ -12,6 +13,7 @@ function PaymentReview(props) {
     const selectedFlight = JSON.parse(localStorage.getItem('selectedFlight'))
     const returnSelectedFlight = JSON.parse(localStorage.getItem('returnSelectedflight'))
     const passengerDetails = JSON.parse(localStorage.getItem('passengerDetails'))
+    const [review , setReview] = useState(true)
 
     const returnFlight = search.TripType
     // console.log(returnFlight);
@@ -24,6 +26,9 @@ function PaymentReview(props) {
 
     const handleFinalClick = () =>{
         props.history.push('./success')
+    }
+    const handleSendMail = () => {
+        FlightSearch.sendTicketMail()
     }
 
     return (
@@ -92,27 +97,27 @@ function PaymentReview(props) {
             <div className="row my-3">
                 <div className="col danger">
                 <div className="row notice">
-                <h3><BsExclamationCircle></BsExclamationCircle> DANGEROUS GOODS</h3>
+                <h3><BsExclamationCircle></BsExclamationCircle> DANGEROUS GOODS</h3><hr />
                     <p>Dangerous Goods are FORBIDDEN for Carriage on Person, in Hand baggage or Check-in baggage on board an aircraft, for safety reasons. The following are mere representative examples of Prohibited Dangerous Goods.</p>
                 </div>
                 <div className="row my-3 danger-icons">
                     <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-2.png" alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-3.png" alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-4.png" alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-5.png" alt="danger" /></div>
                 </div>
                 <div className="row my-3 danger-icons">
-                    <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
-                    <div className="col"><img src={dg} alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-6.png" alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-7.png" alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-8.png" alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-9.png" alt="danger" /></div>
+                    <div className="col"><img src="../img/dg-10.png" alt="danger" /></div>
                 </div>
             </div>
             </div>
 
-                    <BookingTotal {...props} handleFinalClick={handleFinalClick}></BookingTotal>
+                    <BookingTotal {...props} review={review} handleSendMail={handleSendMail} handleFinalClick={handleFinalClick}></BookingTotal>
 
             {/* <div className="row my-5" >
                     

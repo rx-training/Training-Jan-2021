@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import {IoAirplane} from 'react-icons/io5'
 
 function Seat(props) {
-    
 
-    const {person , persons , Seats , handleLinkClick , selectedSeat , handleClick} = props
-    console.log(person);
+    const search = JSON.parse(localStorage.getItem('searchData'))
+    // const data = JSON.parse(search)
+
+    const {person , persons , Seats , TakeoffPoint ,LandingPoint , handleLinkClick , selectedSeat , handleClick , btnCount} = props
+    // console.log(TripType);
     // useEffect(() => {
         
     // } , [handleLinkClick])
-    localStorage.btnCount = 0;
-    let btnCount = parseInt(localStorage.btnCount)
+    // localStorage.btnCount = 0;
+    // let btnCount = parseInt(localStorage.btnCount)
     // console.log(typeof(btnCount));
     return (
         <div>
@@ -22,11 +25,12 @@ function Seat(props) {
             <div className="row">
                
                <div className="col" id="seatPart">
-                   <h1>{person}</h1>
+                   <h1>{TakeoffPoint}  ------ <IoAirplane></IoAirplane> -------  {LandingPoint}</h1>
+                   <h5>Select Seat for {person} </h5>
                    <div className="row">
                        
                           {
-                              Seats.map((seat ,i) => <><div className={`m-2 ${(i+1)%3 == 0 ? 'mr-5' : 'm-2'} seat ${selectedSeat.includes(seat) ? 'bg-danger' : ' '}`}   onClick={(e) => {handleClick(e ,seat) ; handleLinkClick(e ,persons[btnCount +1] , seat) ; localStorage.btnCount = btnCount + 1 }}>{seat}</div> {(i+1)% 9 == 0 ? <br /> : null}</>)      
+                              Seats.map((seat ,i) => <><div className={`m-2 ${(i+1)%3 == 0 ? 'mr-5' : 'm-2'} seat ${selectedSeat.includes(seat) ? 'bg-danger' : ' '}`}   onClick={(e) => {handleClick(e ,seat) ; handleLinkClick(e , seat) }}>{seat}</div> {(i+1)% 9 == 0 ? <br /> : null}</>)      
                           }
                        
                       

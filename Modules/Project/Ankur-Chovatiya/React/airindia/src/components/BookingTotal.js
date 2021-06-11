@@ -4,7 +4,8 @@ function BookingTotal(props) {
     const flight = JSON.parse(localStorage.getItem('selectedFlight'))
     // console.log(flight);
     const returnFlight = JSON.parse(localStorage.getItem('returnSelectedflight'))
-    
+    // console.log(returnFlight);
+
     const search = JSON.parse(localStorage.getItem('searchData'))
     const totalTicket = parseInt(search.Adults) + parseInt(search.Children) + parseInt(search.Infants)
     const totalFare = parseInt(flight.price + returnFlight.price)
@@ -180,7 +181,9 @@ collected.
                         <p>Taxes - {totalFare *0.18 * totalTicket}</p>
                         <p>Extras - {totalExtras * totalTicket}</p><hr />
                         <h4>Booking Total - { grandTotal * totalTicket }</h4>
-                        <button className="btn btn-danger btn-block" onClick={props.handleFinalClick}>Book</button>
+
+                       { props.review ? <button className="btn btn-danger btn-block" onClick={(e) => {props.handleFinalClick() ; props.handleSendMail()}} >BOOK</button> :
+                        <button className="btn btn-danger btn-block" disabled={search.TripType == 'Round Trip' ? !(props.showBtn && props.showBtnR) : !props.showBtn  } onClick={props.handleFinalClick}>Book</button> }
                     </div>
                 </div>
             

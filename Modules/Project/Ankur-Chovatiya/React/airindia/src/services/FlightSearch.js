@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const BASE_URL = "http://localhost:5000"
+const BASE_URL = "http://localhost:80"
 
 class FlightSearchService {
 
@@ -35,6 +35,10 @@ class FlightSearchService {
 
     login(userdata) {
         return axios.post(BASE_URL + "/AirIndia/B2C/user/login" , userdata)
+    }
+
+    sendTicketMail(mailId){
+        return axios.post(BASE_URL + "/AirIndia/B2C/Booking/payment/payment" , mailId)
     }
 
     verifyToken(token, userData){
