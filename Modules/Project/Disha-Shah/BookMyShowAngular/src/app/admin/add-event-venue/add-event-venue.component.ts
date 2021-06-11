@@ -68,7 +68,7 @@ export class AddEventVenueComponent implements OnInit {
     this.addEventVenueForm = this.fb.group({
       name: ['', Validators.compose([Validators.required])],
       address: ['', Validators.required],
-      totalTickets: [0, Validators.required],
+      totalTickets: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
       city:  ['', Validators.compose([Validators.required])],
       showTime: ['', Validators.required]
     });

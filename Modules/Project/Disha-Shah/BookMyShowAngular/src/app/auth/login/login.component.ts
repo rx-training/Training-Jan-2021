@@ -38,14 +38,6 @@ export class LoginComponent implements OnInit {
 
     this.loginForm.reset();
 
-    // if(this.loginRole.role == "User"){
-    //   window.location.reload();
-    //   this.router.navigate(['/home']);
-    // }
-    // else if(this.loginRole.role == "Admin"){
-    //   window.location.reload();
-    //   this.router.navigate(['/admin-dashboard']);
-    // }
   }
 
   constructor(private fb: FormBuilder, private service: RegisterService, private router: Router) { 

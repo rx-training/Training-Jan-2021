@@ -152,7 +152,7 @@ export class ConfirmBookingComponent implements OnInit {
     console.log(newBooking);
 
     this.addBookings(newBooking);
-    alert("Successfully completed booking");
+    alert("Successfully completed booking, ticket has been send to you on email");
 
     localStorage.removeItem("selectedExecutiveSeatsList");
     localStorage.removeItem("selectedPremiumSeatsList");

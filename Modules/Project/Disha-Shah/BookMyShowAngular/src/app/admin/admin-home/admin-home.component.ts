@@ -19,6 +19,18 @@ export class AdminHomeComponent implements OnInit {
     window.location.assign('/home');
   }
 
+  automaticLogOut(){
+    
+    if(localStorage.getItem("logged_in_admin")){
+      setTimeout(() => {
+        this.registerService.logoutAdmin();
+        alert("You have been logged out");
+        window.location.assign('/home');
+      }, 8*3600000);
+    }
+
+  }
+
 
   constructor(private registerService: RegisterService, private router: Router) { }
 
@@ -33,6 +45,7 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit(): void {
     this.loadScript('../../../assets/js/admin-sidebar.js');
     this.getLoggedAdminInfo();
+    this.automaticLogOut();
   }
 
   loadScript(url: any){

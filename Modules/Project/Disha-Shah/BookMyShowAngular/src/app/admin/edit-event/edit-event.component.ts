@@ -268,14 +268,14 @@ export class EditEventComponent implements OnInit {
     ) {
     this.addEventForm = this.fb.group({
       name: ['', Validators.compose([Validators.required])],
-      ticketPrice: [0, Validators.required],
+      ticketPrice: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
       image: ['', Validators.required],
       time:  ['', Validators.compose([Validators.required])],
       dateOfEvent: ['', Validators.required],
       eventVenue: ['', Validators.required],
       showTime: ['', Validators.required],
       eventType: ['', Validators.required],
-      minAge: [3, Validators.required],
+      minAge: [3, Validators.compose([Validators.required, Validators.pattern('[0-9]{1,3}')])],
       backgroundImage: ['', Validators.required],
       about: ['', Validators.required],
       note: ['', Validators.required],

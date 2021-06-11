@@ -7,6 +7,7 @@ import { LanguageService } from 'src/app/language.service';
 import { IEventTypes } from 'src/app/models/IEventTypes';
 import { IEventVenues } from 'src/app/models/IEventVenues';
 import { ILanguages } from 'src/app/models/ILanguages';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-add-event',
@@ -138,18 +139,19 @@ export class AddEventComponent implements OnInit {
     private eventsService: EventsService,
     private languagesService: LanguageService,
     private eventTypesService: EventTypeService,
-    private eventVenuesService: EventVenuesService
+    private eventVenuesService: EventVenuesService,
+    private datepipe: DatePipe
     ) {
     this.addEventForm = this.fb.group({
       name: ['', Validators.compose([Validators.required])],
-      ticketPrice: [0, Validators.required],
+      ticketPrice: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
       image: ['', Validators.required],
       time:  ['', Validators.compose([Validators.required])],
       dateOfEvent: ['', Validators.required],
       eventVenue: ['', Validators.required],
       showTime: ['', Validators.required],
       eventType: ['', Validators.required],
-      minAge: [3, Validators.required],
+      minAge: [3, Validators.compose([Validators.required, Validators.pattern('[0-9]{1,3}')])],
       backgroundImage: ['', Validators.required],
       about: ['', Validators.required],
       note: ['', Validators.required],

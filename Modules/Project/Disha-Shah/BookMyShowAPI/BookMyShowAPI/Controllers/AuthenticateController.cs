@@ -43,6 +43,12 @@ namespace BookMyShowAPI.Controllers
             var username = "";
             var pass = "";
             var role = "";
+
+            if (otp != 1234)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
+            }
+
             if (users.FindName(model.Username) != null && otp == 1234)
             {
                 username = model.Username;
@@ -57,10 +63,10 @@ namespace BookMyShowAPI.Controllers
             }
             else
             {
-                return Unauthorized();
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Username!" });
             }
 
-            if(model.Password.Trim() != pass)
+            if (model.Password.Trim() != pass)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Password!" });
             }

@@ -38,6 +38,21 @@ export class UserNavbarComponent implements OnInit, OnChanges {
     alert("You have successfully logged out");
   }
 
+  automaticLogOut(){
+
+    if(localStorage.getItem("logged_in_user")){
+      setTimeout(() => {
+        this.registerService.logoutUser();
+        this.IsLoggedIn = false;
+        this.display = "block";
+    
+        alert("You have been logged out");
+        window.location.assign('/home');
+      }, 8*3600000);
+    }
+
+  }
+
   getDynamicNavbars(){
     this.dynamicNavbarService.getDynamicNavbars()
     .subscribe(dynamicNavbars => {
@@ -50,12 +65,14 @@ export class UserNavbarComponent implements OnInit, OnChanges {
 
   ngOnChanges(){
     this.IsUserLoggedIn();
+    this.automaticLogOut();
   }
 
   ngOnInit(): void {
     this.loadScript('../../../assets/js/main.js');
     this.IsUserLoggedIn();
     this.getDynamicNavbars();
+    this.automaticLogOut();
   }
 
   loadScript(url: any){

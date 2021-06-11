@@ -50,7 +50,6 @@ export class RegisterService {
         }
         if(data.role == 'Admin'){
           window.location.assign('/admin-dashboard');
-          //this.router.navigate(['/admin-dashboard']);
           localStorage.logged_in_admin = JSON.stringify(data);
         }
         alert("Successfully logged in");

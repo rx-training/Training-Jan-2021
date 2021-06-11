@@ -131,7 +131,7 @@ export class ConfirmEventComponent implements OnInit {
     console.log(newBooking);
 
     this.addBookings(newBooking);
-    alert("Successfully completed booking");
+    alert("Successfully completed booking, ticket has been send to you on email");
 
     this.router.navigate(['/bookinghistory']);
   }

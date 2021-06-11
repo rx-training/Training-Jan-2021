@@ -55,7 +55,12 @@
         <div class="col-sm-9">
             <input type="number" class="form-control" id="eventTicketPrice" formControlName="ticketPrice">
             <small class="text-danger" *ngIf="addEventForm.controls.ticketPrice.invalid && (addEventForm.controls.ticketPrice.dirty || addEventForm.controls.ticketPrice.touched)" id="errName">
-                Ticket Price is required
+                <div *ngIf="addEventForm.controls.ticketPrice.errors?.required">
+                    Ticket price is required.
+                </div>
+                <div *ngIf="addEventForm.controls.ticketPrice.errors?.pattern">
+                    Enter valid Ticket price
+                </div>
             </small>
         </div>
     </div>
@@ -92,7 +97,12 @@
         <div class="col-sm-9">
             <input type="date" class="form-control" id="dateOfEvent" formControlName="dateOfEvent">
             <small class="text-danger" *ngIf="addEventForm.controls.dateOfEvent.invalid && (addEventForm.controls.dateOfEvent.dirty || addEventForm.controls.dateOfEvent.touched)" id="errName">
-                Date of Event is required
+                <div *ngIf="addEventForm.controls.dateOfEvent.errors?.required">
+                    Date of event is required.
+                </div>
+                <!-- <div *ngIf="addEventForm.controls.dateOfEvent.errors?.invalidDate">
+                    Enter valid Date of event
+                </div> -->
             </small>
         </div>
     </div>
@@ -147,7 +157,12 @@
         <div class="col-sm-9">
             <input type="number" class="form-control" id="minAge" formControlName="minAge">
             <small class="text-danger" *ngIf="addEventForm.controls.minAge.invalid && (addEventForm.controls.minAge.dirty || addEventForm.controls.minAge.touched)" id="errName">
-                Min Age is required
+                <div *ngIf="addEventForm.controls.minAge.errors?.required">
+                    Min Age is required.
+                </div>
+                <div *ngIf="addEventForm.controls.minAge.errors?.pattern">
+                    Enter valid Min Age
+                </div>
             </small>
         </div>
     </div>

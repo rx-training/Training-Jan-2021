@@ -55,7 +55,12 @@
         <div class="col-sm-9">
             <input type="text" class="form-control" id="totalTickets" formControlName="totalTickets">
             <small class="text-danger" *ngIf="addEventVenueForm.controls.totalTickets.invalid && (addEventVenueForm.controls.totalTickets.dirty || addEventVenueForm.controls.totalTickets.touched)" id="errName">
-                Total Tickets is required
+                <div *ngIf="addEventVenueForm.controls.totalTickets.errors?.required">
+                    Total tickets is required.
+                </div>
+                <div *ngIf="addEventVenueForm.controls.totalTickets.errors?.pattern">
+                    Enter valid Total tickets
+                </div>
             </small>
         </div>
     </div>
