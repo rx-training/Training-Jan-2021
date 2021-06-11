@@ -37,32 +37,42 @@ class UserData {
 
     async addUser(req, res) {
         const data = req.body;
-
-        bcrypt.hash(data.password, 10, async function (err, hash) {
-            if (err) {
-                return res.json({
-                    message: "error Something Wrong",
-                    error: err,
+        try {
+            const checkemail = await UserModel.find({ email: data.email });
+            if (checkemail.length < 1) {
+                bcrypt.hash(data.password, 10, async function (err, hash) {
+                    if (err) {
+                        return res.json({
+                            message: "error Something Wrong",
+                            error: err,
+                        });
+                    } else {
+                        const userObject = new UserModel({
+                            name: data.name,
+                            email: data.email,
+                            password: hash,
+                            mobileno: data.mobileno,
+                        });
+                        const { error, value } = userObject.joivalidate(data);
+                        if (error) {
+                            return res
+                                .status(400)
+                                .send(error.details[0].message);
+                        }
+                        try {
+                            const result = await userObject.save();
+                            res.send(`Register Successfully Done`);
+                        } catch (ex) {
+                            res.send(ex.message);
+                        }
+                    }
                 });
             } else {
-                const userObject = new UserModel({
-                    name: data.name,
-                    email: data.email,
-                    password: hash,
-                    mobileno: data.mobileno,
-                });
-                const { error, value } = userObject.joivalidate(data);
-                if (error) {
-                    return res.status(400).send(error.details[0].message);
-                }
-                try {
-                    const result = await userObject.save();
-                    res.send(`Register Successfully Done`);
-                } catch (ex) {
-                    res.send(ex.message);
-                }
+                return res.status(406).send("Email id already exists");
             }
-        });
+        } catch (ex) {
+            return res.send("error");
+        }
     }
 
     async loginUser(req, res) {

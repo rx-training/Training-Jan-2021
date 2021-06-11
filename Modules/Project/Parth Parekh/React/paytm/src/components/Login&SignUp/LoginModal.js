@@ -26,7 +26,7 @@ export default function LoginModal() {
         const name = event.target.name;
         const value = event.target.value;
         let error = errors;
-
+        setLoginError("");
         if (name === "email") {
             error[name] = validEmailRegex.test(value)
                 ? ""

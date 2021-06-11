@@ -5,6 +5,7 @@ import PaytmServices from "../../Services/paytmServices";
 export default function SignUpModal(props) {
     const [showSignUp, setSign] = useState(false);
     const [otp, setOtp] = useState("");
+    const [message, setMessage] = useState("");
     const [errors, SetErrors] = useState({
         username: "",
         mobileno: "",
@@ -30,6 +31,7 @@ export default function SignUpModal(props) {
         const value = event.target.value;
         let error = errors;
 
+        setMessage("");
         if (name === "email") {
             error[name] = validEmailRegex.test(value)
                 ? ""
@@ -79,10 +81,18 @@ export default function SignUpModal(props) {
                 password: values.password,
                 mobileno: values.mobileno,
             };
-            PaytmServices.signup(userData).then((res) => {
-                // console.log("Data added");
-                props.history.push("/login");
-            });
+            PaytmServices.signup(userData)
+                .then((res) => {
+                    // console.log("Data added");
+                    props.history.push("/login");
+                })
+                .catch((error) => {
+                    if (error.response.status === 406) {
+                        setMessage("Email Already Exists !!");
+                        setSign(false);
+                        setValues({ ...values, otp: "" });
+                    }
+                });
             setValues({
                 username: "",
                 mobileno: "",
@@ -153,6 +163,11 @@ export default function SignUpModal(props) {
                         >
                             Signup
                         </h1>
+                        {message.length > 0 && (
+                            <h5 className="text-center text-danger">
+                                {message}
+                            </h5>
+                        )}
 
                         <form onSubmit={handleSubmit}>
                             {errors.message.length > 1 ? (
