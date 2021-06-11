@@ -34,6 +34,7 @@ const Register = (props) => {
   const [invalidOtp, setInvalidOtp] = useState(false);
   const [resOtp, setResOtp] = useState("");
   const [seePass, setSeePass] = useState(false);
+  const [alreadyRegistered, setAlreadyRegistered] = useState(false);
 
   //functionality
   const validateForm = (errors) => {
@@ -80,6 +81,15 @@ const Register = (props) => {
     }
     setUser({ ...user, [name]: value });
     setErrors({ ...errors, error });
+  };
+  const handleBlur = () => {
+    TrainServices.checkMail(user.email).then((res) => {
+      if (res.data === "exists") {
+        setAlreadyRegistered(true);
+      } else {
+        setAlreadyRegistered(false);
+      }
+    });
   };
   const sendOtp = (email) => {
     TrainServices.sendOtp(email).then((res) => {
@@ -242,6 +252,7 @@ const Register = (props) => {
                       type="email"
                       name="email"
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       value={user.email}
                       className="form-control"
                       placeholder="email"
@@ -249,6 +260,9 @@ const Register = (props) => {
                     />
                     {errors.email.length > 0 && (
                       <small className="text-danger">{errors.email}</small>
+                    )}
+                    {alreadyRegistered && (
+                      <p className="text-danger">Email Is Already Registered</p>
                     )}
                   </div>
                   <div className="form-group">
@@ -311,7 +325,11 @@ const Register = (props) => {
                       </small>
                     )}
                   </div>
-                  <button className="btn btn-primary btn-lg" type="submit">
+                  <button
+                    className="btn btn-primary btn-lg"
+                    type="submit"
+                    disabled={alreadyRegistered}
+                  >
                     Submit
                   </button>
 

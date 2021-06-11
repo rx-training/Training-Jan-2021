@@ -44,6 +44,9 @@ class TrainServices {
       },
     });
   }
+  checkMail(email) {
+    return axios.post(`${TRAIN_API_BASE_URL}otp/check-mail/${email}`);
+  }
   sendOtp(email) {
     return axios.post(`${TRAIN_API_BASE_URL}otp/send/${email}`);
   }

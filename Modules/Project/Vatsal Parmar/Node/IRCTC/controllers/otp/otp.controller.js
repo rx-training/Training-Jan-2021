@@ -2,6 +2,7 @@ var express = require("express");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 var router = express.Router();
+const UserModel = require("../../models/users.model");
 
 const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
@@ -54,11 +55,22 @@ class Otp {
       res.send(false);
     }
   }
+  static async checkEmail(req, res) {
+    let email = req.params.email;
+    let result = await UserModel.find({ email: email });
+    if (result.length > 0) {
+      res.send("exists");
+    } else {
+      res.send("not exists");
+    }
+  }
 }
 
 //To send
 router.post("/send/:email", Otp.sendOtp);
 //to verify
 router.post("/verify/:otp", Otp.verifyOtp);
+//to check mail
+router.post("/check-mail/:email", Otp.checkEmail);
 
 module.exports = router;
