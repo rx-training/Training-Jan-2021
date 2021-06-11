@@ -44,7 +44,12 @@ export default function ProfilePage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   const { customerName, email, contactNumber, gender, address } = user;

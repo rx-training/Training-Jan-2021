@@ -115,7 +115,12 @@ export default function SubCategoriesPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   return (

@@ -291,7 +291,12 @@ export default function UpdateProductPage(props) {
   } = product;
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   return (

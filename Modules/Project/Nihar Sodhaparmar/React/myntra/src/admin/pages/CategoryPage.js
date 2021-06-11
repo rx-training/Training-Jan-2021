@@ -115,7 +115,12 @@ export default function CategoryPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   return (

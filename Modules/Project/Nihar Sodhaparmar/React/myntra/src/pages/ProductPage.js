@@ -106,7 +106,12 @@ export default function ProductPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   if (!isProductAvaiable) {

@@ -113,7 +113,12 @@ export default function BrandsPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   return (

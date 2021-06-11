@@ -18,7 +18,7 @@ export default function Product({ product }) {
             </div>
           </div>
           <div className="text-center">
-            <div className="text-muted">{productName}</div>
+            <div className="text-muted line-2">{productName}</div>
             <div>Rs. {price}</div>
           </div>
         </div>

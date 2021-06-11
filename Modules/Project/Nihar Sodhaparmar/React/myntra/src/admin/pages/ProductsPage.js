@@ -41,7 +41,12 @@ export default function ProductsPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   if (products.length === 0) {

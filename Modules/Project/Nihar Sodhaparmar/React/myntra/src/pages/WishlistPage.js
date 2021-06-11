@@ -75,7 +75,12 @@ export default function WishlistPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   if (wishlistItems.length < 1) {

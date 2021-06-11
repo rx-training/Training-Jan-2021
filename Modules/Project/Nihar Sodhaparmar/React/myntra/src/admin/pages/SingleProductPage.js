@@ -56,7 +56,12 @@ export default function SingleProductPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   if (!isProductAvaiable) {

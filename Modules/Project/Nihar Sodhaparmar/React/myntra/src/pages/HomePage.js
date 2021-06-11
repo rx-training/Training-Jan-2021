@@ -51,7 +51,12 @@ export default function HomePage(props) {
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   return (

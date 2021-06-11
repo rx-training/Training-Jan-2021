@@ -35,7 +35,12 @@ export default function OrdersPage(props) {
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   if (orders.length < 1) {

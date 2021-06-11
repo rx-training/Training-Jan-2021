@@ -10,7 +10,7 @@ export default function Product({ product, applyOfferBtnClick }) {
             <img src={imgurls[0]} alt="product" width="100%" />
           </div>
           <div className="text-center">
-            <div className="text-muted mt-3 font-weight-bold">
+            <div className="text-muted mt-3 font-weight-bold line-2">
               {productName}
             </div>
             <div className="mt-2 text-uppercase font-weight-bold">

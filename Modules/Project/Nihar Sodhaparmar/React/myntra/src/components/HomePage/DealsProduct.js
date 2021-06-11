@@ -22,7 +22,7 @@ export default function DealsProduct({ product }) {
             <span className="h5 font-weight-bold" style={{ color: "#ff905a" }}>
               {offer > 0 ? `${offer} % OFF` : null}
             </span>
-            <div className="text-muted">{productName}</div>
+            <div className="text-muted line-2">{productName}</div>
           </div>
         </div>
       </Link>

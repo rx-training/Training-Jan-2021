@@ -103,7 +103,12 @@ export default function OffersPage(props) {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <>
+        <Navbar />
+        <Loading />
+      </>
+    );
   }
 
   if (isSearched && filteredProducts.length === 0) {
