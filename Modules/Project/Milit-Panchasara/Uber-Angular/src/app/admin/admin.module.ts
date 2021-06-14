@@ -10,6 +10,8 @@ import { AdminRiderListComponent } from './admin-rider-list/admin-rider-list.com
 import { AdminDriverListComponent } from './admin-driver-list/admin-driver-list.component';
 import { AdminTripListComponent } from './admin-trip-list/admin-trip-list.component';
 import { AdminRidetypeListComponent } from './admin-ridetype-list/admin-ridetype-list.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { RiderBlockButtonRenderer } from './rider-block-button/rider-block-button.component';
 
 
 @NgModule({
@@ -20,13 +22,15 @@ import { AdminRidetypeListComponent } from './admin-ridetype-list/admin-ridetype
     AdminRiderListComponent,
     AdminDriverListComponent,
     AdminTripListComponent,
-    AdminRidetypeListComponent
+    AdminRidetypeListComponent,
+    RiderBlockButtonRenderer
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,    
+    AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([RiderBlockButtonRenderer])
   ]
 })
 export class AdminModule { }

@@ -28,10 +28,10 @@ export class RiderHomeComponent implements OnInit {
       this.router.navigate(['/rider/dashboard'])
     }
     //delay to hide page for 1 second.
-    document.getElementsByTagName('body')[0].hidden = true;
-    setTimeout(()=>{
-      document.getElementsByTagName('body')[0].hidden = false;
-    }, 1000);
+    // document.getElementsByTagName('body')[0].hidden = true;
+    // setTimeout(()=>{
+    //   document.getElementsByTagName('body')[0].hidden = false;
+    // }, 1000);
 
     this.riderService.profileSub.subscribe(x => {
       this.profileData = x;
@@ -45,6 +45,7 @@ export class RiderHomeComponent implements OnInit {
     error => {
       console.log(error);
       if(error.status == 0) {
+
         this.router.navigate(['/']);
       }
       else if(error.status == 500){       // if server error returns, terminate user session and redirect.
@@ -65,6 +66,7 @@ export class RiderHomeComponent implements OnInit {
     },
     error => {
       if(error.status == 0) {
+
         this.router.navigate(['/']);
       }
     });

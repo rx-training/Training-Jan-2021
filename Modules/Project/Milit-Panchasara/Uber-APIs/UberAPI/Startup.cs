@@ -24,6 +24,7 @@ namespace UberAPI
 {
     public class Startup
     {
+        public static Dictionary<Tuple<long,long>, TempTrip?> tempTripCache = new Dictionary<Tuple<long, long>, TempTrip?>();
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

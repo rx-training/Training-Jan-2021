@@ -31,8 +31,30 @@ export class AuthService {
     return this.httpClient.post<LoggedInUserInterface>(GlobalConstants.apiBaseURL + '/Auth/register/rider', requestData);
   }
 
+  registerDriver(userData):Observable<LoggedInUserInterface> {
+
+    let requestData = {
+      FirstName:userData.firstName,
+      LastName:userData.surName,
+      Email: userData.email,
+      ContactNumber: userData.contactNumber,
+      Password: userData.password,
+      RideTypeId: userData.rideTypeId,
+      VehicleBrand: userData.vehicleBrand,
+      VehicleName: userData.vehicleName,
+      RegistrationNo: userData.registrationNo,
+      VehicleType: userData.vehicleType
+    }
+
+    return this.httpClient.post<LoggedInUserInterface>(GlobalConstants.apiBaseURL + '/Auth/register/driver', requestData);
+  }
+
   loginAdmin():Observable<LoggedInUserInterface> {
     return this.httpClient.post<LoggedInUserInterface>(GlobalConstants.apiBaseURL + '/Auth/login/admin', {contactnumber: this.loginContactNumber, password: this.loginPassword});
+  }
+
+  loginDriver():Observable<LoggedInUserInterface> {
+    return this.httpClient.post<LoggedInUserInterface>(GlobalConstants.apiBaseURL + '/Auth/login/driver', {contactnumber: this.loginContactNumber, password: this.loginPassword});
   }
 
 }

@@ -16,9 +16,24 @@ namespace UberAPI.Code.RepositoryDB
         {
         }
 
+        public long? FindDriver(long rideTypeId)
+        {
+            // assigning random driver to trip who is currently not doing any trips
+            var driverIds = context.Drivers.Include(x => x.Trips).Include(x => x.Vehicles).Where(x => !x.Trips.Any(x => x.Status == "Started" || x.Status == "New") && x.Vehicles.Any(x => x.CurrentRideTypeId == rideTypeId)).Select(x => x.DriverId).ToList();
+            if (driverIds.Count == 0) return null;
+            var index = new Random().Next(driverIds.Count);
+            var driver = driverIds[index];
+            return driver;
+        }
+
         public IEnumerable<VTripsData> GetAllTrips(int id)
         {
             return context.VTripsData.Where(x => x.RiderId == id).ToList();
+        }
+
+        public IEnumerable<VTripsData> GetAllTripsForDriver(int id)
+        {
+            return context.VTripsData.Where(x => x.DriverId == id).ToList();
         }
 
         public VTripsData GetTrip(long id, long tripId)
@@ -26,7 +41,12 @@ namespace UberAPI.Code.RepositoryDB
             return context.VTripsData.Where(x => x.TripId == tripId && x.RiderId == id).SingleOrDefault();
         }
 
-        public VTripsData SetNewTrip(int id, Location source, Location destination, RideType rideType)
+        public VTripsData GetTripForDriver(long id, long tripId)
+        {
+            return context.VTripsData.Where(x => x.TripId == tripId && x.DriverId == id).SingleOrDefault();
+        }
+
+        public VTripsData SetNewTrip(int id, long riderId, Location source, Location destination, RideType rideType)
         {
             try
             {
@@ -34,17 +54,11 @@ namespace UberAPI.Code.RepositoryDB
                 var distance = GeoCalculator.GetDistance(source.Latitude, source.Longitude, destination.Latitude, destination.Longitude, 2, DistanceUnit.Kilometers);
                 var estimatedFairAmount = distance * rideType.PricePerKm;
 
-                // assigning random driver to trip who is currently not doing any trips
-                var driverIds = context.Drivers.Include(x => x.Trips).Include(x => x.Vehicles).Where(x => !x.Trips.Any(x => x.Status == "Started" || x.Status == "New") && x.Vehicles.Any(x => x.CurrentRideTypeId == rideType.RideTypeId)).Select(x => x.DriverId).ToList();
-                if (driverIds.Count == 0) return null;
-                var index = new Random().Next(driverIds.Count);
-                var driver = driverIds[index];
-
                 // params for Stored procedure
                 object[] lspParam = new object[] 
                 { 
-                    new SqlParameter("@RiderID", Convert.ToInt64(id)),
-                    new SqlParameter("@DriverID", driver),
+                    new SqlParameter("@RiderID", riderId),
+                    new SqlParameter("@DriverID", Convert.ToInt64(id)),
                     new SqlParameter("@SourceLocationID", source.LocationId),
                     new SqlParameter("@DestinationLocationID", destination.LocationId),
                     new SqlParameter("@RideTypeID", rideType.RideTypeId),
@@ -68,7 +82,7 @@ namespace UberAPI.Code.RepositoryDB
                 }
 
                 // fetching result from view
-                var trip = context.VTripsData.Where(x => x.RiderId == id && x.Status == "New").FirstOrDefault();
+                var trip = context.VTripsData.Where(x => x.RiderId == riderId && x.Status == "New").FirstOrDefault();
                 return trip;
             }
             catch (Exception)

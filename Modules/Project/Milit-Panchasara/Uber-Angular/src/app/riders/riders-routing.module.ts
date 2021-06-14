@@ -18,8 +18,8 @@ import { RiderTripListComponent } from './rider-trip-list/rider-trip-list.compon
 const routes: Routes = [
   // {path: '' , component: },
 
-  {path:'login', component: LoginComponent, canActivate: [GuestGuard]},
-  {path:'login-password', component: LoginPasswordFormComponent,  canActivate: [GuestGuard]},
+  // {path:'login', component: LoginComponent, canActivate: [GuestGuard]},
+  // {path:'login-password', component: LoginPasswordFormComponent,  canActivate: [GuestGuard]},
 
   {path:'dashboard', component: RiderSourceComponent, canActivate: [AuthGuard, RiderGuard]},
   {path:'choose-destination', component: RiderDestinationComponent, canActivate:[AuthGuard, RiderGuard]},
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'profile', component: RiderProfileComponent, canActivate:[AuthGuard, RiderGuard]},
   {path:'trips', component: RiderTripListComponent, canActivate:[AuthGuard, RiderGuard]},
 
-  {path:'**', component: HomeComponent}
+  // {path:'**', component: HomeComponent}
 ];
 
 @NgModule({

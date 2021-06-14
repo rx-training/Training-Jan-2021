@@ -8,5 +8,9 @@ namespace UberAPI.Code.Interfaces
 {
     public interface IDriverRepo : IGenericRepo<Driver>
     {
+        VDriver ViewProfile(int id);
+        bool ValidateDriver(string cred, int id);
+
+        Vehicle AddVehicleDetails(Vehicle vehicle);
     }
 }

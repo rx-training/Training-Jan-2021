@@ -1,0 +1,19 @@
+<div class="text-center mx-auto" style="margin-top: 125px;width: 400px;">
+    <div class="mt-5 mb-4">
+        <img src="../../../assets/img/UBER_logo.png" alt="" height="145px">
+    </div>
+    <div class="card card-body mx-auto text-left border-0">
+        <h4>Get moving with Uber</h4>
+        <p>Enter your phone number (required)</p>
+        <div class="border border-top-0 border-left-0 border-right-0" id="contactDiv">
+            <div class="input-group">
+                <div class=" input-group-prepend">
+                    <span class="my-auto"><h5><i class="fa fa-angle-down"></i> +91</h5></span>
+                </div>
+                <input class="form-control border-0" type="text" id="contact-input" [(ngModel)]="contactNumber" style="font-size: 1.25rem;line-height: 1.2;font-weight: 500;margin-bottom: 0.5rem;color: black;">
+            </div>
+        </div>
+        <p id="error-message" class="small text-danger  m-0" style="margin-bottom:-20px !important" [ngClass]="{'d-none':!isWrong}">Invalid mobile number</p>
+    </div>
+    <a (click)="passNumber()" class="btn btn-dark btn-black m-3" style="width:90%;height: 60px;"><h5 class="mt-2">Next</h5></a>
+</div>

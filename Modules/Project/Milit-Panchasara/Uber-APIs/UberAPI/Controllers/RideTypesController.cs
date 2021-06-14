@@ -12,7 +12,6 @@ using UberAPI.Models.Auth;
 
 namespace UberAPI.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RideTypesController : ControllerBase

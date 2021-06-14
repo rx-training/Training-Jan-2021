@@ -1,0 +1,22 @@
+<div class=" mx-lg-5 my-lg-4 m-0 card" id="temp-trips-card" style="z-index: 1;border-radius: 0;width: 400px; height: 75%;position: absolute;">
+    <div class="card-header bg-primary" style="border-radius: 0;">
+        <h1 class="text-white my-3">Waiting for riders...</h1>
+    </div>
+    <div class=" card-body">
+        <h6 *ngIf="localDriverService.tempTrips.length == 0" class="text-center">No trips available currently.</h6>
+        <div *ngFor="let trip of localDriverService.tempTrips" class="card card-body m-2">
+            <h6>Trip: <br>
+                source: <i>{{getLocationName(trip.value.sourceId)}}</i>,<br>
+                Destination: <i>{{getLocationName(trip.value.destinationId)}}</i>
+            </h6>
+            <div class="row">
+                <button class="btn btn-sm btn-primary col-3 mx-3" (click)="acceptTrip(trip.key.item2)">Accept</button>
+                <button class="btn btn-sm btn-dark col-3" (click)="rejectTrip(trip.key.item2)">Reject</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="map">
+    <google-map height="90vh" width="100hw" [center]="{'lat':lat, 'lng':lng}" [zoom]="12"></google-map>
+</div>

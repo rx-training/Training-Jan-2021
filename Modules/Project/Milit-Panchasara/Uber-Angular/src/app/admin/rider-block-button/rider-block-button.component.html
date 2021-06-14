@@ -1,0 +1,2 @@
+<button *ngIf="params.value.isBlocked" class="btn btn-sm btn-success" (click)="unblockRider(params)">Unblock</button>
+<button *ngIf="!params.value.isBlocked" class="btn btn-sm btn-danger" (click)="blockRider(params)">Block</button>

@@ -114,6 +114,21 @@ namespace UberAPI.Controllers
                     CreatedAt = DateTime.Now
                 };
                 var addedDriver = driverRepo.Add(newDriver);
+
+                if(request.VehicleBrand != "" && request.VehicleName != "" && request.VehicleType != "" && request.RideTypeId > 0 && request.RegistrationNo != "")
+                {
+                    var vehicleDetails = new Vehicle()
+                    {
+                        DriverId = addedDriver.DriverId,
+                        VehicleBrand = request.VehicleBrand,
+                        VehicleName = request.VehicleName,
+                        VehicleDocument = "-",
+                        VehicleType = request.VehicleType,
+                        RegistrationNo = request.RegistrationNo,
+                        CurrentRideTypeId = request.RideTypeId
+                    };
+                    var addedVehicle = driverRepo.AddVehicleDetails(vehicleDetails);
+                }
             }
             else if (userRole.ToLower() == "admin")
             {

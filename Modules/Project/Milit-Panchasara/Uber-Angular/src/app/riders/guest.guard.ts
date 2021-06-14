@@ -32,6 +32,10 @@ export class GuestGuard implements CanActivate {
           this.router.navigate(['/admin']);
           return false;
         }
+        if(user.userRole == 'driver'){
+          this.router.navigate(['/driver/dashboard']);
+          return false;
+        }
         return true;
       }
 

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RidersModule } from './riders/riders.module';
 import { AdminModule } from './admin/admin.module';
+import { DriversModule } from './drivers/drivers.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdminModule } from './admin/admin.module';
     FormsModule,
     ReactiveFormsModule,
     AdminModule,
+    DriversModule
   ],
   providers: [],
   bootstrap: [AppComponent]

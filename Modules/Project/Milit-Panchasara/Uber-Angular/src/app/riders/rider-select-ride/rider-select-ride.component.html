@@ -16,7 +16,8 @@
         <p class="mx-3"><i class="fa fa-money text-success" style="background-color: greenyellow;"></i> Cash<i class="fa fa-angle-down float-right font-weight-bold"></i></p>
         
         <div class="pb-3 px-3" >
-            <button class="btn btn-dark btn-black w-100" id="bookRide-btn" [disabled]="!isSelected" (click)="createTripAndRedirect()"><h4>Request</h4></button>
+            <button class="btn btn-dark btn-black w-100" id="bookRide-btn" [disabled]="!isSelected" *ngIf="!searching" (click)="searchDriver()"><h4>Request</h4></button>
+            <button class="btn btn-dark btn-black w-100" id="bookRide-btn" *ngIf="searching" (click)="cancelTripSearch()"><h4>Cancel search</h4></button>
         </div>    
     </div>
 </div>
@@ -24,5 +25,3 @@
 <div id="map">
     <google-map height="90vh" width="100hw" [center]="{'lat':lat, 'lng':lng}" [zoom]="12"></google-map>
 </div>
-
-

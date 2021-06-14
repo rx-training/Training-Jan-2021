@@ -22,5 +22,11 @@ namespace UberAPI.Models.Auth
 
         [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
+
+        public long? RideTypeId { get; set; }
+        public string VehicleBrand { get; set; }
+        public string VehicleName { get; set; }
+        public string RegistrationNo { get; set; }
+        public string VehicleType { get; set; }
     }
 }

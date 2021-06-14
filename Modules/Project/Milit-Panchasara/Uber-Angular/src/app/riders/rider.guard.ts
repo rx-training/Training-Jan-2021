@@ -11,7 +11,6 @@ import { GlobalConstants } from 'src/app/common/global-constants';
 export class RiderGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router:Router) {
-    
   }
   
   canActivate(
@@ -27,10 +26,12 @@ export class RiderGuard implements CanActivate {
     let decryptedUser = (CryptoJS.AES.decrypt(localStorage.getItem('user'), GlobalConstants.cryptoPassword)).toString(CryptoJS.enc.Utf8);
     
     let user = JSON.parse(decryptedUser);
-
     if(user.userRole != 'rider'){
       if(user.userRole == 'admin') {
         this.router.navigate(['/admin']);
+      }
+      else if(user.userRole == 'driver') {
+        this.router.navigate(['/driver/dashboard']);
       }
       else {
         this.router.navigate(['/']);

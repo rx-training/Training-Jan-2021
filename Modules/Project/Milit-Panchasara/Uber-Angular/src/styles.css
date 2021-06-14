@@ -1,4 +1,6 @@
 @import "~font-awesome/css/font-awesome.min.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 .container {
     max-width: 100% !important;

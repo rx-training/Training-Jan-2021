@@ -36,6 +36,7 @@ export class SignupComponent implements OnInit {
       // save retured user data and start session.
       let encryptedUser = (CryptoJS.AES.encrypt(JSON.stringify(x), GlobalConstants.cryptoPassword)).toString();
       localStorage.setItem('user',encryptedUser);
+      localStorage.setItem('session',CryptoJS.AES.encrypt((new Date()).toString(), GlobalConstants.cryptoPassword).toString());
       
       this.riderService.getProfileData().subscribe(x => {
         this.riderService.setData(x);
