@@ -50,6 +50,8 @@ export default function SingleProductPage(props) {
       if (error.response.status === 403 || error.response.status === 401) {
         props.history.push("/login");
         removeUserSession();
+      } else if (error.response.status === 409) {
+        alert(error.response.data);
       }
       setLoading(false);
     }

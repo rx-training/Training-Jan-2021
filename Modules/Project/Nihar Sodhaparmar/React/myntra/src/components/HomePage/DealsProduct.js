@@ -18,11 +18,15 @@ export default function DealsProduct({ product }) {
             </div>
           </div>
           <div className="text-center">
-            <h5 className="font-weight-bold">{brand.brandName}</h5>
+            <h5 className="font-weight-bold text-capitalize">
+              {brand.brandName}
+            </h5>
             <span className="h5 font-weight-bold" style={{ color: "#ff905a" }}>
               {offer > 0 ? `${offer} % OFF` : null}
             </span>
-            <div className="text-muted line-2">{productName}</div>
+            <div className="text-muted line-2 text-capitalize mb-2">
+              {productName}
+            </div>
           </div>
         </div>
       </Link>

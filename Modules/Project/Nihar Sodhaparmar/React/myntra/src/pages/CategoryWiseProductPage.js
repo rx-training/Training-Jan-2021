@@ -19,6 +19,8 @@ export default class CategoryWiseProductPage extends Component {
       maxPrice: 0,
       price: 0,
       filteredProducts: [],
+      sortOrder: "",
+      brands: [],
     };
   }
 
@@ -54,6 +56,16 @@ export default class CategoryWiseProductPage extends Component {
             ...categoryProducts.map((product) => product.price)
           );
 
+          let brands = new Set();
+          for (let product of categoryProducts) {
+            brands.add(product.brand.brandName);
+          }
+          brands = [...brands];
+          let newBrands = [];
+          for (let brand of brands) {
+            newBrands.push({ name: brand, isChecked: false });
+          }
+
           this.setState({
             products: categoryProducts,
             filteredProducts: categoryProducts,
@@ -61,6 +73,7 @@ export default class CategoryWiseProductPage extends Component {
             minPrice: minPrice,
             price: maxPrice,
             loading: false,
+            brands: newBrands,
           });
         }
       }
@@ -83,18 +96,75 @@ export default class CategoryWiseProductPage extends Component {
     this.setState({ [name]: value }, this.sortProducts);
   };
 
+  brandChange = (i) => {
+    this.setState((state, props) => {
+      state.brands[i].isChecked = !state.brands[i].isChecked;
+      return {
+        brands: state.brands,
+      };
+    }, this.sortProducts);
+  };
+
   sortProducts = () => {
     let tempProducts = this.state.products;
+    const { price, sortOrder, brands } = this.state;
 
     tempProducts = tempProducts.filter(
-      (product) => parseInt(product.price) <= parseInt(this.state.price)
+      (product) => parseInt(product.price) <= parseInt(price)
     );
+
+    if (sortOrder === "ascending") {
+      tempProducts.sort(this.sortProductsAscending("price"));
+    } else if (sortOrder === "descending") {
+      tempProducts.sort(this.sortProductsDescending("price"));
+    }
+
+    let newTempProducts = [];
+    let oneChecked = false;
+
+    for (let brand of brands) {
+      if (brand.isChecked === true) {
+        oneChecked = true;
+        let tempProductsArray = tempProducts.filter(
+          (product) =>
+            product.brand.brandName.toLowerCase() === brand.name.toLowerCase()
+        );
+        newTempProducts = newTempProducts.concat(tempProductsArray);
+      }
+    }
+
+    if (oneChecked) {
+      tempProducts = newTempProducts;
+    }
 
     this.setState({ filteredProducts: tempProducts });
   };
 
+  sortProductsAscending = (field) => {
+    return function (a, b) {
+      if (a[field] > b[field]) {
+        return 1;
+      } else if (a[field] < b[field]) {
+        return -1;
+      }
+      return 0;
+    };
+  };
+
+  sortProductsDescending = (field) => {
+    return function (a, b) {
+      if (a[field] > b[field]) {
+        return -1;
+      } else if (a[field] < b[field]) {
+        return 1;
+      }
+      return 0;
+    };
+  };
+
   render() {
-    const { loading, minPrice, maxPrice, price, filteredProducts } = this.state;
+    const { loading, minPrice, maxPrice, price, filteredProducts, brands } =
+      this.state;
 
     if (loading) {
       return (
@@ -117,6 +187,8 @@ export default class CategoryWiseProductPage extends Component {
                   minPrice={minPrice}
                   maxPrice={maxPrice}
                   handleChange={this.handleChange}
+                  brands={brands}
+                  brandChange={this.brandChange}
                 />
               </div>
               <div className="col-md-9 col-lg-10 border py-4">
@@ -152,6 +224,8 @@ export default class CategoryWiseProductPage extends Component {
                 minPrice={minPrice}
                 maxPrice={maxPrice}
                 handleChange={this.handleChange}
+                brands={brands}
+                brandChange={this.brandChange}
               />
             </div>
             <div className="col-md-9 col-lg-10 border py-4">

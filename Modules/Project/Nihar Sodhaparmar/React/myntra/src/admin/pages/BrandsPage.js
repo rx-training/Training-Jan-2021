@@ -101,6 +101,8 @@ export default function BrandsPage(props) {
       if (error.response.status === 401) {
         removeUserSession();
         props.history.push("/login");
+      } else if (error.response.status === 409) {
+        alert(error.response.data);
       }
       setLoading(false);
     }
