@@ -3,6 +3,7 @@ const {
   validateSubCategory,
 } = require("../models/sub-category.model");
 const Joi = require("joi");
+const { Product } = require("../models/product.model");
 
 class SubCategoryDomain {
   // add sub category
@@ -96,6 +97,12 @@ class SubCategoryDomain {
 
     if (error) {
       return res.status(404).send(error.details[0].message);
+    }
+
+    const isUsed = await Product.findOne({ subCategory: subCategoryId });
+
+    if (isUsed) {
+      return res.status(409).send("Sub Category is not allowed to delete");
     }
 
     const result = await SubCategory.deleteOne({ _id: subCategoryId });

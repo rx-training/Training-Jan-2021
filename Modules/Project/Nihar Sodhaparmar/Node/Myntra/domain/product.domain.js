@@ -1,5 +1,6 @@
 const { Product, validateProduct } = require("../models/product.model");
 const Joi = require("joi");
+const { Order } = require("../models/order.model");
 
 class ProductDomain {
   // add product
@@ -123,6 +124,12 @@ class ProductDomain {
 
     if (error) {
       return res.status(400).send(error.details[0].message);
+    }
+
+    const isUsed = await Order.findOne({ "products.product": productId });
+
+    if (isUsed) {
+      return res.status(409).send("Product is not allowed to delete");
     }
 
     const result = await Product.deleteOne({ _id: productId });
