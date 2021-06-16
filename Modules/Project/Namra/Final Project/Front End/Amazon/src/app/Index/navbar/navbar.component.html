@@ -1,0 +1,54 @@
+<nav class="navbar navbar-dark  navbar-expand-lg  sticky-top backgroundNavbar">
+    <div class="container-fluid">
+        <a (click)="Home()"><i class="mx-4 fab fa-amazon text-light h2 "></i></a>
+        <a *ngIf='NavbarFlag == true' class=" location text-light mr-3">
+            <i class="fas fa-map-marker-alt "></i>&ensp; <span class="text-muted">Deliver to </span> India
+        </a>
+        <div class="input-group w-50 location" *ngIf='NavbarFlag == true'>
+            <div class="input-group-prepend dropdown">
+                <span class="input-group-text dropdown-toggle" data-toggle="dropdown">All</span>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">All Department</a>
+                    <a href="#" class="dropdown-item">Books</a>
+                    <a href="#" class="dropdown-item">Games</a>
+                    <a href="#" class="dropdown-item">Computers</a>
+                    <a href="#" class="dropdown-item">Smart Phone</a>
+                </div>
+            </div>
+            <input type="text" class="form-control" placeholder="Search here" id="search1">
+            <div class="input-group-append">
+                <span class="input-group-text bg-light text-dark" onclick="return searchProduct1()"><i
+                        class="fas fa-search"></i></span>
+            </div>
+        </div>
+        <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon "></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarCollapse">
+
+            <ul class="navbar-nav ml-auto text-white">
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item" *ngIf='NavbarFlag == true'>
+                    <a class="nav-link text-white" (click)="signIn()"><i class="fas fa-user"></i>&nbsp;<span
+                            id="signIn">{{UserName}}</span></a>
+                </li>
+                <li class="nav-item" *ngIf='NavbarFlag == true'>
+                    <a  class="nav-link text-white" (click)="Order()"><i class="fas fa-shopping-bag" ></i> Orders</a>
+                </li>
+                <li class="nav-item" *ngIf='NavbarFlag == true' >
+                    <a class="nav-link text-white" (click)="Cart()"> Cart <i [ngClass]="{dangerColor : (CartLength==0)}"
+                            class="fas fa-shopping-cart"></i>&nbsp;<span class="h5" *ngIf="CartLength!=0">{{CartLength}}</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white"> 24 X 7&nbsp;<i class="far fa-question-circle"></i></a>
+                </li>
+                <li class="nav-item" *ngIf='NavbarFlag == false'>
+                    <a class="nav-link text-white" [routerLink]="['../Home']">Go back&nbsp;<i
+                            class="far fa-arrow-alt-circle-right"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

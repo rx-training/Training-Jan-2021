@@ -1,0 +1,174 @@
+<p class="display-3 my-3 text-center">Orders&nbsp;<i class="fas bagLogo fa-shopping-bag"></i></p>
+<hr class="container">
+<div class="container">
+    <h2 class="pl-3 homeLogo">Choose Address <i class="fas homeLogo fa-home"></i></h2>
+    <div class="row mt-3">
+        <div class="col-md-4 col-lg-3 col-sm-6" *ngFor="let l of addresses">
+            <label>
+                <input type="radio" value="l.userAddressId" (click)="check(l.userAddressId)" name="product"
+                    class="card-input-element" />
+                <div class="card text-dark border border-dark card-input">
+                    <div class="card-header h5  ">
+                        {{l.userAddressFullName}}
+                    </div>
+                    <div class="card-footer">
+                        {{l.userAdressContact}} <br>
+                        Address type : {{l.addressType}}
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table border rounded-bottom border-warning">
+        <tr class="table-success text-center">
+            <td>
+                Product
+            </td>
+            <td>
+                Price
+            </td>
+            <td>
+                Offer
+            </td>
+            <td>
+                Quantity
+            </td>
+            <td>
+                Prize
+            </td>
+        </tr>
+        <ng-container *ngFor="let l of orders;let idx = index">
+            <tr class="text-center" [ngClass]="{dangerOrder : flags[idx]}">
+                <td rowspan="2">
+                    <img src="../../../{{products[idx].imgPath}}" class="img-fluid m-auto imgOrder" alt="">
+                </td>
+                <td>
+                    {{products[idx].productPrice}}
+                </td>
+                <td>
+                    {{products[idx].offer}}
+                </td>
+                <td>
+                    <input type="number" class="text-center" style="width: 100px;border-radius:10px;" min="1" max="10"
+                        (change)="update(l.orderId,products[idx].productId,orders[idx].quantity)"
+                        [(ngModel)]="orders[idx].quantity">
+
+                </td>
+                <td>
+                    {{l.bill}}
+                </td>
+            </tr>
+            <tr class="text-center" [ngClass]="{dangerOrder : flags[idx]}">
+                <td colspan="4">
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-4">
+                            <!-- <ng-container *ngFor="let l of map.entries()">
+                                <ng-container *ngIf="l[0]==idx">
+                                    <ng-container *ngIf="l[1].length != 0" class="text-left font-weight-bold">
+                                        Kindly choose one seller :
+                                        <ng-container *ngFor="let lm of l[1]">
+                                            <div class="sellerOption text-left p-2 ">
+                                                <input type="radio" name="sellersId[idx]" value="lm.sellerId"> {{lm.sellerCompanyName}} 
+                                            </div>
+                                            
+                                        </ng-container>
+                                    </ng-container>
+                                    <ng-container *ngIf="l[1].length == 0">
+                                        There's no such dealer for this product...
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container> -->
+                            <p *ngIf="sellersId[idx]!=null" class="p-3">
+                                Sold by : <br>
+                                {{sellersId[idx].sellerCompanyName}}
+                            </p>
+
+                            <p *ngIf="sellersId[idx]==null" class="p-3">
+                                No seller found, kindly check it after sometime.
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 p-3">
+                            <button (click)="deleteOrder(l.orderId)" [disabled]="placeFlag"
+                                class="btn btn-outline-danger">
+                                Cancel&nbsp;<i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+
+    </table>
+</div>
+
+<div class="smOrder">
+    <div *ngFor="let l of orders; let idx = index">
+        <div class="row" [ngClass]="{dangerOrder : flags[idx]}">
+            <div class="col-5 text-center p-3">
+                <img src="../../../{{products[idx].imgPath}}" class="img-fluid m-auto imgOrder" alt="">
+            </div>
+            <div class="col-7">
+                <p class="text-center font-weight-bold">
+                    {{products[idx].productName}}
+                </p>
+                <p class="px-2">
+                    Price : {{products[idx].productPrice}} ({{products[idx].offer}} % Off ) <br>
+                    <span class="my-1">
+                        Quantity : &nbsp;<input type="number" class="text-center"
+                            style="width: 50px;border-radius:10px;" min="1" max="10"
+                            (change)="update(l.orderId,products[idx].productId,orders[idx].quantity)"
+                            [(ngModel)]="orders[idx].quantity">
+                    </span>
+                    <br>
+                    Bill : {{l.bill}}
+                </p>
+            </div>
+        </div>
+        <div class="row" [ngClass]="{dangerOrder : flags[idx]}">
+            <div class="col-12 text-center">
+                <p *ngIf="sellersId[idx]!=null" class="p-3">
+                    Sold by : <br>
+                    {{sellersId[idx].sellerCompanyName}}
+                </p>
+
+                <p *ngIf="sellersId[idx]==null" class="p-3">
+                    No seller found, kindly check it after sometime.
+                </p>
+            </div>
+            <div class="col-12 text-center">
+                <button class="btn-sm btn-outline-danger" [disabled]="placeFlag"
+                    (click)="cancelOrder(l.orderId)">Cancel</button>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<hr class="my-5">
+<div class="row mb-5">
+    <div class="col-md-4 col-sm-2">
+
+    </div>
+    <div class="CheckOut col-md-4 col-sm-8 text-center">
+        <p class="display-3 mb-2">
+            Check Out&nbsp;<i class="fas fa-shipping-fast"></i>
+        </p>
+        <p>
+            your Bill : {{Bill}}
+        </p>
+
+        <button (click)="placeOrders()" [disabled]="Bill==0">
+            Place your order
+        </button>
+    </div>
+    <div class="col-md-4 col-sm-2">
+
+    </div>
+</div>
+

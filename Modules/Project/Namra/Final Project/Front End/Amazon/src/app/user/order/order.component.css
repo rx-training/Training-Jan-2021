@@ -1,0 +1,58 @@
+@media screen and (min-width : 600px) {
+    .imgOrder{
+        max-height: 150px;
+    }
+    .smOrder{
+        display: none;
+    }
+}
+@media screen and (max-width : 600px) {
+    .imgOrder{
+        max-height: 100px;
+    }
+    .table{
+        display: none;
+    }
+    .display-3{
+        font-size: xx-large;
+    }
+}
+.bagLogo
+{
+  background: -webkit-linear-gradient(rgb(243, 207, 48), rgb(0, 131, 81));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.orderButton{
+    box-shadow:0px 0px 5px 1px rgb(63, 63, 63) inset;
+}
+label {
+    width: 100%;
+}
+.homeLogo{
+    
+  background: -webkit-linear-gradient(rgb(231, 198, 9), rgb(120, 0, 131));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dangerOrder{
+    background-color: red;
+    opacity: 0.5;
+}
+.card-input-element {
+    display: none;
+}
+
+.card-input {
+    margin: 10px;
+    padding: 00px;
+}
+
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+     box-shadow: 0 0 1px 1px #2ecc71;
+ }

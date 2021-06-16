@@ -136,7 +136,7 @@ CREATE TABLE Orders
 	OrderedDate DATETIME DEFAULT CURRENT_TIMESTAMP
 )
 --12. Creating table of user placed order
-
+DROP TABLE PlacedOrder
 CREATE TABLE PlacedOrder
 (
 	PlacedOrderID BIGINT NOT NULL CONSTRAINT pkPlacedOrder PRIMARY KEY IDENTITY(1,1),
@@ -144,9 +144,22 @@ CREATE TABLE PlacedOrder
 	ProductID INT NOT NULL CONSTRAINT fkPlacedProduct FOREIGN KEY REFERENCES Products(ProductId),
 	Quantity INT NOT NULL DEFAULT 1,
 	Bill INT NOT NULL DEFAULT 0,
+	AddressId INT NOT NULL,
 	PlacedStatus VARCHAR(20) NOT NULL DEFAULT 'Delivered',
-	PlacedDate DATETIME DEFAULT CURRENT_TIMESTAMP
+	PlacedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+	SalerId INT NOT NULL
 )
+Drop Table OrderTable
+
+--Create TABLE OrderTable(
+--	PlacedOrderID INT NOT NULL CONSTRAINT pkPlacedOrderTable PRIMARY KEY IDENTITY(1,1),
+--	UserId INT NOT NULL ,
+--	Products VARCHAR(MAX) NOT NULL ,
+--	Bill INT NOT NULL,
+--	AddressId INT NOT NULL,
+--	PlacedStatus VARCHAR(20) NOT NULL,
+--	PlacedDate DATETIME
+--);
 --13. Creating table for seller
 
 CREATE TABLE Sellers

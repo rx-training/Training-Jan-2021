@@ -1,0 +1,17 @@
+.userImage{
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 5px #888888;
+}
+.orderLogo{
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(5, 150, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+}
+.lookLogo{
+    background: -webkit-linear-gradient(rgb(204, 0, 255), rgb(5, 150, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.lookLogo :hover{
+box-shadow: 0px 0px 10px 5px black;
+}
