@@ -8,6 +8,6 @@ namespace Zee_News_WebApi.IRepository
 {
     public interface INewsContent : GenericInterface<NewsContent>
     {
-        
+        List<NewsContent> getByNewsId(int id);
     }
 }

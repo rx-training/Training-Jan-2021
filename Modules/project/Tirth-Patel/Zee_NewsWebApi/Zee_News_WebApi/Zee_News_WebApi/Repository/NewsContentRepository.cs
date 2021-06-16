@@ -11,5 +11,18 @@ namespace Zee_News_WebApi.Repository
     {
         public NewsContentRepository(ZeeNewsContext context) : base(context)
         { }
+        public List<NewsContent> getByNewsId(int id)
+        {
+            List<NewsContent> NewsContentList = new List<NewsContent>();
+            var news = context.NewsContents.ToList();
+            foreach (var item in news)
+            {
+                if(item.NewsId == id)
+                {
+                    NewsContentList.Add(item);
+                }
+            }
+            return NewsContentList;
+        }
     }
 }

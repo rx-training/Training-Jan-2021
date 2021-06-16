@@ -13,11 +13,12 @@ using Zee_News_WebApi.Authentication;
 
 namespace Zee_News_WebApi.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
+   
     [Route("api/[controller]")]
     [ApiController]
     public class ViewersController : ControllerBase
     {
+       
         IViewers ViewersRepo;
         public ViewersController(IViewers ViewersRepo)
         {
@@ -54,6 +55,7 @@ namespace Zee_News_WebApi.Controllers
         [HttpPost]
        public Viewers1 Add(Viewers1 Newviewer)
         {
+           
             ViewersRepo.Create(Newviewer);
             return Newviewer;
 

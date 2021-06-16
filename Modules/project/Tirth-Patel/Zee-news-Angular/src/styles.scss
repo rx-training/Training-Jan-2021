@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+#login {
+    background-image: url('assets/Pictures/login banner.jpg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin-top: 100px;
+    height: 600px;
+    width: auto;
+   
+}
+#nav,#footer{
+   a{
+       color:black
+   }
+    background-color: rgba(102, 95, 95, 0.534);
+}
+#banner{
+  
+   
+    background: url("assets/Pictures/banner/zeenews-bannerwebp.webp") no-repeat;
+    background-size: cover;
+    min-height: 100px;
+}
+a{
+    color: red;
+}
+
+
+@media only screen and (max-width: 552px)
+{
+    body{
+        font-size: 70%;
+    }
+   .card-title{
+       
+           font-size: small;
+       
+   }
+    
+    
+}

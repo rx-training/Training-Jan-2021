@@ -1,0 +1,27 @@
+<section id="budegt" class="m-2 py-5">
+    <div class="container-fluid">
+        <h3>Budget-2021</h3>
+        <div class="row card-grid" id="cards">
+     
+            <div  class="col-sm-12 col-md-4"*ngFor="let item of BudgetNews,let idx = index">
+             <div class="card">
+                <img [src]="item.imagesLink" class="card-img-top img-fluid" alt="">
+                <div class="card-body">
+                
+                    <h5 class="card-title">
+                        Union budget 2021:
+                    </h5>
+                    <a 
+                    [routerLink]="['/Home',newstype,item.contentId]">
+                    <p class="card-text">
+                       {{item.description}}
+                    </p></a>
+                </div> 
+                <div class="card-footer">
+                    <small class="text-muted">Feb 01,2021,1,02 PM IST</small>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

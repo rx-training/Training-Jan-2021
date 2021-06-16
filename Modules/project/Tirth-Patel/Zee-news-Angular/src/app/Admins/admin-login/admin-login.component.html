@@ -1,0 +1,29 @@
+<div class="container login">
+    <div class="display-3">
+        Admin login
+    </div>
+    <div class="zee-news-logo ">
+        <img src="/img/zeenewslogo_nav.webp" class="img-fluid center" alt="">
+    </div>
+    <form [formGroup]="AdminLogin" (ngSubmit)="login()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName='userId' name="name" id="username" class="form-control"
+                placeholder="Enter username">
+                <small *ngIf="userId &&!userId.valid && (userId.dirty ||userId.touched)" class="validationError Form-error">
+                    Invalid Userid
+                </small>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password</label>
+            <input type="password" formControlName='password' name="pwd" id="password" class="form-control"
+                placeholder="password">
+                <small *ngIf="Password &&!Password.valid && (Password.dirty ||Password.touched)" class="validationError Form-error">
+                    Password Required
+                    </small>
+        </div>
+        <button class="btn btn-success" id="login-button" type="submit" [disabled]="!AdminLogin.valid">Login</button>
+        <input class="btn btn-danger" type="reset">
+    </form>
+  
+</div>

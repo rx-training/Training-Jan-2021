@@ -1,0 +1,392 @@
+<section id="navigation-bar">
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand-logo text-center">
+                <a class="navbar-brand mr-auto bg-dark" routerLink='/Home'> <img class="  img-fluid"
+                        src="assets/Pictures/zeenewslogo_nav.webp" width="97" height="45" alt=""></a>
+            </div>
+            <ul class="navbar-nav flex-row ml-auto">
+                <!-- <li class="nav-item dropdown mr-3">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>Welcome
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fa fa-user-circle"></i>profile</a>
+                        <a href="settings.html" class="dropdown-item">
+                            <i class="fa fa-gear"></i>settings</a>
+                    </div>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link"><button class="btn btn-danger" (click)="logout()">
+                            <i class="fa fa-user-times"></i> LogOut </button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
+<section class="sidebar">
+
+    <nav>
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-9">
+                    <h2 class="text-center text-danger">LiveNews <button type="button" class="btn btn-primary"
+                            data-toggle="modal" data-target="#news-card-modal">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i>
+                        </button></h2>
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th scope="col">SrNo</th>
+
+                                <th scope="col">NewsId</th>
+                                <th scope="col">image</th>
+                                <th scope="col">text</th>
+                                <th scope="col">Action</th>
+
+
+                            </tr>
+
+                        </thead>
+                        <tbody id="live-news">
+                            <tr *ngFor="let item of LiveNewsList,let idx = index">
+                                <th scope="row">{{idx+1}}</th>
+                                <td>{{item.newsId}}</td>
+                                <td>
+                                    <img src={{item.imagesLink}} alt="not found" height="50px" width="80px">
+                                </td>
+                                <td>{{item.description}}</td>
+                                <td><button class="btn btn-danger" type="button" (click)="deleteNews(item.contentId)">
+                                        <i class="fa fa-trash"></i></button>
+                                </td>
+                                <td><button class="btn btn-warning"(click)="setvalue(item,1)" type="button" data-toggle="modal" data-target="#update-modal">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2 class="text-center text-danger">breaking-news <button type="button" class="btn btn-primary "
+                            data-toggle="modal" data-target="#breaking-modal">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i>
+                        </button></h2>
+                    <table class="table table-striped">
+
+                        <thead class="table-head">
+                            <tr>
+                                <th scope="col">SrNo</th>
+                                <th scope="col">NewsId</th>
+                                <th scope="col">image</th>
+                                <th scope="col">text</th>
+                                <th scope="col">Action</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="breaking-news">
+                            <tr *ngFor="let item of BreakingNewsList,let idx = index">
+                                <th scope="row">{{idx+1}}</th>
+                                <td>{{item.newsId}}</td>
+                                <td><img src={{item.imagesLink}} alt="" height="50px" width="80px"></td>
+
+                                <td>{{item.description}}</td>
+                                <td><button class="btn btn-danger" type="button" (click)="deleteNews(item.contentId)">
+                                        <i class="fa fa-trash"></i></button>
+                                </td>
+                                <td><button class="btn btn-warning"(click)="setvalue(item,2)" type="button" data-toggle="modal" data-target="#update-modal-br">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2 class="text-center text-danger">budget-2021 <button type="button" class="btn btn-primary"
+                            data-toggle="modal" data-target="#budegt-modal">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i>
+                        </button></h2>
+                    <table class="table table-striped">
+
+                        <thead class="table-head">
+                            <tr>
+                                <th scope="col">SrNo</th>
+                                <th scope="col">NewsId</th>
+                                <th scope="col">image</th>
+
+                                <th scope="col">text</th>
+                                <th scope="col">Action</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="budget-2021">
+                            <tr *ngFor="let item of budgetNewsList,let idx = index">
+                                <th scope="row">{{idx+1}}</th>
+                                <td>{{item.newsId}}</td>
+                                <td><img src={{item.imagesLink}} alt="" height="50px" width="80px"></td>
+
+                                <td>{{item.description}}</td>
+                                <td><button class="btn btn-danger" type="button" (click)="deleteNews(item.contentId)">
+                                        <i class="fa fa-trash"></i></button> </td>
+                                        <td><button class="btn btn-warning"(click)="setvalue(item,3)" type="button" data-toggle="modal" data-target="#update-modal-bud">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+</section>
+<!-- all modal 
+ -->
+<div class="modal fade" id="breaking-modal" tabindex="-1" role="dialog" aria-labelledby="#breaking-modal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Breaking-news</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="Breaking_news_Form" (ngSubmit)="AddBreakingNews()">
+                    <div class="form-group">
+                        <label for="heading">Add Title
+                            <input type="text" class="form-control" name="heading" id="h3-1"></label>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="image-src">Add image</label>
+                        <input type="file" class="form-control" formControlName="imagesLink"
+                            (change)="onFileChanged_Br($event)" name="img-src" id="img1">
+                        <small *ngIf="imagesLink &&!imagesLink.valid && (imagesLink.dirty ||imagesLink.touched)"
+                            class="validationError Form-error">
+                            Choose A file
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Information</label>
+                            <textarea name="data" id="info1" formControlName="description" cols="30" rows="10"
+                                class="form-control">
+                            <small *ngIf="imagesLink &&!imagesLink.valid && (imagesLink.dirty ||imagesLink.touched)" class="validationError Form-error">
+                                description required
+                                </small>
+                        </textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit"[disabled]=!Breaking_news_Form.valid>Submit</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="budegt-modal" tabindex="-1" role="dialog" aria-labelledby="budegt-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Budget-2021</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="Breaking_news_Form" (ngSubmit)="AddBudgetNews()">
+                    <div class="form-group">
+                        <label for="heading">Add Title
+                            <input type="text" class="form-control" name="heading" id="h32"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-src">Add image</label>
+                        <input type="file" class="form-control" (change)="onFileChanged_Bud($event)"
+                            formControlName="imagesLink" name="img-src" id="img2">
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Information</label>
+                        <textarea name="data" id="info2" formControlName="description" cols="30" rows="10"
+                            class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="news-card-modal" tabindex="-1" role="dialog" aria-labelledby="news-card-modal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Live-News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="Breaking_news_Form" (ngSubmit)="AddLiveNews()">
+                    <div class="form-group">
+                        <label for="heading">Add Title
+                            <input type="text" class="form-control" name="heading" id="h3-3"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-src">Add image</label>
+                        <input type="file" class="form-control" (change)="onFileChanged_Lv($event)"
+                            formControlName="imagesLink" name="img-src" id="img3">
+                        <span id="movie-image"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Information</label>
+                        <textarea name="data" id="info3 " formControlName="description" cols="30" rows="10"
+                            class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<section id="update-modal-section">
+<!--Live News updaing Modal-->
+<div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="update-modal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update-Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="update_Lv(f)" #f="ngForm">
+                    <div class="form-group">
+                        <label for="heading">Add Title
+                            <input type="text" class="form-control" name="heading" id="h3-3"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-src">Add image</label>
+                        <input type="file" class="form-control" (change)="onUpdateFileChanged_Lv($event)"
+                             name="updated_link"  >
+                        <span>Current Uploaded Img Preview</span>
+                       <img src="{{Live_link}}" alt="" srcset="">
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Information</label>
+                        <textarea name="data" id="info3 "  cols="30" rows="10"
+                        name="updated_description" [(ngModel)]="updated_description"   class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breaking news updating modal -->
+
+<div class="modal fade" id="update-modal-br" tabindex="-1" role="dialog" aria-labelledby="update-modal-br"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update-Modal(Breaking-news)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="update_Br(f)" #f="ngForm">
+                    <div class="form-group">
+                        <label for="heading">Add Title
+                            <input type="text" class="form-control" name="heading" id="h3-3"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-src">Add image</label>
+                        <input type="file" class="form-control" (change)="onUpdateFileChanged_Br($event)"
+                             name="updated_link" [(ngModel)]="updated_link" >
+                        <span>Current Uploaded Img Preview</span>
+                       <img src="{{Live_link}}" alt="" srcset="">
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Information</label>
+                        <textarea name="data" id="info3 "  cols="30" rows="10"
+                        name="updated_description" [(ngModel)]="updated_description"   class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- budget2021 news updating modal -->
+<div class="modal fade" id="update-modal-bud" tabindex="-1" role="dialog" aria-labelledby="update-modal-bud"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update-Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="update_Bud(f)" #f="ngForm">
+                    <div class="form-group">
+                        <label for="heading">Add Title
+                            <input type="text" class="form-control" name="heading" id="h3-3"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-src">Add image</label>
+                        <input type="file" class="form-control" (change)="onUpdateFileChanged_Bud($event)"
+                             name="updated_link"   >
+                        <span>Current Uploaded Img Preview</span>
+                       <img src="{{Live_link}}" alt="" srcset="">
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Information</label>
+                        <textarea name="data" id="info3 "  cols="30" rows="10"
+                        name="updated_description" [(ngModel)]="updated_description"  class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>

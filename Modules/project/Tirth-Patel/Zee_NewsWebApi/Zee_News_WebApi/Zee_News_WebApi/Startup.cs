@@ -75,6 +75,16 @@ namespace Zee_News_WebApi
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
                 };
             });
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "policy1",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                      .AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,10 +100,10 @@ namespace Zee_News_WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseAuthentication();
+           // app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCors("policy1");
 
-           
 
             app.UseEndpoints(endpoints =>
             {

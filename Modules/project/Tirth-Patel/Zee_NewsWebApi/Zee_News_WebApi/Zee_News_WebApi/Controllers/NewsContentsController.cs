@@ -13,7 +13,7 @@ using Zee_News_WebApi.Authentication;
 
 namespace Zee_News_WebApi.Controllers
 {
-    [Authorize]
+   
     [Route("api/[controller]")]
     [ApiController]
     public class NewsContentsController : ControllerBase
@@ -38,11 +38,16 @@ namespace Zee_News_WebApi.Controllers
         {
             return ContentRepo.GetById(id);
         }
-
+        //GET : api/Newscontents/NewsHeader/5
+        [HttpGet ("NewsHeader/{id}")]
+        public IEnumerable<NewsContent> GetHeaderWiseNews(int id)
+        {
+            return ContentRepo.getByNewsId(id);
+        }
         // PUT: api/NewsContents/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize(Roles = UserRoles.Admin)]
-        [HttpPut("{id}")]
+       
+        [HttpPut]
         public NewsContent Update(NewsContent news)
         {
             ContentRepo.Update(news);
@@ -51,7 +56,7 @@ namespace Zee_News_WebApi.Controllers
 
         // POST: api/NewsContents
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize(Roles = UserRoles.Admin)]
+     
         [HttpPost]
         public NewsContent add(NewsContent news)
         {
@@ -60,7 +65,7 @@ namespace Zee_News_WebApi.Controllers
         }
 
         // DELETE: api/NewsContents
-        [Authorize(Roles = UserRoles.Admin)]
+    
         [HttpDelete]
         public IEnumerable<NewsContent> Delete(NewsContent news)
         {
@@ -68,5 +73,11 @@ namespace Zee_News_WebApi.Controllers
             return ContentRepo.GetAll();
         }
 
+        [HttpDelete("{id}")]
+        public IEnumerable<NewsContent> DeleteWithId(int id)
+        {
+            ContentRepo.DeleteWithId(id);
+            return ContentRepo.GetAll();
+        }
     }
 }

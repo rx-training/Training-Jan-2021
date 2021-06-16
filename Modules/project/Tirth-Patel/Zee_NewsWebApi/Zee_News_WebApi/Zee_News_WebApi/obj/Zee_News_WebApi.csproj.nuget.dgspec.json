@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Exercise\\project\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj": {}
+    "F:\\day4\\Modules\\project\\Tirth-Patel\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj": {}
   },
   "projects": {
-    "F:\\Exercise\\project\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj": {
+    "F:\\day4\\Modules\\project\\Tirth-Patel\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Exercise\\project\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj",
+        "projectUniqueName": "F:\\day4\\Modules\\project\\Tirth-Patel\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj",
         "projectName": "Zee_News_WebApi",
-        "projectPath": "F:\\Exercise\\project\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj",
+        "projectPath": "F:\\day4\\Modules\\project\\Tirth-Patel\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\Zee_News_WebApi.csproj",
         "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
-        "outputPath": "F:\\Exercise\\project\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\obj\\",
+        "outputPath": "F:\\day4\\Modules\\project\\Tirth-Patel\\Zee_NewsWebApi\\Zee_News_WebApi\\Zee_News_WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,13 +54,13 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
