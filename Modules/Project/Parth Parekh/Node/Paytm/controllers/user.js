@@ -55,9 +55,9 @@ router.post("/register", UserController.addUser);
 router.post("/login", UserController.loginUser);
 
 //Put Methods
-router.put("/:id", [verifytoken], UserController.updateUser);
+router.put("/:id/:id2", [verifytoken], UserController.updateUser);
 
 //Delete Methods
-router.delete("/:id", [verifytoken], UserController.deleteUser);
+router.delete("/:id", [adminverifytoken], UserController.deleteUser);
 
 module.exports = router;
