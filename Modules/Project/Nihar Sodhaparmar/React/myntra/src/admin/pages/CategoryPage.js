@@ -93,20 +93,22 @@ export default function CategoryPage(props) {
   };
 
   const deleteCategory = async (id) => {
-    try {
-      setLoading(true);
-      await CategoryService.deleteCategory(id, getToken());
-      getData();
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      if (error.response.status === 401) {
-        removeUserSession();
-        props.history.push("/login");
-      } else if (error.response.status === 409) {
-        alert(error.response.data);
+    if (window.confirm("Are you sure, you want to delete?")) {
+      try {
+        setLoading(true);
+        await CategoryService.deleteCategory(id, getToken());
+        getData();
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+        if (error.response.status === 401) {
+          removeUserSession();
+          props.history.push("/login");
+        } else if (error.response.status === 409) {
+          alert(error.response.data);
+        }
+        setLoading(false);
       }
-      setLoading(false);
     }
   };
 

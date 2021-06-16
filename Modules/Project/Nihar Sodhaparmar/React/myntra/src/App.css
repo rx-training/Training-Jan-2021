@@ -88,7 +88,7 @@ nav {
 
 .login-container {
   background: linear-gradient(to bottom right, #feedf6, #fcf0e2);
-  height: 100vh;
+  height: 105vh;
 }
 
 .btn-secondary:hover {
@@ -379,6 +379,21 @@ nav {
   padding: 0px 100px;
 }
 
+.ml-edit {
+  margin-left: auto;
+}
+
+.mr-edit {
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 508px) {
+  .ml-edit,
+  .mr-edit {
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 768px) {
   .register-form-control-label {
     padding: 0;
@@ -404,6 +419,8 @@ nav {
 }
 
 .line-2 {
+  line-height: 1.5em;
+  height: 3em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

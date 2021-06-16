@@ -93,19 +93,21 @@ export default function SubCategoriesPage(props) {
   };
 
   const deleteCategory = async (id) => {
-    try {
-      setLoading(true);
-      await SubCategoryService.deleteSubCategory(id, getToken());
-      getData();
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.error(error);
-      if (error.response.status === 401) {
-        removeUserSession();
-        props.history.push("/login");
-      } else if (error.response.status === 409) {
-        alert(error.response.data);
+    if (window.confirm("Are you sure, you want to delete?")) {
+      try {
+        setLoading(true);
+        await SubCategoryService.deleteSubCategory(id, getToken());
+        getData();
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.error(error);
+        if (error.response.status === 401) {
+          removeUserSession();
+          props.history.push("/login");
+        } else if (error.response.status === 409) {
+          alert(error.response.data);
+        }
       }
     }
   };

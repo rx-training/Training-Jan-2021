@@ -25,6 +25,8 @@ import BagPage from "./pages/BagPage";
 import OrdersPage from "./pages/OrdersPage";
 import RegisterPage from "./pages/RegisterPage";
 import Logout from "./components/Logout";
+import EditProfilePage from "./pages/EditProfilePage";
+import ForgetPasswordPage from "./pages/ForgetPasswordPage";
 
 // import admin pages
 import ProductsPage from "./admin/pages/ProductsPage";
@@ -36,6 +38,8 @@ import BrandsPage from "./admin/pages/BrandsPage";
 import OffersPage from "./admin/pages/OffersPage";
 import SubCategoriesPage from "./admin/pages/SubCategoriesPage";
 import SubCategoryWiseProductPage from "./pages/SubCategoryWiseProductPage";
+import UsersPage from "./admin/pages/UsersPage";
+import AdminRegisterPage from "./admin/pages/RegisterPage";
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -68,7 +72,9 @@ function App() {
         <PublicRoute path="/login" component={LoginPage} />
         <PrivateRoute path="/logout" component={Logout} />
         <PublicRoute path="/register" component={RegisterPage} />
+        <PublicRoute path="/forget-password" component={ForgetPasswordPage} />
         <PrivateRoute path="/profile" component={ProfilePage} />
+        <PrivateRoute path="/edit" component={EditProfilePage} />
         <PrivateRoute path="/wishlist" component={WishlistPage} />
         <PrivateRoute path="/bag" component={BagPage} />
         <PrivateRoute path="/orders" component={OrdersPage} />
@@ -98,6 +104,12 @@ function App() {
         <AdminRoute
           path="/dashboard/sub-categories"
           component={SubCategoriesPage}
+        />
+        <AdminRoute path="/dashboard/users" component={UsersPage} />
+        <AdminRoute
+          exact
+          path="/dashboard/register"
+          component={AdminRegisterPage}
         />
         <Route path="/product/:id" component={ProductPage} />
         <Route path="*" component={ErrorPage} />

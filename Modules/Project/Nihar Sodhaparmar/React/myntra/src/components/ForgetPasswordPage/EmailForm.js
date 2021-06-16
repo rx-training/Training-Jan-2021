@@ -20,10 +20,10 @@ export default function EmailForm({
             className="text-center text-highlighted"
             style={{ fontSize: "25px", letterSpacing: "2px" }}
           >
-            <span>Signup</span>
+            {/* <span>Signup</span> */}
           </div>
           <form onSubmit={submitEmail}>
-            <div className="form-group mt-4">
+            <div className="form-group mt-5">
               <label className="form-control-label" htmlFor="email">
                 Email
               </label>
@@ -40,19 +40,15 @@ export default function EmailForm({
                 {errors.email}
               </p>
             </div>
-            <div className="text-muted mt-4 pt-1">
-              By Continuing, I agree to the{" "}
-              <span className="text-highlighted">Terms of Usage</span> &#38;{" "}
-              <span className="text-highlighted">Privacy Policy</span>
-            </div>
-            <div className="mt-3">
+
+            <div className="mt-4">
               <input
                 className="btn btn-block login-btn"
                 type="submit"
                 value="Continue"
               />
             </div>
-            <div style={{ paddingTop: "60px" }}></div>
+            <div style={{ paddingTop: "50px" }}></div>
           </form>
         </div>
       </div>

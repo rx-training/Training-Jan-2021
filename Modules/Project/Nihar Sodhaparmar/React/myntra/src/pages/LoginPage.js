@@ -122,13 +122,22 @@ export default function LoginPage(props) {
                   value="Login"
                 />
               </div>
-              <div className="text-muted mt-4">
+              <div className="text-muted mt-3 text-center">
                 Don't have an account?{" "}
                 <Link className="text-highlighted register-link" to="/register">
                   Register
                 </Link>
               </div>
-              <div style={{ paddingTop: "20px" }}></div>
+              <div className="text-muted mt-1 text-center">
+                Forget Password?{" "}
+                <Link
+                  className="text-highlighted register-link"
+                  to="/forget-password"
+                >
+                  Change Password
+                </Link>
+              </div>
+              <div style={{ paddingTop: "25px" }}></div>
             </form>
           </div>
         </div>

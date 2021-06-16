@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import CustomerService from "../services/CustomerService";
-import CountryService from "../services/CountryService";
-import StateService from "../services/StateService";
-import CityService from "../services/CityService";
+import SellerService from "../../services/SellerService";
+import CountryService from "../../services/CountryService";
+import StateService from "../../services/StateService";
+import CityService from "../../services/CityService";
 import Navbar from "../components/Navbar";
-import RegisterForm from "../components/RegisterPage/RegisterForm";
-import EmailForm from "../components/RegisterPage/EmailForm";
-import OtpService from "../services/OtpService";
-import Loading from "../components/Loading";
-import OtpForm from "../components/RegisterPage/OtpForm";
+import RegisterForm from "../../components/RegisterPage/RegisterForm";
+import EmailForm from "../../components/RegisterPage/EmailForm";
+import OtpService from "../../services/OtpService";
+import Loading from "../../components/Loading";
+import OtpForm from "../../components/RegisterPage/OtpForm";
 
 export default function RegisterPage(props) {
   // ********** LOADING **********
@@ -280,7 +280,7 @@ export default function RegisterPage(props) {
 
     if (name === "email") {
       try {
-        await CustomerService.getCustomerByEmail(value);
+        await SellerService.getSellerByEmail(value);
         error = "Email is already used";
         setIsBtnDisable(true);
       } catch (error) {
@@ -319,7 +319,7 @@ export default function RegisterPage(props) {
 
     if (email) {
       try {
-        await CustomerService.getCustomerByEmail(email);
+        await SellerService.getSellerByEmail(email);
         setErrors({ ...errors, email: "Email is already used" });
         setIsBtnDisable(true);
         return;
@@ -334,7 +334,7 @@ export default function RegisterPage(props) {
     if (isValidForm) {
       try {
         let data = {
-          customerName: name,
+          sellerName: name,
           email,
           contactNumber,
           dob,
@@ -350,7 +350,7 @@ export default function RegisterPage(props) {
           },
         };
 
-        await CustomerService.addCustomer(data);
+        await SellerService.addSeller(data);
 
         setCustomer({
           name: "",
@@ -364,8 +364,11 @@ export default function RegisterPage(props) {
           addressLine2: "",
           pincode: "",
           city: "",
+          state: "",
+          country: "",
         });
 
+        alert("Added Successfully");
         props.history.push("/login");
       } catch (error) {
         console.error(error.message);
@@ -380,7 +383,7 @@ export default function RegisterPage(props) {
     let isValidEmail = emailValidation(email);
     if (isValidEmail === null) {
       try {
-        await CustomerService.getCustomerByEmail(email);
+        await SellerService.getSellerByEmail(email);
         setErrors({ ...errors, email: "Email is already used" });
         return;
       } catch (error) {

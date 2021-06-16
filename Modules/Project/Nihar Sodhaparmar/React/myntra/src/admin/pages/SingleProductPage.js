@@ -40,20 +40,22 @@ export default function SingleProductPage(props) {
   };
 
   const deleteProduct = async (id) => {
-    try {
-      setLoading(true);
-      await ProductService.deleteProduct(id, getToken());
-      setLoading(false);
-      props.history.push("/dashboard/products");
-    } catch (error) {
-      console.error(error);
-      if (error.response.status === 403 || error.response.status === 401) {
-        props.history.push("/login");
-        removeUserSession();
-      } else if (error.response.status === 409) {
-        alert(error.response.data);
+    if (window.confirm("Are you sure, you want to delete?")) {
+      try {
+        setLoading(true);
+        await ProductService.deleteProduct(id, getToken());
+        setLoading(false);
+        props.history.push("/dashboard/products");
+      } catch (error) {
+        console.error(error);
+        if (error.response.status === 403 || error.response.status === 401) {
+          props.history.push("/login");
+          removeUserSession();
+        } else if (error.response.status === 409) {
+          alert(error.response.data);
+        }
+        setLoading(false);
       }
-      setLoading(false);
     }
   };
 

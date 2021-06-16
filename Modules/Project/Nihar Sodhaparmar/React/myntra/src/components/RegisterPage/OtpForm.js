@@ -8,7 +8,7 @@ export default function OtpForm({
 }) {
   return (
     <div className="login-container py-5">
-      <div className="container bg-white p-0" style={{ width: "360px" }}>
+      <div className="container bg-white p-0 mt-5" style={{ width: "360px" }}>
         <img
           src="https://constant.myntassets.com/pwa/assets/img/banner_login_landing_300.jpg"
           alt=""
@@ -35,11 +35,11 @@ export default function OtpForm({
                 onChange={userOtpChange}
               />
               <p className="text-danger mb-0 font-weight-bold">{otpError}</p>
-              <div className="text-muted mt-4 pt-1">
+              {/* <div className="text-muted mt-4 pt-1">
                 By Continuing, I agree to the{" "}
                 <span className="text-highlighted">Terms of Usage</span> &#38;{" "}
                 <span className="text-highlighted">Privacy Policy</span>
-              </div>
+              </div> */}
               <div className="mt-4">
                 <input
                   className="btn btn-block login-btn"
@@ -47,7 +47,7 @@ export default function OtpForm({
                   value="Verify"
                 />
               </div>
-              <div style={{ paddingTop: "60px" }}></div>
+              <div style={{ paddingTop: "40px" }}></div>
             </div>
           </form>
         </div>

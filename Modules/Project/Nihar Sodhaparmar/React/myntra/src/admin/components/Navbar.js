@@ -65,6 +65,11 @@ export default function NavBar() {
                 OFFERS
               </Link>
             </li>
+            <li className="nav-item px-2">
+              <Link to="/dashboard/users" className="nav-link">
+                USERS
+              </Link>
+            </li>
           </ul>
           <ul className="navbar-nav ml-auto px-3 py-2">
             <li className="nav-item px-2">
