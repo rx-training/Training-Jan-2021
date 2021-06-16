@@ -30,14 +30,14 @@ class Otp {
                 Myntra
               </a>
             </div>
-            <p style="font-size:1.1em">Hi,</p>
-            <p>
+            <p style="font-size:1.3em">Hi,</p>
+            <p style="font-size:1.2em">
               Thank you for choosing Myntra. Use the following OTP for the Email verification
             </p>
             <h2 style="background: #ff3f6c;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;letter-spacing:2px">
               ${otp}
             </h2>
-            <p style="font-size:0.9em;">
+            <p style="font-size:1.2em;">
               Regards,
               <br />
               Myntra

@@ -40,6 +40,18 @@ class CustomersController {
     const customerDomain = new CustomerDomain();
     customerDomain.getCustomerByEmail(req, res);
   }
+
+  // update password
+  static async updatePassword(req, res) {
+    const customerDomain = new CustomerDomain();
+    customerDomain.updatePassword(req, res);
+  }
+
+  // forget password
+  static async forgetPassword(req, res) {
+    const customerDomain = new CustomerDomain();
+    customerDomain.forgetPassword(req, res);
+  }
 }
 
 // add customer
@@ -52,7 +64,15 @@ router.get("/:customerId", auth, CustomersController.getCustomerById);
 router.put("/:customerId", auth, CustomersController.updateCustomer);
 // delete customer
 router.delete("/:customerId", auth, CustomersController.deleteCustomer);
-// get customer y email
+// get customer by email
 router.get("/email/:email", CustomersController.getCustomerByEmail);
+// update password
+router.put(
+  "/change-password/:customerId",
+  auth,
+  CustomersController.updatePassword
+);
+// forget password
+router.put("/forget-password/:customerId", CustomersController.forgetPassword);
 
 module.exports = router;

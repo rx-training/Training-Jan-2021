@@ -86,6 +86,7 @@ class CustomerDomain {
         "dob",
         "gender",
         "address",
+        "password",
       ])
     );
   }
@@ -113,8 +114,8 @@ class CustomerDomain {
     }
 
     try {
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(req.body.password, salt);
+      // const salt = await bcrypt.genSalt(10);
+      // const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
       customer.set({
         customerName: req.body.customerName,
@@ -122,7 +123,7 @@ class CustomerDomain {
         contactNumber: req.body.contactNumber,
         dob: req.body.dob,
         gender: req.body.gender,
-        password: hashedPassword,
+        password: req.body.password,
         address: {
           addressLine1: req.body.address.addressLine1,
           addressLine2: req.body.address.addressLine2,
@@ -202,6 +203,114 @@ class CustomerDomain {
         "address",
       ])
     );
+  }
+
+  // update password
+  async updatePassword(req, res) {
+    const customerId = req.params.customerId;
+
+    var { error } = Joi.validate(customerId, Joi.objectId().required());
+
+    if (error) {
+      return res.status(400).send(error.details[0].message);
+    }
+
+    const passwords = {
+      oldPassword: req.body.oldPassword,
+      newPassword: req.body.newPassword,
+    };
+
+    const validatePasswords = {
+      oldPassword: Joi.string()
+        .regex(
+          new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})"
+          )
+        )
+        .required(),
+      newPassword: Joi.string()
+        .regex(
+          new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})"
+          )
+        )
+        .required(),
+    };
+
+    var { error } = Joi.validate(passwords, validatePasswords);
+
+    if (error) {
+      return res.status(400).send(error.details[0].message);
+    }
+
+    const customer = await Customer.findById(customerId);
+
+    if (!customer) {
+      return res.status(404).send("Customer not found");
+    }
+
+    const validPassword = await bcrypt.compare(
+      passwords.oldPassword,
+      customer.password
+    );
+
+    if (!validPassword) {
+      return res.status(400).send("Invalid old password");
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(passwords.newPassword, salt);
+
+    let result = await Customer.updateOne(
+      { _id: customerId },
+      { $set: { password: hashedPassword } }
+    );
+
+    res.send(result);
+  }
+
+  // forget password
+  async forgetPassword(req, res) {
+    const customerId = req.params.customerId;
+
+    var { error } = Joi.validate(customerId, Joi.objectId().required());
+
+    if (error) {
+      return res.status(400).send(error.details[0].message);
+    }
+
+    const newPassword = req.body.newPassword;
+
+    var { error } = Joi.validate(
+      newPassword,
+      Joi.string()
+        .regex(
+          new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})"
+          )
+        )
+        .required()
+    );
+
+    if (error) {
+      return res.status(400).send(error.details[0].message);
+    }
+
+    const customer = await Customer.findById(customerId);
+
+    if (!customer) {
+      return res.status(404).send("Customer not found");
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+    let result = await Customer.updateOne(
+      { _id: customerId },
+      { $set: { password: hashedPassword } }
+    );
+
+    res.send(result);
   }
 }
 
