@@ -1,29 +1,44 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CrisisListComponent } from './crisis-list/crisis-list.component';
 
-import { FirstComponent } from './first/first.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroListComponent } from './hero-list/hero-list.component';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SecondComponent } from './second/second.component';
 
+import { AuthGuard } from './auth/auth.guard';
+import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
-const routes: Routes = [
-  { path: 'first-component/:name', component: FirstComponent },
-  { path: 'second-component', component: SecondComponent },
-  { path: 'crisis-center', component: CrisisListComponent },
-  { path: 'heroes', component: HeroListComponent },
-  { path: 'hero/:id/:name', component: HeroDetailComponent },
-  { path: 'x',   redirectTo: '/heroes', pathMatch: 'full' },
-  { path: 'y',   redirectTo: '/heroes', pathMatch: 'prefix' }, // e.g. => /y/xyz 
+const appRoutes: Routes = [
+  {
+    path: 'compose',
+    component: ComposeMessageComponent,
+    outlet: 'popup'
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'crisis-center',
+    loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule),
+    data: { preload: true }
+  },
+  { path: '',   redirectTo: '/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,
-    //  {enableTracing : true }
-     )],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      {
+        enableTracing: false, // <-- debugging purposes only
+        preloadingStrategy: SelectivePreloadingStrategyService,
+      }
+    )
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }

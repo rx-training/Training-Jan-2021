@@ -29,12 +29,19 @@ namespace UberAPI.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
 
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual Location DestinationLocation { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual Driver Driver { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual RideType RideType { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual Rider Rider { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual Location SourceLocation { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<RatingRider> RatingRiders { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<Rating> Ratings { get; set; }
     }
 }

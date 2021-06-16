@@ -18,7 +18,10 @@ namespace UberAPI.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
 
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual RideType CurrentRideType { get; set; }
+
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual Driver Driver { get; set; }
     }
 }

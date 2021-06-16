@@ -20,7 +20,9 @@ namespace UberAPI.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
 
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<Trip> Trips { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }

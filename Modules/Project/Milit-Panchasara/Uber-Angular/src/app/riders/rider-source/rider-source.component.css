@@ -1,0 +1,44 @@
+#map {
+    height: 90vh;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    box-shadow: 5px 5px 25px;
+    border-top: 15px solid black;
+}
+
+.dropdown-menu a{
+    margin: 15px auto !important;;
+}
+
+#map .div:nth-child(2) {
+    display: none !important;
+}
+
+@media only screen and (max-width: 991px) {
+    #map {
+        height: 40vh !important;
+        position: absolute !important;
+        top: 0;
+        z-index: -1;
+    }
+
+    .navbar {
+        background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    .gm-control-active {
+        display: none;
+    }
+
+    .card {
+        width: 100% !important;
+        height: 60vh;
+        position:absolute;
+        top: 40vh;
+    }
+}

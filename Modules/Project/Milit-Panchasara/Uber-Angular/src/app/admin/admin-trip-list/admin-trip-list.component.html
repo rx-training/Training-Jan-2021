@@ -1,0 +1,48 @@
+<div class="mx-2">
+    <h1 class=" display-4">Trips:</h1>
+    <div class="row">
+        <div class="col-12">
+
+            <ag-grid-angular
+            style="width: 100%; height: 500px;"
+            class="ag-theme-alpine"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+            [paginationAutoPageSize]="true"
+            [pagination]="true"
+            >
+            </ag-grid-angular>
+        </div>
+    </div>
+    <!-- <table class=" table table-bordered table-hover" id="trips-table">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Trip ID</th>
+                <th>Rider ID</th>
+                <th>Driver ID</th>
+                <th>Ride Type</th>
+                <th>Pickup ID</th>
+                <th>Destination ID</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Cancelled by</th>
+                <th>Trip cost</th>
+            </tr>
+        </thead>
+        <tbody id="tripdata-table-body">
+            <tr *ngFor="let trip of localAdminService.allData.trips">
+                <td>{{trip.tripId}}</td>
+                <td>{{trip.riderId}}</td>
+                <td>{{trip.driverId}}</td>
+                <td>{{trip.rideTypeId}}</td>
+                <td>{{trip.sourceLocationId}}</td>
+                <td>{{trip.destinationLocationId}}</td>
+                <td>{{trip.startTime}}</td>
+                <td>{{trip.endTime}}</td>
+                <td>{{trip.cancelledBy}}</td>
+                <td>{{trip.actualFairAmount | number:'1.2-2'}}</td>
+            </tr>
+        </tbody>
+    </table> -->
+    
+</div>

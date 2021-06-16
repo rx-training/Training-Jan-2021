@@ -1,0 +1,73 @@
+<div class="mx-2">
+    <h1 class=" display-4">Ride Types:</h1>
+    <button class="my-3 btn btn-sm btn-primary" (click)="setForm(0)" data-toggle="modal" data-target="#ridetype-modal"><i class="fa fa-plus"></i> Add new type</button>
+    <table class=" table table-bordered table-hover" id="trips-table">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Ride Type ID</th>
+                <th>Ride Name</th>
+                <th>Price per Km</th>
+                <th>Capacity</th>
+                <th>Created At</th>
+                <th>Modified At</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tripdata-table-body">
+            <tr *ngFor="let rideType of localAdminService.allData.rideTypes">
+                <td>{{rideType.rideTypeId}}</td>
+                <td>{{rideType.rideName}}</td>
+                <td>{{rideType.pricePerKm}}</td>
+                 <td>{{rideType.seatingCapacity}}</td>
+                <td>{{rideType.createdAt | slice:0:22}}</td>
+                <td>{{rideType.modifiedAt | slice:0:22}}</td>
+                <td>
+                    <button class="btn btn-sm btn-primary" (click)="setForm(rideType.rideTypeId)" data-toggle="modal" data-target="#ridetype-modal">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+
+ <!-- ----- modal ----- -->
+ <div class=" modal fade col-12 offset-md-3 col-md-6 h-auto" id="ridetype-modal" tabindex="1">
+    <div class=" modal-dialog">
+        <div class=" modal-content">
+            <div class=" modal-header bg-dark text-white">
+                <h1 class=" modal-title h5"*ngIf="rideTypeForm.rideTypeId == null">Add Ride Type:</h1>
+                <h1 class=" modal-title h5"*ngIf="rideTypeForm.rideTypeId != null">Edit Ride Type:</h1>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class=" modal-body border" style="background-color: rgb(235, 235, 235);">
+                <form class="form" id="add-category-form">
+                    <div class="form-group">
+                        <label for="rideName">Ride Name</label>
+                        <input type="text" class="form-control" name="rideName" id="rideName" [(ngModel)]="rideTypeForm.rideName">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                        <label for="capacity">Seating Capacity</label>
+                        <input type="number" class="form-control" name="capacity" id="capacity" [(ngModel)]="rideTypeForm.seatingCapacity">
+                    </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                        <label for="ppk">Price per Km</label>
+                        <input type="number" class="form-control" name="ppk" id="ppk" [(ngModel)]="rideTypeForm.pricePerKm">
+                    </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-right border" style="background-color: rgb(180, 180, 180);">
+                <button class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                <button class="btn btn-dark btn-sm" data-dismiss="modal" type="button" form="add-category-form" *ngIf="rideTypeForm.rideTypeId == null" (click)="addRideType()">Add</button>
+                <button class="btn btn-dark btn-sm" data-dismiss="modal" type="button" form="add-category-form" *ngIf="rideTypeForm.rideTypeId != null" (click)="updateRideType()">Update</button>
+            </div>
+        </div>
+        
+    </div>
+</div>

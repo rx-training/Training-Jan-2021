@@ -9,8 +9,12 @@ namespace UberAPI.Code.Interfaces
     public interface ITripRepo : IGenericRepo<Trip>
     {
         IEnumerable<VTripsData> GetAllTrips(int id);
+        IEnumerable<VTripsData> GetAllTripsForDriver(int id);
         VTripsData GetTrip(long id, long tripId );
-        VTripsData SetNewTrip(int id, Location source, Location destination, RideType rideType);
+        VTripsData GetTripForDriver(long id, long tripId);
+        VTripsData SetNewTrip(int id, long riderId, Location source, Location destination, RideType rideType);
         VTripsData UpdateTrip(UpdateTripInput updateTripInput);
+
+        long? FindDriver(long rideTypeId);
     }
 }

@@ -9,6 +9,7 @@ namespace UberAPI.Models
     [NotMapped]
     public class NewTripInput
     {
+        public long RiderId { get; set; }
         public long DestinationId { get; set; }
         public long SourceId { get; set; }
         public long RideTypeId { get; set; }

@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<div class="mx-2">
+    <h1 class=" display-4">Riders:</h1>
+    <div class="row">
+        <div class="col-12 offset-md-1 col-md-10">
+
+            <ag-grid-angular
+            #agGrid
+            id="myGrid"
+            style="width: 100%; height: 400px;"
+            class="ag-theme-alpine"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+            [frameworkComponents]="frameworkComponents"
+            [pagination]="true"
+            >
+            </ag-grid-angular>
+        </div>
+    </div>
+    
+<!--     
+    <table class=" table table-bordered table-hover" id="users-table">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Date joined</th>
+                <th>Total money spent</th>
+                <th>Total Trips</th>
+                <th>Trips Cancelled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="userdata-table-body">
+            <tr *ngFor="let rider of localAdminService.allData.riders">
+                <td>{{rider.riderId}}</td>
+                <td>{{rider.firstName}} {{rider.lastName}}</td>
+                <td>{{rider.email}}</td>
+                <td>{{rider.contactNumber}}</td>
+                <td>{{rider.createdAt}}</td>
+                <td>{{ totalMoneySpent(rider.riderId)}}</td>
+                <td>{{ totalTrips(rider.riderId)}}</td>
+                <td>{{ totalCancelledTrips(rider.riderId)}}</td>
+                <td>
+                    <button *ngIf="rider.isBlocked" class="btn btn-sm btn-success" (click)="unblockRider(rider.riderId)">Unblock</button>
+                    <button *ngIf="!rider.isBlocked" class="btn btn-sm btn-danger" (click)="blockRider(rider.riderId)">Block</button>
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+    
+</div>

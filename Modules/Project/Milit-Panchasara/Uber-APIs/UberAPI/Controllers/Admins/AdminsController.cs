@@ -17,10 +17,18 @@ namespace UberAPI.Controllers.Admins
     public class AdminsController : ControllerBase
     {
         private readonly IAdminRepo adminRepo;
+        private readonly IRiderRepo riderRepo;
+        private readonly IDriverRepo driverRepo;
+        private readonly ITripRepo tripRepo;
+        private readonly IRideTypeRepo rideTypeRepo;
 
-        public AdminsController(IAdminRepo adminRepo)
+        public AdminsController(IAdminRepo adminRepo, IRiderRepo riderRepo, IDriverRepo driverRepo, ITripRepo tripRepo, IRideTypeRepo rideTypeRepo)
         {
             this.adminRepo = adminRepo;
+            this.riderRepo = riderRepo;
+            this.driverRepo = driverRepo;
+            this.tripRepo = tripRepo;
+            this.rideTypeRepo = rideTypeRepo;
         }
 
         //POST: api/admins/{id}/rider/{rid}
@@ -41,6 +49,20 @@ namespace UberAPI.Controllers.Admins
             {
                 return new Response() { Status = "0", Message = "Error occured!" };
             }
+        }
+    
+        //POST: api/admins/allUsers
+        [HttpGet("allUsers")]
+        public ActionResult<object> GetUsers()
+        {
+            var userData = new {
+                Riders = riderRepo.Index().ToList(),
+                Drivers = driverRepo.Index().ToList(),
+                Trips = tripRepo.Index().ToList(),
+                RideTypes = rideTypeRepo.Index().ToList()
+            };
+
+            return userData;
         }
     }
 }

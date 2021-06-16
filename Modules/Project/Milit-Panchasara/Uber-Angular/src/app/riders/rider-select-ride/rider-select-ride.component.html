@@ -1,0 +1,27 @@
+<div class=" mx-lg-5 my-lg-4 m-0 card" style="z-index: 1;border-radius: 0;width: 400px; height: 75%;position: absolute;">
+    <div class="card-header bg-primary d-none d-lg-block" style="border-radius: 0;">
+        <h3 id="pickup-txt" class="text-white mt-5">From {{source.locationName}}</h3>
+        <h3 id="destination-txt" class="text-white mb-4">To {{destination.locationName}}</h3>
+    </div>
+    <div class=" card-body px-0">
+        <ul class="w-100 m-0 p-0" id="rides-list" style="height: 50%;overflow-y: scroll;">
+            <li class="px-3" id="ride_{{type.rideTypeId}}" *ngFor="let type of rideTypes;" (click)="setRideType(type.rideTypeId)">
+                <img src="../../../assets/img/auto-icon.png" class="img-fluid" height="75px" width="75px" *ngIf="type.rideName == 'UberAuto'">
+                <img src="../../../assets/img/bike-icon.png" class="img-fluid" height="75px" width="75px" *ngIf="type.rideName == 'Moto' ">
+                <img src="../../../assets/img/car-icon.png" class="img-fluid" height="75px" width="75px" *ngIf="type.rideName != 'UberAuto' && type.rideName != 'Moto'">
+                <h5 class="d-inline">
+                {{type.rideName}}</h5><i class="fa fa-users"></i> {{type.seatingCapacity}}<span class="float-right mt-4">{{type.pricePerKm * calculateDistance() | number:'1.2-2'}} &#8377;</span></li><hr class="m-0">
+        </ul>
+        <hr> 
+        <p class="mx-3"><i class="fa fa-money text-success" style="background-color: greenyellow;"></i> Cash<i class="fa fa-angle-down float-right font-weight-bold"></i></p>
+        
+        <div class="pb-3 px-3" >
+            <button class="btn btn-dark btn-black w-100" id="bookRide-btn" [disabled]="!isSelected" *ngIf="!searching" (click)="searchDriver()"><h4>Request</h4></button>
+            <button class="btn btn-dark btn-black w-100" id="bookRide-btn" *ngIf="searching" (click)="cancelTripSearch()"><h4>Cancel search</h4></button>
+        </div>    
+    </div>
+</div>
+
+<div id="map">
+    <google-map height="90vh" width="100hw" [center]="{'lat':lat, 'lng':lng}" [zoom]="12"></google-map>
+</div>

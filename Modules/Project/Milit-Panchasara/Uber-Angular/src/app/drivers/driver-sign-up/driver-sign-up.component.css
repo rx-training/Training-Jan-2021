@@ -1,0 +1,9 @@
+#header {
+    background-image: url("../../../assets/img/signup-pattern.png");
+    background-size: contain;
+    /* background-repeat: repeat-x; */
+}
+
+.form-control {
+    height: 50px !important;
+}
