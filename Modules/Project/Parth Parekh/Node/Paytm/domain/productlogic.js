@@ -50,15 +50,16 @@ class ProductData {
         const data = req.body;
         // console.log(req.files);
         let dd = [];
+        const host = req.headers.host;
         for (let i of req.files.moreInfo) {
-            dd.push(`http://localhost:9000/${i.path}`);
+            dd.push(`http://${host}//${i.path}`);
         }
         const pdata = {
             ProductName: data.ProductName,
             ProductCategory: data.ProductCategory,
             Rating: parseFloat(data.Rating),
             ProductType: data.ProductType,
-            image: `http://localhost:9000/${req.files.image[0].path}`,
+            image: `http://${host}/${req.files.image[0].path}`,
             featured: data.featured,
             moreInfo: dd,
             Spec: data.Spec,
