@@ -7,4 +7,4 @@ app.use(cors());
 
 app.use('/',Controllers);
 
-app.listen(80);
+app.listen(3004);

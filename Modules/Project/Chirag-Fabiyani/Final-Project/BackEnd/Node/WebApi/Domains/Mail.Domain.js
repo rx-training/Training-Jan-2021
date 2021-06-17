@@ -3,16 +3,16 @@ const nodemailer = require("nodemailer");
 
 async function main(recipient,message) {
   let transporter = nodemailer.createTransport({
-     host: "smtp.gmail.com",
+    host: "smtp.gmail.com",
     auth: {
-      user: "chiragfabiyani.cf",
-      pass: "1234chifab" 
+      user: "react.olx.clone@gmail.com",
+      pass: "1234Olxclone@" 
     },
   });
 
 
   await transporter.sendMail({
-    from: 'Chirag', 
+    from: 'Olx Admin', 
     to: recipient,
     subject: "Olx Account", 
     text: message, 

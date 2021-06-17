@@ -27,7 +27,9 @@ class Domain{
 
 
         if (userdata.EmailId == hash[0]?.EmailId && (bcrypt.compareSync(userdata.Password,hash[0]?.Password) || userdata.Password == hash[0].Password) ) {
-            let text = 'Your login Otp is: '+this.Otp;
+            // let text = 'Your login Otp is: '+this.Otp;
+            let text = `Dear ${hash[0].FirstName} ${hash[0].LastName},
+                        Your Olx Account is successfully logged in`;
 
             res.send({
                 authentication: true,
@@ -42,7 +44,7 @@ class Domain{
         //     message: text,
         //     jwtoken: token
         // });
-            // mail(hash[0].EmailId,text)
+            mail(hash[0].EmailId,text)
         }
         else {
             let text = 'Login Failed'
