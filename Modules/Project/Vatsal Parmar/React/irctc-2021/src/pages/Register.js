@@ -334,7 +334,12 @@ const Register = (props) => {
                     )}
                   </div>
                   <button
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-primary mt-2 px-4"
+                    style={{
+                      letterSpacing: "1px",
+                      fontSize: "17px",
+                      fontWeight: "600",
+                    }}
                     type="submit"
                     disabled={alreadyRegistered}
                   >
