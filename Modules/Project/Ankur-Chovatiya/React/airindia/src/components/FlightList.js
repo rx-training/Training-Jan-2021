@@ -28,17 +28,17 @@ function FlightList(props) {
     // if(serchObj.TripType === 'One Way'){
     //     setRoundTrip(false);
     // }
-    console.log(serchObj);
+    // console.log(serchObj);
     const {LandingPoint , TakeoffPoint , DepartingDate , ReturningDate , Economy} = serchObj
 
 var searchQuery = {}
 var returnSearchQuery = {}
         // if(serchObj.LandingDate == '' ){
-            searchQuery = {TakeoffPoint , LandingPoint , DepartingDate , Economy}
+            searchQuery = {TakeoffPoint , LandingPoint , TackoffDate:DepartingDate , Economy}
         // }
-        
+        // console.log(searchQuery);
 
-        returnSearchQuery = {LandingPoint : TakeoffPoint , TakeoffPoint :LandingPoint ,Economy ,DepartingDate : ReturningDate }
+        returnSearchQuery = {LandingPoint : TakeoffPoint , TakeoffPoint :LandingPoint ,Economy ,TackoffDate : ReturningDate }
         
 
 
@@ -85,7 +85,7 @@ var returnSearchQuery = {}
         
     } ,[])
     const flight = JSON.parse(localStorage.getItem('selectedFlight'))
-    console.log(flight);
+    // console.log(flight);
     const returnFlight = JSON.parse(localStorage.getItem('returnSelectedflight'))
     // console.log(returnFlightList);
     const handleFinalClick= (e) =>{

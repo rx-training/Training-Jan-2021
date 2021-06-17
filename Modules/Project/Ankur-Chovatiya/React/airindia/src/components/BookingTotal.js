@@ -182,7 +182,8 @@ collected.
                         <p>Extras - {totalExtras * totalTicket}</p><hr />
                         <h4>Booking Total - { grandTotal * totalTicket }</h4>
 
-                       { props.review ? <button className="btn btn-danger btn-block" onClick={(e) => {props.handleFinalClick() ; props.handleSendMail()}} >BOOK</button> :
+                    {/* //props.handleSendMail() */}
+                       { props.review ? <button className="btn btn-danger btn-block" onClick={(e) => {props.handleFinalClick()}} >BOOK</button> :
                         <button className="btn btn-danger btn-block" disabled={search.TripType == 'Round Trip' ? !(props.showBtn && props.showBtnR) : !props.showBtn  } onClick={props.handleFinalClick}>Book</button> }
                     </div>
                 </div>

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const router = require('./controllers/airindia')
-const adminRouter = require('./adminControllers/')
+const adminRouter = require('./adminControllers')
 
 app.use(cors())
 app.get('/' , (req , res)=>{
@@ -21,6 +21,6 @@ app.use((err , req , res , next)=>{
 });
 
 
-app.listen(80, ()=>{
+app.listen(process.env.port, ()=>{
     console.log('server is running on port 80...');
 });

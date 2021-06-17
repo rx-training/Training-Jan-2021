@@ -24,9 +24,11 @@ function FlightSearchForm(props) {
 
     const handleChange = (e) =>{
           
+        // console.log(e.target.value);
         setSearchDetails( (prev) =>{
             return {
                 ...prev , 
+            
                 [e.target.name] : e.target.value 
             }
         }
@@ -119,11 +121,11 @@ function FlightSearchForm(props) {
                 <div className="form-group row my-0">
                    <div className="col-md-6">
                        <label className="ml-0">Departing :-</label>
-                        <input type="date" className="form-control" placeholder="Departing" name="DepartingDate" value={DepartingDate} onChange={handleChange} required></input >
+                        <input type="date" className="form-control" placeholder="Departing" name="DepartingDate" value={DepartingDate} onChange={handleChange} min={new Date().toISOString().split('T')[0]} required></input >
                    </div>
                    <div className="col-md-6">
                    <label className="ml-0">Returning :-</label>
-                        <input type="date" className="form-control"  disabled={TripType == 'One Way'} placeholder="Returning" name="ReturningDate" value={ReturningDate} onChange={handleChange} required></input>
+                        <input type="date" className="form-control"  disabled={TripType == 'One Way'} placeholder="Returning" name="ReturningDate" value={ReturningDate} onChange={handleChange} min={new Date().toISOString().split('T')[0]} required></input>
                    </div>
                 </div>
                 <div className="row">

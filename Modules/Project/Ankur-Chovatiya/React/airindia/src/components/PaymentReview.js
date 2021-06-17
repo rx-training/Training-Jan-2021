@@ -27,9 +27,9 @@ function PaymentReview(props) {
     const handleFinalClick = () =>{
         props.history.push('./success')
     }
-    const handleSendMail = () => {
-        FlightSearch.sendTicketMail()
-    }
+    // const handleSendMail = () => {
+    //     FlightSearch.sendTicketMail()
+    // }
 
     return (
         <div className="container">
@@ -116,8 +116,8 @@ function PaymentReview(props) {
                 </div>
             </div>
             </div>
-
-                    <BookingTotal {...props} review={review} handleSendMail={handleSendMail} handleFinalClick={handleFinalClick}></BookingTotal>
+            {/* handleSendMail={handleSendMail} */}
+                    <BookingTotal {...props} review={review}  handleFinalClick={handleFinalClick}></BookingTotal>
 
             {/* <div className="row my-5" >
                     

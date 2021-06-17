@@ -37,9 +37,9 @@ class FlightSearchService {
         return axios.post(BASE_URL + "/AirIndia/B2C/user/login" , userdata)
     }
 
-    sendTicketMail(mailId){
-        return axios.post(BASE_URL + "/AirIndia/B2C/Booking/payment/payment" , mailId)
-    }
+    // sendTicketMail(mailId){
+    //     return axios.post(BASE_URL + "/AirIndia/B2C/Booking/payment/payment" , mailId)
+    // }
 
     verifyToken(token, userData){
         return axios.post(BASE_URL + "/AirIndia/B2C/user/login/verifyToken" , userData , {
