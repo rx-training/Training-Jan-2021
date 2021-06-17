@@ -60,7 +60,7 @@ const Login = () => {
         .catch((error) => {
           setLoading(false);
           if (error.response.status === 401)
-            setLoginErr(error.response.data.message);
+            setLoginErr("Wrong Email Id or Password");
           else setLoginErr("Something went wrong. Please try again later.");
         });
     } else {
@@ -137,7 +137,7 @@ const Login = () => {
             </div>
           )}
           {loginErr.length > 0 && (
-            <p className="text-danger">
+            <p className="text-danger mt-2">
               <b>{loginErr}</b>
             </p>
           )}

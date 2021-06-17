@@ -5,7 +5,7 @@ import TrainServices from "../../Services/TrainServices";
 const SearchBar = ({ setLoading }) => {
   const value = useContext(TrainContext);
   const { setSearchQuery, searchQuery, setAvailTrains, syncStorage } = value;
-  const { date, from, to, travelClass, travelType } = searchQuery;
+  const { date, from, to, travelClass } = searchQuery;
   const [stations, setStations] = useState([]);
   const [toStations, setToStations] = useState([]);
   //console.log(date);

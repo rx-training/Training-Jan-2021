@@ -11,7 +11,7 @@ const TrainSearch = (props) => {
   const [loading, setLoading] = useState(false);
   const value = useContext(TrainContext);
   const { setSearchQuery, searchQuery, setAvailTrains, syncStorage } = value;
-  const { date, from, to, travelClass, travelType } = searchQuery;
+  const { date, from, to, travelClass } = searchQuery;
   const [stations, setStations] = useState([]);
   const [toStations, setToStations] = useState([]);
 

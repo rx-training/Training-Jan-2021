@@ -1,4 +1,5 @@
 const StationModel = require("../models/stations.model");
+const RouteModel = require("../models/routes.model");
 
 class StationDomain {
   //To get all stations
@@ -40,6 +41,7 @@ class StationDomain {
   async deleteStation(req, res) {
     let id = req.params.stationId;
     const station = await StationModel.findByIdAndDelete(id);
+    const routes = await RouteModel.deleteMany({ station: id });
     if (station) {
       res.send("success");
     } else {

@@ -92,10 +92,18 @@ const Register = (props) => {
     });
   };
   const sendOtp = (email) => {
-    TrainServices.sendOtp(email).then((res) => {
-      setResOtp(res.data);
-      setIsOtpSent(true);
-    });
+    TrainServices.sendOtp(email)
+      .then((res) => {
+        setResOtp(res.data);
+        setIsOtpSent(true);
+      })
+      .catch((error) => {
+        // if (error.response.status === 401) {
+        //   removeUserSession();
+        //   window.location.href = "/login";
+        // }
+        console.log(error);
+      });
   };
   const handleSubmit = (event) => {
     event.preventDefault();

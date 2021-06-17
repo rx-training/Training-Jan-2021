@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import loadingImg from "../../images/loading.gif";
+// import loadingImg from "../../images/loading.gif";
 
 const BookingCard = ({
   pnr: { journey_date, from, to, ticket_price, train, _id },
@@ -7,12 +7,12 @@ const BookingCard = ({
   cancelBooking,
 }) => {
   const [isCancleAvail, setIsCancleAvail] = useState(false);
-  var d1 = new Date();
-  var d2 = new Date(journey_date);
-  d1.setHours(0, 0, 0, 0);
-  d2.setHours(0, 0, 0, 0);
 
   useEffect(() => {
+    var d1 = new Date();
+    var d2 = new Date(journey_date);
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
     if (d1 <= d2) {
       setIsCancleAvail(true);
     } else {
