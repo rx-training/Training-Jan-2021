@@ -192,7 +192,13 @@ const StatusForm = (props) => {
     let newSeats = seats.filter((seat) => seat._id !== id);
     setSeats(newSeats);
   };
-
+  const resetSeats = () => {
+    const newSeats = seats.map((item) => {
+      item.is_booked = false;
+      return item;
+    });
+    setSeats(newSeats);
+  };
   return (
     <div className="container">
       <div className="my-5 col-md-10 mx-auto">
@@ -358,7 +364,9 @@ const StatusForm = (props) => {
                       <p className="m-0">Seat No : {seat.seat_no}</p>
                       <p className="m-0">
                         Status :{" "}
-                        {seat.is_booked === true ? "Booked" : "Not Booked"}
+                        {seat.is_booked === true || seat.is_booked === "true"
+                          ? "Booked"
+                          : "Not Booked"}
                       </p>
                     </span>
                     <span>
@@ -384,6 +392,15 @@ const StatusForm = (props) => {
             >
               {id === "_add" ? "Add" : "Update"}
             </button>
+            {id !== "_add" && (
+              <button
+                className="btn btn-warning ml-2"
+                onClick={resetSeats}
+                type="button"
+              >
+                UnBook All Seats
+              </button>
+            )}
             {loading && <img src={loadingImg} alt="loading..." width="200px" />}
             {formError.length > 0 && (
               <p className="text-danger mt-2">{formError}</p>
