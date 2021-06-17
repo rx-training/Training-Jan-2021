@@ -144,7 +144,7 @@ namespace BookMyShowAPI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers().RequireCors("BookMyShowPolicy");
+                endpoints.MapControllers();
             });
         }
     }

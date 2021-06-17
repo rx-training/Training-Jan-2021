@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "api": "Day2Assignment.Api",
+    "model": "Day2Assignment.Models",
+    "context": "Day2Assignment.BoundedContext",
+    "domain": "Day2Assignment.Domain",
+	"unitOfWork": "Day2Assignment.UnitOfWork",
+    "infrastructure": "Day2Assignment.Infrastructure",
+    "azureFunctionHttp":"",
+    "portal":"",
+    "azureFunctionBackground":""
+  },
+  "path": {
+    "dbConnection": {
+      "main": "Database.ConnectionString.Main"
+    },
+    "folder": {
+      "model": "DbEntities",
+      "context": "",
+	  "enums": "",
+	  "localizeValidationMessage": "wwwroot"
+    }
+  },
+  "annotations": {
+    "rxweb": false
+  },
+  "config": {
+    "generateEnums": false,
+    "commanTableSchema": "dbo",
+    "validationMessageLocalizationId": "15"
+  }
+}

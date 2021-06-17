@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookMyShowAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
