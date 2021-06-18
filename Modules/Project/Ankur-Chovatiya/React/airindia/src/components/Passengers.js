@@ -150,14 +150,14 @@ console.log(passengerDetails);
                                 <option selected>+91</option>
                             </select>
                             
-                            <input className="form-control" type="number" placeholder="Mobile Number" name="mobileNumber" value={mobileNumber} onChange={(e) => handleChange(e)}></input>
+                            <input className="form-control" type="number" placeholder="Mobile Number" name="mobileNumber" value={mobileNumber} onChange={(e) => handleChange(e)} required ></input>
                         </div>
                     </div>
 
                     <div className="row my-4">
                         <div className="col">
                             <label>PRIMARY EMAIL *</label>
-                            <input className="form-control" type="email" placeholder="Primary Email" name="primaryEmail" value={primaryEmail} onChange={(e) =>handleChange(e)}></input>
+                            <input className="form-control" type="email" placeholder="Primary Email" name="primaryEmail" value={primaryEmail} onChange={(e) =>handleChange(e)} required></input>
                         </div>
                         <div className="col">
                         <label>SECONDARY EMAIL </label>

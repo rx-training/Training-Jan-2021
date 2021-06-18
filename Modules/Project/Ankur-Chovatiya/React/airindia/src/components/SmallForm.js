@@ -23,10 +23,10 @@ function SmallForm(props) {
                         <option value="Ms">Ms</option>
                         <option value="Dr">Dr</option>
                     </select>
-                    <input type="text" className="form-control" name={`${person}firstName`} value={data[`${person}firstName`]} onChange={(e) => handleChange(e)} placeholder="First name" />
+                    <input type="text" className="form-control" name={`${person}firstName`} value={data[`${person}firstName`]} onChange={(e) => handleChange(e)} placeholder="First name"  required/>
                     </div>
                     <div className="col">
-                    <input type="text" className="form-control" name={`${person}lastName`} value={data[`${person}lastName`]} onChange={(e) => handleChange(e)} placeholder="Last name" />
+                    <input type="text" className="form-control" name={`${person}lastName`} value={data[`${person}lastName`]} onChange={(e) => handleChange(e)} placeholder="Last name" required/>
                     </div>
                 </div>
 
