@@ -38,7 +38,7 @@ const Services = () => {
         <div className="row justify-content-center">
           <span className="icon-container">
             <FaBriefcase className="icons" />
-            <p>HILIDAY PACKAGES</p>
+            <p>HOLIDAY PACKAGES</p>
           </span>
           <span className="icon-container">
             <FaTrain className="icons" />

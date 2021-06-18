@@ -18,9 +18,10 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 const app = express();
 const port = 3001;
 
+app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+//app.use(cors());
 app.use("/", mainRouter);
 
 // catch 404 and forward to error handler

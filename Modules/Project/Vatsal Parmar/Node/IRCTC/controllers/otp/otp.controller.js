@@ -4,8 +4,8 @@ require("dotenv").config();
 var router = express.Router();
 const UserModel = require("../../models/users.model");
 
-const EMAIL = process.env.EMAIL;
-const PASSWORD = process.env.PASSWORD;
+const EMAIL = process.env.IRCTC_EMAIL;
+const PASSWORD = process.env.IRCTC_PASSWORD;
 
 var otp;
 

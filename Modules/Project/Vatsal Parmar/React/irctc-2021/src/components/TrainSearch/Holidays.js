@@ -25,7 +25,7 @@ const Holidays = () => {
   return (
     <section className="d-none d-md-block">
       <div className="container text-center py-3">
-        <h1>HOLYDAYS</h1>
+        <h1>HOLIDAYS</h1>
         <div className="card-deck row mt-5">
           {holidayData.map((item) => {
             return (
