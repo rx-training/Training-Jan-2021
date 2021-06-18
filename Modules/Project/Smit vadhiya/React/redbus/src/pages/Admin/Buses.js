@@ -11,6 +11,24 @@ export const Buses = (props) => {
       name : ""
    })
 
+   const [offset, setOffset] = useState(1)
+   const [totalPage, setTotalPage] = useState("")
+   const [pageLength, setpageLength] = useState(5)
+
+   const handleBack = () =>{
+      if(offset != 1)
+         setOffset(offset-1)
+      console.log(totalPage);
+   }
+
+   const handleForward = () =>{
+      if(offset < totalPage)
+      setOffset(offset+1)
+   }
+   const handleClick = (number) =>{
+      setOffset(number)
+   }
+
    const handleChange = (e) => {
       const {name , value} = e.target
       setFilter({...filter,[name] : value})
@@ -33,6 +51,11 @@ export const Buses = (props) => {
                props.history.push('/admin/login')
             } else {
                handleFilter(res.data)
+               if(res.data.length%pageLength === 0){
+                  setTotalPage(res.data.length / pageLength)
+               } else {
+                  setTotalPage(parseInt(res.data.length / pageLength) + 1)
+               }
             }
          })
       } else {
@@ -83,7 +106,7 @@ export const Buses = (props) => {
                   </tr>
                </thead>
                <tbody>
-                  {filteredBus.map(bus => {
+                  {filteredBus.slice(pageLength*(offset-1),(pageLength*(offset-1))+pageLength).map(bus => {
                      return(
                         <tr key={bus._id}  >
                            <td>{bus._id} {}</td>
@@ -95,6 +118,16 @@ export const Buses = (props) => {
                   })}
                </tbody>
             </table>
+            <div className=" text-center  my-1">
+               {<>
+                  <button className="btn btn-light mx-2" onClick={handleBack} >back</button>
+                  <button className={`btn btn-primary`} onClick={() => handleClick(offset)} >{offset}</button>
+                  {offset+1 <= totalPage && <button className="btn " onClick={() => handleClick(offset+1)} >{offset+1}</button>}
+                  {offset+2 <= totalPage && <button className="btn " onClick={() => handleClick(offset+2)} >{offset+2}</button>}
+                  
+                  <button className="btn btn-light mx-2" onClick={handleForward} >next</button>
+               </>}
+               </div>
          </div>
       </div>
    )

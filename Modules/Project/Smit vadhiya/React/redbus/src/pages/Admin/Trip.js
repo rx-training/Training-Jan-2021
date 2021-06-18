@@ -5,6 +5,24 @@ import AdminServices from '../../services/AdminServices'
 export const Trip = (props) => {
    const [trips, setTrips] = useState([])
    const [filterTrip, setFilterTrip] = useState([])
+
+   const [offset, setOffset] = useState(1)
+   const [totalPage, setTotalPage] = useState("")
+   const [pageLength, setpageLength] = useState(3)
+
+   const handleClick1 = (number) =>{
+      setOffset(number)
+   }
+   const handleBack = () =>{
+      if(offset != 1)
+         setOffset(offset-1)
+      console.log(totalPage);
+   }
+   const handleForward = () =>{
+      if(offset < totalPage)
+      setOffset(offset+1)
+   }
+
    useEffect(() => {
       const adminData = JSON.parse(localStorage.getItem('adminData'))
       if(adminData) {
@@ -15,7 +33,11 @@ export const Trip = (props) => {
             } else {
                setTrips(res.data)
                setFilterTrip(res.data)
-               console.log(res.data);
+               if(res.data.length%pageLength === 0){
+                  setTotalPage(res.data.length / pageLength)
+               } else {
+                  setTotalPage(parseInt(res.data.length / pageLength) + 1)
+               }
             }
          })
       } else {
@@ -66,6 +88,7 @@ export const Trip = (props) => {
                      placeholder="Search by year....."
                   />
                </div>
+               
                <div className="col-12 col-md-6 my-1">
                   <input 
                      type="number" 
@@ -89,7 +112,7 @@ export const Trip = (props) => {
                   </tr>
                </thead>
                <tbody>
-                  {filterTrip.map(trip => {
+                  {filterTrip.slice(pageLength*(offset-1),(pageLength*(offset-1))+pageLength).map(trip => {
                      return(
                         <tr key={trip._id} >
                            <td>{trip.fromCity}</td>
@@ -102,6 +125,15 @@ export const Trip = (props) => {
                   })}
                </tbody>
             </table>
+            <div className=" text-center  my-1">
+               {<>
+                  <button className="btn btn-light mx-2" onClick={handleBack} >back</button>
+                  <button className={`btn btn-primary`} onClick={() => handleClick1(offset)} >{offset}</button>
+                  {offset+1 <= totalPage && <button className="btn " onClick={() => handleClick1(offset+1)} >{offset+1}</button>}
+                  {offset+2 <= totalPage && <button className="btn " onClick={() => handleClick1(offset+2)} >{offset+2}</button>}
+                  <button className="btn btn-light mx-2" onClick={handleForward} >next</button>
+               </>}
+            </div>
          </div>
       </div>
    )

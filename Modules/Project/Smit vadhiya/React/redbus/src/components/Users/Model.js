@@ -114,13 +114,14 @@ const UserSignUpModel = ({isOpen,closeModal,openOther,openOtp}) => {
       password : "",
       DOB : "",
       gander : "",
-      password : "",
       confirmPassword : ""
    }
 
    const [signupData, setsignupData] = useState({
       ...initialSatae
    })
+
+   const [allEmails, setAllEmails] = useState([])
 
    const [errors, setErrors] = useState({
       firstName : "",
@@ -130,15 +131,19 @@ const UserSignUpModel = ({isOpen,closeModal,openOther,openOtp}) => {
       password : "",
       DOB : "",
       gander : "",
-      password : "",
       confirmPassword : ""
    })
+
+   useEffect(() => {
+      UserService.userGetAllMail().then(res => {
+         setAllEmails(res.data)
+      })
+   }, [])
 
    const handleSignupChange = (e) => {
       const {name, value} = e.target
       if(name === 'password'){
-         setsignupData({...signupData,['confirmPassword'] : "",[name] : value})
-         console.log("true");
+         setsignupData({...signupData,confirmPassword : "",[name] : value})
       } else { 
 
          setsignupData({...signupData,[name] : value})
@@ -146,24 +151,25 @@ const UserSignUpModel = ({isOpen,closeModal,openOther,openOtp}) => {
 
       switch(name){
          case (name.match(/Name$/) || {}).input :  
-            errors[name] = value.length < 3 && value.length !== 0 ? "minimum length shoud be 3" : ""
+            setErrors({...errors,[name] : value.length < 3 && value.length !== 0 ? "minimum length shoud be 3" : ""})
             break;
 
          case (name.match(/Number$/) || {}).input :  
-            errors[name] = value.length !== 10 && value.length !== 0 ? "Phone number must be of 10 digit" : ( isNaN(value)  ? "Only Numbers are valid" : "")
+            setErrors({...errors,[name] : value.length !== 10 && value.length !== 0 ? "Phone number must be of 10 digit" : ( isNaN(value)  ? "Only Numbers are valid" : "") })
             break;
 
          case (name.match(/email$/) || {}).input : 
-            var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/; 
-            errors[name] =  value.match(pattern) || value.length === 0 ? "" : "Please enter valid Email"
+            var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/;
+            
+            setErrors({...errors, [name] :  value.match(pattern) || value.length === 0 ? (allEmails.find(item => item.email === value) ? "Email id already exist" : "") : "Please enter valid Email"})
             break;
          case 'password' : 
-            errors[name] = value.length < 6 && value.length !== 0 ? "weak password,length should be 6" : ""
+            setErrors({...errors,[name] : value.length < 6 && value.length !== 0 ? "weak password,length should be 6" : ""})
             
             break
          case 'confirmPassword' : 
-            var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/; 
-            errors[name] =  value === signupData.password ? "" : "password did't match"
+            pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/; 
+            setErrors({...errors,[name] :  value === signupData.password ? "" : "password did't match"})
             break;
 
          default :
@@ -416,15 +422,13 @@ export const UserOtpModel = (props) => {
          console.log(res.data);
          if(res.data !== 'wrong otp'){
             const data = localStorage.getItem('userData')
-            UserService.userLogin({
+            localStorage.setItem('tokenData',JSON.stringify(res.data))
+            props.history.push('/')
+            closeModal()
+            alert("Sign up succesful")
 
-               email : data.email,
-               password : data.password
-            }).then(res => {
-               localStorage.setItem('tokenData',JSON.stringify(res.data))
-               props.history.push('/')
-               closeModal()
-            })
+         } else {
+            alert("Wrong otp")
          }
       })
    }
@@ -434,7 +438,7 @@ export const UserOtpModel = (props) => {
          <Modal show={isOpen} onHide={closeModal}>
             <Modal.Header className="bg-theme text-white" closeButton>
                <Modal.Title >
-                  Log in
+                  OTP verification
                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -456,7 +460,7 @@ export const UserOtpModel = (props) => {
                      type="submit" 
                      className="btn btn-theme"  
                      id="login"  
-                     value="Login"
+                     value="signup"
                   />
                </form>
                <div className="text-center">

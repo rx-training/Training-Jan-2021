@@ -3,13 +3,30 @@ import { Link } from 'react-router-dom'
 import AdminServices from '../../services/AdminServices'
 
 export const Operators = (props) => {
-   const [operators, setOperators] = useState([])
    const [filteredOperator, setFilteredOperator] = useState([])
 
    const [filter, setFilter] = useState({
       name : "",
       phone : ""
    })
+
+   const [offset, setOffset] = useState(1)
+   const [totalPage, setTotalPage] = useState("")
+   const [pageLength, setpageLength] = useState(5)
+
+   const handleBack = () =>{
+      if(offset != 1)
+         setOffset(offset-1)
+      console.log(totalPage);
+   }
+
+   const handleForward = () =>{
+      if(offset < totalPage)
+      setOffset(offset+1)
+   }
+   const handleClick = (number) =>{
+      setOffset(number)
+   }
 
    const handleFilter = (allOperators) => {
       var tempOperator = allOperators
@@ -31,8 +48,12 @@ export const Operators = (props) => {
             if(res.data === 'Unauthorized Access'){
                props.history.push('/admin/login')
             } else {
-               setOperators(res.data)
                handleFilter(res.data)
+               if(res.data.length%pageLength === 0){
+                  setTotalPage(res.data.length / pageLength)
+               } else {
+                  setTotalPage(parseInt(res.data.length / pageLength) + 1)
+               }
             }
          })
       } else {
@@ -81,7 +102,7 @@ export const Operators = (props) => {
                   </tr>
                </thead>
                <tbody>
-                  {filteredOperator.map(user => {
+                  {filteredOperator.slice(pageLength*(offset-1),(pageLength*(offset-1))+pageLength).map(user => {
                      return(
                         <tr key={user._id}  >
                            <td>{user.firstName } {user.lastName}</td>
@@ -93,6 +114,16 @@ export const Operators = (props) => {
                   })}
                </tbody>
             </table>
+            <div className=" text-center  my-1">
+               {<>
+                  <button className="btn btn-light mx-2" onClick={handleBack} >back</button>
+                  <button className={`btn btn-primary`} onClick={() => handleClick(offset)} >{offset}</button>
+                  {offset+1 <= totalPage && <button className="btn " onClick={() => handleClick(offset+1)} >{offset+1}</button>}
+                  {offset+2 <= totalPage && <button className="btn " onClick={() => handleClick(offset+2)} >{offset+2}</button>}
+                  
+                  <button className="btn btn-light mx-2" onClick={handleForward} >next</button>
+               </>}
+               </div>
          </div>
       </div>
    )

@@ -16,6 +16,9 @@ import { Users } from './pages/Admin/Users';
 import { Trip } from './pages/Admin/Trip';
 import { SingleTrip } from './pages/Admin/SingleTrip';
 import { SingleUser } from './pages/Admin/SingleUser';
+import { OperatorNavbar } from './components/Operator/OperatorNavbar';
+import { OperatorHome } from './pages/Operator/OperatorHome';
+import { OpLogin } from './pages/Operator/OpLogin';
 
 
 function App() {
@@ -23,14 +26,16 @@ function App() {
       <Router>
          <RedbusProvider>
             <Switch>
-               <Route  path='/user'  component={Navbar} /> 
-               <Route path='/admin'    component={AdminNavbar} />
+               <Route  path='/user' component={Navbar} /> 
+               <Route path='/admin' component={AdminNavbar} />
+               <Route path='/operator' component={OperatorNavbar} />
             </Switch>
             <Switch>
                <Route exact path="/">
                   <Navbar />
                   <Home />
                </Route>
+               
                <Route path="/user/bus-results/:fromCity/:toCity/:date" component={BusResult} /> 
                <Route path='/user/profile' exact component={Profile} /> 
                <Route path='/user/:id/selected-bus/:routeid' exact component={SelectedBus}  />
@@ -43,6 +48,10 @@ function App() {
                <Route path="/admin/trips" component={Trip} />
                <Route path="/admin/trip/:id" component={SingleTrip} />
                <Route path="/admin/user/:id" component={SingleUser} />
+
+               <Route path="/operator" exact component={OperatorHome} />
+               <Route path="/operator/login" exact component={OpLogin} />
+
 
                <Router path="*" component={Error} />
             </Switch>

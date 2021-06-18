@@ -1,12 +1,10 @@
-import React, {Component, useState } from 'react'
+import React, {Component } from 'react'
 import {withRouter} from 'react-router-dom';
 import UserService from '../services/UserService';
 const RedbusContext = React.createContext()
 
 
 class RedbusProvider extends Component {
-
-
 
    state = {
       adminLogin : false,
@@ -20,12 +18,18 @@ class RedbusProvider extends Component {
       searchResult : [],
       selectedBus : [],
    }
+
    handleLogin = () => {
       this.setState( {login : !this.state.login})
    }
-   
+
    handleAdminLogin = () =>{
-      this.setState({adminLogin : !this.state.adminLogin})
+      this.setState({adminLogin : false})
+      localStorage.removeItem('adminData')
+      this.props.history.push('/admin/login')
+   }
+   handleAdminLoginTrue = () => {
+      this.setState({adminLogin : true})
    }
 
    handleChange =(e) => {
@@ -33,11 +37,7 @@ class RedbusProvider extends Component {
       this.setState({[name] : value})
    }
 
-   /* handleSearch = (e) => {
-      e.preventDefault()
-      this.props.history.push(`/bus-results/${this.state.fromCity}/${this.state.toCity}/${this.state.date}`)
-   } */
-   
+
    componentDidMount() {
       const tokenData = JSON.parse(localStorage.getItem('tokenData'))
       if(tokenData){
@@ -46,10 +46,15 @@ class RedbusProvider extends Component {
                this.setState({login : true})
             } else {
                this.setState({login : false})
+               if(this.props.history.location.pathname.includes('user') && !this.props.history.location.pathname.includes('admin')){
+                  this.props.history.push('/') 
+               }               
          }})
       } else {
          this.setState({login : false})
-         this.props.history.push('/')
+            if(this.props.history.location.pathname.includes('user') && !this.props.history.location.pathname.includes('admin')){
+               this.props.history.push('/') 
+            }
       }
    }
 
@@ -64,8 +69,9 @@ class RedbusProvider extends Component {
       this.setState({
          fromCity : "",
          toCity : "",
-         data : "",
+         date : "",
       })
+      
       this.props.history.push(`/user/bus-results/${this.state.fromCity}/${this.state.toCity}/${this.state.date}`)
    } 
    
@@ -93,6 +99,7 @@ class RedbusProvider extends Component {
                handleLogin : this.handleLogin,
                handleLogout : this.handleLogout,
                handleAdminLogin : this.handleAdminLogin,
+               handleAdminLoginTrue : this.handleAdminLoginTrue,
             }}
          >
             {this.props.children}

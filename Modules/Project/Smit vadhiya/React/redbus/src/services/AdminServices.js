@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3000/api/admin/'
+const BASE_URL = 'http://localhost:80/api/admin/'
 
 class AdminServices {
    adminLogin(data){
@@ -44,6 +44,7 @@ class AdminServices {
    adminGetUserById(id,header){
       return axios.get(BASE_URL+'user/'+id,header)
    }
+
 
 }
 

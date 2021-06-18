@@ -23,4 +23,5 @@ router.get('/all',Users.getAllUser)//GET ALL OPERATOR'S DATA
 router.get('/:id',Users.getUseById)//GET ALL OPERATOR'S DATA
 
 
+
 module.exports = router

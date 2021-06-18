@@ -4,7 +4,6 @@ import AdminServices from '../../services/AdminServices'
 
 export const Users = (props) => {
 
-   const [users, setUsers] = useState([])
    const [filteredUser, setFilteredUser] = useState([])
 
    const [filter, setFilter] = useState({
@@ -12,6 +11,23 @@ export const Users = (props) => {
       phone : ""
    })
 
+   const [offset, setOffset] = useState(1)
+   const [totalPage, setTotalPage] = useState("")
+   const [pageLength, setpageLength] = useState(5)
+
+   const handleBack = () =>{
+      if(offset != 1)
+         setOffset(offset-1)
+      console.log(totalPage);
+   }
+
+   const handleForward = () =>{
+      if(offset < totalPage)
+      setOffset(offset+1)
+   }
+   const handleClick = (number) =>{
+      setOffset(number)
+   }
    const handleChange = (e) => {
       const {name , value} = e.target
       setFilter({...filter,[name] : value})
@@ -25,6 +41,8 @@ export const Users = (props) => {
       setFilteredUser(tempUser)
    }
 
+   
+
    useEffect(() => {
       const adminData = JSON.parse(localStorage.getItem('adminData'))
       if(adminData) {
@@ -32,8 +50,14 @@ export const Users = (props) => {
             if(res.data === 'Unauthorized Access'){
                props.history.push('/admin/login')
             } else {
-               setUsers(res.data)
+               const data = res.data
                handleFilter(res.data)
+               if(res.data.length%pageLength === 0){
+                  setTotalPage(res.data.length / pageLength)
+               } else {
+                  setTotalPage(parseInt(res.data.length / pageLength) + 1)
+               }
+               
                AdminServices.adminGetAllTrip(adminData).then(res => {
                   console.log(res.data);
                })
@@ -52,7 +76,7 @@ export const Users = (props) => {
             <Link to='/admin/buses'><button className="btn btn-dark mx-1">buses</button></Link>
             <Link to='/admin/operators'><button className="btn btn-warning mx-1">operators</button></Link>
             <Link to='/admin/trips'><button className="btn btn-primary mx-1">trips</button></Link>
-            <div className="row my-3 ">
+            <div className="row m1-3 ">
                <div className="col-12 display-4 p-2 text-center">
                   Users
                </div>
@@ -66,6 +90,7 @@ export const Users = (props) => {
                      placeholder="Search by Name....."
                   />
                </div>
+               
                <div className="col-12 col-md-6 my-1">
                   <input 
                      type="text" 
@@ -88,7 +113,7 @@ export const Users = (props) => {
                   </tr>
                </thead>
                <tbody>
-                  {filteredUser.map(user => {
+                  {filteredUser.slice(pageLength*(offset-1),(pageLength*(offset-1))+pageLength).map(user => {
                      return(
                         <tr key={user._id} >
                            <td>{user.firstName } {user.lastName}</td>
@@ -103,8 +128,19 @@ export const Users = (props) => {
                         </tr>
                      )
                   })}
+
                </tbody>
             </table>
+               <div className=" text-center  my-1">
+               {<>
+                  <button className="btn btn-light mx-2" onClick={handleBack} >back</button>
+                  <button className={`btn btn-primary`} onClick={() => handleClick(offset)} >{offset}</button>
+                  {offset+1 <= totalPage && <button className="btn " onClick={() => handleClick(offset+1)} >{offset+1}</button>}
+                  {offset+2 <= totalPage && <button className="btn " onClick={() => handleClick(offset+2)} >{offset+2}</button>}
+                  
+                  <button className="btn btn-light mx-2" onClick={handleForward} >next</button>
+               </>}
+               </div>
          </div>
       </div>
    )

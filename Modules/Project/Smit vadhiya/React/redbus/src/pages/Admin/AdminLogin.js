@@ -9,7 +9,7 @@ export const AdminLogin = (props) => {
       password : ""
    })
 
-   const [context, setContext] = useState(useContext(RedbusContext))
+   const value = useContext(RedbusContext)
 
    const handleChange = (e) =>{
       setLoginData({...loginData,[e.target.name] : e.target.value})
@@ -25,17 +25,17 @@ export const AdminLogin = (props) => {
             alert('Login failed')
          } else {
             localStorage.setItem('adminData',JSON.stringify(res.data))
-            context.handleAdminLogin()
+            value.handleAdminLoginTrue()
             props.history.push('/admin')
          }
       })
    }
 
    return (
-      <div className="adminLogin  bg-dark  align-items-center  row mt-5 pt-3" >
-         <div className="container" >
+      <div className="adminLogin  bg-dark  align-items-center  mt-5 pt-3" >
+         <div className="container pt-5 mt-5" >
             <div className="row">
-               <div className="col-10 bg-dark col-sm-6 col-lg-4 mx-auto p-0">
+               <div className="col-10 bg-dark col-sm-6 col-lg-4 mx-auto ">
                   <div className="card bg-theme">
                      <div className="card-header h3 text-center">
                         Login

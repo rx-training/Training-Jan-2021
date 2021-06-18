@@ -3,7 +3,7 @@ const Collections = require('../../models/index')
 const config = require('../../static/config') 
 
 function  verify(req,res,next){
-    var token = req.headers["token"]
+    var token = req.headers["token"]    
     jwt.verify(token, global.config.secretKey,
          {
             algorithm: global.config.algorithm

@@ -38,7 +38,7 @@ export const BusResult = (props) => {
 
    const handleSubmit = (e) => {
       e.preventDefault()
-      props.history.push(`/bus-results/${data.fromCity}/${data.toCity}/${data.date}`)
+      props.history.push(`/user/bus-results/${data.fromCity}/${data.toCity}/${data.date}`)
       setisEdit(false)
    }
 

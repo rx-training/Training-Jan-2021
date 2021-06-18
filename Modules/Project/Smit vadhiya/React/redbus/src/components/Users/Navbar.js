@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import logo from '../../img/redbus-logo.png'
 import { BiUserCircle } from 'react-icons/bi'
 import { LoginModel, OtpModel, SignUpModel } from './Model'
 import { RedbusConsumer } from '../../context/context'
-import UserService from '../../services/UserService'
 
 
 
@@ -71,7 +70,7 @@ const Navbar = () => {
                                  {
                                     login ?<> 
                                              <li className=""   >
-                                                <Link to="/user/profile" >Profile</Link>
+                                                <Link to="/user/profile" className="link" >Profile</Link>
                                                 </li>
                                              <li className="" onClick={handleLogout}  >logout</li>
                                           </>

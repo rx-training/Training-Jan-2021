@@ -65,6 +65,15 @@ body{
          cursor: pointer;
       }
    }
+   .link{
+   text-decoration: none;
+   color: black;
+}
+   .link:hover{
+   text-decoration: none;
+   color: black;
+   
+}
 }
 @media screen and (max-width : 737px){
    .navbar-nav{
@@ -78,8 +87,11 @@ body{
 .home-head{
    background-color: $mainRed;
    position: relative;
+   padding: 2px 0;
    .head-img-container{
       box-shadow: 5px 5px 30px 11px rgba(0,0,0,0.56);
+      width : 98%;
+      margin: 2% auto;
    }
    
 }
@@ -274,3 +286,4 @@ Model{
    color: white;
    
 }
+

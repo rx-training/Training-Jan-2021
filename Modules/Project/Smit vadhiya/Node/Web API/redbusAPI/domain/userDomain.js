@@ -5,6 +5,9 @@ const logicalFunctions = require('./logicalFunctions')
 const mailTo = require('./emailDomain')
 const Otp = require('./otpDomain')
 const EncDec = require('./passwordDomain')
+ global.config = require('../static/config')
+var jwt = require('jsonwebtoken')
+
 
 var newUser
 
@@ -13,6 +16,12 @@ var newUser
 class Users{
     
     //ADD NEW USER
+
+    static async getAllMailId(req,res){
+        const emails = await Collections.Users.find().select('email -_id')
+        res.send(emails)    
+    }
+
     static async postNewUser(req,res){
         const userData = validate.Users.validate(req.body)
         if(userData.error){
@@ -26,13 +35,13 @@ class Users{
                 await mailTo(userData.value.email  //SENT MAIL
                             ,"OTP verification","", 
                             "<h1> Your OTP : "+otp+"</h1>")
-
+                
                 res.send("varification email is sent to your mail id");
             } catch(ex) {
                 res.status(422).send(ex.message)
             }
         }
-    } 
+    }
 
     //VERIFY OTP
     static async addData(req,res){
@@ -40,9 +49,18 @@ class Users{
         var data = Otp.verifyOtp(uOtp)
         if(data){
             try{
-                var myuser = new Collections.Users(newUser) 
+                var myuser = new Collections.Users(newUser)
                 const result = await myuser.save()
-                res.send(result)        
+                res.send({
+                token : {
+                    headers : {
+                        token : jwt.sign(userdata, global.config.secretKey, {
+                          algorithm: global.config.algorithm,
+                          expiresIn: '1h'})
+                    }
+                },
+                id : result._id
+            })
             } catch(ex){
                 res.send(ex)
             }

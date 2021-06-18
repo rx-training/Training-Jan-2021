@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { withRouter } from 'react-router'
 import { RedbusConsumer } from '../../../context/context'
 import headBcg from '../../../img/img-05.jpeg'
 import  SearchForm  from './SearchForm'
 
-const Head = (props) => {
+const Head = () => {
 
    return (
       <RedbusConsumer>
             {value => {
                return(
-                  <div className="home-head p-4">
+                  <div className="home-head">
 
                      <div className="head-img-container" >
-                        <img src={headBcg} alt="" width="100%" className="img-fluid myimg" />
+                        <img src={headBcg} alt="" width="100%" className="img-fluid myimg "/>
                      </div>
                      <div className="form-container w-100">
                         {value.login ? <SearchForm /> : null}
                      </div>
-                     
-            
+
                      {/*  <div className="safety d-flex mx-auto align-items-center justify-content-center">
                         <div className="img-container">
                            <img src={safetyImg} alt="safety"  className="img-fluid h-100" />

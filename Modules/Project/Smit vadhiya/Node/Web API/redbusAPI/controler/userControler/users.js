@@ -3,6 +3,7 @@ const router = express.Router({mergeParams: true})
 const {Users} = require('../../models/index') //USER MODEL 
 const chieldTrip = require('./trip/trip') //TRIP CHILD OF USER 
 const chieldSearchBus = require('./searchBus/searchBus.js')
+
 class User{
     //FETCH USER DETAIL FROM USER'S ID
     static async getUsersById(req,res){
@@ -24,12 +25,18 @@ class User{
             res.status(422).send(ex.message) 
         }
     }
+
+    static async allMailId(req,res){
+        const emails = Collections.Users.find().select('email')
+        res.send(emails)
+    }
 }
 
 //USER'S MAIN API
     router.get('/',User.getUsersById) //GET USER'S DATA FROM ID  /user/:id/ 
-
-    router.put('/update',User.putUserById) //UPDATE USER DATA  /user/:id/update
+    router.get('/getAllMail',User.getUsersById) //GET USER'S DATA FROM ID  /user/:id/ 
+    
+    router.put('/update',User.allMailId) //UPDATE USER DATA  /user/:id/update
     //enter field to be change in body. ex :  { "firstName" :"smit", "lastName": "shah" }
 
 

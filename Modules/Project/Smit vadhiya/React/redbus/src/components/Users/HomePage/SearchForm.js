@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React  from 'react'
 import {GiModernCity} from 'react-icons/gi'
 import {MdDateRange} from 'react-icons/md'
 import { withRouter } from 'react-router';

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3000/api/user/'
+const BASE_URL = 'http://localhost:80/api/user/'
 
 class MyBuses {
 

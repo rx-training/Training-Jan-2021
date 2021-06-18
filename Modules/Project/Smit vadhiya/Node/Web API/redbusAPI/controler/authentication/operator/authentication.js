@@ -10,27 +10,32 @@ router.post('/login', async (req,res) => {
         email : req.body.email,
         password :req.body.password
     }
-    const operator = await Collections.Operators.find({email : operatordata.email})
-    if(operator.length == 0) return res.status(404).send("emailId not found")
+    const operator = await Collections.Operators.findOne({email : operatordata.email})
+    if(!operator) return res.send("emailId not found")
     
-
-        
-        var myPassword = Encdec.decPassword(operator[0].password)
+        var myPassword = Encdec.decPassword(operator.password)
 
     const actualData = {
-        userEmail : operator[0].email,
+        userEmail : operator.email,
         userPassword : myPassword
     }
 
     let token = jwt.sign(operatordata, global.config.secretKey, {
           algorithm: global.config.algorithm,
-          expiresIn: '5m'
+          expiresIn: '1h'
           });
     
     if(operatordata.email == actualData.userEmail && operatordata.password == actualData.userPassword){
-        res.status(200).send(token)
+        res.send({
+            token : {
+                headers : {
+                    token : token
+                }
+            },
+            id : operator._id
+        })
     } else {
-        res.status(401).send("Login faild!! Wrong Password")
+        res.send("Login faild!! Wrong Password")
     }
 })
 

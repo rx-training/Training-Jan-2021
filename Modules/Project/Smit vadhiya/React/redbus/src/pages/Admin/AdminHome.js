@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AdminServices from '../../services/AdminServices'
-import {FaUserFriends , FaBus ,FaUserCircle} from 'react-icons/fa'
+import { FaBus ,FaUserCircle} from 'react-icons/fa'
 import {MdCardTravel} from 'react-icons/md'
 import {GoOrganization} from 'react-icons/go'
 import { Link } from 'react-router-dom'
-import cards from '../../RowData/AdminData'
+import { RedbusContext } from '../../context/context'
 
 export const AdminHome = (props) => {
-
+   const value = useContext(RedbusContext)
    const [users, setUsers] = useState([])
    const [operators, setOperators] = useState([])
    const [buses, setBuses] = useState([])
@@ -34,6 +34,7 @@ export const AdminHome = (props) => {
             if(res.data === 'Unauthorized Access'){
                props.history.push('/admin/login')
             } else {
+               value.handleAdminLoginTrue()
                setUsers(res.data)
                AdminServices.adminGetOperators(adminData).then(res => {
                   setOperators(res.data)

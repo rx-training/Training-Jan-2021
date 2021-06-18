@@ -3,7 +3,6 @@ import UserService from '../../services/UserService'
 import {HiOutlineUserCircle} from 'react-icons/hi'
 import {BsGear} from 'react-icons/bs'
 import {FaTicketAlt} from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 export const Profile = () => {
 
@@ -69,14 +68,21 @@ export const Profile = () => {
 
       UserService.userGetMyTrip(id,token).then(res => {
          setMyTrips(res.data);
-         console.log(res.data);
       })
 
    }, [])
 
-   const handleCancelTicket = (id) =>{
-      console.log(id);
-   }
+   const handleCancelTicket = (tripId) =>{
+      console.log(tripId);
+      const {token} = JSON.parse(localStorage.getItem('tokenData'))
+
+      UserService.userCancelTrip(id,tripId,token).then(res => {
+         console.log(res.data);
+      })
+
+      UserService.userGetMyTrip(id,token).then(res => {
+         setMyTrips(res.data);
+      })   }
 
    const handleChange = (e) =>{
       const {name, value} = e.target
@@ -84,17 +90,17 @@ export const Profile = () => {
 
       switch(name){
          case (name.match(/Number$/) || {}).input :  
-            errors[name] = value.length !== 10 && value.length !== 0 ? "Phone number must be of 10 digit" : ( isNaN(value)  ? "Only Numbers are valid" : "")
+            setErrors({...errors,[name] : value.length !== 10 && value.length !== 0 ? "Phone number must be of 10 digit" : ( isNaN(value)  ? "Only Numbers are valid" : "")})
             break;
 
          case (name.match(/email$/) || {}).input : 
             var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/; 
-            errors[name] =  value.match(pattern) || value.length === 0 ? "" : "Please enter valid Email"
+            setErrors({...errors,[name] :  value.match(pattern) || value.length === 0 ? "" : "Please enter valid Email"})
             break; 
 
          case ('DOB') : 
             pattern = /^(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])$/; 
-            errors[name] =  value.match(pattern) || value.length === 0 ? "" : "Date Should be in  YYYY-MM--DD "
+            setErrors({...errors,[name] :  value.match(pattern) || value.length === 0 ? "" : "Date Should be in  YYYY-MM--DD "})
             break;
 
          default :
@@ -102,14 +108,14 @@ export const Profile = () => {
    }
 
    return (
-      <div className="bg-light profile h-100 mt-5 py-5">
-         <div className="row justify-content-between">
+      <div className="bg-light profile h-100 mt-5 pt-5">
+         <div className="row justify-content-between m-0">
             <div className="col-12 profile-nav text-capitalize d-flex flex-row text-center  flex-md-column justify-content-center h-100  col-md-3 p-0 ">
                <div className="p-2 item" onClick={handleProfile}>
                   <HiOutlineUserCircle className="icon" /> {userData.firstName}  {userData.lastName} 
                </div>
             
-               <div className="p-2  item" onClick={handleProfile}>
+               <div className="p-2 item" onClick={handleProfile}>
                   <BsGear className="icon" /> Profile
                </div>
 
@@ -219,7 +225,7 @@ export const Profile = () => {
                         CONTACT DETAILS
                      </div>
                      <hr />
-                  
+
                      <div className="row p-0 justify-content-between">
                            <div className="col-12 col-lg-6">
                               <span className="lead p-0 col-12">email</span><br />

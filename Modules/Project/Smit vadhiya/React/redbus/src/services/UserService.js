@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3000/api/user/'
+const BASE_URL = 'http://localhost:80/api/user/'
 
 class UserServices {
 
@@ -34,6 +34,14 @@ class UserServices {
 
    userGetMyTrip(id,header){
       return axios.get(BASE_URL+id+'/mytrip',header)
+   }
+
+   userCancelTrip(userId,tripId,header){
+      return axios.get(BASE_URL+userId+'/myTrip/'+tripId,header)
+   }
+
+   userGetAllMail(){
+      return axios.get(BASE_URL+'getAllMail')
    }
 
 }

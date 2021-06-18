@@ -2,8 +2,6 @@ import React, {} from 'react'
 import  Head  from '../../components/Users/HomePage/Head'
 import { OfferComponent } from '../../components/Users/HomePage/OfferComponent'
 import {coupanData} from '../../RowData/Coupans'
-import safetyImg from '../../img/SaftySection.png'
-import { Alert } from '../../components/Users/Alert'
 import { Safety } from '../../components/Users/HomePage/Safety'
 
 

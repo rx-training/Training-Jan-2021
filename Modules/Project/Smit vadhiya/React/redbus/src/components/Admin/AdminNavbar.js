@@ -5,12 +5,7 @@ import {RedbusContext} from '../../context/context'
 
 
 export const AdminNavbar = () => {
-   const [context, setContext] = useState(useContext(RedbusContext))
-
-   const handleLogin = () =>{
-
-   }
-
+   const value = useContext(RedbusContext)
    return (
       <div className="navbar bg-theme navbar-dark fixed-top navbar-expand-md ">
 
@@ -18,9 +13,9 @@ export const AdminNavbar = () => {
             <img src={logo} alt="" />
          </Link>        
          
-         {context.adminLogin ? 
-         <button className="btn btn-light ml-auto">
-            <Link to="admin/login">
+         {value.adminLogin ? 
+         <button className="btn btn-light text-dark ml-auto" onClick={value.handleAdminLogin} >
+            <Link to="admin/login" className="link" >
                logout
             </Link>
          </button>
