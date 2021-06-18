@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import FlightSearch from '../services/FlightSearch'
 
-function Register() {
+function Register(props) {
 
   const [userDetails , setUserDetails] = useState({
     Title : '' , 
@@ -37,8 +37,30 @@ function Register() {
     Password : '' ,
 
   })
+  const [ErrorMail , setErrorMail] = useState(null)
+  const [ErrorPass , setErrorPass] = useState(null)
+
+  const handleCheck = (e) =>{
+    if(e.target.name == "ReEmail"){
+     
+      if(!e.target.value.match(userDetails.EmailId)){
+        
+        setErrorMail('EmailId dose not match')
+      }
+      
+    }
+    if(e.target.name == "Repassword"){
+     
+      if(!e.target.value.match(userDetails.Password)){
+        
+        setErrorPass('Password dose not match')
+      }
+      
+    }
+  }
 
   const handleChange = (e) =>{
+    
     setUserDetails({
       ...userDetails ,
       [e.target.name]:e.target.value
@@ -47,6 +69,7 @@ function Register() {
   }
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
     const loginDetails = {
       username : userDetails.EmailId ,
@@ -57,9 +80,10 @@ function Register() {
     FlightSearch.addUser(userDetails)
     e.target.reset()
     // console.log('submited');
+    props.history.push('./login')
   }
 
-  // console.log(userDetails);
+  // console.log(Errors);
   // const {title} = userDetails
     return (
         <>
@@ -107,7 +131,7 @@ function Register() {
                   <div class="form-group row">
                     <label for="title" className="col-auto col-form-label ">First Name : - </label>
                     <div class="col-sm-8">
-                    <input type="text" className="form-control" name="FirstName" onChange={handleChange} />
+                    <input type="text" className="form-control" name="FirstName" onChange={handleChange} required/>
                     </div>
                  </div>
                   </div>
@@ -115,7 +139,7 @@ function Register() {
                   <div class="form-group row">
                     <label for="title" className="col-auto col-form-label ">Last Name : - </label>
                     <div class="col-sm-8">
-                    <input type="text" className="form-control" name="LastName" onChange={handleChange} />
+                    <input type="text" className="form-control" name="LastName" onChange={handleChange} required/>
                     </div>
                  </div>  
                     </div>  
@@ -126,7 +150,7 @@ function Register() {
                   <div class="form-group row">
                     <label for="" className="col-auto col-form-label ">Name on Card: - </label>
                     <div class="col-sm-8">
-                    <input type="text" className="form-control" name="NameOnCard" onChange={handleChange} />
+                    <input type="text" className="form-control" name="NameOnCard" onChange={handleChange} required/>
                     </div>
                  </div>
                   </div>
@@ -180,7 +204,7 @@ function Register() {
                   <div class="form-group row">
                     <label for="title" className="col-auto col-form-label ">Passport Number : - </label>
                     <div class="col-sm-8">
-                    <input type="number" className="form-control" name="PassportNumber" onChange={handleChange}  />
+                    <input type="number" className="form-control" name="PassportNumber" onChange={handleChange}  required/>
                     </div>
                  </div>
                   </div>
@@ -317,7 +341,7 @@ function Register() {
                   <div class="form-group row">
                     {/* <label for="title" className="col-auto col-form-label ">Last Name : - </label> */}
                     <div class="col-sm-8">
-                    <input type="number" className="form-control" name="MobileNo" onChange={handleChange}  />
+                    <input type="number" className="form-control" name="MobileNo" onChange={handleChange} required />
                     </div>
                  </div>  
                     </div>  
@@ -329,7 +353,7 @@ function Register() {
                   <div class="form-group row">
                     <label for="title" className="col-auto col-form-label ">Email Address : - </label>
                     <div class="col-sm-8">
-                    <input type="email" className="form-control" name="EmailId" onChange={handleChange} />
+                    <input type="email" className="form-control" name="EmailId" onChange={handleChange} required/>
                     </div>
                  </div>
                   </div>
@@ -337,7 +361,9 @@ function Register() {
                   <div class="form-group row">
                     <label for="title" className="col-auto col-form-label ">Re-Enter Email : - </label>
                     <div class="col-sm-8">
-                    <input type="email" className="form-control"  />
+                    
+                    <input type="email" className="form-control" name="ReEmail" onBlur={handleCheck} required />
+                    { ErrorMail && <small className="text-danger">{ErrorMail}</small>}
                     </div>
                  </div>  
                     </div>  
@@ -429,7 +455,8 @@ function Register() {
                   <div class="form-group row">
                     <label for="title" className="col-auto col-form-label ">Password : - </label>
                     <div class="col-sm-8">
-                    <input type="text" className="form-control" name="Password" onChange={handleChange}  />
+                    <input type="password" className="form-control" name="Password" onChange={handleChange}  required/>
+                    {}
                     </div>
                  </div>
                   </div>
@@ -437,7 +464,8 @@ function Register() {
                   <div class="form-group row">
                     <label for="title" className="col-auto col-form-label ">Re-enter Password: - </label>
                     <div class="col-sm-8">
-                    <input type="text" className="form-control"  />
+                    <input type="password" className="form-control" name="Repassword" onBlur={handleCheck} required/>
+                    { ErrorPass && <small className="text-danger">{ErrorPass}</small>}
                     </div>
                  </div>  
                     </div>  
