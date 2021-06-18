@@ -8,7 +8,7 @@ import { IMovieBookings } from '../models/IMovieBookings';
 })
 export class MovieBookingsService implements OnInit{
 
-  private movieBookingsUrl = 'https://localhost:44380/api/BookMyShow/MovieBookings';  // URL to web api
+  private movieBookingsUrl = 'http://20.198.103.48:1005/api/BookMyShow/MovieBookings';  // URL to web api
   loginToken = '';
 
   getToken(){

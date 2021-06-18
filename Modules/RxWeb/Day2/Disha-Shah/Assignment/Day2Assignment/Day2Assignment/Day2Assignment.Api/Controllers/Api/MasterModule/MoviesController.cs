@@ -9,8 +9,8 @@ namespace Day2Assignment.Api.Controllers.MasterModule
 {
     [ApiController]
     [Route("api/[controller]")]
-	
-	public class MoviesController : BaseController<Movie,vMovy,Movie>
+    [Access(1)]
+    public class MoviesController : BaseController<Movie,vMovy,Movie>
 
     {
         public MoviesController(IMasterUow uow):base(uow) {}

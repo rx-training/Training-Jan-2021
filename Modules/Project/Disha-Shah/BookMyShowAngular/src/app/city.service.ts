@@ -8,7 +8,7 @@ import { ICity } from './models/ICity';
 })
 export class CityService {
 
-  private citiesUrl = 'https://localhost:44380/api/BookMyShow/Cities';  // URL to web api
+  private citiesUrl = 'http://20.198.103.48:1005/api/BookMyShow/Cities';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

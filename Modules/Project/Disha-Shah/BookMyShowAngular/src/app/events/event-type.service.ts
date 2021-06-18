@@ -8,7 +8,7 @@ import { IEventTypes } from '../models/IEventTypes';
 })
 export class EventTypeService {
 
-  private eventTypesUrl = 'https://localhost:44380/api/BookMyShow/EventTypes';  // URL to web api
+  private eventTypesUrl = 'http://20.198.103.48:1005/api/BookMyShow/EventTypes';  // URL to web api
 
   getEventTypes(): Observable<IEventTypes[]> {
     return this.http.get<IEventTypes[]>(this.eventTypesUrl);

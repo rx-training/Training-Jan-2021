@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  setTimeout(() => {
     $('.slick-carousel').slick({
         dots:true,
         autoplay:true,
@@ -27,13 +28,15 @@ $(document).ready(function(){
             }
         ]
     });
-  });
+  }, 500);
+});
 
 $(document).ready(function(){
+  setTimeout(() => { 
     $('.slick-recommended-movies').slick({
         dots: false,
         infinite: false,
-        speed: 300,
+        speed: 600,
         slidesToShow: 5,
         slidesToScroll: 5,
         responsive: [
@@ -48,13 +51,15 @@ $(document).ready(function(){
             
         ]
     });
+  }, 800);
 });
 
 $(document).ready(function(){
+  setTimeout(() => { 
     $('.slick-entertainment').slick({
         dots: false,
         infinite: false,
-        speed: 300,
+        speed: 600,
         slidesToShow: 5,
         slidesToScroll: 5,
         responsive: [
@@ -82,6 +87,7 @@ $(document).ready(function(){
             
         ]
     });
+  }, 1000);
 });
 
 $(function () {

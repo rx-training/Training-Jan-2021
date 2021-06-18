@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterService {
 
-  private authenticateUrl = 'https://localhost:44380/api/Authenticate';  // URL to web api
+  private authenticateUrl = 'http://20.198.103.48:1005/api/Authenticate';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

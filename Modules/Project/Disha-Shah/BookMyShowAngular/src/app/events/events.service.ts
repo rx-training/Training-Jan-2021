@@ -10,7 +10,7 @@ export class EventsService {
 
   loginToken='';
 
-  private eventsUrl = 'https://localhost:44380/api/BookMyShow/Events';  // URL to web api
+  private eventsUrl = 'http://20.198.103.48:1005/api/BookMyShow/Events';  // URL to web api
 
   constructor(private http: HttpClient) {  }
   

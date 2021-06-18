@@ -56,8 +56,7 @@ export class UserNavbarComponent implements OnInit, OnChanges {
   getDynamicNavbars(){
     this.dynamicNavbarService.getDynamicNavbars()
     .subscribe(dynamicNavbars => {
-      this.dynamicNavbarsList = dynamicNavbars,
-      console.log('dynamic navbar' + this.dynamicNavbarsList)
+      this.dynamicNavbarsList = dynamicNavbars
     })
   }
 

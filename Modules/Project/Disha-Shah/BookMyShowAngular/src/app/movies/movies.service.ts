@@ -19,7 +19,7 @@ export class MoviesService {
     console.log(this.loginToken);
   }
 
-  private moviesUrl = 'https://localhost:44380/api/BookMyShow/Movies';  // URL to web api
+  private moviesUrl = 'http://20.198.103.48:1005/api/BookMyShow/Movies';  // URL to web api
 
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

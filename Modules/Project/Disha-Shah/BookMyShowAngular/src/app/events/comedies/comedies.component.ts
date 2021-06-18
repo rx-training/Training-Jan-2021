@@ -25,37 +25,29 @@ export class ComediesComponent implements OnInit {
     this.service.getComedies()
     .subscribe((comedies: any[]) => {
       this.comediesList = comedies,
-      console.log(this.comediesList), 
       this.uniqueComediesList = this.comediesList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
-      console.log(this.uniqueComediesList)
       this.uniqueComediesList.forEach(element => {
         element.showTimings = [];
         element.languages = [];
         this.languages = [];
         this.comediesList.forEach(item => {
           if(item.eventId == element.eventId){
-            console.log(element.showTimings);
             element.showTimings.push({"showTime": item.showTime});
             this.languages.push({"language": item.language});
-            console.log(element.showTimings);
 
           }
         }) 
       element.languages = [...new Set(this.languages.map(i => i.language))];
-      console.log('lang' + element.languages);
       })
 
-      console.log(this.uniqueComediesList),
-      this.finalList = this.uniqueComediesList.slice(0,10),
-      console.log(this.finalList)
+      this.finalList = this.uniqueComediesList.slice(0,10)
     });  
   }
 
   getLanguages(): void{
     this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
-      this.languagesList = languages,
-      console.log(this.languagesList);
+      this.languagesList = languages
     }); 
   }
 

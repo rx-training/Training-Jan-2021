@@ -25,37 +25,29 @@ export class SportsComponent implements OnInit {
     this.service.getSports()
     .subscribe((sports: any[]) => {
       this.sportsList = sports,
-      console.log(this.sportsList), 
       this.uniqueSportsList = this.sportsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
-      console.log(this.uniqueSportsList)
       this.uniqueSportsList.forEach(element => {
         element.showTimings = [];
         element.languages = [];
         this.languages = [];
         this.sportsList.forEach(item => {
           if(item.eventId == element.eventId){
-            console.log(element.showTimings);
             element.showTimings.push({"showTime": item.showTime});
             this.languages.push({"language": item.language});
-            console.log(element.showTimings);
 
           }
         }) 
       element.languages = [...new Set(this.languages.map(i => i.language))];
-      console.log('lang' + element.languages);
       })
 
-      console.log(this.uniqueSportsList),
-      this.finalList = this.uniqueSportsList.slice(0,10),
-      console.log(this.finalList)
+      this.finalList = this.uniqueSportsList.slice(0,10)
     });  
   }
 
   getLanguages(): void{
     this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
-      this.languagesList = languages,
-      console.log(this.languagesList);
+      this.languagesList = languages
     }); 
   }
 

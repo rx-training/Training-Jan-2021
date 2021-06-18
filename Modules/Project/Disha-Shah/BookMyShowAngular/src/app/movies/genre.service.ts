@@ -8,7 +8,7 @@ import { IGenres } from '../models/IGenres';
 })
 export class GenreService {
 
-  private genresUrl = 'https://localhost:44380/api/BookMyShow/Genres';  // URL to web api
+  private genresUrl = 'http://20.198.103.48:1005/api/BookMyShow/Genres';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

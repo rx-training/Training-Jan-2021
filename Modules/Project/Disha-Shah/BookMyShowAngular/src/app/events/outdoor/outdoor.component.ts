@@ -26,37 +26,29 @@ export class OutdoorComponent implements OnInit {
     this.service.getOutdoors()
     .subscribe((outdoors: any[]) => {
       this.outdoorsList = outdoors,
-      console.log(this.outdoorsList), 
       this.uniqueOutdoorsList = this.outdoorsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
-      console.log(this.uniqueOutdoorsList),
       this.uniqueOutdoorsList.forEach(element => {
         element.showTimings = [];
         element.languages = [];
         this.languages = [];
         this.outdoorsList.forEach(item => {
           if(item.eventId == element.eventId){
-            console.log(element.showTimings);
             element.showTimings.push({"showTime": item.showTime});
             this.languages.push({"language": item.language});
-            console.log(element.showTimings);
 
           }
         }) 
       element.languages = [...new Set(this.languages.map(i => i.language))];
-      console.log('lang' + element.languages);
       })
 
-      console.log(this.uniqueOutdoorsList),
-      this.finalList = this.uniqueOutdoorsList.slice(0,10),
-      console.log(this.finalList)
+      this.finalList = this.uniqueOutdoorsList.slice(0,10)
     });  
   }
 
   getLanguages(): void{
     this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
-      this.languagesList = languages,
-      console.log(this.languagesList);
+      this.languagesList = languages
     }); 
   }
 
