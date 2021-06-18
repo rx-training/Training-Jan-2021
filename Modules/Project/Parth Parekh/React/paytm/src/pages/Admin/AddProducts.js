@@ -159,7 +159,7 @@ export default function AddProducts(props) {
 
             <div className="row">
                 <div
-                    className="col-md-11  mx-auto border border-primary my-3 bg-light"
+                    className="col-md-11 col-11 mx-auto border border-primary my-3 bg-light"
                     style={{ fontFamily: "initial" }}
                 >
                     {message.length > 0 && (

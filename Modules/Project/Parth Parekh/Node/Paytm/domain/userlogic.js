@@ -276,7 +276,7 @@ class UserData {
 
         try {
             const receiverData = await UserModel.find({ mobileno: mobileno });
-            console.log(receiverData);
+            // console.log(receiverData);
             if (receiverData.length < 1) {
                 return res.status(404).send("ReceiverId Not Found");
             }
@@ -285,7 +285,12 @@ class UserData {
             if (!senderData) {
                 return res.status(404).send("SenderId Not Found");
             }
-            console.log(senderData);
+            // console.log(senderData);
+            if (senderData.mobileno == mobileno) {
+                return res
+                    .status(406)
+                    .send("you can't transfer money to your account");
+            }
             if (senderData.balance >= amount) {
                 //Deduct Balance from Sender
                 senderData.balance = senderData.balance - amount;

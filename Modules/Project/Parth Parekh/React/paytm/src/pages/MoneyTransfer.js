@@ -59,6 +59,10 @@ export default function MoneyTransfer(props) {
                 .catch((error) => {
                     if (error.response.status === 404) {
                         setMess("Receiver Mobile Number not Found !!!");
+                    } else if (error.response.status === 406) {
+                        setMess(
+                            "You can not tranfer money to your own account!!!"
+                        );
                     } else if (error.response.status === 404) {
                         setMess("Something went Wrong!!!");
                     } else if (error.response.status === 402) {

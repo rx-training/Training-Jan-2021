@@ -75,7 +75,6 @@ export default function ProductForm(props) {
         if (event.target.type === "file") {
             value = event.target.files;
         }
-
         setValues({ ...values, [name]: value });
     };
     const handleSubmit = (e) => {
@@ -171,7 +170,7 @@ export default function ProductForm(props) {
                         encType="mutlipart/form-data"
                         onSubmit={handleSubmit}
                     >
-                        <div className="row my-2">
+                        <div className="row my-3">
                             <div className="col-md-3 h5">Product Name</div>
                             <div className="col-md-8">
                                 <input
@@ -186,7 +185,7 @@ export default function ProductForm(props) {
                             </div>
                         </div>
 
-                        <div className="row my-2">
+                        <div className="row my-3">
                             <div className="col-md-3 h5">Product Category</div>
                             <div className="col-md-8">
                                 <select
@@ -214,7 +213,7 @@ export default function ProductForm(props) {
                             </div>
                         </div>
 
-                        <div className="row my-2 ">
+                        <div className="row my-3">
                             <div className="col-md-3 h5">Product Price</div>
                             <div className="col-md-8">
                                 <input
@@ -228,7 +227,7 @@ export default function ProductForm(props) {
                             </div>
                         </div>
 
-                        <div className="row my-2">
+                        <div className="row my-3">
                             <div className="col-md-3 h5">Product Type</div>
                             <div className="col-md-8">
                                 <input
@@ -255,7 +254,7 @@ export default function ProductForm(props) {
                                 />
                             </div>
                             <div className="col-md-3">
-                                <h5>Rating</h5>
+                                <h5>Rating (out of 5)</h5>
                                 <input
                                     type="number"
                                     className="form-control"
@@ -278,8 +277,8 @@ export default function ProductForm(props) {
                             </div>
                         </div>
                         {id === "add" && (
-                            <div className="row my-2 justify-content-around">
-                                <div className="col-md-4">
+                            <div className="row my-3 justify-content-around">
+                                <div className="col-md-4 my-3">
                                     <label className="h5">Product Image</label>
                                     <input
                                         type="file"
@@ -289,7 +288,7 @@ export default function ProductForm(props) {
                                     />
                                 </div>
 
-                                <div className="col-md-4">
+                                <div className="col-md-4 my-3">
                                     <label className="h5">
                                         More Images (Max 3 Images)
                                     </label>
@@ -303,7 +302,7 @@ export default function ProductForm(props) {
                                 </div>
                             </div>
                         )}
-                        <div className="row">
+                        <div className="row my-3">
                             <div className="col-md-4 h5">
                                 Specifications or Size
                             </div>
