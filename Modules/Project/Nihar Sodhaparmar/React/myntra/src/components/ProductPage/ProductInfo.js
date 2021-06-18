@@ -27,8 +27,12 @@ export default function ProductInfo({
       <div className="row mt-5">
         <div className="col-sm col-md-4">
           <div className="product-info-padding">
-            <div className="h5 font-weight-bold">{brand.brandName}</div>
-            <div className="h5 font-weight-bold text-muted">{productName}</div>
+            <div className="h5 font-weight-bold text-capitalize">
+              {brand.brandName}
+            </div>
+            <div className="h5 font-weight-bold text-muted text-capitalize">
+              {productName}
+            </div>
           </div>
         </div>
 

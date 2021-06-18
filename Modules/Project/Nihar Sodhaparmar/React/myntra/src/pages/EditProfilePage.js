@@ -241,11 +241,11 @@ export default function EditProfilePage(props) {
     if (number.trim() === "") {
       return "Phone number is required";
     }
-    if (!/\d{10}/.test(number)) {
-      return "Phone number contains exactly 10 digits";
+    if (/^[0-9]{10}$/.test(number)) {
+      return null;
     }
 
-    return null;
+    return "Phone number contains exactly 10 digits";
   };
 
   const dobValidation = (dob) => {

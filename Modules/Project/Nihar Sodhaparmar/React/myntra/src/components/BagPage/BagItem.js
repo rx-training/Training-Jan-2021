@@ -29,8 +29,12 @@ export default function BagItem({ item, removeFromBag, updateBagItem }) {
           <img src={imgurls[0]} width="100%" alt={productName} />
         </div>
         <div className="col-sm col-md-8 col-lg-8 mx-auto wishlist-and-bag-content">
-          <div className="h5 font-weight-bold">{brand.brandName}</div>
-          <div className="h5 font-weight-bold">{productName}</div>
+          <div className="h5 font-weight-bold text-capitalize">
+            {brand.brandName}
+          </div>
+          <div className="h5 font-weight-bold text-capitalize">
+            {productName}
+          </div>
           <div className="h5 font-weight-bold mt-3">Sizes :</div>
           <div className="h5 font-weight-bold">
             {sizes.map((size, index) => {

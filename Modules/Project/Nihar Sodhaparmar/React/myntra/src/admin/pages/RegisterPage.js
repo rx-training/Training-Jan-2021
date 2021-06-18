@@ -198,11 +198,11 @@ export default function RegisterPage(props) {
     if (number.trim() === "") {
       return "Phone number is required";
     }
-    if (!/\d{10}/.test(number)) {
-      return "Phone number contains exactly 10 digits";
+    if (/^[0-9]{10}$/.test(number)) {
+      return null;
     }
 
-    return null;
+    return "Phone number contains exactly 10 digits";
   };
 
   const dobValidation = (dob) => {
@@ -317,17 +317,17 @@ export default function RegisterPage(props) {
   const register = async (event) => {
     event.preventDefault();
 
-    if (email) {
-      try {
-        await SellerService.getSellerByEmail(email);
-        setErrors({ ...errors, email: "Email is already used" });
-        setIsBtnDisable(true);
-        return;
-      } catch (error) {
-        console.error(error);
-        setIsBtnDisable(false);
-      }
-    }
+    // if (email) {
+    //   try {
+    //     await SellerService.getSellerByEmail(email);
+    //     setErrors({ ...errors, email: "Email is already used" });
+    //     setIsBtnDisable(true);
+    //     return;
+    //   } catch (error) {
+    //     console.error(error);
+    //     setIsBtnDisable(false);
+    //   }
+    // }
 
     let isValidForm = validateForm();
 

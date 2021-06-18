@@ -23,7 +23,7 @@ export default function EmailForm({
             <span>Signup</span>
           </div>
           <form onSubmit={submitEmail}>
-            <div className="form-group mt-4">
+            <div className="form-group mt-3">
               <label className="form-control-label" htmlFor="email">
                 Email
               </label>
@@ -52,7 +52,7 @@ export default function EmailForm({
                 value="Continue"
               />
             </div>
-            <div style={{ paddingTop: "60px" }}></div>
+            <div style={{ paddingTop: "50px" }}></div>
           </form>
         </div>
       </div>

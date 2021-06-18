@@ -22,7 +22,7 @@ export default function OtpForm({
             <span>Otp</span>
           </div>
           <form onSubmit={verifyOtp}>
-            <div className="form-group mt-4">
+            <div className="form-group mt-3">
               <label className="form-control-label" htmlFor="email">
                 Enter Otp
               </label>

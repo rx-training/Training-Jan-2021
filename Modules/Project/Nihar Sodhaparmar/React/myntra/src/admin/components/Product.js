@@ -18,7 +18,9 @@ export default function Product({ product }) {
             </div>
           </div>
           <div className="text-center">
-            <div className="text-muted mb-3 line-2">{productName}</div>
+            <div className="text-muted mb-3 line-2 text-capitalize">
+              {productName}
+            </div>
           </div>
         </div>
       </Link>

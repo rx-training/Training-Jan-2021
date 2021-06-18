@@ -214,6 +214,8 @@ export default function AddProductPage(props) {
         if (error.response.status === 403 || error.response.status === 401) {
           props.history.push("/login");
           removeUserSession();
+        } else if (error.response.status === 400) {
+          setErrors({ ...errors, offer: error.response.data });
         }
         setLoading(false);
       }
@@ -373,6 +375,7 @@ export default function AddProductPage(props) {
                       id="productName"
                       value={productName}
                       onChange={handeChange}
+                      placeholder="Product Name"
                     />
                     <p className="text-danger mb-0 font-weight-bold">
                       {errors.productName}
@@ -399,6 +402,7 @@ export default function AddProductPage(props) {
                       rows="4"
                       value={details}
                       onChange={handeChange}
+                      placeholder="Product Details"
                     />
                     <p className="text-danger mb-0 font-weight-bold">
                       {errors.details}
@@ -461,6 +465,7 @@ export default function AddProductPage(props) {
                       id="price"
                       value={price}
                       onChange={handeChange}
+                      placeholder="Product Price"
                     />
                     <p className="text-danger mb-0 font-weight-bold">
                       {errors.price}
@@ -487,6 +492,7 @@ export default function AddProductPage(props) {
                       id="sizes"
                       value={sizes}
                       onChange={handeChange}
+                      placeholder="Sizes must be comma seperated list"
                     />
                     <p className="text-danger mb-0 font-weight-bold">
                       {errors.sizes}
@@ -513,6 +519,7 @@ export default function AddProductPage(props) {
                       rows="4"
                       value={pincodes}
                       onChange={handeChange}
+                      placeholder="Pincodes must be comma seperated list"
                     ></textarea>
                     <p className="text-danger mb-0 font-weight-bold">
                       {errors.pincodes}
@@ -579,6 +586,7 @@ export default function AddProductPage(props) {
                       id="offer"
                       value={offer}
                       onChange={handeChange}
+                      placeholder="Offer"
                     />
                     <p className="text-danger mb-0 font-weight-bold">
                       {errors.offer}

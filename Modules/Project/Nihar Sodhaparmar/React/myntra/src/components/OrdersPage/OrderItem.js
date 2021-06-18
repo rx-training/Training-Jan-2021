@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function OrderItem({ product }) {
-  const { product: newProduct, quantity, salePrice } = product;
+  const { product: newProduct, quantity, salePrice, size } = product;
   const { productName, imgurls, brand } = newProduct;
 
   return (
@@ -17,10 +17,13 @@ export default function OrderItem({ product }) {
           />
         </div>
         <div className="col-sm col-md-8 col-lg-8 mx-auto wishlist-and-bag-content">
-          <div className="h6 font-weight-bold text-muted">{productName}</div>
-          <div className="h6 font-weight-bold text-muted">
+          <div className="h6 font-weight-bold text-muted text-capitalize">
+            {productName}
+          </div>
+          <div className="h6 font-weight-bold text-muted text-capitalize">
             {brand.brandName}
           </div>
+          <div className="h6 font-weight-bold text-muted">Size : {size}</div>
           <div className="h6 font-weight-bold text-muted">
             Quantity : {quantity}
           </div>
