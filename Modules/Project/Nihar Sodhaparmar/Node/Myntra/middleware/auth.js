@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = require("config");
+require("dotenv").config();
 
 module.exports = function (req, res, next) {
   const token = req.header("x-access-token");
@@ -9,22 +9,26 @@ module.exports = function (req, res, next) {
   }
 
   try {
-    jwt.verify(token, config.get("jwtPrivatKey"), function (err, decoded) {
-      if (err) {
-        // let errordata = {
-        //     message: err.message,
-        //     expiredAt: err.expiredAt,
-        // };
-        //console.log(errordata);
-        return res.status(401).json({
-          message: "Unauthorized Access1",
-        });
-      }
+    jwt.verify(
+      token,
+      process.env.MYNTRA_JWT_PRIVATE_KEY,
+      function (err, decoded) {
+        if (err) {
+          // let errordata = {
+          //     message: err.message,
+          //     expiredAt: err.expiredAt,
+          // };
+          //console.log(errordata);
+          return res.status(401).json({
+            message: "Unauthorized Access1",
+          });
+        }
 
-      req.user = decoded;
-      //console.log(decoded);
-      next();
-    });
+        req.user = decoded;
+        //console.log(decoded);
+        next();
+      }
+    );
   } catch (e) {
     console.log(e);
     res.status(401).send("Unauthorized Access2");

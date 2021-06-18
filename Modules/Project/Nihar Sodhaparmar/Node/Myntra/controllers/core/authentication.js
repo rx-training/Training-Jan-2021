@@ -1,4 +1,4 @@
-const config = require("config");
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
 
     const token = jwt.sign(
       { _id: seller._id, role: "seller" },
-      config.get("jwtPrivatKey"),
+      process.env.MYNTRA_JWT_PRIVATE_KEY,
       {
         expiresIn: "60m",
       }
@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
 
     const token = jwt.sign(
       { _id: customer._id, role: "customer" },
-      config.get("jwtPrivatKey"),
+      process.env.MYNTRA_JWT_PRIVATE_KEY,
       {
         expiresIn: "60m",
       }
