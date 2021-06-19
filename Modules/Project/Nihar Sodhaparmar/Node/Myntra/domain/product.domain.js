@@ -7,10 +7,8 @@ class ProductDomain {
   async addProduct(req, res) {
     let imgurls = [];
 
-    const host = req.headers.host;
-
     for (let i of req.files) {
-      imgurls.push(`http://${host}/${i.path}`);
+      imgurls.push(`${i.path}`);
     }
 
     const { error } = validateProduct(req.body);
@@ -181,10 +179,8 @@ class ProductDomain {
 
     let newImgurls = [];
 
-    const host = req.headers.host;
-
     for (let i of req.files) {
-      newImgurls.push(`http://${host}/${i.path}`);
+      newImgurls.push(`${i.path}`);
     }
 
     res.send(newImgurls);
