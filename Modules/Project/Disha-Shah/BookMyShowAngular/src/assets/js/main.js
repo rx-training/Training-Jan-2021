@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  setTimeout(() => {
     $('.slick-carousel').slick({
         dots:true,
         autoplay:true,
@@ -28,7 +27,6 @@ $(document).ready(function(){
             }
         ]
     });
-  }, 500);
 });
 
 $(document).ready(function(){
@@ -51,7 +49,7 @@ $(document).ready(function(){
             
         ]
     });
-  }, 800);
+  }, 500);
 });
 
 $(document).ready(function(){
@@ -87,7 +85,7 @@ $(document).ready(function(){
             
         ]
     });
-  }, 1000);
+  }, 800);
 });
 
 $(function () {

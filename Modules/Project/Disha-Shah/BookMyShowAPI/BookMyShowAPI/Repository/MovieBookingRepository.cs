@@ -89,7 +89,7 @@ namespace BookMyShowAPI.Repository
 
             try
             {
-                await mailService.SendEmailAsync(request);
+                mailService.SendEmailAsync(request);
             }
             catch (Exception ex)
             {

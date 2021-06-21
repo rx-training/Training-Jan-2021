@@ -134,11 +134,12 @@ namespace BookMyShowAPI
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
 
             app.UseRouting();
 
             app.UseCors("BookMyShowPolicy");
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
