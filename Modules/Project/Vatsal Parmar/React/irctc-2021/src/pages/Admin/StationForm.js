@@ -134,7 +134,7 @@ const StationForm = (props) => {
             </div>
             <button
               className={
-                id === "_add" ? "btn btn-success w-25" : "btn btn-info w-25"
+                id === "_add" ? "btn btn-success px-4" : "btn btn-info px-4"
               }
             >
               {id === "_add" ? "Add" : "Update"}

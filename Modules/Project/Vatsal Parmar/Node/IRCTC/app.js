@@ -16,12 +16,24 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const app = express();
-const port = 3001;
+const port = process.env.port;
 
-app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE" }));
+// var corsOptions = {
+//   origin: "http://20.198.103.48:91",
+//   methods: "GET,POST,PUT,DELETE",
+//   credentials: true,
+//   allowedHeaders: "Content-Type,x-access-token",
+// };
+
+// app.use(cors(corsOptions));
+app.use(cors());
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Headers", "x-access-token, Content-Type");
+//   res.header("Allow", "GET,PUT,POST,DELETE");
+//   next();
+// });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.use(cors());
 app.use("/", mainRouter);
 
 // catch 404 and forward to error handler

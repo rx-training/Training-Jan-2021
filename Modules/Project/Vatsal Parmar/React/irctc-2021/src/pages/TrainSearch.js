@@ -23,6 +23,9 @@ const TrainSearch = (props) => {
       let toData = stationsData.filter((item) => item.station_name !== from);
       setToStations(toData);
     });
+    let myDate = new Date();
+    let d = myDate.toLocaleDateString("en-CA");
+    setSearchQuery({ ...searchQuery, date: d });
   }, []);
 
   const searchTrain = async (e) => {

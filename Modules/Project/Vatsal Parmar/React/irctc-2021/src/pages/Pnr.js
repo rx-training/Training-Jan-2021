@@ -7,7 +7,7 @@ const Pnr = (props) => {
     props.history.push(`/ticket/${pnr}`);
   };
   return (
-    <div className="container" style={{ minHeight: "75vh" }}>
+    <div className="container py-5" style={{ minHeight: "75vh" }}>
       <div>
         <h3 className="text-center">
           INDIAN RAILWAYS PASSENGER RESERVATION ENQUIRY
