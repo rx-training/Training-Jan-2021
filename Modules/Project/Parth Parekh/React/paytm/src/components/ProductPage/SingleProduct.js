@@ -5,6 +5,7 @@ import { AiFillStar } from "react-icons/ai";
 
 import { getUserId, getToken } from "../../Utils/Common";
 import PaytmServices from "../../Services/paytmServices";
+import { hostServer } from "../../Services/paytmServices";
 export default function SingleProduct(props) {
     const [imagePath, setImagePath] = useState("");
 
@@ -52,7 +53,7 @@ export default function SingleProduct(props) {
                                     return (
                                         <div className="row" key={index}>
                                             <img
-                                                src={`${item}`}
+                                                src={`${hostServer}/${item}`}
                                                 alt={item}
                                                 width="50%"
                                                 className="img-fluid my-1 singlehovereffect"
@@ -69,7 +70,7 @@ export default function SingleProduct(props) {
                             </div>
                             <div className=" col-9 col-md-9  text-center">
                                 <img
-                                    src={imagePath}
+                                    src={`${hostServer}/${imagePath}`}
                                     alt={imagePath}
                                     style={{
                                         maxHeight: "500px",

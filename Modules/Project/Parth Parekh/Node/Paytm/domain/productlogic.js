@@ -52,14 +52,14 @@ class ProductData {
         let dd = [];
         const host = req.headers.host;
         for (let i of req.files.moreInfo) {
-            dd.push(`http://${host}//${i.path}`);
+            dd.push(`${i.path}`);
         }
         const pdata = {
             ProductName: data.ProductName,
             ProductCategory: data.ProductCategory,
             Rating: parseFloat(data.Rating),
             ProductType: data.ProductType,
-            image: `http://${host}/${req.files.image[0].path}`,
+            image: `${req.files.image[0].path}`,
             featured: data.featured,
             moreInfo: dd,
             Spec: data.Spec,

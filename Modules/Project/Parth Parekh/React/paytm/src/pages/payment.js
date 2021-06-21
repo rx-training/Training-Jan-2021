@@ -4,6 +4,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 
 import PaytmServices from "../Services/paytmServices";
+import { hostServer } from "../Services/paytmServices";
 import { getUserId, getToken, removeUserSession } from "../Utils/Common";
 
 export default function Payment(props) {
@@ -111,7 +112,7 @@ export default function Payment(props) {
                                 <div className="col-md-6 text-center">
                                     <div className=" text-center m-3 p-2">
                                         <img
-                                            src={image}
+                                            src={`${hostServer}/${image}`}
                                             alt={image}
                                             style={{
                                                 maxHeight: "300px",

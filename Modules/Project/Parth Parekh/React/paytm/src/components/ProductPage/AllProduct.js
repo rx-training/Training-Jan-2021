@@ -4,6 +4,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 
 import PaytmServices from "../../Services/paytmServices";
+import { hostServer } from "../../Services/paytmServices";
 
 export default function AllProduct({ id }) {
     const [values, setValues] = useState({
@@ -165,7 +166,7 @@ export default function AllProduct({ id }) {
                             >
                                 <div className="mx-auto ">
                                     <img
-                                        src={item.image}
+                                        src={`${hostServer}/${item.image}`}
                                         alt={index}
                                         className=""
                                         height="230px"
