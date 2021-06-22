@@ -34,7 +34,7 @@ namespace NewApplication.Domain.UserModule
         }
         public async Task AddAsync(User entity)
         {
-            PasswordResult result = passwordHash.Encrypt(entity.UserPassword);
+            PasswordResult result = passwordHash.Encrypt(entity.Password.ToString());
             entity.Password = result.Signature;
             entity.Salt = result.Salt;
             await Uow.RegisterNewAsync(entity);
@@ -46,7 +46,7 @@ namespace NewApplication.Domain.UserModule
         }
         public async Task UpdateAsync(User entity)
         {
-            PasswordResult result = passwordHash.Encrypt(entity.UserPassword);
+            PasswordResult result = passwordHash.Encrypt(entity.Password.ToString());
             entity.Password = result.Signature;
             entity.Salt = result.Salt;
             await Uow.RegisterDirtyAsync(entity);
