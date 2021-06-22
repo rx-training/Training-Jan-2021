@@ -1,7 +1,7 @@
-const config = require('config');
+require("dotenv").config();
 
-module.exports = function(){
-    if (!config.get('jwtPrivatKey')) {
-        throw new Error('FATAL ERROR: jwtPrivatKey is not defined.');
-    }
-}
+module.exports = function () {
+  if (!process.env.MYNTRA_JWT_PRIVATE_KEY) {
+    throw new Error("FATAL ERROR: jwtPrivatKey is not defined.");
+  }
+};
