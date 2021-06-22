@@ -692,7 +692,7 @@ export default function UpdateProductPage(props) {
                     <input
                       className="btn btn-pink btn-block w-50 mx-auto"
                       type="submit"
-                      value="Update Product"
+                      value="Update"
                     />
                   </div>
                 </div>

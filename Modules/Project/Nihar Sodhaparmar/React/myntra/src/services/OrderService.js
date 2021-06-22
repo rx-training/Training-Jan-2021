@@ -1,6 +1,7 @@
 import axios from "axios";
+import { hostName } from "../Utils/global";
 
-const MYNTRA_API_BASE_URL = "http://localhost:3000/orders";
+const MYNTRA_API_BASE_URL = `${hostName}/orders`;
 
 class OrderService {
   addOrder(data, token) {

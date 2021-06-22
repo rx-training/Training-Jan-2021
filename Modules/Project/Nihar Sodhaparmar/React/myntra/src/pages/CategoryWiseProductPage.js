@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
 import Filter from "../components/Filter";
-
+import { FaSlidersH } from "react-icons/fa";
 import React, { Component } from "react";
 
 export default class CategoryWiseProductPage extends Component {
@@ -21,6 +21,7 @@ export default class CategoryWiseProductPage extends Component {
       filteredProducts: [],
       sortOrder: "",
       brands: [],
+      isFiltershow: false,
     };
   }
 
@@ -163,8 +164,15 @@ export default class CategoryWiseProductPage extends Component {
   };
 
   render() {
-    const { loading, minPrice, maxPrice, price, filteredProducts, brands } =
-      this.state;
+    const {
+      loading,
+      minPrice,
+      maxPrice,
+      price,
+      filteredProducts,
+      brands,
+      isFiltershow,
+    } = this.state;
 
     if (loading) {
       return (
@@ -180,8 +188,45 @@ export default class CategoryWiseProductPage extends Component {
         <>
           <Navbar />
           <div className="container-fluid">
-            <div className="row py-5">
-              <div className="col-md-3 col-lg-2 border border-right-0">
+            <div className="row">
+              <div className="d-md-none">
+                <div className="filter-dropdown mt-2 fixed-bottom">
+                  <div
+                    className="btn btn-block bg-white border-radius-0 border filter-dropdown-btn py-2"
+                    onClick={() => {
+                      this.setState({ isFiltershow: !isFiltershow });
+                    }}
+                  >
+                    <FaSlidersH className="pt-1" />{" "}
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        letterSpacing: "1px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Filter
+                    </span>
+                  </div>
+                  <div
+                    className={`border filter-dropdown-menu bg-white ${
+                      isFiltershow ? "show" : "hide"
+                    }`}
+                  >
+                    <div className="filter-dropdown-item">
+                      <Filter
+                        price={price}
+                        minPrice={minPrice}
+                        maxPrice={maxPrice}
+                        handleChange={this.handleChange}
+                        brands={brands}
+                        brandChange={this.brandChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-3 col-lg-2 border border-right-0 my-5 py-5 d-none d-md-block">
                 <Filter
                   price={price}
                   minPrice={minPrice}
@@ -191,7 +236,7 @@ export default class CategoryWiseProductPage extends Component {
                   brandChange={this.brandChange}
                 />
               </div>
-              <div className="col-md-9 col-lg-10 border py-4">
+              <div className="col-md-9 col-lg-10 border py-4 margin-on-md">
                 {/* <div className="text-center pt-4 category-header text-uppercase">
               {category}
             </div> */}
@@ -217,8 +262,45 @@ export default class CategoryWiseProductPage extends Component {
       <>
         <Navbar />
         <div className="container-fluid">
-          <div className="row py-5">
-            <div className="col-md-3 col-lg-2 border border-right-0">
+          <div className="row">
+            <div className="d-md-none">
+              <div className="filter-dropdown mt-2 fixed-bottom">
+                <div
+                  className="btn btn-block bg-white border-radius-0 border filter-dropdown-btn py-2"
+                  onClick={() => {
+                    this.setState({ isFiltershow: !isFiltershow });
+                  }}
+                >
+                  <FaSlidersH className="pt-1" />{" "}
+                  <span
+                    style={{
+                      fontSize: "18px",
+                      letterSpacing: "1px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Filter
+                  </span>
+                </div>
+                <div
+                  className={`border filter-dropdown-menu bg-white ${
+                    isFiltershow ? "show" : "hide"
+                  }`}
+                >
+                  <div className="filter-dropdown-item">
+                    <Filter
+                      price={price}
+                      minPrice={minPrice}
+                      maxPrice={maxPrice}
+                      handleChange={this.handleChange}
+                      brands={brands}
+                      brandChange={this.brandChange}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 col-lg-2 border border-right-0 my-5 py-5 d-none d-md-block">
               <Filter
                 price={price}
                 minPrice={minPrice}
@@ -228,11 +310,11 @@ export default class CategoryWiseProductPage extends Component {
                 brandChange={this.brandChange}
               />
             </div>
-            <div className="col-md-9 col-lg-10 border py-4">
+            <div className="col-md-9 col-lg-10 border margin-on-md py-2">
               {/* <div className="text-center pt-4 category-header text-uppercase">
                     {category}
                    </div> */}
-              <div className="row">
+              <div className="row margin-on-md">
                 {filteredProducts.map((product) => {
                   return <Product key={product._id} product={product} />;
                 })}

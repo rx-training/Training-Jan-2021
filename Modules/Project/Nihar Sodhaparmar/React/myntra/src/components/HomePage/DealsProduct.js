@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { hostName } from "../../Utils/global";
 
 export default function DealsProduct({ product }) {
   const { _id: id, imgurls, productName, brand, offer } = product;
@@ -11,7 +12,7 @@ export default function DealsProduct({ product }) {
             <div className="deals-img-container">
               <img
                 className="img-fluid rounded"
-                src={imgurls[0]}
+                src={`${hostName}/${imgurls[0]}`}
                 alt={productName}
                 width="100%"
               />

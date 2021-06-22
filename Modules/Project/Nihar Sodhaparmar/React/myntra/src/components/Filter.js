@@ -9,7 +9,7 @@ export default function Filter({
   brandChange,
 }) {
   return (
-    <div className="py-5">
+    <div className="">
       <div className="form-group my-4">
         <label className="text-capitalize" htmlFor="price">
           price : rs. {price}

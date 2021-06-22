@@ -1,4 +1,5 @@
 import React from "react";
+import { hostName } from "../../../Utils/global";
 
 export default function Product({ product, applyOfferBtnClick }) {
   const { _id: id, imgurls, productName, offer } = product;
@@ -7,7 +8,7 @@ export default function Product({ product, applyOfferBtnClick }) {
       <div className="card product-card" style={{ border: "none" }}>
         <div className="card-body">
           <div className="deals-img-container">
-            <img src={imgurls[0]} alt="product" width="100%" />
+            <img src={`${hostName}/${imgurls[0]}`} alt="product" width="100%" />
           </div>
           <div className="text-center">
             <div className="text-muted mt-3 font-weight-bold line-2 text-capitalize">

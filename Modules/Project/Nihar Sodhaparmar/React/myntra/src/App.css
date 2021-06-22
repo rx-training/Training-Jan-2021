@@ -88,7 +88,7 @@ nav {
 
 .login-container {
   background: linear-gradient(to bottom right, #feedf6, #fcf0e2);
-  height: 105vh;
+  /* height: 105vh; */
 }
 
 .btn-secondary:hover {
@@ -430,4 +430,33 @@ nav {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.filter-dropdown {
+  position: fixed;
+  background: white;
+  z-index: 1;
+  width: 100%;
+}
+
+.filter-dropdown-menu {
+  text-align: left;
+  display: none;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 508px) {
+  .margin-on-md {
+    margin: 48px 0;
+  }
 }

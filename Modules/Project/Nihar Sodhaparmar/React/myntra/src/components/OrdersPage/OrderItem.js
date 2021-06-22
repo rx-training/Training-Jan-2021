@@ -1,4 +1,5 @@
 import React from "react";
+import { hostName } from "../../Utils/global";
 
 export default function OrderItem({ product }) {
   const { product: newProduct, quantity, salePrice, size } = product;
@@ -10,7 +11,7 @@ export default function OrderItem({ product }) {
         <div className="col-md-1 col-lg-1"></div>
         <div className="col-sm col-md-3 col-lg-2">
           <img
-            src={imgurls[0]}
+            src={`${hostName}/${imgurls[0]}`}
             width="70%"
             alt={productName}
             className="d-block mx-auto"

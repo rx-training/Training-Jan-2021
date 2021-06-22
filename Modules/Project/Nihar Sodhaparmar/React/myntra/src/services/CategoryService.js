@@ -1,6 +1,7 @@
 import axios from "axios";
+import { hostName } from "../Utils/global";
 
-const MYNTRA_API_BASE_URL = "http://localhost:3000/categories";
+const MYNTRA_API_BASE_URL = `${hostName}/categories`;
 
 class CategoryService {
   getAllCategories() {

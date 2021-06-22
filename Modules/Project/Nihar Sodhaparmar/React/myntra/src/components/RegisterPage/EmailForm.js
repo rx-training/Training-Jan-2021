@@ -52,7 +52,7 @@ export default function EmailForm({
                 value="Continue"
               />
             </div>
-            <div style={{ paddingTop: "50px" }}></div>
+            <div style={{ paddingTop: "50px" }} className="mb-5"></div>
           </form>
         </div>
       </div>

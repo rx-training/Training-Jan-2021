@@ -1,4 +1,5 @@
 import React from "react";
+import { hostName } from "../../Utils/global";
 
 export default function ProductImage({ img }) {
   return (
@@ -6,7 +7,12 @@ export default function ProductImage({ img }) {
       <div className="card" style={{ border: "none" }}>
         <div className="card-body">
           <div className="deals-img-container">
-            <img className="img-fluid" src={img} alt={img} width="100%" />
+            <img
+              className="img-fluid"
+              src={`${hostName}/${img}`}
+              alt={img}
+              width="100%"
+            />
           </div>
         </div>
       </div>

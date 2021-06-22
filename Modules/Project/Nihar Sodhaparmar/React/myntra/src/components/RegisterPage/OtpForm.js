@@ -14,7 +14,7 @@ export default function OtpForm({
           alt=""
           width="100%"
         />
-        <div className="mx-4 mt-4">
+        <div className="mx-4 mt-3">
           <div
             className="text-center text-highlighted"
             style={{ fontSize: "25px", letterSpacing: "2px" }}
@@ -47,7 +47,7 @@ export default function OtpForm({
                   value="Verify"
                 />
               </div>
-              <div style={{ paddingTop: "40px" }}></div>
+              <div style={{ paddingTop: "40px" }} className="mb-5"></div>
             </div>
           </form>
         </div>

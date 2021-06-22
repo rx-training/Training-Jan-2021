@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SizeButton from "../SizeButton";
 import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
+import { hostName } from "../../Utils/global";
 
 export default function BagItem({ item, removeFromBag, updateBagItem }) {
   const {
@@ -26,7 +27,11 @@ export default function BagItem({ item, removeFromBag, updateBagItem }) {
     <li className="list-group-item px-5">
       <div className="row my-4">
         <div className="col-sm col-md-4 col-lg-3">
-          <img src={imgurls[0]} width="100%" alt={productName} />
+          <img
+            src={`${hostName}/${imgurls[0]}`}
+            width="100%"
+            alt={productName}
+          />
         </div>
         <div className="col-sm col-md-8 col-lg-8 mx-auto wishlist-and-bag-content">
           <div className="h5 font-weight-bold text-capitalize">

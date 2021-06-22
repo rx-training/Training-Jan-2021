@@ -63,7 +63,7 @@ export default function ChangePassword({
                 value="Change Password"
               />
             </div>
-            <div style={{ paddingTop: "60px" }}></div>
+            <div style={{ paddingTop: "60px" }} className="mb-5"></div>
           </form>
         </div>
       </div>

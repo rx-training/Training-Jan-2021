@@ -1,7 +1,8 @@
 import axios from "axios";
+import { hostName } from "../Utils/global";
 // import { getToken } from "../Utils/Storage";
 
-const MYNTRA_API_BASE_URL = "http://localhost:3000/customers";
+const MYNTRA_API_BASE_URL = `${hostName}/customers`;
 // const token = getToken();
 
 class CustomerService {

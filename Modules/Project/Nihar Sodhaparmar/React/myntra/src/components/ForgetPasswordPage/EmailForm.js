@@ -15,7 +15,7 @@ export default function EmailForm({
           alt=""
           width="100%"
         />
-        <div className="mx-4 mt-4">
+        <div className="mx-4">
           <div
             className="text-center text-highlighted"
             style={{ fontSize: "25px", letterSpacing: "2px" }}
@@ -23,7 +23,7 @@ export default function EmailForm({
             {/* <span>Signup</span> */}
           </div>
           <form onSubmit={submitEmail}>
-            <div className="form-group mt-5">
+            <div className="form-group mt-4">
               <label className="form-control-label" htmlFor="email">
                 Email
               </label>
@@ -48,7 +48,7 @@ export default function EmailForm({
                 value="Continue"
               />
             </div>
-            <div style={{ paddingTop: "50px" }}></div>
+            <div style={{ paddingTop: "40px" }} className="mb-5"></div>
           </form>
         </div>
       </div>

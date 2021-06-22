@@ -221,7 +221,7 @@ export default function ProfilePage(props) {
         </table>
 
         <div className="row">
-          <div className="col-10 col-md-4 col-lg-3 my-4 ml-edit">
+          <div className="col-10 col-md-4 col-lg-3 my-3 ml-edit">
             <button
               className="btn btn-pink btn-block text-uppercase"
               onClick={() => handleEdit()}
@@ -229,7 +229,7 @@ export default function ProfilePage(props) {
               edit details
             </button>
           </div>
-          <div className="col-10 col-md-4 col-lg-3 my-4 mr-edit">
+          <div className="col-10 col-md-4 col-lg-3 my-3 mr-edit">
             <button
               className="btn btn-wishlist btn-block bg-white text-uppercase"
               onClick={() => setShowModal(true)}
@@ -238,6 +238,7 @@ export default function ProfilePage(props) {
             </button>
           </div>
         </div>
+        <div className="my-5"></div>
       </div>
 
       {/* ------------------------------ CHANGE PASSWORD MODAL ------------------------------ */}
