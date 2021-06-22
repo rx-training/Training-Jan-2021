@@ -44,14 +44,29 @@ const Slider = (props) => {
         setActiveIndex(newIndex);
     };
 
-    const slides = items.map((item) => {
+    const slides = items.map((item, index) => {
         return (
             <CarouselItem
                 onExiting={() => setAnimating(true)}
                 onExited={() => setAnimating(false)}
                 key={item.src}
             >
-                <img src={item.src} alt={item.altText} className="img-fluid" />
+                {index === 0 || index === 1 ? (
+                    <img
+                        src={item.src}
+                        alt={item.altText}
+                        className="img-fluid"
+                        onClick={() => {
+                            window.location.href = "/products";
+                        }}
+                    />
+                ) : (
+                    <img
+                        src={item.src}
+                        alt={item.altText}
+                        className="img-fluid"
+                    />
+                )}
             </CarouselItem>
         );
     });

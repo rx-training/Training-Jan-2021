@@ -27,6 +27,7 @@ import AddProducts from "./pages/Admin/AddProducts";
 import CategoryForm from "./pages/Admin/CategoryForm";
 import ProductForm from "./pages/Admin/ProductForm";
 import AddCategory from "./pages/Admin/AddCategory";
+import AllCateProducts from "./components/ProductPage/AllCateProducts";
 
 function App(props) {
     return (
@@ -60,7 +61,11 @@ function App(props) {
                         <PrivateRoute path="/profile" component={ProfilePage} />
 
                         <Route exact path="/product/:id" component={Products} />
-
+                        <Route
+                            exact
+                            path="/products"
+                            component={AllCateProducts}
+                        />
                         <Route
                             exact
                             path="/product/:id/:productid"

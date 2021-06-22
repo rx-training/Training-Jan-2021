@@ -142,3 +142,7 @@ body {
     font-family: initial;
     box-shadow: 2px 4px 12px -2px rgba(29, 26, 26, 0.76);
 }
+
+.hovereffect1:hover {
+    background: #114091;
+}
