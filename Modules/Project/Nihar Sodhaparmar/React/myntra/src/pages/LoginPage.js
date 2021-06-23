@@ -36,7 +36,7 @@ export default function LoginPage(props) {
       .catch((error) => {
         // console.error(error.response.data);
         if (error.response.status === 400) {
-          setError(error.response.data);
+          setError("Invalid Email or Password");
         } else {
           setError("Something went wrong. Please try again later.");
         }

@@ -137,7 +137,7 @@ export default function ProfilePage(props) {
           props.history.push("/login");
           removeUserSession();
         } else if (error.response.status === 400) {
-          setErrors({ ...errors, confirmNewPassword: error.response.data });
+          setErrors({ ...errors, confirmNewPassword: "Invalid old password" });
         }
       }
     }

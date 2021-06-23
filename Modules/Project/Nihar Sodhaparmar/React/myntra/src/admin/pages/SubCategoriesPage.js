@@ -106,7 +106,7 @@ export default function SubCategoriesPage(props) {
           removeUserSession();
           props.history.push("/login");
         } else if (error.response.status === 409) {
-          alert(error.response.data);
+          alert("Sub Category is not allowed to delete");
         }
       }
     }

@@ -102,7 +102,7 @@ export default function BrandsPage(props) {
           removeUserSession();
           props.history.push("/login");
         } else if (error.response.status === 409) {
-          alert(error.response.data);
+          alert("Brand is not allowed to delete");
         }
         setLoading(false);
       }

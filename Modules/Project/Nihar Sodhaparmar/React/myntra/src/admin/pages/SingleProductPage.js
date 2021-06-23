@@ -52,7 +52,7 @@ export default function SingleProductPage(props) {
           props.history.push("/login");
           removeUserSession();
         } else if (error.response.status === 409) {
-          alert(error.response.data);
+          alert("Product is not allowed to delete");
         }
         setLoading(false);
       }
