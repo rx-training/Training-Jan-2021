@@ -8,7 +8,7 @@ import { IDynamicNavbar } from './models/IDynamicNavbar';
 })
 export class DynamicNavbarService {
 
-  private dynamicNavbarsUrl = 'http://20.198.103.48:1005/api/BookMyShow/DynamicNavbar';  // URL to web api
+  private dynamicNavbarsUrl = 'http://localhost/BookMyShow/api/BookMyShow/DynamicNavbar';  // URL to web api
 
   loginToken = '';
 

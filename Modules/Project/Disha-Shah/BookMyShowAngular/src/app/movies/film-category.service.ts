@@ -8,7 +8,7 @@ import { IFilmCategories } from '../models/IFilmCategories';
 })
 export class FilmCategoryService {
 
-  private filmCategoriesUrl = 'http://20.198.103.48:1005/api/BookMyShow/FilmCategory';  // URL to web api
+  private filmCategoriesUrl = 'http://localhost/BookMyShow/api/BookMyShow/FilmCategory';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

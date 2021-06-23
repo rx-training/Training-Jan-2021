@@ -8,7 +8,7 @@ import { IEventBookings } from '../models/IEventBookings';
 })
 export class EventBookingService {
 
-  private eventBookingsUrl = 'http://20.198.103.48:1005/api/BookMyShow/EventBookings';  // URL to web api
+  private eventBookingsUrl = 'http://localhost/BookMyShow/api/BookMyShow/EventBookings';  // URL to web api
   loginToken = '';
   adminLoginToken = '';
 

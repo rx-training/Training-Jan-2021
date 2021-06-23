@@ -8,7 +8,7 @@ import { ILanguages } from './models/ILanguages';
 })
 export class LanguageService {
   
-  private languagesUrl = 'http://20.198.103.48:1005/api/BookMyShow/Languages';  // URL to web api
+  private languagesUrl = 'http://localhost/BookMyShow/api/BookMyShow/Languages';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

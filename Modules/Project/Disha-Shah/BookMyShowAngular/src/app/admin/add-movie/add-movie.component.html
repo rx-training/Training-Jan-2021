@@ -113,7 +113,12 @@
         <div class="col-sm-9">
             <input type="date" class="form-control" id="movieReleaseDate" formControlName="dateOfRelease">
             <small class="text-danger" *ngIf="addMovieForm.controls.dateOfRelease.invalid && (addMovieForm.controls.dateOfRelease.dirty || addMovieForm.controls.dateOfRelease.touched)" id="errName">
-                Date of Release is required
+                <ng-container *ngIf = "addMovieForm.controls.dateOfRelease.errors.required">
+                    Date of release is required
+                </ng-container>
+                <ng-container *ngIf = "addMovieForm.controls.dateOfRelease.errors.pastDate">
+                    Date of release should not be in past
+                </ng-container>
             </small>
         </div>
 

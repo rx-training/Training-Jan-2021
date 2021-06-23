@@ -8,7 +8,7 @@ import { IUser } from '../models/IUser';
 })
 export class UserService {
 
-  private usersUrl = 'http://20.198.103.48:1005/api/BookMyShow/Users';  // URL to web api
+  private usersUrl = 'http://localhost/BookMyShow/api/BookMyShow/Users';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

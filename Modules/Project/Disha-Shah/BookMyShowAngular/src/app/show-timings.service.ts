@@ -8,7 +8,7 @@ import { IShowTimings } from './models/IShowTimings';
 })
 export class ShowTimingsService {
 
-  private showTimingsUrl = 'http://20.198.103.48:1005/api/BookMyShow/ShowTimings';  // URL to web api
+  private showTimingsUrl = 'http://localhost/BookMyShow/api/BookMyShow/ShowTimings';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

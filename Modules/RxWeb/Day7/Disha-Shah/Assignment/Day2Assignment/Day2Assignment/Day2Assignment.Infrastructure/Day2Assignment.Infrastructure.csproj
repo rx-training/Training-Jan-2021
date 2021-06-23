@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Day2Assignment.Models\Day2Assignment.Models.csproj" />
+    <ProjectReference Include="..\Day2Assignment.BoundedContext\Day2Assignment.BoundedContext.csproj" />
+    <ProjectReference Include="..\Day2Assignment.UnitOfWork\Day2Assignment.UnitOfWork.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.13.0" />
+    <PackageReference Include="MimeKit" Version="2.13.0" />
+    <PackageReference Include="RxWeb.Core" Version="2.0.3-preview1" />
+    <PackageReference Include="RxWeb.Core.Annotations" Version="2.0.4" />
+    <PackageReference Include="RxWeb.Core.Cache" Version="2.0.2" />
+    <PackageReference Include="RxWeb.Core.Sanitizers" Version="2.0.3" />
+    <PackageReference Include="RxWeb.Core.Security" Version="3.0.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

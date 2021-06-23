@@ -8,7 +8,7 @@ import { ICertifications } from '../models/ICertifications';
 })
 export class CertificationService {
 
-  private certificationsUrl = 'http://20.198.103.48:1005/api/BookMyShow/Certifications';  // URL to web api
+  private certificationsUrl = 'http://localhost/BookMyShow/api/BookMyShow/Certifications';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

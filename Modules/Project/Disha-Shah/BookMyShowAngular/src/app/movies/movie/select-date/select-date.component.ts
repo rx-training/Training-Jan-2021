@@ -70,6 +70,10 @@ export class SelectDateComponent implements OnInit, OnChanges {
     .subscribe(seatsCategories => {
       this.seatsCategories = seatsCategories,
       this.uniqueSeatsCategories = this.seatsCategories.filter((thing, i, arr) => arr.findIndex(t => t.seatsCategoryId == thing.seatsCategoryId) == i),
+      this.executiveSeats = [],
+      this.normalSeats = [],
+      this.premiumSeats = [],
+      this.reclinerSeats = [],
       this.seatsCategories.forEach(element => {
         if(element.seatCategory == "Executive"){
           this.executiveSeats.push(element);
@@ -89,6 +93,10 @@ export class SelectDateComponent implements OnInit, OnChanges {
       let normalBooked = 0;
       let premiumBooked = 0;
       let reclinerBooked = 0;
+      this.isExecutiveAvailable = true;
+      this.isNormalAvailable = true;
+      this.isPremiumAvailable = true;
+      this.isReclinerAvailable = true;
       this.executiveSeats.forEach(element => {
         if(element.isBooked == true){
           executiveBooked++;

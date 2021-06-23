@@ -12,6 +12,7 @@ import { FilmCategoryService } from 'src/app/movies/film-category.service';
 import { GenreService } from 'src/app/movies/genre.service';
 import { MoviesService } from 'src/app/movies/movies.service';
 import {DatePipe} from '@angular/common';
+import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
 
 @Component({
   selector: 'app-edit-movie',
@@ -312,7 +313,7 @@ export class EditMovieComponent implements OnInit, OnChanges {
       name: ['', Validators.compose([Validators.required])],
       time:  ['', Validators.compose([Validators.required])],
       image: ['', Validators.required],
-      dateOfRelease: ['', Validators.required],
+      dateOfRelease: ['', Validators.compose([Validators.required, PastDateValidator()])],
       about: ['', Validators.required],
       certification: ['', Validators.required],
       isRecommended: [false, Validators.required],

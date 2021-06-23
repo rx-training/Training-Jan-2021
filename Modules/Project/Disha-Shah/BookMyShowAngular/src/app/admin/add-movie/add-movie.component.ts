@@ -10,6 +10,7 @@ import { CertificationService } from 'src/app/movies/certification.service';
 import { FilmCategoryService } from 'src/app/movies/film-category.service';
 import { GenreService } from 'src/app/movies/genre.service';
 import { MoviesService } from 'src/app/movies/movies.service';
+import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
 
 @Component({
   selector: 'app-add-movie',
@@ -191,7 +192,7 @@ export class AddMovieComponent implements OnInit {
       name: ['', Validators.compose([Validators.required])],
       time:  ['', Validators.compose([Validators.required])],
       image: ['', Validators.required],
-      dateOfRelease: ['', Validators.required],
+      dateOfRelease: ['', Validators.compose([Validators.required, PastDateValidator()])],
       about: ['', Validators.required],
       certification: ['', Validators.required],
       isRecommended: [false, Validators.required],

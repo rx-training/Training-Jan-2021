@@ -8,7 +8,7 @@ import { ITheatre } from '../models/ITheatre';
 })
 export class TheatreService {
 
-  private theatresUrl = 'http://20.198.103.48:1005/api/BookMyShow/Theatres';  // URL to web api
+  private theatresUrl = 'http://localhost/BookMyShow/api/BookMyShow/Theatres';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

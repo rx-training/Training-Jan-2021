@@ -97,12 +97,12 @@
         <div class="col-sm-9">
             <input type="date" class="form-control" id="dateOfEvent" formControlName="dateOfEvent">
             <small class="text-danger" *ngIf="addEventForm.controls.dateOfEvent.invalid && (addEventForm.controls.dateOfEvent.dirty || addEventForm.controls.dateOfEvent.touched)" id="errName">
-                <div *ngIf="addEventForm.controls.dateOfEvent.errors?.required">
-                    Date of event is required.
-                </div>
-                <!-- <div *ngIf="addEventForm.controls.dateOfEvent.errors?.invalidDate">
-                    Enter valid Date of event
-                </div> -->
+                <ng-container *ngIf = "addEventForm.controls.dateOfEvent.errors.required">
+                    Date of event is required
+                </ng-container>
+                <ng-container *ngIf = "addEventForm.controls.dateOfEvent.errors.pastDate">
+                    Date of event should not be in past
+                </ng-container>
             </small>
         </div>
     </div>

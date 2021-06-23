@@ -10,6 +10,7 @@ import { IEventTypes } from 'src/app/models/IEventTypes';
 import { IEventVenues } from 'src/app/models/IEventVenues';
 import { ILanguages } from 'src/app/models/ILanguages';
 import {DatePipe} from '@angular/common';
+import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
 
 @Component({
   selector: 'app-edit-event',
@@ -271,7 +272,7 @@ export class EditEventComponent implements OnInit {
       ticketPrice: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
       image: ['', Validators.required],
       time:  ['', Validators.compose([Validators.required])],
-      dateOfEvent: ['', Validators.required],
+      dateOfEvent: ['', Validators.compose([Validators.required, PastDateValidator()])],
       eventVenue: ['', Validators.required],
       showTime: ['', Validators.required],
       eventType: ['', Validators.required],

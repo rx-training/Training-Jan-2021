@@ -8,7 +8,7 @@ import { IEventVenues } from '../models/IEventVenues';
 })
 export class EventVenuesService {
 
-  private eventVenuesUrl = 'http://20.198.103.48:1005/api/BookMyShow/EventVenues';  // URL to web api
+  private eventVenuesUrl = 'http://localhost/BookMyShow/api/BookMyShow/EventVenues';  // URL to web api
 
   loginToken: string = '';
 
