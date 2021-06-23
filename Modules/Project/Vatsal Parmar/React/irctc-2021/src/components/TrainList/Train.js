@@ -26,7 +26,9 @@ const Train = (props) => {
   };
 
   const { bookingDetails, setBookingDetails } = useContext(TrainContext);
-  const [selectedClass, setSelectedClass] = useState("");
+  const { selectedClass, setSelectedClass } = props;
+  const result = travel_class.find((item) => item._id === selectedClass);
+  // console.log(result);
   return (
     <div className="container border border-dark mb-3">
       <div className="row p-2 train-card-secondary">
@@ -63,7 +65,7 @@ const Train = (props) => {
       <div className="row train-card-secondary p-2">
         <button
           className="btn btn-warning"
-          disabled={selectedClass ? false : true}
+          disabled={result ? false : true}
           onClick={() => book(selectedClass)}
         >
           Book Now

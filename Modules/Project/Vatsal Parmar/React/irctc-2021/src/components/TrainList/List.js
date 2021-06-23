@@ -7,6 +7,7 @@ const List = ({ book, loading }) => {
   const value = useContext(TrainContext);
   const { searchQuery, availTrains } = value;
   const [trainList, setTrainList] = useState([]);
+  const [selectedClass, setSelectedClass] = useState("");
   const convertDate = (x) => {
     let rowDate = new Date(x);
     let dd = rowDate.getDate();
@@ -79,6 +80,8 @@ const List = ({ book, loading }) => {
                       key={train.train._id}
                       book={book}
                       date={date}
+                      selectedClass={selectedClass}
+                      setSelectedClass={setSelectedClass}
                     />
                   );
                 })}

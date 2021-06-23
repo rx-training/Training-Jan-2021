@@ -23,6 +23,8 @@ const Booking = (props) => {
     seat_no: "",
     seat_id: "",
   });
+  const [err, setErr] = useState({ first_name: "", last_name: "", age: "" });
+  const [formError, setFormError] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -54,29 +56,43 @@ const Booking = (props) => {
   }, []);
   const { from, from_time, to, to_time, classType, train_name } =
     bookingDetails;
-
+  const validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
+    return valid;
+  };
   const handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
+
+    let error = err;
+    if (name === "first_name" || name === "last_name") {
+      if (value.trim().length < 3) {
+        error[name] = "must be at least 3 characters long!";
+      } else {
+        error[name] = "";
+      }
+      if (/[^a-zA-Z -]/.test(value)) {
+        error[name] = "Invalid characters";
+      }
+    } else if (name === "age") {
+      if (value <= 0) {
+        error[name] = "Enter Valid Age";
+      } else {
+        error[name] = "";
+      }
+    }
+
+    setErr({ ...err, error });
     setPassenger({ ...passenger, [name]: value });
   };
 
   //functionality
   const addPassenger = (event) => {
     event.preventDefault();
-    const {
-      id,
-      first_name,
-      last_name,
-      age,
-      gender,
-      reservation_status,
-      seat_id,
-    } = passenger;
-    let seat = classDetails.seats.find((seat) => seat._id === seat_id);
-    setPassengers([
-      ...passengers,
-      {
+    if (validateForm(err)) {
+      setFormError("");
+      const {
         id,
         first_name,
         last_name,
@@ -84,19 +100,35 @@ const Booking = (props) => {
         gender,
         reservation_status,
         seat_id,
-        seat_no: seat.seat_no,
-      },
-    ]);
-    setPassenger({
-      id: uuidv4(),
-      first_name: "",
-      last_name: "",
-      age: "",
-      gender: "",
-      reservation_status: "BOOKED",
-      seat_no: "",
-      seat_id: "",
-    });
+      } = passenger;
+      let seat = classDetails.seats.find((seat) => seat._id === seat_id);
+      setPassengers([
+        ...passengers,
+        {
+          id,
+          first_name,
+          last_name,
+          age,
+          gender,
+          reservation_status,
+          seat_id,
+          seat_no: seat.seat_no,
+        },
+      ]);
+      setPassenger({
+        id: uuidv4(),
+        first_name: "",
+        last_name: "",
+        age: "",
+        gender: "",
+        reservation_status: "BOOKED",
+        seat_no: "",
+        seat_id: "",
+      });
+    } else {
+      let error = "Enter Valid Details";
+      setFormError(error);
+    }
   };
   const removePassenger = (id) => {
     let tempPassengers = passengers.filter((item) => item.id !== id);
@@ -117,11 +149,14 @@ const Booking = (props) => {
   return (
     <>
       {loading ? (
-        <div className="d-flex justify-content-center align-items-center">
+        <div
+          style={{ minHeight: "75vh" }}
+          className="d-flex justify-content-center align-items-center"
+        >
           <img src={loadingImg} width="80%" alt="Loading..." />
         </div>
       ) : (
-        <div>
+        <div style={{ minHeight: "75vh" }}>
           <div className="row">
             <div className="col-md-4">
               <h4>Train Name : {train_name}</h4>
@@ -150,6 +185,9 @@ const Booking = (props) => {
                   value={passenger.first_name}
                   onChange={handleChange}
                 />
+                {err.first_name.length > 0 && (
+                  <small className="text-danger">{err.first_name}</small>
+                )}
               </div>
               <div className="col-md-2 my-2">
                 <input
@@ -160,6 +198,9 @@ const Booking = (props) => {
                   onChange={handleChange}
                   required
                 />
+                {err.last_name.length > 0 && (
+                  <small className="text-danger">{err.last_name}</small>
+                )}
               </div>
               <div className="col-md-2 my-2">
                 <input
@@ -171,6 +212,9 @@ const Booking = (props) => {
                   value={passenger.age}
                   onChange={handleChange}
                 />
+                {err.age.length > 0 && (
+                  <small className="text-danger">{err.age}</small>
+                )}
               </div>
               <div className="col-md-2 my-2">
                 <select
@@ -208,6 +252,11 @@ const Booking = (props) => {
                   {passengers.length > 0 ? "add more" : "add"}
                 </button>
               </div>
+              {formError.length > 0 && (
+                <div className="mx-auto">
+                  <p className="text-danger my-0">{formError}</p>
+                </div>
+              )}
             </form>
           </div>
           {/* end of passenger form */}
