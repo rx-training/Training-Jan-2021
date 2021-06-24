@@ -9,7 +9,8 @@ import { hostServer } from "../../Services/paytmServices";
 export default function AllCateProducts() {
     const [search, setSearch] = useState("");
     const [productData, setProductData] = useState([]);
-
+    const [difCat, setDifCat] = useState([]);
+    const [category, setCategory] = useState("");
     const [filterItem, setFilterItem] = useState([]);
 
     useEffect(() => {
@@ -49,6 +50,15 @@ export default function AllCateProducts() {
 
             setProductData(tempData);
             setFilterItem(tempData);
+            let cat = new Set();
+            cat.add("All Products");
+            for (let product in tempData) {
+                cat.add(tempData[product]["ProductCategory"]);
+            }
+            cat = [...cat];
+            //console.log(cat);
+
+            setDifCat([...cat]);
         }
         getPro();
     }, []);
@@ -57,7 +67,7 @@ export default function AllCateProducts() {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-
+        setCategory("");
         let tempData = [...productData];
 
         if (name === "search") {
@@ -76,6 +86,14 @@ export default function AllCateProducts() {
             }
             setSearch(value);
         }
+        if (name === "category") {
+            setCategory(value);
+            if (value !== "All Products") {
+                tempData = tempData.filter(
+                    (item) => item.ProductCategory === value
+                );
+            }
+        }
         setFilterItem(tempData);
     };
     /************      Handle Submit   ********************/
@@ -85,13 +103,13 @@ export default function AllCateProducts() {
 
     return (
         <div className="main-container">
-            <div
-                className="row d-flex justify-content-center text-capitalize"
-                style={{ fontFamily: "initial" }}
-            >
-                <div className="col-md-5 mx-3 p-2">
-                    <form onSubmit={handleSubmit}>
-                        <h4 className="mt-5 text-info ">Search by name</h4>
+            <form onSubmit={handleSubmit}>
+                <div
+                    className="row  d-flex justify-content-center text-capitalize mx-auto"
+                    style={{ fontFamily: "initial" }}
+                >
+                    <div className="col-md-5 mx-3 p-2">
+                        <h4 className="mt-3 text-info ">Search by name</h4>
                         <div className="form-group">
                             <input
                                 type="text"
@@ -102,9 +120,33 @@ export default function AllCateProducts() {
                                 onChange={handleChange}
                             />
                         </div>
-                    </form>
+                    </div>
+                    <div className="col-md-3 mx-3 p-2">
+                        <h4 className="mt-3 text-info ">Category</h4>
+                        <select
+                            name="category"
+                            onChange={handleChange}
+                            className="custom-select"
+                            value={category}
+                        >
+                            {difCat.map((cat, index) => {
+                                return (
+                                    <option value={cat} key={index}>
+                                        {cat}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
                 </div>
-            </div>
+            </form>
+            {category.length > 0 ? (
+                <h1 className="text-center text-info text-capitalize">
+                    {category}
+                </h1>
+            ) : (
+                ""
+            )}
 
             <div className="row d-flex justify-content-around p-3">
                 {filterItem.length === 0 && (
@@ -112,6 +154,7 @@ export default function AllCateProducts() {
                         No Item Found !!
                     </h1>
                 )}
+
                 {filterItem.map((item, index) => {
                     return (
                         <div className=" col-sm-6 col-md-3  p-2  " key={index}>
