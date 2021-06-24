@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -10,7 +10,7 @@ import { EventsService } from '../../events.service';
   templateUrl: './all-sports.component.html',
   styleUrls: ['./all-sports.component.css']
 })
-export class AllSportsComponent implements OnInit {
+export class AllSportsComponent implements OnInit, OnDestroy {
 
   sportsList: Array<IActivities> = [];
 
@@ -25,6 +25,19 @@ export class AllSportsComponent implements OnInit {
   price: string = '';
   min: number = 0;
   max: number = 100000;
+
+  constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.getLanguages();
+    this.getSports();
+  }
+
+  ngOnDestroy(){
+    this.getLanguages();
+    this.getSports();
+  }
 
   changePrice(e: any){
     this.price = e.target.value;
@@ -75,14 +88,5 @@ export class AllSportsComponent implements OnInit {
       console.log(this.languagesList);
     }); 
   }
-
-  constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
-  }
-
-  ngOnInit(): void {
-    this.getLanguages();
-    this.getSports();
-  }
-
 
 }

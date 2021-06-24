@@ -11,5 +11,6 @@ namespace BookMyShowAPI.Models
         [Key]
         public int NavbarId { get; set; }
         public string Name { get; set; }
+        public bool IsActive { get; set; }
     }
 }

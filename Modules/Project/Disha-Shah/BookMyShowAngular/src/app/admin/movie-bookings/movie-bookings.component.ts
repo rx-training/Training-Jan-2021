@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IMovieBookings } from 'src/app/models/IMovieBookings';
 import { MovieBookingsService } from 'src/app/movies/movie-bookings.service';
 
@@ -7,21 +7,25 @@ import { MovieBookingsService } from 'src/app/movies/movie-bookings.service';
   templateUrl: './movie-bookings.component.html',
   styleUrls: ['./movie-bookings.component.css']
 })
-export class MovieBookingsComponent implements OnInit {
+export class MovieBookingsComponent implements OnInit, OnDestroy {
 
   bookingsList: Array<IMovieBookings> = [];
+
+  constructor(private bookingService: MovieBookingsService) { }
+
+  ngOnInit(): void {
+    this.getBookings();
+  }
+
+  ngOnDestroy(){
+    this.getBookings();
+  }
 
   getBookings(){
     this.bookingService.getMovieBookings()
     .subscribe(bookings => {
       this.bookingsList = bookings
     })
-  }
-
-  constructor(private bookingService: MovieBookingsService) { }
-
-  ngOnInit(): void {
-    this.getBookings();
   }
 
 }

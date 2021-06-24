@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -14,7 +14,7 @@ import { EventsService } from '../../events.service';
   templateUrl: './confirm-event.component.html',
   styleUrls: ['./confirm-event.component.css']
 })
-export class ConfirmEventComponent implements OnInit {
+export class ConfirmEventComponent implements OnInit, OnDestroy {
 
   eventsList: Array<IActivities> = [];
   events: Array<IActivities> = [];
@@ -37,6 +37,22 @@ export class ConfirmEventComponent implements OnInit {
   userContact: string = '';
   userInfo: any;
   userName: string = '';
+
+  constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute, private router: Router, private eventBookingsService: EventBookingService, private userService: UserService) { }
+
+  ngOnInit(): void {
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+    this.getUsers();
+  }
+
+  ngOnDestroy(){
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+    this.getUsers();
+  }
 
   getEvents(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -134,15 +150,6 @@ export class ConfirmEventComponent implements OnInit {
     alert("Successfully completed booking, ticket has been send to you on email");
 
     this.router.navigate(['/bookinghistory']);
-  }
-
-  constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute, private router: Router, private eventBookingsService: EventBookingService, private userService: UserService) { }
-
-  ngOnInit(): void {
-    this.getEvents();
-    this.getUniqueEvents();
-    this.getLanguages();
-    this.getUsers();
   }
 
 }

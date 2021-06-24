@@ -9,6 +9,8 @@ namespace BookMyShowAPI.IRepository
 {
     public interface IEventVenue : IGenericInterface<EventVenue>
     {
+        public IEnumerable GetAllVenues();
+        public IEnumerable GetVenueById(int id);
         public IEnumerable GetShowTimingsById(int id);
         public void CreateEventVenue(EventVenueDTO eventVenue);
         public void UpdateEventVenue(EventVenueDTO entity);

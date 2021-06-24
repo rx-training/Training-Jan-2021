@@ -11,6 +11,19 @@ export class AddNavbarComponent implements OnInit {
 
   addNavbarForm;
 
+  constructor(
+    private fb: FormBuilder,
+    private navbarService: DynamicNavbarService
+    ) {
+    this.addNavbarForm = this.fb.group({
+      name: ['', Validators.compose([Validators.required])]
+    });
+   }
+
+  ngOnInit(): void {
+    
+  }
+
   componentSubmit(){
     console.log(this.addNavbarForm);
 
@@ -32,19 +45,6 @@ export class AddNavbarComponent implements OnInit {
   addComponent(newComponent: any){
     this.navbarService.addNavbarComponent(newComponent)
     .subscribe();
-  }
-
-  constructor(
-    private fb: FormBuilder,
-    private navbarService: DynamicNavbarService
-    ) {
-    this.addNavbarForm = this.fb.group({
-      name: ['', Validators.compose([Validators.required])]
-    });
-   }
-
-  ngOnInit(): void {
-    
   }
 
 }

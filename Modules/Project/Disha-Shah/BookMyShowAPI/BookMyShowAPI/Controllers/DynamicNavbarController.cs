@@ -26,14 +26,14 @@ namespace BookMyShowAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<DynamicNavbar>> GetDynamicNavbars()
         {
-            return Ok(dynamicNavbars.GetAll());
+            return Ok(dynamicNavbars.GetAllNavbars());
         }
 
         [Authorize(Roles = UserRoles.Admin)]
         [HttpGet("{id}")]
         public ActionResult<DynamicNavbar> GetDynamicNavbar(int id)
         {
-            var navbar = dynamicNavbars.GetById(id);
+            var navbar = dynamicNavbars.GetNavbarById(id);
 
             if (navbar == null)
             {
@@ -64,7 +64,7 @@ namespace BookMyShowAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            dynamicNavbars.Create(dynamicNavbar);
+            dynamicNavbars.CreateNavbar(dynamicNavbar);
 
             return Ok();
         }

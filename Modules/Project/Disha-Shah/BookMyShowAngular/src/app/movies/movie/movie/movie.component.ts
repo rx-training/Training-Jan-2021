@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { element } from 'protractor';
 import { Observable } from 'rxjs';
@@ -16,7 +16,7 @@ import { MoviesService } from '../../movies.service';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent implements OnInit, OnDestroy {
 
   movies: Array<IMovies> = [];
   movie: IMovies = {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
@@ -28,6 +28,29 @@ export class MovieComponent implements OnInit {
   castList: Array<any> = [];
   castNamesList: Array<any> = [];
   categoriesByLanguageList: Array<any> = [];
+
+  constructor(private service: MoviesService,
+    private languageService: LanguageService,
+    private genreService: GenreService, 
+    private filmCategoryService: FilmCategoryService, 
+    private route: ActivatedRoute, 
+    private router: Router
+    ) 
+  { }
+
+  ngOnInit(): void {
+    this.getMovie();
+    this.getLanguages();
+    this.getGenres();
+    this.getFilmCategories();
+  }
+
+  ngOnDestroy(){
+    this.getMovie();
+    this.getLanguages();
+    this.getGenres();
+    this.getFilmCategories();
+  }
 
   getMovie(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -94,22 +117,6 @@ export class MovieComponent implements OnInit {
     .subscribe((filmCategories: any[]) => {
       this.filmCategoriesList = filmCategories
     }); 
-  }
-
-  constructor(private service: MoviesService,
-     private languageService: LanguageService,
-     private genreService: GenreService, 
-     private filmCategoryService: FilmCategoryService, 
-     private route: ActivatedRoute, 
-     private router: Router
-     ) 
-  { }
-
-  ngOnInit(): void {
-    this.getMovie();
-    this.getLanguages();
-    this.getGenres();
-    this.getFilmCategories();
   }
 
 }

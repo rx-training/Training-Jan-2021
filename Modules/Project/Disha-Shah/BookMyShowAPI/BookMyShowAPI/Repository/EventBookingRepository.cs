@@ -75,11 +75,13 @@ namespace BookMyShowAPI.Repository
 
             }
 
+            var dateToWatch = Convert.ToString(eventBookingDTO.DateOfEvent.Year) + '-' + Convert.ToString(eventBookingDTO.DateOfEvent.Month) + '-' + Convert.ToString(eventBookingDTO.DateOfEvent.Day);
+
             MailRequest request = new MailRequest();
 
             request.ToEmail = userEmail;
             request.Subject = $"Booking is successfully done!";
-            request.Body = $"<h1>BookMyShow</h1><h2>Booking Id: {bookingId}</h2><h4>Booked Event: {eventBookingDTO.Event}</h4><h4>Event Type: {eventBookingDTO.EventType}</h4><h4>Event Venue: {eventBookingDTO.EventVenue}</h4><h4>Show Time: {eventBookingDTO.ShowTiming}</h4><h4>Date of Event: {eventBookingDTO.DateOfEvent}</h4><h3>Total tickets: {eventBookingDTO.TicketCount}</h3><h3>Amount paid: {totalAmount}</h3>";
+            request.Body = $"<h1>BookMyShow</h1><h2>Booking Id: {bookingId}</h2><h4>Booked Event: {eventBookingDTO.Event}</h4><h4>Event Type: {eventBookingDTO.EventType}</h4><h4>Event Venue: {eventBookingDTO.EventVenue}</h4><h4>Show Time: {eventBookingDTO.ShowTiming}</h4><h4>Date of Event: {dateToWatch}</h4><h3>Total tickets: {eventBookingDTO.TicketCount}</h3><h3>Amount paid: {totalAmount}</h3>";
 
             try
             {

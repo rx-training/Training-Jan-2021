@@ -81,11 +81,13 @@ namespace BookMyShowAPI.Repository
 
             }
 
+            var dateToWatch = Convert.ToString(movieBookingDTO.DateToWatch.Year) + '-' + Convert.ToString(movieBookingDTO.DateToWatch.Month) + '-' + Convert.ToString(movieBookingDTO.DateToWatch.Day);
+
             MailRequest request = new MailRequest();
 
             request.ToEmail = userEmail;
             request.Subject = $"Booking is successfully done!";
-            request.Body = $"<h1>BookMyShow</h1><h2>Booking Id: {bookingId}</h2><h4>Booked Movie: {movieBookingDTO.Movie}</h4><h4>Theatre: {movieBookingDTO.Theatre}, {movieBookingDTO.City}</h4><h4>Show Time: {movieBookingDTO.ShowTiming}</h4><h4>Language: {movieBookingDTO.Language}</h4><h4>Format: {movieBookingDTO.FilmCategory}</h4><h4>Date to watch: {movieBookingDTO.DateToWatch}</h4><h4>Screen: {screen}</h4><h4>Total seats: {totalTickets}</h4><h3>Seat No. {seats}</h3><h3>Amount paid: {totalAmount}</h3>";
+            request.Body = $"<h1>BookMyShow</h1><h2>Booking Id: {bookingId}</h2><h4>Booked Movie: {movieBookingDTO.Movie}</h4><h4>Theatre: {movieBookingDTO.Theatre}, {movieBookingDTO.City}</h4><h4>Show Time: {movieBookingDTO.ShowTiming}</h4><h4>Language: {movieBookingDTO.Language}</h4><h4>Format: {movieBookingDTO.FilmCategory}</h4><h4>Date to watch: {dateToWatch}</h4><h4>Screen: {screen}</h4><h4>Total seats: {totalTickets}</h4><h3>Seat No. {seats}</h3><h3>Amount paid: {totalAmount}</h3>";
 
             try
             {

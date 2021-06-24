@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -10,7 +10,7 @@ import { EventsService } from '../../events.service';
   templateUrl: './all-activities.component.html',
   styleUrls: ['./all-activities.component.css']
 })
-export class AllActivitiesComponent implements OnInit {
+export class AllActivitiesComponent implements OnInit, OnDestroy {
 
   activitiesList: Array<IActivities> = [];
 
@@ -25,6 +25,19 @@ export class AllActivitiesComponent implements OnInit {
   price: string = '';
   min: number = 0;
   max: number = 100000;
+
+  constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.getLanguages();
+    this.getActivities();
+  }
+
+  ngOnDestroy(){
+    this.getLanguages();
+    this.getActivities();
+  }
 
   changePrice(e: any){
     this.price = e.target.value;
@@ -74,14 +87,6 @@ export class AllActivitiesComponent implements OnInit {
       this.languagesList = languages,
       console.log(this.languagesList);
     }); 
-  }
-
-  constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
-  }
-
-  ngOnInit(): void {
-    this.getLanguages();
-    this.getActivities();
   }
 
 }

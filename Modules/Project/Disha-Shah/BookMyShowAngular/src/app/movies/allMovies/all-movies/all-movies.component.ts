@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { element } from 'protractor';
 import { LanguageService } from 'src/app/language.service';
@@ -11,7 +11,7 @@ import { MoviesService } from '../../movies.service';
   templateUrl: './all-movies.component.html',
   styleUrls: ['./all-movies.component.css']
 })
-export class AllMoviesComponent implements OnInit, OnChanges {
+export class AllMoviesComponent implements OnInit, OnChanges, OnDestroy {
 
   moviesList: Array<IMovies> = [];
 
@@ -21,6 +21,26 @@ export class AllMoviesComponent implements OnInit, OnChanges {
 
   genre: string = '';
   language: string = '';
+
+  constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnChanges() {
+    this.getMovies();
+    this.getGenres();
+    this.getLanguages();
+  }
+
+  ngOnInit(): void {
+    this.getMovies();
+    this.getGenres();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getMovies();
+    this.getGenres();
+    this.getLanguages();
+  }
 
   changeGenre(e: any) {
     console.log('choosed genre: ' + e.target.value);
@@ -119,20 +139,6 @@ export class AllMoviesComponent implements OnInit, OnChanges {
     .subscribe((movies: any[]) => {
       this.moviesList = movies.filter((thing, i, arr) => arr.findIndex(t => t.movieId == thing.movieId) == i)
     }); 
-  }
-
-  constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService, private router: Router, private route: ActivatedRoute) { }
-
-  ngOnChanges() {
-    this.getMovies();
-    this.getGenres();
-    this.getLanguages();
-  }
-
-  ngOnInit(): void {
-    this.getMovies();
-    this.getGenres();
-    this.getLanguages();
   }
 
 }

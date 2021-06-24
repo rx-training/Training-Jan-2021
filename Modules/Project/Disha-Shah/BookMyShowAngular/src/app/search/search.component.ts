@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
 
@@ -15,7 +15,7 @@ import { MoviesService } from '../movies/movies.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
 
   moviesList: Array<IMovies> = [];
   eventsList: Array<IActivities> = [];
@@ -26,6 +26,18 @@ export class SearchComponent implements OnInit {
   IsResult: boolean = false;
 
   searchText: IMovies =  {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
+
+  constructor(private service: MoviesService, private eventsService: EventsService) {}
+
+  ngOnInit(): void {
+    this.getMovies();
+    this.getEvents();
+  }
+
+  ngOnDestroy(){
+    this.getMovies();
+    this.getEvents();
+  }
 
   getMovies(): void{
     this.service.getMovies()
@@ -65,11 +77,5 @@ export class SearchComponent implements OnInit {
     this.IsEventFound = false;
     this.IsMovieFound = false;
   }
-
-  constructor(private service: MoviesService, private eventsService: EventsService) {}
-
-  ngOnInit(): void {
-    this.getMovies();
-    this.getEvents();
-  }
+  
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CityService } from 'src/app/city.service';
@@ -11,13 +11,38 @@ import { IEventVenues } from 'src/app/models/IEventVenues';
   templateUrl: './edit-event-venue.component.html',
   styleUrls: ['./edit-event-venue.component.css']
 })
-export class EditEventVenueComponent implements OnInit {
+export class EditEventVenueComponent implements OnInit, OnDestroy {
 
   addEventVenueForm;
   id: number = 0;
   cityName: string = '';
   eventVenue: IEventVenues = {address:'',cityId:0,name:'',totalTickets:0};
   citiesList: Array<ICity> = [];
+
+  constructor(
+    private fb: FormBuilder, 
+    private eventvenuesService: EventVenuesService, 
+    private cityService: CityService, 
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.addEventVenueForm = this.fb.group({
+      name: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      address: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      totalTickets: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
+      city:  ['', Validators.compose([Validators.required])]
+    });
+  }
+
+  ngOnInit(): void {
+    this.getEventVenue();
+    this.getCities();
+  }
+
+  ngOnDestroy(){
+    this.getEventVenue();
+    this.getCities();
+  }
 
   getEventVenue(){
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -74,26 +99,6 @@ export class EditEventVenueComponent implements OnInit {
   updateVenue(newEventVenue: any){
     this.eventvenuesService.updateEventVenue(newEventVenue)
     .subscribe();
-  }
-
-  constructor(
-    private fb: FormBuilder, 
-    private eventvenuesService: EventVenuesService, 
-    private cityService: CityService, 
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
-    this.addEventVenueForm = this.fb.group({
-      name: ['', Validators.compose([Validators.required])],
-      address: ['', Validators.required],
-      totalTickets: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
-      city:  ['', Validators.compose([Validators.required])]
-    });
-  }
-
-  ngOnInit(): void {
-    this.getEventVenue();
-    this.getCities();
   }
 
 }

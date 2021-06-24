@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
@@ -9,7 +9,7 @@ import { EventsService } from '../events.service';
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css']
 })
-export class ActivitiesComponent implements OnInit {
+export class ActivitiesComponent implements OnInit, OnDestroy {
 
   activitiesList: Array<IActivities> = [];
 
@@ -20,6 +20,18 @@ export class ActivitiesComponent implements OnInit {
   languagesList: Array<ILanguages> = [];
 
   languages: Array<any> = [];
+
+  constructor(private service: EventsService, private languageService: LanguageService) { }
+
+  ngOnInit(): void {
+    this.getActivities();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getActivities();
+    this.getLanguages();
+  }
 
   getActivities(): void{
     this.service.getActivities()
@@ -49,13 +61,6 @@ export class ActivitiesComponent implements OnInit {
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
-  }
-
-  constructor(private service: EventsService, private languageService: LanguageService) { }
-
-  ngOnInit(): void {
-    this.getActivities();
-    this.getLanguages();
   }
 
 }

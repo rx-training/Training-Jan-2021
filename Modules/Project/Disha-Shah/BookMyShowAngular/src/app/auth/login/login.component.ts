@@ -17,6 +17,18 @@ export class LoginComponent implements OnInit {
 
   loginRole: any;
 
+  constructor(private fb: FormBuilder, private service: RegisterService, private router: Router) { 
+    this.loginForm = this.fb.group({
+      userName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      password: ['', Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{9,10}$')])],
+      otp: ['', Validators.compose([Validators.required])]
+    });
+  }
+
+  ngOnInit(): void{
+
+  }
+
   doLogin(user: ILogin): void {
     this.otp = this.loginForm.value.otp;
     console.log(this.otp);
@@ -39,19 +51,5 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset();
 
   }
-
-  constructor(private fb: FormBuilder, private service: RegisterService, private router: Router) { 
-    this.loginForm = this.fb.group({
-      userName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
-      password: ['', Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{9,10}$')])],
-      otp: ['', Validators.compose([Validators.required])]
-    });
-  }
-
-  ngOnInit(): void{
-
-  }
-
-  
 
 }

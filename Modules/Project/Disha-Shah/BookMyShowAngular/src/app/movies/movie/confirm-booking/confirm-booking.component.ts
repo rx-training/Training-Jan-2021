@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from 'src/app/models/IUser';
 import { MovieBookingsService } from '../../movie-bookings.service';
@@ -11,7 +11,7 @@ import { UserService } from '../../user.service';
   templateUrl: './confirm-booking.component.html',
   styleUrls: ['./confirm-booking.component.css']
 })
-export class ConfirmBookingComponent implements OnInit {
+export class ConfirmBookingComponent implements OnInit, OnDestroy {
 
   movieName: string = '';
   movieId: number = 0;
@@ -46,6 +46,22 @@ export class ConfirmBookingComponent implements OnInit {
   dateToWatch: Date = new Date();
   day: string = '';
   month: string = '';
+
+  constructor(private router: Router, private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService, private userService: UserService, private theatreService: TheatreService) { }
+
+  ngOnInit(): void {
+    this.getMovieInfo();
+    this.getSelectedSeats();
+    this.getUsers();
+    this.getTheatre();
+  }
+
+  ngOnDestroy(){
+    this.getMovieInfo();
+    this.getSelectedSeats();
+    this.getUsers();
+    this.getTheatre();
+  }
 
   getMovieInfo(){
     this.movieName = this.route.snapshot.paramMap.get('name');
@@ -167,15 +183,6 @@ export class ConfirmBookingComponent implements OnInit {
     localStorage.removeItem("selectedPremiumSeatsList");
     localStorage.removeItem("selectedNormalSeatsList");
     localStorage.removeItem("selectedReclinerSeatsList");
-  }
-
-  constructor(private router: Router, private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService, private userService: UserService, private theatreService: TheatreService) { }
-
-  ngOnInit(): void {
-    this.getMovieInfo();
-    this.getSelectedSeats();
-    this.getUsers();
-    this.getTheatre();
   }
 
 }

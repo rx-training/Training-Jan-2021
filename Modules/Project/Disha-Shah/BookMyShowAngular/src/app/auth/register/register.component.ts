@@ -14,6 +14,18 @@ export class RegisterComponent implements OnInit {
 
   registerForm;
 
+  constructor(private fb: FormBuilder, private service: RegisterService) { 
+    this.registerForm = this.fb.group({
+      userName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      email:  ['', Validators.compose([Validators.required, Validators.email])],
+      phoneNumber: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])],
+      password: ['', Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{9,10}$')])]
+    });
+  }
+
+  ngOnInit(): void {
+  }
+
   addUser(newUser: IRegister): void {
     this.service.addUser(newUser)
     .subscribe();
@@ -31,18 +43,6 @@ export class RegisterComponent implements OnInit {
     this.addUser(newUser);
 
     this.registerForm.reset();
-  }
-
-  constructor(private fb: FormBuilder, private service: RegisterService) { 
-    this.registerForm = this.fb.group({
-      userName: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
-      email:  ['', Validators.compose([Validators.required, Validators.email])],
-      phoneNumber: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])],
-      password: ['', Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{9,10}$')])]
-    });
-  }
-
-  ngOnInit(): void {
   }
 
 }

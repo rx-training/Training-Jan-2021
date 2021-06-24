@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -10,7 +10,7 @@ import { EventsService } from '../../events.service';
   templateUrl: './all-events.component.html',
   styleUrls: ['./all-events.component.css']
 })
-export class AllEventsComponent implements OnInit, OnChanges {
+export class AllEventsComponent implements OnInit, OnDestroy {
 
   eventsList: Array<IActivities> = [];
 
@@ -36,6 +36,25 @@ export class AllEventsComponent implements OnInit, OnChanges {
   price: string = '';
   min: number = 0;
   max: number = 100000;
+
+  constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.getComedies();
+    this.getOutdoors();
+    this.getPopulars();
+    this.getLanguages();
+    this.getEvents();
+  }
+
+  ngOnDestroy(){
+    this.getComedies();
+    this.getOutdoors();
+    this.getPopulars();
+    this.getLanguages();
+    this.getEvents();
+  }
 
   changeCategory(e: any) {
     this.category = e.target.value;
@@ -199,22 +218,6 @@ export class AllEventsComponent implements OnInit, OnChanges {
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
-  }
-
-
-  constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
-  }
-
-  ngOnChanges(){
-
-  }
-
-  ngOnInit(): void {
-    this.getComedies();
-    this.getOutdoors();
-    this.getPopulars();
-    this.getLanguages();
-    this.getEvents();
   }
 
 }

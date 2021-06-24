@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
@@ -19,7 +19,7 @@ import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
   templateUrl: './edit-movie.component.html',
   styleUrls: ['./edit-movie.component.css']
 })
-export class EditMovieComponent implements OnInit, OnChanges {
+export class EditMovieComponent implements OnInit, OnDestroy {
 
   certificationsList: Array<ICertifications> = [];
   genresList: Array<IGenres> = [];
@@ -41,6 +41,49 @@ export class EditMovieComponent implements OnInit, OnChanges {
   id: number = 0;
   movies: Array<IMovies> = [];
   movie: IMovies = {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
+
+  constructor(
+    private fb: FormBuilder, 
+    private moviesService: MoviesService, 
+    private certificationService: CertificationService,
+    private genresService: GenreService,
+    private languagesService: LanguageService,
+    private filmCategoriesService: FilmCategoryService,
+    private route: ActivatedRoute,
+    private datepipe: DatePipe,
+    private router: Router
+    ) { 
+    this.addMovieForm = this.fb.group({
+      name: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      time:  ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.pattern('[0-9]{0,2}h [0-9]{0,2}m')])],
+      image: ['', Validators.compose([Validators.maxLength(1000)])],
+      dateOfRelease: ['', Validators.compose([Validators.required, PastDateValidator()])],
+      about: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+      certification: ['', Validators.required],
+      isRecommended: [false],
+      isPremiere: [false],
+      backgroundImage: ['', Validators.compose([Validators.maxLength(1000)])],
+      genres: this.fb.array([]),
+      languages: this.fb.array([]),
+      filmCategories: this.fb.array([])
+    });
+  }
+
+  ngOnInit(): void {
+    this.getCertifications();
+    this.getGenres();
+    this.getLanguages();
+    this.getFilmCategories();
+    this.getMovie();
+  }
+
+  ngOnDestroy(){
+    this.getCertifications();
+    this.getGenres();
+    this.getLanguages();
+    this.getFilmCategories();
+    this.getMovie();
+  }
 
   getCertifications(){
     this.certificationService.getCertifications()
@@ -296,46 +339,6 @@ export class EditMovieComponent implements OnInit, OnChanges {
       })
 
     })
-  }
-  
-  constructor(
-    private fb: FormBuilder, 
-    private moviesService: MoviesService, 
-    private certificationService: CertificationService,
-    private genresService: GenreService,
-    private languagesService: LanguageService,
-    private filmCategoriesService: FilmCategoryService,
-    private route: ActivatedRoute,
-    private datepipe: DatePipe,
-    private router: Router
-    ) { 
-    this.addMovieForm = this.fb.group({
-      name: ['', Validators.compose([Validators.required])],
-      time:  ['', Validators.compose([Validators.required])],
-      image: ['', Validators.required],
-      dateOfRelease: ['', Validators.compose([Validators.required, PastDateValidator()])],
-      about: ['', Validators.required],
-      certification: ['', Validators.required],
-      isRecommended: [false, Validators.required],
-      isPremiere: [false, Validators.required],
-      backgroundImage: ['', Validators.required],
-      genres: this.fb.array([]),
-      languages: this.fb.array([]),
-      filmCategories: this.fb.array([])
-    });
-  }
-
-  ngOnChanges(){
-    
-  }
-
-  ngOnInit(): void {
-    this.getCertifications();
-    this.getGenres();
-    this.getLanguages();
-    this.getFilmCategories();
-    this.getMovie();
-
   }
 
 }

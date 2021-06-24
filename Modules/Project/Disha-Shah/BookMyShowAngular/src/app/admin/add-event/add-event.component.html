@@ -4,26 +4,28 @@
     <div class="form-group row">
         <label for="name" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="movieName" formControlName="name">
+            <input type="text" class="form-control" id="movieName" formControlName="name" maxlength="50">
             <small class="text-danger" *ngIf="addEventForm.controls.name.invalid && (addEventForm.controls.name.dirty || addEventForm.controls.name.touched)" id="errName">
-                Name is required
+                <ng-container *ngIf = "addEventForm.controls.name.errors.required">
+                    Name is required field
+                </ng-container>
+                <ng-container *ngIf = "addEventForm.controls.name.errors.maxLength">
+                    Name should be of 50 length
+                </ng-container>
             </small>
         </div>
     </div>
     <div class="form-group row">
-        <label for="image" class="col-sm-3 col-form-label h5">Image<span class="text-danger"> *</span></label>
+        <label for="image" class="col-sm-3 col-form-label h5">Image</label>
         <div class="col-sm-9" id="parentImg">
-            <input type="file" class="form-control-file" id="movieImage" formControlName="image" (change)="getImage($event)">
-            <small class="text-danger" *ngIf="addEventForm.controls.image.invalid && (addEventForm.controls.image.dirty || addEventForm.controls.image.touched)" id="errName">
-                Image is required
-            </small>
+            <input type="file" class="form-control-file" id="movieImage" formControlName="image" (change)="getImage($event)" maxlength="1000">
             <img [src]="'../../../../../assets/images/' + eventImage" alt="" id="eventImageShow" class="img-fluid w-25 mt-3">
         </div>
     </div>
     <div class="form-group row">
         <label for="backgroundImage" class="col-sm-3 col-form-label h5">Large Image<span class="text-danger"> *</span></label>
         <div class="col-sm-9" id="parentImg">
-            <input type="file" class="form-control-file" id="movieImage" formControlName="backgroundImage" (change)="getBgImage($event)">
+            <input type="file" class="form-control-file" id="movieImage" formControlName="backgroundImage" (change)="getBgImage($event)" maxlength="1000">
             <small class="text-danger" *ngIf="addEventForm.controls.backgroundImage.invalid && (addEventForm.controls.backgroundImage.dirty || addEventForm.controls.backgroundImage.touched)" id="errName">
                 Large Image is required
             </small>
@@ -33,19 +35,15 @@
     <div class="form-group row">
         <label for="artistName" class="col-sm-3 col-form-label h5">Artist Name</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="artistName" formControlName="artistName">
-            <small class="text-danger" *ngIf="addEventForm.controls.artistName.invalid && (addEventForm.controls.artistName.dirty || addEventForm.controls.artistName.touched)" id="errName">
-                Artist Name is required
-            </small>
+            <input type="text" class="form-control" id="artistName" formControlName="artistName" maxlength="500">
+            
         </div>
     </div>
     <div class="form-group row">
         <label for="artistImage" class="col-sm-3 col-form-label h5">Artist Image</label>
         <div class="col-sm-9" id="parentImg">
-            <input type="file" class="form-control-file" id="artistImage" formControlName="artistImage" (change)="getArtistImage($event)">
-            <small class="text-danger" *ngIf="addEventForm.controls.artistImage.invalid && (addEventForm.controls.artistImage.dirty || addEventForm.controls.artistImage.touched)" id="errName">
-                Artist Image is required
-            </small>
+            <input type="file" class="form-control-file" id="artistImage" formControlName="artistImage" (change)="getArtistImage($event)" maxlength="1000">
+            
             <img [src]="'../../../../../assets/images/' + artistImage" alt="" id="artistImageShow" class="img-fluid w-25 mt-3">
         </div>
     </div>
@@ -87,7 +85,12 @@
         <div class="col-sm-9">
             <input type="text" class="form-control" id="eventTime" formControlName="time">
             <small class="text-danger" *ngIf="addEventForm.controls.time.invalid && (addEventForm.controls.time.dirty || addEventForm.controls.time.touched)" id="errName">
-                Time is required
+                <ng-container *ngIf = "addEventForm.controls.time.errors.required">
+                    Time is required
+                </ng-container>
+                <ng-container *ngIf = "addEventForm.controls.time.errors.pattern">
+                    Ex: 1h 30m
+                </ng-container>
             </small>
         </div>
     </div>
@@ -167,21 +170,16 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="about" class="col-sm-3 col-form-label h5">About<span class="text-danger"> *</span></label>
+        <label for="about" class="col-sm-3 col-form-label h5">About</label>
         <div class="col-sm-9">
-            <textarea name="" id="about" rows="3" class="form-control" formControlName="about"></textarea>
-            <small class="text-danger" *ngIf="addEventForm.controls.about.invalid && (addEventForm.controls.about.dirty || addEventForm.controls.about.touched)" id="errName">
-                About is required
-            </small>
+            <textarea name="" id="about" rows="3" class="form-control" formControlName="about" maxlength="5000"></textarea>
+            
         </div>
     </div>
     <div class="form-group row">
-        <label for="note" class="col-sm-3 col-form-label h5">Note<span class="text-danger"> *</span></label>
+        <label for="note" class="col-sm-3 col-form-label h5">Note</label>
         <div class="col-sm-9">
             <textarea name="" id="note" rows="5" class="form-control" formControlName="note"></textarea>
-            <small class="text-danger" *ngIf="addEventForm.controls.note.invalid && (addEventForm.controls.note.dirty || addEventForm.controls.note.touched)" id="errName">
-                Note is required
-            </small>
         </div>
     </div>
     <div class="form-group row">

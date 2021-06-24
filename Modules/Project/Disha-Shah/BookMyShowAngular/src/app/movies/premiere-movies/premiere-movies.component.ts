@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import * as jQuery from 'jquery';
 import { LanguageService } from 'src/app/language.service';
 import { IMovies } from 'src/app/models/IMovies';
@@ -10,7 +10,7 @@ import { MoviesService } from '../movies.service';
   templateUrl: './premiere-movies.component.html',
   styleUrls: ['./premiere-movies.component.css']
 })
-export class PremiereMoviesComponent implements OnInit {
+export class PremiereMoviesComponent implements OnInit, OnDestroy {
   
   moviesList: Array<IMovies> = [];
 
@@ -19,6 +19,22 @@ export class PremiereMoviesComponent implements OnInit {
   languagesList: Array<any> = [];
   
   genresList: Array<any> = [];
+
+  constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService) { 
+    
+  }
+
+  ngOnInit(): void {
+    this.getMovies();
+    this.getLanguages();
+    this.getGenres();
+  }
+
+  ngOnDestroy(){
+    this.getMovies();
+    this.getLanguages();
+    this.getGenres();
+  }
 
   getMovies(): void{
     this.service.getMovies()
@@ -56,16 +72,6 @@ export class PremiereMoviesComponent implements OnInit {
     .subscribe((genres: any[]) => {
       this.genresList = genres
     }); 
-  }
-  
-  constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService) { 
-    
-  }
-
-  ngOnInit(): void {
-    this.getMovies();
-    this.getLanguages();
-    this.getGenres();
   }
 
 }

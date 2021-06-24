@@ -232,6 +232,9 @@ namespace BookMyShowAPI.Models
                     .IsUnicode(false)
                     .HasColumnName("Name");
 
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Event>(entity =>
@@ -299,6 +302,10 @@ namespace BookMyShowAPI.Models
 
                 entity.Property(e => e.TermsAndConditions)
                     .HasMaxLength(20000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
                     .IsUnicode(false);
             });
 
@@ -380,6 +387,10 @@ namespace BookMyShowAPI.Models
                     .HasForeignKey(d => d.CityId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("EventVenues_Cities_CityId_FK");
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<EventVenueShowTiming>(entity =>
@@ -466,6 +477,10 @@ namespace BookMyShowAPI.Models
 
                 entity.Property(e => e.CastImages)
                     .HasMaxLength(10000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
                     .IsUnicode(false);
             });
 

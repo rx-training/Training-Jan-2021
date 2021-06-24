@@ -26,14 +26,14 @@ namespace BookMyShowAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<EventVenue>> GetEventVenues()
         {
-            return Ok(eventVenues.GetAll());
+            return Ok(eventVenues.GetAllVenues());
         }
 
         // GET: api/BookMyShow/EventVenues/5
         [HttpGet("{id}")]
         public ActionResult<EventVenue> GetEventVenue(int id)
         {
-            var eventVenue = eventVenues.GetById(id);
+            var eventVenue = eventVenues.GetVenueById(id);
 
             if (eventVenue == null)
             {

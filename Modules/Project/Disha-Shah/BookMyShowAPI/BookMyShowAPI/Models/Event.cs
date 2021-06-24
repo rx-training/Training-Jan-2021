@@ -29,6 +29,7 @@ namespace BookMyShowAPI.Models
         public string Disclaimer { get; set; }
         public string FAQs { get; set; }
         public string TermsAndConditions { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual EventType EventType { get; set; }
         public virtual EventVenueShowTiming EventVenueShowTiming { get; set; }

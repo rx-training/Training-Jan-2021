@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CityService } from 'src/app/city.service';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
@@ -11,12 +11,37 @@ import { ShowTimingsService } from 'src/app/show-timings.service';
   templateUrl: './add-event-venue.component.html',
   styleUrls: ['./add-event-venue.component.css']
 })
-export class AddEventVenueComponent implements OnInit {
+export class AddEventVenueComponent implements OnInit, OnDestroy {
 
   addEventVenueForm;
 
   citiesList: Array<ICity> = [];
   showTimingsList: Array<IShowTimings> = [];
+
+  constructor(
+    private fb: FormBuilder, 
+    private eventVenuesService: EventVenuesService,
+    private citiesService: CityService,
+    private showTimingsService: ShowTimingsService
+    ) {
+    this.addEventVenueForm = this.fb.group({
+      name: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      address: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      totalTickets: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
+      city:  ['', Validators.compose([Validators.required])],
+      showTime: ['', Validators.required]
+    });
+   }
+
+  ngOnInit(): void {
+    this.getCities();
+    this.getShowTimings();
+  }
+
+  ngOnDestroy(){
+    this.getCities();
+    this.getShowTimings();
+  }
 
   eventVenueSubmit(){
     console.log(this.addEventVenueForm);
@@ -58,26 +83,5 @@ export class AddEventVenueComponent implements OnInit {
       this.showTimingsList = showTimings
     })
   }
-
-  constructor(
-    private fb: FormBuilder, 
-    private eventVenuesService: EventVenuesService,
-    private citiesService: CityService,
-    private showTimingsService: ShowTimingsService
-    ) {
-    this.addEventVenueForm = this.fb.group({
-      name: ['', Validators.compose([Validators.required])],
-      address: ['', Validators.required],
-      totalTickets: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
-      city:  ['', Validators.compose([Validators.required])],
-      showTime: ['', Validators.required]
-    });
-   }
-
-  ngOnInit(): void {
-    this.getCities();
-    this.getShowTimings();
-  }
-
 
 }

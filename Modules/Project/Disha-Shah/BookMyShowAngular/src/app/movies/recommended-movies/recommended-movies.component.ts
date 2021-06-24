@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { GenreService } from '../genre.service';
 import { IMovies } from '../../models/IMovies';
 import { MoviesService } from '../movies.service';
@@ -8,13 +8,27 @@ import { MoviesService } from '../movies.service';
   templateUrl: './recommended-movies.component.html',
   styleUrls: ['./recommended-movies.component.css']
 })
-export class RecommendedMoviesComponent implements OnInit {
+export class RecommendedMoviesComponent implements OnInit, OnDestroy {
 
   moviesList: Array<IMovies> = [];
 
   genresList: Array<any> = [];
 
   finalList: Array<IMovies> = [];
+
+  constructor(private service: MoviesService, private genreService: GenreService) { 
+    
+  }
+
+  ngOnInit(): void {
+    this.getMovies();
+    this.getGenres();
+  }
+
+  ngOnDestroy(){
+    this.getMovies();
+    this.getGenres();
+  }
   
   getMovies(): void{
     this.service.getMovies()
@@ -40,15 +54,6 @@ export class RecommendedMoviesComponent implements OnInit {
     .subscribe((genres: any[]) => {
       this.genresList = genres
     }); 
-  }
-
-  constructor(private service: MoviesService, private genreService: GenreService) { 
-    
-  }
-
-  ngOnInit(): void {
-    this.getMovies();
-    this.getGenres();
   }
 
 }

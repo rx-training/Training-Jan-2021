@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DynamicNavbarService } from 'src/app/dynamic-navbar.service';
 import { IDynamicNavbar } from 'src/app/models/IDynamicNavbar';
 
@@ -7,9 +7,19 @@ import { IDynamicNavbar } from 'src/app/models/IDynamicNavbar';
   templateUrl: './navbars.component.html',
   styleUrls: ['./navbars.component.css']
 })
-export class NavbarsComponent implements OnInit {
+export class NavbarsComponent implements OnInit, OnDestroy {
 
   navbarsList: Array<IDynamicNavbar> = [];
+
+  constructor(private navbarService: DynamicNavbarService) { }
+
+  ngOnInit(): void {
+    this.getNavbars();
+  }
+
+  ngOnDestroy(){
+    this.getNavbars();
+  }
 
   getNavbars(){
     this.navbarService.getDynamicNavbars()
@@ -19,14 +29,12 @@ export class NavbarsComponent implements OnInit {
   }
 
   removeComponent(id: number){
-    this.navbarsList = this.navbarsList.filter(h => h.navbarId !== id);
-    this.navbarService.deleteNavbarComponent(id).subscribe();
-  }
-
-  constructor(private navbarService: DynamicNavbarService) { }
-
-  ngOnInit(): void {
-    this.getNavbars();
+    var c = confirm("Are you sure you want to delete?");
+    if(c==true)
+    {
+      this.navbarsList = this.navbarsList.filter(h => h.navbarId !== id);
+      this.navbarService.deleteNavbarComponent(id).subscribe();
+    }
   }
 
 }

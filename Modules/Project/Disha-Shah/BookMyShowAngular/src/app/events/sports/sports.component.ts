@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
@@ -9,7 +9,7 @@ import { EventsService } from '../events.service';
   templateUrl: './sports.component.html',
   styleUrls: ['./sports.component.css']
 })
-export class SportsComponent implements OnInit {
+export class SportsComponent implements OnInit, OnDestroy {
 
   sportsList: Array<IActivities> = [];
 
@@ -20,6 +20,18 @@ export class SportsComponent implements OnInit {
   languagesList: Array<ILanguages> = [];
 
   languages: Array<any> = [];
+
+  constructor(private service: EventsService, private languageService: LanguageService) { }
+
+  ngOnInit(): void {
+    this.getSports();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getSports();
+    this.getLanguages();
+  }
 
   getSports(): void{
     this.service.getSports()
@@ -50,13 +62,5 @@ export class SportsComponent implements OnInit {
       this.languagesList = languages
     }); 
   }
-
-  constructor(private service: EventsService, private languageService: LanguageService) { }
-
-  ngOnInit(): void {
-    this.getSports();
-    this.getLanguages();
-  }
-
 
 }

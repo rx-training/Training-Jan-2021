@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
@@ -11,7 +11,7 @@ import { ShowTimingsService } from 'src/app/show-timings.service';
   templateUrl: './event-venues-detail.component.html',
   styleUrls: ['./event-venues-detail.component.css']
 })
-export class EventVenuesDetailComponent implements OnInit {
+export class EventVenuesDetailComponent implements OnInit, OnDestroy {
 
   addShowTimingForm;
   removeShowTimingForm;
@@ -24,6 +24,29 @@ export class EventVenuesDetailComponent implements OnInit {
   eventVenue: any;
   showtime: any;
   id: number = 0;
+
+  constructor(
+    private fb: FormBuilder,
+    private eventVenuesService: EventVenuesService, 
+    private showTimingsService: ShowTimingsService, 
+    private route: ActivatedRoute
+  ){
+    this.addShowTimingForm = this.fb.group({
+      showTime: ['', Validators.required]
+    });
+
+    this.removeShowTimingForm = this.fb.group({
+      showTime: ['', Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+    this.getEventVenue();
+  }
+
+  ngOnDestroy(){
+    this.getEventVenue();
+  }
 
   getEventVenue(){
     this.id =  parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -90,25 +113,6 @@ export class EventVenuesDetailComponent implements OnInit {
   removeShowTimingForVenue(id: number, showtime: string){
     this.eventVenuesService.deleteShowTiming(id, showtime)
     .subscribe();
-  }
-
-  constructor(
-    private fb: FormBuilder,
-    private eventVenuesService: EventVenuesService, 
-    private showTimingsService: ShowTimingsService, 
-    private route: ActivatedRoute
-  ){
-    this.addShowTimingForm = this.fb.group({
-      showTime: ['', Validators.required]
-    });
-
-    this.removeShowTimingForm = this.fb.group({
-      showTime: ['', Validators.required]
-    });
-  }
-
-  ngOnInit(): void {
-    this.getEventVenue();
   }
 
 }

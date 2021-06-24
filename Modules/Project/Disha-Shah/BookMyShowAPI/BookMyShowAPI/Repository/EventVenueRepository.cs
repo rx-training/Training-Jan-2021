@@ -15,6 +15,17 @@ namespace BookMyShowAPI.Repository
 
         }
 
+        public IEnumerable GetAllVenues()
+        {
+            var venues = context.EventVenues.Where(x => x.IsActive == true);
+            return venues;
+        }
+        public IEnumerable GetVenueById(int id)
+        {
+            var venues = context.EventVenues.Where(x => x.IsActive == true && x.EventVenueId == id);
+            return venues;
+        }
+
         // Add EventVenues
         public void CreateEventVenue(EventVenueDTO eventVenue)
         {
@@ -25,7 +36,8 @@ namespace BookMyShowAPI.Repository
                 Name=eventVenue.Name,
                 Address = eventVenue.Address,
                 TotalTickets = eventVenue.TotalTickets,
-                CityId=city.CityId
+                CityId=city.CityId,
+                IsActive = true
             });
 
             context.SaveChanges();
@@ -60,6 +72,7 @@ namespace BookMyShowAPI.Repository
             existingEventVenue.Address = entity.Address;
             existingEventVenue.TotalTickets = entity.TotalTickets;
             existingEventVenue.CityId = city.CityId;
+            existingEventVenue.IsActive = true;
 
             context.SaveChanges();
 
@@ -72,7 +85,8 @@ namespace BookMyShowAPI.Repository
                 .Where(s => s.EventVenueId == id)
                 .SingleOrDefault();
 
-            context.EventVenues.Remove(eventVenue);
+            //context.EventVenues.Remove(eventVenue);
+            eventVenue.IsActive = false;
             context.SaveChanges();
         }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
 import { IEventVenues } from 'src/app/models/IEventVenues';
 
@@ -7,9 +7,19 @@ import { IEventVenues } from 'src/app/models/IEventVenues';
   templateUrl: './event-venues.component.html',
   styleUrls: ['./event-venues.component.css']
 })
-export class EventVenuesComponent implements OnInit {
+export class EventVenuesComponent implements OnInit, OnDestroy {
 
   eventVenuesList: Array<IEventVenues> = [];
+
+  constructor(private eventVenuesService: EventVenuesService) { }
+
+  ngOnInit(): void {
+    this.getEventVenues();
+  }
+
+  ngOnDestroy(){
+    this.getEventVenues();
+  }
 
   getEventVenues(){
     this.eventVenuesService.getEventVenues()
@@ -19,14 +29,12 @@ export class EventVenuesComponent implements OnInit {
   }
 
   removeEventVenue(id: number){
-    this.eventVenuesList = this.eventVenuesList.filter(h => h.eventVenueId !== id);
-    this.eventVenuesService.deleteEventVenue(id).subscribe();
-  }
-
-  constructor(private eventVenuesService: EventVenuesService) { }
-
-  ngOnInit(): void {
-    this.getEventVenues();
+    var c = confirm("Are you sure you want to delete?");
+    if(c==true)
+    {
+      this.eventVenuesList = this.eventVenuesList.filter(h => h.eventVenueId !== id);
+      this.eventVenuesService.deleteEventVenue(id).subscribe();
+    }
   }
 
 }

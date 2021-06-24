@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnChanges, OnInit } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IMovies } from 'src/app/models/IMovies';
 import { MoviesService } from '../../movies.service';
@@ -6,12 +6,20 @@ import * as $ from 'jquery';
 import { MovieBookingsService } from '../../movie-bookings.service';
 import { IMovieBookings } from 'src/app/models/IMovieBookings';
 
+enum Seatcategory{
+  Executive = 'Executive',
+  Normal = 'Normal',
+  Premium = 'Premium',
+  Recliner = 'Recliner'  
+}
+
 @Component({
   selector: 'app-seating',
   templateUrl: './seating.component.html',
   styleUrls: ['./seating.component.css']
 })
-export class SeatingComponent implements OnInit, OnChanges {
+
+export class SeatingComponent implements OnInit, OnDestroy {
 
   movieName: string = '';
   movieId: number = 0;
@@ -41,6 +49,20 @@ export class SeatingComponent implements OnInit, OnChanges {
   reclinerTotal: number = 0;
   totalAmount: number = 0;
   screenId: number = 0;
+
+  constructor(private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService) { }
+
+  ngOnInit(): void {
+    this.getMovieInfo();
+    this.getMovie();
+    this.getSeats();
+  }
+  
+  ngOnDestroy(){
+    this.getMovieInfo();
+    this.getMovie();
+    this.getSeats();
+  }
 
   getMovieInfo(){
     this.movieName = this.route.snapshot.paramMap.get('name');
@@ -84,7 +106,7 @@ export class SeatingComponent implements OnInit, OnChanges {
     if(this.count != this.noOfSeats && !(e.target.classList.contains("disabled")) && !(e.target.classList.contains("btn-success"))){
       e.target.classList.add("btn-success");
       e.target.classList.remove("btn-outline-success");
-      if(seatCategory == 'Executive')
+      if(seatCategory == Seatcategory.Executive)
       {
         if(!localStorage.selectedExecutiveSeatsList){
           let selectedExecutiveSeat = [{
@@ -107,7 +129,7 @@ export class SeatingComponent implements OnInit, OnChanges {
         }
         this.executiveTotal += price;
       }
-      else if(seatCategory == 'Premium')
+      else if(seatCategory == Seatcategory.Premium)
       {
         if(!localStorage.selectedPremiumSeatsList){
           let selectedPremiumSeat = [{
@@ -130,7 +152,7 @@ export class SeatingComponent implements OnInit, OnChanges {
         }
         this.premiumTotal += price;
       }
-      else if(seatCategory == 'Normal')
+      else if(seatCategory == Seatcategory.Normal)
       {
         if(!localStorage.selectedNormalSeatsList){
           let selectedNormalSeat = [{
@@ -153,7 +175,7 @@ export class SeatingComponent implements OnInit, OnChanges {
         }
         this.normalTotal += price;
       }
-      else if(seatCategory == 'Recliner')
+      else if(seatCategory == Seatcategory.Recliner)
       {
         if(!localStorage.selectedReclinerSeatsList){
           let selectedReclinerSeat = [{
@@ -195,17 +217,6 @@ export class SeatingComponent implements OnInit, OnChanges {
       localStorage.removeItem("selectedReclinerSeatsList");
       alert("Please login to book your show");
     }
-  }
-
-  constructor(private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService) { }
-
-  ngOnChanges(){
-  }
-
-  ngOnInit(): void {
-    this.getMovieInfo();
-    this.getMovie();
-    this.getSeats();
   }
 
 }

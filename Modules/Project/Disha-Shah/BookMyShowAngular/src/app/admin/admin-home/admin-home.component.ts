@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/auth/register.service';
 @Component({
@@ -6,10 +6,24 @@ import { RegisterService } from 'src/app/auth/register.service';
   templateUrl: './admin-home.component.html',
   styleUrls: ['./admin-home.component.css']
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminHomeComponent implements OnInit, OnDestroy {
 
   adminInfo: any;
   adminName: string = '';
+
+  constructor(private registerService: RegisterService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.loadScript('../../../assets/js/admin-sidebar.js');
+    this.getLoggedAdminInfo();
+    this.automaticLogOut();
+  }
+
+  ngOnDestroy(){
+    this.loadScript('../../../assets/js/admin-sidebar.js');
+    this.getLoggedAdminInfo();
+    this.automaticLogOut();
+  }
 
   logout() {
     this.registerService.logoutAdmin();
@@ -31,21 +45,12 @@ export class AdminHomeComponent implements OnInit {
 
   }
 
-
-  constructor(private registerService: RegisterService, private router: Router) { }
-
   getLoggedAdminInfo(){
     this.adminInfo = JSON.parse(localStorage.getItem("logged_in_admin"))
     if(this.adminInfo != null){
       this.adminName = this.adminInfo.username;
       this.adminName = this.adminName.toUpperCase();
     }
-  }
-
-  ngOnInit(): void {
-    this.loadScript('../../../assets/js/admin-sidebar.js');
-    this.getLoggedAdminInfo();
-    this.automaticLogOut();
   }
 
   loadScript(url: any){

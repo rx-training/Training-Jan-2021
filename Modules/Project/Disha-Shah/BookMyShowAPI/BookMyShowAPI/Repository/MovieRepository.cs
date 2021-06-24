@@ -18,7 +18,7 @@ namespace BookMyShowAPI.Repository
         // Get all the information of all movies
         public IEnumerable GetAllMovies()
         {
-            var movies = context.Movies;
+            var movies = context.Movies.Where(x=> x.IsActive == true);
 
             var m1 = from x in movies
                      select new Movie
@@ -54,7 +54,7 @@ namespace BookMyShowAPI.Repository
         public IEnumerable GetMovieById(int id)
         {
             var movies = context.Movies
-                                .Where(x=>x.MovieId == id);
+                                .Where(x=>x.MovieId == id && x.IsActive == true);
 
             var m1 = from x in movies
                      select new Movie
@@ -116,7 +116,8 @@ namespace BookMyShowAPI.Repository
                 CertificationId = certification.CertificationId,
                 BackgroundImage = movie.BackgroundImage,
                 Cast = movie.Cast,
-                CastImages = movie.CastImages
+                CastImages = movie.CastImages,
+                IsActive = true
             });
 
             context.SaveChanges();
@@ -185,6 +186,7 @@ namespace BookMyShowAPI.Repository
             existingMovie.BackgroundImage = entity.BackgroundImage;
             existingMovie.Cast = entity.Cast;
             existingMovie.CastImages = entity.CastImages;
+            existingMovie.IsActive = true;
 
             context.SaveChanges();
 
@@ -251,7 +253,8 @@ namespace BookMyShowAPI.Repository
                 .Where(s => s.MovieId == id)
                 .SingleOrDefault();
 
-            context.Movies.Remove(movie);
+            //context.Movies.Remove(movie);
+            movie.IsActive = false;
             context.SaveChanges();
         }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { element } from 'protractor';
 import { LanguageService } from 'src/app/language.service';
 import { ILanguages } from 'src/app/models/ILanguages';
@@ -10,7 +10,7 @@ import { EventsService } from '../events.service';
   templateUrl: './outdoor.component.html',
   styleUrls: ['./outdoor.component.css']
 })
-export class OutdoorComponent implements OnInit {
+export class OutdoorComponent implements OnInit, OnDestroy {
 
   outdoorsList: Array<IActivities> = [];
 
@@ -21,6 +21,18 @@ export class OutdoorComponent implements OnInit {
   languagesList: Array<ILanguages> = [];
 
   languages: Array<any> = [];
+
+  constructor(private service: EventsService, private languageService: LanguageService) { }
+
+  ngOnInit(): void {
+    this.getOutdoors();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getOutdoors();
+    this.getLanguages();
+  }
 
   getOutdoors(): void{
     this.service.getOutdoors()
@@ -50,13 +62,6 @@ export class OutdoorComponent implements OnInit {
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
-  }
-
-  constructor(private service: EventsService, private languageService: LanguageService) { }
-
-  ngOnInit(): void {
-    this.getOutdoors();
-    this.getLanguages();
   }
 
 }

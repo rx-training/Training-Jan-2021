@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
@@ -14,7 +14,7 @@ import { MoviesService } from 'src/app/movies/movies.service';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent implements OnInit, OnDestroy {
 
   moviesList: Array<IMovies> = [];
 
@@ -25,6 +25,24 @@ export class MoviesComponent implements OnInit {
   filmCategoryList: Array<any> = [];
 
   castImagesList: Array<any> = [];
+
+  constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService, private filmCategoryService: FilmCategoryService) { 
+    
+  }
+
+  ngOnInit(): void {
+    this.getMovies();
+    this.getLanguages();
+    this.getGenres();
+    this.getFilmCategories();
+  }
+
+  ngOnDestroy(){
+    this.getMovies();
+    this.getLanguages();
+    this.getGenres();
+    this.getFilmCategories();
+  }
 
   getMovies(): void{
     this.service.getMovies()
@@ -85,18 +103,12 @@ export class MoviesComponent implements OnInit {
   }
 
   removeMovie(id: number){
-    this.moviesList = this.moviesList.filter(h => h.movieId !== id);
-    this.service.deleteMovie(id).subscribe();
+    var c = confirm("Are you sure you want to delete?");
+    if(c==true)
+    {
+      this.moviesList = this.moviesList.filter(h => h.movieId !== id);
+      this.service.deleteMovie(id).subscribe();
+    }
   }
   
-  constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService, private filmCategoryService: FilmCategoryService) { 
-    
-  }
-
-  ngOnInit(): void {
-    this.getMovies();
-    this.getLanguages();
-    this.getGenres();
-    this.getFilmCategories();
-  }
 }

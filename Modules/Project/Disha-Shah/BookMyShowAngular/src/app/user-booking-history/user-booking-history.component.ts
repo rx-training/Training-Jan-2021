@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EventBookingService } from '../events/event-booking.service';
 import { EventsService } from '../events/events.service';
 import { IActivities } from '../models/IActivities';
@@ -15,7 +15,7 @@ import { UserService } from '../movies/user.service';
   templateUrl: './user-booking-history.component.html',
   styleUrls: ['./user-booking-history.component.css']
 })
-export class UserBookingHistoryComponent implements OnInit {
+export class UserBookingHistoryComponent implements OnInit, OnDestroy {
 
   usersList: Array<IUser> = [];
 
@@ -28,6 +28,16 @@ export class UserBookingHistoryComponent implements OnInit {
 
   eventsList: Array<IActivities> = [];
   eventBookingHistoryList: Array<IEventBookings> = [];
+
+  constructor(private userService: UserService, private movieBookingsService: MovieBookingsService, private moviesService: MoviesService, private eventBookingsService: EventBookingService, private eventsService: EventsService) { }
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  ngOnDestroy(){
+    this.getUsers();
+  }
 
   getUsers(){
     this.userService.getUsers()
@@ -95,12 +105,6 @@ export class UserBookingHistoryComponent implements OnInit {
       console.log(this.eventBookingHistoryList)
     })
 
-  }
-
-  constructor(private userService: UserService, private movieBookingsService: MovieBookingsService, private moviesService: MoviesService, private eventBookingsService: EventBookingService, private eventsService: EventsService) { }
-
-  ngOnInit(): void {
-    this.getUsers();
   }
 
 }

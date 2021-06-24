@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
@@ -14,7 +14,7 @@ import { MoviesService } from '../../movies.service';
   templateUrl: './select-show-time.component.html',
   styleUrls: ['./select-show-time.component.css']
 })
-export class SelectShowTimeComponent implements OnInit {
+export class SelectShowTimeComponent implements OnInit, OnDestroy {
 
   movies: Array<IMovies> = [];
   movie: IMovies = {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
@@ -25,6 +25,26 @@ export class SelectShowTimeComponent implements OnInit {
   language: string = '';
   category: string = '';
   datesList: Array<any> = [];
+
+  constructor(
+    private service: MoviesService,
+    private genreService: GenreService, 
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.getTheatres();
+    this.getMovie();
+    this.getGenres();
+    this.setTheatres();
+  }
+
+  ngOnDestroy(){
+    this.getTheatres();
+    this.getMovie();
+    this.getGenres();
+    this.setTheatres();
+  }
   
   getMovie(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -74,19 +94,6 @@ export class SelectShowTimeComponent implements OnInit {
 
   setTheatres(){
     this.service.setTheatres(this.theatres, this.movie.movieId);
-  }
-
-  constructor(
-    private service: MoviesService,
-    private genreService: GenreService, 
-    private route: ActivatedRoute
-  ) { }
-
-  ngOnInit(): void {
-    this.getTheatres();
-    this.getMovie();
-    this.getGenres();
-    this.setTheatres();
   }
 
 }

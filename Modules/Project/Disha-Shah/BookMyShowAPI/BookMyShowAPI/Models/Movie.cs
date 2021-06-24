@@ -28,6 +28,7 @@ namespace BookMyShowAPI.Models
         public string BackgroundImage { get; set; }
         public string Cast { get; set; }
         public string CastImages { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual Certification Certification { get; set; }
         public virtual ICollection<MovieFilmCategory> MovieFilmCategories { get; set; }

@@ -4,7 +4,7 @@
     <div class="form-group row">
         <label for="name" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="eventVenueName" formControlName="name">
+            <input type="text" class="form-control" id="eventVenueName" formControlName="name" maxlength="50">
             <small class="text-danger" *ngIf="addEventVenueForm.controls.name.invalid && (addEventVenueForm.controls.name.dirty || addEventVenueForm.controls.name.touched)" id="errName">
                 Name is required
             </small>
@@ -13,7 +13,7 @@
     <div class="form-group row">
         <label for="address" class="col-sm-3 col-form-label h5">Address<span class="text-danger"> *</span></label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="eventVenueName" formControlName="address">
+            <input type="text" class="form-control" id="eventVenueName" formControlName="address" maxlength="50">
             <small class="text-danger" *ngIf="addEventVenueForm.controls.address.invalid && (addEventVenueForm.controls.address.dirty || addEventVenueForm.controls.address.touched)" id="errName">
                 Address is required
             </small>

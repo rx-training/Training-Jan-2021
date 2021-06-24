@@ -17,7 +17,7 @@ namespace BookMyShowAPI.Repository
 
         public IEnumerable GetAllUniqueEvents()
         {
-            var events = context.Events;
+            var events = context.Events.Where(x => x.IsActive == true);
 
             var e1 = from x in events
                      select new Event
@@ -117,7 +117,8 @@ namespace BookMyShowAPI.Repository
                 FAQs = entity.FAQs,
                 MinAge = entity.MinAge,
                 Note = entity.Note,
-                TermsAndConditions = entity.TermsAndConditions
+                TermsAndConditions = entity.TermsAndConditions,
+                IsActive = true
             });
 
             context.SaveChanges();
@@ -177,6 +178,7 @@ namespace BookMyShowAPI.Repository
             existingEvent.MinAge = entity.MinAge;
             existingEvent.Note = entity.Note;
             existingEvent.TermsAndConditions = entity.TermsAndConditions;
+            existingEvent.IsActive = true;
 
             context.SaveChanges();
 
@@ -207,7 +209,8 @@ namespace BookMyShowAPI.Repository
                 .Where(s => s.EventId== id)
                 .SingleOrDefault();
 
-            context.Events.Remove(entity);
+            //context.Events.Remove(entity);
+            entity.IsActive = false;
             context.SaveChanges();
         }
 

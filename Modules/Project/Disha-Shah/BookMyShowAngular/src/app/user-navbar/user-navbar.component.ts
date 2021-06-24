@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterService } from '../auth/register.service';
 import { DynamicNavbarService } from '../dynamic-navbar.service';
@@ -9,13 +9,34 @@ import { IDynamicNavbar } from '../models/IDynamicNavbar';
   templateUrl: './user-navbar.component.html',
   styleUrls: ['./user-navbar.component.css']
 })
-export class UserNavbarComponent implements OnInit, OnChanges {
+export class UserNavbarComponent implements OnInit, OnChanges, OnDestroy {
 
   IsLoggedIn: boolean = false;
   display: string = "block";
   userInfo: any;
   username: string = '';
   dynamicNavbarsList: Array<IDynamicNavbar> = [];
+
+  constructor(private registerService: RegisterService, private router: Router, private dynamicNavbarService: DynamicNavbarService) { }
+
+  ngOnChanges(){
+    this.IsUserLoggedIn();
+    this.automaticLogOut();
+  }
+
+  ngOnInit(): void {
+    this.loadScript('../../../assets/js/main.js');
+    this.IsUserLoggedIn();
+    this.getDynamicNavbars();
+    this.automaticLogOut();
+  }
+
+  ngOnDestroy(){
+    this.loadScript('../../../assets/js/main.js');
+    this.IsUserLoggedIn();
+    this.getDynamicNavbars();
+    this.automaticLogOut();
+  }
 
   IsUserLoggedIn()
   {
@@ -58,20 +79,6 @@ export class UserNavbarComponent implements OnInit, OnChanges {
     .subscribe(dynamicNavbars => {
       this.dynamicNavbarsList = dynamicNavbars
     })
-  }
-
-  constructor(private registerService: RegisterService, private router: Router, private dynamicNavbarService: DynamicNavbarService) { }
-
-  ngOnChanges(){
-    this.IsUserLoggedIn();
-    this.automaticLogOut();
-  }
-
-  ngOnInit(): void {
-    this.loadScript('../../../assets/js/main.js');
-    this.IsUserLoggedIn();
-    this.getDynamicNavbars();
-    this.automaticLogOut();
   }
 
   loadScript(url: any){

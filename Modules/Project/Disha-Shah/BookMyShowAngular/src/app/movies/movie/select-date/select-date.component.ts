@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../movies.service';
 
@@ -7,7 +7,7 @@ import { MoviesService } from '../../movies.service';
   templateUrl: './select-date.component.html',
   styleUrls: ['./select-date.component.css']
 })
-export class SelectDateComponent implements OnInit, OnChanges {
+export class SelectDateComponent implements OnInit, OnChanges, OnDestroy {
 
   theatres: Array<any> = [];
   uniqueTheatres: Array<any> = [];
@@ -33,6 +33,23 @@ export class SelectDateComponent implements OnInit, OnChanges {
   isPremiumAvailable = true;
   reclinerSeats: Array<any> = [];
   isReclinerAvailable = true;
+
+  constructor(
+    private service: MoviesService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnChanges(){
+    this.getTheatresInfo();
+  }
+
+  ngOnInit(): void {
+    this.getTheatresInfo();
+  }
+
+  ngOnDestroy(){
+    this.getTheatresInfo();
+  }
 
   getTheatresInfo(){
     this.theatres = this.service.getTheatres();
@@ -144,17 +161,5 @@ export class SelectDateComponent implements OnInit, OnChanges {
   noOfSeats(e: any){
     this.numberOfSeats = e.target.value;
   }
-
-  constructor(
-    private service: MoviesService,
-    private route: ActivatedRoute
-  ) { }
-
-  ngOnChanges(){
-    this.getTheatresInfo();
-  }
-
-  ngOnInit(): void {
-    this.getTheatresInfo();
-  }
+  
 }

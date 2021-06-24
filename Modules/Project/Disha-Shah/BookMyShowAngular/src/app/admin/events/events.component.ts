@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EventsService } from 'src/app/events/events.service';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -9,13 +9,25 @@ import { ILanguages } from 'src/app/models/ILanguages';
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.css']
 })
-export class EventsComponent implements OnInit {
+export class EventsComponent implements OnInit, OnDestroy {
 
   eventsList: Array<IActivities> = [];
   events: Array<IActivities> = [];
   uniqueEventsList: Array<any> = [];
   languagesList: Array<ILanguages> = [];
   languages: Array<any> = [];
+
+  constructor(private eventsService: EventsService, private languageService: LanguageService) { }
+
+  ngOnInit(): void {
+    this.getEvents();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getEvents();
+    this.getLanguages();
+  }
 
   getEvents(){
     this.eventsService.getEvents()
@@ -68,15 +80,12 @@ export class EventsComponent implements OnInit {
   }
 
   removeEvent(id: number){
-    this.events = this.events.filter(h => h.eventId !== id);
-    this.eventsService.deleteEvent(id).subscribe();
-  }
-
-  constructor(private eventsService: EventsService, private languageService: LanguageService) { }
-
-  ngOnInit(): void {
-    this.getEvents();
-    this.getLanguages();
+    var c = confirm("Are you sure you want to delete?");
+    if(c==true)
+    {
+      this.events = this.events.filter(h => h.eventId !== id);
+      this.eventsService.deleteEvent(id).subscribe();
+    }
   }
 
 }

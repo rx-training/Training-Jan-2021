@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
@@ -9,7 +9,7 @@ import { EventsService } from '../events.service';
   templateUrl: './populars.component.html',
   styleUrls: ['./populars.component.css']
 })
-export class PopularsComponent implements OnInit {
+export class PopularsComponent implements OnInit, OnDestroy {
 
   popularsList: Array<IActivities> = [];
 
@@ -20,6 +20,18 @@ export class PopularsComponent implements OnInit {
   languagesList: Array<ILanguages> = [];
 
   languages: Array<any> = [];
+
+  constructor(private service: EventsService, private languageService: LanguageService) { }
+
+  ngOnInit(): void {
+    this.getPopulars();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getPopulars();
+    this.getLanguages();
+  }
 
   getPopulars(): void{
     this.service.getPopulars()
@@ -49,13 +61,6 @@ export class PopularsComponent implements OnInit {
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
-  }
-
-  constructor(private service: EventsService, private languageService: LanguageService) { }
-
-  ngOnInit(): void {
-    this.getPopulars();
-    this.getLanguages();
   }
 
 }

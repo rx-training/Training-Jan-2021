@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DynamicNavbarService } from 'src/app/dynamic-navbar.service';
 import { EventBookingService } from 'src/app/events/event-booking.service';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
@@ -14,7 +14,7 @@ import { UserService } from 'src/app/movies/user.service';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminDashboardComponent implements OnInit, OnDestroy {
 
   totalMovies: number = 0;
   totalEvents: number = 0;
@@ -24,6 +24,36 @@ export class AdminDashboardComponent implements OnInit {
   totalEventBookings: number = 0;
   totalNavbarComponents: number = 0;
   totalEventVenues: number = 0;
+
+  constructor(
+    private moviesService: MoviesService, 
+    private eventsService: EventsService, 
+    private movieBookingsService: MovieBookingsService,
+    private eventBookingsService: EventBookingService,
+    private userService: UserService,
+    private navbarService: DynamicNavbarService,
+    private eventVenuesService: EventVenuesService
+  ) { }
+
+  ngOnInit(): void {
+    this.getMoviesLength();
+    this.getEventsLength();
+    this.getMovieBookingsLength();
+    this.getEventBookingsLength();
+    this.getUsersLength();
+    this.getNavbarsLength();
+    this.getEventVenuesLength();
+  }
+
+  ngOnDestroy(){
+    this.getMoviesLength();
+    this.getEventsLength();
+    this.getMovieBookingsLength();
+    this.getEventBookingsLength();
+    this.getUsersLength();
+    this.getNavbarsLength();
+    this.getEventVenuesLength();
+  }
 
   getMoviesLength(){
     this.moviesService.getMovies()
@@ -72,26 +102,6 @@ export class AdminDashboardComponent implements OnInit {
     .subscribe(eventVenues => {
       this.totalEventVenues = eventVenues.length
     })
-  }
-
-  constructor(
-    private moviesService: MoviesService, 
-    private eventsService: EventsService, 
-    private movieBookingsService: MovieBookingsService,
-    private eventBookingsService: EventBookingService,
-    private userService: UserService,
-    private navbarService: DynamicNavbarService,
-    private eventVenuesService: EventVenuesService
-  ) { }
-
-  ngOnInit(): void {
-    this.getMoviesLength();
-    this.getEventsLength();
-    this.getMovieBookingsLength();
-    this.getEventBookingsLength();
-    this.getUsersLength();
-    this.getNavbarsLength();
-    this.getEventVenuesLength();
   }
 
 }

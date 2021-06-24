@@ -148,3 +148,40 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210624123237_AddIsActiveInTbls')
+BEGIN
+    ALTER TABLE [Movies] ADD [IsActive] bit NOT NULL DEFAULT CAST(0 AS bit);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210624123237_AddIsActiveInTbls')
+BEGIN
+    ALTER TABLE [EventVenues] ADD [IsActive] bit NOT NULL DEFAULT CAST(0 AS bit);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210624123237_AddIsActiveInTbls')
+BEGIN
+    ALTER TABLE [Events] ADD [IsActive] bit NOT NULL DEFAULT CAST(0 AS bit);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210624123237_AddIsActiveInTbls')
+BEGIN
+    ALTER TABLE [DynamicNavbars] ADD [IsActive] bit NOT NULL DEFAULT CAST(0 AS bit);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210624123237_AddIsActiveInTbls')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20210624123237_AddIsActiveInTbls', N'5.0.5');
+END;
+GO
+
+COMMIT;
+GO
+

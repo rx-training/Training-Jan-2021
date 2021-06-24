@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -10,7 +10,7 @@ import { EventsService } from '../../events.service';
   templateUrl: './event-detail.component.html',
   styleUrls: ['./event-detail.component.css']
 })
-export class EventDetailComponent implements OnInit {
+export class EventDetailComponent implements OnInit, OnDestroy {
 
   eventsList: Array<IActivities> = [];
   events: Array<IActivities> = [];
@@ -26,6 +26,20 @@ export class EventDetailComponent implements OnInit {
   disclaimer: string = '';
   termsConditions: string = '';
   numberOfSeats: number = 1;
+
+  constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+  }
 
   getEvents(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -92,14 +106,6 @@ export class EventDetailComponent implements OnInit {
     if(!localStorage.logged_in_user){
       alert("Please login to book your show");
     }
-  }
-
-  constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.getEvents();
-    this.getUniqueEvents();
-    this.getLanguages();
   }
 
 }

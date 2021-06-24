@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventTypeService } from 'src/app/events/event-type.service';
@@ -17,7 +17,7 @@ import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
   templateUrl: './edit-event.component.html',
   styleUrls: ['./edit-event.component.css']
 })
-export class EditEventComponent implements OnInit {
+export class EditEventComponent implements OnInit, OnDestroy {
 
   addEventForm;
 
@@ -49,6 +49,54 @@ export class EditEventComponent implements OnInit {
   selectVenueId: number = 0;
 
   id: number = 0;
+
+  constructor(
+    private fb: FormBuilder, 
+    private eventsService: EventsService,
+    private languagesService: LanguageService,
+    private eventTypesService: EventTypeService,
+    private eventVenuesService: EventVenuesService,
+    private route: ActivatedRoute,
+    private datepipe: DatePipe,
+    private router: Router
+    ) {
+    this.addEventForm = this.fb.group({
+      name: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      ticketPrice: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
+      image: ['', Validators.compose([Validators.maxLength(1000)])],
+      time:  ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.pattern('[0-9]{0,2}h [0-9]{0,2}m')])],
+      dateOfEvent: ['', Validators.compose([Validators.required, PastDateValidator()])],
+      eventVenue: ['', Validators.required],
+      showTime: ['', Validators.required],
+      eventType: ['', Validators.required],
+      minAge: [3, Validators.compose([Validators.required, Validators.pattern('[0-9]{1,2}')])],
+      backgroundImage: ['', Validators.compose([Validators.required, Validators.maxLength(1000)])],
+      about: ['', Validators.compose([Validators.maxLength(5000)])],
+      note: ['', Validators.required],
+      artistName: ['', Validators.compose([Validators.maxLength(500)])],
+      artistImage: ['', Validators.compose([Validators.maxLength(1000)])],
+      disclaimer: [''],
+      faQs: [''],
+      termsAndConditions: [''],
+      languages: this.fb.array([])
+    });
+  }
+
+  ngOnInit(): void {
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+    this.getEventTypes();
+    this.getEventVenues();
+  }
+
+  ngOnDestroy(){
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+    this.getEventTypes();
+    this.getEventVenues();
+  }
 
   eventSubmit(){
     console.log(this.addEventForm);
@@ -255,46 +303,6 @@ export class EditEventComponent implements OnInit {
       console.log(this.selectedLanguages)
 
     })
-  }
-
-  constructor(
-    private fb: FormBuilder, 
-    private eventsService: EventsService,
-    private languagesService: LanguageService,
-    private eventTypesService: EventTypeService,
-    private eventVenuesService: EventVenuesService,
-    private route: ActivatedRoute,
-    private datepipe: DatePipe,
-    private router: Router
-    ) {
-    this.addEventForm = this.fb.group({
-      name: ['', Validators.compose([Validators.required])],
-      ticketPrice: [0, Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
-      image: ['', Validators.required],
-      time:  ['', Validators.compose([Validators.required])],
-      dateOfEvent: ['', Validators.compose([Validators.required, PastDateValidator()])],
-      eventVenue: ['', Validators.required],
-      showTime: ['', Validators.required],
-      eventType: ['', Validators.required],
-      minAge: [3, Validators.compose([Validators.required, Validators.pattern('[0-9]{1,3}')])],
-      backgroundImage: ['', Validators.required],
-      about: ['', Validators.required],
-      note: ['', Validators.required],
-      artistName: [''],
-      artistImage: [''],
-      disclaimer: [''],
-      faQs: [''],
-      termsAndConditions: [''],
-      languages: this.fb.array([])
-    });
-   }
-
-  ngOnInit(): void {
-    this.getEvents();
-    this.getUniqueEvents();
-    this.getLanguages();
-    this.getEventTypes();
-    this.getEventVenues();
   }
 
 }

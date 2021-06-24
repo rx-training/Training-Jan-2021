@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IUser } from 'src/app/models/IUser';
 import { UserService } from 'src/app/movies/user.service';
 
@@ -7,9 +7,19 @@ import { UserService } from 'src/app/movies/user.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
 
   usersList: Array<IUser> = [];
+
+  constructor(private usersService: UserService) { }
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  ngOnDestroy(){
+    this.getUsers();  
+  }
 
   getUsers(){
     this.usersService.getUsers()
@@ -17,12 +27,6 @@ export class UsersComponent implements OnInit {
       this.usersList = users,
       console.log(this.usersList)
     })
-  }
-
-  constructor(private usersService: UserService) { }
-
-  ngOnInit(): void {
-    this.getUsers();
   }
 
 }

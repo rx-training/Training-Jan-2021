@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventsService } from 'src/app/events/events.service';
 import { LanguageService } from 'src/app/language.service';
@@ -10,7 +10,7 @@ import { ILanguages } from 'src/app/models/ILanguages';
   templateUrl: './events-detail.component.html',
   styleUrls: ['./events-detail.component.css']
 })
-export class EventsDetailComponent implements OnInit {
+export class EventsDetailComponent implements OnInit, OnDestroy {
 
   eventsList: Array<IActivities> = [];
   events: Array<IActivities> = [];
@@ -28,6 +28,20 @@ export class EventsDetailComponent implements OnInit {
   artistName: string = '';
   artistImage: string = '';
   faqs: string = '';
+
+  constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+  }
+
+  ngOnDestroy(){
+    this.getEvents();
+    this.getUniqueEvents();
+    this.getLanguages();
+  }
 
   getEvents(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -87,14 +101,6 @@ export class EventsDetailComponent implements OnInit {
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
-  }
-
-  constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.getEvents();
-    this.getUniqueEvents();
-    this.getLanguages();
   }
 
 }
