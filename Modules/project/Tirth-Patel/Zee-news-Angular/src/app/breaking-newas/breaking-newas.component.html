@@ -7,7 +7,7 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item" *ngFor="let item of breakingNewsList;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-                <img [src]="item.imagesLink" class="d-block w-100" >
+                <img src="../{{item.imagesLink}}" class="d-block w-100" >
                 <div class="carousel-caption  d-md-block">
                   <a 
                   [routerLink]="['/Home',newstype,item.contentId]">

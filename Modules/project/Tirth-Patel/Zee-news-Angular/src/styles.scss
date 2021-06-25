@@ -8,7 +8,7 @@
 
 
 #login {
-    background-image: url('assets/Pictures/login banner.jpg');
+    background-image: url('/assets/Pictures/login banner.jpg');
     background-repeat: no-repeat;
     background-size:contain;
     margin-top: 100px;
@@ -25,7 +25,7 @@
 #banner{
   
    
-    background: url("assets/Pictures/banner/zeenews-bannerwebp.webp") no-repeat;
+    background: url("/assets/Pictures/banner/zeenews-bannerwebp.webp") no-repeat;
     background-size: cover;
     min-height: 100px;
 }

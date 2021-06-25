@@ -8,7 +8,7 @@ import { NewsContent } from './Models/NewsContent';
   providedIn: 'root'
 })
 export class NewscontentService {
-  private Url = 'https://localhost:44303/api/Newscontents';
+  private Url = 'http://20.198.103.48:1006/api/Newscontents';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

@@ -1,0 +1,363 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Domain\\HumanResources.Domain.csproj": {}
+  },
+  "projects": {
+    "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj",
+        "projectName": "HumanResources.BoundedContext",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "RxWeb.Core.Data": {
+              "target": "Package",
+              "version": "[3.0.2-preview1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Domain\\HumanResources.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Domain\\HumanResources.Domain.csproj",
+        "projectName": "HumanResources.Domain",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Domain\\HumanResources.Domain.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Infrastructure\\HumanResources.Infrastructure.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Infrastructure\\HumanResources.Infrastructure.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\HumanResources.UnitOfWork.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\HumanResources.UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Infrastructure\\HumanResources.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Infrastructure\\HumanResources.Infrastructure.csproj",
+        "projectName": "HumanResources.Infrastructure",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Infrastructure\\HumanResources.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\HumanResources.UnitOfWork.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\HumanResources.UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "RxWeb.Core": {
+              "target": "Package",
+              "version": "[2.0.3-preview1, )"
+            },
+            "RxWeb.Core.Annotations": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "RxWeb.Core.Cache": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
+            "RxWeb.Core.Sanitizers": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "RxWeb.Core.Security": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj",
+        "projectName": "HumanResources.Models",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\HumanResources.Models.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "RxWeb.Core.Annotations": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "RxWeb.Core.Data": {
+              "target": "Package",
+              "version": "[3.0.2-preview1, )"
+            },
+            "RxWeb.Core.Sanitizers": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\HumanResources.UnitOfWork.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\HumanResources.UnitOfWork.csproj",
+        "projectName": "HumanResources.UnitOfWork",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\HumanResources.UnitOfWork.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.UnitOfWork\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day5\\Tirth-Patel\\HumanResources\\HumanResources\\HumanResources.BoundedContext\\HumanResources.BoundedContext.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

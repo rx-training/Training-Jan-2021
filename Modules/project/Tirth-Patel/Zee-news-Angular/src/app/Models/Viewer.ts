@@ -1,5 +1,5 @@
 export interface Viewer {
-   UserId?: string,
+   UserId: string,
    Name?: string,
    Age?: number,
    MobileNo?: number

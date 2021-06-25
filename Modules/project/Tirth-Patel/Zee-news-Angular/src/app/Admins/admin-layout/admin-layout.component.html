@@ -57,7 +57,7 @@
                                 <th scope="row">{{idx+1}}</th>
                                 <td>{{item.newsId}}</td>
                                 <td>
-                                    <img src={{item.imagesLink}} alt="not found" height="50px" width="80px">
+                                    <img src="../{{item.imagesLink}}" alt="not found" height="50px" width="80px">
                                 </td>
                                 <td>{{item.description}}</td>
                                 <td><button class="btn btn-danger" type="button" (click)="deleteNews(item.contentId)">
@@ -91,7 +91,7 @@
                             <tr *ngFor="let item of BreakingNewsList,let idx = index">
                                 <th scope="row">{{idx+1}}</th>
                                 <td>{{item.newsId}}</td>
-                                <td><img src={{item.imagesLink}} alt="" height="50px" width="80px"></td>
+                                <td><img src= "../{{item.imagesLink}}" alt="" height="50px" width="80px"></td>
 
                                 <td>{{item.description}}</td>
                                 <td><button class="btn btn-danger" type="button" (click)="deleteNews(item.contentId)">
@@ -126,7 +126,7 @@
                             <tr *ngFor="let item of budgetNewsList,let idx = index">
                                 <th scope="row">{{idx+1}}</th>
                                 <td>{{item.newsId}}</td>
-                                <td><img src={{item.imagesLink}} alt="" height="50px" width="80px"></td>
+                                <td><img src="../{{item.imagesLink}}" alt="" height="50px" width="80px"></td>
 
                                 <td>{{item.description}}</td>
                                 <td><button class="btn btn-danger" type="button" (click)="deleteNews(item.contentId)">
@@ -274,7 +274,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update-Modal</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Update-Modal(live News)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -288,7 +288,7 @@
                     <div class="form-group">
                         <label for="image-src">Add image</label>
                         <input type="file" class="form-control" (change)="onUpdateFileChanged_Lv($event)"
-                             name="updated_link"  >
+                             name="updated_link" required >
                         <span>Current Uploaded Img Preview</span>
                        <img src="{{Live_link}}" alt="" srcset="">
                     </div>
@@ -297,7 +297,7 @@
                         <textarea name="data" id="info3 "  cols="30" rows="10"
                         name="updated_description" [(ngModel)]="updated_description"   class="form-control"></textarea>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit" [disabled]=!f.valid>Submit</button>
 
                 </form>
             </div>

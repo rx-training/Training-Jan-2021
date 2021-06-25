@@ -10,7 +10,7 @@ import { Admin } from './Models/Admin';
 export class AdminService {
 
 
-  private Url = 'https://localhost:44303/api/Admins'
+  private Url = 'http://20.198.103.48:1006/api/Admins'
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

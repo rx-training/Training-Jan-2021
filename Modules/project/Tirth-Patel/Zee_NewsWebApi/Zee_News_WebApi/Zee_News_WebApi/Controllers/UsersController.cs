@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Zee_News_WebApi.Models;
-
+using System.Net.Mail;
+using System.Net;
 namespace Zee_News_WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -77,6 +78,7 @@ namespace Zee_News_WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            sendEmailViaWebApi(user.UserId);
             _context.Users.Add(user);
             try
             {
@@ -95,6 +97,19 @@ namespace Zee_News_WebApi.Controllers
             }
 
             return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+        }
+        private void sendEmailViaWebApi(string mail)
+        {
+            var client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("tirthp418@gmail.com", "tirth@123"),
+                EnableSsl = true
+            };
+            client.Send("tirth123456789patel@gmail.com", mail, "test", "testbody");
+            Console.WriteLine("Sent");
+            Console.ReadLine();
+
+
         }
 
         // DELETE: api/Users/5

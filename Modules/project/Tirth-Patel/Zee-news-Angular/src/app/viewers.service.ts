@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ViewersService {
-  private Url = 'https://localhost:44303/api/Viewers';
+  private Url = 'http://20.198.103.48:1006/api/Viewers';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
