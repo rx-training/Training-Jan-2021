@@ -99,6 +99,10 @@ class OrderDomain {
               Your oreder placed successfully. Here is your order details
             </p>
             <hr style="border:none;border-top:1px solid #eee" />
+            <p style="font-size:1.2em">
+              Order Reference Number : ${order._id}
+            </p>
+            <hr style="border:none;border-top:1px solid #eee" />
             <div>
               ${productsArrayString}
             </div>
