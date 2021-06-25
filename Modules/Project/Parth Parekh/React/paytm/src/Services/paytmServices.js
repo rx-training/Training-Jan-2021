@@ -1,5 +1,6 @@
 import axios from "axios";
-export const hostServer = "http://20.198.103.48:92";
+//export const hostServer = "http://20.198.103.48:92";
+export const hostServer = "http://localhost:9000";
 const PAYTM_API_PRODUCTS_URL = `${hostServer}/product`;
 
 const PAYTM_API_USER = `${hostServer}/user`;

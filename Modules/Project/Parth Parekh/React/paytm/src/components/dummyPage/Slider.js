@@ -59,12 +59,14 @@ const Slider = (props) => {
                         onClick={() => {
                             window.location.href = "/products";
                         }}
+                        width="968px"
                     />
                 ) : (
                     <img
                         src={item.src}
                         alt={item.altText}
                         className="img-fluid"
+                        width="968px"
                     />
                 )}
             </CarouselItem>

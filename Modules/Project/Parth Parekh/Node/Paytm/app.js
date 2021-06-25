@@ -27,7 +27,7 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const app = express();
-//const port = 9000;
+const port = 9000;
 
 app.use(cors());
 app.use(loggerMiddleware);
@@ -38,8 +38,11 @@ app.use("/otp", login);
 
 app.use("/uploads", express.static("uploads"));
 
-app.listen(process.env.port, () => {
-    console.log(`app listening at http://localhost:${process.env.port}`);
+// app.listen(process.env.port, () => {
+//     console.log(`app listening at http://localhost:${process.env.port}`);
+// });
+app.listen(port, () => {
+    console.log(`app listening at http://localhost:${port}`);
 });
 
 app.use(function (req, res, next) {

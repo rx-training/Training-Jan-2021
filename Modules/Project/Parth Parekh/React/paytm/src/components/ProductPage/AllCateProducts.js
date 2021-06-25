@@ -88,6 +88,7 @@ export default function AllCateProducts() {
         }
         if (name === "category") {
             setCategory(value);
+            setSearch("");
             if (value !== "All Products") {
                 tempData = tempData.filter(
                     (item) => item.ProductCategory === value
