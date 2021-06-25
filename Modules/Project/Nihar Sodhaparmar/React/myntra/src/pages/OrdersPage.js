@@ -66,6 +66,7 @@ export default function OrdersPage(props) {
                 <Order
                   products={order.products}
                   key={order._id}
+                  id={order._id}
                   totalPrice={order.totalPrice}
                   totalItems={order.totalItems}
                   orderDate={order.orderDate}

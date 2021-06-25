@@ -1,7 +1,13 @@
 import React from "react";
 import OrderItem from "./OrderItem";
 
-export default function Order({ products, totalPrice, totalItems, orderDate }) {
+export default function Order({
+  products,
+  totalPrice,
+  totalItems,
+  orderDate,
+  id,
+}) {
   function pad(s) {
     return s < 10 ? "0" + s : s;
   }
@@ -34,6 +40,7 @@ export default function Order({ products, totalPrice, totalItems, orderDate }) {
                     orderDate.getFullYear(),
                   ].join("/")}
                 </div>
+                <div className="h6 font-weight-bold">Order # : {id}</div>
               </div>
             </div>
           </li>
