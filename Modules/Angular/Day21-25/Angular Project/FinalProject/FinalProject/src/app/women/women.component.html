@@ -1,0 +1,2347 @@
+<!-- <nav>
+    <input class="form-control" type="text" name="productDescription" [(ngModel)]="productDescription"
+    placeholder="Enter Product Description To Search">
+    <button (click)="Search(allProducts)">Search</button>
+</nav> -->
+<!-- <h2>Top Heroes</h2>
+<div >
+  <a *ngFor="let hero of allProducts"
+      routerLink="/detail/{{hero.productCode}}">
+      {{hero.productDescription}}
+  </a>
+</div>
+
+<app-hero-search></app-hero-search> -->
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">	
+	<title>
+
+		Bata India - Buy Shoes Online For Men, Women & Kids. Footwear From Leading Brands, Power, Hush Puppies
+
+	</title>
+	<meta name="description"
+		content="Bata India offers quality footwear in the latest styles. Buy shoes online for men, women & kids. Get 10% OFF on signup. FREE Shipping + Warranty + COD!" />
+	<meta name="keywords"
+		content="Bata, Bata India, Bata Shoes, Buy Shoes Online, Bata Shoes Online India, Bata Online, Formal Shoes, Leather Shoes, Casual Shoes, Mens Footwear, Womens Footwear, Kids Shoes, Shoes Online Shopping" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="msapplication-TileImage" content="" />
+	<meta name="HandheldFriendly" content="true">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="facebook-domain-verification" content="h6g3ck4smy3r4j5bdbo5mm4w2fp2ot" />
+
+
+
+
+	<link rel="shortcut icon" type="image/ico"
+		href="https://static1.bata.in/0/media/css/frontend/octa/images/favicon.ico" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://static1.bata.in/0/media/css/frontend/octa/bxsilder.css" rel="stylesheet" type="text/css" />
+	<link href="https://static1.bata.in/0/media/css/frontend/octa/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://static1.bata.in/0/media/css/frontend/octa/style.css" rel="stylesheet" type="text/css" />
+	<link href="https://static1.bata.in/0/media/css/frontend/octa/responsive.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">var path = "/bataindia"; var staticPath = "https://static1.bata.in/0";</script>
+	<script type="text/javascript" src="/bataindia/I18nJs.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://static1.bata.in/0/media/js/frontend/catalogue.js"></script>
+	<!--[if IE]> <script src="https://static1.bata.in/0/media/js/frontend/html5.js" type="text/javascript"></script> <![endif]-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<meta name="google-site-verification" content="PDGJ_VyG2fU4znc-xcgfl4ssdrOASs6qbX10yiqYpvU" />
+	<script>(function (w, d, t, r, u) { var f, n, i; w[u] = w[u] || [], f = function () { var o = { ti: "20099991" }; o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad") }, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function () { var s = this.readyState; s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null) }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i) })(window, document, "script", "//bat.bing.com/bat.js", "uetq");</script>
+
+	<script src='https://tw.netcore.co.in/smartechclient.js'></script>
+	<!-- <script src='//tw.netcore.co.in/smartechclient.js'></script> -->
+	
+</head>
+
+<body id="BODY">
+	
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ5FL28" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+	<div id="layoutId" class="container-fluid">
+		<header id="headerId" class="row">
+			<input type="hidden" id="historyURL" name="historyURL" value="" />
+			<input type="hidden" id="currentCatSelected" name="currentCatSelected" value="" />
+			<input type="hidden" id="currentEntitySelected" name="currentEntitySelected" value="" />
+			<input type="hidden" id="showAllEntity" name="showAllEntity" value="" />
+
+			<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+			<script>
+				// Initialize Firebase
+				var config = {
+					apiKey: "AIzaSyA_829WslZFaRRGTEl7m29VBYHBtEFBrA0",
+					authDomain: "bata-india-push-notification.firebaseapp.com",
+					databaseURL: "https://bata-india-push-notification.firebaseio.com",
+					projectId: "bata-india-push-notification",
+					storageBucket: "",
+					messagingSenderId: "338794351731"
+				};
+				firebase.initializeApp(config);
+			</script>
+
+			<!-- Facebook Pixel Code -->
+			<script>
+				!function (f, b, e, v, n, t, s) {
+					if (f.fbq) return; n = f.fbq = function () {
+						n.callMethod ?
+							n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+					};
+					if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+					n.queue = []; t = b.createElement(e); t.async = !0;
+					t.src = v; s = b.getElementsByTagName(e)[0];
+					s.parentNode.insertBefore(t, s)
+				}(window, document, 'script',
+					'https://connect.facebook.net/en_US/fbevents.js');
+				fbq('init', '1443835739132785');
+				fbq('track', 'PageView');
+			</script>
+			<noscript><img height="1" width="1" style="display:none"
+					src="https://www.facebook.com/tr?id=1443835739132785&ev=PageView&noscript=1" /></noscript>
+			<!-- End Facebook Pixel Code -->
+
+			<script src='https://tw.netcore.co.in/smartechclient.js'></script>
+			<!-- <script src='//tw.netcore.co.in/smartechclient.js'></script> -->
+			<script>
+				function checkSessionCookie(name) {
+					var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+					var t = v ? v[2] : '';
+					if (t == '') {
+						document.cookie = "JSESSIONID=dummy.dummy; Expires=Thu, 01 Dec 1700 00:00:01 GMT; Path=/;";
+					}
+				}
+				checkSessionCookie('JSESSIONID');
+				smartech('create', 'ADGMOT35CHFLVDHBJNIG50K96AEMBVDND8QTEUAH0SOOR6HT7F9G');
+				smartech('register', '667024cdafdb4dc8ba07d404310216f4');
+				smartech('identify', '');
+				smartech('dispatch', 1, {});
+			</script>
+
+
+			<script
+				type="text/javascript">var path = "/bataindia"; var staticPath = "https://static1.bata.in/0";</script>
+			<script language="javascript">
+				var url = window.location.href;
+				if (url.indexOf("category.jsp") != -1 || url.indexOf("search.jsp") != -1) {
+					var catid = document.getElementById("currentCatSelected").value;
+					//showActiveTab(catid);
+				}
+				if (document.getElementById("currentEntitySelected").value != '') {
+					if (document.getElementById("showAllEntity").value != '') {
+						var entity = document.getElementById("currentEntitySelected").value;
+						document.getElementById("parent_" + entity + "_DivId").className = 'parentmenuactivetab';
+					}
+					else {
+						var catid = document.getElementById("currentCatSelected").value;
+						//showActiveTab(catid);
+					}
+				}
+			</script>
+			<script>document.cookie = 'resolution=' + Math.max(screen.width, screen.height) + '; path=/';</script>
+
+
+			<div class="inn-head container">
+				<div class="top-head" style="
+				width: 100%;">
+					<ul class="text-center">
+						<li class="nv-toggle flt"><span></span> <span></span> <span></span></li>
+						<li> <a href="/bataindia/faces/tiles/catalogue.jsp?catalogueID=2" class="logo flr">
+								<img src="https://static1.bata.in/0/media/css/frontend/octa/images/logo.png" alt="BATA"
+									title="Bata" class="img-responsive"> </a>
+						</li>
+						<li class="serchtxt">
+							<form name="searchResultForm" id="searchResultForm" method="get"
+								action="/bataindia/faces/tiles/search.jsp">
+								<input type="hidden" name="q" id="q" value="" />
+								<input type="hidden" name="productID" id="productID" value="" />
+								<input type="hidden" name="narrowcatalogueID" id="narrowcatalogueID" value="2" />
+								<input type="hidden" name="narrowcategoryID" id="narrowcategoryID" value="" />
+								<input type="hidden" name="cmtId" id="cmtId" value="" />
+								<input type="hidden" name="narrowparentCategoryID" id="narrowparentCategoryID"
+									value="" />
+								<input type="hidden" name="catalogueID" id="catalogueID" value="2" />
+								<input type="hidden" name="categoryID" id="categoryID" value="" />
+								<input type="hidden" name="parentCategoryID" id="parentCategoryID" value="" />
+
+								<input type="hidden" name="sid" id="sid" value="" />
+								<input type="hidden" name="bid" id="bid" value="" />
+								<input type="hidden" name="prc" id="prc" value="" />
+								<input type="hidden" name="k1" id="k1" value="" />
+								<input type="hidden" name="k2" id="k2" value="" />
+								<input type="hidden" name="k3" id="k3" value="" />
+								<input type="hidden" name="k4" id="k4" value="" />
+								<input type="hidden" name="k5" id="k5" value="" />
+								<input type="hidden" name="k6" id="k6" value="" />
+								<input type="hidden" name="k7" id="k7" value="" />
+								<input type="hidden" name="k8" id="k8" value="" />
+								<input type="hidden" name="k9" id="k9" value="" />
+								<input type="hidden" name="k10" id="k10" value="" />
+								<input type="hidden" name="k11" id="k11" value="" />
+								<input type="hidden" name="k12" id="k12" value="" />
+								<input type="hidden" name="vt" id="vt" value="g" />
+								<input type="hidden" name="rpp" id="rpp" value="" />
+								<input type="hidden" name="col" id="col" value="" />
+								<input type="hidden" name="sort" id="sort" value="16" />
+								<input type="hidden" name="pn" id="pn" value="" />
+								<input type="hidden" name="dcty" id="dcty" value="" />
+								<input type="hidden" name="bnm" id="bnm" value="" />
+								<input type="hidden" name="narr" id="narr" value="" />
+
+								<input type="hidden" name="entityType" id="entityType" value="" />
+								<input type="hidden" name="entityId" id="entityId" value="" />
+								<input type="hidden" name="topParent" id="topParent" value="" />
+								<input type="hidden" name="pageName" id="pageName"
+									value="/bataindia/tiles/catalogue.jsp" />
+								<input type="hidden" name="brandId" id="brandId" value="" />
+								<input type="hidden" name="brandCmsFlag" id="brandCmsFlag" value="" />
+
+
+								<input type="hidden" name="act" id="actor" value="" />
+								<input type="hidden" name="format" id="format" value="" />
+								<input type="hidden" name="auth" id="author" value="" />
+								<input type="hidden" name="reg" id="region" value="" />
+								<input type="hidden" name="lang" id="languages" value="" />
+								<input type="hidden" name="dir" id="director" value="" />
+
+
+
+
+								<input type="hidden" name="cartSize" id="cartSize" value="0" />
+								<input type="hidden" name="boutiqueID" id="boutiqueID" value="" />
+								<input type="hidden" name="parentBoutiqueID" id="parentBoutiqueID" value="" />
+								<input type="hidden" id="shoppingCartSizeAfterUpdate" value="0" />
+								<input type="hidden" name="narrowboutiqueID" id="narrowboutiqueID" value="" />
+								<input type="hidden" name="isSale" id="isSale" value="" />
+								<input type="hidden" name="comboOfferId" id="comboOfferId" value="" />
+								<input type="hidden" name="comboOfferName" id="comboOfferName" value="" />
+								<input type="hidden" name="cnm" id="cnm" value="" />
+
+							</form>
+							<!-- <div class="text-center mob-show-srch">
+	<span class="mob-search-close mob-ico-close">X</span>
+	</div> -->
+							<div class="form-group">
+								<input type="text" tabindex="13" id="keywordText" name="keywordText"
+									class="form-control flt" placeholder="Find your shoes here!" value="">
+								<button class="btn btn-default flt" type="button" id="txtSearchBtn"><i
+										class="fa fa-search" aria-hidden="true"></i></button>
+								<div id="searchResultDiv"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="btm-head pos-rel">
+
+					<div class="col-sm-4 col-md-2 col-lg-3 visible-md-block visible-lg-block">
+						<ul>
+							<li id="head-shoe-prf">
+								<a href="#" data-toggle="modal" data-target="#login">
+									<img src="https://static1.bata.in/0/media/css/frontend/octa/images/Buttons_V2_othertrigger_nonloggedin.png"/> 
+								</a>
+							</li>
+						</ul>
+					</div>
+
+			<nav class="navbar navbar-expand-lg navbar-light" style="
+			width: 40%;
+			float: left;
+			padding: 0px 0px;
+			margin: 0px 0px;
+		">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" ariaControls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">NEW ARRIVALS</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <div class="row">
+                                <div class="col">
+								<a routerLink="/women">WOMEN</a>
+                                <a class="dropdown-item"  routerLink="/women">Ballerinas</a>
+                                <a class="dropdown-item" href="#">Sneakers</a>
+                                <a class="dropdown-item" href="#">Loafers</a>
+								<a class="dropdown-item" href="#">Sports Shoes</a>
+                                <a class="dropdown-item" href="#">Casual</a>
+                                <a class="dropdown-item" href="#">Formal</a>
+                                <a class="dropdown-item" href="#">Stilettos</a>
+                                <a class="dropdown-item" href="#">Pumps</a>
+                                <a class="dropdown-item" href="#">Sandals</a>
+                                <a class="dropdown-item" href="#">Chappals/Slippers</a>
+                        		</div>
+								<div class="col">
+									<a routerLink="/men">MEN</a>
+									<a class="dropdown-item" href="#">Sneakers</a>
+									<a class="dropdown-item" href="#">Oxfords & Derbies</a>
+									<a class="dropdown-item" href="#">Loafers & Mocassins</a>
+									<a class="dropdown-item" href="#">Athleisure</a>
+									<a class="dropdown-item" href="#">Thong Slippers</a>
+									<a class="dropdown-item" href="#">Chappls/Flip-Flops</a>
+									<a class="dropdown-item" href="#">Monk Straps</a>
+									<a class="dropdown-item" href="#">Lace-ups</a>
+									<a class="dropdown-item" href="#">Men Socks</a>
+									<a class="dropdown-item" href="#">Formal</a>
+									<a class="dropdown-item" href="#">Casual</a>
+									<a class="dropdown-item" href="#">Boots</a>
+									<a class="dropdown-item" href="#">Outdoor</a>
+									<a class="dropdown-item" href="#">Sandals</a>
+								</div>
+								<div class="col">
+									<a  routerLink="/kids">KIDS</a>
+									<a class="dropdown-item" href="#" >Girls</a>
+									<a class="dropdown-item" href="#" >Infant</a>
+									<a class="dropdown-item" href="#" >School</a>
+									<a class="dropdown-item" href="#" >Boys</a>
+								</div>
+							</div>
+							</div>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link"  id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">WOMEN</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="font-size: 15px;">
+								<div class="row">
+									<div class="col">
+								<label>ALL WOMEN SHOES</label>
+								<a class="dropdown-item"  routerLink="/women999">Products Under 999</a>
+								<a class="dropdown-item"  routerLink="/women">Ballerinas</a>
+								<a class="dropdown-item" href="#">Sneakers</a>
+								<a class="dropdown-item" href="#">Loafers</a>
+								<a class="dropdown-item" href="#">Sports Shoes</a>
+								<a class="dropdown-item" href="#">Casual</a>
+								<a class="dropdown-item" href="#">Formal</a>
+								<a class="dropdown-item" href="#">Stilettos</a>
+								<a class="dropdown-item" href="#">Pumps</a>
+								<a class="dropdown-item" href="#">Sandals</a>
+								<a class="dropdown-item" href="#">Chappals/Slippers</a>
+							</div>
+							<div class="col">
+								<label>HEEL TYPE</label>
+								<a class="dropdown-item" href="#">Block</a>
+								<a class="dropdown-item" href="#">Cone</a>
+								<a class="dropdown-item" href="#">Kitten</a>
+								<a class="dropdown-item" href="#">Platform</a>
+								<a class="dropdown-item" href="#">Wedges</a>
+							</div>	
+							<div class="col">
+								<label>SPECIAL FEATURES</label> 
+								<a class="dropdown-item" href="#" >Work From Home collection</a>
+								<a class="dropdown-item" href="#" >Washable collection</a>
+								<a class="dropdown-item" href="#" >Fitness at home</a>
+								<a class="dropdown-item" href="#" >Winter Essential 2020</a>
+								<a class="dropdown-item" href="#" >All Sneakers Fest</a>
+							</div>
+							<div class="col">
+								<label>BRANDS</label>
+								<a class="dropdown-item" href="#" >Comfit</a>
+								<a class="dropdown-item" href="#" >Disney</a>
+								<a class="dropdown-item" href="#" >Footin</a>
+								<a class="dropdown-item" href="#" >Hush Puppies</a>
+								<a class="dropdown-item" href="#" >Marie Claire</a>
+								<a class="dropdown-item" href="#" >Naturalizer</a>
+								<a class="dropdown-item" href="#" >North Star</a>
+								<a class="dropdown-item" href="#" >Power</a>
+								<a class="dropdown-item" href="#" >Scholl</a>
+							</div>
+							<div class="col">
+								<label>ACCESSORIESS</label>
+								<a class="dropdown-item" href="#" >Belts</a>
+								<a class="dropdown-item" href="#" >Clutches</a>
+								<a class="dropdown-item" href="#" >Handbags</a>
+								<a class="dropdown-item" href="#" >Mask</a>
+								<a class="dropdown-item" href="#" >Wallets</a>
+							</div>
+							<div class="col">
+								<label>APPERALS</label>
+							</div>
+							<div class="col">
+								<label>SHOP BY SHOE SIZE</label>
+								<ul>
+									<li><a href="" id="size_3;;W_262" class="catbysize"><span>3</span>
+										</a></li>
+	
+									<li><a href="" id="size_4;;W_262" class="catbysize"><span>4</span>
+										</a></li>
+	
+									<li><a href="" id="size_5;;W_262" class="catbysize"><span>5</span>
+										</a></li>
+	
+									<li><a href="" id="size_6;;W_262" class="catbysize"><span>6</span>
+										</a></li>
+	
+									<li><a href="" id="size_7;;W_262" class="catbysize"><span>7</span>
+										</a></li>
+	
+									<li><a href="" id="size_8;;W_262" class="catbysize"><span>8</span>
+										</a></li>
+	
+									<li><a href="" id="size_9;;W_262" class="catbysize"><span>9</span>
+										</a></li>
+	
+									<li><a href="" id="size_10;;W_262" class="catbysize"><span>10</span>
+										</a></li>
+	
+									<li><a href="" id="size_11;;W_262" class="catbysize"><span>11</span>
+										</a></li>
+	
+									<li><a href="" id="size_12;;W_262" class="catbysize"><span>12</span>
+										</a></li>
+	
+									<li><a href="" id="size_L;;W_262" class="catbysize"><span>L</span>
+										</a></li>
+	
+									<li><a href="" id="size_M;;W_262" class="catbysize"><span>M</span>
+										</a></li>
+	
+									<li><a href="" id="size_S;;W_262" class="catbysize"><span>S</span>
+										</a></li>
+	
+									<li><a href="" id="size_XL;;W_262" class="catbysize"><span>XL</span>
+										</a></li>
+								</ul>
+							</div>
+
+							</div>
+							</div>
+							</li>
+
+						<li class="nav-item active">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">MEN</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="row">
+                                <div class="col">
+                            <label>ALL MEN SHOES</label>
+							<a class="dropdown-item"  routerLink="/men999">Products Under 999</a>
+                            <a class="dropdown-item" routerLink="/men">Sneakers</a>
+                            <a class="dropdown-item" href="#">Oxfords & Derbies</a>
+                            <a class="dropdown-item" href="#">Loafers & Mocassins</a>
+                            <a class="dropdown-item" href="#">Athleisure</a>
+                            <a class="dropdown-item" href="#">Thong Slippers</a>
+                            <a class="dropdown-item" href="#">Chappls/Flip-Flops</a>
+                            <a class="dropdown-item" href="#">Monk Straps</a>
+                            <a class="dropdown-item" href="#">Lace-ups</a>
+                            <a class="dropdown-item" href="#">Men Socks</a>
+                            <a class="dropdown-item" href="#">Formal</a>
+                            <a class="dropdown-item" href="#">Casual</a>
+                            <a class="dropdown-item" href="#">Boots</a>
+                            <a class="dropdown-item" href="#">Outdoor</a>
+                            <a class="dropdown-item" href="#">Sandals</a>
+                        </div>
+						<div class="col">
+                            <label>SHOE TYPE</label>
+                            <a class="dropdown-item" href="#">Slip-ons</a>
+                        </div>
+                        <div class="col">
+                            <label>SPECIAL FEATURES</label> 
+                            <a class="dropdown-item" href="#" >Work From Home collection</a>
+                            <a class="dropdown-item" href="#" >Washable collection</a>
+                            <a class="dropdown-item" href="#" >Fitness at home</a>
+                            <a class="dropdown-item" href="#" >Winter Essential 2020</a>
+                            <a class="dropdown-item" href="#" >All Sneakers Fest</a>
+                        </div>
+						<div class="col">
+                            <label>BRANDS</label>
+                            <a class="dropdown-item" href="#" >Bata</a>
+                            <a class="dropdown-item" href="#" >Cat</a>
+                            <a class="dropdown-item" href="#" >Comfit</a>
+                            <a class="dropdown-item" href="#" >Footin</a>
+                            <a class="dropdown-item" href="#" >Hush Puppies</a>
+                            <a class="dropdown-item" href="#" >North Star</a>            
+                            <a class="dropdown-item" href="#" >Power</a>
+                            <a class="dropdown-item" href="#" >Scholl</a>
+                            <a class="dropdown-item" href="#" >Weinbrenner</a>
+                        </div>
+						<div class="col">
+                            <label>ACCESSORIESS</label>
+                            <a class="dropdown-item" href="#" >Belts</a>
+                            <a class="dropdown-item" href="#" >Foot Care</a>
+                            <a class="dropdown-item" href="#" >Handbags</a>
+                            <a class="dropdown-item" href="#" >Mask</a>
+                            <a class="dropdown-item" href="#" >Shoe Care</a>
+                        </div>
+                        <div class="col">
+                            <label>APPERALS</label>
+                        </div>
+						<div class="col">
+                            <label>SHOP BY SHOE SIZE</label>
+                            <ul>
+                                <li><a href="" id="size_3;;W_262" class="catbysize"><span>3</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_4;;W_262" class="catbysize"><span>4</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_5;;W_262" class="catbysize"><span>5</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_6;;W_262" class="catbysize"><span>6</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_7;;W_262" class="catbysize"><span>7</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_8;;W_262" class="catbysize"><span>8</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_9;;W_262" class="catbysize"><span>9</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_10;;W_262" class="catbysize"><span>10</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_11;;W_262" class="catbysize"><span>11</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_12;;W_262" class="catbysize"><span>12</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_L;;W_262" class="catbysize"><span>L</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_M;;W_262" class="catbysize"><span>M</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_S;;W_262" class="catbysize"><span>S</span>
+                                    </a></li>
+
+                                <li><a href="" id="size_XL;;W_262" class="catbysize"><span>XL</span>
+                                    </a></li>
+                                </ul>
+                                </div>
+						</div>
+						</div>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">KIDS</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+								<div class="row">
+									<div class="col">
+									<label>ALL KIDS SHOES</label>
+									<a class="dropdown-item"  routerLink="/kids999">Products Under 999</a>
+									<a class="dropdown-item" routerLink="/kids" >Girls</a>
+									<a class="dropdown-item" href="#" >Infant</a>
+									<a class="dropdown-item" href="#" >School</a>
+									<a class="dropdown-item" href="#" >Boys</a>
+									</div>
+									<div class="col">
+										<label>SHOE TYPE</label>
+										<a class="dropdown-item" href="#">Ballerinas</a>
+										<a class="dropdown-item" href="#">Chappals</a>
+										<a class="dropdown-item" href="#">Lace-ups</a>
+										<a class="dropdown-item" href="#">Sandals</a>
+										<a class="dropdown-item" href="#">Slip-ons</a>
+										<a class="dropdown-item" href="#">Velcro</a>
+									</div>
+									<div class="col">
+										<label>SPECIAL FEATURES</label>
+										<a class="dropdown-item" href="#" >All Sneakers Fest</a>
+									</div>
+									<div class="col">
+										<label>BRANDS</label>
+										<a class="dropdown-item" href="#" >Bata</a>
+										<a class="dropdown-item" href="#" >Bubblegummers</a>
+										<a class="dropdown-item" href="#" >Disney</a>
+										<a class="dropdown-item" href="#" >North Star</a>            
+										<a class="dropdown-item" href="#" >Power</a>
+									</div>
+									<div class="col">
+										<label>ACCESSORIESS</label>
+										<a class="dropdown-item" href="#" >Mask</a>
+									</div>
+									<div class="col">
+										<label>APPERALS</label>
+									</div>
+									<div class="col">
+										<label>SHOP BY SHOE SIZE</label>
+										<ul>
+											<li><a href="" id="size_3;;W_262" class="catbysize"><span>1</span>
+											</a></li>
+											<li><a href="" id="size_4;;W_262" class="catbysize"><span>2</span>
+											</a></li>
+											<li><a href="" id="size_3;;W_262" class="catbysize"><span>3</span>
+												</a></li>
+			
+											<li><a href="" id="size_4;;W_262" class="catbysize"><span>4</span>
+												</a></li>
+			
+											<li><a href="" id="size_5;;W_262" class="catbysize"><span>5</span>
+												</a></li>
+			
+											<li><a href="" id="size_6;;W_262" class="catbysize"><span>6</span>
+												</a></li>
+			
+											<li><a href="" id="size_7;;W_262" class="catbysize"><span>7</span>
+												</a></li>
+			
+											<li><a href="" id="size_8;;W_262" class="catbysize"><span>8</span>
+												</a></li>
+			
+											<li><a href="" id="size_9;;W_262" class="catbysize"><span>9</span>
+												</a></li>
+			
+											<li><a href="" id="size_10;;W_262" class="catbysize"><span>10</span>
+												</a></li>
+			
+											<li><a href="" id="size_11;;W_262" class="catbysize"><span>11</span>
+												</a></li>
+			
+											<li><a href="" id="size_12;;W_262" class="catbysize"><span>12</span>
+												</a></li>
+			
+											<li><a href="" id="size_L;;W_262" class="catbysize"><span>L</span>
+												</a></li>
+			
+											<li><a href="" id="size_M;;W_262" class="catbysize"><span>M</span>
+												</a></li>
+			
+											<li><a href="" id="size_S;;W_262" class="catbysize"><span>S</span>
+												</a></li>
+			
+											<li><a href="" id="size_XL;;W_262" class="catbysize"><span>XL</span>
+												</a></li>
+											</ul>
+											</div>
+							</div>
+							</div>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">BRANDS</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+								<div class="row">
+									<div class="col">
+										<a href="/bataindia/br-1/bata.html">
+											<img src="https://img2.bata.in/0/images/brand/Bata_brandpage_1_N.jpg"
+											alt="Bata">
+											</a>
+									
+										<a href="/bataindia/faces/jsp/bataindustials.jsp">
+	
+											<img src="https://img2.bata.in/0/images/brand/Logo-BATAIndustrials-2_115_N.jpg"
+												alt="Bata Industria">
+										</a>
+	
+										<a href="/bataindia/br-18/bubblegummers.html">
+	
+											<img src="https://img2.bata.in/0/images/brand/Bubblegummers_230X100_Bp.jpg"
+												alt="Bubblegummers">
+										</a>
+	
+										<a href="/bataindia/br-114/cat.html">
+										<img src="https://img2.bata.in/0/images/brand/cat-logo_114_N_114_N.jpg"
+												alt="CAT">
+										</a>
+	
+										<a href="/bataindia/br-17/comfit.html">
+										<img src="https://img2.bata.in/0/images/brand/Bata-Comfit_230X100_bp.jpg"
+												alt="Comfit">
+										</a>		
+										<a href="/bataindia/br-113/disney.html">
+										<img src="https://img2.bata.in/0/images/brand/disney-dropdown_113_N.jpg"
+												alt="Disney">
+										</a>
+	
+										<a href="/bataindia/br-88/footin.html">
+										<img src="https://img2.bata.in/0/images/brand/footin-dropdown_88_N.jpg"
+												alt="Footin">
+										</a>
+											
+										<a href="/bataindia/faces/jsp/hushpuppiesbrands.jsp">
+	
+											<img src="https://img2.bata.in/0/images/brand/Hush-Puppies_230X100_bp.jpg"
+												alt="Hush Puppies">
+										</a>
+									
+										<a href="/bataindia/br-19/marie-claire.html">
+	
+											<img src="https://img2.bata.in/0/images/brand/Marie-Claire_230X100_bp.jpg"
+												alt="Marie Claire">
+										</a>
+								  
+										<a href="/bataindia/br-38/naturalizer.html">
+	
+											<img src="https://img2.bata.in/0/images/brand/naturalizer_header_38_N.jpg"
+												alt="Naturalizer">
+										</a>
+								   
+										<a href="/bataindia/br-20/north-star.html">
+	
+											<img src="https://img2.bata.in/0/images/brand/North-Star_230X100_bp.jpg"
+												alt="North Star">
+										</a>
+								   
+										<a href="/bataindia/br-21/power.html">
+	
+											<img src="https://img2.bata.in/0/images/brand/power-dropdown_21_N.jpg"
+												alt="Power">
+										</a>
+								  
+										<a href="/bataindia/br-16/scholl.html">
+	
+											<img src="https://img2.bata.in/0/images/brand/Scholl_230X100_bp.jpg"
+												alt="Scholl">
+										</a>
+								  
+										<a href="/bataindia/br-23/weinbrenner.html">
+											<img src="https://img2.bata.in/0/images/brand/weinbrenner_brandpage_23_N_23_N.jpg"
+												alt="Weinbrenner">
+										</a>
+								   
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">SALE</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+								<div class="row">
+									<div class="col">
+									<label>WOMEN</label>
+									<a class="dropdown-item" href="#">Ballerinas</a>
+									<a class="dropdown-item" href="#">Sneakers</a>
+									<a class="dropdown-item" href="#">Loafers</a>
+									<a class="dropdown-item" href="#">Sports Shoes</a>
+									<a class="dropdown-item" href="#">Casual</a>
+									<a class="dropdown-item" href="#">Formal</a>
+									<a class="dropdown-item" href="#">Stilettos</a>
+									<a class="dropdown-item" href="#">Pumps</a>
+									<a class="dropdown-item" href="#">Sandals</a>
+									<a class="dropdown-item" href="#">Chappals/Slippers</a>
+							</div>
+							<div class="col">
+								<label>MEN</label>
+								<a class="dropdown-item" href="#">Sneakers</a>
+								<a class="dropdown-item" href="#">Oxfords & Derbies</a>
+								<a class="dropdown-item" href="#">Loafers & Mocassins</a>
+								<a class="dropdown-item" href="#">Athleisure</a>
+								<a class="dropdown-item" href="#">Thong Slippers</a>
+								<a class="dropdown-item" href="#">Chappls/Flip-Flops</a>
+								<a class="dropdown-item" href="#">Monk Straps</a>
+								<a class="dropdown-item" href="#">Lace-ups</a>
+								<a class="dropdown-item" href="#">Men Socks</a>
+								<a class="dropdown-item" href="#">Formal</a>
+								<a class="dropdown-item" href="#">Casual</a>
+								<a class="dropdown-item" href="#">Boots</a>
+								<a class="dropdown-item" href="#">Outdoor</a>
+								<a class="dropdown-item" href="#">Sandals</a>
+							</div>
+							<div class="col">
+								<label>KIDS</label>
+								<a class="dropdown-item" href="#" >Girls</a>
+								<a class="dropdown-item" href="#" >Infant</a>
+								<a class="dropdown-item" href="#" >School</a>
+								<a class="dropdown-item" href="#" >Boys</a>
+							</div>
+							</div>
+							</div>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="#">STORE LOCATOR</a>
+						</li>
+						</ul>
+						</div>
+	
+
+
+
+					</nav>
+                  
+				
+				
+             
+					
+					<div class="col-sm-6 col-md-4 col-lg-3 flr">
+						<div class="flr login-sec" style="
+						margin-top: 16px;">
+							<ul>
+								<li class="mob-search-ico"></li>
+								<li><a href="/bataindia/faces/jsp/trackOrderMain.jsp?catalogueID=2" class="mob-track-ico"><i class="fa fa-truck" aria-hidden="true"></i> Track order</a> </li>
+
+								<li id="cartInfo"> <a routerLink="/cart"
+										class="mob-cart-ico"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<span class="cart-text">My cart
+										<input type="hidden" id="isuserLoggedin" value="">
+									</span></a> </li>
+								<!-- <li class="pd0">
+									<div id="loginDetails" class="flt mob-login-ico">
+									
+										<input type="hidden" id="isuserLoggedin" value="">
+										<li class="nav-item dropdown mr-3 ">
+											<a href="#"  data-toggle="modal" data-target="#login" style="color:red ">
+												Sign in|
+											</a>
+											<a href="#" data-toggle="modal" data-target="#signup" style="color:red " >
+												Sign up
+											</a>
+										</li>
+
+										<div class="modal fade" id="signup">
+											<div class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header ">
+														<h5 class="modal-title">REGISTER</h5>
+														<button class="close" data-dismiss="modal"><span>&times;</span></button>
+													</div>
+													<div class="modal-body">
+														<div class="col-lg-6">
+														<form [formGroup]="SignUpForm">
+															<div class="form-group">
+																<input class="form-control" type = "email" placeholder="Enter Email ID" formControlName ="emailId">
+																<span style="color: red;" *ngIf = "SignUpForm.controls.emailId.touched && SignUpForm.controls.emailId.invalid ">Email Id is required</span> 
+															</div>
+															<div class="form-group">
+																<input class="form-control" type = "text" placeholder="Enter Your Name" formControlName ="name">
+																<span style="color: red;" *ngIf = "SignUpForm.controls.name.touched && SignUpForm.controls.name.invalid ">Name is required</span>  
+															</div>
+															<div class="form-group">
+																<input class="form-control" type = "password" placeholder="Enter your Password" formControlName ="password">
+																<span style="color: red;" *ngIf = "SignUpForm.controls.password.touched && SignUpForm.controls.password.invalid ">Password is required</span> 
+															</div>
+															<div class="form-group">
+																<input class="form-control" type = "text" placeholder="Enter Mobile Number" formControlName ="mobile">
+																<span style="color: red;" *ngIf = "SignUpForm.controls.mobile.touched && SignUpForm.controls.mobile.invalid ">Mobile Number is required</span> 
+															</div>
+															<div class="form-group">
+																<input class="form-control" type = "text" placeholder="Enter Country Name" formControlName ="country">
+																<span style="color: red;" *ngIf = "SignUpForm.controls.country.touched && SignUpForm.controls.country.invalid ">Country Name is required</span> 
+															</div>
+															<div class="form-group">
+																Male<input type = "radio" value="Male" name="gender">
+															</div>
+															<div class="form-group">
+																Female<input type = "radio" value="Female" name="gender">
+															</div>
+															<div class="form-group">
+																<input class="form-control" type = "text" placeholder="Enter OTP" formControlName ="otp">
+																<span style="color: red;" *ngIf = "SignUpForm.controls.otp.touched && SignUpForm.controls.otp.invalid ">OTP is required</span> 
+															</div>
+															<div class="form-group">
+																<input class="form-control" type = "text" placeholder="Enter Referral Code" formControlName ="referralCode">
+																<span style="color: red;" *ngIf = "SignUpForm.controls.referralCode.touched && SignUpForm.controls.referralCode.invalid ">Referral Code is required</span> 
+															</div>
+														</form>
+														<div class="modal-body">
+															<div class="col-sm-6 col-md-6 col-lg-6 text-center" id="login-social">
+																<p>Don't want to create new account? Use any of your existing accounts </p>
+																<p>Already have an account?
+																	<button type="button" class="btn btn-danger col-lg-12" data-dismiss="modal">SUBMIT</button>
+															</div>
+															<div class="clearfix"></div>
+														</div>
+													</div>
+													
+													<div class="col-lg-6">
+														<div class="col-sm-6 col-md-6 col-lg-6 text-center" id="login-social">
+															<p>Don't want to create new account? Use any of your existing accounts </p>
+															<div class="login-social">
+																<a href="javascript:auth('facebook')" class="fb"><img
+																		src="https://static1.bata.in/0/media/css/frontend/octa/images/fb-img.jpg"
+																		alt=""></a>
+																<a href="javascript:auth('google')" class="gl"><img
+																		src="https://static1.bata.in/0/media/css/frontend/octa/images/gl-img.jpg"
+																		alt=""></a>
+															</div>
+															<p>Already have an account?   <button type="button" class="btn btn-danger col-lg-12" data-dismiss="modal"
+																data-toggle="modal" data-target="#login">Login</button>
+															</p>
+														</div>
+														</div>		
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade" id="login">
+											<div class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header ">
+														<h5 class="modal-title">LOGIN</h5>
+														<button class="close" data-dismiss="modal"><span>&times;</span></button>
+													</div>
+													<div class="modal-body">
+														<div class="col-lg-6">
+														<form [formGroup]="LoginForm">
+															<div class="form-group">
+																<input class="form-control" type = "text" placeholder="Enter your Email Id" formControlName ="emailId">
+																<span style="color: red;" *ngIf = "LoginForm.controls.emailId.touched && LoginForm.controls.emailId.invalid ">Email Id is required</span>  
+															</div>
+															<div class="form-group">
+																<input class="form-control" type = "password" placeholder="Type your Password" formControlName ="password">
+																<span style="color: red;" *ngIf = "LoginForm.controls.password.touched && LoginForm.controls.password.invalid ">Password is required</span>  
+															</div>
+
+															<div class="form-group">
+																<div class="checkbox flt">
+																	<input type="checkbox" value="remember" id="remember" name="remember">
+																	<label for="remember">Remember me</label>
+																</div>
+																<a class="flr link" href="#" id="forgotPassword" title="Forgot Password?">Forgot
+																	Password?</a>
+																<div class="clearfix"></div>
+															</div>
+							
+															<div class="form-group">     
+																<input type="button"id="login_Id" class="btn-danger btn btn-full " value="Login" name="">
+															</div>
+
+														</form>
+													</div>
+
+													<div class="col-lg-6">
+														<div class="col-sm-6 col-md-6 col-lg-6 text-center" id="login-social">
+															<p>Don't want to create new account? Use any of your existing accounts </p>
+															<div class="login-social">
+																<a href="javascript:auth('facebook')" class="fb"><img
+																		src="https://static1.bata.in/0/media/css/frontend/octa/images/fb-img.jpg"
+																		alt=""></a>
+																<a href="javascript:auth('google')" class="gl"><img
+																		src="https://static1.bata.in/0/media/css/frontend/octa/images/gl-img.jpg"
+																		alt=""></a>
+															</div>
+															<p>Already have an account?   <button type="button" class="btn btn-danger col-lg-12" data-dismiss="modal"
+																data-toggle="modal" data-target="#login">Login</button>
+															</p>
+														</div>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="tvInsiderHeader" style="display: none;">
+											<ul class="head-link-component">
+												<li class="hi-text"></li>
+												<li class="user-name">Guest!</li>
+												<li class="headLink"><a
+														href="/bataindia/faces/jsp/trackOrder.jsp?catalogueID=2">Track
+														Order</a>
+													<a href="#" class="currency_text">Sign in</a>|
+													<a id="signup" class="currency_text">Sign up</a>
+												</li>
+												<li class="cartLink"><a href="#" class="shopcartlink"> <span
+															class="shoppingCartImage">&nbsp;</span> <span
+															class="tvShopping fltlt"
+															style="display: none;">Shopping</span>
+														<span class="fltlt">&nbsp;Cart</span> <span id="cartCount"
+															class="fltlt">( 0 )</span> <span
+															class="cartLeft">&nbsp;</span>
+													</a></li>
+											</ul>
+										</div>
+										<span id="_isLogged" style="display: none;">false</span>
+										<span id="_isGuestLogged" style="display: none;">false</span>
+									</div> -->
+			<!-- 					</li> -->
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				
+			</div>
+</header>
+</div>
+
+<div class="alert col-xs-12 text-center covid-msg"><a target="_blank" href="https://www.bata.in/0/pdf/Stores-Opening-Details-PAN-India-11-June-2021.pdf">We have re-opened stores for you. More information can be found here &gt;</a></div>
+
+<div class="row">
+	<div class="col-sm-12 col-lg-2">
+		<div class="filter-outer narrow-by-list-options">
+			<h2 class="narrow-options-lables-arrow open" id="narrowToggle_0">
+			  CATEGORY <span class="select-arrow sprite"></span>
+			</h2>
+		<div class="narrow-options-list" id="ToggleDiv_0">	
+		<ul>
+						<li class="cate tli-264">
+							<a class="ta-264 text-red" href="/bataindia/c-264_cl-2/women.html"> WOMEN </a>
+									<ul class="tchul-264 filterListing">
+										<li class="fchli-5587">
+										 <a class="fcha-5587" href="/bataindia/c-5587_cl-2/women/cone.html">
+									 Cone
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5596">
+										 <a class="fcha-5596" href="/bataindia/c-5596_cl-2/women/handbags.html">
+									 Handbags
+									 </a>
+									 
+										</li>
+									
+										<li class="fchli-5597">
+										
+										
+										 <a class="fcha-5597" href="/bataindia/c-5597_cl-2/women/clutches.html">
+									 Clutches
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5598">
+										
+										
+										 <a class="fcha-5598" href="/bataindia/c-5598_cl-2/women/wallets.html">
+									 Wallets
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5565">
+										
+										
+										 <a class="fcha-5565" href="/bataindia/c-5565_cl-2/women/ballerinas.html">
+									 Ballerinas
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5599">
+										
+										
+										 <a class="fcha-5599" href="/bataindia/c-5599_cl-2/women/belts.html">
+									 Belts
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5567">
+										
+										
+										 <a class="fcha-5567" href="/bataindia/c-5567_cl-2/women/sneakers.html">
+									 Sneakers
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5568">
+										
+										
+										 <a class="fcha-5568" href="/bataindia/c-5568_cl-2/women/loafers.html">
+									 Loafers
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5569">
+										
+										
+										 <a class="fcha-5569" href="/bataindia/c-5569_cl-2/women/boots.html">
+									 Boots
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5566">
+										
+										
+										 <a class="fcha-5566" href="/bataindia/c-5566_cl-2/women/pumps.html">
+									 Pumps
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5570">
+										
+										
+										 <a class="fcha-5570" href="/bataindia/c-5570_cl-2/women/sports-shoes.html">
+									 Sports Shoes
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5571">
+										
+										
+										 <a class="fcha-5571" href="/bataindia/c-5571_cl-2/women/casual-.html">
+									 Casual 
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5572">
+										
+										
+										 <a class="fcha-5572" href="/bataindia/c-5572_cl-2/women/formal.html">
+									 Formal
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5582">
+										
+										
+										 <a class="fcha-5582" href="/bataindia/c-5582_cl-2/women/block--.html">
+									 Block  
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5583">
+										
+										
+										 <a class="fcha-5583" href="/bataindia/c-5583_cl-2/women/kitten.html">
+									 Kitten
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5584">
+										
+										
+										 <a class="fcha-5584" href="/bataindia/c-5584_cl-2/women/platform.html">
+									 Platform
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5585">
+										
+										
+										 <a class="fcha-5585" href="/bataindia/c-5585_cl-2/women/stilettos.html">
+									 Stilettos
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5646">
+										
+										
+										 <a class="fcha-5646" href="/bataindia/c-5646_cl-2/women/mask.html">
+									 Mask
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5586">
+										
+										
+										 <a class="fcha-5586" href="/bataindia/c-5586_cl-2/women/wedges.html">
+									 Wedges
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5486">
+										
+										
+										 <a class="fcha-5486" href="/bataindia/c-5486_cl-2/women/sandals.html">
+									 Sandals
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+										<li class="fchli-5487">
+										
+										
+										 <a class="fcha-5487" href="/bataindia/c-5487_cl-2/women/chappals-/-slippers.html">
+									 Chappals / Slippers
+									 </a>
+									 
+									 
+									 
+										</li>
+									
+									</ul>
+							
+						</li>
+					
+				
+		
+		</ul>
+		</div>
+		</div>
+		
+		
+				
+					
+						
+						
+						 <div class="filter-outer narrow-by-list-options">
+							 
+							<h2 class="narrow-options-lables-arrow open" id="narrowToggle_1">
+							  BRANDS <span class="select-arrow sprite"></span>
+							</h2>
+						 
+							<div class="narrow-options-list" id="ToggleDiv_1">
+								 <ul>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="1" type="checkbox" class="filter brandClass" value="bid:1">
+										 <label for="1">	Bata</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="15" type="checkbox" class="filter brandClass" value="bid:15">
+										 <label for="15">	Hush Puppies</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="17" type="checkbox" class="filter brandClass" value="bid:17">
+										 <label for="17">	Comfit</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="19" type="checkbox" class="filter brandClass" value="bid:19">
+										 <label for="19">	Marie Claire</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="38" type="checkbox" class="filter brandClass" value="bid:38">
+										 <label for="38">	Naturalizer</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="16" type="checkbox" class="filter brandClass" value="bid:16">
+										 <label for="16">	Scholl</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="21" type="checkbox" class="filter brandClass" value="bid:21">
+										 <label for="21">	Power</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="20" type="checkbox" class="filter brandClass" value="bid:20">
+										 <label for="20">	North Star</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="88" type="checkbox" class="filter brandClass" value="bid:88">
+										 <label for="88">	Footin</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="27" type="checkbox" class="filter brandClass" value="bid:27">
+										 <label for="27">	Sandak</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="113" type="checkbox" class="filter brandClass" value="bid:113">
+										 <label for="113">	Disney</label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="25" type="checkbox" class="filter brandClass" value="bid:25">
+										 <label for="25">	Sunshine</label>
+										 </div>
+									 </li>
+								 
+								 </ul>
+							 </div>
+						 </div>
+						
+						
+						
+						
+					
+					
+				
+					
+						
+						
+						
+						
+							<div class="filter-outer narrow-by-list-options">
+						 <h2 class="text-center narrow-options-lables-arrow open" id="narrowToggle_2">
+							  COLOR <span class="select-arrow sprite"></span>
+						 </h2>
+						 <div class="narrow-options-list color-list" id="ToggleDiv_2">
+								 <ul>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#000000;;Black">
+											 <input id="#000000;;Black" type="checkbox" class="filter colorClass" value="color_W:#000000;;Black"><!-- </span> --> 
+											 
+											  <span style="background-color: #000000;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#000000;;Black" class="" value="color_W:#000000;;Black"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#0000FF;;Blue">
+											 <input id="#0000FF;;Blue" type="checkbox" class="filter colorClass" value="color_W:#0000FF;;Blue"><!-- </span> --> 
+											 
+											  <span style="background-color: #0000FF;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#0000FF;;Blue" class="" value="color_W:#0000FF;;Blue"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#804000;;Brown">
+											 <input id="#804000;;Brown" type="checkbox" class="filter colorClass" value="color_W:#804000;;Brown"><!-- </span> --> 
+											 
+											  <span style="background-color: #804000;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#804000;;Brown" class="" value="color_W:#804000;;Brown"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#F6F6CC;;Beige">
+											 <input id="#F6F6CC;;Beige" type="checkbox" class="filter colorClass" value="color_W:#F6F6CC;;Beige"><!-- </span> --> 
+											 
+											  <span style="background-color: #F6F6CC;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#F6F6CC;;Beige" class="" value="color_W:#F6F6CC;;Beige"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#FF0000;;Red">
+											 <input id="#FF0000;;Red" type="checkbox" class="filter colorClass" value="color_W:#FF0000;;Red"><!-- </span> --> 
+											 
+											  <span style="background-color: #FF0000;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#FF0000;;Red" class="" value="color_W:#FF0000;;Red"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#D3D3D3;;Grey">
+											 <input id="#D3D3D3;;Grey" type="checkbox" class="filter colorClass" value="color_W:#D3D3D3;;Grey"><!-- </span> --> 
+											 
+											  <span style="background-color: #D3D3D3;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#D3D3D3;;Grey" class="" value="color_W:#D3D3D3;;Grey"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#FF1493;;Pink">
+											 <input id="#FF1493;;Pink" type="checkbox" class="filter colorClass" value="color_W:#FF1493;;Pink"><!-- </span> --> 
+											 
+											  <span style="background-color: #FF1493;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#FF1493;;Pink" class="" value="color_W:#FF1493;;Pink"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#FFFFFF;;White">
+											 <input id="#FFFFFF;;White" type="checkbox" class="filter colorClass" value="color_W:#FFFFFF;;White"><!-- </span> --> 
+											 
+											  <span style="background-color: #FFFFFF;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#FFFFFF;;White" class="" value="color_W:#FFFFFF;;White"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#FFD700;;Gold">
+											 <input id="#FFD700;;Gold" type="checkbox" class="filter colorClass" value="color_W:#FFD700;;Gold"><!-- </span> --> 
+											 
+											  <span style="background-color: #FFD700;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#FFD700;;Gold" class="" value="color_W:#FFD700;;Gold"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#c0c0c0;;Silver">
+											 <input id="#c0c0c0;;Silver" type="checkbox" class="filter colorClass" value="color_W:#c0c0c0;;Silver"><!-- </span> --> 
+											 
+											  <span style="background-color: #c0c0c0;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#c0c0c0;;Silver" class="" value="color_W:#c0c0c0;;Silver"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#551a8b;;Purple">
+											 <input id="#551a8b;;Purple" type="checkbox" class="filter colorClass" value="color_W:#551a8b;;Purple"><!-- </span> --> 
+											 
+											  <span style="background-color: #551a8b;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#551a8b;;Purple" class="" value="color_W:#551a8b;;Purple"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#008000;;Green">
+											 <input id="#008000;;Green" type="checkbox" class="filter colorClass" value="color_W:#008000;;Green"><!-- </span> --> 
+											 
+											  <span style="background-color: #008000;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#008000;;Green" class="" value="color_W:#008000;;Green"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#FFA500;;Orange">
+											 <input id="#FFA500;;Orange" type="checkbox" class="filter colorClass" value="color_W:#FFA500;;Orange"><!-- </span> --> 
+											 
+											  <span style="background-color: #FFA500;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#FFA500;;Orange" class="" value="color_W:#FFA500;;Orange"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#FFFF00;;Yellow">
+											 <input id="#FFFF00;;Yellow" type="checkbox" class="filter colorClass" value="color_W:#FFFF00;;Yellow"><!-- </span> --> 
+											 
+											  <span style="background-color: #FFFF00;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#FFFF00;;Yellow" class="" value="color_W:#FFFF00;;Yellow"></span></label> 
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <label for="#FF1493;;Red">
+											 <input id="#FF1493;;Red" type="checkbox" class="filter colorClass" value="color_W:#FF1493;;Red"><!-- </span> --> 
+											 
+											  <span style="background-color: #FF1493;float:left;width:18px;height:18px;position: absolute;top: 3px;left: -17px;" id="#FF1493;;Red" class="" value="color_W:#FF1493;;Red"></span></label> 
+										 </div>
+									 </li>
+								 
+								 </ul>
+						 </div>
+						 </div>
+						
+						
+					
+					
+				
+					
+						
+						
+						
+						
+						
+					
+					
+				
+					
+						
+						 <div class="filter-outer narrow-by-list-options">
+							 
+							<h2 class="narrow-options-lables-arrow open" id="narrowToggle_3">
+							  DISCOUNT <span class="select-arrow sprite"></span>
+							</h2>
+						 
+							<div class="narrow-options-list" id="ToggleDiv_3">
+								 <ul>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="[30 TO 100]" type="checkbox" class="filter discClass" value="disc:[30 TO 100]">
+										 <label for="[30 TO 100]">	30  % and above </label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="[44 TO 100]" type="checkbox" class="filter discClass" value="disc:[44 TO 100]">
+										 <label for="[44 TO 100]">	44  % and above </label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="[50 TO 100]" type="checkbox" class="filter discClass" value="disc:[50 TO 100]">
+										 <label for="[50 TO 100]">	50  % and above </label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="[67 TO 100]" type="checkbox" class="filter discClass" value="disc:[67 TO 100]">
+										 <label for="[67 TO 100]">	67  % and above </label>
+										 </div>
+									 </li>
+								 
+									 <li>
+										 <div class="checkbox">  
+											 <input id="[70 TO 100]" type="checkbox" class="filter discClass" value="disc:[70 TO 100]">
+										 <label for="[70 TO 100]">	70  % and above </label>
+										 </div>
+									 </li>
+								 
+								 </ul>
+							 </div>
+						 </div>
+				  <div class="narrow-li-filed filter-outer">
+						 
+						 <div class="narrow-by-list-options" id="selectPrice">
+							 
+							 <h2 class="text-center narrow-options-lables-arrow open" id="narrowToggle_4">
+							 PRICE <span class="select-arrow sprite"></span>
+							 </h2>
+		
+							 <div id="ToggleDiv_4" class="narrow-options-list" style="display:block">  
+								 <div id="priceOptions" style="left: 0px; display:block;">
+									 <div class="spacer-top"></div>
+									 <div class="middle" style="float:left;">
+										 <div id="priceDivTable_scroller" class="scroller">
+											 <div id="divTable1" class="price_scroller" style="display: block;">
+												 <div class="Min_Max_class">
+													 <div class="Min_class flt"><span class="Min_span">Min</span></div>
+													 <div class="Max_class flr"><span class="Max_span">Max</span></div>
+												 </div>
+												 
+												 <div class="horizontal_hidden">
+												 <div class="horizontal_track">
+													 <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+														 <a style="outline: medium none; border: medium none;" href="#">
+															 <div class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></div>
+														 </a>
+														 <a style="outline: medium none; border: medium none;" href="#">
+															 <div class="ui-slider-handle ui-state-default ui-corner-all" style="left: 100%;"></div>
+														 </a>
+													 <div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;"></div></div>				
+												 </div>
+												 </div>
+												 <div class="space-5px-height"></div>
+												 <div class="display_holder">
+													 <div class="display_Min_class">
+														 <div class="Min_span">
+															 <span class="left rupee-symbol">MRP ₹</span>
+															 <span class="left input-value"><input type="text" onfocus="blur(this);" value="249.00" class="value_display value_display_low" id="startPrice"></span>
+														 </div>
+													 </div>  
+													 <div class="display_Max_class">
+														 <div class="Max_span">
+															 <span class="left rupee-symbol">MRP ₹</span>
+															 <span class="left input-value"><input type="text" onfocus="blur(this);" value="7999.00" class="value_display value_display_high" id="endPrice"></span>
+														 </div>
+													 </div>
+												 </div>
+												  <div class="space-5px-height"></div>
+											 </div>
+										 </div>
+									 </div>
+									 <div class="spacer-bottom"></div>
+								 </div>
+							 </div>
+						 </div>
+						 <div class="hitarea hidden" id="selprice"><ul id="selPrc" class="chosenPrc"></ul></div>
+					 </div>	
+					 
+					 <input type="hidden" value="249" name="startPrcForNarrow" id="startPrcForNarrow">
+					 <input type="hidden" value="7999" name="endPrcForNarrow" id="endPrcForNarrow">           
+	
+		</div>
+	
+	
+		
+	<div class="col-10">
+		<nav>
+			<input  type="text" name="productDescription" [(ngModel)]="productDescription"
+			placeholder="Enter Product Description To Search" class="form-control">
+			<button (click)="Search(allProductsWomen)" class="btn btn-danger">Search</button>
+		</nav> 
+    <div class="card col-lg-4 float-left" *ngFor="let product of allProductsWomen">
+        <div id="" class="collapse show" aria-labelledby="" data-parent="#accordion">
+                <div class="card-body ">
+                <img src="{{product.productImage}}">
+				<h5 class="text-center"> Product Code : {{product.productCode}}</h5>
+                <h5 class="text-center"> MRP ₹ {{product.productPrice}}/-</h5>
+                <h5 class="text-danger text-center">{{product.productDescription}}</h5>
+				<h5 class="text-center text-danger">{{product.brandName}}</h5>
+				<div class="text-center"><button class="btn btn-danger" (click)="onFormSubmit(product)">Add to Cart</button></div>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+	<div class="col-md-2 footer-list">
+		<h4>WHAT'S IN STORE</h4>
+		<ul>
+			<li><a id="subCategoryName_188" href="http://bata.in/bataindia/e-8/newarrivals.html">New
+					Arrivals</a> </li>
+			<li><a id="subCategoryName_189"
+					href="http://bata.in/bataindia/c-264_cl-2/women.html">Women</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_190"
+					href="http://bata.in/bataindia/c-262_cl-2/men.html">Men</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_191"
+					href="http://bata.in/bataindia/c-263_cl-2/kids.html">Kids</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_194"
+					href="http://bata.in/bataindia/e-9/bestsellers.html">BestSellers</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_195" href="http://bata.in/bataindia/e-10/sale.html">Sale</a>
+			</li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-207_cat-25/technology.html">Technology</a>
+			<input type="hidden" id="when1234" value="/bataindia/sc-207_cat-25/technology.html">
+	
+	
+	
+	
+	
+	
+		</ul>
+	</div>
+	
+	<div class="col-md-2 footer-list">
+		<h4>COMPANY INFO</h4>
+		<ul>
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-179_cat-42/about-us.html">About Us</a>
+			<input type="hidden" id="when1234" value="/bataindia/sc-179_cat-42/about-us.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-206_cat-42/become-our-franchise-partner.html">Become Our
+				Franchise Partner</a>
+			<input type="hidden" id="when1234"
+				value="/bataindia/sc-206_cat-42/become-our-franchise-partner.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-229_cat-42/bata-on-wheels.html">Bata On Wheels</a>
+			<input type="hidden" id="when1234" value="/bataindia/sc-229_cat-42/bata-on-wheels.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_230"
+					href="https://www.bata.in/bataindia/a-162_s-230_c-42/investor-relations.html">Press
+					Release</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_233" href="https://www.bata.in/batainsitutional.jsp">Bata
+					Institutional</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-181_cat-42/investor-relations.html">Investor Relations</a>
+			<input type="hidden" id="when1234"
+				value="/bataindia/sc-181_cat-42/investor-relations.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-209_cat-42/csr.html">CSR</a>
+			<input type="hidden" id="when1234" value="/bataindia/sc-209_cat-42/csr.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-183_cat-42/awards-andamp;-recognition.html">Awards &amp;
+				Recognition</a>
+			<input type="hidden" id="when1234"
+				value="/bataindia/sc-183_cat-42/awards-andamp;-recognition.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_186" href="http://www.bata.com/">BATA Worldwide</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_202" href="/bataindia/faces/jsp/bataindustials.jsp">Bata
+					Industrials</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_187" href="http://www.batashoemuseum.ca/">BATA Shoe
+					Museum</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_227"
+					href="https://www.bata.in/bataindia/a-147_s-227_c-42/COIVID-19-A message team Bata India CEO.html">COIVID-19-A
+					message team Bata India CEO</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_228"
+					href="https://www.bata.in/bataindia/a-148_s-228_c-42/Donation-1Mn-Pair.html">Donation
+					1Mn Pair</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_232"
+					href="https://www.bata.in/bataindia/a-165_s-232_c-42/COIVID-19-A%20message%20team%20Bata%20India%20CEO.html">Bata
+					wishes you a Healthy & Happy 2021</a> </li>
+	
+	
+	
+	
+	
+		</ul>
+	</div>
+	
+	<div class="col-md-2 footer-list">
+		<h4>POLICIES</h4>
+		<ul>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_231"
+					href="https://www.bata.in/bataindia/a-164_s-231_c-41/terms-and-conditions.html">Campaign
+					Terms & Condition</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-174_cat-41/terms-and-conditions.html">Terms & Conditions</a>
+			<input type="hidden" id="when1234"
+				value="/bataindia/sc-174_cat-41/terms-and-conditions.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-175_cat-41/payment-options.html">Payment Options</a>
+			<input type="hidden" id="when1234"
+				value="/bataindia/sc-175_cat-41/payment-options.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-176_cat-41/faqs.html">FAQ's</a>
+			<input type="hidden" id="when1234" value="/bataindia/sc-176_cat-41/faqs.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-177_cat-41/privacy-policy.html">Privacy Policy</a>
+			<input type="hidden" id="when1234" value="/bataindia/sc-177_cat-41/privacy-policy.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_222"
+					href="https://www.bata.in/bataindia/a-143_s-222_c-41/Whistle-blower-policy.html">Whistle
+					Blow Policy</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_223"
+					href="https://www.bata.in/bataindia/a-144_s-223_c-41/Whistle-blower-policy.html">POSH
+					policy</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_224"
+					href="https://www.bata.in/bataindia/a-145_s-224_c-41/Covid Precaution.html">Covid
+					Precaution</a> </li>
+	
+	
+	
+	
+	
+		</ul>
+	</div>
+	
+	<div class="col-md-2 footer-list">
+		<h4>CUSTOMER SERVICE</h4>
+		<ul>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<input type="hidden" id="isUserLogin" value="N">
+			<a id="my_Account_text">My Account</a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<input type="hidden" id="isUserLogin" value="N">
+			<a id="my_Trackorder_text">Track Your Order</a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<a href="/bataindia/sc-199_cat-19/contact-info.html">Contact Info</a>
+			<input type="hidden" id="when1234" value="/bataindia/sc-199_cat-19/contact-info.html">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_200" href="/bataindia/faces/jsp/storeLocator.jsp">Store
+					Locator</a> </li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<li><a id="subCategoryName_205" href="http://bata.in/sitemap.html">Site Map</a> </li>
+	
+	
+	
+	
+	
+		</ul>
+	</div>
+	
+	<div id="ajaxDiv" class=""></div>
+	
+	
+	<div class="col-md-2 footer-list">
+		<h4>WE ACCEPT</h4>
+		<ul class="ccvenu-list text-center">
+			<li><img src="https://static1.bata.in/0/media/css/frontend/octa/images/weAccept-new.jpg"
+					alt="" /></li>
+		</ul>
+	</div>
+	
+	<div class="col-xs-12 footer-list abt-bata">
+		<h4>Popular Searches :</h4>
+		<ul>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=formal+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">formal
+					shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=casual+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">casual
+					shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=sport+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">sports
+					shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=sneakers&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">sneakers</a><span>
+					/ </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=wedges&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">wedges</a><span>
+					/ </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/c-5565_cl-2/women/ballerinas.html">ballerinas</a><span>
+					/ </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=loafers&productID=&narrowcatalogueID=2&narrowcategoryID=5565&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcategory.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">loafers</a><span>
+					/ </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=closed+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">closed
+					shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=flats&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">flats</a><span>
+					/ </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=heels&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">heels</a><span>
+					/ </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=bata+formal+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">bata
+					formal shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=bata+power+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">bata
+					power shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=bata+bata+comfit&productID=&narrowcatalogueID=&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=&rpp=&col=&sort=&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Fjsp%2FbrandDisplay.jsp&brandId=1&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">bata
+					shoes online</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=bata+sport+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcatalogue.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">bata
+					sports shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=bata+formal+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">bata
+					formal shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=brown+formal+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">brown
+					formal shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcatalogue.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">buy
+					shoes online</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-572_cl-2/men/casual.html">casual
+					shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-570_cl-2/men/formal.html">formal
+					shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=black+shoes+for+men&productID=&narrowcatalogueID=2&narrowcategoryID=570&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcategory.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">black
+					shoes for men</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=boys+sports+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">boys
+					sports shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=leather+shoes+for+men&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">leather
+					shoes for men</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-9_c-262/bestsellers/men.html">best shoes
+					for mens</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-375_cl-2/kids/infant.html">baby boy
+					shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-375_cl-2/kids/infant.html">baby girl
+					shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-263_cl-2/kids.html">children
+					shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-263_cl-2/kids.html">kids footwear</a><span>
+					/ </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-263_cl-2/kids.html">kids shoes</a><span> /
+				</span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=black+shoes+for+men&productID=&narrowcatalogueID=2&narrowcategoryID=570&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcategory.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">black
+					shoes for men</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=boys+sports+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=263&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcategory.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">boys
+					sports shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=leather+shoes+for+men&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">leather
+					shoes for men</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-9_c-262/bestsellers/men.html">best shoes
+					for men</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=loafers+for+men&productID=&narrowcatalogueID=&narrowcategoryID=262&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=&rpp=&col=&sort=&pn=1&dcty=&bnm=&narr=&entityType=&entityId=9&topParent=&pageName=%2Fbataindia%2Fjsp%2FentitySummary.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">loafers
+					for men</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-20_c-262/north-star/men.html">canvas shoes
+					for men</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-5553_cl-2/men/boots.html">mens
+					boots</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-572_cl-2/men/casual.html">mens casual
+					shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=men+sunshine&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">mens
+					flip flops</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-262_cl-2/men.html">mens footwear</a><span>
+					/ </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-5575_cl-2/men/loafers-and-mocassins.html">mens
+					loafer shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-5450_cl-2/men/sandals.html">mens
+					sandals</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=men+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=5450&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcategory.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">mens
+					shoes</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=men+shoes&productID=&narrowcatalogueID=2&narrowcategoryID=5450&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcategory.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">mens
+					shoes online</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-5573_cl-2/men/sneakers.html">sneakers for
+					men</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=white+shoes+for+men&productID=&narrowcatalogueID=2&narrowcategoryID=5573&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=g&rpp=&col=&sort=16&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fcategory.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">white
+					shoes for men</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-21_c-264/power/women.html">running shoes
+					for women</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=women+running+shoes&productID=&narrowcatalogueID=&narrowcategoryID=264&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=&rpp=&col=&sort=&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Fjsp%2FbrandDisplay.jsp&brandId=21&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">bata
+					shoes for womens</a><span> / </span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=white+shoes+for+women&productID=&narrowcatalogueID=2&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=&rpp=&col=&sort=&pn=1&dcty=&bnm=&narr=&entityType=&entityId=&topParent=&pageName=%2Fbataindia%2Ftiles%2Fsearch.jsp&brandId=21&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">white
+					shoes for women</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-9_c-264/bestsellers/women.html">women
+					footwear</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-5486_cl-2/women/sandals.html">bata sandals
+					for womens</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-48_c-264/web-exclusive/women.html">women
+					shoes online</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-5568_cl-2/women/loafers.html">loafers for
+					women</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-9_c-264/bestsellers/women.html">ladies
+					footwear</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-21_c-264/power/women.html">ladies
+					shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-21_c-264/power/women.html">ladies sports
+					shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-20_c-264/north-star/women.html">canvas
+					shoes for women</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/c-5572_cl-2/women/formal.html">formal shoes
+					for women</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-48_c-264/web-exclusive/women.html">girls
+					shoes online</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-48_c-264/web-exclusive/women.html">bata
+					ladies shoes</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-10/sale.html">shoes sale online</a><span> /
+				</span></li>
+			<li><a
+					href="https://www.bata.in/bataindia/faces/tiles/search.jsp?q=shoes&productID=&narrowcatalogueID=&narrowcategoryID=&narrowparentCategoryID=&catalogueID=2&categoryID=&parentCategoryID=&sid=&bid=&prc=&k1=&k2=&k3=&k4=&k5=&k6=&k7=&k8=&k9=&k10=&k11=&k12=&vt=&rpp=&col=&sort=&pn=1&dcty=&bnm=&narr=&entityType=&entityId=10&topParent=&pageName=%2Fbataindia%2Fjsp%2FentitySummary.jsp&brandId=&brandCmsFlag=&act=&format=&auth=&reg=&lang=&dir=&cartSize=0&boutiqueID=&parentBoutiqueID=&narrowboutiqueID=&isSale=&comboOfferId=&comboOfferName=&cnm=">shoes
+					online</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-48/web-exclusive/.html">shoes online
+					shopping</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-21/power.html">sports shoes</a><span> /
+				</span></li>
+			<li><a href="https://www.bata.in/bataindia/br-21_c-262/power/men.html">sport shoes for
+					men</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/e-48/web-exclusive/.html">sports shoes
+					online</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-21_c-264/power/women.html">sports shoes
+					for women</a><span> / </span></li>
+			<li><a href="https://www.bata.in/bataindia/br-21_c-264/power/women.html">ladies sports
+					shoes</a></li>
+		</ul>
+	</div>
+	
+	<div class="col-xs-12 footer-list abt-bata">
+		<h4>BATA - INDIA'S FAVORITE FOOTWEAR BRAND.</h4>
+		<ul>
+			<li>Bata India is the largest retailer and leading manufacturer of footwear in India and
+				is a part of the Bata Shoe Organization. Incorporated as Bata Shoe Company Private
+				Limited in 1931, the company was set up initially as a small operation in Konnagar
+				(near Calcutta) in 1932. In January 1934, the foundation stone for the first
+				building of Bata.s operation - now called the Bata. In the years that followed, the
+				overall site was doubled in area. This township is popularly known as Batanagar. It
+				was also the first manufacturing facility in the Indian shoe industry to receive the
+				ISO: 9001 certification. The Company went public in 1973 when it changed its name to
+				Bata India Limited. Today, Bata India has established itself as India.s largest
+				footwear retailer. Its retail network of over 1200 stores gives it a reach /
+				coverage that no other footwear company can match. The stores are present in good
+				locations and can be found in all the metros, mini-metros and towns. Bata.s smart
+				looking new stores supported by a range of better quality products are aimed at
+				offering a superior shopping experience to its customers. The Company also operates
+				a large non retail distribution network through its urban wholesale division and
+				caters to millions of customers through over 30,000 dealers.
+				<a href="http://bata.in/bataindia/faces/jsp/article.jsp?subcategoryid=179&amp;categoryId=42"
+					class="red-txt flr">Read More</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	<div class="copyright text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">COPYRIGHT &#169; 2017 BATA INDIA LIMITED. <span class="cin-no">CIN:
+						L19201WB1931PLC007261</span></div>
+	
+			</div>
+		</div>
+	</div>
+	
+	
+	<div id="back-top" class="back-to-top text-center">
+		<i aria-hidden="true" class="fa fa-angle-up"></i>
+		TOP
+	</div>
+	<div class="mrpl_mask" style="display: none;"></div>
+
+    </body>
+    </html>
