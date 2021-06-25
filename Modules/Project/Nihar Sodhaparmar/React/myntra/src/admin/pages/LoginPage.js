@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { setUserSession } from "../../Utils/Storage";
 import LoginService from "../../services/LoginService";
 import Navbar from "../components/Navbar";
@@ -137,7 +136,7 @@ export default function LoginPage(props) {
                   Change Password
                 </Link>
               </div> */}
-              <div style={{ paddingTop: "50px" }}></div>
+              <div style={{ paddingTop: "40px" }}></div>
             </form>
           </div>
         </div>

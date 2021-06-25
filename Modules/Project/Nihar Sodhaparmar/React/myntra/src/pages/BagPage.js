@@ -122,7 +122,7 @@ export default function BagPage(props) {
   if (bagItems.length >= 1) {
     bagItems.map((product) => {
       total += parseInt(product.quantity) * parseFloat(product.price);
-      totalItems = product.quantity;
+      totalItems += parseInt(product.quantity);
       return null;
     });
   }
