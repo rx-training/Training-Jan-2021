@@ -1,0 +1,25 @@
+<div class="detail container">
+    <div *ngFor='let i of SeatDetails let idx=index'>
+        {{idx+1}}) RowNo is {{i.rowNo}} SeatNo is {{i.seatNo}}
+    </div>
+    <div>
+        Total Tickets {{SeatDetails?.length}} Payable Amount: {{SeatDetails?.length * 120}}
+    </div>
+    <div>
+        <form name="" id="">
+            <div class="form-group">
+                <label for=""> Payment Method: </label>
+                <select class="form-control" name="cinema" size="" (change)="onSelectType($event.target.value)">
+                    <option value="" selected="selected">Payment Mehtod</option>
+                    <option *ngFor='let item of LocalPaymentMethods' value="{{item.paymentId}}">{{item.paymentMethod1}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Payment Deatail</label>
+                <input class="form-control"  [(ngModel)]='paymentDetail' name="paymentDetail">
+            </div>
+            <button class="btn btn-primary" (click)='book()'>Submit</button>
+        </form>
+    </div>
+</div>

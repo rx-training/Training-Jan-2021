@@ -1,0 +1,38 @@
+<div class="main container">
+    <p>Your Booking History</p>
+    <table *ngIf='History?.length>0'  class="table table-bordered">
+        <thead>
+            <th>BookingDate</th>
+            <th> showDate</th>
+            <th> ShowTime</th>
+            <th>movieName</th>
+            <th>language</th>
+            <th>duration</th>
+            <th>cinemaName</th>
+            <th>cinemaCity</th>
+            <th>rowNo</th>
+            <th>seatNo</th>
+            <th>SeatType</th>
+            <th>price</th>
+        </thead>
+        <tbody *ngFor='let i of History' >
+            <th>{{i.bookingDate | date:'dd/MM/yyyy'}}</th>
+            <th>{{i.showDate  | date:'dd/MM/yyyy'}}</th>
+            <th> {{i.startTime?.hours}}:{{i.startTime?.minutes}}</th>
+            <th>{{i.movieName}}</th>
+            <th>{{i.language}}</th>
+            <th>{{i.duration}}</th>
+            <th>{{i.cinemaName}}</th>
+            <th>{{i.cinemaCity}}</th>
+            <th>{{i.rowNo}}</th>
+            <th>{{i.seatNo}}</th>
+            <th>{{i.name}}</th>
+            <th>{{i.price}}</th>
+            <button class="btn btn-danger my-2" (click)='cancelBooking(i.ticketId ,i.showDate )'>Cancel Booking</button>
+        </tbody>
+    </table>
+    <div *ngIf='History?.length==0'>
+        <p> You haven't book any ticket</p>
+        <button class="btn btn-primary" routerLink=''>BookNow</button>
+    </div>
+</div> 
