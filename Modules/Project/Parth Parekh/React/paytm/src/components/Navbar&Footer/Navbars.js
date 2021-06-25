@@ -52,7 +52,7 @@ export default function Navbars(props) {
 
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
-                        <Nav className="ml-auto mr-5" navbar>
+                        <Nav className="ml-auto " navbar>
                             <NavItem className="nav-links my-auto mx-3">
                                 <NavLink href="/" className="linkstyle">
                                     <FaHome className="react-icons" /> Home
