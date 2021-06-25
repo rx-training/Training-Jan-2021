@@ -78,7 +78,10 @@ export default function NavBar() {
                   Logout
                 </Link>
               ) : (
-                <Link to="/login" className="btn btn-sm navbar-login-btn">
+                <Link
+                  to="/dashboard/login"
+                  className="btn btn-sm navbar-login-btn"
+                >
                   Login
                 </Link>
               )}

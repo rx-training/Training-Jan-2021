@@ -40,6 +40,7 @@ import SubCategoriesPage from "./admin/pages/SubCategoriesPage";
 import SubCategoryWiseProductPage from "./pages/SubCategoryWiseProductPage";
 import UsersPage from "./admin/pages/UsersPage";
 import AdminRegisterPage from "./admin/pages/RegisterPage";
+import AdminLoginPage from "./admin/pages/LoginPage";
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -111,6 +112,7 @@ function App() {
           path="/dashboard/register"
           component={AdminRegisterPage}
         />
+        <Route exact path="/dashboard/login" component={AdminLoginPage} />
         <Route path="/product/:id" component={ProductPage} />
         <Route path="*" component={ErrorPage} />
       </Switch>

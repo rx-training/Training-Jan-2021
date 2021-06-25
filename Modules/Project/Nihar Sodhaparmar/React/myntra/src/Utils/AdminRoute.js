@@ -13,7 +13,10 @@ function AdminRoute({ component: Component, ...rest }) {
         {...rest}
         render={(props) => (
           <Redirect
-            to={{ pathname: "/login", state: { from: props.location } }}
+            to={{
+              pathname: "/dashboard/login",
+              state: { from: props.location },
+            }}
           />
         )}
       />

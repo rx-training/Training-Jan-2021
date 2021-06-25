@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { setUserSession } from "../Utils/Storage";
-import LoginService from "../services/LoginService";
+import { setUserSession } from "../../Utils/Storage";
+import LoginService from "../../services/LoginService";
 import Navbar from "../components/Navbar";
 
 export default function LoginPage(props) {
   const [user, setUser] = useState({
-    role: "customer",
+    role: "seller",
     email: "",
     password: "",
   });
@@ -122,7 +122,7 @@ export default function LoginPage(props) {
                   value="Login"
                 />
               </div>
-              <div className="text-muted mt-3 text-center">
+              {/* <div className="text-muted mt-3 text-center">
                 Don't have an account?{" "}
                 <Link className="text-highlighted register-link" to="/register">
                   Register
@@ -136,8 +136,8 @@ export default function LoginPage(props) {
                 >
                   Change Password
                 </Link>
-              </div>
-              <div style={{ paddingTop: "25px" }}></div>
+              </div> */}
+              <div style={{ paddingTop: "50px" }}></div>
             </form>
           </div>
         </div>
