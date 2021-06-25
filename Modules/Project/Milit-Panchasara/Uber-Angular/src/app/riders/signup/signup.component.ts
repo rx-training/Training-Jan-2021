@@ -38,13 +38,15 @@ export class SignupComponent implements OnInit {
       localStorage.setItem('user',encryptedUser);
       localStorage.setItem('session',CryptoJS.AES.encrypt((new Date()).toString(), GlobalConstants.cryptoPassword).toString());
       
-      this.riderService.getProfileData().subscribe(x => {
+      let getProfileDataSub = this.riderService.getProfileData().subscribe(x => {
         this.riderService.setData(x);
+        getProfileDataSub.unsubscribe();
       },
       error => {
         if(error.status == 0) {
           this.router.navigate(['/']);
         }
+        getProfileDataSub.unsubscribe();
       });
       this.submitingForm = false;
       this.router.navigate(['/rider/dashboard']);

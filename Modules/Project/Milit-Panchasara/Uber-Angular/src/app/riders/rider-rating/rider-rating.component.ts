@@ -36,10 +36,11 @@ export class RiderRatingComponent implements OnInit {
   }
 
   submitRating() {
-    this.tripService.setRatings(this.rating)
+    let setRatingsSub = this.tripService.setRatings(this.rating)
     .subscribe(x => {
       console.log(x);
       this.router.navigate(['/rider/dashboard']);
+      setRatingsSub.unsubscribe();
   });
 
   }

@@ -72,21 +72,23 @@ fillAllCellsWithWidthMeasurement() {
   }
 
   unblockRider(riderId:number){
-    this.adminService.blockUnblockRider("unblock", riderId)
+    let blockUnblockRiderSub = this.adminService.blockUnblockRider("unblock", riderId)
     .subscribe(x => {
       if(x.status == "1"){
         this.localAdminService.allData.riders.find(x => x.riderId == riderId).isBlocked = false;
         alert(x.message);
+        blockUnblockRiderSub.unsubscribe();
       }
     });
   }
 
   blockRider(riderId:number){
-    this.adminService.blockUnblockRider("block", riderId)
+    let blockUnblockRiderSub = this.adminService.blockUnblockRider("block", riderId)
     .subscribe(x => {
       if(x.status == "1"){
         this.localAdminService.allData.riders.find(x => x.riderId == riderId).isBlocked = true;
         alert(x.message);
+        blockUnblockRiderSub.unsubscribe();
       }
     });
   }

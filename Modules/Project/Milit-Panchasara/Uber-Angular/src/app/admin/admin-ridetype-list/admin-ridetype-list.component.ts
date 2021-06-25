@@ -39,22 +39,24 @@ export class AdminRidetypeListComponent implements OnInit {
   }
 
   addRideType() {
-    this.adminService.addRideType(this.rideTypeForm)
+    let addRideTypeSub = this.adminService.addRideType(this.rideTypeForm)
     .subscribe(x => {
       this.localAdminService.allData.rideTypes.push(x);
+      addRideTypeSub.unsubscribe();
     },
     error => {
       console.log(error);
+      addRideTypeSub.unsubscribe();
     });
   }
 
   updateRideType() {
     if(this.rideTypeForm.rideTypeId == 0 || this.rideTypeForm.rideTypeId == null) return;
-    this.adminService.updateRideType(this.rideTypeForm)
+    let updateRideType = this.adminService.updateRideType(this.rideTypeForm)
     .subscribe(x => {
-      
       let index = this.localAdminService.allData.rideTypes.findIndex(x => x.rideTypeId == this.rideTypeForm.rideTypeId);
       this.localAdminService.allData.rideTypes[index] = x;
+      updateRideType.unsubscribe();
     });
   }
 

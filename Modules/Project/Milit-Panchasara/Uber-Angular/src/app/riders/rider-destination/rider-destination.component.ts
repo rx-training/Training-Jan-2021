@@ -25,9 +25,10 @@ export class RiderDestinationComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.source = this.tripService.source;
-    this.tripService.getLocations().subscribe(x => {
-      x = x.filter(x => x.locationId != this.tripService.source.locationId)
+    let getLocationsSub = this.tripService.getLocations().subscribe(x => {
+      x = x.filter(x => x.locationId != this.tripService.source.locationId);
       this.locationList.push(...x);
+      getLocationsSub.unsubscribe();
     });
     this.initMap();
   }

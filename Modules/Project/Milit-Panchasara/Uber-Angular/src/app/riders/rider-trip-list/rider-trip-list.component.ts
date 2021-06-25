@@ -16,13 +16,14 @@ export class RiderTripListComponent implements OnInit {
   allTrips:RiderTripInterface[] = [];
 
   ngOnInit(): void {
-    this.riderService.getAllTrips()
+    let getAllTrips = this.riderService.getAllTrips()
     .subscribe(x => {
       this.allTrips = x;
+      getAllTrips.unsubscribe();
     },
     () => {
       alert("Something went wrong.");
-
+      getAllTrips.unsubscribe();
     });
   }
 

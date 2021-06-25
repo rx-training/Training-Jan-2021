@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -7,21 +8,26 @@ import { AdminService } from '../admin.service';
   templateUrl: './admin-home.component.html',
   styleUrls: ['./admin-home.component.css']
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminHomeComponent implements OnInit, OnDestroy {
   localAdminService:AdminService;
+  getAllUsersObv: Subscription;
 
   constructor(private router:Router, private adminService:AdminService) { 
     this.localAdminService = this.adminService;
   }
+  ngOnDestroy(): void {
+    this.getAllUsersObv.unsubscribe();
+  }
 
   ngOnInit(): void {
-    this.adminService.getAllUsers()
+    this.getAllUsersObv = this.adminService.getAllUsers()
     .subscribe(x => {
       this.adminService.allData = x;
     },
     error => {
       console.log(error);
     });
+
   }
 
   logoutAdmin() {

@@ -44,27 +44,31 @@ export class DriverSignUpComponent implements OnInit {
     this.submitingForm = true;
     console.log(this.signUpForm);
 
-    this.authService.registerDriver(this.signUpForm.value)
+    let registerDriverSub = this.authService.registerDriver(this.signUpForm.value)
     .subscribe(x => {
       // save retured user data and start session.
       let encryptedUser = (CryptoJS.AES.encrypt(JSON.stringify(x), GlobalConstants.cryptoPassword)).toString();
       localStorage.setItem('user',encryptedUser);
       localStorage.setItem('session',CryptoJS.AES.encrypt((new Date()).toString(), GlobalConstants.cryptoPassword).toString());
       
-      this.driverService.getProfileData().subscribe(x => {
+      let getProfileDataSub = this.driverService.getProfileData().subscribe(x => {
         this.driverService.setData(x);
+        getProfileDataSub.unsubscribe();
       },
       error => {
         if(error.status == 0) {
           this.router.navigate(['/']);
         }
+        getProfileDataSub.unsubscribe();
       });
       this.submitingForm = false;
       this.router.navigate(['/driver/dashboard']);
+      registerDriverSub.unsubscribe();
     },
     error => {
       alert("Something went wrong!");
       this.submitingForm = false;
+      registerDriverSub.unsubscribe();
     });
   }
 }

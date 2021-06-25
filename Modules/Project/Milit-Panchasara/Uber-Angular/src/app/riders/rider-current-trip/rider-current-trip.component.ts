@@ -35,18 +35,19 @@ export class RiderCurrentTripComponent implements OnInit, OnDestroy {
 
     this.trip = this.tripService.currentTrip;
 
-    this.tripService.getLocations().subscribe(x => {
+    let getLocationsSub = this.tripService.getLocations().subscribe(x => {
       this.tripService.locations = x;
       this.locations = x;
       this.source = this.locations.find(x => x.locationName == this.trip.sourceLocation);
       this.destination = this.locations.find(x => x.locationName == this.trip.destinationLocation);
+      getLocationsSub.unsubscribe();
     })
     
     this.initMap();
 
     // start and complete trip after 5 seconds and 10 seconds interval respectively.
     let interval = setInterval(()=> {
-        this.tripService.getCurrentTrip(this.tripService.currentTrip.tripId).subscribe(x => {
+        let getCurrentTripSub = this.tripService.getCurrentTrip(this.tripService.currentTrip.tripId).subscribe(x => {
           // let tripExists = x.find(x => x.status == 'New');
           console.log(x);
           
@@ -67,13 +68,15 @@ export class RiderCurrentTripComponent implements OnInit, OnDestroy {
               this.router.navigate(['/rider/trip-rating']);
             }
           }
+
+          getCurrentTripSub.unsubscribe();
         });
     }, 2000);
   }
 
   //cancelling trip.
   cancelTrip() {
-    this.tripService.cancelTrip()
+    let cancelTripSub = this.tripService.cancelTrip()
     .subscribe(x => {
       console.log(x);
       this.tripService.currentTrip = null;
@@ -81,6 +84,7 @@ export class RiderCurrentTripComponent implements OnInit, OnDestroy {
       clearInterval(this.interval);
       alert('Trip has been cancelled successfully');
       this.router.navigate(['/rider/dashboard']);
+      cancelTripSub.unsubscribe();
     });
   }
 

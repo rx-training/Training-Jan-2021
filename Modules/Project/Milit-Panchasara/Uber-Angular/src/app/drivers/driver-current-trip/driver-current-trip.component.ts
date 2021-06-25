@@ -36,21 +36,24 @@ export class DriverCurrentTripComponent implements OnInit {
     this.trip = this.tripService.currentTrip;
 
     let interval = setInterval(() => {
-      this.tripService.getTripsForDriver().subscribe(x => {
+      let getTripsForDriver = this.tripService.getTripsForDriver().subscribe(x => {
         let trip = x.find(x => x.tripId == this.trip.tripId);
         if(trip.status == GlobalConstants.tripStatus.Cancelled) {
           clearInterval(interval);
           alert("Trip has been cancelled by the rider.");
           this.router.navigate(['/driver/dashboard']);
         }
+
+        getTripsForDriver.unsubscribe();
       });
     }, 2000);
 
-    this.tripService.getLocations().subscribe(x => {
+    let getLocationsSub = this.tripService.getLocations().subscribe(x => {
       this.tripService.locations = x;
       this.locations = x;
       this.source = this.locations.find(x => x.locationName == this.trip.sourceLocation);
       this.destination = this.locations.find(x => x.locationName == this.trip.destinationLocation);
+      getLocationsSub.unsubscribe();
     })
     
     
@@ -79,30 +82,33 @@ export class DriverCurrentTripComponent implements OnInit {
 
   //starting trip.
   startTrip() {
-    this.tripService.startNewTrip()
+    let startNewTripSub = this.tripService.startNewTrip()
     .subscribe(x => {
       this.trip = x;
       this.tripService.currentTrip = x;
+      startNewTripSub.unsubscribe();
     });
   }
 
   //completing trip.
   completeTrip() {
-    this.tripService.completeTrip()
+    let completeTripSub = this.tripService.completeTrip()
     .subscribe(x => {
       alert('Trip has been completed successfully. Cost of the trip is ' + x.actualFairAmount + 'Rs.');
       this.tripService.currentTrip = null;
       this.trip = null;
       this.router.navigate(['/driver/dashboard']);
+      completeTripSub.unsubscribe();
     });
   }
 
   //cancelling trip.
   cancelTrip() {
-    this.tripService.cancelTripFromDriver()
+    let cancelTripFromDriverSub = this.tripService.cancelTripFromDriver()
     .subscribe(x => {
       this.tripService.currentTrip = null;
       this.trip = null;
+      cancelTripFromDriverSub.unsubscribe();
       alert('Trip has been cancelled successfully.');
       this.router.navigate(['/driver/dashboard']);
     });

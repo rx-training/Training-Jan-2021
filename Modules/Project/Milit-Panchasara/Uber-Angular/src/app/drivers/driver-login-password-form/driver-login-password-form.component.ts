@@ -36,7 +36,7 @@ export class DriverLoginPasswordFormComponent implements OnInit {
   verifyPasswordAndRedirect() {
     this.submitingForm = true;
     this.authService.loginPassword = this.passwordInput;
-    this.authService.loginDriver()
+    let loginDriverSub = this.authService.loginDriver()
     .subscribe(x => {
 
       // save user data and session data if response is received.
@@ -46,17 +46,20 @@ export class DriverLoginPasswordFormComponent implements OnInit {
       localStorage.setItem('session',CryptoJS.AES.encrypt((new Date()).toString(), this.cryptoPassword).toString());
       
       //call get profile api to get profile data
-      this.driverService.getProfileData().subscribe(x => {
+      let getProfileDataSub = this.driverService.getProfileData().subscribe(x => {
         this.driverService.setData(x);
+        getProfileDataSub.unsubscribe();
       },
       error => {
         if(error.status == 0) {
           alert("Something went wrong!");
           this.router.navigate(['/']);
         }
+        getProfileDataSub.unsubscribe();
       });
       this.submitingForm = false;
       this.router.navigate(['/driver/dashboard']);
+      loginDriverSub.unsubscribe();
     },
     error => {
       console.log(error);

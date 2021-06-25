@@ -36,17 +36,19 @@ export class DriverHomeComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit(): void {
-    this.tripService.getLocations().subscribe(x => {
+    let getLocationsSub = this.tripService.getLocations().subscribe(x => {
       // this.locations = x;
       this.tripService.locations = x;
+      getLocationsSub.unsubscribe();
     });
 
-    this.tripService.getRideTypes().subscribe(x => {
+    let getRideTypesSub = this.tripService.getRideTypes().subscribe(x => {
       // this.rideTypes = x;
       this.tripService.rideTypes = x;
+      getRideTypesSub.unsubscribe();
     });
 
-    this.driverService.getTempTrips().subscribe(x => {
+    let getTempTripsSub = this.driverService.getTempTrips().subscribe(x => {
       console.log(x);
       if(x != null) {
         this.tempTrips = x;
@@ -56,10 +58,11 @@ export class DriverHomeComponent implements OnInit, OnDestroy {
         this.driverService.tempTrips = [];
         this.tempTrips = [];
       }
+      getTempTripsSub.unsubscribe();
     });
 
     this.tempTripInterval = setInterval(()=>{
-      this.driverService.getTempTrips().subscribe(x => {
+      let getTempTripsSub = this.driverService.getTempTrips().subscribe(x => {
           if(x != null) {
             this.tempTrips = x;
             this.driverService.tempTrips = x;
@@ -68,7 +71,8 @@ export class DriverHomeComponent implements OnInit, OnDestroy {
             this.driverService.tempTrips = [];
             this.tempTrips = [];
           }
-        });
+        getTempTripsSub.unsubscribe();
+      });
     }, 2000);
 
     // redirecting if one of above routes is used directly without completing all steps.
@@ -81,9 +85,10 @@ export class DriverHomeComponent implements OnInit, OnDestroy {
     })
 
     //fetching profile data from api.
-    this.driverService.getProfileData().subscribe(x => {
+    let getProfileDataSub = this.driverService.getProfileData().subscribe(x => {
       this.profileData = x as DriverProfile;
       this.driverService.setData(x);
+      getProfileDataSub.unsubscribe();
     }, 
     error => {
       console.log(error);
@@ -96,20 +101,23 @@ export class DriverHomeComponent implements OnInit, OnDestroy {
         this.router.navigate(['/']);
         alert(error.error.message);
       }
+      getProfileDataSub.unsubscribe();
     });
 
     //get trips to check for ongoing trip.
-    this.tripService.getTripsForDriver()
+    let getTripsForDriverSub = this.tripService.getTripsForDriver()
     .subscribe(x => {
-      this.tripService.currentTrip = x.find(x => x.status == GlobalConstants.tripStatus.Started || GlobalConstants.tripStatus.New);
+      this.tripService.currentTrip = x.find(x => x.status == GlobalConstants.tripStatus.Started || x.status == GlobalConstants.tripStatus.New);
       if(this.tripService.currentTrip != null) {
         this.router.navigate(['/driver/current-trip']);
       }
+      getTripsForDriverSub.unsubscribe();
     },
     error => {
       if(error.status == 0) {
         this.router.navigate(['/']);
       }
+      getTripsForDriverSub.unsubscribe();
     });
     // console.clear();
   }
