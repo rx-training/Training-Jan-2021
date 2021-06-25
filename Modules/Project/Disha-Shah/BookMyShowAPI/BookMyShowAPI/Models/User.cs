@@ -15,6 +15,7 @@ namespace BookMyShowAPI.Models
         public string Password { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
+        public int Otp { get; set; }
 
         //public ApplicationUser Users { get; set; }
         //public string registeredUserid { get; set; }

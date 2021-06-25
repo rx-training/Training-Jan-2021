@@ -43,16 +43,18 @@ namespace BookMyShowAPI.Controllers
             var username = "";
             var pass = "";
             var role = "";
+            var userOtp = 0;
 
-            if (otp != 1234)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
-            }
+            //if (otp != 1234)
+            //{
+            //    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
+            //}
 
-            if (users.FindName(model.Username) != null && otp == 1234)
+            if (users.FindName(model.Username) != null)
             {
                 username = model.Username;
                 pass = users.FindPassword(model.Username);
+                userOtp = users.FindName(model.Username).Otp;
                 role = "User";
             }
             else if (admins.FindName(model.Username) != null && otp == 1234)
@@ -69,6 +71,11 @@ namespace BookMyShowAPI.Controllers
             if (model.Password.Trim() != pass)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Password!" });
+            }
+
+            if (otp != userOtp)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
             }
 
             var newToken = await users.LoginUser(username);
@@ -105,7 +112,7 @@ namespace BookMyShowAPI.Controllers
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
 
-            users.CreateUser(model);
+            //users.CreateUser(model);
 
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
 

@@ -93,6 +93,20 @@ namespace BookMyShowAPI.Repository
 
             if (result.Succeeded)
             {
+                Random rnd = new Random();
+                var otp = rnd.Next(1000, 9999);
+
+                context.Users.Add(new User()
+                {
+                    ContactNo = model.PhoneNumber,
+                    Email = model.Email,
+                    Password = ProtectPassword(model.Password),
+                    UserName = model.Username,
+                    Otp = otp
+                });
+
+                context.SaveChanges();
+
                 var confirmEmailToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
                 var encodedEmailToken = Encoding.UTF8.GetBytes(confirmEmailToken);
                 var validEmailToken = WebEncoders.Base64UrlEncode(encodedEmailToken);
@@ -103,7 +117,7 @@ namespace BookMyShowAPI.Repository
 
                 request.ToEmail = model.Email;
                 request.Subject = $"Hello {model.Username}, Confirm Your Email!";
-                request.Body = $"<h1>You have successfully registered yourself with BookMyShow!</h1><h4>Your OTP is: 1234</h4><p><a href='{url}'>Click here</a> to verify your email</p>";
+                request.Body = $"<h1>You have successfully registered yourself with BookMyShow!</h1><h4>Your OTP is: {otp}</h4><p><a href='{url}'>Click here</a> to verify your email</p>";
 
                 try
                 {

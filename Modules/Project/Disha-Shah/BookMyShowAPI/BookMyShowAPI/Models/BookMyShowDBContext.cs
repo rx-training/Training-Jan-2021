@@ -1033,6 +1033,9 @@ namespace BookMyShowAPI.Models
                 entity.Property(e => e.UserName)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Otp)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<VCitiesRegion>(entity =>
