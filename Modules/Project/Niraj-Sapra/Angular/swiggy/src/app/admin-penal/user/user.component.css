@@ -1,0 +1,13 @@
+.deletebtn{
+    margin: 10px 0px;
+    border-radius: 20px;
+}
+.valdefault{
+    display: none;
+}
+.displayclass{
+    display: table;
+}
+.removeclass{
+    display: none;
+}

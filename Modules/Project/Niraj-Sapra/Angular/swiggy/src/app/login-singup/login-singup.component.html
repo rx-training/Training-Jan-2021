@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Swiggi Project</title>
+    </head>
+    <body>
+        <router-outlet></router-outlet>
+        <div id="#loginsingup">
+            <section>
+                <div class="container-fluid" id="firstsection">
+                    <div class="row">
+                        <div class="ml-4  col colforuse">
+                                <div class="mt-4 mb-5 ">
+                                    <div>
+                                        <div class="colforuse w-50 float-left">
+                                            <img style="width: auto; height: 70px;" src="../../assets/img/swi.jpg" alt="Swiggi-logo">
+                                        </div>
+                                        <div class="colforuse text-right pt-4 loginbox">
+                                            <div>
+                                                <button class="btn btn-primary text-light mx-2"   (click)="open(mymodal)">Login</button>
+                                                <button class="text-light btn btn-secondary btn-outline-primary  mx-1 signup" (click)="open(secModal)">Sign up</button>
+                                            </div>
+                                            <ng-template #mymodal let-modal>
+                                              <div class="modal-header">
+                                                <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+                                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                                  <span aria-hidden="true">×</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                This is example from ItSolutionStuff.com
+                                                <div class="w-50 float-left">
+                                                    <span class="h2">Login</span><br>
+                                                    <span class="">or</span>
+                                                    <span class="" style="color: chocolate;">
+                                                        <a href="" data-toggle="modal" data-target="#secModal" style="color: chocolate;"> create an account </a></span><br>
+                                                    <span class="text-dark mt-3" style="border-bottom:1px solid black; width: 20px;display: table;"></span>
+                                                  </div>
+                                                  <div class="float-right">
+                                                      <img class="" alt="" src="../../assets/loginimage/logins.jpg" width="100" height="105">
+                                                  </div>
+                                                </div>
+                                                <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+                                                <div  class="form-group mx-3 mb-0" style="position: relative; border: 1px solid #d4d5d9;">
+                                                    <!--[(ngModel)] ="options"-->
+                                                    <select  class="model-input focusforuse" formControlName="options"  id="typeofuser" name="admintype">
+                                                        <option value="user" >User</option>
+                                                        <option value="admin">Admin</option>
+                                                    </select>
+                                                    <label class="phoneno" for="mobile">Select Visitor Type</label>
+                                                </div>
+                                                <div class="form-group mx-3 mb-0" style="position: relative; border: 1px solid #d4d5d9;">
+                                                    <input class="model-input focusforuse" type="tel" formControlName = "phoneno" name="mobile" id="mobilenologin" tabindex="1" autocomplete="off" value="">
+                                                    <div class=""></div>
+                                                    <label class="phoneno phoneloginno"  id="loginphoneno" for="mobile" >Phone number</label>
+                                                </div>
+                                                <div class="form-group mx-3 mb-0" style="position: relative; border: 1px solid #d4d5d9;">
+                                                    <input class="model-input" type="password" name="pwds" formControlName = "lpassword" id="passwords"  tabindex="1" autocomplete="off" value="">
+                                                    <div class=""></div>
+                                                    <label class="phoneno pass" id="loginpass" for="password">Password</label>
+                                                </div>
+                                                <div class="validdatas mx-3" id="validdata">Enter Valid Phone no and Password</div>
+                                                <div class="my-3 text-center text-white">
+                                                    <button type="submit" data-dismiss="modal" class="btn btn-primary"  (click)="modal.close('Save click')">Login</button>
+                                                </div>
+                                                </form>
+                                            </ng-template>
+                                            <!--sec Model-->
+                                            <ng-template #secModal let-modal>
+                                                <div class="modal-header">
+                                                  <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+                                                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                                    <span aria-hidden="true">×</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="w-50 float-left">
+                                                        <span class="h2">Sign up</span><br>
+                                                        <span class="">or</span>
+                                                        <span class="" style="color: chocolate;">  
+                                                            <a href="" data-toggle="modal" data-target="#myModal" style="color: chocolate;">login to your account</a>
+                                                        </span><br>
+                                                        <span class="text-dark mt-3" style="border-bottom:1px solid black; width: 20px;display: table;"></span>
+                                                      </div>
+                                                      <div class="float-right">
+                                                          <img class="" alt="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r" width="100" height="105">
+                                                      </div>
+                                            </div>
+                                                <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
+                                                    <div class="mt-3 mx-3 focusforuse" style="position: relative; border: 1px solid #d4d5d9;">
+                                                        <select class="model-input focusforuse" formControlName="options" id="typeofuser"  name="admintype">
+                                                            <option value="user">User</option>
+                                                            <option value="admin">Admin</option>
+                                                        </select>
+                                                        <label class="phoneno" for="mobile">Select Visitor Type</label>
+                                                    </div>
+                                                    <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
+                                                        <input class="model-input focusforuse" type="tel" formControlName = "phoneno" name="mobile"  id="mobileno" tabindex="1" autocomplete="off" value="">
+                                                        <div class=""></div>
+                                                        <label class="phoneno phonesignup" id="signphoneno" for="mobile">Phone number</label>
+                                                    </div>
+                                                
+                                                    <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
+                                                        <input class="model-input focusforuse"  type="text" formControlName = "names"  name="name" id="name" tabindex="1" autocomplete="off" value="">
+                                                        <div class=""></div>
+                                                        <label class="name" for="name" id="signname">Name</label>
+                                                    </div>
+                                                    <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
+                                                        <input class="model-input focusforuse" type="email" formControlName = "emails"  name="email" id="email" tabindex="1" autocomplete="off" value="">
+                                                        <div class=""></div>
+                                                        <label class="email" for="email" id="signemail">Email-Id</label>
+                                                    </div>
+                                                    <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
+                                                        <input class="model-input focusforuse" type="password" formControlName = "lpassword"  name="pwd" id="pwd" tabindex="1" autocomplete="off" value="">
+                                                        <div class=""></div>
+                                                        <label class="password"  for="password" id="signpassword">Password</label>
+                                                    </div>
+                                                    <div class=" py-2 my-3 text-center text-white">
+                                                        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="modal.close('Save click')">SignUp</button>
+                                                    </div> 
+                                                </form>
+                                              </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="py-4">
+                                    <h1 class=""><div>Late night at office?</div></h1>
+                                    <h2 class="h4  simpletext mb-3">Order food from favourite restaurants near you.</h2>
+                                </div>
+                                <div>
+                                    <div class="float-left border border-1 py-3 w-75">
+                                        <div class="float-left w-75 borderlocation" >
+                                            <input type="text" class="w-100 border border-0 " value="" id="location" autocomplete="off" tabindex="1" placeholder="Enter your delivery location" maxlength="30">
+                                            <label class="" for="location"></label>
+                                        </div>
+                                        <div class="float-left pr-3  w-25 ">
+                                            <span class="">Locate Me</span>
+                                        </div>
+                                    </div>
+                                    <div class="findfood text-center">
+                                        <a class="findfooduse text-center"><span>FIND FOOD</span></a>
+                                    </div>
+                                </div>
+                                <h3 class="textcolor text-uppercase textcity">Popular cities in India</h3>
+                                <div class="mr-3">
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="/ahmedabad" class="nav-link textforcity">Ahmedabad</a>
+                                        </li>
+                                        <li class="nav-item"><a href="/bangalore" class="nav-link textcolor">Bangalore</a></li>
+                                        <li class="nav-item"><a href="/chennai" class="nav-link textforcity">Chennai</a>
+                                        </li><li class="nav-item"><a href="/delhi" class="nav-link textcolor">Delhi</a></li>
+                                        <li class="nav-item"><a href="/gurgaon" class="nav-link textforcity">Gurgaon</a></li>
+                                        <li class="nav-item"><a href="/hyderabad" class="nav-link textcolor">Hyderabad</a></li>
+                                        <li class="nav-item"><a href="/kolkata" class="nav-link textforcity">Kolkata</a></li>
+                                        <li class="nav-item"><a href="/mumbai" class="nav-link textcolor">Mumbai</a></li>
+                                        <li class="nav-item"><a href="/pune" class="nav-link textforcity">Pune</a></li>
+                                        <li class="nav-item ">
+                                            <a href="#city-links" class="nav-link textcolor"> <!-- -->&amp; more.</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>
+                        <div class="col ml-5 colforuse" id="sectionimg">
+                            <img class="img-fliuld" width="100%" height="100%" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_1340/Lunch1_vlksgq" alt="food-photo">
+                        </div>
+                    </div>
+                </div>
+    
+            </section>
+            <section>
+                <div class="container-fluid orderstep">
+                    <div>
+                        <div class="mx-4 orderstep">
+                            <div class="row pb-5">
+                                <div class="col float-left">
+                                    <div class="card px-5  ordercardcolor border border-0 text-center">
+                                        <div class="">
+                                            <img class="mb-3" width="105" height="199" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_210,h_398/4x_-_No_min_order_x0bxuf">
+                                        </div>
+                                        <div class="card-body">
+                                          <h5 class="card-title">No Minimum Order</h5>
+                                          <p class="card-text">Order in for yourself or for the group, with no restrictions on order value</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col float-left">
+                                    <div class="card px-5  ordercardcolor border border-0 text-center">
+                                        <div class="">
+                                            <img class="mb-3" width="105" height="199" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_224,h_412/4x_Live_order_zzotwy">
+                                        </div>
+                                        <div class="card-body">
+                                          <h5 class="card-title">Live Order Tracking</h5>
+                                          <p class="card-text">Know where your order is at all times, from the restaurant to your doorstep</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col float-left">
+                                    <div class="card px-5  ordercardcolor border border-0 text-center">
+                                        <div class="">
+                                            <img class="mb-3" width="105" height="199" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_248,h_376/4x_-_Super_fast_delivery_awv7sn">
+                                        </div>
+                                        <div class="card-body">
+                                          <h5 class="card-title">Lightning-Fast Delivery</h5>
+                                          <p class="card-text">Experience Swiggy's superfast delivery for food delivered fresh & on time</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <article>
+                <div> 
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="ml-4 col-4 colforuse float-left">
+                                <div class="h1 mt-5 pt-5 w-75">Restaurants in your pocket</div>
+                                <div class="pt-3 pb-5 text-secondary h5">Order from your favorite restaurants &amp; track on the go, with the all-new Swiggy app.</div>
+                                <div>
+                                    <a href="https://play.google.com/store/apps/details?id=in.swiggy.android" target="_blank" rel="noopener noreferrer">
+                                        <img class="mr-2" height="54" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_108/play_ip0jfp">
+                                    </a>
+                                    <a href="https://itunes.apple.com/in/app/swiggy-food-order-delivery/id989540920" target="_blank" rel="noopener noreferrer">
+                                        <img class="" height="54" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_108/iOS_ajgrty">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col colforuse float-left">
+                                <div>
+                                    <img class="" width="100%" height="489px" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_768,h_978/pixel_wbdy4n">
+                                </div>
+                            </div>
+                            <div class="col colforuse ">
+                                <div>
+                                    <img class="" width="100%" height="489px" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_768,h_978/iPhone_wgconp_j0d1fn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
