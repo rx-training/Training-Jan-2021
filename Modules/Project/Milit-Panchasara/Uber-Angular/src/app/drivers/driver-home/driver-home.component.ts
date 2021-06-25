@@ -5,6 +5,7 @@ import { TripService } from 'src/app/services/trip.service';
 import { Router } from '@angular/router';
 import { LocationInterface } from 'src/app/models/Location';
 import { RideTypeInterface } from 'src/app/models/RideType';
+import { GlobalConstants } from 'src/app/common/global-constants';
 
 @Component({
   selector: 'app-driver-home',
@@ -100,7 +101,7 @@ export class DriverHomeComponent implements OnInit, OnDestroy {
     //get trips to check for ongoing trip.
     this.tripService.getTripsForDriver()
     .subscribe(x => {
-      this.tripService.currentTrip = x.find(x => x.status == 'Started' || x.status == 'New');
+      this.tripService.currentTrip = x.find(x => x.status == GlobalConstants.tripStatus.Started || GlobalConstants.tripStatus.New);
       if(this.tripService.currentTrip != null) {
         this.router.navigate(['/driver/current-trip']);
       }

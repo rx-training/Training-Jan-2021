@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "api": "assignment1.Api",
+    "model": "assignment1.Models",
+    "context": "assignment1.BoundedContext",
+    "domain": "assignment1.Domain",
+	"unitOfWork": "assignment1.UnitOfWork",
+    "infrastructure": "assignment1.Infrastructure",
+    "azureFunctionHttp":"",
+    "portal":"",
+    "azureFunctionBackground":""
+  },
+  "path": {
+    "dbConnection": {
+      "main": "Database.ConnectionString.Main"
+    },
+    "folder": {
+      "model": "DbEntities",
+      "context": "",
+	  "enums": "",
+	  "localizeValidationMessage": "wwwroot"
+    }
+  },
+  "annotations": {
+    "rxweb": false
+  },
+  "config": {
+    "generateEnums": false,
+    "commanTableSchema": "dbo",
+    "validationMessageLocalizationId": "15"
+  }
+}

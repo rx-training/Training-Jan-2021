@@ -5,7 +5,7 @@
     </div>
     <div class=" card-body">
         <select class="form-control" name="pickuplocation" id="pickuplocation" (change)="setSourceAndRedirect()" value="0" #locationValue [(ngModel)]="locationInput">
-                <option value="0">Add a pickup location</option>
+                <option value="0">Add a destination location</option>
                 <option  *ngFor="let location of locationList;let i = index" value="{{location.locationId}}">{{location.locationName}}</option>
         </select>
         <a href="#" class=" text-decoration-none text-dark">

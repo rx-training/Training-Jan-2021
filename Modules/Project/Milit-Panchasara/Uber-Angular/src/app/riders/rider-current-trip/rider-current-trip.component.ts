@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RiderTripInterface } from 'src/app/models/RiderTrip';
 import { TripService } from 'src/app/services/trip.service';
 import { LocationInterface } from 'src/app/models/Location';
+import { GlobalConstants } from 'src/app/common/global-constants';
 
 @Component({
   selector: 'app-rider-current-trip',
@@ -50,14 +51,14 @@ export class RiderCurrentTripComponent implements OnInit, OnDestroy {
           console.log(x);
           
           if(x != null) {
-            if(x.status == 'New' || x.status == 'Started'){
+            if(x.status == GlobalConstants.tripStatus.New || x.status == GlobalConstants.tripStatus.Started){
               this.tripService.currentTrip = x;
               this.trip = x;
             }
             else {
               this.trip = null;
               clearInterval(interval);
-              if(x.status == "Cancelled"){
+              if(x.status == GlobalConstants.tripStatus.Cancelled){
                 alert("Trip has been cancelled by the driver.");
               }
               else {

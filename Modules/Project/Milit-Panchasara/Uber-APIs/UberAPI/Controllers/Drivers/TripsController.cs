@@ -141,7 +141,7 @@ namespace UberAPI.Controllers.Drivers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
             }
 
-            var tripActionTypes = new List<string>() { "TripCancelled", "TripCompleted", "TripStarted" };
+            var tripActionTypes = new List<string>() { TripAction.TripCancelled, TripAction.TripCompleted, TripAction.TripStarted };
 
 
             if (!tripActionTypes.Contains(request.Action) || Convert.ToInt64(tripId) != request.TripId)

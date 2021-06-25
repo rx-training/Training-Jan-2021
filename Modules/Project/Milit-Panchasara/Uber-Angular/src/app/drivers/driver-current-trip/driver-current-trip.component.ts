@@ -3,6 +3,7 @@ import { RiderTripInterface } from 'src/app/models/RiderTrip';
 import { TripService } from 'src/app/services/trip.service';
 import { Router } from '@angular/router';
 import { LocationInterface } from 'src/app/models/Location';
+import { GlobalConstants } from 'src/app/common/global-constants';
 
 @Component({
   selector: 'app-driver-current-trip',
@@ -37,7 +38,7 @@ export class DriverCurrentTripComponent implements OnInit {
     let interval = setInterval(() => {
       this.tripService.getTripsForDriver().subscribe(x => {
         let trip = x.find(x => x.tripId == this.trip.tripId);
-        if(trip.status == 'Cancelled') {
+        if(trip.status == GlobalConstants.tripStatus.Cancelled) {
           clearInterval(interval);
           alert("Trip has been cancelled by the rider.");
           this.router.navigate(['/driver/dashboard']);
