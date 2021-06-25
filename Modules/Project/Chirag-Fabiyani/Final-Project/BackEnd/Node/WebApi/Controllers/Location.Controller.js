@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router({mergeParams: true});
 const mongoose = require('mongoose');
-const Locations = require('../Models/Location.Model')
+const Locations = require('../Models/Location.Model');
 
 const mongoDB = 'mongodb://127.0.0.1/OLX';
 
