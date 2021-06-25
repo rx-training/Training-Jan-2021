@@ -105,10 +105,15 @@ namespace UberAPI.Code.RepositoryDB
             return newToken;
         }
 
-        public async Task<string> LoginUser(string id)
+        public async Task<string> LoginUser(string id, string password)
         {
             // get user from id
             var user = await userManager.FindByIdAsync(id);
+
+            if (user == null || !await userManager.CheckPasswordAsync(user, password))
+            {
+                return String.Empty;
+            }
 
             // get token for the user
             return await this.GetToken(user);

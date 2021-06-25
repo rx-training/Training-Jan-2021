@@ -70,10 +70,10 @@ namespace UberAPI.Models
 
                 entity.Property(e => e.ModifiedAt).HasColumnType("datetime");
 
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Password)
+                //    .IsRequired()
+                //    .HasMaxLength(100)
+                //    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ApplicableIncentive>(entity =>
@@ -164,10 +164,10 @@ namespace UberAPI.Models
 
                 entity.Property(e => e.ModifiedAt).HasColumnType("datetime");
 
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Password)
+                //    .IsRequired()
+                //    .HasMaxLength(100)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.SessionExpiresIn).HasColumnType("datetime");
             });
@@ -432,10 +432,10 @@ namespace UberAPI.Models
 
                 entity.Property(e => e.ModifiedAt).HasColumnType("datetime");
 
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Password)
+                //    .IsRequired()
+                //    .HasMaxLength(100)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.SessionExpiresIn).HasColumnType("datetime");
             });

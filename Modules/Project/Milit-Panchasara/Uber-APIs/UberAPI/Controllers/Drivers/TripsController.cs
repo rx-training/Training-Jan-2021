@@ -12,7 +12,7 @@ using UberAPI.Models.Auth;
 namespace UberAPI.Controllers.Drivers
 {
     [Authorize(Roles = UserRoles.DriverRole)]
-    [Route("api/driver/{id}/[controller]")]
+    [Route("api/driver/{driverId}/[controller]")]
     [ApiController]
     public class TripsController : ControllerBase
     {
@@ -29,22 +29,22 @@ namespace UberAPI.Controllers.Drivers
             this.rideTypeRepo = rideTypeRepo;
         }
 
-        // GET: api/driver/{id}/trips/search
+        // GET: api/driver/{driverId}/trips/search
         [HttpGet("search")]
-        public ActionResult<List<KeyValuePair<Tuple<long,long>,TempTrip>>?> GetTempTrip(int id)
+        public ActionResult<List<KeyValuePair<Tuple<long,long>,TempTrip>>?> GetTempTrip(int driverId)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
-            if (!driverRepo.ValidateDriver(cred, id))
+            if (!driverRepo.ValidateDriver(cred, driverId))
             {
                 return Unauthorized();
             }
-            var rider = driverRepo.Find(x => x.DriverId == id).Single();
+            var rider = driverRepo.Find(x => x.DriverId == driverId).Single();
             if (rider.IsBlocked == true)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
             }
 
-            var keys = Startup.tempTripCache.Keys.Where(x => x.Item1 == id).ToList();
+            var keys = Startup.tempTripCache.Keys.Where(x => x.Item1 == driverId).ToList();
             var data = Startup.tempTripCache.Where(x => keys.Contains(x.Key)).ToList();
             if(data.Count == 0)
             {
@@ -53,22 +53,22 @@ namespace UberAPI.Controllers.Drivers
             return data;
         }
 
-        // DELETE: api/driver/{id}/trips/search/{riderId}
+        // DELETE: api/driver/{driverId}/trips/search/{riderId}
         [HttpDelete("search/{riderId}")]
-        public ActionResult RemoveTempTrip(int id, long riderId)
+        public ActionResult RemoveTempTrip(int driverId, long riderId)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
-            if (!driverRepo.ValidateDriver(cred, id))
+            if (!driverRepo.ValidateDriver(cred, driverId))
             {
                 return Unauthorized();
             }
-            var rider = driverRepo.Find(x => x.DriverId == id).Single();
+            var rider = driverRepo.Find(x => x.DriverId == driverId).Single();
             if (rider.IsBlocked == true)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
             }
 
-            var key = Startup.tempTripCache.Keys.FirstOrDefault(x => x.Item1 == id && x.Item2 == riderId);
+            var key = Startup.tempTripCache.Keys.FirstOrDefault(x => x.Item1 == driverId && x.Item2 == riderId);
             if (key == null)
             {
                 return Ok();
@@ -77,34 +77,34 @@ namespace UberAPI.Controllers.Drivers
             return StatusCode(StatusCodes.Status200OK, new Response { Status = "Error", Message = "No driver found, please try again." }); ;
         }
 
-        // GET: api/driver/{id}/trips
+        // GET: api/driver/{driverId}/trips
         [HttpGet]
-        public ActionResult<IEnumerable<VTripsData>> GetAllTrips(int id)
+        public ActionResult<IEnumerable<VTripsData>> GetAllTrips(int driverId)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
-            if (!driverRepo.ValidateDriver(cred, id))
+            if (!driverRepo.ValidateDriver(cred, driverId))
             {
                 return Unauthorized();
             }
-            var rider = driverRepo.Find(x => x.DriverId == id).Single();
+            var rider = driverRepo.Find(x => x.DriverId == driverId).Single();
             if (rider.IsBlocked == true)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
             }
 
-            return tripRepo.GetAllTripsForDriver(id).OrderByDescending(x => x.TripId).ToList();
+            return tripRepo.GetAllTripsForDriver(driverId).OrderByDescending(x => x.TripId).ToList();
         }
 
-        // POST: api/driver/{id}/trips
+        // POST: api/driver/{driverId}/trips
         [HttpPost]
-        public ActionResult<VTripsData> SetNewTrip(int id, NewTripInput request)
+        public ActionResult<VTripsData> SetNewTrip(int driverId, NewTripInput request)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
-            if (!driverRepo.ValidateDriver(cred, id))
+            if (!driverRepo.ValidateDriver(cred, driverId))
             {
                 return Unauthorized();
             }
-            var rider = driverRepo.Find(x => x.DriverId == id).Single();
+            var rider = driverRepo.Find(x => x.DriverId == driverId).Single();
             if (rider.IsBlocked == true)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
@@ -119,23 +119,23 @@ namespace UberAPI.Controllers.Drivers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Error occured!" });
             }
 
-            var tripData = tripRepo.SetNewTrip(id, request.RiderId, source, destination, rideType);
+            var tripData = tripRepo.SetNewTrip(driverId, request.RiderId, source, destination, rideType);
 
             if (tripData == null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Error occured while setting trip!" });
             return tripData;
         }
 
-        // PUT: api/driver/{id}/trips/{tripId}
+        // PUT: api/driver/{driverId}/trips/{tripId}
         [HttpPut("{tripId}")]
-        public ActionResult<VTripsData> UpdateTrip(int id, int tripId, UpdateTripInput request)
+        public ActionResult<VTripsData> UpdateTrip(int driverId, int tripId, UpdateTripInput request)
         {
             var cred = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value;
-            if (!driverRepo.ValidateDriver(cred, id))
+            if (!driverRepo.ValidateDriver(cred, driverId))
             {
                 return Unauthorized();
             }
-            var rider = driverRepo.Find(x => x.DriverId == id).Single();
+            var rider = driverRepo.Find(x => x.DriverId == driverId).Single();
             if (rider.IsBlocked == true)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
