@@ -68,6 +68,7 @@ export class NavbarComponent implements OnInit {
   NavbarFlag = true;
   UserName = '';
   UId =0;
+  searchName = '';
   User: User = {userId : 0, userFirstName: '', userMiddleName: '', userLastName: '', userContactNo: '', userEmail: '', userLogIn: '' }
   checkUrl() {
     setTimeout(() => {
@@ -125,5 +126,22 @@ export class NavbarComponent implements OnInit {
     else {
       this.router.navigate(['../Orders'], { relativeTo: this.route });
     }
+  }
+  search()
+  {
+    if(this.searchName == '')
+    {
+      this.router.navigate(['../Search','All'],{relativeTo : this.route});
+      this.searchName='';
+    }
+    else
+    {
+      this.router.navigate(['../Search',this.searchName],{relativeTo : this.route});
+      this.searchName='';  
+    }
+  }
+  Location()
+  {
+   
   }
 }

@@ -30,5 +30,15 @@ export class SimilarProductComponent implements OnInit {
   {
     this.router.navigate(['../../Product',Id],{relativeTo : this.route});
   }
-
+  imgPath(str : string)
+  {
+    if(str.startsWith('assets'))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }

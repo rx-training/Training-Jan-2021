@@ -40,6 +40,17 @@ export class Section5Component implements OnInit {
       this.productArr = data;
     });
   }
+  imgPath(str : string)
+  {
+    if(str.startsWith('assets'))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
   showProduct(ProductId : number)
   {
     this.router.navigate(['../Product',ProductId],{relativeTo : this.route});

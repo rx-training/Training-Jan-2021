@@ -20,6 +20,14 @@ import { SimilarProductComponent } from './product/similar-product/similar-produ
 import { UserComponent } from './user/user.component';
 import { CartComponent } from './user/cart/cart.component';
 import { OrderComponent } from './user/order/order.component';
+import { SearchComponent } from './search/search.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminSellerComponent } from './admin/admin-seller/admin-seller.component';
+import { AdminBrandComponent } from './admin/admin-brand/admin-brand.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminSellerInfoComponent } from './admin/admin-seller-info/admin-seller-info.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +46,19 @@ import { OrderComponent } from './user/order/order.component';
     SimilarProductComponent,
     UserComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    SearchComponent,
+    AdminComponent,
+    AdminHomeComponent,
+    AdminProductComponent,
+    AdminSellerComponent,
+    AdminBrandComponent,
+    AdminCategoryComponent,
+    AdminSellerInfoComponent
   ],
   imports: [
     BrowserModule,
+   
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

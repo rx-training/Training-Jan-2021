@@ -30,7 +30,7 @@ namespace AmazonDemo.Models.Repository
                         Product prc = product.GetById(cls.ProductId);
                         ordered.ProductId = prc.ProductId;
                         ordered.Quantity = cls.Quantity;
-                        ordered.Bill = (int)(cls.Quantity * prc.ProductPrice);
+                        ordered.Bill = (int)(cls.Quantity * (prc.ProductPrice - prc.Offer * prc.ProductPrice /100));
                         ordered.OrderedDate = DateTime.Now;
                         context.SaveChanges();
                         return $"OrderId {ordered.OrderId} is updated with product id : {cls.ProductId}, Quantity : {cls.Quantity}, Bill : {ordered.Bill}";

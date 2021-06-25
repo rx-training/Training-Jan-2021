@@ -13,9 +13,11 @@ namespace AmazonDemo.Controllers
     public class BrandController : Controller
     {
         private readonly IBrand brand;
+        private readonly IProduct product;
         private readonly AmazonContext context;
-        public BrandController( IBrand brand, AmazonContext context)
+        public BrandController( IBrand brand, AmazonContext context, IProduct product)
         {
+            this.product = product;
             this.brand = brand;
             this.context = context;
         }
@@ -25,11 +27,33 @@ namespace AmazonDemo.Controllers
         {
             return brand.GetAll();
         }
+        
+        [HttpGet("{BrandName}")]
+        public Brand GetByBrandName(string BrandName)
+        {
+            return this.brand.Find(s => s.BrandName == BrandName).First();
+        }
 
         [HttpGet("{BrandName}")]
         public IEnumerable<Brand> GetByName(string BrandName)
         {
             return brand.Find(s => s.BrandName.ToLower().Contains(BrandName.ToLower())) ;
+        }
+
+        [HttpGet("{BrandName}")]
+        public IEnumerable<Product> GetProductByBrand(string BrandName)
+        {
+            IEnumerable<Brand> brands = brand.Find(s => s.BrandName.ToLower().Contains(BrandName.ToLower()));
+            List<Product> products = new List<Product>();
+            foreach (var item in brands)
+            {
+                IEnumerable<Product> prc = product.Find(s => s.BrandId == item.BrandId);
+                foreach (var p in prc)
+                {
+                    products.Add(p);
+                }
+            }
+            return products;
         }
 
         [HttpGet("{BrandId}")]

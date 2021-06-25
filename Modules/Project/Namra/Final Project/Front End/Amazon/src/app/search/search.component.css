@@ -1,0 +1,22 @@
+@media screen and (max-width : 600px) {
+    .display-4 {
+        font-size: large;
+    }
+    .seachProduct{
+        max-height: 250px;
+        min-height: 150px;
+    }
+}
+@media screen and (min-width : 600px) {
+    .seachProduct{
+        max-height: 255px;
+        min-height: 200px;
+    }
+    .hoverSearch:hover{
+        background-color: rgba(55, 158, 255, 0.582);
+    }
+    .cardShadow :hover{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transform: scale(1.05);
+    }
+}

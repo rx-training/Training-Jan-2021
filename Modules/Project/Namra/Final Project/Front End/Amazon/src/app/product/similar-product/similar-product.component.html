@@ -5,7 +5,8 @@
     <tr>
        <td *ngFor= "let l of  products" class="imgShadow">
             <a>
-                <img *ngIf="l.productId!=product.productId" class="mx-2 imgHeight" src="../../../{{l.imgPath}}" (click)='productClick(l.productId)' alt="">
+                <img *ngIf="l.productId!=product.productId && imgPath(l.imgPath)" class="mx-2 imgHeight" src="../../../{{l.imgPath}}" (click)='productClick(l.productId)' alt="">
+                <img *ngIf="l.productId!=product.productId && !imgPath(l.imgPath)" class="mx-2 imgHeight" src="{{l.imgPath}}" (click)='productClick(l.productId)' alt="">
             </a>
        </td> 
     </tr>

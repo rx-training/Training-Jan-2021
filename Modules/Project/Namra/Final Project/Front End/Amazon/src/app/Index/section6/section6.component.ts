@@ -11,5 +11,5 @@ export class Section6Component implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

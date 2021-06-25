@@ -1,10 +1,10 @@
 <div [ngClass]="{light : darkFlag == false, dark : darkFlag == true}">
-  <p *ngIf="urlFlag == true" data-toggle="tooltip" data-placement="left" title="Change the theme" [ngClass]="{darkTheme : darkFlag==false, lightTheme : darkFlag==true}" (click)="change()">
+  <p *ngIf="urlFlag == true && adminFlag==false " data-toggle="tooltip" data-placement="left" title="Change the theme" [ngClass]="{darkTheme : darkFlag==false, lightTheme : darkFlag==true}" (click)="change()">
     <span *ngIf='darkFlag==false'><i class="far fa-moon"></i></span>
     <span *ngIf='darkFlag==true'><i class="fas fa-sun"></i></span>
   </p>
-  <app-navbar></app-navbar>
+  <app-navbar *ngIf="adminFlag==false;"></app-navbar>
   <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <app-footer *ngIf="adminFlag==false;"></app-footer>
 </div>
 

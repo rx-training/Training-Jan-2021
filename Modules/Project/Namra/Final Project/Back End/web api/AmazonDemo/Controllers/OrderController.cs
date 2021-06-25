@@ -105,21 +105,38 @@ namespace AmazonDemo.Controllers
             }
         }
 
+        [HttpDelete("{UserID}")]
+        public bool DeleteByUserId(int UserID)
+        {
+            IEnumerable<Order> orders = order.Find(s => s.UserId == UserID);
+            foreach (var item in orders)
+            {
+                order.Delete(item);
+            }
+            return true;
+        }
         
         [HttpPost]
         public int CreateOrder([FromBody] ClassOrder clsOrder)
         {
-            if (user.Any(s => s.UserId == clsOrder.UserId) && product.Any(s => s.ProductId == clsOrder.ProductId) && clsOrder.Quantity <= 10)
+            if(order.Any(s=>s.ProductId == clsOrder.ProductId && s.UserId == clsOrder.UserId))
             {
-                context.Database.ExecuteSqlRaw($"exec spOrder {clsOrder.UserId},{clsOrder.ProductId},{clsOrder.Quantity}");
-
-                Order placedOrder = context.Orders.ToList().Last();
-
-                return (int)placedOrder.OrderId;
+                return 0;
             }
             else
             {
-                return 0;
+                if (user.Any(s => s.UserId == clsOrder.UserId) && product.Any(s => s.ProductId == clsOrder.ProductId) && clsOrder.Quantity <= 10)
+                {
+                    context.Database.ExecuteSqlRaw($"exec spOrder {clsOrder.UserId},{clsOrder.ProductId},{clsOrder.Quantity}");
+
+                    Order placedOrder = context.Orders.ToList().Last();
+
+                    return (int)placedOrder.OrderId;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
         

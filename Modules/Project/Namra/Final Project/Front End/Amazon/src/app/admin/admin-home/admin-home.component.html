@@ -1,0 +1,41 @@
+<div class="container">
+    <p class="text-right mt-3">
+        <span class="text-danger logOut" (click)="logOut()">
+            Log Out&nbsp;<i class="fas fa-power-off"></i>
+        </span>
+    </p>
+</div>
+    
+<div class="container">
+    <div class="row my-3">
+        <div class="col-md-3 col-sm-6 col-6 mb-3">
+            <div class="card bg-light border rounded border-dark" [routerLink]="['Product']">
+                <div class="card-body text-center fontSize my-2 font-weight-normal">
+                    Product
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-6 mb-3">
+            <div class="card bg-light border rounded border-dark" [routerLink]="['Seller']">
+                <div class="card-body text-center fontSize my-2 font-weight-normal">
+                    Seller
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-6 mb-3">
+            <div class="card bg-light border rounded border-dark" [routerLink]="['Brand']">
+                <div class="card-body text-center fontSize my-2 font-weight-normal">
+                    Brand
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-6 mb-3">
+            <div class="card bg-light border rounded border-dark" [routerLink]="['Category']">
+                <div class="card-body text-center fontSize my-2 font-weight-normal">
+                    Category
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

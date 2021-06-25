@@ -15,8 +15,10 @@ namespace AmazonDemo.Controllers
         ISellerProduct sellerProduct;
         private readonly AmazonContext context;
         ISeller seller;
-        public SellerProductController(AmazonContext context, ISellerProduct seller, ISeller sel)
+        IProduct product;
+        public SellerProductController(IProduct product,AmazonContext context, ISellerProduct seller, ISeller sel)
         {
+            this.product = product;
             this.context = context;
             this.sellerProduct = seller;
             this.seller = sel;
@@ -39,5 +41,53 @@ namespace AmazonDemo.Controllers
             }
             return sellers;
         }
+
+        [HttpGet("{SellerId}")]
+        public IEnumerable<Product> GetProductsBySellerId(int SellerId)
+        {
+            IEnumerable<SellerProduct> prc = sellerProduct.Find(s => s.SellerId == SellerId);
+            List<Product> products = new List<Product>();
+            foreach (var item in prc)
+            {
+                products.Add(product.Find(s => s.ProductId == item.ProductId).First());
+            }
+            return products;
+        }
+
+        [HttpGet("{SellerId}")]
+        public IEnumerable<SellerProduct> GetSellerProductBySellerId(int SellerId)
+        {
+            return this.sellerProduct.Find(s => s.SellerId == SellerId);
+        }
+
+        [HttpPost]
+        public bool Create ([FromBody] SellerProduct  sp)
+        {
+            if(!sellerProduct.Any(s=>s.ProductId == sp.ProductId  && s.SellerId == sp.SellerId))
+            {
+                sellerProduct.Create(sp);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public bool Delete(int id)
+        {
+            if(sellerProduct.Any(s=>s.SellerProductId == id))
+            {
+                sellerProduct.Delete(sellerProduct.Find(s=>s.SellerProductId == id).First());
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }

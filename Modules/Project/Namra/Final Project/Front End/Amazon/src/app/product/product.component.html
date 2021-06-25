@@ -1,8 +1,8 @@
 <p class="text-center display-4 my-3">{{productDetail.productName}}</p>
 
 <div class="card-deck mx-2 my-3 mb-4" class="DisplayImageLG" *ngIf="Images.length != 0">
-    <div class="card border border-white" *ngFor="let l of Images">
-        <div class="card-body p-auto">
+    <div class="card  border border-white" *ngFor="let l of Images">
+        <div class=" h-100 card-body center">
             <a>
                 <img src="{{l.imagePath}}" *ngIf="!Starts(l.imagePath)" width="100%" alt="" class="zoom card-img m-auto">
                 <img width="100%" *ngIf="Starts(l.imagePath)" src="../../{{l.imagePath}}" alt="Card1" class="zoom card-img m-auto">
@@ -55,7 +55,7 @@
         <button (click)="AddProduct()" class="button"><i class="fas fa-shopping-cart"></i>&nbsp;Cart</button>
     </div>
     <div class="col-md-2 col-4 text-center">
-        <button class="button"><i class="fas fa-shopping-bag"></i>&nbsp;Buy</button>
+        <button class="button" (click)="Buy()"><i class="fas fa-shopping-bag"></i>&nbsp;Buy</button>
     </div>
     <div class="col-md-4 col-2"></div>
 </div>

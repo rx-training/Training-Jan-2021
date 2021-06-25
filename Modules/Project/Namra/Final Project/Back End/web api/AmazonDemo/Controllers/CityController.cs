@@ -36,7 +36,11 @@ namespace AmazonDemo.Controllers
         {
             return city.Find(s => s.CityName.ToLower().Contains(CityName.ToLower()));
         }
-
+        [HttpGet("{CityName}")]
+        public int GetIdByCityName(string CityName)
+        {
+            return city.Find(s => s.CityName.ToLower().Contains(CityName.ToLower())).First().CityId;
+        }
         //To get city data by id
         [HttpGet("{Id}")]
         public City GetById(int Id)

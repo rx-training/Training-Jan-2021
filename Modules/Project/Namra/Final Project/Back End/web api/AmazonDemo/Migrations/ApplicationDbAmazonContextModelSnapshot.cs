@@ -311,6 +311,36 @@ namespace AmazonDemo.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("AmazonDemo.Models.OrderTable", b =>
+                {
+                    b.Property<int>("PlacedOrderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Bill")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PlacedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PlacedStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Products")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PlacedOrderID");
+
+                    b.ToTable("OrderTables");
+                });
+
             modelBuilder.Entity("AmazonDemo.Models.PlacedOrder", b =>
                 {
                     b.Property<long>("PlacedOrderId")
@@ -318,6 +348,9 @@ namespace AmazonDemo.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("PlacedOrderID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Bill")
                         .ValueGeneratedOnAdd()
@@ -345,6 +378,9 @@ namespace AmazonDemo.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValueSql("((1))");
+
+                    b.Property<int>("SalerId")
+                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

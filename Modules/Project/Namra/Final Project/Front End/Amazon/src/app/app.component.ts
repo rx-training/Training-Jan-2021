@@ -22,15 +22,28 @@ export class AppComponent {
     }
   }
   urlFlag = true;
+  adminFlag = false;
   checkUrl() {
     setTimeout(() => {
+      let link = window.location.href;
       if (window.location.href == "http://localhost:4200/Login") {
         this.urlFlag = false;
       }
       else{
         this.urlFlag = true;
       }
+
+      if(link.includes("Admin"))
+      {
+        this.adminFlag = true;
+      }
+      else
+      {
+        this.adminFlag = false;
+      }
+
       this.checkUrl();
     }, 500);
   }
+  
 }

@@ -24,4 +24,16 @@ export class ProductDescriptionService {
   {
     return this.httpClient.get<Product[]>(this.URL+'ProductDescription/GetProductByDescription/'+dis);
   }
+  CreateDescription(prc : ProductDescription) : Observable<boolean>
+  {
+    return this.httpClient.post<boolean>(this.URL+"ProductDescription/Create",prc);
+  }
+  UpdateDescription(prc : ProductDescription) : Observable<boolean>
+  {
+    return this.httpClient.put<boolean>(this.URL+"ProductDescription/Update",prc);
+  }
+  AnyDescription(ID : number) : Observable<boolean>
+  {
+    return this.httpClient.get<boolean>(this.URL+"ProductDescription/AnyByProductId/"+ID);
+  }
 }

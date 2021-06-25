@@ -34,8 +34,9 @@ export class PlaceOrderService {
     return this.httpClient.get<Product[]>(this.URL+"PlacedOrder/GetPlacedOrderByUser/"+id);
   }
 
-  PlaceOrders(orders : OrderAll[], id : number) : Observable<boolean>
+  PlaceOrders(orders : OrderAll, id : number) : Observable<boolean>
   {
     return this.httpClient.post<boolean>(this.URL+"PlacedOrder/Creates/"+id,orders);
   }
+
 }

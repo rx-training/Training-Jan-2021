@@ -56,5 +56,25 @@ namespace AmazonDemo.Controllers
                 return false;
             }
         }
+
+  
+
+        [HttpDelete("{ProductId}")]
+        public  bool DeleteByProduct(int ProductId)
+        {
+            if(productImage.Any(s=>s.ProductId == ProductId))
+            {
+                IEnumerable<ProductImage> images = productImage.Find(s => s.ProductId == ProductId);
+                foreach (var item in images.ToList())
+                {
+                    productImage.Delete(item);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

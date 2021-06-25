@@ -1,0 +1,15 @@
+.AdminBack{
+    background-image: url("../../assets/Image/Admin1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;   
+    height: 100vh;
+}
+.loginBack{
+    background-color: rgba(0, 0, 0, 0.651);
+}
+.formBack{
+    background-color: rgba(0, 0, 0, 0.151);
+    box-shadow: 5px 10px 8px #ffbb00b9;
+}

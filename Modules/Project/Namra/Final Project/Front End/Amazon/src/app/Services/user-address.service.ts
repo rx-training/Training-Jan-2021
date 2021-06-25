@@ -22,7 +22,6 @@ export class UserAddressService {
   {
     return this.httpClient.put<boolean>(this.URL +"UserAddress/Update", address);
   }
-
   Delete(id : number): Observable<boolean>
   {
     return this.httpClient.delete<boolean>(this.URL+"UserAddress/Delete/"+id);

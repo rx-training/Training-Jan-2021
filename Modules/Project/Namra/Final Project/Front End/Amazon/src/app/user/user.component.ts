@@ -43,4 +43,33 @@ export class UserComponent implements OnInit {
         });
       });
   }
+  Return(id : number)
+  {
+    this.placedService.UpdatePlacedOrder(id,"Returned").subscribe(data=>{
+      if(data==true)
+      {
+        alert("Product is returned successfully..");
+      }
+      else
+      {
+        alert("Not returned...");
+      }
+    });
+    this.GetPlacedOrder();
+  }
+  imgPath(str : string)
+  {
+    if(str.startsWith('assets'))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  viewOrder(id : number)
+  {
+    alert(id);
+  }
 }

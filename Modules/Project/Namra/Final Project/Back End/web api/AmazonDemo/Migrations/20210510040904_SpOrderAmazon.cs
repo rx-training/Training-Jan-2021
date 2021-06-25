@@ -23,7 +23,7 @@ namespace AmazonDemo.Migrations
 										BEGIN 
 											IF(@Quantity <= 10)
 												BEGIN
-													INSERT INTO Orders(UserId, ProductId, Quantity, Bill) VALUES(@CustomerId, @ProductId, @Quantity, (SELECT ProductPrice FROM Products WHERE ProductId = @ProductId) * @Quantity);
+													INSERT INTO Orders(UserId, ProductId, Quantity, Bill) VALUES(@CustomerId, @ProductId, @Quantity, ((SELECT ProductPrice FROM Products WHERE ProductId = @ProductId)-(SELECT ProductPrice FROM Products WHERE ProductId = @ProductId)*(SELECT Offer FROM Products WHERE ProductId = @ProductId)/100) * @Quantity);
 												END
 											ELSE
 												RAISERROR('Product quantity should be less than 10...',16,1);

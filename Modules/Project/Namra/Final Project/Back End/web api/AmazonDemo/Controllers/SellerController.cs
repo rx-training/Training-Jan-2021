@@ -14,8 +14,14 @@ namespace AmazonDemo.Controllers
     {
         private readonly AmazonContext context;
         ISeller seller;
-        public SellerController(AmazonContext context, ISeller seller)
+        ISellerProduct sellerProduct;
+        ISellerAddress sellerAddress;
+        ISellerDeliverable sellerDeliverable;
+        public SellerController(ISellerAddress sellerAddress, ISellerDeliverable sellerDeliverable,ISellerProduct sellerProduct,AmazonContext context, ISeller seller)
         {
+            this.sellerAddress = sellerAddress;
+            this.sellerDeliverable = sellerDeliverable;
+            this.sellerProduct = sellerProduct;
             this.context = context;
             this.seller = seller;
         }
@@ -43,6 +49,18 @@ namespace AmazonDemo.Controllers
             return seller.Find(s => s.SellerCompanyName.ToLower().Contains(CompanyName.ToLower()));
         }
 
+        [HttpGet("{ProductId}")]
+        public IEnumerable<Seller> GetByProduct(int ProductId)
+        {
+            IEnumerable<SellerProduct> sellerProducts = sellerProduct.Find(s => s.ProductId == ProductId);
+            List<Seller> sellers = new List<Seller>();
+            foreach (var item in sellerProducts)
+            {
+                sellers.Add(seller.Find(s => s.SellerId == item.SellerId).First());
+            }
+            return sellers;
+        }
+
         [HttpPost]
         public int Create([FromBody]Seller newSeller)
         {
@@ -58,11 +76,57 @@ namespace AmazonDemo.Controllers
             }
         }
 
+        [HttpPut]
+        public bool Update([FromBody] Seller USeller)
+        {
+            if(seller.Any(s=>s.SellerId == USeller.SellerId))
+            {
+                if(seller.Any(s=>s.SellerCompanyName == USeller.SellerCompanyName))
+                {
+                    if(seller.Find(s=>s.SellerCompanyName==USeller.SellerCompanyName).First().SellerId == USeller.SellerId)
+                    {
+                        seller.Update(USeller);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    seller.Update(USeller);
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
           [HttpDelete("{Id}")]
           public bool Delete(int Id)
           {
             if(seller.Any(s=>s.SellerId == Id))
             {
+                IEnumerable<SellerAddress> sla = this.sellerAddress.Find(s => s.SellerId == Id);
+                IEnumerable<SellerDeliverable> sld = this.sellerDeliverable.Find(s => s.SellerId == Id);
+                IEnumerable<SellerProduct> slp = this.sellerProduct.Find(s => s.SellerId == Id);
+
+                foreach (var item in sla.ToList())
+                {
+                    sellerAddress.Delete(item);
+                }
+                foreach (var item in sld.ToList())
+                {
+                    sellerDeliverable.Delete(item);
+                }
+                foreach (var item in slp.ToList())
+                {
+                    sellerProduct.Delete(item);
+                }
                 seller.Delete(seller.GetById(Id));
                 return true;
             }
@@ -71,6 +135,5 @@ namespace AmazonDemo.Controllers
                 return false;
             }
           }
-
     }
 }

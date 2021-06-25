@@ -1,0 +1,49 @@
+<p class="container display-4 my-4">
+    Search result for "{{searchName}}"
+</p>
+<hr class="container">
+
+<div class="container">
+    <div class="row">
+        <div *ngFor="let l of products" class="col-lg-3 col-md-4 col-sm-6 col-6 p-2">
+            <div class="card  border border-white" (click)="product(l.productId)">
+                <div class="card-header font-weight-bold h5 bg-dark text-white">
+                    {{l.productName}}
+                </div>
+                <div class="card-body">
+                    <a>
+                        <img src="../../{{l.imgPath}}" *ngIf="imgPath(l.imgPath)" alt="Card1" class="seachProduct card-img m-auto">
+                        <img src="{{l.imgPath}}" *ngIf="!imgPath(l.imgPath)" alt="Card1" class="seachProduct card-img m-auto">
+                    </a>
+                </div>
+                <div class="card-footer">
+                    <a class="text-decoration-none text-dark">Price : {{l.productPrice}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="products.length == 0" class="container my-3">
+    <p class="h1 font-weight-normal">
+        No search result found&nbsp;<i class="text-danger fas fa-search"></i>
+    </p>
+</div>
+<div class="container mt-5" *ngIf="searchLogs.length != 0">
+    <p class="h4 text-primary font-weight-normal">
+        Recent searches...
+    </p>
+</div>
+<div class="container" *ngIf="searchLogs.length != 0">
+    <table class="table">
+        <ng-container *ngFor="let l of searchLogs;let idx = index">
+            <tr *ngIf="idx >= lenght-10" class="hoverSearch">
+                <td (click)="search(l)">
+                    {{l}}
+                </td>
+                <td class="text-right">
+                    <i class="fas fa-window-close text-danger" (click)="deleteLog(idx)"></i>
+                </td>
+            </tr>
+        </ng-container>
+    </table>
+</div>

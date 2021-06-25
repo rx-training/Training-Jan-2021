@@ -1,6 +1,6 @@
 export interface ProductImage
 {
-    imageId: number,
+    imageId?: number,
     productId: number,
     imagePath: string
 }

@@ -63,6 +63,17 @@ export class CartComponent implements OnInit {
     ProductId : 0,
     Quantity : 1
   }
+  imgPath(str : string)
+  {
+    if(str.startsWith('assets'))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
   AddOrder(uid : number,pid : number){
     this.cls.UserId = uid;
     this.cls.ProductId = pid;

@@ -2,22 +2,22 @@
     <div class="container-fluid">
         <a (click)="Home()"><i class="mx-4 fab fa-amazon text-light h2 "></i></a>
         <a *ngIf='NavbarFlag == true' class=" location text-light mr-3">
-            <i class="fas fa-map-marker-alt "></i>&ensp; <span class="text-muted">Deliver to </span> India
+            <i class="fas fa-map-marker-alt" (click)="Location()"></i>&ensp; <span class="text-muted">Deliver to </span> India
         </a>
         <div class="input-group w-50 location" *ngIf='NavbarFlag == true'>
             <div class="input-group-prepend dropdown">
                 <span class="input-group-text dropdown-toggle" data-toggle="dropdown">All</span>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">All Department</a>
-                    <a href="#" class="dropdown-item">Books</a>
-                    <a href="#" class="dropdown-item">Games</a>
-                    <a href="#" class="dropdown-item">Computers</a>
-                    <a href="#" class="dropdown-item">Smart Phone</a>
+                    <a href="#" class="dropdown-item" [routerLink]="['../Search/All']">All Department</a>
+                    <a href="#" class="dropdown-item" [routerLink]="['../Search/Book']">Books</a>
+                    <a href="#" class="dropdown-item" [routerLink]="['../Search/Video Game']">Games</a>
+                    <a href="#" class="dropdown-item" [routerLink]="['../Search/Laptop']">Computers</a>
+                    <a href="#" class="dropdown-item" [routerLink]="['../Search/Mobile']">Smart Phone</a>
                 </div>
             </div>
-            <input type="text" class="form-control" placeholder="Search here" id="search1">
-            <div class="input-group-append">
-                <span class="input-group-text bg-light text-dark" onclick="return searchProduct1()"><i
+            <input type="text" class="form-control" [(ngModel)]="searchName" placeholder="Search here" id="search1">
+            <div class="input-group-append" (click)="search()">
+                <span class="input-group-text bg-light text-dark" ><i
                         class="fas fa-search"></i></span>
             </div>
         </div>

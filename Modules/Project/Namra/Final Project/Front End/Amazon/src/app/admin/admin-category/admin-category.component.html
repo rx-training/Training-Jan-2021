@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-4 col-sm-2 col-2"></div>
+    <div class="col-md-4 col-sm-8 col-8">
+        <input type="text" class="form-control mb-3" placeholder="search by category name..." (change)="GetCategories()"
+            [(ngModel)]="findName">
+    </div>
+    <div class="col-md-1 col-sm-0 col-0"></div>
+    <div class="col-md-2 col-sm-12 col-12 mb-3 text-center">
+        <button class="btn btn-outline-success" data-toggle='modal' data-target='#CategoryModal' (click)="AddFlag=true"><i
+                class="fas fa-plus"></i>&nbsp;Category</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let l of categories">
+            <div *ngIf="l.categoryName != 'Dummy'" class="col-lg-3 col-md-4 col-sm-6 col-6 mb-2">
+                <div class="card backBrand border border-dark">
+                    <div class="card-body colorAdd py-auto h4 my-auto text-center">
+                        {{l.categoryName}}
+                    </div>
+                    <div class="card-footer bg-white">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <button class="btn btn-outline-primary border border-white" data-toggle='modal'
+                                    data-target='#CategoryModal' (click)="AddFlag=false;EditData(l.categoryId)">Edit</button>&nbsp;&nbsp;
+                                <button class="btn btn-outline-danger border border-white" (click)="EditData(l.categoryId)" data-toggle='modal'
+                                    data-target='#DeleteModal'>Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-2">
+            <div class="card AddBack border mt-3 border-dark" (click)="AddFlag=true" data-toggle='modal'
+                data-target='#CategoryModal'>
+                <div class="card-body AddColor p-4  h4  text-center">
+                    <i class="fas fa-plus AddColor"></i>&nbsp; Add
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals-->
+
+<div class="modal fade" id="CategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" (click)="Reset()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Category Name :
+                <input type="text" placeholder="category name..." [(ngModel)]="category.categoryName" class="mb-2 p-2 form-control">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancelBtn" data-dismiss="modal" (click)="Reset()">Close</button>
+                <button class="btn btn-outline-success" data-dismiss="modal" (click)="Add()" *ngIf="AddFlag == true">
+                    <i class="fas fa-plus"></i>&nbsp;Add
+                </button>
+                <button class="btn btn-outline-primary" data-dismiss="modal" (click)="Edit()" *ngIf="AddFlag == false">
+                    <i class="fas fa-pencil-alt"></i>&nbsp;Update
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+           
+            <div class="modal-body p-5">
+                <p class="h4 font-weight-normal mb-2">Are you sure you want to delete?</p>
+                <div class="row mt-2">
+                    <div class="col-6 text-center">
+                        <button class="btn btn-outline-danger" data-dismiss="modal" (click)="Delete()"> <i class="fas fa-trash"></i> &nbsp;Delete</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button class="btn btn-outline-dark" (click)="Reset()" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

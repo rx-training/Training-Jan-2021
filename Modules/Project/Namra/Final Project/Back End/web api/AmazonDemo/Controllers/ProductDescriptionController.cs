@@ -28,6 +28,12 @@ namespace AmazonDemo.Controllers
             return productDescription.GetAll();
         }
 
+        [HttpGet("{Id}")]
+        public bool AnyByProductId(int Id)
+        {
+            return productDescription.Any(s => s.ProductId == Id);
+        }
+
         //Description by product Id
         [HttpGet("{Id}")]
         public ProductDescription GetByProductId(int Id)
@@ -68,5 +74,32 @@ namespace AmazonDemo.Controllers
             return products;
         }
 
+        [HttpPost]
+        public bool Create([FromBody] ProductDescription prcDescription)
+        {
+            if(!productDescription.Any(s=>s.ProductId == prcDescription.ProductId))
+            {
+                productDescription.Create(prcDescription);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [HttpPut]
+        public bool Update([FromBody] ProductDescription prc)
+        {
+            if(productDescription.Any(s=>s.ProductId == prc.ProductId))
+            {
+                productDescription.Update(prc);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

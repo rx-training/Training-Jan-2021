@@ -1,5 +1,5 @@
 export interface ProductDescription{
-    productDescriptionId: number;
+    productDescriptionId?: number;
     productId: number;
     productDescription1: string;
     extraDescription: string;

@@ -8,8 +8,10 @@
 <div class="row d-flex justify-content-around">
     <div class="cart" *ngFor="let l of carts;let idx=index">
         <div class="card cart1 border border-white my-4" style="width: 18rem;">
-            <img class="cartImg card-img-top m-auto p-3" (click)="clickProduct(products[idx].productId)"
+            <img class="cartImg card-img-top m-auto p-3" *ngIf="imgPath(products[idx].imgPath)" (click)="clickProduct(products[idx].productId)"
                 src="../../../{{products[idx].imgPath}}" alt="Card image cap">
+            <img class="cartImg card-img-top m-auto p-3" *ngIf="!imgPath(products[idx].imgPath)" (click)="clickProduct(products[idx].productId)"
+            src="{{products[idx].imgPath}}" alt="Card image cap">
             <button class="btn btn-danger button" (click)="deleteCart(l.userId,l.productId)">X</button>
             <div *ngIf="products[idx].offer !=0" class="ribbon ribbon-top-left">
                 <span>{{products[idx].offer}}% OFF</span>

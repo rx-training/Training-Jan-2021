@@ -8,6 +8,7 @@ using AmazonDemo.Models.IRepository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AmazonDemo.Controllers
 {
@@ -17,10 +18,16 @@ namespace AmazonDemo.Controllers
     {
         private readonly AmazonContext context;
         private readonly IPlacedOrder placedOrder;
-        public PlacedOrderController(AmazonContext _context, IPlacedOrder placed)
+        private readonly IUserAddress userAddress;
+        private readonly IProduct product;
+        private readonly IOrder order;
+        public PlacedOrderController(IOrder order,IProduct product, IUserAddress userAddress, AmazonContext _context, IPlacedOrder placed)
         {
+            this.order = order;
+            this.product = product;
             this.context = _context;
             this.placedOrder = placed;
+            this.userAddress = userAddress;
         }
 
         [HttpGet]
@@ -32,13 +39,25 @@ namespace AmazonDemo.Controllers
         [HttpGet("{placedorderid}")]
         public PlacedOrder GetById(int placedorderid)
         {
-            return placedOrder.Find(s=> s.PlacedOrderId == placedorderid).First();
+            return placedOrder.Find(s => s.PlacedOrderId == placedorderid).First();
         }
 
         [HttpGet("{UserId}")]
         public IEnumerable<PlacedOrder> GetOrderByUserId(int UserId)
         {
             return placedOrder.Find(s => s.UserId == UserId);
+        }
+
+        [HttpGet("{UserId}")]
+        public IEnumerable<Product> GetPlacedOrderByUser(int UserId)
+        {
+            IEnumerable<PlacedOrder> placedOrders = placedOrder.Find(s => s.UserId == UserId);
+            List<Product> products = new List<Product>();
+            foreach (var item in placedOrders)
+            {
+                products.Add(product.Find(s => s.ProductId == item.ProductId).First());
+            }
+            return products;
         }
 
         [HttpGet("{OrderId}")]
@@ -53,35 +72,68 @@ namespace AmazonDemo.Controllers
             return placedOrder.Any();
         }
 
-        [HttpPost]
-        public string Create(Order od)
+        [HttpPost("{AddressId}/{SalerId}")]
+        public int Create([FromBody] Order od, int AddressId, int SalerId)
         {
+            if (userAddress.Any(s => s.UserAddressId == AddressId))
+            {
+                PlacedOrder placed = new PlacedOrder();
+                placed.UserId = od.UserId;
+                placed.ProductId = od.ProductId;
+                placed.Bill = od.Bill;
+                placed.PlacedStatus = "Not Delivered";
+                placed.Quantity = od.Quantity;
+                placed.PlacedDate = DateTime.Now;
+                placed.SalerId = SalerId;
+                placedOrder.Create(placed);
+                PlacedOrder lastOrder = context.PlacedOrders.ToList().Last();
 
-            PlacedOrder placed = new PlacedOrder();
-            placed.UserId = od.UserId;
-            placed.ProductId = od.ProductId;
-            placed.Bill = od.Bill;
-            placed.PlacedStatus = "Not Delivered";
-            placed.Quantity = od.Quantity;
-            placed.PlacedDate = DateTime.Now;
-            placedOrder.Create(placed);
-            PlacedOrder lastOrder = context.PlacedOrders.ToList().Last();
+                return (int)lastOrder.PlacedOrderId;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        // To create order of multiple items
+        [HttpPost("{AddressId}")]
+        public bool Creates([FromBody] OrderAll orderAlls , int AddressId)
+        {
+            if(!order.Any(s=>s.OrderId == orderAlls.OrderId))
+            {
+                return false;
+            }
+            long orderId = 0;
+            PlacedOrder pc = new PlacedOrder();
+            
+                pc.AddressId = AddressId;
+                pc.ProductId = orderAlls.ProductId;
+                pc.UserId = orderAlls.UserId;
+                pc.Bill = orderAlls.Bill;
+                pc.PlacedStatus = "Not Delivered";
+                pc.Quantity = orderAlls.Quantity;
+                pc.PlacedDate = DateTime.Now;
+                pc.SalerId = orderAlls.SellerId;
+                orderId = orderAlls.OrderId;
+                placedOrder.Create(pc);
+                orderId = 0;
 
-            return $"Your placed order id is {lastOrder.PlacedOrderId}...";
+            order.Delete(order.Find(s => s.OrderId == orderAlls.OrderId).First());
+            return true;
         }
 
         [HttpPut("{id}/{status}")]
-        public string Update(int id, String status)
+        public bool Update(int id, String status)
         {
             if (placedOrder.Any(s => s.PlacedOrderId == id))
             {
                 PlacedOrder placed = placedOrder.Find(s=> s.PlacedOrderId == id).First();
                 placed.PlacedStatus = status;
-                context.SaveChanges();
-                return $"status for order id : {id} is set to {status}";
+                placedOrder.Update(placed);
+                return true;
             }
             else
-                return $"There is no such order for these order id : {id}";
+                return false;
         }
     }
 }

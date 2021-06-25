@@ -52,7 +52,7 @@
         Look at your Orders &nbsp;<i class="fab lookLogo fa-wpexplorer"></i>
     </p>
     <hr class="container">
-    <table class="table">
+    <table class="table table-responsive-sm text-center">
         <tr>
             <td>
                 Order ID
@@ -63,6 +63,11 @@
             <td>
                 Bill
             </td>
+            <td>
+                Order Date
+            </td>
+            <td></td>
+            <td></td>
         </tr>
         <tr *ngFor="let l of placedProducts; let idx = index">
             <td>
@@ -73,6 +78,19 @@
             </td>
             <td>
                 {{l.bill}}
+            </td>
+            <td>
+                {{l.placedDate}}
+            </td>
+            <td>
+                <button class="btn btn-outline-primary infoButton" (click)="viewOrder(l.placedOrderId)">
+                    View&nbsp;<i class="fas fa-info-circle"></i>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-outline-danger returnButton" (click)="Return(l.placedOrderId)" [disabled]="l.placedStatus == 'Returned'">
+                    <span>Return</span>
+                </button>
             </td>
         </tr>        
     </table>

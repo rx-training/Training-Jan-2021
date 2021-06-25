@@ -37,9 +37,8 @@ namespace AmazonDemo.Models
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserAddress> UserAddresses { get; set; }
-
         public virtual DbSet<ProductImage> ProductImages{ get; set; }
-
+        public virtual DbSet<OrderTable> OrderTables { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,6 +48,9 @@ namespace AmazonDemo.Models
 
             modelBuilder.Entity<ProductImage>()
                 .HasKey(s => s.ImageId);
+
+            modelBuilder.Entity<OrderTable>()
+                .HasKey(s => s.PlacedOrderID);
 
             modelBuilder.Entity<Admin>(entity =>
             {

@@ -113,6 +113,9 @@ export class LoginComponent implements OnInit {
         console.log(this.Response.expiration);
         this.router.navigate(['../Home'],{relativeTo : this.route});
       }
+    },
+    (error)=>{
+      alert("Please enter a valid data...");
     });
   }
 }

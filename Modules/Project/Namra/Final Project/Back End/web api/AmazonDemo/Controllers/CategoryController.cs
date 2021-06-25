@@ -14,9 +14,10 @@ namespace AmazonDemo.Controllers
     {
         private readonly ICategory category;
         private readonly AmazonContext context;
-
-        public CategoryController(ICategory category, AmazonContext context)
+        private readonly IProduct product;
+        public CategoryController(IProduct product,ICategory category, AmazonContext context)
         {
+            this.product = product;
             this.category = category;
             this.context = context;
         }
@@ -28,9 +29,31 @@ namespace AmazonDemo.Controllers
         }
 
         [HttpGet("{CategoryName}")]
+        public Category  GetByCategoryName (string CategoryName)
+        {
+            return this.category.Find(s => s.CategoryName == CategoryName).First();
+        }
+
+        [HttpGet("{CategoryName}")]
         public IEnumerable<Category> GetByName(string CategoryName)
         {
             return category.Find(s => s.CategoryName.ToLower().Contains(CategoryName.ToLower()));
+        }
+
+        [HttpGet("{CategoryName}")]
+        public IEnumerable<Product> GetProductByCategory(string CategoryName)
+        {
+            IEnumerable<Category> categories = category.Find(s => s.CategoryName.ToLower().Contains(CategoryName.ToLower()));
+            List<Product> products = new List<Product>();
+            foreach (var item in categories)
+            {
+                IEnumerable<Product> prc = product.Find(s => s.CategoryId == item.CategoryId);
+                foreach (var it in prc)
+                {
+                    products.Add(it);
+                }
+            }
+            return products;
         }
 
         [HttpGet("{Id}")]

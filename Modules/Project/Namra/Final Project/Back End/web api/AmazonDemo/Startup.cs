@@ -68,7 +68,7 @@ namespace AmazonDemo
             services.AddScoped <IUser,RepoUser> ();
             services.AddTransient <IUserAddress,RepoUserAddress> ();
             services.AddTransient<IProductImage, RepoProductImage>();
-
+            services.AddTransient<IOrderTable, RepoOrderTable>();
 
             // For Identity  
             services.AddIdentity<ApplicationUserAmazon, IdentityRole>()
