@@ -24,23 +24,78 @@ namespace BookMyShowAPI.Repository
         // Get all movie Bookings
         public IEnumerable GetAllMovieBookings()
         {
-            var movieBookings = context.MovieBookings.ToList();
+            var movieBookings = context.MovieBookings;
 
-            return movieBookings;
+            var m = from x in movieBookings
+                    select new MovieBooking
+                    {
+                        BookingDate = x.BookingDate,
+                        DateToWatch = x.DateToWatch,
+                        MovieBookingId = x.MovieBookingId,
+                        SeatNo = x.SeatNo,
+                        TotalAmount = x.TotalAmount,
+                        TotalTickets = x.TotalTickets,
+                        City = context.Cities.SingleOrDefault(p => p.CityId == x.CityId),
+                        CityId = x.CityId,
+                        FilmCategory = context.FilmCategories.SingleOrDefault(p => p.FilmCategoryId == x.FilmCategoryId),
+                        FilmCategoryId = x.FilmCategoryId,
+                        Language = context.Languages.SingleOrDefault(p => p.LanguageId == x.LanguageId),
+                        LanguageId = x.LanguageId,
+                        Movie = context.Movies.SingleOrDefault(p => p.MovieId == x.MovieId),
+                        MovieId = x.MovieId,
+                        Screen = context.Screens.SingleOrDefault(p => p.ScreenId == x.ScreenId),
+                        ScreenId = x.ScreenId,
+                        ShowTiming = context.ShowTimings.SingleOrDefault(p => p.ShowTimingId == x.ShowTimingId),
+                        ShowTimingId = x.ShowTimingId,
+                        //Theatre = context.Theatres.SingleOrDefault(p => p.TheatreId == x.TheatreId),
+                        TheatreId = x.TheatreId,
+                        User = context.Users.SingleOrDefault(p => p.UserId == x.UserId),
+                        UserId = x.UserId
+
+                    };
+
+            return m;
         }
 
         // Get all movie Bookings based on Contact number
         public IEnumerable GetMovieBookingByContact(string contactno)
         {
             var movieBookings = context.MovieBookings
-                                    .Where(x => x.UserContact == contactno)
-                                    .ToList();
+                                    .Where(x => x.User.ContactNo == contactno);
 
-            return movieBookings;
+            var m = from x in movieBookings
+                    select new MovieBooking
+                    {
+                        BookingDate = x.BookingDate,
+                        DateToWatch = x.DateToWatch,
+                        MovieBookingId = x.MovieBookingId,
+                        SeatNo = x.SeatNo,
+                        TotalAmount = x.TotalAmount,
+                        TotalTickets = x.TotalTickets,
+                        City = context.Cities.SingleOrDefault(p => p.CityId == x.CityId),
+                        CityId = x.CityId,
+                        FilmCategory = context.FilmCategories.SingleOrDefault(p => p.FilmCategoryId == x.FilmCategoryId),
+                        FilmCategoryId = x.FilmCategoryId,
+                        Language = context.Languages.SingleOrDefault(p => p.LanguageId == x.LanguageId),
+                        LanguageId = x.LanguageId,
+                        Movie = context.Movies.SingleOrDefault(p => p.MovieId == x.MovieId),
+                        MovieId = x.MovieId,
+                        Screen = context.Screens.SingleOrDefault(p => p.ScreenId == x.ScreenId),
+                        ScreenId = x.ScreenId,
+                        ShowTiming = context.ShowTimings.SingleOrDefault(p => p.ShowTimingId == x.ShowTimingId),
+                        ShowTimingId = x.ShowTimingId,
+                        //Theatre = context.Theatres.SingleOrDefault(p => p.TheatreId == x.TheatreId),
+                        TheatreId = x.TheatreId,
+                        User = context.Users.SingleOrDefault(p => p.UserId == x.UserId),
+                        UserId = x.UserId
+
+                    };
+
+            return m;
         }
 
         // Book a Movie
-        public async Task BookMovie(MovieBookingDTO movieBookingDTO)
+        public void BookMovie(MovieBookingDTO movieBookingDTO)
         {
             var json = JsonConvert.SerializeObject(movieBookingDTO);
 
@@ -55,15 +110,15 @@ namespace BookMyShowAPI.Repository
             var bookingId = 0;
 
             var bookingsDone = context.MovieBookings
-                                    .Where(x => x.UserContact == movieBookingDTO.UserContact)
+                                    .Where(x => x.User.ContactNo == movieBookingDTO.UserContact)
                                     .ToList();
 
             foreach (var item in bookingsDone)
             {
-                if(item.Movie == movieBookingDTO.Movie && item.Language == movieBookingDTO.Language && item.City == movieBookingDTO.City && item.DateToWatch == movieBookingDTO.DateToWatch && item.FilmCategory == movieBookingDTO.FilmCategory && item.SeatNo == seats && item.Theatre == movieBookingDTO.Theatre)
+                if(item.Movie.Name == movieBookingDTO.Movie && item.Language.Language1 == movieBookingDTO.Language && item.City.Name == movieBookingDTO.City && item.DateToWatch == movieBookingDTO.DateToWatch && item.FilmCategory.FilmCategory1 == movieBookingDTO.FilmCategory && item.SeatNo == seats && item.Theatre.Name == movieBookingDTO.Theatre)
                 {
                     bookingId = item.MovieBookingId;
-                    screen = (int)item.Screen;
+                    screen = (int)item.Screen.ScreenId;
                     totalTickets = item.TotalTickets;
                     totalAmount = (double)item.TotalAmount;
                 }

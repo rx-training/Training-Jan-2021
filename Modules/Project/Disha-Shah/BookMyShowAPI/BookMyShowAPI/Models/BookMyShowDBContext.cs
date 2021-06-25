@@ -490,47 +490,96 @@ namespace BookMyShowAPI.Models
                     .HasColumnType("date")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.City)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.City)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.DateToWatch).HasColumnType("date");
 
-                entity.Property(e => e.FilmCategory)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.FilmCategory)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.Language)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Language)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.Movie)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Movie)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.SeatNo)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Theatre)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Theatre)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.TotalAmount)
                     .HasColumnType("money")
                     .HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.UserContact)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                //entity.Property(e => e.UserContact)
+                //    .IsRequired()
+                //    .HasMaxLength(10)
+                //    .IsUnicode(false)
+                //    .IsFixedLength(true);
+
+                entity.HasOne(d => d.Movie)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.MovieId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Movies_MovieId_FK");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Users_UserId_FK");
+
+                entity.HasOne(d => d.Theatre)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.TheatreId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Theatres_TheatreId_FK");
+
+                entity.HasOne(d => d.ShowTiming)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.ShowTimingId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("ShowTimings_ShowTimingId_FK");
+
+                entity.HasOne(d => d.Screen)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.ScreenId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Screens_ScreenId_FK");
+
+                entity.HasOne(d => d.City)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.CityId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Cities_CityId_FK");
+
+                entity.HasOne(d => d.Language)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.LanguageId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Languages_LanguageId_FK");
+
+                entity.HasOne(d => d.FilmCategory)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.FilmCategoryId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FilmCategories_FilmCategoryId_FK");
+
             });
 
             modelBuilder.Entity<MovieFilmCategory>(entity =>

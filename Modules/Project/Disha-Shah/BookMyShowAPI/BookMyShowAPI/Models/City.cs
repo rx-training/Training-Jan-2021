@@ -11,6 +11,7 @@ namespace BookMyShowAPI.Models
         {
             EventVenues = new HashSet<EventVenue>();
             Theatres = new HashSet<Theatre>();
+            MovieBookings = new HashSet<MovieBooking>();
         }
 
         public int CityId { get; set; }
@@ -20,5 +21,6 @@ namespace BookMyShowAPI.Models
         public virtual Region Region { get; set; }
         public virtual ICollection<EventVenue> EventVenues { get; set; }
         public virtual ICollection<Theatre> Theatres { get; set; }
+        public virtual ICollection<MovieBooking> MovieBookings { get; set; }
     }
 }

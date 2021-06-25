@@ -11,6 +11,6 @@ namespace BookMyShowAPI.IRepository
     {
         public IEnumerable GetAllEventBookings();
         public IEnumerable GetEventBookingByContact(string contactno);
-        public Task BookEvent(EventBookingDTO eventBookingDTO);
+        public void BookEvent(EventBookingDTO eventBookingDTO);
     }
 }

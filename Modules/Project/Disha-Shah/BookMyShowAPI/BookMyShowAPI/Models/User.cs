@@ -9,6 +9,11 @@ namespace BookMyShowAPI.Models
 {
     public partial class User
     {
+        public User()
+        {
+            MovieBookings = new HashSet<MovieBooking>();
+        }
+
         [Key]
         public int UserId { get; set; }
         public string ContactNo { get; set; }
@@ -19,5 +24,7 @@ namespace BookMyShowAPI.Models
 
         //public ApplicationUser Users { get; set; }
         //public string registeredUserid { get; set; }
+
+        public virtual ICollection<MovieBooking> MovieBookings { get; set; }
     }
 }

@@ -39,7 +39,7 @@ namespace BookMyShowAPI.Repository
         }
 
         // Book a Event
-        public async Task BookEvent(EventBookingDTO eventBookingDTO)
+        public void BookEvent(EventBookingDTO eventBookingDTO)
         {
             var json = JsonConvert.SerializeObject(eventBookingDTO);
 

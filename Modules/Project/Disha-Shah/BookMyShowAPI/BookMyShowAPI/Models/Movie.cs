@@ -14,6 +14,7 @@ namespace BookMyShowAPI.Models
             MovieGenres = new HashSet<MovieGenre>();
             MovieLanguages = new HashSet<MovieLanguage>();
             ScreensMovies = new HashSet<ScreensMovie>();
+            MovieBookings = new HashSet<MovieBooking>();
         }
 
         public int MovieId { get; set; }
@@ -35,5 +36,6 @@ namespace BookMyShowAPI.Models
         public virtual ICollection<MovieGenre> MovieGenres { get; set; }
         public virtual ICollection<MovieLanguage> MovieLanguages { get; set; }
         public virtual ICollection<ScreensMovie> ScreensMovies { get; set; }
+        public virtual ICollection<MovieBooking> MovieBookings { get; set; }
     }
 }

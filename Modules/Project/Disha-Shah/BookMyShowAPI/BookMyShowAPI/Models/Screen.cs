@@ -12,6 +12,7 @@ namespace BookMyShowAPI.Models
             ScreenSeatsCategories = new HashSet<ScreenSeatsCategory>();
             ScreenShowTimings = new HashSet<ScreenShowTiming>();
             ScreensMovies = new HashSet<ScreensMovie>();
+            MovieBookings = new HashSet<MovieBooking>();
         }
 
         public int ScreenId { get; set; }
@@ -21,5 +22,6 @@ namespace BookMyShowAPI.Models
         public virtual ICollection<ScreenSeatsCategory> ScreenSeatsCategories { get; set; }
         public virtual ICollection<ScreenShowTiming> ScreenShowTimings { get; set; }
         public virtual ICollection<ScreensMovie> ScreensMovies { get; set; }
+        public virtual ICollection<MovieBooking> MovieBookings { get; set; }
     }
 }
