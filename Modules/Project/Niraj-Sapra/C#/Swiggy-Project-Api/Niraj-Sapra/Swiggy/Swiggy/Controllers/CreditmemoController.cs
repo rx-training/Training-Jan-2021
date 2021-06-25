@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Swiggy.Authentication;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swiggy.Models;
 using Swiggy.Models.IRepository;
 using System;
@@ -9,57 +7,81 @@ using System.Linq;
 
 namespace Swiggy.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
     [Route("api/[controller]")]
     [ApiController]
     public class CreditmemoController : ControllerBase
     {
         private readonly Swiggy_ProjectContext context;
-        ICreditmemo Category;
+        ICreditmemo Creditmemo;
         public CreditmemoController(ICreditmemo custo, Swiggy_ProjectContext _context)
         {
-            this.Category = custo;
+            this.Creditmemo = custo;
             this.context = _context;
         }
 
         [HttpGet]
-        public IEnumerable<Models.Creditmemo> AddNewDataMethod()
+        public IEnumerable<Creditmemo> AddNewDataMethod()
         {
-            return Category.GetAll();
+            return Creditmemo.GetAll();
         }
-
-
-        /*[HttpPost]
-        public string creates([FromBody] Creditmemo obEntity)
+  
+        [HttpPost]
+        public string creates([FromBody] Creditmemo addCreditmemo)
         {
-
-            Creditmemo check = context.Creditmemos.FirstOrDefault(s => s. == obEntity.CategoryName);
+            Creditmemo check = context.Creditmemos.FirstOrDefault(s => s.CreditmemoId == addCreditmemo.CreditmemoId);
             if (check != null)
-                //new Exception("Create is already exists...");
-                return "Customer is already exists...";
+            {
+                return "Category is already exists...";
+            }
             else
             {
-                Category.Create(obEntity);
-                Category ObjEntity = context.Categories.ToList().Last();
-                return $"Category {ObjEntity.CategoryName} is added successfully and your id is {ObjEntity}";
+                Creditmemo.Create(addCreditmemo);
+                Creditmemo addedCreditmemo = context.Creditmemos.ToList().Last();
+                return $"Creditmemo {addedCreditmemo.CreditmemoId} is added successfully and your id is ";
             }
         }
-*/
 
-        // DELETE: api/Cosutomer/5
-        [HttpDelete("{id}")]
-        public string Deletes([FromBody] int id)
+        [HttpGet("{​id}​")]
+        public ActionResult<Creditmemo> GetCreditmemos(int id)
+        {
+            var creditmemos = Creditmemo.GetById(id);
+
+            if (creditmemos == null)
+            {
+                return NotFound();
+            }
+            return creditmemos;
+        }
+
+        [HttpDelete("{​id}​")]
+        public IActionResult DeleteCreditmemo(int id)
+        {
+            var credites = Creditmemo.GetById(id);
+            if (credites == null)
+            {
+                return NotFound();
+            }
+
+            Creditmemo.Delete(credites);
+
+            return NoContent();
+        }
+
+        //Put
+
+        [HttpPut("{​id}​")]
+        public ActionResult<Creditmemo> PutMovie(int id, Creditmemo creditmemo)
         {
             try
             {
-                var dataDelete = context.Creditmemos.Single(s => s.CreditmemoId == id);
-                Category.Delete(dataDelete);
-                return "Craditmemo is remove successfully";
+                Creditmemo.Update(creditmemo);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return $"Creditmemo is not found...";
+                Console.WriteLine(e);
             }
+            return GetCreditmemos(id);
+
         }
     }
 }

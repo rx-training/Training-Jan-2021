@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swiggy.Models;
 using Swiggy.Models.IRepository;
 using System;
@@ -8,7 +7,6 @@ using System.Linq;
 
 namespace Swiggy.Controllers
 {
-   
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -43,35 +41,47 @@ namespace Swiggy.Controllers
                 return $"Doctor {addedCustomer.CustomerName} is added successfully and your id is {addedCustomer}";
             }
         }
+        [HttpGet("{id}")]
+        public ActionResult<Customer> GetCustomers(int id)
+        {
+            var customers = Customer.GetById(id);
 
+            if (customers == null)
+            {
+                return NotFound();
+            }
+            return customers;
+        }
 
-        // DELETE: api/Cosutomer/5
         [HttpDelete("{id}")]
-        public string Deletes([FromBody] int id)
+        public IActionResult DeleteCustomer(int id)
+        {
+            var customer = Customer.GetById(id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            Customer.Delete(customer);
+
+            return NoContent();
+        }
+
+        //Put
+
+        [HttpPut("{id}")]
+        public ActionResult<Customer> PutMovie(int id, Customer customer)
         {
             try
             {
-                var doctorDelete = context.Customers.Single(s => s.CustomerId == id);
-                Customer.Delete(doctorDelete);
-                return "Customer is remove successfully";
+                Customer.Update(customer);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return $"Customer is not found...";
+                Console.WriteLine(e);
             }
+            return GetCustomers(id);
+
         }
-
-       /* // PUT api/<CustomerController>/5
-        [HttpPut("{phoneno}")]
-        public string Updates(string phoneno, [FromBody] Customer custom)
-        {
-         *//*   public Person Put(int id, [FromBody] Person person)
-        {*//*
-            
-            var oldPerson = context.Customers.Single(N => N.CustomerPhoneno == phoneno);
-            oldPerson = person;
-            return oldPerson;
-        }*/
-
     }
 }

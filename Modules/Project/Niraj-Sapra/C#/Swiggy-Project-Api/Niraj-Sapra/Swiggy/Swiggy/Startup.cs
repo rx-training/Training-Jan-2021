@@ -28,6 +28,16 @@ namespace Swiggy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "policy1",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+                });
+            });
             services.AddControllers();
             //services.AddDbContext<Swiggy_ProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
             services.AddDbContext<Swiggy_ProjectContext>(options => options.UseSqlServer("Data Source=DESKTOP-FPEESG3;Initial Catalog=Swiggy_Project;Integrated Security=True"));
@@ -69,18 +79,18 @@ namespace Swiggy
             services.AddTransient<ICreditmemo, RCreditmemo>();
             services.AddTransient<IInvoice, RInvoice>();
             services.AddTransient<IOffer, ROffer>();
-            services.AddTransient<IOfferStatus, ROfferStatus>();
             services.AddTransient<IOrder, ROrder>();
             services.AddTransient<IOrderStatus, ROrderStatus>();
             services.AddTransient<IPayment, RPayment>();
-            services.AddTransient<IPaymentType, RPaymentType>();
             services.AddTransient<IProduct, RProduct>();
             services.AddTransient<IQuote, RQuote>();
             services.AddTransient<IQuoteItem, RQuoteItem>();
-            services.AddTransient<IRestorent, RRestorent>();
+            services.AddTransient<IRestaurant, RRestaurant>();
             services.AddTransient<IShipment, RShipment>();
             services.AddTransient<IViewProduct, RViewProduct>();
             services.AddTransient<IProduct, RProduct>();
+            services.AddTransient<IUserSignup, RUserSignup>();
+            services.AddTransient< ICity, RCity>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swiggy", Version = "v1" });
@@ -96,13 +106,11 @@ namespace Swiggy
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swiggy v1"));
             }
-
             app.UseHttpsRedirection();
-
+            app.UseCors("policy1");
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swiggy.Models;
 using Swiggy.Models.IRepository;
 using System;
@@ -8,7 +7,6 @@ using System.Linq;
 
 namespace Swiggy.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase
@@ -22,7 +20,7 @@ namespace Swiggy.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Models.Category> AddCustomerMethod()
+        public IEnumerable<Models.Category> GetAllCategoryMethod()
         {
             return  Category.GetAll();
         }
@@ -43,35 +41,46 @@ namespace Swiggy.Controllers
                 return $"Category {addedCustomer.CategoryName} is added successfully and your id is {addedCustomer}";
             }
         }
+        //Get by ID
+        [HttpGet("{id}")]
+        public ActionResult<Category> GetCitys(int id)
+        {
+            var categorys = Category.GetById(id);
 
-
-        // DELETE: api/Cosutomer/5
+            if (categorys == null)
+            {
+                return NotFound();
+            }
+            return categorys;
+        }
+        //Delete
         [HttpDelete("{id}")]
-        public string Deletes([FromBody] int id)
+        public IActionResult DeleteCategory(int id)
+        {
+            var categorys = Category.GetById(id);
+            if (categorys == null)
+            {
+                return NotFound();
+            }
+
+            Category.Delete(categorys);
+
+            return NoContent();
+        }
+
+        //Put
+        [HttpPut("{id}")]
+        public ActionResult<Category> PutMovie(int id, Category categorys)
         {
             try
             {
-                var doctorDelete = context.Categories.Single(s => s.CategoryId == id);
-                Category.Delete(doctorDelete);
-                return "Customer is remove successfully";
+                Category.Update(categorys);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return $"Customer is not found...";
+                Console.WriteLine(e);
             }
+            return GetCitys(id);
         }
-
-        /* // PUT api/<CustomerController>/5
-         [HttpPut("{phoneno}")]
-         public string Updates(string phoneno, [FromBody] Customer custom)
-         {
-          *//*   public Person Put(int id, [FromBody] Person person)
-         {*//*
-
-             var oldPerson = context.Customers.Single(N => N.CustomerPhoneno == phoneno);
-             oldPerson = person;
-             return oldPerson;
-         }*/
-
     }
 }

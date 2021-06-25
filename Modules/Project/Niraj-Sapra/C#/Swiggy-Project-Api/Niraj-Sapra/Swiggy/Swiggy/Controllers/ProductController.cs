@@ -12,18 +12,19 @@ namespace Swiggy.Controllers
     public class ProductController : ControllerBase
     {
         private readonly Swiggy_ProjectContext context;
-        IProduct Category;
+        IProduct Product;
         public ProductController(IProduct custo, Swiggy_ProjectContext _context)
         {
-            this.Category = custo;
+            this.Product = custo;
             this.context = _context;
         }
 
         [HttpGet]
         public IEnumerable<Models.Product> AddNewDataMethod()
         {
-            return Category.GetAll();
+            return Product.GetAll();
         }
+
 
 
         [HttpPost]
@@ -36,27 +37,52 @@ namespace Swiggy.Controllers
                 return "Product is already exists...";
             else
             {
-                Category.Create(obEntity);
+                Product.Create(obEntity);
                 Product ObjEntity = context.Products.ToList().Last();
                 return $"Product {ObjEntity.ProductName} is added successfully and your id is {ObjEntity}";
             }
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Product> GetProducts(int id)
+        {
+            var product = Product.GetById(id);
 
-        // DELETE: api/Cosutomer/5
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return product;
+        }
         [HttpDelete("{id}")]
-        public string Deletes([FromBody] int id)
+        public IActionResult DeleteProduct(int id)
+        {
+            var products = Product.GetById(id);
+            if (products == null)
+            {
+                return NotFound();
+            }
+
+            Product.Delete(products);
+
+            return NoContent();
+        }
+
+        //Put
+
+        [HttpPut("{id}")]
+        public ActionResult<Product> PutProduct(int id, Product product)
         {
             try
             {
-                var dataDelete = context.Products.Single(s => s.ProductId == id);
-                Category.Delete(dataDelete);
-                return "Product is remove successfully";
+                Product.Update(product);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return $"Product is not found...";
+                Console.WriteLine(e);
             }
+            return GetProducts(id);
+
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Swiggy.Models.Repository
 {
-    public class RRestorent : GenericRepository<Restorent>, IRestorent
+    public class RRestaurant : GenericRepository<Restaurant>, IRestaurant
     {
-        public RRestorent(Swiggy_ProjectContext context) : base(context)
+        public RRestaurant(Swiggy_ProjectContext context) : base(context)
         {
 
         }

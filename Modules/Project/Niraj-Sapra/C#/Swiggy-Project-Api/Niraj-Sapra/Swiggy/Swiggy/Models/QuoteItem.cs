@@ -9,7 +9,5 @@ namespace Swiggy.Models
     {
         public int QuoteItemId { get; set; }
         public int? QuoteItemProduct { get; set; }
-
-        public virtual Product QuoteItemProductNavigation { get; set; }
     }
 }

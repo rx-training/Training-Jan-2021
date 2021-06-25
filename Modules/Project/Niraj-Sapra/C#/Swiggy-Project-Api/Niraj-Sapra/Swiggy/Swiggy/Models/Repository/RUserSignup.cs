@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Swiggy.Models.Repository
 {
-
-    public class ROfferStatus : GenericRepository<OfferStatus>, IOfferStatus
+    public class RUserSignup : GenericRepository<UserSignup>, IUserSignup
     {
-        public ROfferStatus(Swiggy_ProjectContext context) : base(context)
+        public RUserSignup(Swiggy_ProjectContext context) : base(context)
         {
 
         }

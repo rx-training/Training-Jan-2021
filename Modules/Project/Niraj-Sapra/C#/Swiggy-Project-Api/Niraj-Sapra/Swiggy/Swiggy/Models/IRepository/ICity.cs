@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Swiggy.Models.IRepository
 {
-    public interface IRestorent : GenericInterface<Restorent>
+    public interface ICity : GenericInterface<City>
     {
 
     }

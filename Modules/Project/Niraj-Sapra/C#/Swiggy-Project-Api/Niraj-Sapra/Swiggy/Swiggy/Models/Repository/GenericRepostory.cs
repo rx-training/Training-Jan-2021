@@ -28,15 +28,20 @@ namespace Swiggy.Models.Repository
             return context.Set<T>().Any();
         }
 
+        public bool Any(int id)
+        {
+            throw new NotImplementedException();
+        }
         public int Count(Func<T, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public virtual void Create(T entity)
+        public  void Create(T entity)
         {
             context.Add(entity);
-            context.SaveChanges();
+            
+             context.SaveChanges();       
         }
 
         public void Delete(T entity)

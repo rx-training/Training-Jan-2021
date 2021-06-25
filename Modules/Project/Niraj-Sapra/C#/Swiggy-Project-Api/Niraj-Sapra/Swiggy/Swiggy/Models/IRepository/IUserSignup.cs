@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Swiggy.Models.IRepository
 {
-    public interface IPaymentType : GenericInterface<PaymentType>
-    {
 
-    }
+        public interface IUserSignup : GenericInterface<UserSignup>
+        {
+        }
+
 }

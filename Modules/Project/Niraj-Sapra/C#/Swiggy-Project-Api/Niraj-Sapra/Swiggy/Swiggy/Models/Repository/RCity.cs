@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Swiggy.Models.Repository
 {
-
-    public class RPaymentType : GenericRepository<PaymentType>, IPaymentType
+    public class RCity : GenericRepository<City>, ICity
     {
-        public RPaymentType(Swiggy_ProjectContext context) : base(context)
+        public RCity(Swiggy_ProjectContext context) : base(context)
         {
 
         }

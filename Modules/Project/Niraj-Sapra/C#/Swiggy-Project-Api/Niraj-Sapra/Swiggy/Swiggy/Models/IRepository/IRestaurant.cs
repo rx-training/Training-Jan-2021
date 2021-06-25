@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Swiggy.Models.IRepository
 {
-    public interface IOfferStatus : GenericInterface<OfferStatus>
+    public interface IRestaurant : GenericInterface<Restaurant>
     {
 
     }

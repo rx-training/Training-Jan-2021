@@ -11,7 +11,6 @@ namespace Swiggy.Models
         {
             Creditmemos = new HashSet<Creditmemo>();
             Invoices = new HashSet<Invoice>();
-            Payments = new HashSet<Payment>();
             Shipments = new HashSet<Shipment>();
         }
 
@@ -21,10 +20,8 @@ namespace Swiggy.Models
         public DateTime? CurrentTimes { get; set; }
 
         public virtual Customer Customer { get; set; }
-        public virtual Offer Offer { get; set; }
         public virtual ICollection<Creditmemo> Creditmemos { get; set; }
         public virtual ICollection<Invoice> Invoices { get; set; }
-        public virtual ICollection<Payment> Payments { get; set; }
         public virtual ICollection<Shipment> Shipments { get; set; }
     }
 }

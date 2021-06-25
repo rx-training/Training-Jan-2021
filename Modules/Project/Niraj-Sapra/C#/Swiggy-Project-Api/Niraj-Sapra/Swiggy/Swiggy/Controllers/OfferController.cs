@@ -12,50 +12,32 @@ namespace Swiggy.Controllers
     public class OfferController : ControllerBase
     {
         private readonly Swiggy_ProjectContext context;
-        IOffer Category;
+        IOffer Offer;
         public OfferController(IOffer custo, Swiggy_ProjectContext _context)
         {
-            this.Category = custo;
+            this.Offer = custo;
             this.context = _context;
         }
 
         [HttpGet]
-        public IEnumerable<Models.Offer> AddNewDataMethod()
+        public IEnumerable<Offer> AddNewOfferDataMethod()
         {
-            return Category.GetAll();
+            return Offer.GetAll();
         }
 
-
-/*        [HttpPost]
-        public string creates([FromBody] Offer obEntity)
+        [HttpPost]
+        public string creates([FromBody] Offer addOffer)
         {
 
-            Offer check = context.off  .FirstOrDefault(s => s.CategoryName == obEntity.CategoryName);
+            Offer check = context.Offers.FirstOrDefault(s=>s.OfferId  == addOffer.OfferId);
             if (check != null)
                 //new Exception("Create is already exists...");
                 return "Customer is already exists...";
             else
             {
-                Category.Create(obEntity);
-                Category ObjEntity = context.Categories.ToList().Last();
-                return $"Category {ObjEntity.CategoryName} is added successfully and your id is {ObjEntity}";
-            }
-        }
-*/
-
-        // DELETE: api/Cosutomer/5
-        [HttpDelete("{id}")]
-        public string Deletes([FromBody] int id)
-        {
-            try
-            {
-                var dataDelete = context.Offers.Single(s => s.OfferId == id);
-                Category.Delete(dataDelete);
-                return "Offer is remove successfully";
-            }
-            catch (Exception)
-            {
-                return $"Offer is not found...";
+                Offer.Create(addOffer);
+                Offer addedOffer = context.Offers.ToList().Last();
+                return $"Doctor {addedOffer.OfferId} is added successfully and your id is ";
             }
         }
     }
