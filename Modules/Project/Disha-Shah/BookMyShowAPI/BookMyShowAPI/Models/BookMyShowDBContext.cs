@@ -1028,8 +1028,7 @@ namespace BookMyShowAPI.Models
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .HasColumnType("nvarchar(max)");
 
                 entity.Property(e => e.UserName)
                     .HasMaxLength(50)

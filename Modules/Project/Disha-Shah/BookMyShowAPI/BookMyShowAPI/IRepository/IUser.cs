@@ -16,6 +16,7 @@ namespace BookMyShowAPI.IRepository
         public void CreateUser(RegisterModel model);
         public User FindName(string name);
         public User FindContact(string contact);
+        public string FindPassword(string name);
         Task<Response> ConfirmEmailAsync(string userId, string token);
         Task<bool> IsEmailConfirmedAsync(string userName);
         public IEnumerable GetAllUsers();

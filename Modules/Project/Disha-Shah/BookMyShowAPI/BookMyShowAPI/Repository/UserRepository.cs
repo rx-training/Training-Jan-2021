@@ -13,6 +13,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Mail;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,7 +125,7 @@ namespace BookMyShowAPI.Repository
             {
                 ContactNo = model.PhoneNumber,
                 Email = model.Email,
-                Password = model.Password,
+                Password = ProtectPassword(model.Password),
                 UserName = model.Username
             });
 
@@ -142,6 +143,13 @@ namespace BookMyShowAPI.Repository
         {
             var registeredUser = context.Users.SingleOrDefault(x => x.ContactNo == contact);
             return registeredUser;
+        }
+
+        public string FindPassword(string name)
+        {
+            var registeredUser = context.Users.SingleOrDefault(x => x.UserName == name);
+            var pass = UnprotectPassword(registeredUser.Password);
+            return pass;
         }
 
         // Confirm email
@@ -196,6 +204,19 @@ namespace BookMyShowAPI.Repository
             var users = context.Users;
 
             return users;
+        }
+
+        public string ProtectPassword(string password)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(password);
+            byte[] protectedPassword = ProtectedData.Protect(bytes, null, DataProtectionScope.CurrentUser);
+            return Convert.ToBase64String(protectedPassword);
+        }
+        public static string UnprotectPassword(string protectedPassword)
+        {
+            byte[] bytes = Convert.FromBase64String(protectedPassword);
+            byte[] password = ProtectedData.Unprotect(bytes, null, DataProtectionScope.CurrentUser);
+            return Encoding.Unicode.GetString(password);
         }
     }
 }

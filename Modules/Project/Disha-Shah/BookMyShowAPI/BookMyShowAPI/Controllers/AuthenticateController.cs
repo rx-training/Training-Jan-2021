@@ -52,7 +52,7 @@ namespace BookMyShowAPI.Controllers
             if (users.FindName(model.Username) != null && otp == 1234)
             {
                 username = model.Username;
-                pass = users.FindName(model.Username).Password;
+                pass = users.FindPassword(model.Username);
                 role = "User";
             }
             else if (admins.FindName(model.Username) != null && otp == 1234)
