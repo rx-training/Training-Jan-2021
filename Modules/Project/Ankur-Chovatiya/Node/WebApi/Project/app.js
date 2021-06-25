@@ -21,6 +21,6 @@ app.use((err , req , res , next)=>{
 });
 
 
-app.listen(process.env.port, ()=>{
-    console.log('server is running on port 80...');
+app.listen(8000, ()=>{
+    console.log('server is running on port 8000...');
 });

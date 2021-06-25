@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const BASE_URL = "http://20.198.103.48:94"
+const BASE_URL = "http://localhost:8000"
 
 class FlightSearchService {
 

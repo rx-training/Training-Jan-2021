@@ -22,9 +22,9 @@ function App() {
       
       
       <Router>
-      <Navbar></Navbar>
+      <Navbar ></Navbar>
         <Switch>
-
+        
           <Route exact path="/" component={Login}></Route>
           <Route path="/AirIndia" exact component={Home}></Route>
           <Route path="/AirIndia/select" exact component={FlightList}></Route>
@@ -37,6 +37,7 @@ function App() {
           <Route path="/special-offers" component={SpecialOffer}></Route>
           <Route path="/Register" component={Register} ></Route>
           <Route path="/login" component={Login} ></Route>
+          {/* <Route path="/logout" component={Login}></Route> */}
           <Route path="*" component={Error}></Route>
         
         </Switch>

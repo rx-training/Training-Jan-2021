@@ -23,12 +23,15 @@ function NavbarComp(props) {
 
   },[])
 
-  console.log(isLogin);
+  // console.log(isLogin);
+  console.log(props);
   const handleLogout = () => {
     localStorage.removeItem('isLogin')
     localStorage.removeItem('token')
-    window.location.reload()
-    // props.history.push('/')
+    // props.history.push('./login')
+    window.location.replace('http://localhost:3000')
+    // window.location.reload()
+    
   }
 
   return (
@@ -91,7 +94,7 @@ function NavbarComp(props) {
         <a className="nav-link" href="/GST">GST </a>
       </li>
       <li className="nav-item active ml-4">
-      { isLogin ?  <a className="nav-link" href="" onClick={handleLogout}>Logout</a>  :
+      { isLogin ?  <a className="nav-link " style={{cursor:"pointer"}}  onClick={handleLogout}>Logout</a>  :
           <a className="nav-link" href="/login">Login</a>
       }
       </li>
