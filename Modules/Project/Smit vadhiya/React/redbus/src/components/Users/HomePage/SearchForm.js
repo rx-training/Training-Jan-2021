@@ -15,7 +15,7 @@ const SearchForm = () => {
                      <form action="" onSubmit={(e) => handleSearch(e)} >
                         <div className="container">
                            <div className="row no-gutters mx-auto">
-                              <div className="col-6 col-md-3 mx-auto">
+                              <div className="col-12 col-sm-6 col-md-3 mx-auto">
                                  <div className="input-group border">
                                     <div className="input-group-prepend">
                                        <span className="input-group-text "><GiModernCity /></span>
@@ -31,7 +31,7 @@ const SearchForm = () => {
                                     />
                                  </div>
                               </div>
-                              <div className="col-6 col-md-3 mx-auto">
+                              <div className="col-12 col-sm-6 col-md-3 mx-auto">
                                  <div className="input-group border">
                                     <div className="input-group-prepend">
                                        <span className="input-group-text ">
@@ -49,7 +49,7 @@ const SearchForm = () => {
                                     />
                                  </div>
                               </div>
-                              <div className="col-6 col-md-3 mx-auto">
+                              <div className="col-12 col-sm-6 col-md-3 mx-auto">
                                  <div className="input-group border">
                                     <div className="input-group-prepend">
                                        <span className="input-group-text "><MdDateRange /></span>
@@ -65,7 +65,7 @@ const SearchForm = () => {
                                     />
                                  </div>
                               </div>
-                              <div className="col-6 col-md-3 mx-auto">
+                              <div className="col-12 col-sm-6   col-md-3 mx-auto">
                                  <input 
                                     type="submit" 
                                     className="btn btn-theme h-100 w-100" 

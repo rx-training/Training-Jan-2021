@@ -11,7 +11,7 @@ router.post('/signup',userDomain.postNewUser)
 router.post('/signup/verify/:otp',userDomain.addData)
 router.use('/',userLogin)
 
-router.use(security)
+router.use(security) //USE FOR AUTHENTICATION MIDDLEWARE
 router.use('/:id',user) //API USER (DISPLAY AND UPDATE USER'S DATA)
 
 module.exports = router

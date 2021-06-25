@@ -7,14 +7,14 @@ import {FaTicketAlt} from 'react-icons/fa'
 export const Profile = () => {
 
    const [id, setid] = useState("")
+   const [MyTrips, setMyTrips] = useState([])
+   const [isEnable, setIsEnable] = useState(true)
+   const [isProfile, setisProfile] = useState(true)
+   
    const [userData, setuserData] = useState({
       DOB:"",
       gander : "male"
    })
-
-   const [MyTrips, setMyTrips] = useState([])
-
-   const [isEnable, setIsEnable] = useState(true)
 
    const [errors, setErrors] = useState({
       DOB : "",
@@ -22,7 +22,6 @@ export const Profile = () => {
       phoneNumber : ""
    })
 
-   const [isProfile, setisProfile] = useState(true)
 
    const handleProfile=()=>{
       setisProfile(true)
@@ -53,6 +52,7 @@ export const Profile = () => {
       if(temp === 0){
          setIsEnable(true)       
          const {id,token} = JSON.parse(localStorage.getItem('tokenData'))
+         console.log(userData);
          UserService.userUpdateById(id,userData,token).then(res =>{
             console.log(res.data);
          })
@@ -76,13 +76,16 @@ export const Profile = () => {
       console.log(tripId);
       const {token} = JSON.parse(localStorage.getItem('tokenData'))
 
-      UserService.userCancelTrip(id,tripId,token).then(res => {
+      if(window.confirm("cancel this trip??")){
+         UserService.userCancelTrip(id,tripId,token).then(res => {
          console.log(res.data);
-      })
+         })
 
-      UserService.userGetMyTrip(id,token).then(res => {
-         setMyTrips(res.data);
-      })   }
+         UserService.userGetMyTrip(id,token).then(res => {
+            setMyTrips(res.data);
+         })
+      } 
+}
 
    const handleChange = (e) =>{
       const {name, value} = e.target
@@ -139,7 +142,7 @@ export const Profile = () => {
                   </div>
                   <div className="" >
                   <form action="">
-                     <div className="d-flex  flex-column flex-md-row justify-content-between">
+                     <div className="d-flex  flex-column flex-lg-row justify-content-between">
                         <div>
                            <span className="lead">first Name</span>
                               <input 
@@ -204,7 +207,7 @@ export const Profile = () => {
                               />
                               <label className="form-check-label" htmlFor="male">Male</label>
                            </div>
-                           <div className="form-check form-check-inline ml-5">
+                           <div className="form-check form-check-inline">
                               <input 
                                  className="form-check-input" 
                                  type="radio" 

@@ -10,15 +10,12 @@ mongoose.connect('mongodb://localhost/redbus',{useNewUrlParser: true, useUnified
     .then(() => console.log("Connected to MongoDB"))
     .catch((err) => console.log("Could not connect to mongo /n err : " + err))
 
-//START SERVER 
-app.listen(process.env.port, () => console.log(`redbus is listening on port ${port}!`))
+app.listen(port, () => console.log(`redbus is listening on port ${port}!`))//START SERVER 
 
-app.use(cors())
-//MIDDLEWARE FOR REQUEST JSON FROM BODY
-app.use(express.json())
+app.use(cors()) //MIDDLEWARE FOR USE OF API 
+app.use(express.json()) //MIDDLEWARE FOR REQUEST JSON FROM BODY
 
-//ALL APIS WILL START FROM redbus.in
-app.use('/api',redbusApis)
+app.use('/api',redbusApis)//ALL APIS WILL START FROM redbus.in
 
 //HOME PAGE
 app.get('/api', (req, res) => res.send('Welcome to redbus buddy!'))

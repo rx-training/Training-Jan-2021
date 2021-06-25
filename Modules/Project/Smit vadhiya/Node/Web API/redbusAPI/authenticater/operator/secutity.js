@@ -1,9 +1,8 @@
 var jwt = require('jsonwebtoken') 
 const Collections = require('../../models/index')
-const config = require('../../static/config') 
-const crypto = require('crypto')
 const Encdec = require('../../domain/passwordDomain')
- function  verify(req,res,next){
+
+function  verify(req,res,next){
     var token = req.headers["token"]
     jwt.verify(token, global.config.secretKey,
          {
@@ -21,11 +20,11 @@ const Encdec = require('../../domain/passwordDomain')
                  });
             }
                 var hash = Encdec.encPassword(decoded.password)
-                const operatorData = await Collections.Operators.find({ email : decoded.email, password : hash})
+                const operatorData = await Collections.Operators.findOne({ email : decoded.email, password : hash})
                 const url = req.url.split('/')
                 const operatorId = parseInt(url[1])
             
-                if((operatorData[0]._id) ==operatorId){
+                if((operatorData._id) == operatorId){
                     req.decoded = decoded;
                     next();
                 } else {

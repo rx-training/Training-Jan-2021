@@ -10,7 +10,7 @@ const Head = () => {
       <RedbusConsumer>
             {value => {
                return(
-                  <div className="home-head">
+                  <div className="home-head my-5">
 
                      <div className="head-img-container" >
                         <img src={headBcg} alt="" width="100%" className="img-fluid myimg "/>

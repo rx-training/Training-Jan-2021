@@ -14,4 +14,5 @@ class Encdec{
         return password
     }
 }
+
 module.exports = Encdec

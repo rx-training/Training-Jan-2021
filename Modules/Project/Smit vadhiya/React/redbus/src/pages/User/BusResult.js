@@ -13,10 +13,9 @@ export const BusResult = (props) => {
    useEffect(() => {
       setData({...props.match.params},localStorage.setItem('searchData',JSON.stringify({...props.match.params})))
       
-      
       const {id,token} = JSON.parse(localStorage.getItem('tokenData'))
-      
       MyBuses.searchBuses(id,props.match.params,token).then(res => {
+         console.log(res.data);
          const buses = res.data
          if(buses.length !== 0 ){
             setSearchData([...buses])
@@ -30,11 +29,12 @@ export const BusResult = (props) => {
       setisEdit(!isEdit)
    }
 
-
    const handleChange = (e) => {
       const {name,value} = e.target
       setData({...data,[name] : value})
    }
+
+   
 
    const handleSubmit = (e) => {
       e.preventDefault()

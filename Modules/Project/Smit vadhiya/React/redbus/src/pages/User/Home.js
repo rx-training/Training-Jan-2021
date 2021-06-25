@@ -11,7 +11,7 @@ export const Home = () => {
       <div >
          {/* MAIN HEADER */}
 
-         <Head />
+         <Head  />
          {/* COUPANS */}
          <div className="bg-light py-5">
             <div className="container">

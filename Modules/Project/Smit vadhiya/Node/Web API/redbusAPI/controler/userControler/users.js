@@ -34,9 +34,9 @@ class User{
 
 //USER'S MAIN API
     router.get('/',User.getUsersById) //GET USER'S DATA FROM ID  /user/:id/ 
-    router.get('/getAllMail',User.getUsersById) //GET USER'S DATA FROM ID  /user/:id/ 
+    router.get('/getAllMail',User.allMailId) 
     
-    router.put('/update',User.allMailId) //UPDATE USER DATA  /user/:id/update
+    router.put('/update',User.putUserById) //UPDATE USER DATA  /user/:id/update
     //enter field to be change in body. ex :  { "firstName" :"smit", "lastName": "shah" }
 
 

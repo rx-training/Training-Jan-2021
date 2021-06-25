@@ -15,6 +15,17 @@ const SingleBusDetail = (props) => {
             timeAtStartpoint,
             toCity,
             totalAvailableSeat} = props
+
+   const calculateTime =(stratTime,endTime)=>{
+      var minute = parseInt(endTime.slice(3,5)) - parseInt(stratTime.slice(3,5))
+      var hour =  parseInt(endTime.slice(0,2)) - parseInt(stratTime.slice(0,2))
+      hour = hour < 0 ? hour+=24 : hour
+
+      var d = minute < 0 && (minute = minute+60,hour -= 1)
+
+      return `${hour} h ${minute} m`
+   }
+
    const handleSelect=(selectedSeat,id2)=>{
       
       localStorage.setItem('selectedBusData',JSON.stringify({
@@ -45,7 +56,7 @@ const SingleBusDetail = (props) => {
                   <p className="text-muted text-capitalize"> {fromCity} </p>
                </div>
                <div className="col-3 col-md-2 text-center"> 
-                  <p className="lead text-muted">2 hr 15 min</p>
+                  <p className="lead text-muted">{calculateTime(timeAtStartpoint,timeAtEndpoint)}</p>
                </div>
                <div className="col-2 col-md-1 text-center"> 
                   <h5>{timeAtEndpoint.slice(0,5)}</h5>
