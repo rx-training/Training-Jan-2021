@@ -1,0 +1,52 @@
+[
+    {
+        "mainSector":"Information Technology",
+        "subSector": [
+            {
+                "subSectorName1":"Analytics",
+                "company1":[
+                    {
+                        "companyName":"Course5 Intelligence Pvt Ltd."
+                    },
+                    {
+                        "companyName":"LatentView Analytics Pvt Ltd."
+                    },
+                    {
+                        "companyName":"RMS Risk Management Solutions"
+                    },
+                    {
+                        "companyName":"Verisk"
+                    }
+                ],
+                "subSectorName2":"ChipDsg/Semicond.",
+                "company2":[
+                    {
+                        "companyName":"Maxim Integrated"
+                    },
+                    {
+                        "companyName":"Micron"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "mainSector":"Manufacturing",
+        "subSector":[
+            {
+                "subSectorName1":"Air Compressors",
+                "company1":[
+                    {
+                        "companyName":"ELGEI Equipments Ltd."
+                    }
+                ],
+                "subSectorName2":"Apparel",
+                "company2":[
+                    {
+                        "companyName":"Shahi Exports Pvt Ltd."
+                    }
+                ]
+            }
+        ]
+    }
+]

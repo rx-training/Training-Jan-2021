@@ -1,0 +1,35 @@
+.banner{
+    background-color: rgb(48, 47, 47);
+    color: white;
+    font-size: larger;
+    text-align: center;
+}
+
+.breadcrumb{
+    background-color: rgb(48, 47, 47);
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 4px solid white;
+}
+
+.disabled{
+    border-bottom: 4px solid grey;
+    color: grey;
+}
+
+table{
+    width: 700px;
+}
+
+td {
+    padding: 12px;
+}
+
+label{
+    font-size: normal;
+}

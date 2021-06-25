@@ -1,0 +1,90 @@
+<div id="main">
+    <div class="row">
+        <nav id="navbar" class="navbar navbar-expand-sm fixed-top pt-3 px-5" (scroll)="onWindowScroll();">
+                <div class="col-2">
+                    <a class="navbar-brand" href="#"><img src="../assets/img/Navbar/naukri_Logo.png" alt="Logo"></a>
+                </div>  
+                <div class="col-7">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown pr-3"><a id="nav-link" class="nav-link" [routerLinkActive]="['active']" data-toggle="dropdown" routerLink="">JOBS</a>
+                            <div class="dropdown-menu">
+                                <div class="row">
+                                    <div class="col">
+                                        <a routerLink="" class="dropdown-item text-dark">Search Jobs</a>
+                                        <a routerLink="/advanced-search" class="dropdown-item text-dark">Advanced Jobs</a>
+                                        <a routerLink="/free-job-alerts" class="dropdown-item text-dark">Create Free Job Alert</a>
+                                        <a routerLink="/registerNow" (click)="change()" class="dropdown-item text-dark">Register Now</a>
+                                    </div>
+                                    <div class="col">
+                                        <a routerLink="/jobs-by-location" class="dropdown-item text-dark">Jobs By Location</a>
+                                        <a routerLink="/top-skill-jobs" class="dropdown-item text-dark">Jobs By Skill</a>
+                                        <a routerLink="/top-jobs-by-designations" class="dropdown-item text-dark">Jobs By Designation</a>
+                                        <a routerLink="/top-company-jobs" class="dropdown-item text-dark">Jobs By Company</a>
+                                        <a routerLink="/jobs-by-category" class="dropdown-item text-dark">Jobs By Category</a>
+                                        <a routerLink="/browse-jobs" class="dropdown-item text-dark">Browse All Jobs</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown pr-3"><a id="nav-link" class="nav-link" data-toggle="dropdown" href="#">RECRUITERS</a>
+                            <div class="dropdown-menu">
+                                <a routerLink="" class="dropdown-item text-dark">Browse All Recruiters</a>
+                                <a routerLink="" class="dropdown-item text-dark">Recruiter Connection</a>
+                                <a routerLink="" class="dropdown-item text-dark">Go to NaukriRecruiter</a>
+                            </div> 
+                        </li> 
+                        <li class="nav-item dropdown pr-3"><a id="nav text-dark-link" class="nav-link" data-toggle="dropdown" href="#">COMPANIES</a>
+                            <div class="dropdown-menu"> 
+                                <a routerLink="" class="dropdown-item text-dark">Browse All Companies</a>
+                                <a routerLink="" class="dropdown-item text-dark">About Companies</a>
+                                <a routerLink="" class="dropdown-item text-dark">Interview Questions</a>
+                                <a routerLink="" class="dropdown-item text-dark">Write Company Review</a>
+                                <a routerLink="" class="dropdown-item text-dark">Write Interview Advice</a>
+                                <a routerLink="" class="dropdown-item text-dark">Company Interview</a>
+                                <a routerLink="" class="dropdown-item text-dark">Company Salaries</a>
+                            </div>
+                        </li> 
+                        <li class="nav-item dropdown pr-3"><a id="nav text-dark-link" class="nav-link" data-toggle="dropdown" href="#">TOOLS</a>
+                            <div class="dropdown-menu">
+                                <a routerLink="" class="dropdown-item text-dark">Career Dashboard</a>
+                                <a routerLink="" class="dropdown-item text-dark">Your next career move</a>
+                                <a routerLink="" class="dropdown-item text-dark">Skills Trends</a>
+                                <a routerLink="" class="dropdown-item text-dark">Naukri Lab</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown pr-3"><a id="nav-link" class="nav-link" data-toggle="dropdown" href="#">SERVICES</a>
+                        </li>
+                        <li class="nav-item dropdown pr-3"><a id="nav-link" class="nav-link" data-toggle="dropdown" href="#">MORE</a>
+                        </li>
+                        <li class="nav-item dropdown" id="login"><a id="nav-link" class="nav-link" (click)="openDialogLogin()" routerLink="">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col text-right">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item dropdown"><a id="nav-link" class="nav-link border-bottom-0" data-toggle="dropdown" href="#"><i class="far fa-bell fa-2x"></i></a>
+                            <div class="dropdown-menu">
+                                <a  class="dropdown-item text-dark">Job Recommendations</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" id="Home"><a id="nav-link" class="nav-link" data-toggle="dropdown">FOR EMPLOYERS</a>
+                            <div class="dropdown-menu">
+                                <a  class="dropdown-item text-dark">Buy online</a>
+                                <a  class="dropdown-item text-dark">Employer Login</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" id="LoginHome"><a id="nav-link" class="nav-link" data-toggle="dropdown" [routerLink]="['home']">MY NAUKRI</a>
+                            <div class="dropdown-menu">
+                                <a routerLink=""  class="dropdown-item text-dark" (click)="editProfile()">Edit Profile</a>
+                                <a routerLink="" class="dropdown-item text-dark" (click)="logout()">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+    </div>
+    <router-outlet></router-outlet>
+    <app-more-info id="more-info"></app-more-info>
+    <app-partner-sites id="partner-sites"></app-partner-sites>
+    <app-rights-reserved id="rights-reserved"></app-rights-reserved>
+</div>

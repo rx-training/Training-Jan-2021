@@ -1,0 +1,196 @@
+<div class="text-center">
+    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb" class="py-3 banner">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#" class="px-4">Personal</a></li>
+          <li class="breadcrumb-item"><a class="px-4 disabled">Education</a></li>
+          <li class="breadcrumb-item"><a class="px-4 disabled" *ngIf="hide">Employment</a></li>
+        </ol>
+      </nav>
+</div>
+<div class="bg-light text-center" id="personal">
+  <div class="container pt-4 pb-5">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <form [formGroup]="Personal">
+          <table class="text-end">
+            <tr>
+              <td><label for="Name">Name*</label></td>
+              <td><div class="row">
+                    <div class="col">
+                      <input type="text" class="form-control" formControlName="jobSeekerFirstName" placeholder="First Name" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerFirstName') }"> 
+                      <div *ngIf="isValidInput('jobSeekerFirstName')" class="invalid-feedback text-start">
+                        <div *ngIf="Personal.controls['jobSeekerFirstName'].errors.required">
+                          First Name is required.
+                        </div>
+                        <div *ngIf="Personal.controls['jobSeekerFirstName'].errors.str">
+                          Please enter only characters
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" formControlName="jobSeekerMiddleName" placeholder="Middle Name" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerMiddleName') }">
+                      <div *ngIf="isValidInput('jobSeekerMiddleName')" class="invalid-feedback text-start">
+                        <div *ngIf="Personal.controls['jobSeekerMiddleName'].errors.required">
+                          Middle Name is required.
+                        </div>
+                        <div *ngIf="Personal.controls['jobSeekerMiddleName'].errors.str">
+                          Please enter only characters
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" formControlName="jobSeekerLastName" placeholder="Last Name" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerLastName') }">
+                      <div *ngIf="isValidInput('jobSeekerLastName')" class="invalid-feedback text-start">
+                        <div *ngIf="Personal.controls['jobSeekerLastName'].errors.required">
+                          Last Name is required.
+                        </div>
+                        <div *ngIf="Personal.controls['jobSeekerLastName'].errors.str">
+                          Please enter only characters
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Email">Email ID*</label></td>
+              <td><input type="email" class="form-control" formControlName="jobSeekerEmail" placeholder="Enter your active jobSeekerEmail id to receive relevant jobs" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerEmail') }">
+                <div *ngIf="isValidInput('jobSeekerEmail')" class="invalid-feedback text-start">
+                  <div *ngIf="Personal.controls['jobSeekerEmail'].errors.required">
+                    Email is required.
+                  </div>
+                  <div *ngIf="Personal.controls['jobSeekerEmail'].errors.email">
+                    Please enter proper email
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="DOB">DOB*</label></td>
+              <td><input type="date" class="form-control" formControlName="jobSeekerDob" placeholder="Enter your Date Of Birth" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerDob') }">
+                <div *ngIf="isValidInput('jobSeekerDob')" class="invalid-feedback text-start">
+                  <div *ngIf="Personal.controls['jobSeekerDob'].errors.required">
+                    DOB is required.
+                  </div>
+                  <div *ngIf="Personal.controls['jobSeekerDob'].errors.invalidDate">
+                    Please enter proper date
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Gender">Gender*</label></td>
+              <td class="text-start"><div class="row">
+                  <div class="col">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" value="M" formControlName="jobSeekerGender" name="jobSeekerGender" checked>
+                      <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" value="F" formControlName="jobSeekerGender" name="jobSeekerGender">
+                      <label class="form-check-label" for="inlineRadio2">Female</label>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Password">Create Password*</label></td>
+              <td><div class="input-group">
+                    <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" formControlName="jobSeekerPassword" placeholder="Minimum 6 characters" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerPassword') } ">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="fa"[ngClass]="{ 'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType }" (click)="toggleFieldTextType()"></i>
+                      </span>
+                    </div>
+                    <div *ngIf="isValidInput('jobSeekerPassword')" class="invalid-feedback text-start">
+                      <div *ngIf="Personal.controls['jobSeekerPassword'].errors.required">
+                        Password is required.
+                      </div>
+                      <div *ngIf="Personal.controls['jobSeekerPassword'].errors.pattern">
+                        Please enter capital letter, small letter, numbers and special characters
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Mobile">Mobile Number*</label></td>
+              <td><div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-white">91</span>
+                    </div>
+                    <input type="number" class="form-control" formControlName="jobSeekerPhoneNumber" placeholder="Where recruiter can contact you" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerPhoneNumber') }">
+                    <div *ngIf="isValidInput('jobSeekerPhoneNumber')" class="invalid-feedback text-start">
+                      <div *ngIf="Personal.controls['jobSeekerPhoneNumber'].errors.required">
+                        Phone Number is required.
+                      </div>
+                      <div *ngIf="Personal.controls['jobSeekerPhoneNumber'].errors.phone">
+                        Please enter proper Phone Number
+                      </div>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="City">Current City*</label></td>
+              <td><select class="form-select" formControlName="jobSeekerAddress" aria-placeholder="Tell us about your current city" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerAddress') }">
+                    <option value="New Delhi">New Delhi</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                </select>
+                <div *ngIf="isValidInput('jobSeekerAddress')" class="invalid-feedback text-start">
+                  <div *ngIf="Personal.controls['jobSeekerAddress'].errors.required">
+                    Address is required.
+                  </div>
+                </div>
+                <div class="form-check text-left">
+                  <input type="checkbox" class="form-check-input">
+                  <label class="form-check-label" for="OutsideIndia">Outside India</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="PinCode">Area Pin Code*</label></td>
+              <td><input type="number" class="form-control" formControlName="jobSeekerAreaPinCode" placeholder="Minimum 6 digits" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerAreaPinCode') }">
+                <div *ngIf="isValidInput('jobSeekerAreaPinCode')" class="invalid-feedback text-start">
+                  <div *ngIf="Personal.controls['jobSeekerAreaPinCode'].errors.required">
+                    Pin Code is required.
+                  </div>
+                  <div *ngIf="Personal.controls['jobSeekerAreaPinCode'].errors.pin">
+                    Please enter proper pin code
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Skills">Skills*</label></td>
+              <td><input type="text" formControlName="jobSeekerSkills" class="form-control" placeholder="Enter your areas of expertise/specialization" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerSkills') }">
+                <div *ngIf="isValidInput('jobSeekerSkills')" class="invalid-feedback text-start">
+                  <div *ngIf="Personal.controls['jobSeekerSkills'].errors.required">
+                    Skill is required.
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="Resume">Upload Resume</label></td>
+              <td><input type="file" formControlName="jobSeekerResume" class="form-control" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerResume') }">
+                <div *ngIf="isValidInput('jobSeekerResume')" class="invalid-feedback text-start">
+                  <div *ngIf="Personal.controls['jobSeekerResume'].errors.required">
+                    Resume is required.
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <button class="btn btn-primary" (click)="next()">Continue</button>
+        </form>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+</div>

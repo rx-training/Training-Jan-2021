@@ -1,0 +1,19 @@
+.nav-pills a{
+    background-color: white;
+    color: grey;
+}
+
+.nav-pills a.active{
+    border-bottom: 5px solid rgb(73, 73, 250);
+    color: black;
+    font-weight: bold;
+}
+
+.tab-content a{
+    text-decoration: none;
+    color: grey;
+}
+
+.tab-content a:hover{
+    color: blue;
+}

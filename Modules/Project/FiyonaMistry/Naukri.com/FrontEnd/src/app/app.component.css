@@ -1,0 +1,50 @@
+#main{
+    background-image: url('../assets/img/Navbar/homepagebgImage.d92f90dc.webp');
+    height: 25vh;
+    width: 100%;
+    background-size: cover !important;
+}
+
+.onScroll{
+    background-color: white;
+    box-shadow:1px 1px 5px lightgrey;
+}
+
+.onScroll .nav-link{
+    color: black !important;
+}
+
+.onScroll .nav-link.active{
+    color: blue !important;
+    background-color: rgb(235, 235, 235);
+    border-bottom: 5px solid blue;
+}
+
+.onScroll .nav-link:hover{
+    color: blue !important;
+    background-color: rgb(235, 235, 235);
+    border-bottom: 5px solid blue;
+}
+
+.onScroll .nav-link .far{
+    color: black !important;
+}
+
+.nav-link{
+    color: white;
+}
+
+.nav-link.active{
+    font-weight: bold;
+    border-bottom: 5px solid white;
+}
+
+.nav-link:hover{
+    font-weight: bold;
+    border-bottom: 5px solid white;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+

@@ -1,0 +1,77 @@
+<div class="text-end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="dark">close</mat-icon>
+    </button>
+  </div>
+<div class="px-4">
+    <h5 class="pb-3">Basic Details</h5>
+    <form [formGroup]="Basic">
+    <div class="row py-2">
+        <div class="col">
+          <input type="text" class="form-control" formControlName="fname" placeholder="First Name" [ngClass]="{ 'is-invalid': isValidInput('fname') }"> 
+          <div *ngIf="isValidInput('fname')" class="invalid-feedback text-start">
+            <div *ngIf="Basic.controls['fname'].errors.required">
+              First Name is required.
+            </div>
+            <div *ngIf="Basic.controls['fname'].errors.str">
+              Please enter only characters
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" formControlName="mname" placeholder="Middle Name" [ngClass]="{ 'is-invalid': isValidInput('mname') }">
+          <div *ngIf="isValidInput('mname')" class="invalid-feedback text-start">
+            <div *ngIf="Basic.controls['mname'].errors.required">
+              Middle Name is required.
+            </div>
+            <div *ngIf="Basic.controls['mname'].errors.str">
+              Please enter only characters
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" formControlName="lname" placeholder="Last Name" [ngClass]="{ 'is-invalid': isValidInput('lname') }">
+          <div *ngIf="isValidInput('lname')" class="invalid-feedback text-start">
+            <div *ngIf="Basic.controls['lname'].errors.required">
+              Last Name is required.
+            </div>
+            <div *ngIf="Basic.controls['lname'].errors.str">
+              Please enter only characters
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="Fresher" formControlName="type" name="type" checked>
+            <label class="form-check-label" for="inlineRadio1">Fresher</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="Professional" formControlName="type" name="type">
+            <label class="form-check-label" for="inlineRadio2">Professional</label>
+          </div>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-white">91</span>
+        </div>
+        <input type="number" class="form-control" formControlName="phonenumber" placeholder="Mobile Number" [ngClass]="{ 'is-invalid': isValidInput('phonenumber') }">
+        <div *ngIf="isValidInput('phonenumber')" class="invalid-feedback text-start">
+          <div *ngIf="Basic.controls['phonenumber'].errors.required">
+            Phone Number is required.
+          </div>
+          <div *ngIf="Basic.controls['phonenumber'].errors.phone">
+            Please enter proper Phone Number
+          </div>
+        </div>
+      </div>
+      <div class="text-end pt-4">
+        <button class="btn text-primary" [mat-dialog-close]="true">Cancel</button>
+        <button class="btn btn-primary" (click)="save()">Save</button>
+      </div>
+    </form>
+</div>

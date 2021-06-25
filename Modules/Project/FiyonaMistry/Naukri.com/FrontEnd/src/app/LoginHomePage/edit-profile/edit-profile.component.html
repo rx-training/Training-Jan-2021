@@ -1,0 +1,65 @@
+<div class="m-5 p-5">
+    <!-- <div class="bg-light"> -->
+        <ng-container *ngFor="let js of jobSeeker">
+        <div class="card p-4 light-blue">
+            <div class="row">
+                    <div class="col-1">
+                        <img src="" alt=""><i class="fas fa-user-alt fas-profile fa-2x mx-auto p-3 text-white rounded-circle"></i>
+                    </div>
+                    <div class="col">
+                        <h5 class="pb-4">{{ js.data.jobSeekerFirstName }} {{ js.data.jobSeekerLastName }} <a href="" class="text-white" (click)="editBasicDetails()" routerLink="/home/updateProfile"> <i class="fas fa-pencil-alt"></i> </a></h5> 
+                        <div><i class="fas fa-map-marker-alt"></i> &nbsp; {{ js.data.jobSeekerAddress }}</div>
+                        <div><i class="fas fa-briefcase"></i> &nbsp; {{ js.data.jobSeekerType }}</div>
+                    </div>
+                    <div class="col">
+                        <br><br>
+                        <div class="pt-2"><i class="fas fa-phone"></i> &nbsp; {{ js.data.jobSeekerPhoneNumber }}</div>
+                        <div><i class="fas fa-envelope"></i> &nbsp; {{ js.data.jobSeekerEmail }}</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card p-4 dark-blue">
+                            <h5 class="font-weight-bold">Pending Action(s)</h5>
+                            <a href="" class="text-decoration-none text-end text-white">VIEW ALL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card shadow my-3 p-4">
+                        <h5 class="font-weight-bold">Quick Links</h5>
+                        <hr>
+                        <p><a href="" class="text-decoration-none">Attach Resume</a></p>
+                        <p><a href="" class="text-decoration-none">Key SKills</a></p>
+                        <p><a href="" class="text-decoration-none">Education</a></p>
+                        <p><a href="" class="text-decoration-none">Personal Details</a></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow my-3 p-4">
+                        <h5 class="font-weight-bold">Key Skills &nbsp;&nbsp; <a href="" (click)="editKeySkills()" routerLink="/home/updateProfile"> <i class="fas fa-pencil-alt"></i> </a></h5>
+                    </div>
+                    <div class="card shadow my-3 p-4">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="font-weight-bold pb-4">Education </h5>
+                                <ng-container *ngFor="let education of js.data.jobSeekerEducations">
+                                    <div class="font-weight-bold"> {{ education.jobSeekerField }} &nbsp;&nbsp; <a routerLink="/home/updateProfile" (click)="editEducation(education.jobSeekerEducationId)"> <i class="fas fa-pencil-alt"></i> </a></div>
+                                    <div> {{ education.jobSeekerCollege }} </div>
+                                    <div class="pb-4"> {{ education.jobSeekerYearofCompletion }} </div>
+                                </ng-container>
+                            </div>
+                            <div class="col text-end">
+                                <a href="" (click)="addEducation()" routerLink="/home/updateProfile" class="text-decoration-none">ADD EDUCATION</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow my-3 p-4">
+                        <h5 class="font-weight-bold">Personal Details &nbsp;&nbsp; <a href="" (click)="editPersonalDetails()" routerLink="/home/updateProfile"> <i class="fas fa-pencil-alt"></i> </a></h5>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+            <!-- </div> -->
+        </div>
+        

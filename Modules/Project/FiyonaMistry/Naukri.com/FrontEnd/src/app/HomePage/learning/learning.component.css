@@ -1,0 +1,11 @@
+img{
+    height: 50px;
+    width:150px;
+}
+p{
+    font-size: 14px;
+}
+small{
+    font-size: small;
+    color: grey;
+}

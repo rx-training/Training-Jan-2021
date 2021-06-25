@@ -1,4 +1,4 @@
-USE NaukriDB
+USE NaukriDb
 
 
 CREATE TABLE MainSectors(
@@ -39,7 +39,9 @@ VALUES (
 CREATE TABLE JobSeekers(
 	JobSeekerID INT PRIMARY KEY IDENTITY(1,1),
 	JobSeekerFirstName VARCHAR(50) NOT NULL,
+	JobSeekerMiddleName VARCHAR(50) NOT NULL,
 	JobSeekerLastName VARCHAR(50) NOT NULL,
+	JobSeekerPhoneNumber BIGINT NOT NULL,
 	JobSeekerType VARCHAR(50) NOT NULL,  --Fresher/Professional
 	JobSeekerEmail VARCHAR(500)NOT NULL,
 	JobSeekerResume VARCHAR(50) NOT NULL,
@@ -55,7 +57,9 @@ CREATE TABLE JobSeekers(
 INSERT INTO JobSeekers
 VALUES (
 	'Vaidehi', 
-	'Patel', 
+	'ManojKumar',
+	'Patel',
+	 9887546597,
 	'Fresher', 
 	'vaidehipatel@gmail.com', 
 	'resume.pdf', 
@@ -64,12 +68,14 @@ VALUES (
 	'09-12-1997', 
 	'F', 
 	'Ahmedabad', 
-	'387627', 
+	 387627, 
 	'vaidehi121'
 ), 
 (
 	'Virat', 
-	'Kohli', 
+	'BharatKumar',
+	'Kohli',
+	 6887456598,
 	'Professional', 
 	'kholivirat@gmail.com', 
 	'Resume.pdf', 
@@ -78,7 +84,7 @@ VALUES (
 	'10-11-1993', 
 	'M', 
 	'Mumbai', 
-	'764671', 
+	 764671, 
 	'virat121'
 )
 
@@ -129,10 +135,10 @@ CREATE TABLE ContactUsBranchAddresses(
 
 INSERT INTO ContactUsBranchAddresses
 VALUES(
-	'Ahmedabad', '106, Iscon Elegance, Near Shapath 5, Off S G Highway', '380015', 91-981888221, 18001022558
+	'Ahmedabad', '106, Iscon Elegance, Near Shapath 5, Off S G Highway', 380015, 91-981888221, 18001022558
 ), 
 (
-	'Baroda', '506, 5th Floor, Samanvay Silver, Munjmahuda Circle, Near Akota', '390020', 91-9818882211, 18001022558
+	'Baroda', '506, 5th Floor, Samanvay Silver, Munjmahuda Circle, Near Akota', 390020, 91-9818882211, 18001022558
 )
 
 
@@ -182,7 +188,6 @@ CREATE TABLE Companies(
 	CompanyReview FLOAT NOT NULL,
 	CompanyImages IMAGE,
 	CompanyAbout VARCHAR(MAX), 
-	CompanyEstablishedDate VARCHAR(50) NOT NULL,
 	CompanyWebsite VARCHAR(500) NOT NULL,
 	SubSectorID INT CONSTRAINT fkSubSectorIDCompanies FOREIGN KEY REFERENCES SubSectors(SubSectorID)
 )
@@ -193,7 +198,6 @@ INSERT INTO Companies (
 	CompanySize, 
 	CompanyReview, 
 	CompanyAbout, 
-	CompanyEstablishedDate, 
 	CompanyWebsite, 
 	SubSectorID)
 VALUES(
@@ -202,7 +206,6 @@ VALUES(
 	'201-500 Employees', 
 	3.4, 
 	'Radix is a clique of multitalented and vibrant people in quest of opportunities to deliver quality outsourcing services. We make no fuss about vision or mission. We just follow the simple rule of ‘identify the need and persevere to meet it’. Enjoying a humble beginning a decade ago, Radix today commands attention in enterprise class real time applications hosted on Cloud or SaaS. Creativity, commitment, robust delivery and transparency are our founding stones that have made us set standards adopted as industry best practices.', 
-	'21 Years Old', 
 	'radixweb.com', 
 	1
 )

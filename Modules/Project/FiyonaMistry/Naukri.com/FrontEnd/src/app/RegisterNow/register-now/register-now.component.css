@@ -1,0 +1,29 @@
+.banner{
+    background-color: rgb(48, 47, 47);
+    color: white;
+    font-size: larger;
+}
+
+p{
+    font-size: large;
+    color: grey;
+}
+
+button{
+    background-color: rgb(255, 123, 0);
+    color: white;
+}
+
+li{
+    color: grey;
+}
+
+#footer a{
+    text-decoration: none;
+    font-size: small;
+}
+
+small{
+    font-size: small;
+    color: grey;
+}

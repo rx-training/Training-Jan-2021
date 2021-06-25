@@ -1,0 +1,18 @@
+<div class="container py-3 text-center">
+    <div class="row">
+        <div class="col-3">
+            <p class="text-end pt-4">Partner Sites</p>
+        </div>
+        <div class="col">
+            <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+            [animation]="'slide'">
+                <mdb-carousel-item *ngFor="let item of slides; let i = index">
+                    <div class="col-md-4" *ngFor="let card of item; let cardIndex = index">
+                        <img [src]="card.img" alt="Card image cap" class="img-fluid">
+                    </div>
+                </mdb-carousel-item>
+            </mdb-carousel>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="text-end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="dark">close</mat-icon>
+    </button>
+  </div>
+<div class="px-4">
+    <h5 class="pb-3">Key Skills</h5>
+    <form [formGroup]="KeySkills">
+        <input type="text" formControlName="skills" class="form-control" placeholder="Enter your areas of expertise/specialization" [ngClass]="{ 'is-invalid': isValidInput('skills') }">
+        <div *ngIf="isValidInput('skills')" class="invalid-feedback text-start">
+          <div *ngIf="KeySkills.controls['skills'].errors.required">
+            Skill is required.
+          </div>
+        </div>
+      <div class="text-end pt-4">
+        <button class="btn text-primary" [mat-dialog-close]="true">Cancel</button>
+        <button class="btn btn-primary" (click)="save()">Save</button>
+      </div>
+    </form>
+</div>

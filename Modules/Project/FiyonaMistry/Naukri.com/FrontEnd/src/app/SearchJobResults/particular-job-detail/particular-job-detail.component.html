@@ -1,0 +1,41 @@
+<div class="bg-light pt-3">
+    <div class="row px-5">
+        <div class="col">
+            <ng-container *ngFor="let j of job">
+                <div class="card shadow p-4 mb-3">
+                    <h4> {{ j.jobName }} </h4>
+                    <p>{{ j.company.companyName }}  {{ j.company.companyReview }} &nbsp; <i class="fas fa-star star"></i></p>
+                    <div><i class="fas fa-briefcase"></i> &nbsp;{{ j.jobExperienceNeeded }}</div>
+                    <div class="row">
+                        <div class="col">
+                            <div><i class="fas fa-rupee-sign"></i> &nbsp;{{ j.jobSalary }}</div>
+                            <div><i class="fas fa-map-marker-alt"></i> &nbsp;{{ j.jobLocation }}</div>
+                        </div>
+                        <div class="col-5">
+                            <button class="btn btn-primary" *ngIf="!applyBTN" (click)="registerToApply()">Register to Apply</button>
+                            <button class="btn btn-primary" *ngIf="!applyBTN" (click)="loginToApply()">Login in to Apply</button>
+                            <button class="btn btn-primary" *ngIf="applyBTN" (click)="apply()">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow p-4 mb-3">
+                    <h5 class="pb-3">Job Description</h5>
+                    <p class="pb-4">{{ j.jobDescription }}</p>
+                    <p class="font-weight-bold">Role</p>
+                    {{ j.jobRole }}
+                    <p class="font-weight-bold pt-3">Employment Type</p>
+                    {{ j.jobEmploymentType }}
+                    <p class="font-weight-bold pt-3">Key Skills</p>
+                    {{ j.jobKeySkills }}
+                </div>
+                <div class="card shadow p-4 mb-3">
+                    <h5 class="pb-3">About Company</h5>
+                    {{ j.company.companyAbout }}
+                    <p class="font-weight-bold pt-3">Website</p>
+                    {{ j.company.companyWebsite }}
+                </div>
+            </ng-container>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

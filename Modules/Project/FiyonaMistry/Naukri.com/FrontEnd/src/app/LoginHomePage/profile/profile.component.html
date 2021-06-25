@@ -1,0 +1,12 @@
+<div class="mt-5">
+    <div class="card text-center px-4 pb-4">
+        <img src="" alt=""><i class="fas fa-user-alt fa-3x mx-auto p-3 text-white rounded-circle"></i>
+        <ng-container *ngFor="let js of jobSeeker">
+           <h5>{{ js.data.jobSeekerFirstName }} {{ js.data.jobSeekerLastName }}</h5> 
+           <ng-container *ngFor="let j of js.data.jobSeekerEducations | slice:0:2">
+                <p>{{ j.jobSeekerField }} at {{ j.jobSeekerCollege }}</p> 
+           </ng-container>
+        </ng-container>
+        <button class="btn btn-primary" (click)="updateProfile()">Update Profile</button>
+    </div>
+</div>

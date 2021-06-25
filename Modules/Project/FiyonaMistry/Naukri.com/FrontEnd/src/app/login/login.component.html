@@ -1,0 +1,51 @@
+<div class="text-end">
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" color="dark">close</mat-icon>
+  </button>
+</div>
+<div class="mx-4 my-1">
+  <div class="row">
+    <div class="col">
+      <h2 mat-dialog-title>Login</h2>
+    </div>
+    <div class="col text-end">
+      <a routerLink="" (click)="registerNow()" class="text-decoration-none">Register Now</a>
+    </div>
+  </div>
+  <mat-dialog-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="my-3">
+        <label for="email">Email ID/Username</label>
+        <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter your active Email ID / Username" [ngClass]="{ 'is-invalid': isValidInput('email') }">
+        <div *ngIf="isValidInput('email')" class="invalid-feedback text-start">
+          <div *ngIf="loginForm.controls['email'].errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="loginForm.controls['email'].errors.email">
+            Please enter proper email
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" formControlName="password" placeholder="Enter your password" [ngClass]="{ 'is-invalid': isValidInput('password') }">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa" [ngClass]="{ 'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType }" (click)="toggleFieldTextType()"></i>
+            </span>
+          </div>
+          <div *ngIf="isValidInput('password')" class="invalid-feedback text-start">
+            <div *ngIf="loginForm.controls['password'].errors.required">
+              Password is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-end">
+        <a routerLink="" (click)="openDialogForgotPassword()" class="text-decoration-none small">Forgot Passowrd?</a>
+      </div>
+      <button class="btn btn-primary btn-block mt-4" [disabled]="!loginForm.valid">Login</button>
+    </form>
+  </mat-dialog-content>
+</div>

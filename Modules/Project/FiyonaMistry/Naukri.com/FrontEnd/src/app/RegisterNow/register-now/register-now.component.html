@@ -1,0 +1,46 @@
+<div class="text-center">
+    <nav class="navbar navbar-expand-sm bg-light p-4"> 
+        <div class="container">
+            <a class="navbar-brand"><img src="../assets/img/Navbar/naukri_Logo.png" alt="Logo" class="img-fluid"></a>
+            <p>Already Registered? <a [routerLink]="['login']" class="font-size-larger text-decoration-none py-4">Login</a> here</p>
+        </div>
+    </nav>
+    <div class="bg-light" id="content">
+        <div class="py-3 banner">Tell us about yourself</div>
+        <div class="container">
+            <p class="py-3">Find the right job on Naukri.com. You are only few steps away <br> from millions of jobs</p>
+            <div class="row py-3 px-5">
+                <div class="col"></div>
+                <div class="col">
+                    <i class="fab fa-earlybirds fa-7x"></i><br>
+                    <button class="btn px-5 shadow-none" [routerLink]="['personal']" (click)="change('fresher')">I am a Fresher</button>
+                    <p>I have just graduated/I haven't <br> worked after graduation</p>
+                </div>
+                <div class="col">
+                    <i class="fas fa-briefcase fa-7x"></i><br>
+                    <button class="btn px-5 shadow-none" [routerLink]="['personal']" (click)="change('professional')">I am a Professional</button>
+                    <p>I have at least 1 month of work <br> experience</p>
+                </div>
+                <div class="col"></div>
+            </div>
+            <p class="py-3">More than 3 lakhs Jobs &nbsp;|&nbsp; More than 1 lakh Recruiters</p>
+            <p>After you register, you can:</p>
+            <div class="row pb-5">
+                <div class="col"></div>
+                <div class="col-6">
+                    <ul class="list-unstyled text-left">
+                        <li>- Apply to jobs from the site while keeping your resume hidden from all recruiters.</li>
+                        <li>- Mark yourself as a 'passive jobseeker' if you are not actively looking for a job.</li>
+                        <li>- Block your company or other specific companies from viewing your profile.</li>
+                    </ul>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <div class="bg-light pb-5">
+        <div id="footer"><a href="">About Us</a>   |   <a href="">Contact Us</a>  |   <a href="">FAQs</a>   |   <a href="">Terms and Conditions</a>   |   <a href="">Report a Problem</a>   |   <a href="">Privacy Policy</a></div>
+        <small>All rights reserved © 2021 Info Edge India Ltd.</small>
+    </div>
+</div>

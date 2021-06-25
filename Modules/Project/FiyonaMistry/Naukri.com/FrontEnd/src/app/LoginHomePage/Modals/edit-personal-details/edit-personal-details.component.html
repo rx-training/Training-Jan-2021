@@ -1,0 +1,62 @@
+<div class="text-end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="dark">close</mat-icon>
+    </button>
+  </div>
+<div class="px-4">
+    <h5 class="pb-3">Personal Details</h5>
+    <form [formGroup]="PersonalDetails">
+        <div class="py-2">
+            <input type="date" class="form-control" formControlName="dob" placeholder="Enter your Date Of Birth" [ngClass]="{ 'is-invalid': isValidInput('dob') }">
+            <div *ngIf="isValidInput('dob')" class="invalid-feedback text-start">
+              <div *ngIf="PersonalDetails.controls['dob'].errors.required">
+                DOB is required.
+              </div>
+              <div *ngIf="PersonalDetails.controls['dob'].errors.invalidDate">
+                Please enter proper date
+              </div>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="M" formControlName="gender" name="gender" checked>
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="F" formControlName="gender" name="gender">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+              </div>
+            </div>
+          </div>
+          <div class="py-2">
+            <select class="form-select" formControlName="address" aria-placeholder="Tell us about your current city" [ngClass]="{ 'is-invalid': isValidInput('address') }">
+                <option value="New Delhi">New Delhi</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Maharashtra">Maharashtra</option>
+            </select>
+            <div *ngIf="isValidInput('address')" class="invalid-feedback text-start">
+              <div *ngIf="PersonalDetails.controls['address'].errors.required">
+                Address is required.
+              </div>
+            </div>
+          </div>
+          <div class="py-2">
+            <input type="number" class="form-control" formControlName="areapincode" placeholder="Minimum 6 digits" [ngClass]="{ 'is-invalid': isValidInput('areapincode') }">
+            <div *ngIf="isValidInput('areapincode')" class="invalid-feedback text-start">
+              <div *ngIf="PersonalDetails.controls['areapincode'].errors.required">
+                Pin Code is required.
+              </div>
+              <div *ngIf="PersonalDetails.controls['areapincode'].errors.pin">
+                Please enter proper pin code
+              </div>
+            </div>
+          </div>
+      <div class="text-end pt-4">
+        <button class="btn text-primary" [mat-dialog-close]="true">Cancel</button>
+        <button class="btn btn-primary" (click)="save()">Save</button>
+      </div>
+    </form>
+</div>
