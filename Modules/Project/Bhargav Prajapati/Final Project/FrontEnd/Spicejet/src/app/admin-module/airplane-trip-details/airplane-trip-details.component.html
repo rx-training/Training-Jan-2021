@@ -1,0 +1,264 @@
+<div class="container" style="overflow-x: scroll;">
+    <div>
+        <button   data-toggle="modal" data-target="#exampleModal1" class="btn btn-warning mb-3 text-white"><i class="fa fa-plus" aria-hidden="true"></i> Add New Trip</button>
+    </div>
+   
+         <table class="table table-hover table-bordered text-center" >
+
+        <thead class="thead-dark">
+                <tr>
+                    <th>TravelId</th>
+                    <th>DepatureCity</th>
+                    <th>ArrivalCity</th>
+                    <th>DepatureAirportName</th>
+                    <th>ArrivalAirportName</th>
+                    <th>DepartDate</th>
+                    <th>ArrivedDate</th>
+                    <th>DepartTime</th>
+                    <th>ArrivedTime</th>
+                    <th>AirplaneId</th>
+                    <th>costId</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of AirplanTrip">
+                    <td>{{item.travelId}}</td>
+                    <td>{{item.depatureCity}}</td>
+                    <td>{{item.arrivedCity}}</td>
+                    <td>{{item.depatureAirPortName}}</td>
+                    <td>{{item.arriveAirPortName}}</td>
+                    <td>{{item.departDate}}</td>
+                    <td>{{item.arriveDate}}</td>
+                    <td>{{item.departTime}}</td>
+                    <td>{{item.arriveTime}}</td>
+                    <td>{{item.airPlaneId}}</td>
+                    <td>{{item.costId}}</td>
+                    <td><button class="btn btn-outline-primary" (click)="Save(item)" data-toggle="modal" data-target="#exampleModal">Edit</button> </td>
+                    <td> <button class="btn btn-outline-danger"(click)="DeletedTrip(item.travelId)">Delete</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+<!-- Edit Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Trip  Record</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+                <form action="" [formGroup]="EditForm">
+                    <div class="form-group">
+                        <label for="">Depature City</label>
+                        <input type="text" [(ngModel)]="DepatureCity" name="DepatureCity" class="form-control" formControlName="DepatureCity" [ngClass]="{'is-invalid':departcity?.errors && (departcity.touched ||departcity.dirty)}">
+                        <div class="invalid-feedback" *ngIf="departcity?.errors && (departcity.touched ||departcity.dirty)">
+                            <div *ngIf="departcity.errors?.required">Depature City Required</div>
+                            <div *ngIf="departcity.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Arrived City</label>
+                        <input type="text"  class="form-control" [(ngModel)]="ArrivalCity" name="ArrivalCity" formControlName="ArrivalCity" [ngClass]="{'is-invalid':arrivedcity?.errors && (arrivedcity.touched ||arrivedcity.dirty)}">
+                        <div class="invalid-feedback" *ngIf="arrivedcity?.errors && (arrivedcity.touched ||arrivedcity.dirty)">
+                            <div *ngIf="arrivedcity.errors?.required">Arrived City Required</div>
+                            <div *ngIf="arrivedcity.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Depature Airport Name</label>
+                        <input type="text" class="form-control"   [(ngModel)]="DepatureAirportName" name="DepatureAirportName" formControlName="DepartAirportName" [ngClass]="{'is-invalid':departairportname?.errors && (departairportname.touched ||departairportname.dirty)}">
+                        <div class="invalid-feedback" *ngIf="departairportname?.errors && (departairportname.touched ||departairportname.dirty)">
+                            <div *ngIf="departairportname.errors?.required">Depature Airport Name Required</div>
+                            <div *ngIf="departairportname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Arrived  Airport Name</label>
+                        <input type="text" class="form-control"  [(ngModel)]="ArrivalAirportName"  name="ArrivalAirportName"  formControlName="ArrivedAirportName" [ngClass]="{'is-invalid':arrivedairportname?.errors && (arrivedairportname.touched ||arrivedairportname.dirty)}">
+                        <div class="invalid-feedback" *ngIf="arrivedairportname?.errors && (arrivedairportname.touched ||arrivedairportname.dirty)">
+                            <div *ngIf="arrivedairportname.errors?.required">Arrived Airport Name Required</div>
+                            <div *ngIf="arrivedairportname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Depature Time</label>
+                        <input type="text" class="form-control"  [(ngModel)]="DepatureTime" name="DepatureTime"  formControlName="DepartTime" [ngClass]="{'is-invalid':departtime?.errors && (departtime.touched ||departtime.dirty)}">
+                        <div class="invalid-feedback" *ngIf="departtime?.errors && (departtime.touched ||departtime.dirty)">
+                            <div *ngIf="departtime.errors?.required">Depature Time  Required</div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="">Arrived  Time</label>
+                        <input type="text" class="form-control"  [(ngModel)]="ArrivalTime" name="ArrivalTime"  formControlName="ArrivedTime" [ngClass]="{'is-invalid':arrivedtime?.errors && (arrivedtime.touched ||arrivedtime.dirty)}">
+                        <div class="invalid-feedback" *ngIf="arrivedtime?.errors && (arrivedtime.touched ||arrivedtime.dirty)">
+                            <div *ngIf="arrivedtime.errors?.required">Depature Time  Required</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Plane Id</label>
+                        <select class="form-control"   [(ngModel)]="AirplaneId" name="AirplaneId" formControlName="PlaneId" [(ngModel)]="AirplaneId" name="AirplaneId" [ngClass]="{'is-invalid':planeid?.errors && (planeid.touched || planeid.dirty)}">
+                        <ng-container *ngFor="let item of  AirPlaneId" >
+                            <option value="{{item.airPlaneId}}">{{item.airPlaneId}}</option>
+                        </ng-container>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="planeid?.errors && (planeid.touched ||planeid.dirty)">
+                            <div *ngIf="planeid.errors?.required">Plane ID  Required</div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="">Cost Id</label>
+                        <select class="form-control"  [(ngModel)] ="CostId" name="CostId"  formControlName="CostId" [ngClass]="{'is-invalid':costid?.errors && (costid.touched ||costid.dirty)}">
+                        <ng-container *ngFor="let item of  AirplaneCostId">
+                            <option value="{{item.costId}}">{{item.costId}}</option>
+                        </ng-container>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="planeid?.errors && (planeid.touched ||planeid.dirty)">
+                            <div *ngIf="planeid.errors?.required">CostId  Required</div>
+                        </div>
+                        
+                    </div>
+                </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="EditForm.invalid" (click)="Update()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Add Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Insert Trip  Record</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+                <form action="" [formGroup]="InsertForm">
+                    <div class="form-group">
+                        <label for="">Depature City</label>
+                        <input type="text"  class="form-control" formControlName="DepatureCity" [ngClass]="{'is-invalid':Idepartcity?.errors && (Idepartcity.touched ||Idepartcity.dirty)}">
+                        <div class="invalid-feedback" *ngIf="Idepartcity?.errors && (Idepartcity.touched ||Idepartcity.dirty)">
+                            <div *ngIf="Idepartcity.errors?.required">Depature City Required</div>
+                            <div *ngIf="Idepartcity.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Arrived City</label>
+                        <input type="text"  class="form-control" formControlName="ArrivalCity" [ngClass]="{'is-invalid':Iarrivedcity?.errors && (Iarrivedcity.touched ||Iarrivedcity.dirty)}">
+                        <div class="invalid-feedback" *ngIf="Iarrivedcity?.errors && (Iarrivedcity.touched ||Iarrivedcity.dirty)">
+                            <div *ngIf="Iarrivedcity.errors?.required">Arrived City Required</div>
+                            <div *ngIf="Iarrivedcity.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Depature Airport Name</label>
+                        <input type="text" class="form-control"   formControlName="DepartAirportName" [ngClass]="{'is-invalid':Idepartairportname?.errors && (Idepartairportname.touched ||Idepartairportname.dirty)}">
+                        <div class="invalid-feedback" *ngIf="Idepartairportname?.errors && (Idepartairportname.touched ||Idepartairportname.dirty)">
+                            <div *ngIf="Idepartairportname.errors?.required">Depature Airport Name Required</div>
+                            <div *ngIf="Idepartairportname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Arrived  Airport Name</label>
+                        <input type="text" class="form-control"  formControlName="ArrivedAirportName" [ngClass]="{'is-invalid':Iarrivedairportname?.errors && (Iarrivedairportname.touched ||Iarrivedairportname.dirty)}">
+                        <div class="invalid-feedback" *ngIf="Iarrivedairportname?.errors && (Iarrivedairportname.touched ||Iarrivedairportname.dirty)">
+                            <div *ngIf="Iarrivedairportname.errors?.required">Arrived Airport Name Required</div>
+                            <div *ngIf="Iarrivedairportname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Depature Time</label>
+                        <input type="text" class="form-control"   formControlName="DepartTime" [ngClass]="{'is-invalid':Ideparttime?.errors && (Ideparttime.touched ||Ideparttime.dirty)}">
+                        <div class="invalid-feedback" *ngIf="Ideparttime?.errors && (Ideparttime.touched ||Ideparttime.dirty)">
+                            <div *ngIf="Ideparttime.errors?.required">Depature Time  Required</div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="">Arrived  Time</label>
+                        <input type="text" class="form-control"  formControlName="ArrivedTime" [ngClass]="{'is-invalid':Iarrivedtime?.errors && (Iarrivedtime.touched ||Iarrivedtime.dirty)}">
+                        <div class="invalid-feedback" *ngIf="Iarrivedtime?.errors && (Iarrivedtime.touched || Iarrivedtime.dirty)">
+                            <div *ngIf="Iarrivedtime.errors?.required">Depature Time  Required</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Depart Date</label>
+                        <input type="date" class="form-control"  formControlName="DepartDate" [ngClass]="{'is-invalid':IDepartDate?.errors && (IDepartDate.touched ||IDepartDate.dirty)}">
+                        <div class="invalid-feedback" *ngIf="IDepartDate?.errors && (IDepartDate.touched ||IDepartDate.dirty)">
+                            <div *ngIf="IDepartDate.errors?.required">Depature Date  Required</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Arrived  Date</label>
+                        <input type="date" class="form-control"  formControlName="ArrivedDate" [ngClass]="{'is-invalid':IArrivedDate?.errors && (IArrivedDate.touched ||IArrivedDate.dirty)}">
+                        <div class="invalid-feedback" *ngIf="IArrivedDate?.errors && (IArrivedDate.touched ||IArrivedDate.dirty)">
+                            <div *ngIf="IArrivedDate.errors?.required">Arrived Date  Required</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Plane Id</label>
+                        <select class="form-control"  formControlName="PlaneId" [ngClass]="{'is-invalid':Iplaneid?.errors && (Iplaneid.touched || Iplaneid.dirty)}">
+                        <ng-container *ngFor="let item of  AirPlaneId" >
+                            <option value="{{item.airPlaneId}}">{{item.airPlaneId}}</option>
+                        </ng-container>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="Iplaneid?.errors && (Iplaneid.touched ||Iplaneid.dirty)">
+                            <div *ngIf="Iplaneid.errors?.required">Plane Id  Required</div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="">Cost Id</label>
+                        <select class="form-control"  formControlName="CostId" [ngClass]="{'is-invalid':Icostid?.errors && (Icostid.touched ||Icostid.dirty)}">
+                        <ng-container *ngFor="let item of  AirplaneCostId">
+                            <option value="{{item.costId}}">{{item.costId}}</option>
+                        </ng-container>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="Icostid?.errors && (Icostid.touched ||Icostid.dirty)">
+                            <div *ngIf="Icostid.errors?.required">Cost Id  Required</div>
+                        </div>
+                        
+                    </div>
+                </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="AddTrip()" class="btn btn-primary" data-dismiss="modal" [disabled]="InsertForm.invalid" >Insert Record</button>
+        </div>
+      </div>
+    </div>
+  </div>

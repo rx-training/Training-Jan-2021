@@ -1,0 +1,21 @@
+export interface FlightDetails
+{
+    airPlaneId?:number,
+    airPlaneName:string,
+    amout:number,
+    arriveAirPortName:string,
+    arriveDate:Date,
+    arriveTime:string,
+    arrivedCity:string,
+    costId?:number,
+    departDate:Date;
+    departTime:string,
+    depatureAirPortName:string,
+    depatureCity:string,
+    make:Date,
+    model:string,
+    seatingCapacity:number,
+    tex:number,
+    totelAmount:number,
+    travelId:number
+}

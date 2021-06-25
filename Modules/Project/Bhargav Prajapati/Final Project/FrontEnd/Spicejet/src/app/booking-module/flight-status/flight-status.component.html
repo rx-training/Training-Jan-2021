@@ -1,0 +1,84 @@
+<div class="container-fluid bg-light">
+
+    <div class="container">
+        <form [formGroup]="FlightStatus" (ngSubmit)="SearchFlight()">
+            <div class="row" >
+                <div class="col-lg-3">
+                    <div class="form-group mt-5">
+                        <label for="" class="font-weight-bold">Depart From</label>
+                        <select class="form-control" formControlName="DepartFrom" [ngClass]="{'is-invalid':Departfrom?.errors && (Departfrom.touched || Departfrom.dirty)}">
+                            <option disabled>Select City</option>
+                            <option value="Ahmedabad">Ahmedabad(AMD)</option>
+                            <option value="Agra">Agra(AGR)</option>
+                            <option value="Aizawl">Aizawl(AJL)</option>
+                            <option value="Ajmer">Ajmer(KQH)</option>
+                            <option value="Bagdogra">Bagdogra(IXB)</option>
+                            <option value="Bhopal">Bhopal(BHO)</option>
+                            <option value="Chennai">Chennai(MAA)</option>
+                            <option value="Madurai">Madurai(IXM)</option>
+                            <option value="Kandla">Kandla(IXY)</option>
+                            <option value="Pune">Pune(PNQ)</option>
+                        </select>
+                        <div class="invalid-feedback"
+                                    *ngIf="Departfrom.errors?.required && (Departfrom.touched || Departfrom.dirty)">
+                                    Depart Address Required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="form-group mt-5">
+                        <label for="" class="font-weight-bold">Arrival From</label>
+                        <select class="form-control" formControlName="ArriveFrom" [ngClass]="{'is-invalid':ArriveFrom?.errors && (ArriveFrom.touched || ArriveFrom.dirty)}">
+                            <option disabled>Select City</option>
+                            <option value="Kanpur">Kanpur(KNU)</option>
+                            <option value="Cochi">Cochin(COK)</option>
+                            <option value="Rajkot">Rajkot(RAJ)</option>
+                            <option value="Nashik">Nashik(ISK)</option>
+                            <option value="PortBihar">Port Bihar(IXZ)</option>
+                            <option value="Udaipur">Udaipur(UDR)</option>
+                            <option value="Patna">Patna(PAT)</option>
+                            <option value="Leh">Leh(IXL)</option>
+                            <option value="Jodhpur">Jodhpur(JDH)</option>
+                            <option value="Jammu">Jammu(IXJ)</option>
+                        </select>
+                        <div class="invalid-feedback"
+                                    *ngIf="ArriveFrom.errors?.required && (ArriveFrom.touched || ArriveFrom.dirty)">
+                                    Arrived Address Required
+                                </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                     <div class="form-group mt-5">   
+                    
+                    <label for="" class="font-weight-bold">Depart Date</label>
+                    <input type="date" class="form-control"  formControlName="DepartDate" [ngClass]="{'is-invalid':DepartDate?.errors && (DepartDate.touched || DepartDate.dirty)}">
+                    <div class="invalid-feedback"
+                                    *ngIf="DepartDate.errors?.required && (DepartDate.touched || DepartDate.dirty)">
+                                    Depart Date Required
+                                </div>
+                    
+                </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group mt-5">
+                        <label for="" class="font-weight-bold">FLIGHT NO.</label>
+                        <input type="text" class="form-control" formControlName="FlightNo" [ngClass]="{'is-invalid':FlightNo?.errors && (FlightNo.touched ||FlightNo.dirty)}">
+                        <div class="invalid-feedback"
+                                    *ngIf="FlightNo.errors?.required && (FlightNo.touched || FlightNo.dirty)">
+                                    Flight Number Required
+                                </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-2 mt-5">
+                        <button class="btn"type="submit" [disabled]="FlightStatus.invalid"><img class="rounded-circle" src="../../../assets/Images/Search Flight.jpg" height="60px" width="60px" alt=""></button>
+                        <p class="ml-3 b " style="font-weight: 500; color: cadetblue;">SEARCH</p>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+
+</div>
+

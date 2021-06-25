@@ -1,0 +1,128 @@
+<div class="bg-light pb-4">
+    <div style="background-color:rgb(102, 0, 102); padding: 60px;">
+        <p class="text-center text-white" style="font-size: 40px;">Traveller <span style="font-weight: 800;">Details</span> </p>
+        
+    </div>
+    <div class="container" style="margin-top: -40px;">
+        <div class="card " *ngIf="flag1">
+            <div class="card-header bg-success text-center">
+                    <p> <span class="text-white font-weight-bold" style="font-size: larger;">Welecome {{UserFirstName}} {{UserMiddleName}} {{UserLastame}} </span>  </p> 
+            </div>
+            <div class="card-body">
+              <img src="../../../assets/Images/UsePage_2.jpg" class="card-img-top img-fluid" alt="...">
+                <p class="mt-4"> <span class="text-muted">PNR Number :-</span> <span>{{PNRNumber}}</span> </p>
+                <p> <span class="text-muted">Email Address :-</span> <span>{{UserEmaill}}</span> </p>
+                <p> <span class="text-muted">Phone Number:-</span> <span>{{UserPhoneNumber}}</span> </p>
+                <p> <span class="text-muted">Airplane:-</span> <span>{{Model}}  {{AirPlaneName}}</span> </p> 
+                <p> <span class="text-muted">Departure City :-</span> <span>{{DepatureCity}}</span> </p>
+                <p> <span class="text-muted">Arrived City :-</span> <span>{{ArrivedCity}}</span> </p>
+                <p> <span class="text-muted">Departure Airport :-</span> <span>{{DepartAirPortName}}</span> </p>
+                <p> <span class="text-muted">Arrival Airport  :-</span> <span>{{ArrivedAirportName}}</span> </p>
+                <p> <span class="text-muted">ArrivalAirport City :-</span> <span>{{DepartAirPortName}}</span> </p>
+                <p> <span class="text-muted">Depart Date :-</span> <span>{{DepartDate}}</span> </p>
+                <p> <span class="text-muted">Arrive Date :-</span> <span>{{ArrivedDate}}</span> </p>
+                <p> <span class="text-muted">Depart Time :-</span> <span>{{DepartTime}}</span> </p>
+                <p> <span class="text-muted">Arrived Time :-</span> <span>{{ArrivedTime}}</span> </p>
+                <p> <span class="text-muted">Amount :-</span> <span>{{Amount}}</span> </p>
+                <p> <span class="text-muted">Tax :-</span> <span>{{Tax*100}} %</span> </p>
+                <p> <span class="text-muted">Totel Amount :-</span> <span>{{totelAmount}}</span> </p>
+
+                
+
+                
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary btn-block"  (click)="Update()" data-toggle="modal" data-target="#exampleModal" >Update Record</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-danger btn-block" (click)="Delete()">Delete Record</button>
+                    </div>
+
+
+                </div>
+                
+            </div>
+        </div>
+        <div class="text-danger bg-white text-center" *ngIf="flag2" style="font-size: 20px;">Please Check Your PNRNumber And Email Address</div>
+        <div class="m-3"> <button class="btn btn-outline-success" (click)="Back()" >Back</button> </div>
+    </div>
+     
+
+</div>
+
+
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Your Record</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <form action="" [formGroup]="UserData">
+              <div class="form-group">
+                <label for="">Enter First Name</label>
+                <input type="text" value="" [ngModel]="ufirstname" name="ufirstname" formControlName="UserFirstName" [ngClass]="{'is-invalid':userfirstname?.errors && (userfirstname.touched || userfirstname.dirty)}"class="form-control">
+                <div class="invalid-feedback" *ngIf="userfirstname?.errors && userfirstname.touched">
+                  <div *ngIf="userfirstname.errors?.required">First Name Required</div>
+                  <div *ngIf="userfirstname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="">Enter Middle  Name</label>
+                <input type="text" value=""  [ngModel]="umiddlename" name="umiddlename" class="form-control" formControlName="UserMiddleName" [ngClass]="{'is-invalid':usermiddlename?.errors && (usermiddlename.touched ||usermiddlename.dirty)}">
+                <div class="invalid-feedback" *ngIf="usermiddlename?.errors && usermiddlename.touched">
+                  <div *ngIf="usermiddlename.errors?.required">Middle Name Required</div>
+                  <div *ngIf="usermiddlename.errors?.Nocharactor">Only Charactor Are Allowed </div>
+              </div>
+
+              </div>
+              <div class="form-group">
+                <label for="">Enter LastName  Name</label>
+                <input type="text" value="" [ngModel]="ulastname" name="ulastname" class="form-control" formControlName="UserLastName" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                <div class="invalid-feedback" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                  <div *ngIf="userlastname.errors?.required">Last Name Required</div>
+                  <div *ngIf="userlastname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="">Enter Email</label>
+                <input type="text" value="" [ngModel]="uemail"  name="uemail"  class="form-control" formControlName="UserEmail" [ngClass]="{'is-invalid':useremail?.errors &&  (useremail.touched || useremail.dirty)}">
+                <div class="invalid-feedback" *ngIf="useremail?.errors && (useremail.touched || useremail.dirty)">
+                  <div *ngIf="useremail.errors?.required">Email is Required Fild</div>
+                  <div *ngIf="useremail.errors?.email">Please Enter Valid Email</div>
+              </div>
+              </div>
+              <div>
+                <label for="">Enter Phone Number</label>
+                <input type="text" class="form-control" [ngModel]="uphonenumber" name="uphonenumber" formControlName="UserPhoneNumber" [ngClass]="{'is-invalid':userPhoneNumber?.errors &&(userPhoneNumber.touched || userPhoneNumber.dirty)}">
+                <div class="invalid-feedback"
+                                    *ngIf="userPhoneNumber?.errors && (userPhoneNumber.touched || userPhoneNumber.dirty)">
+                                    <div *ngIf="userPhoneNumber.errors?.required">MobileNumber is Required Fild</div>
+                                    <div *ngIf="userPhoneNumber.errors?.Nodigit">Please Enter Digit Only</div>
+                                    <div
+                                        *ngIf="(userPhoneNumber.errors?.maxlength  || userPhoneNumber.errors?.minlength)">
+                                        Please Enter 10 Digit Number</div>
+                                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Save()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

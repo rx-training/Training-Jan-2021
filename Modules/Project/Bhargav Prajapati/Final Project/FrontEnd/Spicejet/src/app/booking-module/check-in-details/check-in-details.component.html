@@ -1,0 +1,40 @@
+<div class="bg-light pb-4">
+    <div style="background-color:rgb(102, 0, 102); padding: 60px;">
+        <p class="text-center text-white" style="font-size: 40px;">Traveller <span style="font-weight: 800;">Details</span> </p>
+        
+    </div>
+    <div class="container" style="margin-top: -40px;">
+        <div class="card " *ngIf="flag1">
+            <div class="card-header bg-success text-center">
+                    <p> <span class="text-white font-weight-bold" style="font-size: larger;">Welecome {{UserFirstName}} {{UserMiddleName}} {{UserLastame}} </span>  </p> 
+            </div>
+            <div class="card-body">
+                <img src="../../../assets/Images/UsePage_1.jpg" class="card-img-top img-fluid" alt="...">
+                <p class="mt-4"> <span class="text-muted">PNR Number :-</span> <span>{{PNRNumber}}</span> </p>
+                <p> <span class="text-muted">Email Address :-</span> <span>{{UserEmaill}}</span> </p>
+                <p> <span class="text-muted">Phone Number:-</span> <span>{{UserPhoneNumber}}</span> </p>
+                <p> <span class="text-muted">Airplane:-</span> <span>{{Model}}  {{AirPlaneName}}</span> </p> 
+                <p> <span class="text-muted">Departure City :-</span> <span>{{DepatureCity}}</span> </p>
+                <p> <span class="text-muted">Arrived City :-</span> <span>{{ArrivedCity}}</span> </p>
+                <p> <span class="text-muted">Departure Airport :-</span> <span>{{DepartAirPortName}}</span> </p>
+                <p> <span class="text-muted">Arrival Airport  :-</span> <span>{{ArrivedAirportName}}</span> </p>
+                <p> <span class="text-muted">Depart Date :-</span> <span>{{DepartDate}}</span> </p>
+                <p> <span class="text-muted">Arrive Date :-</span> <span>{{ArrivedDate}}</span> </p>
+                <p> <span class="text-muted">Depart Time :-</span> <span>{{DepartTime}}</span> </p>
+                <p> <span class="text-muted">Arrived Time :-</span> <span>{{ArrivedTime}}</span> </p>
+                <p> <span class="text-muted">Amount :-</span> <span>{{Amount}}</span> </p>
+                <p> <span class="text-muted">Tax :-</span> <span>{{Tax*100}} %</span> </p>
+                <p> <span class="text-muted">Totel Amount :-</span> <span>{{totelAmount}}</span> </p>
+
+                
+
+                
+            </div>
+            
+        </div>
+        <div class="text-danger bg-white text-center" *ngIf="flag2" style="font-size: 20px;">Please Check Your PNRNumber And Email Address</div>
+        <div class="m-3"> <button class="btn btn-outline-success" (click)="Back()">Back</button> </div>
+            </div>
+     
+
+</div>

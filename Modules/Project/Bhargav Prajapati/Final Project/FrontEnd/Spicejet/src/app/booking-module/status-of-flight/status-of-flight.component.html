@@ -1,0 +1,38 @@
+<div class="bg-light pb-4">
+    <div style="background-color:rgb(102, 0, 102); padding: 60px;">
+        <p class="text-center text-white" style="font-size: 40px;">Flight <span style="font-weight: 800;">Details</span> </p>
+        
+    </div>
+    <div class="container" style="margin-top: -40px;">
+        <div class="card" *ngIf="flag1">
+            <div class="card-header bg-success text-center">
+                    <p> <span class="text-white font-weight-bold" style="font-size: larger;">Welecome to the Spicejet Flight Details</span></p> 
+            </div>
+            <div class="card-body">
+                <img src="../../../assets/Images/Spiceimageforcard.jpg" class="card-img-top img-fluid" alt="...">
+            
+                <p class="mt-5"> <span class="text-muted">Depart From :-</span> <span>{{ArrivedCity}}</span> </p>
+                <p> <span class="text-muted">Arrived City :-</span> <span>{{DepartureCity}}</span> </p>
+                <p> <span class="text-muted">Departure Airport Name:-</span> <span>{{DepartAirportName}} </span></p>
+                <p> <span class="text-muted">Arrived Airport Name :-</span> <span>{{ArrivedtAirportName}}</span> </p> 
+                <p> <span class="text-muted">Depart Date :-</span> <span>{{DepartDatee}}</span> </p>
+                <p> <span class="text-muted">Arrived Date :-</span> <span>{{ArrivedDate}}</span> </p>
+                <p> <span class="text-muted">Departure Time :-</span> <span>{{DepartTime}}</span> </p>
+                <p> <span class="text-muted">Arrival Time  :-</span> <span>{{ArrivedTime}}</span> </p>
+                <p> <span class="text-muted">Seating Capacity :-</span> <span>{{SeatingCapacity}}</span> </p>
+                <p> <span class="text-muted">Make :-</span> <span>{{Make}}</span> </p>
+                <p> <span class="text-muted">Model :-</span> <span>{{Model}}</span> </p>
+                <p> <span class="text-muted">Airplane Name :-</span> <span>{{AirplaneName}}</span> </p>
+            </div>
+               
+
+
+                
+            </div>
+            
+        </div>
+        <div *ngIf="flag2" class="text-danger bg-white text-center"  style="font-size: 20px;">Does Not Exist This Flight Please Try Again</div>
+        <div class="m-3"> <button class="btn btn-outline-success" (click)="Back()">Back</button> </div>
+            </div>
+     
+

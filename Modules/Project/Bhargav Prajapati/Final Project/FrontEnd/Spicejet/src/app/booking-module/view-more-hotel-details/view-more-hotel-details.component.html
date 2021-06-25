@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="mt-3 bg-success text-center text-white" style="font-size: 30px;">
+            <p>{{FilterById.hotelName}}</p>
+    </div>
+<div class="row m-4">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+              
+                <img src="{{ImgSrc}}" width="100%" height="500px" alt="">
+                <div class="row mt-3">
+                    <div class="col-sm-3">
+                       <img  src="{{FilterById.imgPath1}}" (click)="imgpath1()"  height="70px" width="70px" alt=""> 
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="{{FilterById.imgPath2}}" (click)="imgpath2()"  height="70px" width="70px" alt="">
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="{{FilterById.imgPath3}}" (click)="imgpath3()" height="70px" width="70px" alt="">
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="{{FilterById.imgPath4}}" (click)="imgpath4()" height="70px" width="70px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+        
+        
+       
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+
+            <div class="card-body">
+
+            <p> <span class="font-weight-bold">Hotel Name :- </span> <span>{{FilterById.hotelName}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel City :- </span> <span>{{FilterById.hotelCity}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel State :- </span> <span>{{FilterById.hotelState}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel Address :- </span> <span>{{FilterById.hotelAddress}}</span> </p>
+            <p> <span class="font-weight-bold">PinCode Number :- </span> <span>{{FilterById.pinNumber}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel Rating :- </span> <span>{{FilterById.rating}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel Starting Time :- </span> <span>{{FilterById.startingTime}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel Closing Time :- </span> <span>{{FilterById.closingTime}}</span> </p>
+            <p> <span class="font-weight-bold">Number of Room Available :- </span> <span>{{FilterById.noOfRoomAvailable}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel Mobile Number :- </span> <span>{{FilterById.hotelMobileNumber}}</span> </p>
+            <p> <span class="font-weight-bold">Hotel Email Address :- </span> <span>{{FilterById.hotelEmail}}</span> </p>
+            <p> <span class="font-weight-bold">Amount :- </span> <span>{{FilterById.amount}}</span> </p>
+            <p> <span class="font-weight-bold">Tax:- </span> <span>{{FilterById.tax*100}} %</span> </p>
+            <p> <span class="font-weight-bold">Totel Price :- </span> <span>{{FilterById.totelPrice}}</span> </p>
+            <p> <button class="btn btn-outline-success btn-block" (click)="BookNow()">Book Now</button> </p>
+            
+        </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-outline-success" (click)="Back()">Back</button>
+</div>

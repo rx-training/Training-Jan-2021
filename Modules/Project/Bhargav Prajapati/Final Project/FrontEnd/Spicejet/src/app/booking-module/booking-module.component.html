@@ -1,0 +1,44 @@
+<div class="W-100">
+<div class="bg-danger">
+    <div class="container " id="navbar-red">
+        <div class="row" >
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()" routerLink="Flight"><i class="fas fa-plane-departure"></i>Flight</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="toggle()" routerLink="Hotel"><i class="fas fa-hotel"></i> Hotels</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="toggle()" routerLink="Covid-19"><i class="fas fa-head-side-mask"></i>Covid-19Information</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()"  routerLink="flightstatus" ><i class="fas fa-clock"></i>Flight Status</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()" routerLink="check-in" ><i class="fas fa-ticket-alt"></i> Check In</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()" routerLink="MenageBooking"><i class="fas fa-cogs "></i>  Manage Booking</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="show">
+<app-slider></app-slider>
+</div>
+<div *ngIf="show" class="d-none d-xl-block">
+    <app-spice-info></app-spice-info>
+</div>
+
+<div>
+    <app-spice-contect></app-spice-contect>
+</div>
+<div>
+    <app-spicejet-footer></app-spicejet-footer>
+</div>
+   
+</div>
