@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { ICertifications } from 'src/app/models/ICertifications';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
@@ -31,6 +32,11 @@ export class AddMovieComponent implements OnInit, OnDestroy {
   movieBgImage: string = "";
   casts: Array<any> = [];
   castImages: Array<any> = [];
+
+  getAllCertificationsSub: Subscription;
+  getAllGenresSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllFilmCategoriesSub: Subscription;
 
   constructor(
     private fb: FormBuilder, 
@@ -71,35 +77,35 @@ export class AddMovieComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getCertifications();
-    this.getGenres();
-    this.getLanguages();
-    this.getFilmCategories();
+    this.getAllCertificationsSub.unsubscribe();
+    this.getAllFilmCategoriesSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
   }
 
   getCertifications(){
-    this.certificationService.getCertifications()
+    this.getAllCertificationsSub = this.certificationService.getCertifications()
     .subscribe(certifications => {
       this.certificationsList = certifications
     })
   }
 
   getGenres(){
-    this.genresService.getGenres()
+    this.getAllGenresSub = this.genresService.getGenres()
     .subscribe(genres => {
       this.genresList = genres
     })
   }
 
   getLanguages(){
-    this.languagesService.getLanguages()
+    this.getAllLanguagesSub = this.languagesService.getLanguages()
     .subscribe(languages => {
       this.languagesList = languages
     })
   }
 
   getFilmCategories(){
-    this.filmCategoriesService.getFilmCategories()
+    this.getAllFilmCategoriesSub = this.filmCategoriesService.getFilmCategories()
     .subscribe(filmCategories => {
       this.filmCategoriesList = filmCategories
     })

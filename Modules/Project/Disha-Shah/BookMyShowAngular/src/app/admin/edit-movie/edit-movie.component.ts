@@ -13,6 +13,7 @@ import { GenreService } from 'src/app/movies/genre.service';
 import { MoviesService } from 'src/app/movies/movies.service';
 import {DatePipe} from '@angular/common';
 import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-movie',
@@ -41,6 +42,12 @@ export class EditMovieComponent implements OnInit, OnDestroy {
   id: number = 0;
   movies: Array<IMovies> = [];
   movie: IMovies = {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
+
+  getAllCertificationsSub: Subscription;
+  getAllGenresSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllFilmCategoriesSub: Subscription;
+  getMovieSub: Subscription;
 
   constructor(
     private fb: FormBuilder, 
@@ -78,36 +85,36 @@ export class EditMovieComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getCertifications();
-    this.getGenres();
-    this.getLanguages();
-    this.getFilmCategories();
-    this.getMovie();
+    this.getAllCertificationsSub.unsubscribe();
+    this.getAllFilmCategoriesSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getMovieSub.unsubscribe();
   }
 
   getCertifications(){
-    this.certificationService.getCertifications()
+    this.getAllCertificationsSub = this.certificationService.getCertifications()
     .subscribe(certifications => {
       this.certificationsList = certifications
     })
   }
 
   getGenres(){
-    this.genresService.getGenres()
+    this.getAllGenresSub = this.genresService.getGenres()
     .subscribe(genres => {
       this.genresList = genres
     })
   }
 
   getLanguages(){
-    this.languagesService.getLanguages()
+    this.getAllLanguagesSub = this.languagesService.getLanguages()
     .subscribe(languages => {
       this.languagesList = languages
     })
   }
 
   getFilmCategories(){
-    this.filmCategoriesService.getFilmCategories()
+    this.getAllFilmCategoriesSub = this.filmCategoriesService.getFilmCategories()
     .subscribe(filmCategories => {
       this.filmCategoriesList = filmCategories
     })
@@ -260,7 +267,7 @@ export class EditMovieComponent implements OnInit, OnDestroy {
 
   getMovie(){
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.moviesService.getMovie(this.id)
+    this.getMovieSub = this.moviesService.getMovie(this.id)
     .subscribe(movies => {
       this.movies = movies,
       this.movies.forEach(element => {

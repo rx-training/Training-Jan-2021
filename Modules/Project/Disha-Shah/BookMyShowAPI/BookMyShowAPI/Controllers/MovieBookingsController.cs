@@ -48,7 +48,7 @@ namespace BookMyShowAPI.Controllers
         // POST: api/BookMyShow/MovieBookings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Roles = UserRoles.User)]
+        //[Authorize]
         public ActionResult PostMovieBooking(MovieBookingDTO movie)
         {
             if (!ModelState.IsValid)

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
 import { IGenres } from 'src/app/models/IGenres';
@@ -26,6 +27,11 @@ export class MoviesComponent implements OnInit, OnDestroy {
 
   castImagesList: Array<any> = [];
 
+  getAllMoviesSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllGenresSub: Subscription;
+  getAllFilmCategoriesSub: Subscription;
+
   constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService, private filmCategoryService: FilmCategoryService) { 
     
   }
@@ -38,14 +44,14 @@ export class MoviesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getMovies();
-    this.getLanguages();
-    this.getGenres();
-    this.getFilmCategories();
+    this.getAllMoviesSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
+    this.getAllFilmCategoriesSub.unsubscribe();
   }
 
   getMovies(): void{
-    this.service.getMovies()
+    this.getAllMoviesSub = this.service.getMovies()
     .subscribe((movies: any[]) => {
       this.moviesList = movies,
       this.moviesList.forEach(element => {
@@ -81,21 +87,21 @@ export class MoviesComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
   }
   
   getGenres(): void{
-    this.genreService.getGenres()
+    this.getAllGenresSub = this.genreService.getGenres()
     .subscribe((genres: any[]) => {
       this.genresList = genres
     }); 
   }
 
   getFilmCategories(): void{
-    this.filmCategoryService.getFilmCategories()
+    this.getAllFilmCategoriesSub = this.filmCategoryService.getFilmCategories()
     .subscribe(filmCategories => {
       this.filmCategoryList = filmCategories,
       console.log(this.filmCategoryList)

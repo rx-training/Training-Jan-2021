@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DynamicNavbarService } from 'src/app/dynamic-navbar.service';
 import { EventBookingService } from 'src/app/events/event-booking.service';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
@@ -25,6 +26,14 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
   totalNavbarComponents: number = 0;
   totalEventVenues: number = 0;
 
+  getAllMoviesSub: Subscription;
+  getAllEventsSub: Subscription;
+  getAllMovieBookingsSub: Subscription;
+  getAllEventBookingsSub: Subscription;
+  getAllUsersSub: Subscription;
+  getAllNavbarsSub: Subscription;
+  getAllEventVenuesSub: Subscription;
+
   constructor(
     private moviesService: MoviesService, 
     private eventsService: EventsService, 
@@ -46,59 +55,59 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getMoviesLength();
-    this.getEventsLength();
-    this.getMovieBookingsLength();
-    this.getEventBookingsLength();
-    this.getUsersLength();
-    this.getNavbarsLength();
-    this.getEventVenuesLength();
+    this.getAllEventBookingsSub.unsubscribe();
+    this.getAllEventVenuesSub.unsubscribe();
+    this.getAllEventsSub.unsubscribe();
+    this.getAllMovieBookingsSub.unsubscribe();
+    this.getAllMoviesSub.unsubscribe();
+    this.getAllNavbarsSub.unsubscribe();
+    this.getAllUsersSub.unsubscribe();
   }
 
   getMoviesLength(){
-    this.moviesService.getMovies()
+    this.getAllMoviesSub = this.moviesService.getMovies()
     .subscribe(movies => {
       this.totalMovies = movies.length;
     })
   }
 
   getEventsLength(){
-    this.eventsService.getUniqueEvents()
+    this.getAllEventsSub = this.eventsService.getUniqueEvents()
     .subscribe(events => {
       this.totalEvents = events.length
     })
   }
 
   getMovieBookingsLength(){
-    this.movieBookingsService.getMovieBookings()
+    this.getAllMovieBookingsSub = this.movieBookingsService.getMovieBookings()
     .subscribe(movieBookings => {
       this.totalMovieBookings = movieBookings.length
     })
   }
 
   getEventBookingsLength(){
-    this.eventBookingsService.getEventBookings()
+    this.getAllEventBookingsSub = this.eventBookingsService.getEventBookings()
     .subscribe(eventBookings => {
       this.totalEventBookings = eventBookings.length
     })
   }
 
   getUsersLength(){
-    this.userService.getUsers()
+    this.getAllUsersSub = this.userService.getUsers()
     .subscribe(users => {
       this.totalUsers = users.length
     })
   }
 
   getNavbarsLength(){
-    this.navbarService.getDynamicNavbars()
+    this.getAllNavbarsSub = this.navbarService.getDynamicNavbars()
     .subscribe(navbars => {
       this.totalNavbarComponents = navbars.length
     })
   }
 
   getEventVenuesLength(){
-    this.eventVenuesService.getEventVenues()
+    this.getAllEventVenuesSub = this.eventVenuesService.getEventVenues()
     .subscribe(eventVenues => {
       this.totalEventVenues = eventVenues.length
     })

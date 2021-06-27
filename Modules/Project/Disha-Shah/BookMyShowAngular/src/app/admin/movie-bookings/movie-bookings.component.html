@@ -26,31 +26,31 @@
 
                 <tr *ngFor="let booking of bookingsList">
                     <td>{{booking.movieBookingId}}</td>
-                    <td>{{booking.movie}}</td>
-                    <td>{{booking.language}}</td>
-                    <td>{{booking.filmCategory}}</td>
-                    <td>{{booking.city}}</td>
-                    <td>{{booking.theatre}}</td>
+                    <td>{{booking.movie.name}}</td>
+                    <td>{{booking.language.language1}}</td>
+                    <td>{{booking.filmCategory.filmCategory1}}</td>
+                    <td>{{booking.theatre.city.name}}</td>
+                    <td>{{booking.theatre.name}}</td>
                     <td>
-                        <ng-container *ngIf="booking.showTiming.hours < 10">
-                            0{{booking.showTiming.hours}}:
+                        <ng-container *ngIf="booking.showTiming.showTime.hours < 10">
+                            0{{booking.showTiming.showTime.hours}}:
                         </ng-container>
-                        <ng-container *ngIf="booking.showTiming.hours >= 10">
-                            {{booking.showTiming.hours}}:
+                        <ng-container *ngIf="booking.showTiming.showTime.hours >= 10">
+                            {{booking.showTiming.showTime.hours}}:
                         </ng-container>
-                        <ng-container *ngIf="booking.showTiming.minutes < 10">
-                            0{{booking.showTiming.minutes}}
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes < 10">
+                            0{{booking.showTiming.showTime.minutes}}
                         </ng-container>
-                        <ng-container *ngIf="booking.showTiming.minutes >= 10">
-                            {{booking.showTiming.minutes}}
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes >= 10">
+                            {{booking.showTiming.showTime.minutes}}
                         </ng-container>
                     </td>
-                    <td>{{booking.screen}}</td>
+                    <td>{{booking.screenId}}</td>
                     <td>{{booking.seatNo}}</td>
                     <td>{{booking.totalTickets}}</td>
                     <td>{{booking.bookingDate}}</td>
                     <td>{{booking.dateToWatch}}</td>
-                    <td>{{booking.userContact}}</td>
+                    <td>{{booking.user.contactNo}}</td>
                     <td>{{booking.totalAmount}}</td>
                 </tr>
 

@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { EventBookingService } from 'src/app/events/event-booking.service';
+import { EventsService } from 'src/app/events/events.service';
 import { IEventBookings } from 'src/app/models/IEventBookings';
 
 @Component({
@@ -11,20 +13,30 @@ export class EventBookingsComponent implements OnInit, OnDestroy {
 
   bookingsList: Array<IEventBookings> = [];
 
-  constructor(private bookingService: EventBookingService) { }
+  getAllEventBookingsSub: Subscription;
+  getEventsSub: Subscription;
+
+  constructor(private bookingService: EventBookingService, private eventsService: EventsService) { }
 
   ngOnInit(): void {
     this.getBookings();
   }
 
   ngOnDestroy(){
-    this.getBookings();
+    this.getAllEventBookingsSub.unsubscribe();
+    this.getEventsSub.unsubscribe();
   }
 
   getBookings(){
-    this.bookingService.getEventBookings()
+    this.getAllEventBookingsSub = this.bookingService.getEventBookings()
     .subscribe(bookings => {
       this.bookingsList = bookings,
+      this.bookingsList.forEach(item => {
+        this.getEventsSub = this.eventsService.getEvent(item.eventId)
+        .subscribe(events => {
+          item.event = events[0]
+        })
+      })
       console.log(this.bookingsList)
     })
   }

@@ -10,11 +10,13 @@ namespace BookMyShowAPI.Models
         public EventType()
         {
             Events = new HashSet<Event>();
+            EventBookings = new HashSet<EventBooking>();
         }
 
         public int EventTypeId { get; set; }
         public string EventType1 { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
+        public virtual ICollection<EventBooking> EventBookings { get; set; }
     }
 }

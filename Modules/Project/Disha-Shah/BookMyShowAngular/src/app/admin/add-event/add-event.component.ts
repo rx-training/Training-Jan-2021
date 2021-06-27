@@ -9,6 +9,7 @@ import { IEventVenues } from 'src/app/models/IEventVenues';
 import { ILanguages } from 'src/app/models/ILanguages';
 import {DatePipe} from '@angular/common';
 import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-event',
@@ -30,6 +31,11 @@ export class AddEventComponent implements OnInit, OnDestroy {
 
   selectVenue:string = '';
   selectVenueId: number = 0;
+
+  getAllLanguagesSub: Subscription;
+  getAllEventTypesSub: Subscription;
+  getAllEventVenuesSub: Subscription;
+  getAllShowTimingsSub: Subscription;
 
   constructor(
     private fb: FormBuilder, 
@@ -68,9 +74,10 @@ export class AddEventComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getLanguages();
-    this.getEventTypes();
-    this.getEventVenues();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllEventTypesSub.unsubscribe();
+    this.getAllEventVenuesSub.unsubscribe();
+    this.getAllShowTimingsSub.unsubscribe();
   }
 
   eventSubmit(){
@@ -145,21 +152,21 @@ export class AddEventComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(){
-    this.languagesService.getLanguages()
+    this.getAllLanguagesSub = this.languagesService.getLanguages()
     .subscribe(languages => {
       this.languagesList = languages
     })
   }
 
   getEventTypes(){
-    this.eventTypesService.getEventTypes()
+    this.getAllEventTypesSub = this.eventTypesService.getEventTypes()
     .subscribe(eventTypes => {
       this.eventTypesList = eventTypes
     })
   }
 
   getEventVenues(){
-    this.eventVenuesService.getEventVenues()
+    this.getAllEventVenuesSub = this.eventVenuesService.getEventVenues()
     .subscribe(eventVenues => {
       this.eventVenuesList = eventVenues
     })
@@ -171,7 +178,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
         this.selectVenueId = item.eventVenueId
       }
     })
-    this.eventVenuesService.getShowTimingsByEventVenue(this.selectVenueId)
+    this.getAllShowTimingsSub = this.eventVenuesService.getShowTimingsByEventVenue(this.selectVenueId)
     .subscribe(showTimings => {
       this.showTimingsList = showTimings
     })

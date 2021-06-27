@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { EventsService } from 'src/app/events/events.service';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -29,6 +30,10 @@ export class EventsDetailComponent implements OnInit, OnDestroy {
   artistImage: string = '';
   faqs: string = '';
 
+  getAllEventsSub: Subscription;
+  getAllUniqueEventsSub: Subscription;
+  getAllLanguagesSub: Subscription;
+
   constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -38,14 +43,14 @@ export class EventsDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getEvents();
-    this.getUniqueEvents();
-    this.getLanguages();
+    this.getAllEventsSub.unsubscribe();
+    this.getAllUniqueEventsSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
   }
 
   getEvents(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.eventsService.getEvent(id)
+    this.getAllEventsSub = this.eventsService.getEvent(id)
     .subscribe(events => {
       this.eventsList = events
       
@@ -73,7 +78,7 @@ export class EventsDetailComponent implements OnInit, OnDestroy {
   }
 
   getUniqueEvents(){
-    this.eventsService.getUniqueEvents()
+    this.getAllUniqueEventsSub = this.eventsService.getUniqueEvents()
     .subscribe(events => {
       this.uniqueEventsList = events,
       console.log(this.uniqueEventsList)
@@ -97,7 +102,7 @@ export class EventsDetailComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 

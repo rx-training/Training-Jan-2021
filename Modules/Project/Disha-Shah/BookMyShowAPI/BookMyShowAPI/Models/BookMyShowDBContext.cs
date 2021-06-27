@@ -315,32 +315,63 @@ namespace BookMyShowAPI.Models
                     .HasColumnType("date")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.DateOfEvent).HasColumnType("date");
+                //entity.Property(e => e.DateOfEvent).HasColumnType("date");
 
-                entity.Property(e => e.Event)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Event)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.EventType)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.EventType)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.EventVenue)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.EventVenue)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.TotalAmount)
                     .HasColumnType("money")
                     .HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.UserContact)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                //entity.Property(e => e.UserContact)
+                //    .IsRequired()
+                //    .HasMaxLength(10)
+                //    .IsUnicode(false)
+                //    .IsFixedLength(true);
+
+                entity.HasOne(d => d.Event)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.EventId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_EventId_FK");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_UserId_FK");
+
+                entity.HasOne(d => d.EventVenue)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.EventVenueId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_EventVenueId_FK");
+
+                entity.HasOne(d => d.ShowTiming)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.ShowTimingId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_ShowTimingId_FK");
+
+                entity.HasOne(d => d.EventType)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.EventTypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_EventTypeId_FK");
+
             });
 
             modelBuilder.Entity<EventLanguage>(entity =>

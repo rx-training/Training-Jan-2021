@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 import {
    debounceTime, distinctUntilChanged, switchMap
@@ -27,6 +27,9 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   searchText: IMovies =  {about: '', isRecommended: false, movieFilmCategories: [], movieLanguages: [], name: '', time: '', movieId: 0, screensMovies: [], backgroundImage: '', cast: '', castImages: '', certification: '', certificationId: 0, dateOfRelease: new Date(), image: '', isPremiere: false, movieGenres: []};
 
+  getAllMoviesSub: Subscription;
+  getAllEventsSub: Subscription;
+
   constructor(private service: MoviesService, private eventsService: EventsService) {}
 
   ngOnInit(): void {
@@ -40,14 +43,14 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   getMovies(): void{
-    this.service.getMovies()
+    this.getAllMoviesSub = this.service.getMovies()
     .subscribe((movies: any[]) => {
       this.moviesList = movies
     });  
   }
 
   getEvents(): void{
-    this.eventsService.getEvents()
+    this.getAllEventsSub = this.eventsService.getEvents()
     .subscribe(events => {
       this.eventsList = events
       this.uniqueEventsList = this.eventsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i)

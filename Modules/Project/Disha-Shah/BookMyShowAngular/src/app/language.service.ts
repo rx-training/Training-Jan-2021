@@ -20,4 +20,9 @@ export class LanguageService {
   getLanguages(): Observable<ILanguages[]> {
     return this.http.get<ILanguages[]>(this.languagesUrl);
   }
+
+  getLanguage(id: number): Observable<ILanguages[]> {
+    const url = `${this.languagesUrl}/${id}`; 
+    return this.http.get<ILanguages[]>(url);
+  }
 }

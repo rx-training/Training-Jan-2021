@@ -10,6 +10,7 @@ export class AdminHomeComponent implements OnInit, OnDestroy {
 
   adminInfo: any;
   adminName: string = '';
+  myVar: any;
 
   constructor(private registerService: RegisterService, private router: Router) { }
 
@@ -20,9 +21,7 @@ export class AdminHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.loadScript('../../../assets/js/admin-sidebar.js');
-    this.getLoggedAdminInfo();
-    this.automaticLogOut();
+    clearTimeout(this.myVar);
   }
 
   logout() {
@@ -36,7 +35,7 @@ export class AdminHomeComponent implements OnInit, OnDestroy {
   automaticLogOut(){
     
     if(localStorage.getItem("logged_in_admin")){
-      setTimeout(() => {
+      this.myVar = setTimeout(() => {
         this.registerService.logoutAdmin();
         alert("You have been logged out");
         window.location.assign('/home');

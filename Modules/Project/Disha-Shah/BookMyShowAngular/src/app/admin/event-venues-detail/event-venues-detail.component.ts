@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
 import { IEventVenues } from 'src/app/models/IEventVenues';
 import { IShowTimings } from 'src/app/models/IShowTimings';
@@ -25,6 +26,9 @@ export class EventVenuesDetailComponent implements OnInit, OnDestroy {
   showtime: any;
   id: number = 0;
 
+  getAllEventVenuesSub: Subscription;
+  getAllShowTimingsSub: Subscription;
+
   constructor(
     private fb: FormBuilder,
     private eventVenuesService: EventVenuesService, 
@@ -45,12 +49,13 @@ export class EventVenuesDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getEventVenue();
+    this.getAllEventVenuesSub.unsubscribe();
+    this.getAllShowTimingsSub.unsubscribe();
   }
 
   getEventVenue(){
     this.id =  parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.eventVenuesService.getShowTimingsByEventVenue(this.id)
+    this.getAllEventVenuesSub = this.eventVenuesService.getShowTimingsByEventVenue(this.id)
     .subscribe(showTimings => {
       this.showTimingsList = showTimings,
       this.eventVenue = showTimings[0],
@@ -64,7 +69,7 @@ export class EventVenuesDetailComponent implements OnInit, OnDestroy {
   }
 
   getShowTimings(){
-    this.showTimingsService.getShowTimings()
+    this.getAllShowTimingsSub = this.showTimingsService.getShowTimings()
       .subscribe(showTimings => {
         this.allShowTimings = showTimings
         this.allShowTimings.forEach(item => {

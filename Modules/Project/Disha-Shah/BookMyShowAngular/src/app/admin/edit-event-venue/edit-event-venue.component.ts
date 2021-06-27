@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { CityService } from 'src/app/city.service';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
 import { ICity } from 'src/app/models/ICity';
@@ -18,6 +19,10 @@ export class EditEventVenueComponent implements OnInit, OnDestroy {
   cityName: string = '';
   eventVenue: IEventVenues = {address:'',cityId:0,name:'',totalTickets:0};
   citiesList: Array<ICity> = [];
+
+  getAllEventVenuesSub: Subscription;
+  getAllCitiesSub: Subscription;
+  getCitySub: Subscription;
 
   constructor(
     private fb: FormBuilder, 
@@ -40,13 +45,14 @@ export class EditEventVenueComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getEventVenue();
-    this.getCities();
+    this.getAllEventVenuesSub.unsubscribe();
+    this.getAllCitiesSub.unsubscribe();
+    this.getCitySub.unsubscribe()
   }
 
   getEventVenue(){
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.eventvenuesService.getEventVenue(this.id)
+    this.getAllEventVenuesSub = this.eventvenuesService.getEventVenue(this.id)
     .subscribe(eventVenue => {
       this.eventVenue = eventVenue,
       this.getCity(eventVenue.cityId)
@@ -54,7 +60,7 @@ export class EditEventVenueComponent implements OnInit, OnDestroy {
   }
 
   getCity(id: number){
-    this.cityService.getCity(id)
+    this.getCitySub = this.cityService.getCity(id)
     .subscribe(city => {
       this.cityName = city.name,
 
@@ -68,7 +74,7 @@ export class EditEventVenueComponent implements OnInit, OnDestroy {
   }
 
   getCities(){
-    this.cityService.getCities()
+    this.getAllCitiesSub = this.cityService.getCities()
     .subscribe(cities => {
       this.citiesList = cities
     })

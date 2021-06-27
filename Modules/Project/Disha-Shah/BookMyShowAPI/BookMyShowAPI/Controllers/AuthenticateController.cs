@@ -26,13 +26,15 @@ namespace BookMyShowAPI.Controllers
         private readonly IAdmin admins;
         private readonly IMailService mailService;
         private readonly IConfiguration _configuration;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public AuthenticateController(IUser user, IAdmin admin, IMailService mailService, IConfiguration configuration)
+        public AuthenticateController(IUser user, IAdmin admin, IMailService mailService, IConfiguration configuration, UserManager<ApplicationUser> userManager)
         {
             users = user;
             admins = admin;
             this.mailService = mailService;
             _configuration = configuration;
+            this.userManager = userManager;
         }
 
         // POST: api/bookmyshow/authenticate/login?otp=1234
@@ -45,40 +47,38 @@ namespace BookMyShowAPI.Controllers
             var role = "";
             var userOtp = 0;
 
-            //if (otp != 1234)
-            //{
-            //    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
-            //}
-
             if (users.FindName(model.Username) != null)
             {
                 username = model.Username;
-                pass = users.FindPassword(model.Username);
+                pass = model.Password;
                 userOtp = users.FindName(model.Username).Otp;
                 role = "User";
+
+                if (otp != userOtp)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
+                }
+
             }
-            else if (admins.FindName(model.Username) != null && otp == 1234)
+            else if (admins.FindName(model.Username) != null)
             {
                 username = model.Username;
-                pass = admins.FindName(model.Username).Password;
+                //pass = admins.FindName(model.Username).Password;
+                pass = model.Password;
                 role = "Admin";
+
+                if (otp != 1234)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
+                }
+
             }
             else
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Username!" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Username or Password!" });
             }
 
-            if (model.Password.Trim() != pass)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Password!" });
-            }
-
-            if (otp != userOtp)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
-            }
-
-            var newToken = await users.LoginUser(username);
+            var newToken = await users.LoginUser(username, pass);
 
             if (newToken != null)
             {

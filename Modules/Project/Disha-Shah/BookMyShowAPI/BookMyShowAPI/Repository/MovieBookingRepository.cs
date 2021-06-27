@@ -24,7 +24,8 @@ namespace BookMyShowAPI.Repository
         // Get all movie Bookings
         public IEnumerable GetAllMovieBookings()
         {
-            var movieBookings = context.MovieBookings;
+            var movieBookings = context.MovieBookings
+                                        .Where(x => x.Movie.IsActive == true);
 
             var m = from x in movieBookings
                     select new MovieBooking
@@ -61,7 +62,7 @@ namespace BookMyShowAPI.Repository
         public IEnumerable GetMovieBookingByContact(string contactno)
         {
             var movieBookings = context.MovieBookings
-                                    .Where(x => x.User.ContactNo == contactno);
+                                    .Where(x => x.User.ContactNo == contactno && x.Movie.IsActive == true);
 
             var m = from x in movieBookings
                     select new MovieBooking
@@ -95,7 +96,7 @@ namespace BookMyShowAPI.Repository
         }
 
         // Book a Movie
-        public void BookMovie(MovieBookingDTO movieBookingDTO)
+        public async Task BookMovie(MovieBookingDTO movieBookingDTO)
         {
             var json = JsonConvert.SerializeObject(movieBookingDTO);
 
@@ -104,10 +105,16 @@ namespace BookMyShowAPI.Repository
             context.Database.ExecuteSqlRaw($"EXECUTE prcBook @jsonBook", param);
 
             var seats = string.Join(",", movieBookingDTO.SeatNo);
-            var totalTickets = 0;
+            var totalTickets = movieBookingDTO.SeatNo.Length;
             var totalAmount = 0.0;
             var screen = 0;
             var bookingId = 0;
+            City city;
+            FilmCategory filmCategory;
+            Language language;
+            Movie movie;
+            Theatre theatre;
+            ShowTiming showTiming;
 
             var bookingsDone = context.MovieBookings
                                     .Where(x => x.User.ContactNo == movieBookingDTO.UserContact)
@@ -115,11 +122,18 @@ namespace BookMyShowAPI.Repository
 
             foreach (var item in bookingsDone)
             {
-                if(item.Movie.Name == movieBookingDTO.Movie && item.Language.Language1 == movieBookingDTO.Language && item.City.Name == movieBookingDTO.City && item.DateToWatch == movieBookingDTO.DateToWatch && item.FilmCategory.FilmCategory1 == movieBookingDTO.FilmCategory && item.SeatNo == seats && item.Theatre.Name == movieBookingDTO.Theatre)
+                city = context.Cities.SingleOrDefault(x => x.Name == movieBookingDTO.City);
+                filmCategory = context.FilmCategories.SingleOrDefault(x => x.FilmCategory1 == movieBookingDTO.FilmCategory);
+                language = context.Languages.SingleOrDefault(x => x.Language1 == movieBookingDTO.Language);
+                movie = context.Movies.SingleOrDefault(x => x.Name == movieBookingDTO.Movie);
+                theatre = context.Theatres.SingleOrDefault(x => x.Name == movieBookingDTO.Theatre);
+                TimeSpan ts = DateTime.Parse(movieBookingDTO.ShowTiming).TimeOfDay;
+                showTiming = context.ShowTimings.SingleOrDefault(x => x.ShowTime == ts);
+                
+                if (item.MovieId == movie.MovieId && item.LanguageId == language.LanguageId && item.CityId == city.CityId && item.DateToWatch == movieBookingDTO.DateToWatch && item.FilmCategoryId == filmCategory.FilmCategoryId && item.SeatNo == seats && item.TheatreId == theatre.TheatreId && item.ShowTimingId == showTiming.ShowTimingId)
                 {
                     bookingId = item.MovieBookingId;
-                    screen = (int)item.Screen.ScreenId;
-                    totalTickets = item.TotalTickets;
+                    screen = (int)item.ScreenId;
                     totalAmount = (double)item.TotalAmount;
                 }
             }
@@ -129,7 +143,7 @@ namespace BookMyShowAPI.Repository
 
             foreach (var item in users)
             {
-                if(item.ContactNo == movieBookingDTO.UserContact)
+                if (item.ContactNo == movieBookingDTO.UserContact)
                 {
                     userEmail = item.Email;
                 }
@@ -142,7 +156,7 @@ namespace BookMyShowAPI.Repository
 
             request.ToEmail = userEmail;
             request.Subject = $"Booking is successfully done!";
-            request.Body = $"<h1>BookMyShow</h1><h2>Booking Id: {bookingId}</h2><h4>Booked Movie: {movieBookingDTO.Movie}</h4><h4>Theatre: {movieBookingDTO.Theatre}, {movieBookingDTO.City}</h4><h4>Show Time: {movieBookingDTO.ShowTiming}</h4><h4>Language: {movieBookingDTO.Language}</h4><h4>Format: {movieBookingDTO.FilmCategory}</h4><h4>Date to watch: {dateToWatch}</h4><h4>Screen: {screen}</h4><h4>Total seats: {totalTickets}</h4><h3>Seat No. {seats}</h3><h3>Amount paid: {totalAmount}</h3>";
+            request.Body = $"<h1>BookMyShow</h1><h2>Movie Booked Successfully</h2><h2>Booking Id: {bookingId}</h2><h4>Booked Movie: {movieBookingDTO.Movie}</h4><h4>Theatre: {movieBookingDTO.Theatre}, {movieBookingDTO.City}</h4><h4>Show Time: {movieBookingDTO.ShowTiming}</h4><h4>Language: {movieBookingDTO.Language}</h4><h4>Format: {movieBookingDTO.FilmCategory}</h4><h4>Date to watch: {dateToWatch}</h4><h4>Screen: {screen}</h4><h4>Total seats: {totalTickets}</h4><h3>Seat No. {seats}</h3><h3>Amount paid: {totalAmount}</h3>";
 
             try
             {

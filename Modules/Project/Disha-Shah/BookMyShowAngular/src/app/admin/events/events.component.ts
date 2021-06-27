@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { EventsService } from 'src/app/events/events.service';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
@@ -17,6 +18,10 @@ export class EventsComponent implements OnInit, OnDestroy {
   languagesList: Array<ILanguages> = [];
   languages: Array<any> = [];
 
+  getAllEventsSub: Subscription;
+  getAllUniqueEventsSub: Subscription;
+  getAllLanguagesSub: Subscription;
+
   constructor(private eventsService: EventsService, private languageService: LanguageService) { }
 
   ngOnInit(): void {
@@ -25,12 +30,13 @@ export class EventsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getEvents();
-    this.getLanguages();
+    this.getAllEventsSub.unsubscribe();
+    this.getAllUniqueEventsSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
   }
 
   getEvents(){
-    this.eventsService.getEvents()
+    this.getAllEventsSub = this.eventsService.getEvents()
     .subscribe(events => {
       this.eventsList = events,
       this.events = this.eventsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
@@ -48,7 +54,7 @@ export class EventsComponent implements OnInit, OnDestroy {
       element.languages = [...new Set(this.languages.map(i => i.language))]
       }),
 
-      this.eventsService.getUniqueEvents()
+      this.getAllUniqueEventsSub = this.eventsService.getUniqueEvents()
       .subscribe(events => {
         this.uniqueEventsList = events,
         this.events.forEach(item => {
@@ -73,7 +79,7 @@ export class EventsComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 

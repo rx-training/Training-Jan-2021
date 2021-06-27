@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { element } from 'protractor';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
 import { IGenres } from 'src/app/models/IGenres';
@@ -29,6 +29,12 @@ export class MovieComponent implements OnInit, OnDestroy {
   castNamesList: Array<any> = [];
   categoriesByLanguageList: Array<any> = [];
 
+  getAllMovieSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllGenresSub: Subscription;
+  getAllFilmCategoriesSub: Subscription;
+  getAllFilmCategoriesByLanguageSub: Subscription;
+
   constructor(private service: MoviesService,
     private languageService: LanguageService,
     private genreService: GenreService, 
@@ -46,15 +52,16 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getMovie();
-    this.getLanguages();
-    this.getGenres();
-    this.getFilmCategories();
+    this.getAllMovieSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
+    this.getAllFilmCategoriesSub.unsubscribe();
+    this.getAllFilmCategoriesByLanguageSub.unsubscribe();
   }
 
   getMovie(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.service.getMovie(id)
+    this.getAllMovieSub = this.service.getMovie(id)
       .subscribe(movie => {
         this.movies = movie, 
         this.movies.forEach(element => {
@@ -64,7 +71,7 @@ export class MovieComponent implements OnInit, OnDestroy {
                 e.language=g.language1
               }
             })
-            this.service.getFilmCategoriesByLanguages(id, e.language)
+            this.getAllFilmCategoriesByLanguageSub = this.service.getFilmCategoriesByLanguages(id, e.language)
               .subscribe(categories => {
                 this.categoriesByLanguageList.push(categories)
               })
@@ -99,21 +106,21 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
   }
   
   getGenres(): void{
-    this.genreService.getGenres()
+    this.getAllGenresSub = this.genreService.getGenres()
     .subscribe((genres: any[]) => {
       this.genresList = genres
     }); 
   }
 
   getFilmCategories(): void{
-    this.filmCategoryService.getFilmCategories()
+    this.getAllFilmCategoriesSub = this.filmCategoryService.getFilmCategories()
     .subscribe((filmCategories: any[]) => {
       this.filmCategoriesList = filmCategories
     }); 

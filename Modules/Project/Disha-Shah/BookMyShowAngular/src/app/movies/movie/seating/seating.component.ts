@@ -5,6 +5,7 @@ import { MoviesService } from '../../movies.service';
 import * as $ from 'jquery';
 import { MovieBookingsService } from '../../movie-bookings.service';
 import { IMovieBookings } from 'src/app/models/IMovieBookings';
+import { Subscription } from 'rxjs';
 
 enum Seatcategory{
   Executive = 'Executive',
@@ -50,6 +51,10 @@ export class SeatingComponent implements OnInit, OnDestroy {
   totalAmount: number = 0;
   screenId: number = 0;
 
+  getAllMovieSub: Subscription;
+  getAllSeatCategoriesSub: Subscription;
+  getAllSeatsSub: Subscription;
+
   constructor(private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService) { }
 
   ngOnInit(): void {
@@ -59,9 +64,9 @@ export class SeatingComponent implements OnInit, OnDestroy {
   }
   
   ngOnDestroy(){
-    this.getMovieInfo();
-    this.getMovie();
-    this.getSeats();
+    this.getAllMovieSub.unsubscribe();
+    this.getAllSeatCategoriesSub.unsubscribe();
+    this.getAllSeatsSub.unsubscribe();
   }
 
   getMovieInfo(){
@@ -78,7 +83,7 @@ export class SeatingComponent implements OnInit, OnDestroy {
   }
 
   getMovie(){
-    this.service.getMovie(this.movieId)
+    this.getAllMovieSub = this.service.getMovie(this.movieId)
     .subscribe(movies => {
       this.movies = movies,
       this.movie = this.movies[0]
@@ -86,12 +91,12 @@ export class SeatingComponent implements OnInit, OnDestroy {
   }
 
   getSeats(){
-    this.service.getSeatsCategoryByShowTime(this.movieId, this.language, this.category, this.theatreId,this.showTime)
+    this.getAllSeatCategoriesSub = this.service.getSeatsCategoryByShowTime(this.movieId, this.language, this.category, this.theatreId,this.showTime)
     .subscribe(seatsCategories => {
       this.seatsCategories = seatsCategories,
       this.uniqueSeatsCategories = this.seatsCategories.filter((thing, i, arr) => arr.findIndex(t => t.seatsCategoryId == thing.seatsCategoryId) == i),
       this.uniqueSeatsCategories.forEach(element => {
-        this.service.getSeatsBySeatCategory(this.movieId, this.language, this.category, this.theatreId,this.showTime, element.seatCategory)
+        this.getAllSeatsSub = this.service.getSeatsBySeatCategory(this.movieId, this.language, this.category, this.theatreId,this.showTime, element.seatCategory)
         .subscribe(seats => {
           this.seatsList.push(seats)
         })

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IFilmCategories } from 'src/app/models/IFilmCategories';
 import { IGenres } from 'src/app/models/IGenres';
@@ -26,6 +27,10 @@ export class SelectShowTimeComponent implements OnInit, OnDestroy {
   category: string = '';
   datesList: Array<any> = [];
 
+  getAllTheatresSub: Subscription;
+  getAllMovieSub: Subscription;
+  getAllGenresSub: Subscription;
+
   constructor(
     private service: MoviesService,
     private genreService: GenreService, 
@@ -40,17 +45,16 @@ export class SelectShowTimeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getTheatres();
-    this.getMovie();
-    this.getGenres();
-    this.setTheatres();
+    this.getAllTheatresSub.unsubscribe();
+    this.getAllMovieSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
   }
   
   getMovie(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     const language = this.route.snapshot.paramMap.get('language')!;
     const category = this.route.snapshot.paramMap.get('category')!;
-    this.service.getMovie(id)
+    this.getAllMovieSub = this.service.getMovie(id)
     .subscribe(movies => {
       this.movies = movies,
       this.movie = this.movies[0],
@@ -69,7 +73,7 @@ export class SelectShowTimeComponent implements OnInit, OnDestroy {
   }
 
   getGenres(): void{
-    this.genreService.getGenres()
+    this.getAllGenresSub = this.genreService.getGenres()
     .subscribe((genres: any[]) => {
       this.genresList = genres
     }); 
@@ -79,7 +83,7 @@ export class SelectShowTimeComponent implements OnInit, OnDestroy {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     const language = this.route.snapshot.paramMap.get('language')!;
     const category = this.route.snapshot.paramMap.get('category')!;
-    this.service.getTheatresBySelectedMovieCategory(id, language, category)
+    this.getAllTheatresSub = this.service.getTheatresBySelectedMovieCategory(id, language, category)
       .subscribe(theatres => {
         this.theatres = theatres,
         console.log(this.theatres),

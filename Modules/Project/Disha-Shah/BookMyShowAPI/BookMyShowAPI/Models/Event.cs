@@ -10,6 +10,7 @@ namespace BookMyShowAPI.Models
         public Event()
         {
             EventLanguages = new HashSet<EventLanguage>();
+            EventBookings = new HashSet<EventBooking>();
         }
 
         public int EventId { get; set; }
@@ -34,5 +35,6 @@ namespace BookMyShowAPI.Models
         public virtual EventType EventType { get; set; }
         public virtual EventVenueShowTiming EventVenueShowTiming { get; set; }
         public virtual ICollection<EventLanguage> EventLanguages { get; set; }
+        public virtual ICollection<EventBooking> EventBookings { get; set; }
     }
 }

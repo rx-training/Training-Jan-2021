@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { MoviesService } from '../../movies.service';
 
 @Component({
@@ -34,6 +35,9 @@ export class SelectDateComponent implements OnInit, OnChanges, OnDestroy {
   reclinerSeats: Array<any> = [];
   isReclinerAvailable = true;
 
+  getShowTimingsByTheatreSub: Subscription;
+  getSeatsCategoryByShowTimeSub: Subscription;
+
   constructor(
     private service: MoviesService,
     private route: ActivatedRoute
@@ -48,7 +52,8 @@ export class SelectDateComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getTheatresInfo();
+    this.getShowTimingsByTheatreSub.unsubscribe();
+    this.getSeatsCategoryByShowTimeSub.unsubscribe();
   }
 
   getTheatresInfo(){
@@ -58,7 +63,7 @@ export class SelectDateComponent implements OnInit, OnChanges, OnDestroy {
     this.uniqueTheatres = this.theatres.filter((thing, i, arr) => arr.findIndex(t => t.theatreId == thing.theatreId) == i);
     console.log(this.uniqueTheatres);
     this.uniqueTheatres.forEach(element => {
-      this.service.getShowTimingsByTheatre(this.movieId, element.language, element.filmCategory, element.theatreId)
+      this.getShowTimingsByTheatreSub = this.service.getShowTimingsByTheatre(this.movieId, element.language, element.filmCategory, element.theatreId)
         .subscribe(showTimings => {
           this.showTimings.push(showTimings),
           console.log(this.showTimings),
@@ -83,7 +88,7 @@ export class SelectDateComponent implements OnInit, OnChanges, OnDestroy {
   seats(){
     this.isOnSeats = true;
     this.isOnTerms = false;
-    this.service.getSeatsCategoryByShowTime(this.movieId, this.language, this.category, this.theatreId,this.showTime)
+    this.getSeatsCategoryByShowTimeSub = this.service.getSeatsCategoryByShowTime(this.movieId, this.language, this.category, this.theatreId,this.showTime)
     .subscribe(seatsCategories => {
       this.seatsCategories = seatsCategories,
       this.uniqueSeatsCategories = this.seatsCategories.filter((thing, i, arr) => arr.findIndex(t => t.seatsCategoryId == thing.seatsCategoryId) == i),

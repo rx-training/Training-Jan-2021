@@ -20,4 +20,9 @@ export class FilmCategoryService {
   getFilmCategories(): Observable<IFilmCategories[]> {
     return this.http.get<IFilmCategories[]>(this.filmCategoriesUrl);
   }
+
+  getFilmCategory(id: number): Observable<IFilmCategories[]> {
+    const url = `${this.filmCategoriesUrl}/${id}`; 
+    return this.http.get<IFilmCategories[]>(url);
+  }
 }

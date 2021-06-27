@@ -20,4 +20,9 @@ export class ShowTimingsService {
   getShowTimings(): Observable<IShowTimings[]> {
     return this.http.get<IShowTimings[]>(this.showTimingsUrl);
   }
+
+  getShowTiming(id: number): Observable<IShowTimings[]> {
+    const url = `${this.showTimingsUrl}/${id}`; 
+    return this.http.get<IShowTimings[]>(url);
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DynamicNavbarService } from 'src/app/dynamic-navbar.service';
 import { IDynamicNavbar } from 'src/app/models/IDynamicNavbar';
 
@@ -11,6 +12,8 @@ export class NavbarsComponent implements OnInit, OnDestroy {
 
   navbarsList: Array<IDynamicNavbar> = [];
 
+  getAllNavbarsSub: Subscription;
+
   constructor(private navbarService: DynamicNavbarService) { }
 
   ngOnInit(): void {
@@ -18,11 +21,11 @@ export class NavbarsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getNavbars();
+    this.getAllNavbarsSub.unsubscribe();
   }
 
   getNavbars(){
-    this.navbarService.getDynamicNavbars()
+    this.getAllNavbarsSub = this.navbarService.getDynamicNavbars()
     .subscribe(navbars => {
       this.navbarsList = navbars
     })

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IUser } from 'src/app/models/IUser';
 import { UserService } from 'src/app/movies/user.service';
 
@@ -11,6 +12,8 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   usersList: Array<IUser> = [];
 
+  getAllUsersSub: Subscription;
+
   constructor(private usersService: UserService) { }
 
   ngOnInit(): void {
@@ -18,11 +21,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getUsers();  
+    this.getAllUsersSub.unsubscribe();  
   }
 
   getUsers(){
-    this.usersService.getUsers()
+    this.getAllUsersSub = this.usersService.getUsers()
     .subscribe(users => {
       this.usersList = users,
       console.log(this.usersList)

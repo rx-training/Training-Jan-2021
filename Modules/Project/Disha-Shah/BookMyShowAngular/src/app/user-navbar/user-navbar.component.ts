@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { RegisterService } from '../auth/register.service';
 import { DynamicNavbarService } from '../dynamic-navbar.service';
 import { IDynamicNavbar } from '../models/IDynamicNavbar';
@@ -16,6 +17,9 @@ export class UserNavbarComponent implements OnInit, OnChanges, OnDestroy {
   userInfo: any;
   username: string = '';
   dynamicNavbarsList: Array<IDynamicNavbar> = [];
+  myVar: any;
+
+  getAllDynamicNavbarsSub: Subscription;
 
   constructor(private registerService: RegisterService, private router: Router, private dynamicNavbarService: DynamicNavbarService) { }
 
@@ -32,10 +36,8 @@ export class UserNavbarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.loadScript('../../../assets/js/main.js');
-    this.IsUserLoggedIn();
-    this.getDynamicNavbars();
-    this.automaticLogOut();
+    this.getAllDynamicNavbarsSub.unsubscribe();
+    clearTimeout(this.myVar);
   }
 
   IsUserLoggedIn()
@@ -62,7 +64,7 @@ export class UserNavbarComponent implements OnInit, OnChanges, OnDestroy {
   automaticLogOut(){
 
     if(localStorage.getItem("logged_in_user")){
-      setTimeout(() => {
+      this.myVar = setTimeout(() => {
         this.registerService.logoutUser();
         this.IsLoggedIn = false;
         this.display = "block";

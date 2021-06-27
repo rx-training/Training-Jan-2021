@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { IEventBookings } from 'src/app/models/IEventBookings';
@@ -38,6 +39,11 @@ export class ConfirmEventComponent implements OnInit, OnDestroy {
   userInfo: any;
   userName: string = '';
 
+  getAllEventsSub: Subscription;
+  getAllUniqueEventsSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllUsersSub: Subscription;
+
   constructor(private eventsService: EventsService, private languageService: LanguageService, private route: ActivatedRoute, private router: Router, private eventBookingsService: EventBookingService, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -48,16 +54,16 @@ export class ConfirmEventComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getEvents();
-    this.getUniqueEvents();
-    this.getLanguages();
-    this.getUsers();
+    this.getAllEventsSub.unsubscribe();
+    this.getAllUniqueEventsSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllUsersSub.unsubscribe();
   }
 
   getEvents(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.numberOfSeats = parseInt(this.route.snapshot.paramMap.get('numberOfSeats'), 10);
-    this.eventsService.getEvent(id)
+    this.getAllEventsSub = this.eventsService.getEvent(id)
     .subscribe(events => {
       this.eventsList = events
       
@@ -87,7 +93,7 @@ export class ConfirmEventComponent implements OnInit, OnDestroy {
   }
 
   getUniqueEvents(){
-    this.eventsService.getUniqueEvents()
+    this.getAllUniqueEventsSub = this.eventsService.getUniqueEvents()
     .subscribe(events => {
       this.uniqueEventsList = events,
       console.log(this.uniqueEventsList)
@@ -108,14 +114,14 @@ export class ConfirmEventComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
   }
 
   getUsers(){
-    this.userService.getUsers()
+    this.getAllUsersSub = this.userService.getUsers()
     .subscribe(users => {
       this.usersList = users,
       this.userInfo = JSON.parse(localStorage.getItem("logged_in_user"))

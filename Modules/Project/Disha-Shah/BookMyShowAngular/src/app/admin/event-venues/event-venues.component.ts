@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
 import { IEventVenues } from 'src/app/models/IEventVenues';
 
@@ -11,6 +12,8 @@ export class EventVenuesComponent implements OnInit, OnDestroy {
 
   eventVenuesList: Array<IEventVenues> = [];
 
+  getAllEventVenuesSub: Subscription;
+
   constructor(private eventVenuesService: EventVenuesService) { }
 
   ngOnInit(): void {
@@ -18,11 +21,11 @@ export class EventVenuesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getEventVenues();
+    this.getAllEventVenuesSub.unsubscribe();
   }
 
   getEventVenues(){
-    this.eventVenuesService.getEventVenues()
+    this.getAllEventVenuesSub = this.eventVenuesService.getEventVenues()
     .subscribe(eventVenues => {
       this.eventVenuesList = eventVenues
     })

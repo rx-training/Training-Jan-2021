@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IUser } from 'src/app/models/IUser';
 import { MovieBookingsService } from '../../movie-bookings.service';
 import { MoviesService } from '../../movies.service';
@@ -47,6 +48,9 @@ export class ConfirmBookingComponent implements OnInit, OnDestroy {
   day: string = '';
   month: string = '';
 
+  getAllUsersSub: Subscription;
+  getAllTheatreSub: Subscription;
+
   constructor(private router: Router, private route: ActivatedRoute, private service: MoviesService, private movieBookingsService: MovieBookingsService, private userService: UserService, private theatreService: TheatreService) { }
 
   ngOnInit(): void {
@@ -57,10 +61,8 @@ export class ConfirmBookingComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getMovieInfo();
-    this.getSelectedSeats();
-    this.getUsers();
-    this.getTheatre();
+    this.getAllUsersSub.unsubscribe();
+    this.getAllTheatreSub.unsubscribe();
   }
 
   getMovieInfo(){
@@ -89,7 +91,7 @@ export class ConfirmBookingComponent implements OnInit, OnDestroy {
   }
 
   getUsers(){
-    this.userService.getUsers()
+    this.getAllUsersSub = this.userService.getUsers()
     .subscribe(users => {
       this.usersList = users,
       this.userInfo = JSON.parse(localStorage.getItem("logged_in_user"))
@@ -103,7 +105,7 @@ export class ConfirmBookingComponent implements OnInit, OnDestroy {
   }
 
   getTheatre(){
-    this.theatreService.getTheatre(this.theatreId)
+    this.getAllTheatreSub = this.theatreService.getTheatre(this.theatreId)
       .subscribe(theatre => {
         this.city = theatre[0].city.name
       })

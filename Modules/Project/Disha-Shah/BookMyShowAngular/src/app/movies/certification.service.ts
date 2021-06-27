@@ -20,4 +20,9 @@ export class CertificationService {
   getCertifications(): Observable<ICertifications[]> {
     return this.http.get<ICertifications[]>(this.certificationsUrl);
   }
+
+  getCertification(id: number): Observable<ICertifications[]> {
+    const url = `${this.certificationsUrl}/${id}`; 
+    return this.http.get<ICertifications[]>(url);
+  }
 }

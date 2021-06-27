@@ -20,4 +20,9 @@ export class GenreService {
   getGenres(): Observable<IGenres[]> {
     return this.http.get<IGenres[]>(this.genresUrl);
   }
+
+  getGenre(id: number): Observable<IGenres[]> {
+    const url = `${this.genresUrl}/${id}`; 
+    return this.http.get<IGenres[]>(url);
+  }
 }

@@ -22,27 +22,27 @@
 
                 <tr *ngFor="let booking of bookingsList">
                     <td>{{booking.eventBookingId}}</td>
-                    <td>{{booking.event}}</td>
-                    <td>{{booking.eventVenue}}</td>
-                    <td>{{booking.eventType}}</td>
-                    <td>{{booking.dateOfEvent}}</td>
+                    <td>{{booking.event.event}}</td>
+                    <td>{{booking.eventVenue.name}}</td>
+                    <td>{{booking.eventType.eventType1}}</td>
+                    <td>{{booking.event.dateOfEvent}}</td>
                     <td>
-                        <ng-container *ngIf="booking.showTiming.hours < 10">
-                            0{{booking.showTiming.hours}}:
+                        <ng-container *ngIf="booking.showTiming.showTime.hours < 10">
+                            0{{booking.showTiming.showTime.hours}}:
                         </ng-container>
-                        <ng-container *ngIf="booking.showTiming.hours >= 10">
-                            {{booking.showTiming.hours}}:
+                        <ng-container *ngIf="booking.showTiming.showTime.hours >= 10">
+                            {{booking.showTiming.showTime.hours}}:
                         </ng-container>
-                        <ng-container *ngIf="booking.showTiming.minutes < 10">
-                            0{{booking.showTiming.minutes}}
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes < 10">
+                            0{{booking.showTiming.showTime.minutes}}
                         </ng-container>
-                        <ng-container *ngIf="booking.showTiming.minutes >= 10">
-                            {{booking.showTiming.minutes}}
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes >= 10">
+                            {{booking.showTiming.showTime.minutes}}
                         </ng-container>
                     </td>
                     <td>{{booking.bookingDate}}</td>
                     <td>{{booking.ticketCount}}</td>
-                    <td>{{booking.userContact}}</td>
+                    <td>{{booking.user.contactNo}}</td>
                     <td>{{booking.totalAmount}}</td>
                 </tr>
 

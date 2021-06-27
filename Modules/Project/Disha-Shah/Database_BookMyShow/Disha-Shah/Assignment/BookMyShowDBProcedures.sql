@@ -1741,7 +1741,8 @@ SET NOCOUNT ON;
 BEGIN
 	BEGIN TRY
 		DECLARE @BookingDate DATE, @TicketCount TINYINT, @Event VARCHAR(50), @UserContact CHAR(10), @EventVenue VARCHAR(50),
-		@ShowTiming TIME, @EventType VARCHAR(50), @DateOfEvent DATE;  
+		@ShowTiming TIME, @EventType VARCHAR(50), @DateOfEvent DATE, @EventId INT, @UserId INT, @EventVenueId INT, @ShowTimingId INT,
+		@EventTypeId INT;  
 
 		SELECT @TicketCount=TicketCount, @Event=Event, @UserContact=UserContact, @EventVenue=EventVenue, @ShowTiming=ShowTiming,
 		@EventType=EventType, @DateOfEvent=DateOfEvent
@@ -1766,7 +1767,14 @@ BEGIN
 			BEGIN
 				DECLARE @Total MONEY
 				SET @Total = @TicketCount * @TicketPrice
-				INSERT INTO EventBookings VALUES (@BookingDate, @TicketCount, @Event, @UserContact, @EventVenue, @ShowTiming, @Total, @EventType, @DateOfEvent)
+
+				SELECT @EventId = EventId FROM Events WHERE Name=@Event
+				SELECT @UserId = UserId FROM Users WHERE ContactNo = @UserContact
+				SELECT @EventVenueId = EventVenueId FROM EventVenues WHERE Name = @EventVenue
+				SELECT @ShowTimingId=ShowTimingId FROM ShowTimings WHERE ShowTime=@ShowTiming
+				SELECT @EventTypeId = EventTypeId FROM EventTypes WHERE EventType=@EventType
+
+				INSERT INTO EventBookings VALUES (@BookingDate, @TicketCount, @Total, @EventId, @UserId, @EventVenueId, @ShowTimingId, @EventTypeId)
 				UPDATE vEvents SET TotalTickets = TotalTickets-@TicketCount WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming AND EventType=@EventType AND DateOfEvent=@DateOfEvent
   			END
 			ELSE
@@ -1789,9 +1797,9 @@ BEGIN
 END
 
 EXECUTE prcEventBook N'{  
-						"TicketCount": "2",
+						"TicketCount": "3",
 						"Event": "Sunday Brunch at the Nine Restaurant",
-						"UserContact": "7984430171",
+						"UserContact": "9900898890",
 						"EventVenue": "Snow World: Ahmedabad",
 						"ShowTiming": "8:00 PM",
 						"EventType": "Food & Drinks",

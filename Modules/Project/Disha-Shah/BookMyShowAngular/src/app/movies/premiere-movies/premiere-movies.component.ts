@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import * as jQuery from 'jquery';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IMovies } from 'src/app/models/IMovies';
 import { GenreService } from '../genre.service';
@@ -20,6 +21,10 @@ export class PremiereMoviesComponent implements OnInit, OnDestroy {
   
   genresList: Array<any> = [];
 
+  getAllMoviesSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllGenresSub: Subscription;
+
   constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService) { 
     
   }
@@ -31,13 +36,13 @@ export class PremiereMoviesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getMovies();
-    this.getLanguages();
-    this.getGenres();
+    this.getAllMoviesSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
   }
 
   getMovies(): void{
-    this.service.getMovies()
+    this.getAllMoviesSub = this.service.getMovies()
     .subscribe((movies: any[]) => {
       this.moviesList = movies.filter(x=>x.isPremiere == true),
       this.moviesList.forEach(element => {
@@ -61,14 +66,14 @@ export class PremiereMoviesComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 
   }
   
   getGenres(): void{
-    this.genreService.getGenres()
+    this.getAllGenresSub = this.genreService.getGenres()
     .subscribe((genres: any[]) => {
       this.genresList = genres
     }); 

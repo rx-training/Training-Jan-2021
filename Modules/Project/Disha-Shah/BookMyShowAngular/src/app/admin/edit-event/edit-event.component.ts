@@ -11,6 +11,7 @@ import { IEventVenues } from 'src/app/models/IEventVenues';
 import { ILanguages } from 'src/app/models/ILanguages';
 import {DatePipe} from '@angular/common';
 import { PastDateValidator } from 'src/app/Validators/PastDateValidator';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-event',
@@ -49,6 +50,12 @@ export class EditEventComponent implements OnInit, OnDestroy {
   selectVenueId: number = 0;
 
   id: number = 0;
+
+  getAllLanguagesSub: Subscription;
+  getAllEventTypesSub: Subscription;
+  getAllEventsSub: Subscription;
+  getAllUniqueEventsSub: Subscription;
+  getAllEventVenuesSub: Subscription;
 
   constructor(
     private fb: FormBuilder, 
@@ -91,11 +98,11 @@ export class EditEventComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getEvents();
-    this.getUniqueEvents();
-    this.getLanguages();
-    this.getEventTypes();
-    this.getEventVenues();
+    this.getAllEventTypesSub.unsubscribe();
+    this.getAllEventVenuesSub.unsubscribe();
+    this.getAllEventsSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllUniqueEventsSub.unsubscribe();
   }
 
   eventSubmit(){
@@ -182,21 +189,21 @@ export class EditEventComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(){
-    this.languagesService.getLanguages()
+    this.getAllLanguagesSub = this.languagesService.getLanguages()
     .subscribe(languages => {
       this.languagesList = languages
     })
   }
 
   getEventTypes(){
-    this.eventTypesService.getEventTypes()
+    this.getAllEventTypesSub = this.eventTypesService.getEventTypes()
     .subscribe(eventTypes => {
       this.eventTypesList = eventTypes
     })
   }
 
   getEventVenues(){
-    this.eventVenuesService.getEventVenues()
+    this.getAllEventVenuesSub = this.eventVenuesService.getEventVenues()
     .subscribe(eventVenues => {
       this.eventVenuesList = eventVenues
     })
@@ -208,7 +215,7 @@ export class EditEventComponent implements OnInit, OnDestroy {
         this.selectVenueId = item.eventVenueId
       }
     })
-    this.eventVenuesService.getShowTimingsByEventVenue(this.selectVenueId)
+    this.getAllEventVenuesSub = this.eventVenuesService.getShowTimingsByEventVenue(this.selectVenueId)
     .subscribe(showTimings => {
       this.showTimingsList = showTimings
     })
@@ -216,7 +223,7 @@ export class EditEventComponent implements OnInit, OnDestroy {
 
   getEvents(){
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.eventsService.getEvent(this.id)
+    this.getAllEventsSub = this.eventsService.getEvent(this.id)
     .subscribe(events => {
       this.eventsList = events
       
@@ -243,7 +250,7 @@ export class EditEventComponent implements OnInit, OnDestroy {
   }
 
   getUniqueEvents(){
-    this.eventsService.getUniqueEvents()
+    this.getAllUniqueEventsSub = this.eventsService.getUniqueEvents()
     .subscribe(events => {
       this.uniqueEventsList = events,
 

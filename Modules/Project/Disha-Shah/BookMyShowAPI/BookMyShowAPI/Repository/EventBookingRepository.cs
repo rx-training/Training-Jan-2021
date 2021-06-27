@@ -23,23 +23,63 @@ namespace BookMyShowAPI.Repository
         // Get all EventBookings
         public IEnumerable GetAllEventBookings()
         {
-            var eventBookings = context.EventBookings.ToList();
+            var eventBookings = context.EventBookings
+                                    .Where(x => x.Event.IsActive == true);
 
-            return eventBookings;
+            var m = from x in eventBookings
+                    select new EventBooking
+                    {
+                        BookingDate = x.BookingDate,
+                        EventBookingId = x.EventBookingId,
+                        EventId = x.EventId,
+                        //Event = context.Events.SingleOrDefault(p => p.EventId == x.EventId),
+                        EventType = context.EventTypes.SingleOrDefault(p => p.EventTypeId == x.EventTypeId),
+                        EventTypeId = x.EventTypeId,
+                        EventVenue = context.EventVenues.SingleOrDefault(p => p.EventVenueId == x.EventVenueId),
+                        EventVenueId = x.EventVenueId,
+                        TicketCount = x.TicketCount,
+                        TotalAmount = x.TotalAmount,
+                        ShowTiming = context.ShowTimings.SingleOrDefault(p => p.ShowTimingId == x.ShowTimingId),
+                        ShowTimingId = x.ShowTimingId,
+                        User = context.Users.SingleOrDefault(p => p.UserId == x.UserId),
+                        UserId = x.UserId
+
+                    };
+
+            return m;
         }
 
         // Get all EventBookings based on Contact number
         public IEnumerable GetEventBookingByContact(string contactno)
         {
             var eventBookings = context.EventBookings
-                                    .Where(x => x.UserContact == contactno)
-                                    .ToList();
+                                    .Where(x => x.User.ContactNo == contactno && x.Event.IsActive == true && x.EventVenue.IsActive == true);
 
-            return eventBookings;
+            var m = from x in eventBookings
+                    select new EventBooking
+                    {
+                        BookingDate = x.BookingDate,
+                        EventBookingId = x.EventBookingId,
+                        EventId = x.EventId,
+                        //Event = context.Events.SingleOrDefault(p => p.EventId == x.EventId),
+                        EventType = context.EventTypes.SingleOrDefault(p => p.EventTypeId == x.EventTypeId),
+                        EventTypeId = x.EventTypeId,
+                        EventVenue = context.EventVenues.SingleOrDefault(p => p.EventVenueId == x.EventVenueId),
+                        EventVenueId = x.EventVenueId,
+                        TicketCount = x.TicketCount,
+                        TotalAmount = x.TotalAmount,
+                        ShowTiming = context.ShowTimings.SingleOrDefault(p => p.ShowTimingId == x.ShowTimingId),
+                        ShowTimingId = x.ShowTimingId,
+                        User = context.Users.SingleOrDefault(p => p.UserId == x.UserId),
+                        UserId = x.UserId
+
+                    };
+
+            return m;
         }
 
         // Book a Event
-        public void BookEvent(EventBookingDTO eventBookingDTO)
+        public async Task BookEvent(EventBookingDTO eventBookingDTO)
         {
             var json = JsonConvert.SerializeObject(eventBookingDTO);
 
@@ -49,14 +89,26 @@ namespace BookMyShowAPI.Repository
 
             var totalAmount = 0.0;
             var bookingId = 0;
+            DateTime dateOfEvent;
+            Event events;
+            EventVenue eventVenue;
+            ShowTiming showTiming;
+            EventType eventType;
 
             var bookingsDone = context.EventBookings
-                                    .Where(x => x.UserContact == eventBookingDTO.UserContact)
+                                    .Where(x => x.User.ContactNo == eventBookingDTO.UserContact)
                                     .ToList();
 
             foreach (var item in bookingsDone)
             {
-                if (item.DateOfEvent == eventBookingDTO.DateOfEvent && item.Event == eventBookingDTO.Event && item.EventType == eventBookingDTO.EventType && item.EventVenue == eventBookingDTO.EventVenue && item.TicketCount == Convert.ToByte(eventBookingDTO.TicketCount))
+                events = context.Events.SingleOrDefault(x => x.Name == eventBookingDTO.Event);
+                dateOfEvent = events.DateOfEvent;
+                eventVenue = context.EventVenues.SingleOrDefault(x => x.Name == eventBookingDTO.EventVenue);
+                TimeSpan ts = DateTime.Parse(eventBookingDTO.ShowTiming).TimeOfDay;
+                showTiming = context.ShowTimings.SingleOrDefault(x => x.ShowTime == ts);
+                eventType = context.EventTypes.SingleOrDefault(x => x.EventType1 == eventBookingDTO.EventType);
+
+                if (item.EventId == events.EventId && item.EventTypeId == eventType.EventTypeId && item.EventVenueId == eventVenue.EventVenueId && item.TicketCount == Convert.ToByte(eventBookingDTO.TicketCount) && item.ShowTimingId == showTiming.ShowTimingId)
                 {
                     bookingId = item.EventBookingId;
                     totalAmount = (double)item.TotalAmount;

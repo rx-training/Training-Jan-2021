@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { CityService } from 'src/app/city.service';
 import { EventVenuesService } from 'src/app/events/event-venues.service';
 import { ICity } from 'src/app/models/ICity';
@@ -17,6 +18,9 @@ export class AddEventVenueComponent implements OnInit, OnDestroy {
 
   citiesList: Array<ICity> = [];
   showTimingsList: Array<IShowTimings> = [];
+
+  getAllCitiesSub: Subscription;
+  getAllShowTimingsSub: Subscription;
 
   constructor(
     private fb: FormBuilder, 
@@ -39,8 +43,8 @@ export class AddEventVenueComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getCities();
-    this.getShowTimings();
+    this.getAllCitiesSub.unsubscribe();
+    this.getAllShowTimingsSub.unsubscribe();
   }
 
   eventVenueSubmit(){
@@ -71,14 +75,14 @@ export class AddEventVenueComponent implements OnInit, OnDestroy {
   }
 
   getCities(){
-    this.citiesService.getCities()
+    this.getAllCitiesSub = this.citiesService.getCities()
     .subscribe(cities => {
       this.citiesList = cities
     })
   }
 
   getShowTimings(){
-    this.showTimingsService.getShowTimings()
+    this.getAllShowTimingsSub = this.showTimingsService.getShowTimings()
     .subscribe(showTimings => {
       this.showTimingsList = showTimings
     })

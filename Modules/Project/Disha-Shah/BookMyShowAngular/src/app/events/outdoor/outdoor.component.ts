@@ -4,6 +4,7 @@ import { LanguageService } from 'src/app/language.service';
 import { ILanguages } from 'src/app/models/ILanguages';
 import { IActivities } from 'src/app/models/IActivities';
 import { EventsService } from '../events.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-outdoor',
@@ -22,6 +23,9 @@ export class OutdoorComponent implements OnInit, OnDestroy {
 
   languages: Array<any> = [];
 
+  getOutdoorsSub: Subscription;
+  getLanguagesSub: Subscription;
+
   constructor(private service: EventsService, private languageService: LanguageService) { }
 
   ngOnInit(): void {
@@ -30,12 +34,12 @@ export class OutdoorComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getOutdoors();
-    this.getLanguages();
+    this.getOutdoorsSub.unsubscribe();
+    this.getLanguagesSub.unsubscribe();
   }
 
   getOutdoors(): void{
-    this.service.getOutdoors()
+    this.getOutdoorsSub = this.service.getOutdoors()
     .subscribe((outdoors: any[]) => {
       this.outdoorsList = outdoors,
       this.uniqueOutdoorsList = this.outdoorsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
@@ -58,7 +62,7 @@ export class OutdoorComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 

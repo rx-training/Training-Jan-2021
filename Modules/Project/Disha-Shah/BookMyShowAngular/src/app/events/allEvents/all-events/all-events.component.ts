@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
@@ -37,6 +38,12 @@ export class AllEventsComponent implements OnInit, OnDestroy {
   min: number = 0;
   max: number = 100000;
 
+  getAllComediesSub: Subscription;
+  getAllOutdoorsSub: Subscription;
+  getAllPopularsSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllEventsSub: Subscription;
+
   constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
   }
 
@@ -49,11 +56,11 @@ export class AllEventsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getComedies();
-    this.getOutdoors();
-    this.getPopulars();
-    this.getLanguages();
-    this.getEvents();
+    this.getAllComediesSub.unsubscribe();
+    this.getAllOutdoorsSub.unsubscribe();
+    this.getAllPopularsSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllEventsSub.unsubscribe();
   }
 
   changeCategory(e: any) {
@@ -114,7 +121,7 @@ export class AllEventsComponent implements OnInit, OnDestroy {
   }
 
   getEvents(): void{
-    this.service.getEvents()
+    this.getAllEventsSub = this.service.getEvents()
     .subscribe(() => {
       this.eventsList = this.eventsList.concat(this.comediesList, this.outdoorsList, this.popularsList)
       console.log(this.eventsList)
@@ -124,7 +131,7 @@ export class AllEventsComponent implements OnInit, OnDestroy {
   }
 
   getOutdoors(): void{
-    this.service.getOutdoors()
+    this.getAllOutdoorsSub = this.service.getOutdoors()
     .subscribe((outdoors: any[]) => {
       this.outdoorsList = outdoors,
       console.log(this.outdoorsList), 
@@ -153,7 +160,7 @@ export class AllEventsComponent implements OnInit, OnDestroy {
   }
 
   getComedies(): void{
-    this.service.getComedies()
+    this.getAllComediesSub = this.service.getComedies()
     .subscribe((comedies: any[]) => {
       this.comediesList = comedies,
       console.log(this.comediesList), 
@@ -183,7 +190,7 @@ export class AllEventsComponent implements OnInit, OnDestroy {
   }
 
   getPopulars(): void{
-    this.service.getPopulars()
+    this.getAllPopularsSub = this.service.getPopulars()
     .subscribe((populars: any[]) => {
       this.popularsList = populars,
       console.log(this.popularsList), 
@@ -214,7 +221,7 @@ export class AllEventsComponent implements OnInit, OnDestroy {
 
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 

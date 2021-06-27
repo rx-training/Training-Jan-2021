@@ -12,11 +12,9 @@ namespace BookMyShowAPI.IRepository
     public interface IUser : IGenericInterface<ApplicationUser>
     {
         Task<IdentityResult> RegisterUser(RegisterModel model);
-        Task<string> LoginUser(string userName);
-        public void CreateUser(RegisterModel model);
+        Task<string> LoginUser(string userName, string password);
         public User FindName(string name);
         public User FindContact(string contact);
-        public string FindPassword(string name);
         Task<Response> ConfirmEmailAsync(string userId, string token);
         Task<bool> IsEmailConfirmedAsync(string userName);
         public IEnumerable GetAllUsers();

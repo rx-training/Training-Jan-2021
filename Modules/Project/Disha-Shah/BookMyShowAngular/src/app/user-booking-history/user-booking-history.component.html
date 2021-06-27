@@ -21,32 +21,33 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3 w-100">
-                                <img [src]="'../../assets/' + movieBookings.image" alt="" class="img-fluid w-75">
+                                <img [src]="'../../assets/' + movieBookings.movie.image" alt="" class="img-fluid w-75">
                             </div>
                             <div class="col-9">
-                                <h5>{{movieBookings.movie}}
+                                <h5>{{movieBookings.movie.name}}
                                     <span class="h6 font-weight-normal ml-3" style="color: gray;">
-                                        {{movieBookings.certification}}, {{movieBookings.language}},
-                                        {{movieBookings.filmCategory}} </span>
+                                        {{movieBookings.language.language1}},
+                                        {{movieBookings.filmCategory.filmCategory1}} </span> 
                                 </h5>
-                                <h5 class="font-weight-normal" style="color: gray;">{{movieBookings.dateOfMovie}} |
+                                <h5 class="font-weight-normal" style="color: gray;">{{movieBookings.dateToWatch}} |
 
-                                    <ng-container *ngIf = "movieBookings.showTiming.hours < 10">
-                                        0{{movieBookings.showTiming.hours}}:
+                                    <ng-container *ngIf = "movieBookings.showTiming.showTime.hours < 10">
+                                        0{{movieBookings.showTiming.showTime.hours}}:
                                     </ng-container>
-                                    <ng-container *ngIf = "movieBookings.showTiming.hours >= 10">
-                                        {{movieBookings.showTiming.hours}}:
+                                    <ng-container *ngIf = "movieBookings.showTiming.showTime.hours >= 10">
+                                        {{movieBookings.showTiming.showTime.hours}}:
                                     </ng-container>
-                                    <ng-container *ngIf = "movieBookings.showTiming.minutes < 10">
-                                        0{{movieBookings.showTiming.minutes}}
+                                    <ng-container *ngIf = "movieBookings.showTiming.showTime.minutes < 10">
+                                        0{{movieBookings.showTiming.showTime.minutes}}
                                     </ng-container>
-                                    <ng-container *ngIf = "movieBookings.showTiming.minutes >= 10">
-                                        {{movieBookings.showTiming.minutes}}
+                                    <ng-container *ngIf = "movieBookings.showTiming.showTime.minutes >= 10">
+                                        {{movieBookings.showTiming.showTime.minutes}}
                                     </ng-container>
 
                                 </h5>
                                 <br>
-                                <h6 class="font-weight-normal" style="color: gray;">{{movieBookings.theatre}}</h6>
+                                <h6 class="font-weight-normal" style="color: gray;">{{movieBookings.theatre.name}}, {{movieBookings.theatre.city.name}}</h6>
+                                <h6 class="font-weight-normal" style="color: gray;">Address: {{movieBookings.theatre.address}}</h6>
                                 <table class="table table-borderless">
                                     <thead>
                                         <tr>
@@ -57,7 +58,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="pl-0 pt-0 font-weight-light" style="font-size: 40px;">
-                                                {{movieBookings.screen}}</td>
+                                                {{movieBookings.screenId}}</td>
                                             <td class="pt-0 font-weight-light" style="font-size: 40px;">
                                                 {{movieBookings.seatNo}}</td>
 
@@ -77,31 +78,32 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3 w-100">
-                                <img [src]="'../../assets/' + eventBookings.image" alt="" class="img-fluid w-75">
+                                <img [src]="'../../assets/' + eventBookings.event.image" alt="" class="img-fluid w-75">
                             </div>
                             <div class="col-9">
-                                <h5>{{eventBookings.event}}
+                                <h5>{{eventBookings.event.event}}
                                     <span class="h6 font-weight-normal ml-3" style="color: gray;">
-                                        {{eventBookings.eventType}}</span> 
+                                        {{eventBookings.eventType.eventType1}}</span> 
                                 </h5>
-                                <h5 class="font-weight-normal" style="color: gray;">{{eventBookings.dateOfShow}} |
+                                <h5 class="font-weight-normal" style="color: gray;">{{eventBookings.event.dateOfEvent}} |
 
-                                    <ng-container *ngIf = "eventBookings.showTiming.hours < 10">
-                                        0{{eventBookings.showTiming.hours}}:
+                                    <ng-container *ngIf = "eventBookings.showTiming.showTime.hours < 10">
+                                        0{{eventBookings.showTiming.showTime.hours}}:
                                     </ng-container>
-                                    <ng-container *ngIf = "eventBookings.showTiming.hours >= 10">
-                                        {{eventBookings.showTiming.hours}}:
+                                    <ng-container *ngIf = "eventBookings.showTiming.showTime.hours >= 10">
+                                        {{eventBookings.showTiming.showTime.hours}}:
                                     </ng-container>
-                                    <ng-container *ngIf = "eventBookings.showTiming.minutes < 10">
-                                        0{{eventBookings.showTiming.minutes}}
+                                    <ng-container *ngIf = "eventBookings.showTiming.showTime.minutes < 10">
+                                        0{{eventBookings.showTiming.showTime.minutes}}
                                     </ng-container>
-                                    <ng-container *ngIf = "eventBookings.showTiming.minutes >= 10">
-                                        {{eventBookings.showTiming.minutes}}
+                                    <ng-container *ngIf = "eventBookings.showTiming.showTime.minutes >= 10">
+                                        {{eventBookings.showTiming.showTime.minutes}}
                                     </ng-container>
 
                                 </h5>
                                 <br>
-                                <h6 class="font-weight-normal" style="color: gray;">{{eventBookings.eventVenue}}</h6>
+                                <h6 class="font-weight-normal" style="color: gray;">{{eventBookings.eventVenue.name}}</h6>
+                                <h6 class="font-weight-normal" style="color: gray;">Address: {{eventBookings.eventVenue.address}}</h6>
                                 <table class="table table-borderless">
                                     <thead>
                                         <tr>

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
@@ -26,6 +27,9 @@ export class AllSportsComponent implements OnInit, OnDestroy {
   min: number = 0;
   max: number = 100000;
 
+  getAllLanguagesSub: Subscription;
+  getAllSportsSub: Subscription;
+
   constructor(private service: EventsService, private languageService: LanguageService, private router: Router) {
   }
 
@@ -35,8 +39,8 @@ export class AllSportsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getLanguages();
-    this.getSports();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllSportsSub.unsubscribe();
   }
 
   changePrice(e: any){
@@ -59,7 +63,7 @@ export class AllSportsComponent implements OnInit, OnDestroy {
   }
 
   getSports(): void{
-    this.service.getSports()
+    this.getAllSportsSub = this.service.getSports()
     .subscribe((sports: any[]) => {
       this.sportsList = sports,
       this.uniqueSportsList = this.sportsList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
@@ -82,7 +86,7 @@ export class AllSportsComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages,
       console.log(this.languagesList);

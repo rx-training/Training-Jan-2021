@@ -36,13 +36,18 @@ namespace BookMyShowAPI.Repository
         }
 
         // Login Users
-        public async Task<string> LoginUser(string userName)
+        public async Task<string> LoginUser(string userName, string password)
         {
             if (await IsEmailConfirmedAsync(userName))
             {
                 var user = await userManager.FindByNameAsync(userName);
 
                 var userRoles = await userManager.GetRolesAsync(user);
+
+                if(user == null || !await userManager.CheckPasswordAsync(user, password))
+                {
+                    return null;
+                }
 
                 var authClaims = new List<Claim>
                 {
@@ -100,7 +105,7 @@ namespace BookMyShowAPI.Repository
                 {
                     ContactNo = model.PhoneNumber,
                     Email = model.Email,
-                    Password = ProtectPassword(model.Password),
+                    Password = user.PasswordHash,
                     UserName = model.Username,
                     Otp = otp
                 });
@@ -132,20 +137,6 @@ namespace BookMyShowAPI.Repository
             return result;
         }
 
-        // Map user details to Users table in BookMyShowDB from Users table in BookMyShowAuthenticationAPIDB
-        public void CreateUser(RegisterModel model)
-        {
-            context.Users.Add(new User()
-            {
-                ContactNo = model.PhoneNumber,
-                Email = model.Email,
-                Password = ProtectPassword(model.Password),
-                UserName = model.Username
-            });
-
-            context.SaveChanges();
-        }
-
         // Get information of a particular user based on username
         public User FindName(string name)
         {
@@ -157,13 +148,6 @@ namespace BookMyShowAPI.Repository
         {
             var registeredUser = context.Users.SingleOrDefault(x => x.ContactNo == contact);
             return registeredUser;
-        }
-
-        public string FindPassword(string name)
-        {
-            var registeredUser = context.Users.SingleOrDefault(x => x.UserName == name);
-            var pass = UnprotectPassword(registeredUser.Password);
-            return pass;
         }
 
         // Confirm email
@@ -223,13 +207,17 @@ namespace BookMyShowAPI.Repository
         public string ProtectPassword(string password)
         {
             byte[] bytes = Encoding.Unicode.GetBytes(password);
-            byte[] protectedPassword = ProtectedData.Protect(bytes, null, DataProtectionScope.CurrentUser);
+#pragma warning disable CA1416 // Validate platform compatibility
+            byte[] protectedPassword = ProtectedData.Protect(bytes, null, DataProtectionScope.LocalMachine);
+#pragma warning restore CA1416 // Validate platform compatibility
             return Convert.ToBase64String(protectedPassword);
         }
         public static string UnprotectPassword(string protectedPassword)
         {
             byte[] bytes = Convert.FromBase64String(protectedPassword);
-            byte[] password = ProtectedData.Unprotect(bytes, null, DataProtectionScope.CurrentUser);
+#pragma warning disable CA1416 // Validate platform compatibility
+            byte[] password = ProtectedData.Unprotect(bytes, null, DataProtectionScope.LocalMachine);
+#pragma warning restore CA1416 // Validate platform compatibility
             return Encoding.Unicode.GetString(password);
         }
     }

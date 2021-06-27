@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { element } from 'protractor';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IMovies } from 'src/app/models/IMovies';
 import { GenreService } from '../../genre.service';
@@ -22,6 +23,13 @@ export class AllMoviesComponent implements OnInit, OnChanges, OnDestroy {
   genre: string = '';
   language: string = '';
 
+  getAllMoviesSub: Subscription;
+  getAllGenresSub: Subscription;
+  getAllLanguagesSub: Subscription;
+  getAllMoviesByGenreSub: Subscription;
+  getAllMoviesByLanguageSub: Subscription;
+  getAllMoviesByGenreLanguage: Subscription;
+
   constructor(private service: MoviesService, private languageService: LanguageService, private genreService: GenreService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnChanges() {
@@ -37,9 +45,12 @@ export class AllMoviesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getMovies();
-    this.getGenres();
-    this.getLanguages();
+    this.getAllMoviesSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
+    this.getAllMoviesByGenreSub.unsubscribe();
+    this.getAllMoviesByLanguageSub.unsubscribe();
+    this.getAllMoviesByGenreLanguage.unsubscribe();
   }
 
   changeGenre(e: any) {
@@ -75,7 +86,7 @@ export class AllMoviesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getMovies(): void{
-    this.service.getMovies()
+    this.getAllMoviesSub = this.service.getMovies()
     .subscribe((movies: any[]) => {
       this.moviesList = movies,
       console.log(this.moviesList),
@@ -105,7 +116,7 @@ export class AllMoviesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages,
       console.log(this.languagesList);
@@ -113,7 +124,7 @@ export class AllMoviesComponent implements OnInit, OnChanges, OnDestroy {
   }
   
   getGenres(): void{
-    this.genreService.getGenres()
+    this.getAllGenresSub = this.genreService.getGenres()
     .subscribe((genres: any[]) => {
       this.genresList = genres,
       console.log(this.genresList);
@@ -121,21 +132,21 @@ export class AllMoviesComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getMoviesByGenre(genre: string): void{
-    this.service.getMoviesByGenre(genre)
+    this.getAllMoviesByGenreSub = this.service.getMoviesByGenre(genre)
     .subscribe((movies: any[]) => {
       this.moviesList = movies.filter((thing, i, arr) => arr.findIndex(t => t.movieId == thing.movieId) == i)
     }); 
   }
 
   getMoviesByLanguage(language: string): void{
-    this.service.getMoviesByLanguage(language)
+    this.getAllMoviesByLanguageSub = this.service.getMoviesByLanguage(language)
     .subscribe((movies: any[]) => {
       this.moviesList = movies.filter((thing, i, arr) => arr.findIndex(t => t.movieId == thing.movieId) == i)
     }); 
   }
 
   getMoviesByGenreLanguage(genre: string, language: string){
-    this.service.getMoviesByGenreLanguage(genre, language)
+    this.getAllMoviesByGenreLanguage = this.service.getMoviesByGenreLanguage(genre, language)
     .subscribe((movies: any[]) => {
       this.moviesList = movies.filter((thing, i, arr) => arr.findIndex(t => t.movieId == thing.movieId) == i)
     }); 

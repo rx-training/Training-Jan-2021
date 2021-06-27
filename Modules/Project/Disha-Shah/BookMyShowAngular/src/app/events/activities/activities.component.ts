@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/language.service';
 import { IActivities } from 'src/app/models/IActivities';
 import { ILanguages } from 'src/app/models/ILanguages';
@@ -21,6 +22,9 @@ export class ActivitiesComponent implements OnInit, OnDestroy {
 
   languages: Array<any> = [];
 
+  getAllActivitiesSub: Subscription;
+  getAllLanguagesSub: Subscription;
+
   constructor(private service: EventsService, private languageService: LanguageService) { }
 
   ngOnInit(): void {
@@ -29,12 +33,12 @@ export class ActivitiesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getActivities();
-    this.getLanguages();
+    this.getAllActivitiesSub.unsubscribe();
+    this.getAllLanguagesSub.unsubscribe();
   }
 
   getActivities(): void{
-    this.service.getActivities()
+    this.getAllActivitiesSub = this.service.getActivities()
     .subscribe((sports: any[]) => {
       this.activitiesList = sports,
       this.uniqueActivitiesList = this.activitiesList.filter((thing, i, arr) => arr.findIndex(t => t.eventId == thing.eventId) == i),
@@ -57,7 +61,7 @@ export class ActivitiesComponent implements OnInit, OnDestroy {
   }
 
   getLanguages(): void{
-    this.languageService.getLanguages()
+    this.getAllLanguagesSub = this.languageService.getLanguages()
     .subscribe((languages: any[]) => {
       this.languagesList = languages
     }); 

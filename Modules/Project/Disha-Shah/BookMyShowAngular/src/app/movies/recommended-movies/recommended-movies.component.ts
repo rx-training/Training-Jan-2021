@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { GenreService } from '../genre.service';
 import { IMovies } from '../../models/IMovies';
 import { MoviesService } from '../movies.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-recommended-movies',
@@ -16,6 +17,9 @@ export class RecommendedMoviesComponent implements OnInit, OnDestroy {
 
   finalList: Array<IMovies> = [];
 
+  getAllMoviesSub: Subscription;
+  getAllGenresSub: Subscription;
+
   constructor(private service: MoviesService, private genreService: GenreService) { 
     
   }
@@ -26,12 +30,12 @@ export class RecommendedMoviesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.getMovies();
-    this.getGenres();
+    this.getAllMoviesSub.unsubscribe();
+    this.getAllGenresSub.unsubscribe();
   }
   
   getMovies(): void{
-    this.service.getMovies()
+    this.getAllMoviesSub = this.service.getMovies()
     .subscribe((movies: any[]) => {
       this.moviesList = movies.filter(x=>x.isRecommended == true),
       this.moviesList.forEach(element => {
@@ -50,7 +54,7 @@ export class RecommendedMoviesComponent implements OnInit, OnDestroy {
   }
 
   getGenres(): void{
-    this.genreService.getGenres()
+    this.getAllGenresSub = this.genreService.getGenres()
     .subscribe((genres: any[]) => {
       this.genresList = genres
     }); 
