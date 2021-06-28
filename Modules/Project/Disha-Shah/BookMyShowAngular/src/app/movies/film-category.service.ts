@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IFilmCategories } from '../models/IFilmCategories';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { IFilmCategories } from '../models/IFilmCategories';
 })
 export class FilmCategoryService {
 
-  private filmCategoriesUrl = 'http://localhost/BookMyShow/api/BookMyShow/FilmCategory';  // URL to web api
+  private filmCategoriesUrl = environment.baseUrl + 'api/BookMyShow/FilmCategory';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

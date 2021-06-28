@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IMovieBookings } from '../models/IMovieBookings';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { IMovieBookings } from '../models/IMovieBookings';
 })
 export class MovieBookingsService implements OnInit{
 
-  private movieBookingsUrl = 'http://localhost/BookMyShow/api/BookMyShow/MovieBookings';  // URL to web api
+  private movieBookingsUrl = environment.baseUrl + 'api/BookMyShow/MovieBookings';  // URL to web api
   loginToken = '';
 
   getToken(){

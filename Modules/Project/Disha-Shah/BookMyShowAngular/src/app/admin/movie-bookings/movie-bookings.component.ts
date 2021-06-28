@@ -36,6 +36,10 @@ export class MovieBookingsComponent implements OnInit, OnDestroy {
         .subscribe(theatres => {
           item.theatre = theatres[0]
         })
+
+        item.dateToWatch = new Date(item.dateToWatch).getFullYear() + '-' + (new Date(item.dateToWatch).getMonth() + 1) + '-' + new Date(item.dateToWatch).getDate();
+        item.bookingDate = new Date(item.bookingDate).getFullYear() + '-' + (new Date(item.bookingDate).getMonth() + 1) + '-' + new Date(item.bookingDate).getDate();
+      
       })
       console.log(this.bookingsList)
     })

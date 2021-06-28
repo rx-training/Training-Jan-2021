@@ -1,6 +1,6 @@
 export interface IMovieBookings{
     movieBookingId?: number;
-    bookingDate: Date;
+    bookingDate: string;
     movieId: number;
     userId: number;
     seatNo: string;
@@ -10,7 +10,7 @@ export interface IMovieBookings{
     languageId: number;
     filmCategoryId: number;
     showTimingId: number;
-    dateToWatch: Date;
+    dateToWatch: string;
     totalTickets: number;
     totalAmount: number;
     movie?: any;

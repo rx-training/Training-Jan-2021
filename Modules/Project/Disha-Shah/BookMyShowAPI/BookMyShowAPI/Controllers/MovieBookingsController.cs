@@ -23,7 +23,7 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/MovieBookings
-        //[Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Roles = UserRoles.Admin)]
         [HttpGet]
         public ActionResult<IEnumerable<MovieBooking>> GetMovieBookings()
         {
@@ -48,7 +48,7 @@ namespace BookMyShowAPI.Controllers
         // POST: api/BookMyShow/MovieBookings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public ActionResult PostMovieBooking(MovieBookingDTO movie)
         {
             if (!ModelState.IsValid)

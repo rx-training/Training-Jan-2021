@@ -5,13 +5,14 @@ import { IRegister } from '../models/IRegister';
 import {map, catchError} from 'rxjs/operators';
 import { ILogin } from '../models/ILogin';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  private authenticateUrl = 'http://localhost/BookMyShow/api/Authenticate';  // URL to web api
+  private authenticateUrl = environment.baseUrl + 'api/Authenticate';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

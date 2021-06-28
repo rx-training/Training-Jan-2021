@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IActivities } from '../models/IActivities';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class EventsService {
 
   loginToken='';
 
-  private eventsUrl = 'http://localhost/BookMyShow/api/BookMyShow/Events';  // URL to web api
+  private eventsUrl = environment.baseUrl + 'api/BookMyShow/Events';  // URL to web api
 
   constructor(private http: HttpClient) {  }
   

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IEventBookings } from '../models/IEventBookings';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { IEventBookings } from '../models/IEventBookings';
 })
 export class EventBookingService {
 
-  private eventBookingsUrl = 'http://localhost/BookMyShow/api/BookMyShow/EventBookings';  // URL to web api
+  private eventBookingsUrl = environment.baseUrl + 'api/BookMyShow/EventBookings';  // URL to web api
   loginToken = '';
   adminLoginToken = '';
 

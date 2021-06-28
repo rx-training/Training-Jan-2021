@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IDynamicNavbar } from './models/IDynamicNavbar';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { IDynamicNavbar } from './models/IDynamicNavbar';
 })
 export class DynamicNavbarService {
 
-  private dynamicNavbarsUrl = 'http://localhost/BookMyShow/api/BookMyShow/DynamicNavbar';  // URL to web api
+  private dynamicNavbarsUrl = environment.baseUrl + 'api/BookMyShow/DynamicNavbar';  // URL to web api
 
   loginToken = '';
 

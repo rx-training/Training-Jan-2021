@@ -1,6 +1,6 @@
 export interface IEventBookings{
     eventBookingId?: number;
-    bookingDate: Date;
+    bookingDate: string;
     ticketCount: number;
     eventId: number;
     userId: number;

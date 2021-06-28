@@ -48,7 +48,7 @@ namespace BookMyShowAPI.Controllers
         // POST: api/BookMyShow/EventBookings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public ActionResult PostEventBooking(EventBookingDTO eventBooking)
         {
             if (!ModelState.IsValid)

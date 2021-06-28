@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ILanguages } from './models/ILanguages';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { ILanguages } from './models/ILanguages';
 })
 export class LanguageService {
   
-  private languagesUrl = 'http://localhost/BookMyShow/api/BookMyShow/Languages';  // URL to web api
+  private languagesUrl = environment.baseUrl + 'api/BookMyShow/Languages';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

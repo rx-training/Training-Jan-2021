@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ITheatre } from '../models/ITheatre';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { ITheatre } from '../models/ITheatre';
 })
 export class TheatreService {
 
-  private theatresUrl = 'http://localhost/BookMyShow/api/BookMyShow/Theatres';  // URL to web api
+  private theatresUrl = environment.baseUrl + 'api/BookMyShow/Theatres';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

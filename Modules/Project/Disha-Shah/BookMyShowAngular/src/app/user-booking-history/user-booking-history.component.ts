@@ -33,6 +33,8 @@ export class UserBookingHistoryComponent implements OnInit, OnDestroy {
   eventsList: Array<IActivities> = [];
   eventBookingHistoryList: Array<IEventBookings> = [];
 
+  dateToWatch: string = '';
+
   getAllUsersSub: Subscription;
   getAllMovieBookingsByContactSub: Subscription;
   getAllTheatreSub: Subscription;
@@ -88,6 +90,8 @@ export class UserBookingHistoryComponent implements OnInit, OnDestroy {
         .subscribe(theatre => {
           item.theatre = theatre[0]
         })
+
+        item.dateToWatch = new Date(item.dateToWatch).getFullYear() + '-' + (new Date(item.dateToWatch).getMonth() + 1) + '-' + new Date(item.dateToWatch).getDate();
       })
       console.log(this.moviebookingHistoryList)
     })
@@ -105,6 +109,7 @@ export class UserBookingHistoryComponent implements OnInit, OnDestroy {
           console.log(events)
           item.event = events[0]
   
+          item.event.dateOfEvent = new Date(item.event.dateOfEvent).getFullYear() + '-' + (new Date(item.event.dateOfEvent).getMonth() + 1) + '-' + new Date(item.event.dateOfEvent).getDate();
       })
 
       })

@@ -35,7 +35,10 @@ export class EventBookingsComponent implements OnInit, OnDestroy {
         this.getEventsSub = this.eventsService.getEvent(item.eventId)
         .subscribe(events => {
           item.event = events[0]
-        })
+          item.event.dateOfEvent = new Date(item.event.dateOfEvent).getFullYear() + '-' + (new Date(item.event.dateOfEvent).getMonth() + 1) + '-' + new Date(item.event.dateOfEvent).getDate();
+        })  
+        
+        item.bookingDate = new Date(item.bookingDate).getFullYear() + '-' + (new Date(item.bookingDate).getMonth() + 1) + '-' + new Date(item.bookingDate).getDate();
       })
       console.log(this.bookingsList)
     })

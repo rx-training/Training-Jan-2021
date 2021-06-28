@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { element } from 'protractor';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IMovies } from '../models/IMovies';
 
 @Injectable({
@@ -19,7 +20,7 @@ export class MoviesService {
     console.log(this.loginToken);
   }
 
-  private moviesUrl = 'http://localhost/BookMyShow/api/BookMyShow/Movies';  // URL to web api
+  private moviesUrl = environment.baseUrl + 'api/BookMyShow/Movies';  // URL to web api
 
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ICertifications } from '../models/ICertifications';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { ICertifications } from '../models/ICertifications';
 })
 export class CertificationService {
 
-  private certificationsUrl = 'http://localhost/BookMyShow/api/BookMyShow/Certifications';  // URL to web api
+  private certificationsUrl = environment.baseUrl + 'api/BookMyShow/Certifications';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
