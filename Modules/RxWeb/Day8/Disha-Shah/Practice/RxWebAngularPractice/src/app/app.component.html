@@ -1,0 +1,39 @@
+<h4>Validators practice:</h4>
+<form [formGroup] = "userFormGroup">
+  <label>Username:
+      <input type="text" formControlName="userName" class="form-control" required>
+  </label>
+  <span style="color: red;" *ngIf="userFormGroup.controls.userName.touched && userFormGroup.controls.userName.invalid" class="ml-3">Username is required</span>
+  <br>
+  <label>Password:
+      <input type="password" formControlName="password" class="form-control" required>
+  </label>
+  <br>
+  <label>Confirm Password:
+      <input type="password" formControlName="confirmPassword" class="form-control" required>
+  </label>
+  <span style="color: red;" *ngIf="userFormGroup.controls.confirmPassword.touched && userFormGroup.controls.confirmPassword.invalid" class="ml-3">
+    <div *ngIf="userFormGroup.controls.confirmPassword.errors?.compare">
+      Password doesn't match
+    </div>
+  </span>
+</form>
+
+<br>
+
+<h4>Decorators practice:</h4>
+<form [formGroup] = "student1FormGroup">
+  <label>Firstname:
+      <input type="text" formControlName="firstName" class="form-control" required>
+  </label>
+  <span style="color: red;" *ngIf="student1FormGroup.controls.firstName.touched && student1FormGroup.controls.firstName.invalid" class="ml-3">Firstname is required</span>
+</form>
+
+<br>
+
+<h4>Template driven form</h4>
+<form #userForm = "ngForm" [rxwebform]="userForm" [model]="user">
+  <input type="text" name="username" id="" [(ngModel)]="user.username" required>
+  <input type="password" name="password" id="" [(ngModel)]="user.password" required>
+  <input type="password" name="confirmPassword" id="" [(ngModel)]="user.confirmPassword" [compare]="{'fieldName': 'password'}" required>
+</form>

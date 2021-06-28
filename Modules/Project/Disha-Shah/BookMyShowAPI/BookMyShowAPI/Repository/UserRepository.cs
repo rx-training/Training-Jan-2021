@@ -204,21 +204,5 @@ namespace BookMyShowAPI.Repository
             return users;
         }
 
-        public string ProtectPassword(string password)
-        {
-            byte[] bytes = Encoding.Unicode.GetBytes(password);
-#pragma warning disable CA1416 // Validate platform compatibility
-            byte[] protectedPassword = ProtectedData.Protect(bytes, null, DataProtectionScope.LocalMachine);
-#pragma warning restore CA1416 // Validate platform compatibility
-            return Convert.ToBase64String(protectedPassword);
-        }
-        public static string UnprotectPassword(string protectedPassword)
-        {
-            byte[] bytes = Convert.FromBase64String(protectedPassword);
-#pragma warning disable CA1416 // Validate platform compatibility
-            byte[] password = ProtectedData.Unprotect(bytes, null, DataProtectionScope.LocalMachine);
-#pragma warning restore CA1416 // Validate platform compatibility
-            return Encoding.Unicode.GetString(password);
-        }
     }
 }
