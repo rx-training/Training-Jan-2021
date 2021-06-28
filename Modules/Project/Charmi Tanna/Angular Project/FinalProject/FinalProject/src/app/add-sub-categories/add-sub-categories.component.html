@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark p-0">
+            <div class="container">
+                <a id="logo"  routerLink="/home" class="navbar-brand"><img src="https://static1.bata.in/0/media/css/frontend/octa/images/logo.png"></a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <a class="nav-link px-2 text-white bg-danger" routerLink="/women">Women</a>
+                        <a class="nav-link px-2 nav-link  text-white bg-danger" routerLink="/men">Men</a>
+                        <a class="nav-link px-2 text-white bg-danger" routerLink="/kids">Kids</a>
+                        <a class="nav-link px-2 text-white bg-danger" routerLink="/admin">Admin</a>
+                        <a class="nav-link px-2 text-white bg-danger" routerLink="/addproducts">Add Products</a>
+                        <a class="nav-link px-2 text-white bg-danger" routerLink="/addbrands">Add Brands</a>
+                        <a class="nav-link px-2 text-white bg-danger" routerLink="/addsubcategories">Add Subcategories</a>
+                        <a class="nav-link px-2 text-white bg-danger" routerLink="/discount">Discount</a>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown mr-3">
+                            <a href=""class="nav-link">
+                                <i class="fa fa-truck" aria-hidden="true"></i> Track Order
+                            </a>
+                        </li>
+                        <li class="nav-tem">
+                            <a href="cart2.html?data" class="nav-link">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> My Cart</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-tem">
+                        <a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#login">
+                            <i class="fa fa-plus">Login</i>
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        
+        <div class="modal fade" id="login">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title">Login</h5>
+                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <select id="user">
+                                    <option value = "Admin">Admin</option>
+                                    <option value = "User">User</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input id="username" class="form-control" type = "text" placeholder="Type your Name">
+                                <label id="lbluser" style="color: red;"></label>
+                            </div>
+                            <div class="form-group">
+                                <input id="password" class="form-control" type = "password" placeholder="Type your Password">
+                                <label id="lblpass" style="color: red;"></label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-danger"data-dismiss="modal">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label>SubCategory ID</label><br>
+                    <input type="number" name="SubCategoryID" id="subCategoryID" class="form-control" formControlName="subcategoryid">
+                </div>
+                <div class="form-group">
+                    <label>Category ID</label>
+                    <input type="text" name="CategoryID" id="sategoryID" class="form-control" formControlName="categoryid">
+                </div>
+                <div class="form-group">
+                    <label>SubCategory Name</label>
+                    <input type="text" name="SubCategoryName" id="subCategoryName" class="form-control" formControlName="subcategoryname">
+                </div>
+                </form>
+            
+            <table class="list table" id="productList">
+                <thead>
+                    <tr>
+                        <th scope="col">SubCategory ID</th>
+                        <th scope="col">Category ID</th>
+                        <th scope="col">SubCategory Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <td scope="col">subcategoryid</td>
+                        <td scope="col">categoryid</td>
+                        <td scope="col">subcategoryname</td>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
