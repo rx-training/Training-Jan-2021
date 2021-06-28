@@ -48,12 +48,19 @@ class OrderDomain {
           product: p.product,
           size: p.size,
           quantity: p.quantity,
-          salePrice: product.price,
+          salePrice:
+            parseInt(product.price) -
+            parseInt((parseInt(product.price) * parseInt(product.offer)) / 100),
         };
 
         newProductsArray.push(newProduct);
 
-        totalPrice += p.quantity * product.price;
+        totalPrice +=
+          parseInt(p.quantity) *
+          (parseInt(product.price) -
+            parseInt(
+              (parseInt(product.price) * parseInt(product.offer)) / 100
+            ));
         totalItems += p.quantity;
       }
 
