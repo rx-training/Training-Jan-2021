@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AdminNavbar from "../admin/components/Navbar";
-import { isAdmin } from "../Utils/Storage";
+import { isAdmin } from "../utils/Storage";
 
 export default function ErrorPage() {
   return (

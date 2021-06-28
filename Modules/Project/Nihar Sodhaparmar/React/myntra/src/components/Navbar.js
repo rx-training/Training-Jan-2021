@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaBookmark, FaShoppingBag } from "react-icons/fa";
-import { getToken } from "../Utils/Storage";
+import { getToken, getUserId } from "../utils/Storage";
 import { Navbar } from "react-bootstrap";
+import BagService from "../services/BagService";
 
 export default function Navbar1() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [navExpanded, setNavExpanded] = useState(false);
+  const [bagItems, setBagItems] = useState(0);
+
+  async function getData() {
+    try {
+      let bagItems = await BagService.getBagItemsByCustomerId(
+        getUserId(),
+        getToken()
+      );
+
+      bagItems = bagItems.data;
+      setBagItems(bagItems.length);
+    } catch (error) {}
+  }
 
   useEffect(() => {
     if (getToken()) {
@@ -14,7 +28,9 @@ export default function Navbar1() {
     } else {
       setIsLoggedIn(false);
     }
-  }, [navExpanded]);
+
+    getData();
+  }, [navExpanded, getData]);
 
   const setNewNavExpanded = (expanded) => {
     setNavExpanded(expanded);
@@ -371,9 +387,13 @@ export default function Navbar1() {
                 <li className="nav-item">
                   <Link id="view-bag" to="/bag" className="nav-link">
                     <div className="nav-icon-container">
+                      {bagItems > 0 && (
+                        <div className="bag-items-count">{bagItems}</div>
+                      )}
                       <div className="text-center text-muted">
                         <FaShoppingBag aria-hidden="true" />
                       </div>
+
                       <div>Bag</div>
                     </div>
                   </Link>
@@ -454,6 +474,9 @@ export default function Navbar1() {
           <div>
             <Link to="/bag" className="nav-link">
               <div className="nav-icon-container">
+                {bagItems > 0 && (
+                  <div className="medium-bag-items-count">{bagItems}</div>
+                )}
                 <div className="text-center text-muted">
                   <FaShoppingBag aria-hidden="true" />
                 </div>

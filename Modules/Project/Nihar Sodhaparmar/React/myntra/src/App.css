@@ -126,6 +126,19 @@ nav {
   color: #ff3f6c;
 }
 
+.text-orange {
+  color: #ff905a;
+}
+
+.text-btn {
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
 .register-link {
   text-decoration: none;
 }
@@ -329,9 +342,9 @@ nav {
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 }
 
-.order-list-item:hover {
+/* .order-list-item:hover {
   transform: scale(1.02);
-}
+} */
 
 /* for register */
 
@@ -459,4 +472,36 @@ nav {
   .margin-on-md {
     margin: 48px 0;
   }
+}
+
+.bag-items-count {
+  white-space: nowrap;
+  text-align: center;
+  line-height: 16px;
+  padding: 0 4px;
+  height: 16px;
+  background: #ff3f6c;
+  position: absolute;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff;
+  right: 32px;
+  top: 9px;
+  font-weight: 600;
+}
+
+.medium-bag-items-count {
+  white-space: nowrap;
+  text-align: center;
+  line-height: 16px;
+  padding: 0 4px;
+  height: 16px;
+  background: #ff3f6c;
+  position: absolute;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff;
+  right: 40px;
+  top: 9px;
+  font-weight: 600;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { hostName } from "../../Utils/global";
+import { hostName } from "../../utils/Global";
 
 export default function DealsProduct({ product }) {
   const { _id: id, imgurls, productName, brand, offer } = product;
@@ -22,7 +22,7 @@ export default function DealsProduct({ product }) {
             <h5 className="font-weight-bold text-capitalize">
               {brand.brandName}
             </h5>
-            <span className="h5 font-weight-bold" style={{ color: "#ff905a" }}>
+            <span className="h5 font-weight-bold text-orange">
               {offer > 0 ? `${offer} % OFF` : null}
             </span>
             <div className="text-muted line-2 text-capitalize mb-2">

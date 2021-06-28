@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { setUserSession } from "../../Utils/Storage";
+import { setUserSession } from "../../utils/Storage";
 import LoginService from "../../services/LoginService";
 import Navbar from "../components/Navbar";
 

@@ -6,7 +6,8 @@ import CustomerService from "../services/CustomerService";
 import OtpService from "../services/OtpService";
 import OtpForm from "../components/RegisterPage/OtpForm";
 import ChangePassword from "../components/ForgetPasswordPage/ChangePassword";
-import { getToken } from "../Utils/Storage";
+import { getToken } from "../utils/Storage";
+import { NotificationManager } from "react-notifications";
 
 export default function ForgetPasswordPage(props) {
   const [id, setId] = useState("");
@@ -51,6 +52,7 @@ export default function ForgetPasswordPage(props) {
         setIsOtpAvailable(true);
         setOtp(res.data);
         setLoading(false);
+        NotificationManager.success("Otp send successfully", "", 2000);
       } catch (error) {
         setLoading(false);
         if (error.response.status === 404) {
@@ -76,6 +78,7 @@ export default function ForgetPasswordPage(props) {
     }
     if (otp === parseInt(userOtp)) {
       setIsOtpVerified(true);
+      NotificationManager.success("Otp verified successfully", "", 2000);
     } else {
       setOtpError("Incorrect Otp");
     }
@@ -126,7 +129,7 @@ export default function ForgetPasswordPage(props) {
           getToken()
         );
         setLoading(false);
-        alert("Password changed successfully");
+        NotificationManager.success("Password changed successfully", "", 2000);
         props.history.push("/login");
       } catch (error) {
         alert("Password not changed");

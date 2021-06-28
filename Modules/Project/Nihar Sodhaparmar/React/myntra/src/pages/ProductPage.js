@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 import ProductImage from "../components/ProductPage/ProductImage";
 import ProductInfo from "../components/ProductPage/ProductInfo";
 import Loading from "../components/Loading";
-import { getToken, getUserId, removeUserSession } from "../Utils/Storage";
+import { getToken, getUserId, removeUserSession } from "../utils/Storage";
 import Navbar from "../components/Navbar";
+import { NotificationManager } from "react-notifications";
 
 export default function ProductPage(props) {
   const [id] = useState(props.match.params.id);
@@ -16,6 +17,7 @@ export default function ProductPage(props) {
   const [loading, setLoading] = useState(false);
   const [isInBag, setIsInBag] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
+  const [sizeError, setSizeError] = useState("");
 
   useEffect(() => {
     async function getData() {
@@ -74,6 +76,10 @@ export default function ProductPage(props) {
   }, [id, isInWishlist, isInBag]);
 
   const addToBag = async (productId, size, quantity) => {
+    if (size === "" || size === null) {
+      setSizeError("Please select a size");
+      return;
+    }
     try {
       let data = {
         customer: getUserId(),
@@ -83,6 +89,8 @@ export default function ProductPage(props) {
       };
       await BagService.addBagItem(data, getToken());
       setIsInBag(true);
+      setSizeError("");
+      NotificationManager.success("Item added in bag", "", 2000);
     } catch (error) {
       if (error.response.status === 401) {
         props.history.push("/login");
@@ -96,6 +104,7 @@ export default function ProductPage(props) {
     try {
       await WishlistService.addWishlistItem(getUserId(), productId, getToken());
       setIsInWishlist(true);
+      NotificationManager.success("Item added in wishlist", "", 2000);
     } catch (error) {
       if (error.response.status === 401) {
         props.history.push("/login");
@@ -153,6 +162,7 @@ export default function ProductPage(props) {
             isInWishlist={isInWishlist}
             addToBag={addToBag}
             addToWishlist={addToWishlist}
+            sizeError={sizeError}
           />
         </div>
       </>

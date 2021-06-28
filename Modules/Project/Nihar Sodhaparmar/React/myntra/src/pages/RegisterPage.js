@@ -9,6 +9,7 @@ import EmailForm from "../components/RegisterPage/EmailForm";
 import OtpService from "../services/OtpService";
 import Loading from "../components/Loading";
 import OtpForm from "../components/RegisterPage/OtpForm";
+import { NotificationManager } from "react-notifications";
 
 export default function RegisterPage(props) {
   // ********** LOADING **********
@@ -366,6 +367,7 @@ export default function RegisterPage(props) {
           city: "",
         });
 
+        NotificationManager.success("User registered successfully", "", 2000);
         props.history.push("/login");
       } catch (error) {
         console.error(error.message);
@@ -392,6 +394,7 @@ export default function RegisterPage(props) {
         setIsOtpAvailable(true);
         setOtp(res.data);
         setLoading(false);
+        NotificationManager.success("Otp send successfully", "", 2000);
       } catch (error) {
         setLoading(false);
         console.log(error);
@@ -415,6 +418,7 @@ export default function RegisterPage(props) {
     }
     if (otp === parseInt(userOtp)) {
       setIsOtpVerified(true);
+      NotificationManager.success("Otp verified successfully", "", 2000);
     } else {
       setOtpError("Incorrect Otp");
     }

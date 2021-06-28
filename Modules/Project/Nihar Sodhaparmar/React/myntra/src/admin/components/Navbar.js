@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getToken } from "../../Utils/Storage";
+import { getToken } from "../../utils/Storage";
 
 export default function NavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

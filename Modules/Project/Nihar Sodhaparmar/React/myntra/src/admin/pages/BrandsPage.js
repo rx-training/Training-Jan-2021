@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { FaPlus } from "react-icons/fa";
-import { getToken, removeUserSession } from "../../Utils/Storage";
+import { getToken, removeUserSession } from "../../utils/Storage";
 import Loading from "../../components/Loading";
 import { Modal } from "react-bootstrap";
 import BrandRow from "../components/BrandsPage/BrandRow";

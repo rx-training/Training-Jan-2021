@@ -137,14 +137,14 @@ export default function Footer() {
                 <div>
                   <Link to="#">
                     <img
-                      src="./images/get-in-on-google.png"
+                      src="../images/get-in-on-google.png"
                       alt=""
                       width="150"
                     />
                   </Link>
                   <Link to="#">
                     <img
-                      src="./images/download-on-app.png"
+                      src="../images/download-on-app.png"
                       alt=""
                       width="150"
                     />

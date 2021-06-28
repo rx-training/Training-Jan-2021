@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getUserId, removeUserSession, getToken } from "../Utils/Storage";
+import { getUserId, removeUserSession, getToken } from "../utils/Storage";
 import CustomerService from "../services/CustomerService";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
 import { Modal } from "react-bootstrap";
+import { NotificationManager } from "react-notifications";
 
 export default function ProfilePage(props) {
   const [user, setUser] = useState({
@@ -130,6 +131,7 @@ export default function ProfilePage(props) {
         await CustomerService.updatePassword(getUserId(), data, getToken());
         setLoading(false);
         closeModel();
+        NotificationManager.success("Password changed successfully", "", 2000);
         props.history.push("/profile");
       } catch (error) {
         setLoading(false);
@@ -226,7 +228,7 @@ export default function ProfilePage(props) {
               className="btn btn-pink btn-block text-uppercase"
               onClick={() => handleEdit()}
             >
-              edit details
+              update profile
             </button>
           </div>
           <div className="col-10 col-md-4 col-lg-3 my-3 mr-edit">

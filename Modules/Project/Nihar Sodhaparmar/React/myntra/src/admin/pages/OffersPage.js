@@ -6,7 +6,7 @@ import SearchContainer from "../components/OffersPage/SearchContainer";
 import EmptyBanner from "../components/EmptyBanner";
 import Product from "../components/OffersPage/Product";
 import { Modal } from "react-bootstrap";
-import { getToken, removeUserSession } from "../../Utils/Storage";
+import { getToken, removeUserSession } from "../../utils/Storage";
 
 export default function OffersPage(props) {
   const [loading, setLoading] = useState(false);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { hostName } from "../Utils/global";
+import { hostName } from "../utils/Global";
 
 const MYNTRA_API_BASE_URL = `${hostName}/bag`;
 

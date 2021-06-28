@@ -14,7 +14,7 @@ export default function Order({
   orderDate = new Date(orderDate);
 
   return (
-    <li className="list-group-item px-5 py-5 my-4 rounded order-list-item">
+    <li className="list-group-item p-4 my-4 rounded order-list-item">
       <div>
         <ul className="list-group list-group-flush">
           {products.map((product) => {

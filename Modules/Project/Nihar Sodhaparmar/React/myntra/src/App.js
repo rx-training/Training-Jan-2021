@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import "./AdminApp.css";
-import PrivateRoute from "./Utils/PrivateRoute";
-import PublicRoute from "./Utils/PublicRoute";
-import AdminRoute from "./Utils/AdminRoute";
-import { getToken, removeUserSession } from "./Utils/Storage";
+import PrivateRoute from "./utils/PrivateRoute";
+import PublicRoute from "./utils/PublicRoute";
+import AdminRoute from "./utils/AdminRoute";
+import { getToken, removeUserSession } from "./utils/Storage";
 import LoginService from "./services/LoginService";
 import Loading from "./components/Loading";
 import ScrollToTop from "./components/ScrollToTop";
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 // import components
 import Footer from "./components/Footer";
@@ -67,6 +69,7 @@ function App() {
 
   return (
     <Router>
+      <NotificationContainer />
       <ScrollToTop />
       <Switch>
         <Route exact path="/" component={HomePage} />

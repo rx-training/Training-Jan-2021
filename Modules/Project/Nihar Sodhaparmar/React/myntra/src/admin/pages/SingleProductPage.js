@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import ProductImage from "../components/SingleProductPage/ProductImage";
 import ProductInfo from "../components/SingleProductPage/ProductInfo";
-import { getToken, removeUserSession } from "../../Utils/Storage";
+import { getToken, removeUserSession } from "../../utils/Storage";
 
 export default function SingleProductPage(props) {
   const [id] = useState(props.match.params.id);

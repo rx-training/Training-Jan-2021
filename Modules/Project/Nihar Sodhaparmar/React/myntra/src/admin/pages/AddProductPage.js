@@ -5,8 +5,8 @@ import SubCategoryService from "../../services/SubCategoryService";
 import BrandService from "../../services/BrandService";
 import Loading from "../../components/Loading";
 import ProductService from "../../services/ProductService";
-import { removeUserSession, getToken } from "../../Utils/Storage";
-import Images from "../components/AddProductPage/Images";
+import { removeUserSession, getToken } from "../../utils/Storage";
+import Images from "../components/AddProductPage/ProductImages";
 
 export default function AddProductPage(props) {
   const [loading, setLoading] = useState(false);
