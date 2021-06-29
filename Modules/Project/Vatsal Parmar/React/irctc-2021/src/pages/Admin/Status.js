@@ -24,19 +24,21 @@ const Status = (props) => {
       });
   }, []);
   const deleteTrainStatus = (id) => {
-    TrainServices.deleteTrainStatus(id)
-      .then((res) => {
-        if (res.data === "success") {
-          window.location.reload();
-        }
-      })
-      .catch((error) => {
-        //setLoading(false);
-        if (error.response.status === 401) {
-          removeUserSession();
-          window.location.href = "/login";
-        }
-      });
+    if (window.confirm("Are you sure you want delete this record ?")) {
+      TrainServices.deleteTrainStatus(id)
+        .then((res) => {
+          if (res.data === "success") {
+            window.location.reload();
+          }
+        })
+        .catch((error) => {
+          //setLoading(false);
+          if (error.response.status === 401) {
+            removeUserSession();
+            window.location.href = "/login";
+          }
+        });
+    }
   };
   const editTrainStatus = (id) => {
     props.history.push(`/dashboard/status/${id}`);

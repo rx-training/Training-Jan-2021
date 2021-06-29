@@ -1,9 +1,11 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require("mongoose");
 var createError = require("http-errors");
 const mainRouter = require("./controllers/index");
 const cors = require("cors");
-var mongoDB = "mongodb://localhost/irctc-2021";
+const MONGO_DB = process.env.MONGO_DB;
+var mongoDB = MONGO_DB;
 
 mongoose
   .connect(mongoDB, {
@@ -16,7 +18,8 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const app = express();
-const port = process.env.port;
+// const port = process.env.port;
+const port = 3001;
 
 // var corsOptions = {
 //   origin: "http://20.198.103.48:91",

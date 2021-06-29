@@ -25,7 +25,20 @@ const List = ({ book, loading }) => {
   const sortData = (trains) => {
     let sorted = trains;
     if (searchQuery.date) {
-      sorted = sorted.filter((item) => item.date === searchQuery.date);
+      // sorted = sorted.filter((item) => item.date === searchQuery.date);
+      var days = ["Sn", "M", "T", "W", "Th", "F", "S"];
+      var dayName = days[new Date(searchQuery.date).getDay()];
+      // console.log(dayName);
+      let a = [];
+      for (let i = 0; i < sorted.length; i++) {
+        // const a = data.train.days.find((item) => item.toString() === dayName);
+        for (let j = 0; j < sorted[i].train.days.length; j++) {
+          if (sorted[i].train.days[j] === dayName) {
+            a.push(sorted[i]);
+          }
+        }
+      }
+      sorted = a;
     }
     if (searchQuery.travelClass) {
       sorted = sorted.map((item) => {
@@ -35,6 +48,7 @@ const List = ({ book, loading }) => {
         return item;
       });
     }
+    // console.log(sorted);
     return sorted;
   };
 

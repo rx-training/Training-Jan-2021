@@ -153,6 +153,7 @@ const Register = (props) => {
       TrainServices.createUser(userData).then((res) => {
         if (res.data) {
           localStorage.removeItem("user");
+          window.alert("Account Created Successfully");
           props.history.push("/login");
         } else {
           console.log("oops somthing wrong");

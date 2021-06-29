@@ -24,19 +24,21 @@ const TrainRoutes = (props) => {
       });
   }, []);
   const deleteRoute = (id) => {
-    TrainServices.deleteTrainRoute(id)
-      .then((res) => {
-        if (res.data === "success") {
-          window.location.reload();
-        }
-      })
-      .catch((error) => {
-        //setLoading(false);
-        if (error.response.status === 401) {
-          removeUserSession();
-          window.location.href = "/login";
-        }
-      });
+    if (window.confirm("Are you sure you want delete this record ?")) {
+      TrainServices.deleteTrainRoute(id)
+        .then((res) => {
+          if (res.data === "success") {
+            window.location.reload();
+          }
+        })
+        .catch((error) => {
+          //setLoading(false);
+          if (error.response.status === 401) {
+            removeUserSession();
+            window.location.href = "/login";
+          }
+        });
+    }
   };
   const editRoute = (id) => {
     props.history.push(`/dashboard/train-routes/${id}`);

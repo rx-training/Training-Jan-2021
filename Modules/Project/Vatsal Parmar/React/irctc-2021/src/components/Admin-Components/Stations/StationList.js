@@ -8,7 +8,7 @@ const StationList = ({ stations, deleteStation, editStation }) => {
           <th scope="col">#</th>
           <th scope="col">Station Name</th>
           <th scope="col">Update</th>
-          <th scope="col">Delete</th>
+          {/* <th scope="col">Delete</th> */}
         </tr>
       </thead>
       <tbody className="text-capitalize">
@@ -25,14 +25,14 @@ const StationList = ({ stations, deleteStation, editStation }) => {
                   Update
                 </button>
               </td>
-              <td>
+              {/* <td>
                 <button
                   className="btn btn-danger"
                   onClick={() => deleteStation(item._id)}
                 >
                   Delete
                 </button>
-              </td>
+              </td> */}
             </tr>
           );
         })}

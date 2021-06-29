@@ -34,7 +34,7 @@ const TrainForm = (props) => {
             train_type: res.data.train_type,
             date: res.data.date.split("T")[0],
           });
-          let trainD = res.data.days.split(" ");
+          let trainD = res.data.days;
           let d = {};
           for (let i = 0; i < trainD.length; i++) {
             let name = trainD[i];
@@ -81,15 +81,33 @@ const TrainForm = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    let trainDays = `${days.M ? "M " : ""}${days.T ? "T " : ""}${
-      days.W ? "W " : ""
-    }${days.Th ? "Th " : ""}${days.F ? "F " : ""}${days.S ? "S " : ""}${
-      days.Sn ? "Sn " : ""
-    }`;
+    let trainDays = [];
+    if (days.Sn) {
+      trainDays.push("Sn");
+    }
+    if (days.M) {
+      trainDays.push("M");
+    }
+    if (days.T) {
+      trainDays.push("T");
+    }
+    if (days.W) {
+      trainDays.push("W");
+    }
+    if (days.Th) {
+      trainDays.push("Th");
+    }
+    if (days.F) {
+      trainDays.push("F");
+    }
+    if (days.S) {
+      trainDays.push("S");
+    }
+
     if (validateForm(errors)) {
       setLoading(true);
       if (id === "_add") {
-        if (trainDays) {
+        if (trainDays.length > 0) {
           TrainServices.addTrain({ ...train, days: trainDays })
             .then((res) => {
               if (res.data === "success") {

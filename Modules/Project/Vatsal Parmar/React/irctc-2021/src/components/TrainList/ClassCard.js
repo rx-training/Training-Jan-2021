@@ -27,7 +27,9 @@ const ClassCard = ({
     >
       <strong>{classData.class_type}</strong>
       <p className={classData.avail_seat > 4 ? "text-success" : "text-danger"}>
-        <strong>{classData.avail_seat > 4 ? "Available" : "Boocked"}</strong>
+        <strong>
+          {classData.avail_seat > 4 ? "Available" : "Not Available"}
+        </strong>
       </p>
       <FaRupeeSign />
       <strong>{classData.price * distance}</strong>

@@ -12,22 +12,21 @@ const StatusForm = (props) => {
     class_type: "",
     price: "",
     avail_seat: 0,
-    booked_seat: 0,
-    wait_seat: 0,
+    // booked_seat: 0,
+    // wait_seat: 0,
   });
   const [trains, setTrains] = useState([]);
   const [seats, setSeats] = useState([]);
   const [singleSeat, setSingleSeat] = useState({
     seat_no: "",
-    is_booked: false,
     _id: uuidv4(),
   });
   const [errors, setErrors] = useState({
     class_type: "",
     price: "",
     avail_seat: "",
-    booked_seat: "",
-    wait_seat: "",
+    // booked_seat: "",
+    // wait_seat: "",
   });
   const [formError, setFormError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -57,8 +56,8 @@ const StatusForm = (props) => {
             class_type: res.data.class_type,
             price: res.data.price,
             avail_seat: res.data.avail_seat,
-            booked_seat: res.data.booked_seat,
-            wait_seat: res.data.wait_seat,
+            // booked_seat: res.data.booked_seat,
+            // wait_seat: res.data.wait_seat,
           });
           setSeats(res.data.seats);
           setSecondLoading(false);
@@ -106,12 +105,6 @@ const StatusForm = (props) => {
         error[name] = "";
       } else {
         error[name] = "Can not be negative value";
-      }
-    } else if (name === "booked_seat" || name === "wait_seat") {
-      if (parseInt(value) >= 0 && parseInt(value) <= trainStatus.avail_seat) {
-        error[name] = "";
-      } else {
-        error[name] = "Can not be negative value Or More then available seats";
       }
     } else if (name === "price") {
       if (value >= 0) {
@@ -179,7 +172,7 @@ const StatusForm = (props) => {
     }
     let seat = singleSeat;
     setSeats([...seats, seat]);
-    setSingleSeat({ seat_no: "", is_booked: false, _id: uuidv4() });
+    setSingleSeat({ seat_no: "", _id: uuidv4() });
   };
   const editSeat = (id) => {
     setEditMode(true);
@@ -192,13 +185,13 @@ const StatusForm = (props) => {
     let newSeats = seats.filter((seat) => seat._id !== id);
     setSeats(newSeats);
   };
-  const resetSeats = () => {
-    const newSeats = seats.map((item) => {
-      item.is_booked = false;
-      return item;
-    });
-    setSeats(newSeats);
-  };
+  // const resetSeats = () => {
+  //   const newSeats = seats.map((item) => {
+  //     item.is_booked = false;
+  //     return item;
+  //   });
+  //   setSeats(newSeats);
+  // };
   return (
     <div className="container">
       <div className="my-5 col-md-10 mx-auto">
@@ -283,7 +276,7 @@ const StatusForm = (props) => {
                 <small className="text-danger">{errors.avail_seat}</small>
               )}
             </div>
-            {id !== "_add" && (
+            {/* {id !== "_add" && (
               <div className="form-group">
                 <label htmlFor="booked_seat">Booked Seat :</label>
                 <input
@@ -318,7 +311,7 @@ const StatusForm = (props) => {
                   <small className="text-danger">{errors.wait_seat}</small>
                 )}
               </div>
-            )}
+            )} */}
             {/* to add seats */}
             <div className="form-group">
               <label htmlFor="seat_no">Add Seats :</label>
@@ -333,7 +326,7 @@ const StatusForm = (props) => {
                 }
                 value={singleSeat.seat_no}
               />
-              <select
+              {/* <select
                 className="form-control w-25 ml-2 d-inline"
                 name="is_booked"
                 value={singleSeat.is_booked}
@@ -343,7 +336,7 @@ const StatusForm = (props) => {
               >
                 <option value={false}>Not Booked</option>
                 <option value={true}>Booked</option>
-              </select>
+              </select> */}
 
               <button
                 className={
@@ -362,12 +355,12 @@ const StatusForm = (props) => {
                   <div className="alert alert-success d-flex justify-content-between align-items-center">
                     <span>
                       <p className="m-0">Seat No : {seat.seat_no}</p>
-                      <p className="m-0">
+                      {/* <p className="m-0">
                         Status :{" "}
                         {seat.is_booked === true || seat.is_booked === "true"
                           ? "Booked"
                           : "Not Booked"}
-                      </p>
+                      </p> */}
                     </span>
                     <span>
                       <FaPen
@@ -385,14 +378,20 @@ const StatusForm = (props) => {
                 </div>
               ))}
             </div>
+            {seats.length > trainStatus.avail_seat && (
+              <p className="text-danger">
+                Seats can not be more then Available seats
+              </p>
+            )}
             <button
+              disabled={seats.length > trainStatus.avail_seat}
               className={
                 id === "_add" ? "btn btn-success px-4" : "btn btn-info px-4"
               }
             >
               {id === "_add" ? "Add" : "Update"}
             </button>
-            {id !== "_add" && (
+            {/* {id !== "_add" && (
               <button
                 className="btn btn-warning ml-2"
                 onClick={resetSeats}
@@ -400,7 +399,7 @@ const StatusForm = (props) => {
               >
                 UnBook All Seats
               </button>
-            )}
+            )} */}
             {loading && <img src={loadingImg} alt="loading..." width="200px" />}
             {formError.length > 0 && (
               <p className="text-danger mt-2">{formError}</p>

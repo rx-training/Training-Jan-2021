@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import loadingImg from "../../images/loading.gif";
+import { FaRupeeSign } from "react-icons/fa";
 
 const BookingCard = ({
   pnr: { journey_date, from, to, ticket_price, train, _id },
@@ -30,7 +31,9 @@ const BookingCard = ({
         </div>
         <div className="col-6">
           <p>Journey Date : {journey_date}</p>
-          <p>Ticket Price : {ticket_price}</p>
+          <p>
+            Ticket Price : <FaRupeeSign /> {ticket_price}
+          </p>
           <button
             className="btn btn-sm btn-primary"
             type="button"

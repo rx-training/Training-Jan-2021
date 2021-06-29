@@ -9,7 +9,7 @@ const StatusList = ({ trainStatus, deleteTrainStatus, editTrainStatus }) => {
           <th scope="col">Class Type</th>
           <th scope="col">Price</th>
           <th scope="col">Avail Seats</th>
-          <th scope="col">Booked Seats</th>
+          {/* <th scope="col">Booked Seats</th> */}
           <th scope="col">Update</th>
           <th scope="col">Delete</th>
         </tr>
@@ -22,7 +22,7 @@ const StatusList = ({ trainStatus, deleteTrainStatus, editTrainStatus }) => {
               <td>{item.class_type}</td>
               <td>{item.price}</td>
               <td>{item.avail_seat}</td>
-              <td>{item.booked_seat}</td>
+              {/* <td>{item.booked_seat}</td> */}
               <td>
                 <button
                   className="btn btn-info btn-sm"

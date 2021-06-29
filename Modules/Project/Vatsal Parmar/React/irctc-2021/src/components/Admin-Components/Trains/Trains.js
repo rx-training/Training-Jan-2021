@@ -9,7 +9,7 @@ const Trains = ({ trains, deleteTrain, editTrain }) => {
           <th scope="col">Train Name</th>
           <th scope="col">Type</th>
           <th scope="col">Update</th>
-          <th scope="col">Delete</th>
+          {/* <th scope="col">Delete</th> */}
         </tr>
       </thead>
       <tbody className="text-capitalize">
@@ -27,14 +27,14 @@ const Trains = ({ trains, deleteTrain, editTrain }) => {
                   Update
                 </button>
               </td>
-              <td>
+              {/* <td>
                 <button
                   className="btn btn-danger"
                   onClick={() => deleteTrain(item._id)}
                 >
                   Delete
                 </button>
-              </td>
+              </td> */}
             </tr>
           );
         })}

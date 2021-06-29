@@ -25,19 +25,21 @@ const Dashboard = (props) => {
   }, []);
 
   const deleteTrain = (id) => {
-    TrainServices.deleteTrain(id)
-      .then((res) => {
-        if (res.data === "Train Record Deleted Successfully") {
-          window.location.reload();
-        }
-      })
-      .catch((error) => {
-        //setLoading(false);
-        if (error.response.status === 401) {
-          removeUserSession();
-          window.location.href = "/login";
-        }
-      });
+    if (window.confirm("Are you sure you want delete this record ?")) {
+      TrainServices.deleteTrain(id)
+        .then((res) => {
+          if (res.data === "Train Record Deleted Successfully") {
+            window.location.reload();
+          }
+        })
+        .catch((error) => {
+          //setLoading(false);
+          if (error.response.status === 401) {
+            removeUserSession();
+            window.location.href = "/login";
+          }
+        });
+    }
   };
   const editTrain = (id) => {
     props.history.push(`/dashboard/trains/${id}`);

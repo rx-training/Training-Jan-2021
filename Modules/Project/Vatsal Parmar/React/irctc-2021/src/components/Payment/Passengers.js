@@ -1,6 +1,7 @@
 import React from "react";
+import { FaRupeeSign } from "react-icons/fa";
 
-const Passengers = ({ passengers }) => {
+const Passengers = ({ passengers, distance, unit_price }) => {
   return (
     <table className="table table-hover table-bordered">
       <thead className="thead-light">
@@ -9,7 +10,7 @@ const Passengers = ({ passengers }) => {
           <th scope="col">LastName</th>
           <th scope="col">Age</th>
           <th scope="col">Gender</th>
-          <th scope="col">Seat No</th>
+          <th scope="col">Price</th>
         </tr>
       </thead>
       <tbody className="text-capitalize">
@@ -20,7 +21,9 @@ const Passengers = ({ passengers }) => {
               <td>{item.last_name}</td>
               <td>{item.age}</td>
               <td>{item.gender}</td>
-              <td>{item.seat_no}</td>
+              <td>
+                <FaRupeeSign /> {unit_price * distance}
+              </td>
             </tr>
           );
         })}

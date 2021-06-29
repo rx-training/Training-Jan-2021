@@ -10,6 +10,7 @@ import loadingImg from "../images/loading.gif";
 
 const Payment = () => {
   const [paymentDone, setPaymentDone] = useState(false);
+  const [trainFull, setTrainFull] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pnrId, setPnrId] = useState("");
   const { bookingDetails, syncStorage } = useContext(TrainContext);
@@ -30,6 +31,8 @@ const Payment = () => {
     classId,
     passengers,
     booking_date,
+    distance,
+    unit_price,
   } = bookingDetails;
 
   //funcationality
@@ -62,12 +65,12 @@ const Payment = () => {
     };
     TrainServices.bookTicket(pnr)
       .then((res) => {
-        if (res.data !== "Train Full") {
+        if (res.data !== "train is full") {
           setPnrId(res.data);
           setLoading(false);
           setPaymentDone(true);
         } else {
-          console.log("not done");
+          setTrainFull(true);
           setLoading(false);
         }
       })
@@ -79,7 +82,28 @@ const Payment = () => {
         }
       });
   };
-  //   console.log(pnrId);
+  //to get journey duration
+  function diff(start, end) {
+    start = start.split(":");
+    end = end.split(":");
+    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+    var diff = endDate.getTime() - startDate.getTime();
+    var hours = Math.floor(diff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    var minutes = Math.floor(diff / 1000 / 60);
+
+    if (hours < 0) hours = hours + 24;
+
+    return (
+      (hours <= 9 ? "0" : "") +
+      hours +
+      ":" +
+      (minutes <= 9 ? "0" : "") +
+      minutes
+    );
+  }
+  // console.log(bookingDetails);
   return (
     <>
       <div>
@@ -97,12 +121,21 @@ const Payment = () => {
           </div>
           <div className="col-md-4">
             <p>class type : {classType}</p>
+            <p>
+              Price : <FaRupeeSign />{" "}
+              {bookingDetails.unit_price * bookingDetails.distance} /per person
+            </p>
+            <p>Journey Duration : {diff(from_time, to_time)} hrs</p>
           </div>
         </div>
         <h4 className="text-center p-2 bg-primary">Passenger Details</h4>
       </div>
       <div className="container mt-3">
-        <Passengers passengers={passengers} />
+        <Passengers
+          passengers={passengers}
+          distance={distance}
+          unit_price={unit_price}
+        />
         {paymentDone ? (
           <div className="mx-auto text-center col-md-6 alert alert-success">
             <b>Payment Successfull</b>
@@ -111,21 +144,29 @@ const Payment = () => {
             </Link>
           </div>
         ) : (
-          <div className="text-center">
-            <h4>
+          <div className="text-right">
+            <h4 className="d-inline">
               Total Price : <FaRupeeSign /> {totalPrice}
             </h4>
             {loading ? (
               <img src={loadingImg} width="150px" alt="loading..." />
             ) : (
               <button
-                className="btn btn-success mb-3"
+                className="btn btn-success mb-3 ml-5 mr-2"
                 type="button"
                 onClick={payment}
               >
                 Pay
               </button>
             )}
+          </div>
+        )}
+        {trainFull && (
+          <div className="mx-auto text-center col-md-6 alert alert-danger">
+            <b>Selected travell class is full</b>
+            <Link to="/" className="d-block text-danger">
+              Back to home
+            </Link>
           </div>
         )}
       </div>

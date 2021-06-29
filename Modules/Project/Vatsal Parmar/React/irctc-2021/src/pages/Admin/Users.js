@@ -26,19 +26,21 @@ const Users = () => {
   }, []);
 
   const deleteUser = (id) => {
-    TrainServices.deleteUser(id)
-      .then((res) => {
-        if (res.data === "success") {
-          window.location.reload();
-        }
-      })
-      .catch((error) => {
-        //setLoading(false);
-        if (error.response.status === 401) {
-          removeUserSession();
-          window.location.href = "/login";
-        }
-      });
+    if (window.confirm("Are you sure you want delete this record ?")) {
+      TrainServices.deleteUser(id)
+        .then((res) => {
+          if (res.data === "success") {
+            window.location.reload();
+          }
+        })
+        .catch((error) => {
+          //setLoading(false);
+          if (error.response.status === 401) {
+            removeUserSession();
+            window.location.href = "/login";
+          }
+        });
+    }
   };
   return (
     <div className="container-fluid" style={{ minHeight: "72vh" }}>

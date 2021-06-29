@@ -11,7 +11,7 @@ const Booking = (props) => {
   const { bookingDetails, setBookingDetails } = useContext(TrainContext);
   // console.log(bookingDetails);
   const id = props.match.params.id;
-  const [classDetails, setClassDetails] = useState({ seats: [] });
+  const [classDetails, setClassDetails] = useState({});
   const [passengers, setPassengers] = useState([]);
   const [passenger, setPassenger] = useState({
     id: uuidv4(),
@@ -40,8 +40,8 @@ const Booking = (props) => {
           classType: res.data.class_type,
           unit_price: res.data.price,
           avail_seat: res.data.avail_seat,
-          booked_seat: res.data.booked_seat,
-          seats: res.data.seats.filter((item) => item.is_booked === false),
+          // booked_seat: res.data.booked_seat,
+          // seats: res.data.seats.filter((item) => item.is_booked === false),
         });
         setBookingDetails(details);
         setLoading(false);
@@ -99,9 +99,9 @@ const Booking = (props) => {
         age,
         gender,
         reservation_status,
-        seat_id,
+        // seat_id,
       } = passenger;
-      let seat = classDetails.seats.find((seat) => seat._id === seat_id);
+      // let seat = classDetails.seats.find((seat) => seat._id === seat_id);
       setPassengers([
         ...passengers,
         {
@@ -111,8 +111,8 @@ const Booking = (props) => {
           age,
           gender,
           reservation_status,
-          seat_id,
-          seat_no: seat.seat_no,
+          // seat_id,
+          // seat_no: seat.seat_no,
         },
       ]);
       setPassenger({
@@ -146,6 +146,29 @@ const Booking = (props) => {
     setBookingDetails(details);
     props.history.push("/payment");
   };
+
+  //to get journey duration
+  function diff(start, end) {
+    start = start.split(":");
+    end = end.split(":");
+    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+    var diff = endDate.getTime() - startDate.getTime();
+    var hours = Math.floor(diff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    var minutes = Math.floor(diff / 1000 / 60);
+
+    if (hours < 0) hours = hours + 24;
+
+    return (
+      (hours <= 9 ? "0" : "") +
+      hours +
+      ":" +
+      (minutes <= 9 ? "0" : "") +
+      minutes
+    );
+  }
+
   return (
     <>
       {loading ? (
@@ -157,14 +180,19 @@ const Booking = (props) => {
         </div>
       ) : (
         <div style={{ minHeight: "75vh" }}>
-          <div className="row">
+          <div className="row my-2 pl-3">
             <div className="col-md-4">
               <h4>Train Name : {train_name}</h4>
               <h4>Travell Class : {classType}</h4>
+              <h4>Journey Duration : {diff(from_time, to_time)} hrs</h4>
             </div>
             <div className="col-md-4">
               <h4>Start : {from}</h4>
               <h4>Time : {from_time}</h4>
+              <h4>
+                Price : <FaRupeeSign />{" "}
+                {classDetails.unit_price * bookingDetails.distance} /per person
+              </h4>
             </div>
             <div className="col-md-4">
               <h4>Destination : {to}</h4>
@@ -173,10 +201,10 @@ const Booking = (props) => {
           </div>
           <h1 className="text-center text-primary">Book Tickets</h1>
           {/* passenger form */}
-          <div className="container border border-dark rounded alert alert-secondary">
+          <div className="container border border-dark rounded alert alert-secondary my-3">
             <h4>Passenger Details :</h4>
             <form className="row" onSubmit={addPassenger}>
-              <div className="col-md-2 my-2">
+              <div className="col-md-3 my-2">
                 <input
                   className="form-control"
                   name="first_name"
@@ -189,7 +217,7 @@ const Booking = (props) => {
                   <small className="text-danger">{err.first_name}</small>
                 )}
               </div>
-              <div className="col-md-2 my-2">
+              <div className="col-md-3 my-2">
                 <input
                   className="form-control"
                   placeholder="Last Name"
@@ -230,7 +258,7 @@ const Booking = (props) => {
                   <option value="other">Other</option>
                 </select>
               </div>
-              <div className="col-md-2 my-2">
+              {/* <div className="col-md-2 my-2">
                 <select
                   className="form-control"
                   name="seat_id"
@@ -245,7 +273,7 @@ const Booking = (props) => {
                     </option>
                   ))}
                 </select>
-              </div>
+              </div> */}
               <div className="col-md-2">
                 <button className="btn btn-success my-2">
                   <FaPlus size="20px" />{" "}
@@ -262,7 +290,7 @@ const Booking = (props) => {
           {/* end of passenger form */}
           {/* show passenger */}
           <div className="container my-2">
-            <div className="row">
+            {/* <div className="row">
               {passengers.map((item) => {
                 return (
                   <div className="col-md-3 text-uppercase p-3" key={item.id}>
@@ -290,7 +318,50 @@ const Booking = (props) => {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
+            {passengers.length != 0 && (
+              <table className="table table-hover table-bordered">
+                <thead className="thead-light">
+                  <tr>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    {/* <th scope="col">Seat No</th> */}
+                    <th scope="col">Price</th>
+                    <th scope="col">Remove</th>
+                  </tr>
+                </thead>
+                <tbody className="text-capitalize">
+                  {passengers.map((item) => {
+                    return (
+                      <tr key={item.id}>
+                        <td>{item.first_name}</td>
+                        <td>{item.last_name}</td>
+                        <td>{item.age}</td>
+                        <td>{item.gender}</td>
+                        {/* <td>{item.seat_no}</td> */}
+                        <td>
+                          <FaRupeeSign />{" "}
+                          {classDetails.unit_price * bookingDetails.distance}
+                        </td>
+                        <td>
+                          <button
+                            className="btn btn-sm btn-danger"
+                            type="button"
+                            onClick={() => {
+                              removePassenger(item.id);
+                            }}
+                          >
+                            Remove
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            )}
           </div>
           {/* end of show passenger */}
           <div className="container mb-3">

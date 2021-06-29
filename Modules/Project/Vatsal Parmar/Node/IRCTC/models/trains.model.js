@@ -11,9 +11,9 @@ const trainSchema = new mongoose.Schema({
   },
   date: { type: Date, required: true },
   days: {
-    type: String,
+    type: Array,
     trim: true,
-    default: "M T W Th F S Sn",
+    default: ["Sn", "M", "T", "W", "Th", "F", "S"],
   },
 });
 
@@ -23,7 +23,7 @@ trainSchema.methods.joiValidate = (data) => {
     train_name: Joi.string().required(),
     train_type: Joi.string().required(),
     date: Joi.string().required(),
-    days: Joi.string(),
+    days: Joi.array(),
   });
   return schema.validate(data);
 };

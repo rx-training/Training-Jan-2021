@@ -27,19 +27,21 @@ const MyBookings = (props) => {
     props.history.push(`/ticket/${pnr}`);
   };
   const cancelBooking = (id) => {
-    TrainServices.cancelTicket(id)
-      .then((res) => {
-        if (res.data === "Ticket Cancled") {
-          props.history.push("/user");
-        }
-      })
-      .catch((error) => {
-        //setLoading(false);
-        if (error.response.status === 401) {
-          removeUserSession();
-          window.location.href = "/login";
-        }
-      });
+    if (window.confirm("Are you sure you want cancle ticket ?")) {
+      TrainServices.cancelTicket(id)
+        .then((res) => {
+          if (res.data === "Ticket Cancled") {
+            props.history.push("/user");
+          }
+        })
+        .catch((error) => {
+          //setLoading(false);
+          if (error.response.status === 401) {
+            removeUserSession();
+            window.location.href = "/login";
+          }
+        });
+    }
   };
   return (
     <div style={{ minHeight: "75vh" }}>
