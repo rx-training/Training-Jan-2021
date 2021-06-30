@@ -1,8 +1,8 @@
 import axios from "axios";
 import { getToken } from "../Utils/Common";
 
-const TRAIN_API_BASE_URL = "http://localhost:3001/";
-// const TRAIN_API_BASE_URL = "http://20.198.103.48:89/";
+// const TRAIN_API_BASE_URL = "http://localhost:3001/";
+const TRAIN_API_BASE_URL = "http://20.198.103.48:89/";
 
 class TrainServices {
   searchTrain(from, to) {

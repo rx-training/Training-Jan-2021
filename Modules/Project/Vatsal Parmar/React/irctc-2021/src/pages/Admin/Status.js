@@ -4,15 +4,20 @@ import TrainServices from "../../Services/TrainServices";
 import loadingImg from "../../images/loading.gif";
 import StatusList from "../../components/Admin-Components/Status/StatusList";
 import { removeUserSession } from "../../Utils/Common";
+import { FaSearch } from "react-icons/fa";
 
 const Status = (props) => {
   const [trainStatus, setTrainStatus] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+
   useEffect(() => {
     setLoading(true);
     TrainServices.getTrainStatus()
       .then((res) => {
         setTrainStatus(res.data);
+        setFilteredData(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -43,6 +48,28 @@ const Status = (props) => {
   const editTrainStatus = (id) => {
     props.history.push(`/dashboard/status/${id}`);
   };
+  const handleChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value.length > 0) {
+      let data = trainStatus.filter((item) => {
+        let searchQuery = value.toLowerCase();
+        let trainName = item.train.train_name
+          .toLowerCase()
+          .slice(0, value.length);
+
+        if (searchQuery === trainName) {
+          return item;
+        }
+      });
+      setFilteredData(data);
+    } else {
+      setFilteredData(trainStatus);
+    }
+    setSearch(value);
+    // console.log(search);
+  };
+
   return (
     <div className="container-fluid" style={{ minHeight: "72vh" }}>
       <div className="row mt-3 mb-2">
@@ -54,8 +81,22 @@ const Status = (props) => {
             </div>
           ) : (
             <div>
+              <div className="input-group  mt-3 mt-md-0 mb-3 col-md-6 mx-auto">
+                <div className="input-group-prepend">
+                  <div className="input-group-text">
+                    <FaSearch />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="train name"
+                  value={search}
+                  onChange={handleChange}
+                />
+              </div>
               <StatusList
-                trainStatus={trainStatus}
+                trainStatus={filteredData}
                 deleteTrainStatus={deleteTrainStatus}
                 editTrainStatus={editTrainStatus}
               />

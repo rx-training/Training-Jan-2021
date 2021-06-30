@@ -10,7 +10,11 @@
   font-weight: 600;
   margin-top: 100px;
 }
-
+.nav-heading {
+  color: var(--primaryColor);
+  cursor: pointer;
+  font-weight: bold;
+}
 .tab {
   background-color: var(--primaryColor);
   color: white;

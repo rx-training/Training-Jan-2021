@@ -4,15 +4,20 @@ import TrainServices from "../../Services/TrainServices";
 import loadingImg from "../../images/loading.gif";
 import Trains from "../../components/Admin-Components/Trains/Trains";
 import { removeUserSession } from "../../Utils/Common";
+import { FaSearch } from "react-icons/fa";
 
 const Dashboard = (props) => {
   const [trains, setTrains] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+
   useEffect(() => {
     setLoading(true);
     TrainServices.getTrains()
       .then((res) => {
         setTrains(res.data);
+        setFilteredData(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -44,6 +49,25 @@ const Dashboard = (props) => {
   const editTrain = (id) => {
     props.history.push(`/dashboard/trains/${id}`);
   };
+  const handleChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value.length > 0) {
+      let data = trains.filter((item) => {
+        let searchQuery = value.toLowerCase();
+        let trainName = item.train_name.toLowerCase().slice(0, value.length);
+
+        if (searchQuery === trainName) {
+          return item;
+        }
+      });
+      setFilteredData(data);
+    } else {
+      setFilteredData(trains);
+    }
+    setSearch(value);
+    // console.log(search);
+  };
   return (
     <>
       {loading ? (
@@ -55,8 +79,22 @@ const Dashboard = (props) => {
           <div className="row mt-3 mb-2">
             <AdminNav active="trains" />
             <div className="col-md-9">
+              <div className="input-group  mt-3 mt-md-0 mb-3 col-md-6 mx-auto">
+                <div className="input-group-prepend">
+                  <div className="input-group-text">
+                    <FaSearch />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="train name"
+                  value={search}
+                  onChange={handleChange}
+                />
+              </div>
               <Trains
-                trains={trains}
+                trains={filteredData}
                 deleteTrain={deleteTrain}
                 editTrain={editTrain}
               />

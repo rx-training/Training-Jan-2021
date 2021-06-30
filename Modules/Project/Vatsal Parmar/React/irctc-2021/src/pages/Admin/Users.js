@@ -4,16 +4,20 @@ import TrainServices from "../../Services/TrainServices";
 import loadingImg from "../../images/loading.gif";
 import UserList from "../../components/Admin-Components/Users/UserList";
 import { removeUserSession } from "../../Utils/Common";
+import { FaSearch } from "react-icons/fa";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     setLoading(true);
     TrainServices.getUsers()
       .then((res) => {
         setUsers(res.data);
+        setFilteredData(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -42,6 +46,28 @@ const Users = () => {
         });
     }
   };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value.length > 0) {
+      let data = users.filter((item) => {
+        let searchQuery = value.toLowerCase();
+        let name = item.first_name + " " + item.last_name;
+        name = name.toLowerCase().slice(0, value.length);
+
+        if (searchQuery === name) {
+          return item;
+        }
+      });
+      setFilteredData(data);
+    } else {
+      setFilteredData(users);
+    }
+    setSearch(value);
+    // console.log(search);
+  };
+
   return (
     <div className="container-fluid" style={{ minHeight: "72vh" }}>
       <div className="row mt-3 mb-2">
@@ -53,7 +79,21 @@ const Users = () => {
             </div>
           ) : (
             <div>
-              <UserList users={users} deleteUser={deleteUser} />
+              <div className="input-group  mt-3 mt-md-0 mb-3 col-md-6 mx-auto">
+                <div className="input-group-prepend">
+                  <div className="input-group-text">
+                    <FaSearch />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="jhon doe"
+                  value={search}
+                  onChange={handleChange}
+                />
+              </div>
+              <UserList users={filteredData} deleteUser={deleteUser} />
             </div>
           )}
         </div>

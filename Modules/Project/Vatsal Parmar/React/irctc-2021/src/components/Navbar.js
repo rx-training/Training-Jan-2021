@@ -34,7 +34,12 @@ const MainNav = () => {
         <NavbarBrand href="/">
           <img src="../../img/secondary-logo.png" width="40px" alt="logo" />
         </NavbarBrand>
-
+        <h2
+          className="nav-heading mx-2 mt-2"
+          onClick={() => (window.location.href = "/")}
+        >
+          IRCTC
+        </h2>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
