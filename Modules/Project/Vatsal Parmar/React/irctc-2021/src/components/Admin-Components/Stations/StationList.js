@@ -106,7 +106,9 @@ const StationList = ({ stations, deleteStation, editStation }) => {
           </tbody>
         </table>
       ) : (
-        <h1 className="text-center text-danger my-5">Stations Not Found</h1>
+        <div className="my-5 alert alert-danger w-75 mx-auto">
+          <h2 className="text-center text-danger">No Records Available</h2>
+        </div>
       )}
       {pages.length > 1 && (
         <ul className="pagination" style={{ cursor: "pointer" }}>

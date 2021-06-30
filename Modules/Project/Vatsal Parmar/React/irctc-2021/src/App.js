@@ -23,6 +23,8 @@ import TrainRoutesForm from "./pages/Admin/TrainRoutesForm";
 import Status from "./pages/Admin/Status";
 import StatusForm from "./pages/Admin/StatusForm";
 import Users from "./pages/Admin/Users";
+import Pnrs from "./pages/Admin/Pnrs";
+import PnrDetails from "./pages/Admin/PnrDetails";
 //nav bar
 import MainNav from "./components/Navbar";
 //footer
@@ -77,6 +79,8 @@ function App() {
           component={StatusForm}
         />
         <PrivateRoute exact path="/dashboard/users" component={Users} />
+        <PrivateRoute exact path="/dashboard/pnrs" component={Pnrs} />
+        <PrivateRoute exact path="/dashboard/pnrs/:id" component={PnrDetails} />
         <Route component={Error} />
       </Switch>
       <Footer />

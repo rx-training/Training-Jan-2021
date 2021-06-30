@@ -57,6 +57,16 @@ const AdminNav = ({ active }) => {
       >
         Users
       </Link>
+      <Link
+        className={
+          active === "pnrs"
+            ? "border border-light d-block p-2 admin-nav-link-active"
+            : "border border-light d-block p-2 admin-nav-link"
+        }
+        to="/dashboard/pnrs"
+      >
+        PNRs
+      </Link>
     </div>
   );
 };

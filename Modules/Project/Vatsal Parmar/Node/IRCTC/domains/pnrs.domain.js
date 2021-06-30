@@ -19,7 +19,8 @@ class PnrDomain {
       .populate("train", "train_name")
       .populate("from", "station_name")
       .populate("to", "station_name")
-      .populate("travel_class", "class_type");
+      .populate("travel_class", "class_type")
+      .populate("user_id", "first_name last_name");
     res.send(pnrs);
   }
   //To get pnr
@@ -29,7 +30,8 @@ class PnrDomain {
       .populate("train", "train_name")
       .populate("from", "station_name")
       .populate("to", "station_name")
-      .populate("travel_class", "class_type");
+      .populate("travel_class", "class_type")
+      .populate("user_id", "first_name last_name");
     if (pnr) {
       res.send(pnr);
     } else {

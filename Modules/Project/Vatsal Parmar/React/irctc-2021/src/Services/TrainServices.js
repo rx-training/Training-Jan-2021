@@ -1,8 +1,8 @@
 import axios from "axios";
 import { getToken } from "../Utils/Common";
 
-// const TRAIN_API_BASE_URL = "http://localhost:3001/";
-const TRAIN_API_BASE_URL = "http://20.198.103.48:89/";
+const TRAIN_API_BASE_URL = "http://localhost:3001/";
+// const TRAIN_API_BASE_URL = "http://20.198.103.48:89/";
 
 class TrainServices {
   searchTrain(from, to) {
@@ -248,6 +248,15 @@ class TrainServices {
   deleteUser(id) {
     const token = getToken();
     return axios.delete(`${TRAIN_API_BASE_URL}users/${id}`, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
+  }
+  // for pnrs
+  getAllPnrs() {
+    const token = getToken();
+    return axios.get(`${TRAIN_API_BASE_URL}pnrs/`, {
       headers: {
         "x-access-token": token,
       },

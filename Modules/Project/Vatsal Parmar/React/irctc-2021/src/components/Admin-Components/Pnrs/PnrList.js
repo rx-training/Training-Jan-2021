@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const RoutesList = ({ routes, editRoute, deleteRoute }) => {
+const PnrList = ({ pnrs, viewPnr }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemPerPage, setItemPerPage] = useState(5);
+  const [itemPerPage, setItemPerPage] = useState(10);
 
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
@@ -10,7 +10,7 @@ const RoutesList = ({ routes, editRoute, deleteRoute }) => {
 
   const pages = [];
 
-  for (let i = 1; i <= Math.ceil(routes.length / itemPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(pnrs.length / itemPerPage); i++) {
     pages.push(i);
   }
   const handleClick = (event) => {
@@ -40,12 +40,13 @@ const RoutesList = ({ routes, editRoute, deleteRoute }) => {
 
   const indexofLastItem = currentPage * itemPerPage;
   const indexofFirstItem = indexofLastItem - itemPerPage;
-  var currentItems = routes.slice(indexofFirstItem, indexofLastItem);
+
+  var currentItems = pnrs.slice(indexofFirstItem, indexofLastItem);
 
   useEffect(() => {
-    currentItems = routes.slice(indexofFirstItem, indexofLastItem);
+    currentItems = pnrs.slice(indexofFirstItem, indexofLastItem);
     setCurrentPage(1);
-  }, [routes]);
+  }, [pnrs]);
 
   const handleNextBtn = () => {
     setCurrentPage(currentPage + 1);
@@ -62,6 +63,7 @@ const RoutesList = ({ routes, editRoute, deleteRoute }) => {
       setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
     }
   };
+
   return (
     <div>
       {currentItems.length > 0 ? (
@@ -69,13 +71,12 @@ const RoutesList = ({ routes, editRoute, deleteRoute }) => {
           <thead className="thead-light">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Train Name</th>
-              <th scope="col">Station Name</th>
-              <th scope="col">Stop No</th>
-              <th scope="col">Arr Time</th>
-              <th scope="col">Depart Time</th>
-              <th scope="col">Update</th>
-              <th scope="col">Delete</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Train</th>
+              <th scope="col">Date</th>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">View</th>
             </tr>
           </thead>
           <tbody className="text-capitalize">
@@ -85,27 +86,29 @@ const RoutesList = ({ routes, editRoute, deleteRoute }) => {
                   <th scope="row">
                     {(currentPage - 1) * itemPerPage + index + 1}
                   </th>
+                  <td>
+                    {item.user_id.first_name + " " + item.user_id.last_name}
+                  </td>
                   <td>{item.train.train_name}</td>
-                  <td>{item.station.station_name}</td>
-                  <td>{item.stop_no}</td>
-                  <td>{item.arr_time}</td>
-                  <td>{item.depart_time}</td>
+                  <td>{item.journey_date}</td>
+                  <td>{item.from.station_name}</td>
+                  <td>{item.to.station_name}</td>
                   <td>
                     <button
-                      className="btn btn-info btn-sm"
-                      onClick={() => editRoute(item._id)}
+                      className="btn btn-sm btn-primary"
+                      onClick={() => viewPnr(item._id)}
                     >
-                      Update
+                      View
                     </button>
                   </td>
-                  <td>
-                    <button
-                      className="btn btn-danger btn-sm"
-                      onClick={() => deleteRoute(item._id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
+                  {/* <td>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deleteStation(item._id)}
+                >
+                  Delete
+                </button>
+              </td> */}
                 </tr>
               );
             })}
@@ -142,4 +145,4 @@ const RoutesList = ({ routes, editRoute, deleteRoute }) => {
   );
 };
 
-export default RoutesList;
+export default PnrList;
