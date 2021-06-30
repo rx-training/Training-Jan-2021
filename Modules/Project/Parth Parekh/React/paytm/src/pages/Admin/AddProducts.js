@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import AdminHeader from "./AdminHeader";
 import PaytmServices from "../../Services/paytmServices";
-import { getToken, removeUserSession } from "../../Utils/Common";
+import { getUserId, getToken, removeUserSession } from "../../Utils/Common";
 import { GoPlus } from "react-icons/go";
 import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
 import FilterProductForm from "./FilterProductForm";
+import { NotificationManager } from "react-notifications";
 
 export default function AddProducts(props) {
     //const [product, setProducts] = useState([]);
@@ -25,6 +26,14 @@ export default function AddProducts(props) {
 
     /************      To Get Category All Data   ********************/
     useEffect(() => {
+        PaytmServices.getAllUserData(getUserId(), getToken())
+            .then((res) => {})
+            .catch((error) => {
+                if (error.response.status === 401) {
+                    removeUserSession();
+                    window.location.href = "/login";
+                }
+            });
         async function getPro() {
             const tempData1 = await PaytmServices.getProduct();
             const data = tempData1.data;
@@ -93,18 +102,73 @@ export default function AddProducts(props) {
         getPro();
     }, []);
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemPerPage] = useState(10);
+
+    const [pageNumberLimit] = useState(5);
+    const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
+    const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+    const pages = [];
+    for (let i = 1; i <= Math.ceil(filterItem.length / itemPerPage); i++) {
+        pages.push(i);
+    }
+    const handleClick = (event) => {
+        setCurrentPage(Number(event.target.id));
+    };
+
+    const renderPageNumbers = pages.map((number) => {
+        if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+            return (
+                <li
+                    key={number}
+                    id={number}
+                    onClick={handleClick}
+                    className={
+                        currentPage === number
+                            ? "page-item page-link bg-primary text-white"
+                            : "page-item page-link "
+                    }
+                >
+                    {number}
+                </li>
+            );
+        } else {
+            return null;
+        }
+    });
+
+    const indexofLastItem = currentPage * itemPerPage;
+    const indexofFirstItem = indexofLastItem - itemPerPage;
+    const currentItems = filterItem.slice(indexofFirstItem, indexofLastItem);
+
+    const handleNextBtn = () => {
+        setCurrentPage(currentPage + 1);
+        if (currentPage + 1 > maxPageNumberLimit) {
+            setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+            setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+        }
+    };
+    const handlePrevBtn = () => {
+        setCurrentPage(currentPage - 1);
+        if ((currentPage - 1) % pageNumberLimit === 0) {
+            setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+            setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+        }
+    };
+
     /************      Handle Change   ********************/
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
 
         let tempData = [...productData];
-
+        setCurrentPage(1);
         if (name === "search") {
             if (value.length > 0) {
                 tempData = tempData.filter((item) => {
-                    let tempSearch = value.toLocaleLowerCase();
-                    let tempName = item.ProductName.toLocaleLowerCase().slice(
+                    let tempSearch = value.toLowerCase();
+                    let tempName = item.ProductName.toLowerCase().slice(
                         0,
                         value.length
                     );
@@ -115,9 +179,13 @@ export default function AddProducts(props) {
                 });
             }
             setSearch(value);
+            setValues({ ...values, category: "", price: values.max });
         }
         if (name === "category") {
-            setValues({ ...values, category: value });
+            setValues({ ...values, category: value, price: values.max });
+
+            setSearch("");
+
             if (value !== "all") {
                 tempData = tempData.filter(
                     (item) => item.ProductCategory === value
@@ -126,8 +194,9 @@ export default function AddProducts(props) {
         }
         if (name === "price") {
             //filter price
+            setSearch("");
             tempData = tempData.filter((item) => item.ProductPrice <= value);
-            setValues({ ...values, price: value });
+            setValues({ ...values, price: value, category: "" });
         }
         setFilterItem(tempData);
     };
@@ -139,18 +208,24 @@ export default function AddProducts(props) {
 
     //handle delete
     const handleDelete = (id) => {
-        PaytmServices.deleteProduct(id, getToken())
-            .then((res) => {
-                window.location.href = "/addProducts";
-            })
-            .catch((error) => {
-                if (error.response.status === 401) {
-                    removeUserSession();
-                    window.location.href = "/login";
-                } else {
-                    setMessage("Something wrong");
-                }
-            });
+        let val = window.confirm(
+            "Are you sure , you to want to delete this product ?"
+        );
+        if (val) {
+            PaytmServices.deleteProduct(id, getToken())
+                .then((res) => {
+                    NotificationManager.success("Product Deleted successfully");
+                    window.location.href = "/addProducts";
+                })
+                .catch((error) => {
+                    if (error.response.status === 401) {
+                        removeUserSession();
+                        window.location.href = "/login";
+                    } else {
+                        setMessage("Something wrong");
+                    }
+                });
+        }
     };
 
     return (
@@ -187,64 +262,112 @@ export default function AddProducts(props) {
                         difCat={difCat}
                         category={values.category}
                     />
-                    <table className="table table-hover">
-                        <thead className="bg-dark text-white">
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Category Name</th>
-                                <th>Product Price</th>
+                    {filterItem.length === 0 ? (
+                        <h1 className="text-center mt-4 text-danger">
+                            Product Not Found
+                        </h1>
+                    ) : (
+                        <>
+                            <table className="table table-hover">
+                                <thead className="bg-dark text-white">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Product Name</th>
+                                        <th>Category Name</th>
+                                        <th>Product Price</th>
+                                        <th>Quantity</th>
 
-                                <th>Quantity</th>
-
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filterItem.length === 0 && (
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td className="h1">Product not found</td>
-                                </tr>
-                            )}
-                            {filterItem.map((item, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{item.ProductName}</td>
-                                        <td>{item.ProductCategory}</td>
-                                        <td>{item.ProductPrice}</td>
-
-                                        <td>{item.Qty}</td>
-
-                                        <td>
-                                            <button
-                                                className="btn btn-success"
-                                                onClick={() => {
-                                                    props.history.push(
-                                                        `/newproduct/${item._id}`
-                                                    );
-                                                }}
-                                            >
-                                                <FaEdit /> Edit
-                                            </button>
-                                        </td>
-                                        <td>
-                                            {" "}
-                                            <button
-                                                className="btn btn-danger"
-                                                onClick={() => {
-                                                    handleDelete(item._id);
-                                                }}
-                                            >
-                                                <FaTrash /> Delete
-                                            </button>{" "}
-                                        </td>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+                                </thead>
+                                <tbody>
+                                    {currentItems.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>
+                                                    {(currentPage - 1) *
+                                                        itemPerPage +
+                                                        index +
+                                                        1}
+                                                </td>
+                                                <td>{item.ProductName}</td>
+                                                <td>{item.ProductCategory}</td>
+                                                <td>{item.ProductPrice}</td>
+
+                                                <td>{item.Qty}</td>
+
+                                                <td>
+                                                    <button
+                                                        className="btn btn-success"
+                                                        onClick={() => {
+                                                            props.history.push(
+                                                                `/newproduct/${item._id}`
+                                                            );
+                                                        }}
+                                                    >
+                                                        <FaEdit /> Edit
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    {" "}
+                                                    <button
+                                                        className="btn btn-danger"
+                                                        onClick={() => {
+                                                            handleDelete(
+                                                                item._id
+                                                            );
+                                                        }}
+                                                    >
+                                                        <FaTrash /> Delete
+                                                    </button>{" "}
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                            {pages.length > 1 ? (
+                                <ul
+                                    className="pagination pagination-lg"
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    {currentPage === 1 ? (
+                                        <li className="page-item page-link text-muted">
+                                            {" "}
+                                            Prev
+                                        </li>
+                                    ) : (
+                                        <li
+                                            className="page-item page-link"
+                                            onClick={handlePrevBtn}
+                                        >
+                                            {" "}
+                                            Prev
+                                        </li>
+                                    )}
+
+                                    {renderPageNumbers}
+                                    {currentPage === pages.length ? (
+                                        <li className="page-item  page-link text-muted">
+                                            {" "}
+                                            Next
+                                        </li>
+                                    ) : (
+                                        <li
+                                            className="page-item page-link"
+                                            onClick={handleNextBtn}
+                                        >
+                                            {" "}
+                                            Next
+                                        </li>
+                                    )}
+                                </ul>
+                            ) : (
+                                ""
+                            )}
+                        </>
+                    )}
                 </div>
             </div>
         </div>

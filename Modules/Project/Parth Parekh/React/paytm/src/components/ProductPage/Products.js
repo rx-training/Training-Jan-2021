@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import Error from "../../pages/Error";
-
 import AllProduct from "./AllProduct";
 
 export default function Products() {
@@ -15,7 +14,7 @@ export default function Products() {
             ) : (
                 ""
             )}
-            <div className="container-fluid mx-4 p-5">
+            <div className="container-fluid mx-4 p-3">
                 {id === "mobiles" && <AllProduct id={id} />}
 
                 {id === "fashion" && <AllProduct id={id} />}

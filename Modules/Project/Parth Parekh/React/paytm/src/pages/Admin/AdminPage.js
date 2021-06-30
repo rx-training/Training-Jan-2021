@@ -48,7 +48,7 @@ export default function AdminPage() {
                             color: "whitesmoke",
                         }}
                     >
-                        <FaCopyright className="react-icons" /> Add Category
+                        <FaCopyright className="react-icons" /> Category
                     </Link>
                 </div>
                 <div className="col-md-3 p-2 my-2 btn btn-primary">
@@ -61,7 +61,7 @@ export default function AdminPage() {
                             color: "whitesmoke",
                         }}
                     >
-                        <FaProductHunt className="react-icons" /> Add Products
+                        <FaProductHunt className="react-icons" /> Products
                     </Link>
                 </div>
             </div>

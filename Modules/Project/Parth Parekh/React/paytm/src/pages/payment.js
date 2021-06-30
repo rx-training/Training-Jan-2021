@@ -6,16 +6,75 @@ import { AiFillStar } from "react-icons/ai";
 import PaytmServices from "../Services/paytmServices";
 import { hostServer } from "../Services/paytmServices";
 import { getUserId, getToken, removeUserSession } from "../Utils/Common";
+import { NotificationManager } from "react-notifications";
+import Backbutton from "../components/Backbutton";
+
+const array = [
+    {
+        name: "Gujarat",
+        city: [
+            {
+                name: "Ahmedabd",
+                pincode: ["380001", "380002", "380003", "382210", "380014"],
+            },
+            {
+                name: "Rajkot",
+                pincode: ["360001", "360002", "360003", "360004", "360005"],
+            },
+            {
+                name: "Surat",
+                pincode: ["394101", "394104", "394105", "394107"],
+            },
+        ],
+    },
+    {
+        name: "Delhi",
+        city: [
+            {
+                name: "New Delhi",
+                pincode: ["110001", "110002", "110003", "110004"],
+            },
+            {
+                name: "Firozabad",
+                pincode: [" 283203", "283205"],
+            },
+        ],
+    },
+    {
+        name: "Maharashtra",
+        city: [
+            {
+                name: "Mumbai",
+                pincode: ["400001", "400002", "400003", "400004", "400005"],
+            },
+            {
+                name: "Pune",
+                pincode: ["411000", "411001", "411002", "411003", "411004"],
+            },
+            {
+                name: "Nagpur",
+                pincode: ["440001", "440002", "440003", "440004", "440005"],
+            },
+        ],
+    },
+];
 
 export default function Payment(props) {
     const { id } = useParams();
 
-    const [size, setSize] = useState("");
-
-    const [address, setAddress] = useState("");
-
     const [mess, setMess] = useState("");
+    const [houseError, setHouseError] = useState("");
+    const [streetError, setStreetError] = useState("");
+
     const [message, setMessage] = useState("");
+    const [values, setValues] = useState({
+        city: "",
+        state: "",
+        pincode: "",
+        houseno: "",
+        street: "",
+        size: "",
+    });
     const [product, setProduct] = useState({
         Spec: [],
     });
@@ -49,40 +108,63 @@ export default function Payment(props) {
         setMess("");
         const name = e.target.name;
         const value = e.target.value;
-        console.log(e);
-        if (name === "address") {
-            setAddress(value);
-        } else if (name === "size") {
-            setSize(value);
+        if (name === "houseno") {
+            if (value.length < 1) {
+                setHouseError("Enter house no or name");
+            } else {
+                setHouseError("");
+            }
         }
+        if (name === "street") {
+            if (value.length < 1) {
+                setStreetError("Enter Street name");
+            } else {
+                setStreetError("");
+            }
+        }
+
+        // console.log(e);
+        setValues({ ...values, [name]: value });
     };
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const data = {
-            userId: getUserId(),
-            Product: _id,
-            ProductName: ProductName,
-            amount: ProductPrice,
-            Shipping_Address: address,
-            size: size,
-        };
+        if (houseError.length === 0 && streetError.length === 0) {
+            const data = {
+                userId: getUserId(),
+                Product: _id,
+                ProductName: ProductName,
+                amount: ProductPrice,
+                Shipping_Address:
+                    values.houseno +
+                    "," +
+                    values.street +
+                    "," +
+                    values.city +
+                    "," +
+                    values.state +
+                    "," +
+                    values.pincode,
+                size: values.size,
+            };
 
-        PaytmServices.orderPayment(getUserId(), getToken(), data)
-            .then((res) => {
-                //window.location.href = "/passbook";
-                props.history.push("/passbook");
-            })
-            .catch((error) => {
-                if (error.response.status === 401) {
-                    removeUserSession();
-                    window.location.href = "/login";
-                } else if (error.response.status === 403) {
-                    setMess("Insufficient Balance");
-                } else if (error.response.status === 404) {
-                    setMess("Something Went Wrong Try again later");
-                }
-            });
+            PaytmServices.orderPayment(getUserId(), getToken(), data)
+                .then((res) => {
+                    //window.location.href = "/passbook";
+                    NotificationManager.success("Product Purchased");
+                    props.history.push("/passbook");
+                })
+                .catch((error) => {
+                    if (error.response.status === 401) {
+                        removeUserSession();
+                        window.location.href = "/login";
+                    } else if (error.response.status === 403) {
+                        setMess("Insufficient Balance");
+                    } else if (error.response.status === 404) {
+                        setMess("Something Went Wrong Try again later");
+                    }
+                });
+        }
     };
 
     const { ProductName, ProductPrice, Rating, image, ProductType, Spec, _id } =
@@ -90,14 +172,9 @@ export default function Payment(props) {
     return (
         <div className="main-container">
             <div
-                className="container-fluid p-3"
+                className="container-fluid px-3 pt-2"
                 style={{ fontFamily: "initial" }}
             >
-                {mess.length > 0 && (
-                    <h3 className="text-center text-capitalize my-3 text-monospace text-danger">
-                        {mess}
-                    </h3>
-                )}
                 {message.length > 0 ? (
                     <h3 className="text-center text-capitalize my-3 text-monospace">
                         {message}
@@ -108,6 +185,12 @@ export default function Payment(props) {
                             <div className="text-center bg-info text-white mb-3 py-2">
                                 <h1>Payment</h1>
                             </div>
+                            <Backbutton />
+                            {mess.length > 0 && (
+                                <h3 className="text-center text-capitalize my-3 text-monospace text-danger">
+                                    {mess}
+                                </h3>
+                            )}
                             <div className="row">
                                 <div className="col-md-6 text-center">
                                     <div className=" text-center m-3 p-2">
@@ -160,7 +243,10 @@ export default function Payment(props) {
                                         className="pr-5"
                                         onSubmit={handleSubmit}
                                     >
-                                        <h3>Amount : {ProductPrice} </h3>
+                                        <h3>
+                                            Amount : {ProductPrice}
+                                            <FaRupeeSign />{" "}
+                                        </h3>
 
                                         {ProductType === "fashion" && (
                                             <>
@@ -195,21 +281,158 @@ export default function Payment(props) {
                                             </>
                                         )}
 
-                                        <h3 className="my-3">
-                                            Shipping Address
-                                        </h3>
+                                        <h5 className="my-3">House no :</h5>
+                                        {houseError.length > 1 && (
+                                            <small className="text-danger">
+                                                {houseError}
+                                            </small>
+                                        )}
                                         <div className="form-group">
-                                            <textarea
-                                                name="address"
+                                            <input
+                                                name="houseno"
                                                 className="form-control"
-                                                placeholder="Address"
+                                                placeholder=""
                                                 required
-                                                value={address}
+                                                value={values.houseno}
+                                                onBlur={handleChange}
                                                 onChange={handleChange}
-                                            ></textarea>
+                                            />
+                                        </div>
+                                        <h5 className="my-3">Street name :</h5>
+                                        {streetError.length > 1 && (
+                                            <small className="text-danger">
+                                                {streetError}
+                                            </small>
+                                        )}
+                                        <div className="form-group">
+                                            <input
+                                                name="street"
+                                                className="form-control"
+                                                placeholder=""
+                                                required
+                                                value={values.street}
+                                                onBlur={handleChange}
+                                                onChange={handleChange}
+                                            />
                                         </div>
 
-                                        <button className="btn  btn-info btn-block h3 text-center">
+                                        <div className="row mt-2 p-2">
+                                            <div className="col-md-4 col-10">
+                                                <h5>State</h5>
+                                                <select
+                                                    name="state"
+                                                    className="custom-select "
+                                                    required
+                                                    value={values.state}
+                                                    onChange={handleChange}
+                                                >
+                                                    <option
+                                                        defaultValue
+                                                        value=""
+                                                    >
+                                                        Select State
+                                                    </option>
+
+                                                    {array.map((item) => (
+                                                        <option
+                                                            value={item.name}
+                                                            key={item.name}
+                                                        >
+                                                            {item.name}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </div>
+                                            <div className="col-md-4 col-10">
+                                                <h5>City</h5>
+                                                <select
+                                                    name="city"
+                                                    className="custom-select"
+                                                    onChange={handleChange}
+                                                    value={values.city}
+                                                    required
+                                                >
+                                                    <option
+                                                        defaultValue
+                                                        value=""
+                                                    >
+                                                        Select City
+                                                    </option>
+                                                    {array.map((item) => {
+                                                        if (
+                                                            item.name ===
+                                                            values.state
+                                                        ) {
+                                                            return item.city.map(
+                                                                (i) => (
+                                                                    <option
+                                                                        value={
+                                                                            i.name
+                                                                        }
+                                                                        key={
+                                                                            i.name
+                                                                        }
+                                                                    >
+                                                                        {i.name}
+                                                                    </option>
+                                                                )
+                                                            );
+                                                        }
+                                                    })}
+                                                </select>
+                                            </div>
+
+                                            <div className="col-md-4 col-10">
+                                                <h5>Pin code</h5>
+                                                <select
+                                                    name="pincode"
+                                                    className="custom-select "
+                                                    onChange={handleChange}
+                                                    value={values.pincode}
+                                                    required
+                                                >
+                                                    <option
+                                                        defaultValue
+                                                        value=""
+                                                    >
+                                                        Select Pincode
+                                                    </option>
+                                                    {array.map((item) => {
+                                                        if (
+                                                            item.name ===
+                                                            values.state
+                                                        ) {
+                                                            return item.city.map(
+                                                                (i) => {
+                                                                    if (
+                                                                        i.name ===
+                                                                        values.city
+                                                                    ) {
+                                                                        return i.pincode.map(
+                                                                            (
+                                                                                v
+                                                                            ) => (
+                                                                                <option
+                                                                                    key={
+                                                                                        v
+                                                                                    }
+                                                                                >
+                                                                                    {
+                                                                                        v
+                                                                                    }
+                                                                                </option>
+                                                                            )
+                                                                        );
+                                                                    }
+                                                                }
+                                                            );
+                                                        }
+                                                    })}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <button className="btn  btn-info btn-lg w-25 my-3 h3 text-center">
                                             Pay
                                         </button>
                                     </form>

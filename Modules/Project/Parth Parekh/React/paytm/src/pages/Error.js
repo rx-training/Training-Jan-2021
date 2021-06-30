@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRegSadTear } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export default function Error() {
     return (
         <div className="main-container">
@@ -11,6 +12,11 @@ export default function Error() {
                         </h1>
                         <h1> 404</h1>
                         <h1>Page Not Found</h1>
+                        <h3>
+                            <Link to="/" className="textUnderline">
+                                Back to home
+                            </Link>
+                        </h3>
                     </div>
                 </div>
             </div>

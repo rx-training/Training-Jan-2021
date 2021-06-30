@@ -146,3 +146,13 @@ body {
 .hovereffect1:hover {
     background: #114091;
 }
+.backlink:hover {
+    cursor: pointer;
+    color: blue;
+}
+.textUnderline {
+    font-family: initial;
+    text-decoration: underline;
+    text-decoration-color: green;
+    text-decoration-thickness: "4px";
+}

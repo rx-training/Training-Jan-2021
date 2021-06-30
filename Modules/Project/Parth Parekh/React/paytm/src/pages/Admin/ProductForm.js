@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NotificationManager } from "react-notifications";
 import { useParams } from "react-router-dom";
 import PaytmServices from "../../Services/paytmServices";
 import { getUserId, getToken, removeUserSession } from "../../Utils/Common";
@@ -99,6 +100,11 @@ export default function ProductForm(props) {
             PaytmServices.addProduct(getToken(), formData)
                 .then((res) => {
                     //console.log(res.data);
+                    NotificationManager.success(
+                        "Product added successfully",
+                        "",
+                        3000
+                    );
                     props.history.push("/addProducts");
                 })
                 .catch((error) => {
@@ -125,6 +131,11 @@ export default function ProductForm(props) {
             PaytmServices.updateProduct(id, getToken(), formData)
                 .then((res) => {
                     //console.log(res.data);
+                    NotificationManager.success(
+                        "Product updated successfully",
+                        "",
+                        3000
+                    );
                     props.history.push("/addProducts");
                 })
                 .catch((error) => {

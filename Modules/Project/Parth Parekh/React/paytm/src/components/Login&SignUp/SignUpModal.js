@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
 import PaytmServices from "../../Services/paytmServices";
+import { NotificationManager } from "react-notifications";
 
 export default function SignUpModal(props) {
-    const [showSignUp, setSign] = useState(false);
     const [otp, setOtp] = useState("");
     const [message, setMessage] = useState("");
+    const [mainmessage, setMainmessage] = useState("");
+    const [otpmess, setOtpmess] = useState("");
     const [errors, SetErrors] = useState({
         username: "",
         mobileno: "",
@@ -13,6 +15,7 @@ export default function SignUpModal(props) {
         email: "",
         message: "",
         otp: "",
+        cnfpassword: "",
     });
     const [values, setValues] = useState({
         username: "",
@@ -20,6 +23,7 @@ export default function SignUpModal(props) {
         email: "",
         password: "",
         otp: "",
+        cnfpassword: "",
     });
 
     const validEmailRegex = RegExp(
@@ -32,6 +36,7 @@ export default function SignUpModal(props) {
         let error = errors;
 
         setMessage("");
+
         if (name === "email") {
             error[name] = validEmailRegex.test(value)
                 ? ""
@@ -56,7 +61,13 @@ export default function SignUpModal(props) {
             if (/^[0-9]{10}$/.test(value)) {
                 error[name] = "";
             } else {
-                error[name] = "Phone Number Required Only 10 Digit ";
+                error[name] = "Phone number required only 10 digit ";
+            }
+        } else if (name === "cnfpassword") {
+            if (values.password === value) {
+                error[name] = "";
+            } else {
+                error[name] = "not matched ";
             }
         }
 
@@ -70,41 +81,6 @@ export default function SignUpModal(props) {
             (val) => val.length > 0 && (valid = false)
         );
         return valid;
-    };
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        if (validateForm(errors)) {
-            const userData = {
-                name: values.username,
-                email: values.email,
-                password: values.password,
-                mobileno: values.mobileno,
-            };
-            PaytmServices.signup(userData)
-                .then((res) => {
-                    // console.log("Data added");
-                    props.history.push("/login");
-                })
-                .catch((error) => {
-                    if (error.response.status === 406) {
-                        setMessage("Email Already Exists !!");
-                        setSign(false);
-                        setValues({ ...values, otp: "" });
-                    }
-                });
-            setValues({
-                username: "",
-                mobileno: "",
-                email: "",
-                password: "",
-            });
-        } else {
-            SetErrors({
-                ...errors,
-                message: "Enter Required Details",
-            });
-        }
     };
 
     const generateOTP = () => {
@@ -120,32 +96,62 @@ export default function SignUpModal(props) {
                 const data = {
                     email: email,
                 };
-                PaytmServices.otp(data).then((res) => {
-                    // console.log("otp send");
-                    setOtp(res.data);
-                    SetErrors({
-                        ...errors,
-                        otp: "otp send to your email account verify otp for sign up",
+                PaytmServices.otp(data)
+                    .then((res) => {
+                        // console.log("otp send");
+                        setOtp(res.data);
+                        setOtpmess(
+                            "otp send to your email account verify otp for sign up"
+                        );
+                    })
+                    .catch((error) => {
+                        if (error.response.status === 404) {
+                            setOtpmess("otp not sending");
+                        }
                     });
-                });
             } catch (error) {
                 console.log(error);
             }
         }
     };
 
-    const verifyOTP = () => {
-        if (otp === parseInt(values.otp)) {
-            setSign(true);
-            SetErrors({
-                ...errors,
-                otp: "",
-            });
+    const verifyOTP = (event) => {
+        event.preventDefault();
+
+        if (validateForm(errors)) {
+            setMainmessage("");
+            if (otp === parseInt(values.otp)) {
+                const userData = {
+                    name: values.username,
+                    email: values.email,
+                    password: values.password,
+                    mobileno: values.mobileno,
+                };
+                PaytmServices.signup(userData)
+                    .then((res) => {
+                        // console.log("Data added");
+                        NotificationManager.success("Signup Successfully");
+                        props.history.push("/login");
+                    })
+                    .catch((error) => {
+                        if (error.response.status === 406) {
+                            setMessage("Email already exists !!");
+                            setValues({ ...values, otp: "" });
+                        }
+                    });
+
+                setValues({
+                    username: "",
+                    mobileno: "",
+                    email: "",
+                    password: "",
+                    cnfpassword: "",
+                });
+            } else {
+                setOtpmess("Not valid");
+            }
         } else {
-            SetErrors({
-                ...errors,
-                otp: "Not valid",
-            });
+            setMainmessage("Enter required details");
         }
     };
 
@@ -169,10 +175,10 @@ export default function SignUpModal(props) {
                             </h5>
                         )}
 
-                        <form onSubmit={handleSubmit}>
-                            {errors.message.length > 1 ? (
+                        <form onSubmit={verifyOTP}>
+                            {mainmessage.length > 1 ? (
                                 <div className="text-center text-danger ">
-                                    <h5>{errors.message}</h5>
+                                    <h5>{mainmessage}</h5>
                                 </div>
                             ) : (
                                 ""
@@ -209,7 +215,7 @@ export default function SignUpModal(props) {
                                     required
                                 />
                                 {errors.email.length > 1 ? (
-                                    <small className="text-danger text-capitalize">
+                                    <small className="text-danger ">
                                         {errors.email}
                                     </small>
                                 ) : (
@@ -229,7 +235,7 @@ export default function SignUpModal(props) {
                                     required
                                 />
                                 {errors.mobileno.length > 1 ? (
-                                    <small className="text-danger text-capitalize">
+                                    <small className="text-danger">
                                         {errors.mobileno}
                                     </small>
                                 ) : (
@@ -250,17 +256,36 @@ export default function SignUpModal(props) {
                                     required
                                 />
                                 {errors.password.length > 1 ? (
-                                    <small className="text-danger text-capitalize">
+                                    <small className="text-danger">
                                         {errors.password}
                                     </small>
                                 ) : (
                                     ""
                                 )}
                             </div>
-                            {errors.otp.length > 1 ? (
+                            <div className="form-group">
+                                <label className="h5">Confirm Password </label>
+                                <input
+                                    type="password"
+                                    name="cnfpassword"
+                                    value={values.cnfpassword}
+                                    onChange={handleChange}
+                                    className="form-control"
+                                    placeholder="******"
+                                    required
+                                />
+                                {errors.cnfpassword.length > 1 ? (
+                                    <small className="text-danger">
+                                        {errors.cnfpassword}
+                                    </small>
+                                ) : (
+                                    ""
+                                )}
+                            </div>
+                            {otpmess.length > 1 ? (
                                 <div className="row ">
-                                    <div className="w-100 text-center text-danger text-capitalize">
-                                        <p>{errors.otp}</p>
+                                    <div className="w-100 text-center text-danger">
+                                        <p>{otpmess}</p>
                                     </div>
                                 </div>
                             ) : (
@@ -290,30 +315,15 @@ export default function SignUpModal(props) {
                                 </div>
                             </div>
                             <div className="row justify-content-around">
-                                <div className="col-md-3 ">
+                                <div className="col-md-3">
                                     <button
-                                        type="button"
-                                        className="btn  btn-secondary btn-block"
+                                        type="submit"
+                                        className="btn  btn-primary btn-block"
                                         style={{ borderRadius: "25px" }}
-                                        onClick={verifyOTP}
                                     >
-                                        Verify OTP
+                                        Verify Otp
                                     </button>
                                 </div>
-
-                                {showSignUp === true ? (
-                                    <div className="ml-2 col-md-3">
-                                        <button
-                                            type="submit"
-                                            className="btn  btn-primary btn-block"
-                                            style={{ borderRadius: "25px" }}
-                                        >
-                                            Sign up
-                                        </button>
-                                    </div>
-                                ) : (
-                                    ""
-                                )}
                             </div>
                         </form>
                     </div>

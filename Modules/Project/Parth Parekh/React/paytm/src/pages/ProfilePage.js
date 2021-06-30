@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getUserId, getToken, removeUserSession } from "../Utils/Common";
 import PaytmServices from "../Services/paytmServices";
 import { FaRupeeSign } from "react-icons/fa";
+import Backbutton from "../components/Backbutton";
+
 export default function ProfilePage(props) {
     useEffect(() => {
         PaytmServices.getUserDetailsFromId(getUserId(), getToken())
@@ -143,8 +145,9 @@ export default function ProfilePage(props) {
     return (
         <div className="main-container">
             <div className="container-fluid">
-                <div className="row m-5">
-                    <div className=" col-12 col-sm-12 col-md-6 m-5 alert mx-auto alert-success  boxeffect">
+                <Backbutton />
+                <div className="row">
+                    <div className=" col-12 col-sm-12 col-md-6  alert mx-auto alert-success  boxeffect">
                         <h1
                             className="text-center h2  my-auto"
                             style={{
@@ -155,7 +158,7 @@ export default function ProfilePage(props) {
                             Account Info
                         </h1>
                         <h4
-                            className="text-center my-4"
+                            className="text-center my-3"
                             style={{
                                 letterSpacing: "4px",
                                 fontFamily: "initial",
@@ -255,8 +258,20 @@ export default function ProfilePage(props) {
                                 ""
                             )}
 
-                            <button className="btn btn-success btn-block mt-3">
+                            <button
+                                type="submit"
+                                className="btn btn-success  mt-3 mr-3"
+                            >
                                 Save Info
+                            </button>
+                            <button
+                                type="button"
+                                className="btn btn-secondary  mt-3 "
+                                onClick={() => {
+                                    window.location.href = "/";
+                                }}
+                            >
+                                Cancel
                             </button>
                         </form>
                     </div>

@@ -1,6 +1,7 @@
 import "./App.css";
+import "react-notifications/lib/notifications.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { NotificationContainer } from "react-notifications";
 import Home from "./pages/Home";
 import AddMoney from "./pages/AddMoney";
 import Passbook from "./pages/Passbook";
@@ -28,18 +29,20 @@ import CategoryForm from "./pages/Admin/CategoryForm";
 import ProductForm from "./pages/Admin/ProductForm";
 import AddCategory from "./pages/Admin/AddCategory";
 import AllCateProducts from "./components/ProductPage/AllCateProducts";
+import Transactions from "./pages/Admin/Transactions";
 
 function App(props) {
     return (
         <ProductProvider>
             <div className="container-fuild">
                 <Router>
+                    <NotificationContainer />
+
                     {!getToken() && !getUserId() ? (
                         <Navbars login={true} signup={true} logout={false} />
                     ) : (
                         <Navbars logout={true} login={false} signup={false} />
                     )}
-
                     {/* Switch is used to show first exact match path */}
                     <Switch>
                         <Route exact path="/" component={Home}></Route>
@@ -55,7 +58,7 @@ function App(props) {
                             path="/transfermoney"
                             component={MoneyTransfer}
                         />
-                        <PrivateRoute path="/passbook" component={Passbook} />
+                        <PrivateRoute path="/passbook/" component={Passbook} />
 
                         <PrivateRoute path="/payment/:id" component={Payment} />
                         <PrivateRoute path="/profile" component={ProfilePage} />
@@ -74,7 +77,10 @@ function App(props) {
 
                         <Route path="/admin" component={AdminPage} />
                         <Route path="/userdata" component={UserData} />
-
+                        <Route
+                            path="/transactions/:id"
+                            component={Transactions}
+                        />
                         <Route path="/addproducts" component={AddProducts} />
                         <Route path="/addcategory" component={AddCategory} />
                         <Route path="/newproduct/:id" component={ProductForm} />

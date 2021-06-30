@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRupeeSign } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
-
+import Backbutton from "../Backbutton";
 import PaytmServices from "../../Services/paytmServices";
 import { hostServer } from "../../Services/paytmServices";
 
@@ -73,8 +73,8 @@ export default function AllCateProducts() {
         if (name === "search") {
             if (value.length > 0) {
                 tempData = tempData.filter((item) => {
-                    let tempSearch = value.toLocaleLowerCase();
-                    let tempName = item.ProductName.toLocaleLowerCase().slice(
+                    let tempSearch = value.toLowerCase();
+                    let tempName = item.ProductName.toLowerCase().slice(
                         0,
                         value.length
                     );
@@ -104,13 +104,14 @@ export default function AllCateProducts() {
 
     return (
         <div className="main-container">
+            <Backbutton />
             <form onSubmit={handleSubmit}>
                 <div
                     className="row  d-flex justify-content-center text-capitalize mx-auto"
                     style={{ fontFamily: "initial" }}
                 >
                     <div className="col-md-5 mx-3 p-2">
-                        <h4 className="mt-3 text-info ">Search by name</h4>
+                        <h4 className=" text-info ">Search by name</h4>
                         <div className="form-group">
                             <input
                                 type="text"
@@ -123,7 +124,7 @@ export default function AllCateProducts() {
                         </div>
                     </div>
                     <div className="col-md-3 mx-3 p-2">
-                        <h4 className="mt-3 text-info ">Category</h4>
+                        <h4 className="text-info ">Category</h4>
                         <select
                             name="category"
                             onChange={handleChange}
@@ -149,7 +150,7 @@ export default function AllCateProducts() {
                 ""
             )}
 
-            <div className="row d-flex justify-content-around p-3">
+            <div className="row  p-3">
                 {filterItem.length === 0 && (
                     <h1 className="alert alert-primary mx-auto">
                         No Item Found !!
