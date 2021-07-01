@@ -1,0 +1,29 @@
+Day10:
+
+What to Learn
+
+Introduction to MongoDB
+
+Connecting to MongoDB
+
+Schemas
+
+Models
+
+Saving a document
+
+Querying a document
+
+Practice exercise:
+
+1. Create EmployeeObject with ID,Name,Address,skills and store it empcollection.
+
+Assignment:
+
+Day9 task should be done MongoDB.
+
+Online Reference:
+
+https://www.tutorialspoint.com/mongodb/mongodb_insert_document.htm
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose

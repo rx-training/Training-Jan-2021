@@ -1,0 +1,36 @@
+@import '../../../index.scss';
+
+// #inputItem {
+//   outline: none;
+//   border: none !important;
+//   -webkit-box-shadow: none !important;
+//   -moz-box-shadow: none !important;
+//   box-shadow: none !important;
+// }
+
+.todo {
+  #basic-addon1 {
+    background-color: #3355f0;
+  }
+
+  .fa-list {
+    color: white;
+  }
+  
+}
+.form-control:focus {
+  border-color: #3355f0;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.075) inset, 0px 0px 2px rgba(255, 100, 255, 0.5);
+}
+
+
+@media (min-width:900px) and (max-width:1200px) {
+  .todo {
+    margin: 1rem 8rem;
+  }
+}
+@media (min-width:1200px) and (max-width:1600px) {
+  .todo {
+    margin: 1rem 16rem;
+  }
+}

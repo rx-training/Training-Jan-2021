@@ -1,0 +1,453 @@
+{
+  "flag": {
+    "isWebView": false
+  },
+  "homePage": {
+    "popularCars": [
+      {
+        "offerDetails": {
+          "IsOfferAvailable": true,
+          "Url": "/renault-cars/kwid/?showOfferUpfront=true",
+          "ModelName": "Kwid",
+          "MakeName": "Renault",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 3.57 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 356985,
+          "exShowRoomPrice": 318100,
+          "colorType": 0
+        },
+        "defaultVariant": 6883,
+        "confidence": 5,
+        "launchedOn": "10/01/2019 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 3
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "/kia-cars/seltos/?showOfferUpfront=true",
+          "ModelName": "Seltos",
+          "MakeName": "Kia",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 70,
+        "makeName": "Kia",
+        "makeMaskingName": "kia",
+        "modelId": 1172,
+        "modelName": "Seltos",
+        "modelMaskingName": "seltos",
+        "imagePath": "/n/cw/ec/33372/seltos-exterior-right-front-three-quarter-3.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 11.13 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 1113103,
+          "exShowRoomPrice": 995000,
+          "colorType": 0
+        },
+        "defaultVariant": 8181,
+        "confidence": 5,
+        "launchedOn": "08/22/2019 00:00:00",
+        "unveiledOn": "06/20/2019 00:00:00",
+        "bodyStyleId": 6
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": true,
+          "Url": "/renault-cars/kiger/?showOfferUpfront=true",
+          "ModelName": "Kiger",
+          "MakeName": "Renault",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1303,
+        "modelName": "Kiger",
+        "modelMaskingName": "kiger",
+        "imagePath": "/n/cw/ec/44407/kiger-exterior-right-front-three-quarter-12.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 6.04 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 604415,
+          "exShowRoomPrice": 545000,
+          "colorType": 0
+        },
+        "defaultVariant": 7917,
+        "confidence": 5,
+        "launchedOn": "02/15/2021 00:00:00",
+        "unveiledOn": "01/28/2021 00:00:00",
+        "bodyStyleId": 11
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "/hyundai-cars/creta/?showOfferUpfront=true",
+          "ModelName": "Creta",
+          "MakeName": "Hyundai",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 8,
+        "makeName": "Hyundai",
+        "makeMaskingName": "hyundai",
+        "modelId": 1285,
+        "modelName": "Creta",
+        "modelMaskingName": "creta",
+        "imagePath": "/n/cw/ec/41564/hyundai-creta-right-front-three-quarter9.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 11.28 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 1128339,
+          "exShowRoomPrice": 999990,
+          "colorType": 0
+        },
+        "defaultVariant": 7569,
+        "confidence": 5,
+        "launchedOn": "03/16/2020 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 6
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "/hyundai-cars/venue/?showOfferUpfront=true",
+          "ModelName": "Venue",
+          "MakeName": "Hyundai",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 8,
+        "makeName": "Hyundai",
+        "makeMaskingName": "hyundai",
+        "modelId": 1194,
+        "modelName": "Venue",
+        "modelMaskingName": "venue",
+        "imagePath": "/n/cw/ec/35455/venue-exterior-right-front-three-quarter-2.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 7.87 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 786518,
+          "exShowRoomPrice": 692100,
+          "colorType": 0
+        },
+        "defaultVariant": 7030,
+        "confidence": 5,
+        "launchedOn": "05/21/2019 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 11
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "/kia-cars/sonet/?showOfferUpfront=true",
+          "ModelName": "Sonet",
+          "MakeName": "Kia",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 70,
+        "makeName": "Kia",
+        "makeMaskingName": "kia",
+        "modelId": 1284,
+        "modelName": "Sonet",
+        "modelMaskingName": "sonet",
+        "imagePath": "/n/cw/ec/41523/sonet-exterior-right-front-three-quarter-110.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 7.65 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 765180,
+          "exShowRoomPrice": 679000,
+          "colorType": 0
+        },
+        "defaultVariant": 8213,
+        "confidence": 5,
+        "launchedOn": "09/18/2020 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 11
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": true,
+          "Url": "/hyundai-cars/i20/?showOfferUpfront=true",
+          "ModelName": "i20",
+          "MakeName": "Hyundai",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 8,
+        "makeName": "Hyundai",
+        "makeMaskingName": "hyundai",
+        "modelId": 1268,
+        "modelName": "i20",
+        "modelMaskingName": "i20",
+        "imagePath": "/n/cw/ec/40530/i20-exterior-right-front-three-quarter-5.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 7.79 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 779309,
+          "exShowRoomPrice": 685100,
+          "colorType": 0
+        },
+        "defaultVariant": 7634,
+        "confidence": 5,
+        "launchedOn": "11/05/2020 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 3
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "/mahindra-cars/thar/?showOfferUpfront=true",
+          "ModelName": "Thar",
+          "MakeName": "Mahindra",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 9,
+        "makeName": "Mahindra",
+        "makeMaskingName": "mahindra",
+        "modelId": 1260,
+        "modelName": "Thar",
+        "modelMaskingName": "thar",
+        "imagePath": "/n/cw/ec/40087/thar-exterior-right-front-three-quarter-11.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 14.36 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 1435642,
+          "exShowRoomPrice": 1211680,
+          "colorType": 0
+        },
+        "defaultVariant": 7562,
+        "confidence": 5,
+        "launchedOn": "10/02/2020 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 6
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": true,
+          "Url": "/tata-cars/nexon/?showOfferUpfront=true",
+          "ModelName": "Nexon",
+          "MakeName": "Tata",
+          "PageName": "Home Page",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "Popular"
+        },
+        "makeId": 16,
+        "makeName": "Tata",
+        "makeMaskingName": "tata",
+        "modelId": 1286,
+        "modelName": "Nexon",
+        "modelMaskingName": "nexon",
+        "imagePath": "/n/cw/ec/41645/tata-nexon-right-front-three-quarter3.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 8.11 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 811488,
+          "exShowRoomPrice": 719900,
+          "colorType": 0
+        },
+        "defaultVariant": 6771,
+        "confidence": 5,
+        "launchedOn": "01/22/2020 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 11
+      }
+    ],
+    "launchedCars": [
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "?showOfferUpfront=true",
+          "ModelName": "AMG GLA35",
+          "MakeName": "Mercedes-Benz",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "JustLaunched"
+        },
+        "makeId": 11,
+        "makeName": "Mercedes-Benz",
+        "makeMaskingName": "mercedes-benz",
+        "modelId": 1445,
+        "modelName": "AMG GLA35",
+        "modelMaskingName": "amg-gla35",
+        "imagePath": "/n/cw/ec/94279/amg-gla35-exterior-right-front-three-quarter.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 66.42 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 6642215,
+          "exShowRoomPrice": 5730000,
+          "colorType": 0
+        },
+        "defaultVariant": 8279,
+        "confidence": 1,
+        "launchedOn": "05/25/2021 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 6
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "?showOfferUpfront=true",
+          "ModelName": "GLA",
+          "MakeName": "Mercedes-Benz",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "JustLaunched"
+        },
+        "makeId": 11,
+        "makeName": "Mercedes-Benz",
+        "makeMaskingName": "mercedes-benz",
+        "modelId": 1311,
+        "modelName": "GLA",
+        "modelMaskingName": "gla",
+        "imagePath": "/n/cw/ec/44784/gla-exterior-right-front-three-quarter.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 48.72 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 4871561,
+          "exShowRoomPrice": 4210000,
+          "colorType": 0
+        },
+        "defaultVariant": 8273,
+        "confidence": 1,
+        "launchedOn": "05/25/2021 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 6
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "?showOfferUpfront=true",
+          "ModelName": "MU-X",
+          "MakeName": "Isuzu",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "JustLaunched"
+        },
+        "makeId": 61,
+        "makeName": "Isuzu",
+        "makeMaskingName": "isuzu",
+        "modelId": 1359,
+        "modelName": "MU-X",
+        "modelMaskingName": "mu-x",
+        "imagePath": "/n/cw/ec/48084/mu-x-bs6-exterior-right-front-three-quarter.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 39.61 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 1,
+          "price": 3960701,
+          "exShowRoomPrice": 3323000,
+          "colorType": 0
+        },
+        "defaultVariant": 8265,
+        "confidence": 3,
+        "launchedOn": "05/10/2021 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 6
+      },
+      {
+        "offerDetails": {
+          "IsOfferAvailable": false,
+          "Url": "?showOfferUpfront=true",
+          "ModelName": "D-Max",
+          "MakeName": "Isuzu",
+          "Offertext": "Offers Available",
+          "ParentWidgetName": "JustLaunched"
+        },
+        "makeId": 61,
+        "makeName": "Isuzu",
+        "makeMaskingName": "isuzu",
+        "modelId": 1360,
+        "modelName": "D-Max",
+        "modelMaskingName": "d-max",
+        "imagePath": "/n/cw/ec/48082/d-max-exterior-right-front-three-quarter-2.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 20.41 Lakh",
+          "priceLabel": "On-Road Price, Delhi",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey "
+        }
+      }
+    ]
+  }
+}

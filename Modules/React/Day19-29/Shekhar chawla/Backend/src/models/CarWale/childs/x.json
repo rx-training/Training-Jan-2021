@@ -1,0 +1,1944 @@
+{
+  "modelPage": {
+    "pageValidation": {
+      "redirectPath": "",
+      "isValid": true,
+      "isDeleted": false
+    },
+    "upcomingCars": [
+      {
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1350,
+        "modelName": "City K-ZE",
+        "modelMaskingName": "city-k-ze",
+        "imagePath": "/n/cw/ec/47146/renault-city-k-ze-front-view0.jpeg",
+        "status": 1,
+        "priceOverview": {
+          "formattedPrice": "₹  5.00 - 6.00 Lakh",
+          "priceLabel": "Estimated Price",
+          "priceStatus": 4,
+          "price": 0,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "confidence": 1,
+        "launchedOn": "07/24/2021 00:00:00",
+        "unveiledOn": "",
+        "bodyStyleId": 3
+      }
+    ],
+    "modelDetails": {
+      "makeId": 45,
+      "makeName": "Renault",
+      "makeMaskingName": "renault",
+      "modelId": 1258,
+      "modelName": "Kwid",
+      "modelMaskingName": "kwid",
+      "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+      "status": 2,
+      "priceOverview": {
+        "formattedPrice": "₹ 3.18 Lakh",
+        "priceLabel": "Avg. Ex-Showroom price",
+        "priceSuffix": "onwards",
+        "pricePrefix": "",
+        "labelColor": "price-label-text--grey text-light-grey ",
+        "priceStatus": 3,
+        "price": 317873,
+        "exShowRoomPrice": 0,
+        "colorType": 0
+      },
+      "defaultVariant": 6883,
+      "confidence": 5,
+      "launchedOn": "10/01/2019 00:00:00",
+      "unveiledOn": "",
+      "modelAggregateRating": 4.21,
+      "modelReviewCount": 271,
+      "bodyStyleId": 3
+    },
+    "replacedModelDetails": {
+      "makeId": 45,
+      "makeName": "Renault",
+      "makeMaskingName": "renault",
+      "modelId": 1247,
+      "modelName": "Kwid [2019]",
+      "modelMaskingName": "kwid-2019",
+      "imagePath": "/cw/ec/39224/Renault-Kwid-Right-Front-Three-Quarter-157741.jpg?wm=0",
+      "status": 3,
+      "defaultVariant": 6226,
+      "confidence": 1,
+      "launchedOn": "04/02/2019 00:00:00",
+      "unveiledOn": "",
+      "bodyStyleId": 3
+    },
+    "nearByCities": [
+      {
+        "onRoadPrice": "3.77 Lakh onwards",
+        "maskingName": "mumbai",
+        "unformattedOnRoadPrice": "377234",
+        "id": 1,
+        "name": "Mumbai"
+      },
+      {
+        "onRoadPrice": "3.95 Lakh onwards",
+        "maskingName": "bangalore",
+        "unformattedOnRoadPrice": "394607",
+        "id": 2,
+        "name": "Bangalore"
+      },
+      {
+        "onRoadPrice": "3.57 Lakh onwards",
+        "maskingName": "delhi",
+        "unformattedOnRoadPrice": "356985",
+        "id": 10,
+        "name": "Delhi"
+      },
+      {
+        "onRoadPrice": "3.90 Lakh onwards",
+        "maskingName": "pune",
+        "unformattedOnRoadPrice": "389923",
+        "id": 12,
+        "name": "Pune"
+      },
+      {
+        "onRoadPrice": "3.77 Lakh onwards",
+        "maskingName": "navi-mumbai",
+        "unformattedOnRoadPrice": "377234",
+        "id": 13,
+        "name": "Navi Mumbai"
+      },
+      {
+        "onRoadPrice": "3.89 Lakh onwards",
+        "maskingName": "hyderabad",
+        "unformattedOnRoadPrice": "388758",
+        "id": 105,
+        "name": "Hyderabad"
+      },
+      {
+        "onRoadPrice": "3.59 Lakh onwards",
+        "maskingName": "ahmedabad",
+        "unformattedOnRoadPrice": "358929",
+        "id": 128,
+        "name": "Ahmedabad"
+      },
+      {
+        "onRoadPrice": "3.74 Lakh onwards",
+        "maskingName": "chennai",
+        "unformattedOnRoadPrice": "374071",
+        "id": 176,
+        "name": "Chennai"
+      },
+      {
+        "onRoadPrice": "3.79 Lakh onwards",
+        "maskingName": "kolkata",
+        "unformattedOnRoadPrice": "379215",
+        "id": 198,
+        "name": "Kolkata"
+      }
+    ],
+    "expertReviews": [
+      {
+        "title": "Maruti Suzuki S-Presso vs Renault Kwid: Buying Guide",
+        "url": "/marutisuzuki-cars/s-presso/expert-reviews/maruti-suzuki-spresso-vs-renault-kwid-performance-fuel-efficiency-and-interior-space-compared/",
+        "imagePath": "/n/cw/ec/58267/right-side-view0.jpeg?wm=1",
+        "authorMaskingName": "sagar-bhanushali",
+        "authorName": "Sagar Bhanushali",
+        "displayDate": "26 days ago",
+        "description": "Tested figures compared between the Maruti S-Presso and the Renault Kwid",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "Road Test",
+        "basicId": 58267,
+        "mainModelId": 0
+      },
+      {
+        "title": "Top hatchbacks reviewed in January 2020",
+        "url": "/renault-cars/kwid/expert-reviews/top-hatchbacks-reviewed-in-january-2020/",
+        "imagePath": "/n/cw/ec/47633/renault-kwid-exterior0.jpeg?wm=0",
+        "authorMaskingName": "ninad-ambre",
+        "authorName": "Ninad Ambre",
+        "displayDate": "1 year ago",
+        "description": "The start of this year was as usual busy at CarWale with many cars coming in for road tests. Amongst the horde of vehicles, we even tested two hatchbacks that now have some updates with compliance to BS6 norms. These are important upgrades even though the models are not thoroughly refreshed, and continue to be preferred even in the used car market.",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "Road Test",
+        "basicId": 47633,
+        "mainModelId": 0
+      },
+      {
+        "title": "Renault Kwid: Old Vs New",
+        "url": "/renault-cars/kwid/expert-reviews/renault-kwid-old-vs-new/",
+        "imagePath": "/n/cw/ec/46974/renault-kwid-exterior0.jpeg?wm=1",
+        "authorMaskingName": "bilal-ahmed-firfiray",
+        "authorName": "Bilal Ahmed Firfiray",
+        "displayDate": "1 year ago",
+        "description": "Let us have a detailed comparison between the outgoing model and the new Kwid and see what has changed.",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "Road Test",
+        "basicId": 46974,
+        "mainModelId": 0
+      }
+    ],
+    "news": [
+      {
+        "title": "Renault India stretches warranty and free service validity till 31 July, 2021",
+        "url": "/news/renault-india-stretches-warranty-and-free-service-validity-till-31-july-2021/",
+        "imagePath": "/n/cw/ec/58887/front-view0.jpeg?wm=1",
+        "authorMaskingName": "jay-shah",
+        "authorName": "Jay Shah",
+        "displayDate": "18 days ago",
+        "description": "Renault India stretches warranty and free service validity till 31 July, 2021",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "News",
+        "basicId": 58887,
+        "mainModelId": 0
+      },
+      {
+        "title": "Discounts up to Rs 75,000 on Renault Duster, Triber and Kwid in May 2021",
+        "url": "/news/discounts-up-to-rs-75000-on-renault-duster-triber-and-kwid-in-may-2021/",
+        "imagePath": "/n/cw/ec/58247/front-view0.jpeg?wm=1",
+        "authorMaskingName": "jay-shah",
+        "authorName": "Jay Shah",
+        "displayDate": "26 days ago",
+        "description": "Discounts up to Rs 75,000 on Renault Duster, Triber and Kwid in May 2021",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "News",
+        "basicId": 58247,
+        "mainModelId": 0
+      },
+      {
+        "title": "Renault India partners with CERO recycling for vehicle scrapping",
+        "url": "/news/renault-india-partners-with-cero-recycling-for-vehicle-scrapping-policy/",
+        "imagePath": "/n/cw/ec/56587/front-view0.jpeg?wm=1",
+        "authorMaskingName": "aditya-nadkarni",
+        "authorName": "Aditya Nadkarni",
+        "displayDate": "1 month ago",
+        "description": "Renault India launches \u0027R.E.L.I.V.E’ program in partnership with CERO Recycling. The company will offer a scrap valuation quote and benefits to customers purchasing a new Renault vehicle by scrapping their existing cars.",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "News",
+        "basicId": 56587,
+        "mainModelId": 0
+      },
+      {
+        "title": "Discounts up to Rs 75,000 on Renault Duster, Triber, and Kwid in April 2021",
+        "url": "/news/discounts-up-to-rs-75000-on-renault-duster-triber-and-kwid-in-april-2021/",
+        "imagePath": "/n/cw/ec/56335/renault-kwid-left-front-three-quarter0.jpeg?wm=1",
+        "authorMaskingName": "jay-shah",
+        "authorName": "Jay Shah",
+        "displayDate": "1 month ago",
+        "description": "Discounts up to Rs 75,000 on Renault Duster, Triber, and Kwid in April 2021",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "News",
+        "basicId": 56335,
+        "mainModelId": 0
+      },
+      {
+        "title": "Renault India to hike prices from 1 April, 2021",
+        "url": "/news/renault-india-to-hike-prices-from-1-april-2021/",
+        "imagePath": "/n/cw/ec/55681/right-front-three-quarter1.jpeg?wm=1",
+        "authorMaskingName": "aditya-nadkarni",
+        "authorName": "Aditya Nadkarni",
+        "displayDate": "2 months ago",
+        "description": "Renault India to increase prices across the model range. This is the second price hike in 2021.",
+        "tagId": 1258,
+        "isSticky": false,
+        "categoryMaskingName": "News",
+        "basicId": 55681,
+        "mainModelId": 0
+      }
+    ],
+    "carWaleTake": {
+      "verdict": "\u003cp\u003e\u003ca title=\u0022Renault\u0022 href=\u0022https://www.carwale.com/renault-cars/\u0022\u003eRenault\u003c/a\u003e has comprehensively updated the Kwid with new design and added features. It remains to be an easy-to-drive car, its compact dimensions are a boon, and the cabin is decent as well. Since the new competition has sprouted up – like the Maruti \u003ca title=\u0022Maruti Suzuki S-Presso\u0022 href=\u0022https://www.carwale.com/marutisuzuki-cars/s-presso/\u0022\u003eS-Presso\u003c/a\u003e – the Kwid might find it hard to capitalize on all its positives. However, the Kwid is definitely worth a look if you are after a small, easy to drive hatchback that has a touch of flair about it.\u003c/p\u003e",
+      "pros": "\u003cul\u003e\u003cli\u003eNew face makes the \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e much more appealing\u0026nbsp;\u003c/li\u003e\u003cli\u003eAdded features while improving older ones\u0026nbsp;\u003c/li\u003e\u003cli\u003eConvenient and compact four seater\u0026nbsp;\u003c/li\u003e\u003c/ul\u003e",
+      "cons": "\u003cul\u003e\u003cli\u003eLacks driving dynamics entirely\u0026nbsp;\u003c/li\u003e\u003cli\u003eQuality could be improved in certain areas\u0026nbsp;\u003c/li\u003e\u003cli\u003eThe AMT isn’t the best of the lot\u0026nbsp;\u003c/li\u003e\u003c/ul\u003e",
+      "reviewShortDescription": "Tested figures compared between the Maruti S-Presso and the Renault Kwid",
+      "reviewDescription": [
+        {
+          "pageId": 60369,
+          "priority": 1,
+          "pageName": "Introduction ",
+          "content": "\u003cp\u003eBudget hatchbacks are the bread and butter for all mainstream car brands in India. So much so that that our country’s biggest carmaker \u003ca href=\u0027https://www.carwale.com/marutisuzuki-cars/\u0027\u003eMaruti Suzuki\u003c/a\u003e has not one but three budget models for the masses. There’s the evergreen \u003ca href=\u0027https://www.carwale.com/marutisuzuki-cars/alto/\u0027\u003eAlto\u003c/a\u003e and the \u003ca href=\u0027https://www.carwale.com/marutisuzuki-cars/wagonr/\u0027\u003eWagon R\u003c/a\u003e leading the sales charts but if you are someone who is willing to go beyond the traditional hatchback form, Maruti also has the S-Presso which is sold as a mini crossover. \u003ca href=\u0027https://www.carwale.com/renault-cars/\u0027\u003eRenault\u003c/a\u003e India also has a similar thing going on with the \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027\u003eKwid\u003c/a\u003e which has been in the market long enough to prove its mettle. So how do these mini crossovers stack up against each other?\u0026nbsp;\u003c/p\u003e\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Rear View\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/rear-view1.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e",
+          "pageType": "NonCollapsible"
+        },
+        {
+          "pageId": 60371,
+          "priority": 1,
+          "pageName": "Performance ",
+          "content": "\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Left Front Three Quarter\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/left-front-three-quarter3.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e\u003cp\u003eFor starters, there is a considerable difference in performance between these hatchbacks. Both the S-Presso and the \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e come with a 1-litre, 3-cylinder petrol engine but there are differences in the way these cars perform on the road. The Maruti’s 1-litre engine makes 67bhp of power and 90Nm of torque and it delivers both in a far smoother manner than the \u003ca href=\u0027https://www.carwale.com/renault-cars/\u0027 title=\u0027Renault\u0027\u003eRenault\u003c/a\u003e’s engine. The Kwid’s engine, in fact, is quite jerky in its power delivery and overall it isn’t as refined as the other engine.\u0026nbsp;\u003c/p\u003e\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Right Side View\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/right-side-view2.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e\u003cp\u003eIn terms of pure numbers, the S-Presso is noticeably peppier around town and feels more powerful than what the engine specs suggest. In our performance tests for the AMT versions of both vehicles, it registered a 0-60kmph time of 6.49 seconds compared to the Kwid which took 8.42 seconds to complete the same run. 0-100 meanwhile took 15.37 seconds for the S-Presso whereas the Kwid was a little slower at 18.46 seconds. \u0026nbsp; \u0026nbsp;\u0026nbsp;\u003c/p\u003e\u003cp\u003eIn terms of weight, they are proper lightweight cars and evenly matched with the S-Presso weighing 770kg and the Kwid 760kg. So how is the S-Presso that much quicker than the Kwid? Well if you take look at how early peak torque comes in on the S-Presso compared to the Kwid then it all makes sense. In fact, the Maruti makes 90Nm at 3,500rpm whereas the Kwid needs another 1,000revs to make peak torque. This is evident in roll-on acceleration wherein the S-Presso responds better to throttle inputs and pulls harder in the mid-range. As a result, it put up a 9.48 seconds time against the Kwid\u0027s 10.34 seconds in the 20-80kmph in kick-down. Even in the 40-100kmph run, the S-Presso managed to clock 11.12 seconds, while the Kwid was a little slower at 14.07 seconds.\u003c/p\u003e\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Left Front Three Quarter\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/left-front-three-quarter4.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e\u003cp\u003e\u0026nbsp;\u0026nbsp;\u003c/p\u003e",
+          "pageType": "NonCollapsible"
+        },
+        {
+          "pageId": 60373,
+          "priority": 1,
+          "pageName": "Fuel Efficiency ",
+          "content": "\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Engine Shot\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/engine-shot10.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e\u003cp\u003eWhat’s interesting is that the Maruti S-Presso is not only outright quicker, more responsive through the gears but also overall, more fuel efficient than the \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eRenault \u0026nbsp;Kwid\u003c/a\u003e although there isn’t a drastic difference in the city figures. The S-Presso will give you 13.77kms per litre in the city whereas you will get slightly less in the \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e as we managed 12.3kms to the litre. On the highway our fuel efficiency test revealed a bigger difference than expected. The S-Presso delivered 20.15kms per litre and the Kwid couldn’t do any better than 17.7kms per litre. The tank size on both is 35 litres each which is appropriate given their size but because the S-Presso is that much more efficient, you will be able to drive at least 50-60kms further on a tankful. \u0026nbsp;\u003c/p\u003e\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Engine Shot\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/engine-shot14.jpeg\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e",
+          "pageType": "NonCollapsible"
+        },
+        {
+          "pageId": 60375,
+          "priority": 1,
+          "pageName": "Interior Space ",
+          "content": "\u003cp\u003e\u003cstrong\u003eFront \u0026nbsp;\u003c/strong\u003e\u003c/p\u003e\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Front Row Seats\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/front-row-seats9.jpeg\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e\u003cdiv\u003e\u003cdiv style=\u0027overflow-x: auto;\u0027\u003e\u003ctable\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eFront Row\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eMaruti Suzuki S-Presso\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eRenault Kwid\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eLegroom (max/min)\u003c/td\u003e\u003ctd\u003e840/610mm\u003c/td\u003e\u003ctd\u003e840/680mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eHeadroom (max/min)\u003c/td\u003e\u003ctd\u003e950mm\u003c/td\u003e\u003ctd\u003e940mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eShoulder Room\u003c/td\u003e\u003ctd\u003e1220mm\u003c/td\u003e\u003ctd\u003e1150mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eBackrest Height\u003c/td\u003e\u003ctd\u003e590mm\u003c/td\u003e\u003ctd\u003e550mm\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003c/div\u003e\u003cp\u003eBudget car buyers do care about the exterior design and the features on offer but interior space is something that’s generally on top of their priority list. After all, the cabin is where the users spend all their time while driving the car. Now the \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027\u003eKwid\u003c/a\u003e may be longer and wider than the S-Presso but it’s the latter that has more volume up front. This is down to Maruti exploiting the interior volume to the max. According to our tape measure, legroom in the front is similar on both although the Kwid has more room to offer when you slide the front seats all the way forward. Being a taller car, the S-Presso has better headroom but what’s surprising is that even though it’s narrower than the Kwid, it offers more shoulder room than the Kwid. The seat backrest is longer and more accommodating as well when you compare it to the Kwid. \u0026nbsp;\u003c/p\u003e\u003cfigure class=\u0027image\u0027\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Front Row Seats\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/front-row-seats15.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/figure\u003e\u003cp\u003e\u003cstrong\u003eRear\u003c/strong\u003e\u003c/p\u003e\u003cfigure class=\u0027image\u0027\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Rear Seats\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/rear-seats8.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/figure\u003e\u003cfigure class=\u0027table\u0027\u003e\u003cdiv style=\u0027overflow-x: auto;\u0027\u003e\u003ctable\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eSecond Row\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eMaruti Suzuki S-Presso\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eRenault Kwid\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eLegroom (max/min)\u003c/td\u003e\u003ctd\u003e900/660mm\u003c/td\u003e\u003ctd\u003e780/580mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIdeal Legroom\u003c/td\u003e\u003ctd\u003e660mm\u003c/td\u003e\u003ctd\u003e640mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eHeadroom\u003c/td\u003e\u003ctd\u003e910mm\u003c/td\u003e\u003ctd\u003e900mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eShoulder Room\u003c/td\u003e\u003ctd\u003e1140mm\u003c/td\u003e\u003ctd\u003e1170mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eSeat Base Length\u003c/td\u003e\u003ctd\u003e440mm\u003c/td\u003e\u003ctd\u003e490mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eBackrest Height\u003c/td\u003e\u003ctd\u003e500mm\u003c/td\u003e\u003ctd\u003e510mm\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003c/figure\u003e\u003cp\u003eThings are a little different when you move to the rear. Sure, the S-Presso has more knee room and naturally, more headroom but overall the Kwid has better rear-seat comfort. The Kwid has more shoulder room and that’s really handy when you need to ferry more than two occupants at the back. More importantly, the rear bench itself is more accommodating that the S-Presso because you have a longer seat base and backrest, both of which are crucial and add up to overall comfort levels. \u0026nbsp;\u003c/p\u003e\u003cfigure class=\u0027image\u0027\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Rear Seats\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/rear-seats16.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/figure\u003e\u003cp\u003e\u003cstrong\u003eBoot\u003c/strong\u003e\u003c/p\u003e\u003cfigure class=\u0027image\u0027\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Boot Rear Seat Fold/Unfold Switches\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/boot-rear-seat-fold-unfold-switches7.jpeg\u0027 class=\u0027lazy\u0027\u003e\u003c/figure\u003e\u003cfigure class=\u0027table\u0027\u003e\u003cdiv style=\u0027overflow-x: auto;\u0027\u003e\u003ctable\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003cstrong\u003eBoot Space\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eMaruti Suzuki S-Presso\u003c/strong\u003e\u003c/td\u003e\u003ctd\u003e\u003cstrong\u003eRenault Kwid\u003c/strong\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eLength/Width/Height\u003c/td\u003e\u003ctd\u003e600/880/570mm\u003c/td\u003e\u003ctd\u003e680/950/530mm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eBoot space capacity\u003c/td\u003e\u003ctd\u003e240 litres\u003c/td\u003e\u003ctd\u003e279 litres\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eLoading Lip Height\u003c/td\u003e\u003ctd\u003e750mm\u003c/td\u003e\u003ctd\u003e740mm\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\u003c/div\u003e\u003c/figure\u003e\u003cp\u003eThe additional length and width of the Kwid over the S-Presso are apparent in the amount of boot space you get. The Renault’s boot, in fact, is noticeably bigger than the Maruti’s and the boot area itself is flat and nicely carved out. The loading height is also slightly lower than the S-Presso which makes the job of putting heavy items in the boot that much easier. \u0026nbsp;\u0026nbsp;\u003c/p\u003e\u003cfigure class=\u0027image\u0027\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Open Boot/Trunk\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/open-boot-trunk13.jpeg\u0027 class=\u0027lazy\u0027\u003e\u003c/figure\u003e",
+          "pageType": "NonCollapsible"
+        },
+        {
+          "pageId": 60377,
+          "priority": 1,
+          "pageName": "Features",
+          "content": "\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Steering Mounted Controls\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/steering-mounted-controls6.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e\u003cp\u003eThe list of features on these cars is fairly long provided you buy the top-end variant. Power steering, front power windows and central locking are standard on top-end variants. Additionally, you also get ABS, dual airbags, manual AC, a digital instrument console and a touchscreen infotainment system as standard. There are some differences if you dig deeper into the spec sheet. For instance, the S-Presso gets steering mounted controls and internally adjustable mirrors as additional features over the \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027\u003eKwid\u003c/a\u003e. But then it also misses out on a lot considering the similarity in prices. You don’t get LED DRLs, rear view camera, power windows at the back and a rear armrest. The fact that all of these features are available on the top-spec Kwid makes it great value if you ask us. \u0026nbsp; \u0026nbsp; \u0026nbsp;\u0026nbsp;\u0026nbsp;\u003c/p\u003e\u003cdiv\u003e\u003cimg src=\u0027https://imgd.aeplcdn.com/0x0/statics/grey.gif\u0027 alt=\u0027Rear Power Window Switches\u0027 title=\u0027\u0027 data-original=\u0027https://imgd.aeplcdn.com//642x361//n/cw/ec/58267/maruti-suzuki-s-presso-rear-power-window-switches17.jpeg?wm=1\u0027 class=\u0027lazy\u0027\u003e\u003c/div\u003e",
+          "pageType": "NonCollapsible"
+        },
+        {
+          "pageId": 60379,
+          "priority": 1,
+          "pageName": "Price",
+          "content": "\u003cp\u003eNow for the all-important prices, the S-Presso range starts at Rs 3.77 lakh for the standard base variant, going all the way to Rs 5.25 lakh for the VXI option CNG variant. There are fourteen variants in total on offer with the option of petrol only or petrol CNG. The AMT variants though do not come with the option of a factory fitted CNG kit. The \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e, on the other hand, starts at Rs 3.18 lakh for the standard base variant with prices climbing to Rs 5.39 lakh for the Climber AMT Opt variant. \u003ca href=\u0027https://www.carwale.com/renault-cars/\u0027 title=\u0027Renault\u0027\u003eRenault\u003c/a\u003e isn’t currently selling a CNG variant of the Kwid but you can get a special variant called Neotech edition which comes with dual-tone color options.\u0026nbsp;\u003c/p\u003e",
+          "pageType": "NonCollapsible"
+        }
+      ],
+      "categoryId": 8,
+      "reviewArticlePath": "/marutisuzuki-cars/s-presso/expert-reviews/maruti-suzuki-spresso-vs-renault-kwid-performance-fuel-efficiency-and-interior-space-compared/"
+    },
+    "similarCars": {
+      "carList": [
+        {
+          "makeId": 10,
+          "makeName": "Maruti Suzuki",
+          "makeMaskingName": "maruti-suzuki",
+          "modelId": 1239,
+          "modelName": "Alto",
+          "modelMaskingName": "alto",
+          "imagePath": "/cw/ec/39013/Maruti-Suzuki-Alto-Right-Front-Three-Quarter-154833.jpg?wm=0",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 3.00 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 299937,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 6293,
+          "launchedOn": "04/23/2019 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 56,
+          "makeName": "Datsun",
+          "makeMaskingName": "datsun",
+          "modelId": 1320,
+          "modelName": "redi-GO",
+          "modelMaskingName": "redi-go",
+          "imagePath": "/n/cw/ec/45245/datsun-redi-go-right-front-three-quarter19.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 3.82 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 382471,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 7296,
+          "launchedOn": "05/28/2020 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 10,
+          "makeName": "Maruti Suzuki",
+          "makeMaskingName": "maruti-suzuki",
+          "modelId": 1270,
+          "modelName": "S-Presso",
+          "modelMaskingName": "s-presso",
+          "imagePath": "/n/cw/ec/40726/s-presso-exterior-right-front-three-quarter-171853.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 3.77 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 376803,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 6574,
+          "launchedOn": "09/30/2019 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 16,
+          "makeName": "Tata",
+          "makeMaskingName": "tata",
+          "modelId": 1250,
+          "modelName": "Tiago",
+          "modelMaskingName": "tiago",
+          "imagePath": "/n/cw/ec/39345/tiago-exterior-right-front-three-quarter-6.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 4.99 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 499441,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 6833,
+          "launchedOn": "01/22/2020 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 10,
+          "makeName": "Maruti Suzuki",
+          "makeMaskingName": "maruti-suzuki",
+          "modelId": 1186,
+          "modelName": "Wagon R",
+          "modelMaskingName": "wagonr",
+          "imagePath": "/n/cw/ec/34467/wagonr-exterior-right-front-three-quarter-3.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 4.79 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 479306,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 6633,
+          "launchedOn": "01/23/2019 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 10,
+          "makeName": "Maruti Suzuki",
+          "makeMaskingName": "maruti-suzuki",
+          "modelId": 1138,
+          "modelName": "Celerio",
+          "modelMaskingName": "celerio",
+          "imagePath": "/n/cw/ec/31314/celerio-exterior-right-front-three-quarter-2.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 4.65 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 465079,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 6813,
+          "launchedOn": "10/05/2017 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 8,
+          "makeName": "Hyundai",
+          "makeMaskingName": "hyundai",
+          "modelId": 1157,
+          "modelName": "Santro",
+          "modelMaskingName": "santro",
+          "imagePath": "/n/cw/ec/32940/santro-exterior-right-front-three-quarter-138782.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 4.74 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 473809,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 6765,
+          "launchedOn": "10/23/2018 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 45,
+          "makeName": "Renault",
+          "makeMaskingName": "renault",
+          "modelId": 1303,
+          "modelName": "Kiger",
+          "modelMaskingName": "kiger",
+          "imagePath": "/n/cw/ec/44407/kiger-exterior-right-front-three-quarter-12.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 5.45 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 545000,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 7917,
+          "launchedOn": "02/15/2021 00:00:00",
+          "bodyStyleId": 0
+        },
+        {
+          "makeId": 8,
+          "makeName": "Hyundai",
+          "makeMaskingName": "hyundai",
+          "modelId": 1196,
+          "modelName": "Grand i10 Nios",
+          "modelMaskingName": "grand-i10-nios",
+          "imagePath": "/n/cw/ec/35465/grand-i10-nios-exterior-right-front-three-quarter-2.jpeg",
+          "status": 2,
+          "priceOverview": {
+            "formattedPrice": "₹ 5.24 Lakh",
+            "priceLabel": "Avg. Ex-Showroom price",
+            "priceSuffix": "onwards",
+            "pricePrefix": "",
+            "labelColor": "price-label-text--grey text-light-grey ",
+            "priceStatus": 3,
+            "price": 523616,
+            "exShowRoomPrice": 0,
+            "colorType": 0
+          },
+          "defaultVariant": 6491,
+          "launchedOn": "08/20/2019 00:00:00",
+          "bodyStyleId": 0
+        }
+      ],
+      "viewAllUrl": "/find-car/results/?bodyStyleIds=3\u0026budget=317873,539002\u0026fuelTypeIds=1\u0026transmissionTypeIds=2,1\u0026source=1"
+    },
+    "showAlternateCarCampaigns": false,
+    "modelVideos": {
+      "videos": [
+        {
+          "videoId": "50xXmaucvq4",
+          "videoTitleUrl": "/renault-cars/kwid/videos/2019-renault-kwid-suv-styling-with-a-compact-foot-print-44396/",
+          "videoTitle": "2019 Renault Kwid | SUV Styling With A Compact Foot Print",
+          "views": "196704",
+          "likes": "262",
+          "subCatName": "Car Review ",
+          "makeName": "Renault",
+          "modelName": "Kwid",
+          "displayDate": "31 Dec 2019"
+        },
+        {
+          "videoId": "ENY_IJcpioE",
+          "videoTitleUrl": "/renault-cars/kwid/videos/2019-renault-kwid-engine-performance-explained-44424/",
+          "videoTitle": "2019 Renault Kwid | Engine Performance Explained",
+          "views": "26378",
+          "likes": "63",
+          "subCatName": "Car Review ",
+          "makeName": "Renault",
+          "modelName": "Kwid",
+          "displayDate": "31 Jan 2020"
+        },
+        {
+          "videoId": "Iy8u9ln70AM",
+          "videoTitleUrl": "/renault-cars/kwid/videos/2019-renault-kwid-features-explained-44425/",
+          "videoTitle": "2019 Renault Kwid | Features Explained",
+          "views": "20315",
+          "likes": "37",
+          "subCatName": "Car Review ",
+          "makeName": "Renault",
+          "modelName": "Kwid",
+          "displayDate": "01 Jan 2020"
+        },
+        {
+          "videoId": "Irn_t2_MVGg",
+          "videoTitleUrl": "/renault-cars/kwid/videos/maruti-suzuki-s-presso-vs-renault-kwid-mileage-features-performance-and-price-carwale-58479/",
+          "videoTitle": "Maruti Suzuki S-Presso vs Renault Kwid | Mileage, Features, Performance and Price | CarWale",
+          "views": "11129",
+          "likes": "86",
+          "subCatName": "Car Review ",
+          "makeName": "Renault",
+          "modelName": "Kwid",
+          "displayDate": "10 May 2021"
+        }
+      ],
+      "seoText": "Renault Kwid has 4 videos of its detailed review, pros \u0026 cons, comparison \u0026 version explained, first drive experience, features, specs, interior \u0026 exterior details and more.",
+      "totalCount": 4
+    },
+    "modelImage": {
+      "modelId": 1258,
+      "images": [
+        {
+          "name": "kwid-right-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+          "id": 216034,
+          "categoryId": 2,
+          "altImageName": "Right Front Three Quarter",
+          "imageTitle": "Renault Kwid Right Front Three Quarter"
+        },
+        {
+          "name": "kwid-right-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-6.jpeg",
+          "id": 216023,
+          "categoryId": 2,
+          "altImageName": "Right Front Three Quarter",
+          "imageTitle": "Renault Kwid Right Front Three Quarter"
+        },
+        {
+          "name": "kwid-right-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-16.jpeg",
+          "id": 216030,
+          "categoryId": 2,
+          "altImageName": "Right Front Three Quarter",
+          "imageTitle": "Renault Kwid Right Front Three Quarter"
+        },
+        {
+          "name": "kwid-right-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-2.jpeg",
+          "id": 215401,
+          "categoryId": 2,
+          "altImageName": "Right Front Three Quarter",
+          "imageTitle": "Renault Kwid Right Front Three Quarter"
+        },
+        {
+          "name": "kwid-left-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-left-front-three-quarter-2.jpeg",
+          "id": 216022,
+          "categoryId": 2,
+          "altImageName": "Left Front Three Quarter",
+          "imageTitle": "Renault Kwid Left Front Three Quarter"
+        },
+        {
+          "name": "kwid-right-rear-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-rear-three-quarter-2.jpeg",
+          "id": 216025,
+          "categoryId": 2,
+          "altImageName": "Right Rear Three Quarter",
+          "imageTitle": "Renault Kwid Right Rear Three Quarter"
+        },
+        {
+          "name": "kwid-rear-view",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-rear-view-2.jpeg",
+          "id": 216027,
+          "categoryId": 2,
+          "altImageName": "Rear View",
+          "imageTitle": "Renault Kwid Rear View"
+        },
+        {
+          "name": "kwid-front-view",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-front-view-2.jpeg",
+          "id": 216026,
+          "categoryId": 2,
+          "altImageName": "Front View",
+          "imageTitle": "Renault Kwid Front View"
+        },
+        {
+          "name": "kwid-left-side-view",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-left-side-view-2.jpeg",
+          "id": 216024,
+          "categoryId": 2,
+          "altImageName": "Left Side View",
+          "imageTitle": "Renault Kwid Left Side View"
+        },
+        {
+          "name": "kwid-dashboard",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-interior-dashboard-2.jpeg",
+          "id": 216020,
+          "categoryId": 1,
+          "altImageName": "Dashboard",
+          "imageTitle": "Renault Kwid Dashboard"
+        },
+        {
+          "name": "kwid-music-system",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-interior-music-system.jpeg",
+          "id": 216019,
+          "categoryId": 1,
+          "altImageName": "Music System",
+          "imageTitle": "Renault Kwid Music System"
+        }
+      ],
+      "imageCount": 117
+    },
+    "gallery": {
+      "modelId": 1258,
+      "images": [
+        {
+          "name": "kwid-right-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+          "id": 216034,
+          "categoryId": 2,
+          "altImageName": "Right Front Three Quarter",
+          "imageTitle": "Renault Kwid Right Front Three Quarter"
+        },
+        {
+          "name": "kwid-right-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-6.jpeg",
+          "id": 216023,
+          "categoryId": 2,
+          "altImageName": "Right Front Three Quarter",
+          "imageTitle": "Renault Kwid Right Front Three Quarter"
+        },
+        {
+          "name": "kwid-right-front-three-quarter",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-16.jpeg",
+          "id": 216030,
+          "categoryId": 2,
+          "altImageName": "Right Front Three Quarter",
+          "imageTitle": "Renault Kwid Right Front Three Quarter"
+        },
+        {
+          "name": "kwid-dashboard",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-interior-dashboard-2.jpeg",
+          "id": 216020,
+          "categoryId": 1,
+          "altImageName": "Dashboard",
+          "imageTitle": "Renault Kwid Dashboard"
+        },
+        {
+          "name": "kwid-music-system",
+          "path": "https://imgd.aeplcdn.com/0x0/n/cw/ec/48543/kwid-interior-music-system.jpeg",
+          "id": 216019,
+          "categoryId": 1,
+          "altImageName": "Music System",
+          "imageTitle": "Renault Kwid Music System"
+        },
+        {
+          "name": "kwid-gear-selector-dial",
+          "path": "/n/cw/ec/48543/kwid-interior-gear-selector-dial-2.jpeg",
+          "id": 216029,
+          "categoryId": 1,
+          "altImageName": "Gear Selector Dial",
+          "imageTitle": "Renault Kwid Gear Selector Dial"
+        }
+      ],
+      "imageCount": 117
+    },
+    "userReviews": [
+      {
+        "id": 317215,
+        "title": "Poor performance!! Totally unhappy with performance as well as service.",
+        "description": "It was horrible experience. Service provided is very poor. Misguide regarding services provided. After using the car for six months, valuation of the car was 55% of purchase price. That means, no resale value for these vehicles.",
+        "isWinner": false,
+        "entryDate": "1 day ago",
+        "userName": "Kanchan Mahadik",
+        "userRating": 1,
+        "cityId": 0
+      },
+      {
+        "id": 316881,
+        "title": "Renault Kwid RXT review",
+        "description": "Driving experience it a good vehicle for family, we can easily survive in this with good mileage, its a rich car for poor people and nice seating we can go as long as we want we can feel comfort.",
+        "isWinner": false,
+        "entryDate": "3 days ago",
+        "userName": "Harishbabu",
+        "userRating": 5,
+        "cityId": 2
+      },
+      {
+        "id": 316467,
+        "title": "Overall ",
+        "description": "Pros. Good mileage, value for money, easy to drive in city. Maintenance of this car is easy and not costly. \nCons Brake should have been better. Not good for long drive. Infotainment system is slow. Back door windows would have also been automatic.",
+        "isWinner": false,
+        "entryDate": "6 days ago",
+        "userName": "John P James ",
+        "userRating": 4,
+        "cityId": 9
+      },
+      {
+        "id": 315637,
+        "title": "Disappointed",
+        "description": "Car looks good. Leg space is a problem. The main problem however is the engine sound. The engine makes a lot of noise. Servicing is another issue. Service centers are not available in most towns. Servicing cost is not as low as claimed by Renault.",
+        "isWinner": false,
+        "entryDate": "11 days ago",
+        "userName": "Subit Chatterjee",
+        "userRating": 3,
+        "cityId": 198
+      },
+      {
+        "id": 315329,
+        "title": "Kwid that inspires my movement",
+        "description": "Kwid RXT is worth for money. Driving experience is super. Travelled upto 1200 km non stop. Fuel efficiency is very good and I get 22 km/l which is best car for small family.",
+        "isWinner": false,
+        "entryDate": "13 days ago",
+        "userName": "Shivasharana",
+        "userRating": 4,
+        "cityId": 0
+      }
+    ],
+    "synopsis": {
+      "summary": [
+        "\u003cp\u003eThe new Renault Kwid has been launched in India. The vehicle is available in eight variants, six colour options and two powertrains. The model receives updates to the exterior and interior while the engine specifications remain unchanged.\u003c/p\u003e\u003cp\u003eExterior highlights of the Renault Kwid facelift include a new front bumper, split headlamp setup, LED DRLs, new three slat grille, contrast coloured ORVMs, C-shaped LED light guides and an integrated roof spoiler. Inside, the model comes equipped with an eight-inch touchscreen infotainment system with Apple CarPlay, Android Auto and Voice recognition; piano black centre console, fully digital LED instrument cluster and reverse parking camera with guidelines.\u003c/p\u003e\u003cp\u003eThe facelifted Renault Kwid receives safety features in the form dual airbags, ABS with EBD, speed alert system, reverse parking sensors and seatbelt reminder for driver and co-driver. Engine options for the Kwid facelift include a 0.8-litre, three-cylinder petrol motor and a 1.0-litre, three-cylinder petrol motor. Transmission options will include a five-speed manual gearbox and an AMT unit.\u003c/p\u003e"
+      ],
+      "heading": "Renault Kwid Summary"
+    },
+    "campaign": {
+      "campaign": {
+        "id": 9961,
+        "dealerId": 30385,
+        "contactName": "Renault",
+        "contactNumber": "",
+        "contactEmail": "contact@carwale.com",
+        "type": 1,
+        "actionText": "Get June Offers",
+        "isEmailRequired": false,
+        "leadPanel": 3,
+        "cvlDetails": {
+          "isCvl": false
+        },
+        "predictionData": {
+          "score": -100.0,
+          "label": "mdl=CampaignScore"
+        },
+        "mutualLeads": false,
+        "dealerAdminId": 0,
+        "isTestDriveCampaign": false,
+        "isTurboMla": true,
+        "maskingNumberEnabled": true,
+        "ctaLinkText": "Get EMI Assistance",
+        "showWhatsappLink": false,
+        "dealerWhatsappNumber": "",
+        "targetType": 3,
+        "isOtpRequired": false,
+        "hideRecoScreen": false,
+        "isMultiSelectDealer": false,
+        "isTurboCrossSell": false,
+        "brandingType": 0,
+        "campaignType": 1,
+        "shouldShowPreferredLanguageDropdown": false
+      },
+      "dealerDetails": {
+        "id": 30385,
+        "name": "CarWale Default",
+        "maskingName": "carwaledefault",
+        "city": "Mumbai",
+        "mobile": "9999999999",
+        "distance": 0,
+        "address": "Automotive Exchange Pvt Ltd, 12th floor, Vishwaroop IT Park,Sector 30A, Vashi",
+        "latitude": -1.0,
+        "longitude": -1.0,
+        "categoryType": 5,
+        "isFinancial": false,
+        "shouldShowMissedCallText": false,
+        "uspList": [],
+        "pincode": "400705"
+      },
+      "pageProperty": [
+        {
+          "id": 2,
+          "template": {
+            "html": "\u003cdiv class=\u0022pq-data-highlight-call sds-box\u0022 style=\u0022background: #fff; border: 0 none; margin-top: 5px;\u0022\u003e\r\n\u003cdiv id=\u0022mainDealerSponsor\u0022 class=\u0022default-data\u0022\u003e\r\n\u003cdiv id=\u0022divMahindraDealer\u0022 class=\u0022sponsored-dealer-slot sds default-data\u0022\u003e\r\n\u003ch2 id=\u0022addHeader\u0022 class=\u0022font18\u0022\u003eContact Renault for\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cspan class=\u0022price-quote-all-imgs pq-tick-icon\u0022\u003e\u003c/span\u003eTest Drive\u003c/li\u003e\r\n\u003cli\u003e\u003cspan class=\u0022price-quote-all-imgs pq-tick-icon\u0022\u003e\u003c/span\u003eExchange Benefits\u003c/li\u003e\r\n\u003cli\u003e\u003cspan class=\u0022price-quote-all-imgs pq-tick-icon\u0022\u003e\u003c/span\u003eEMI Options\u003c/li\u003e\r\n\u003cli\u003e\u003cspan class=\u0022price-quote-all-imgs pq-tick-icon\u0022\u003e\u003c/span\u003eOffers\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\u0022divDealerSubmit\u0022 class=\u0022margin-top15\u0022\u003e\u003cinput id=\u0022btnDealerOffer\u0022 class=\u0022btn btn-orange btn-dealer-ad\u0022 onclick=\u0022InitDealerOffer(this)\u0022 type=\u0022button\u0022 value=\u0022Get The Best Deal\u0022 /\u003e\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+          }
+        }
+      ],
+      "featuredCarData": {
+        "makeName": "Renault",
+        "modelName": "Kwid",
+        "hostUrl": "https://imgd.aeplcdn.com/",
+        "originalImgPath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "makeId": 45,
+        "modelId": 1258,
+        "versionId": 6883
+      },
+      "location": {
+        "cityId": 0,
+        "areaId": 0
+      },
+      "campaignType": 1,
+      "mgBookingUrl": "",
+      "shouldShowSeparatedFloatingCta": false
+    },
+    "linkCampaign": {},
+    "similarUpcomingCars": [],
+    "color": {
+      "colors": [
+        {
+          "id": 7480,
+          "name": "Fiery Red",
+          "imagePath": "/n/0oah94a_1517671.jpg",
+          "hexCode": "8c1520"
+        },
+        {
+          "id": 7481,
+          "name": "Moonlight Silver",
+          "imagePath": "/n/86ch94a_1517673.jpg",
+          "hexCode": "818084"
+        },
+        {
+          "id": 7482,
+          "name": "Ice Cool White",
+          "imagePath": "/n/nveh94a_1517675.jpg",
+          "hexCode": "b1b4ba"
+        },
+        {
+          "id": 7483,
+          "name": "Outback Bronze",
+          "imagePath": "/n/tefh94a_1517677.jpg",
+          "hexCode": "3e3a2e"
+        },
+        {
+          "id": 7484,
+          "name": "Electric Blue",
+          "imagePath": "/n/f3hh94a_1517679.jpg",
+          "hexCode": "1144B5"
+        },
+        {
+          "id": 7485,
+          "name": "Zanskar Blue",
+          "imagePath": "/n/qakh94a_1517683.jpg",
+          "hexCode": "004572"
+        },
+        {
+          "id": 8170,
+          "name": "Moonlight Silver Body with Zanskar Blue roof",
+          "imagePath": "/n/n37h94a_1517685.jpg",
+          "hexCode": "818084,004572"
+        },
+        {
+          "id": 8171,
+          "name": "Zanskar Blue with Moonlight Silver roof",
+          "imagePath": "/n/sv6h94a_1517689.jpg",
+          "hexCode": "004572,818084"
+        }
+      ],
+      "isColorPageExists": true,
+      "isColorsImageAvailable": true
+    },
+    "bodyStyleSlug": {
+      "rank": 1,
+      "name": "Hatchback",
+      "maskingName": "hatchback"
+    },
+    "versions": [
+      {
+        "versionId": 6883,
+        "versionName": "STD",
+        "versionMaskingName": "std",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "799",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "25",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 3.18 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 317873,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 6882,
+        "versionName": "RXE",
+        "versionMaskingName": "rxe",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "799",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "25",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 3.88 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 388242,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 6881,
+        "versionName": "RXL",
+        "versionMaskingName": "rxl",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "799",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "25",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.18 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 418242,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 7553,
+        "versionName": "Neotech RXL",
+        "versionMaskingName": "neotech-rxl",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "799",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "25",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.38 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 437984,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "09/30/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 7354,
+        "versionName": "RXL 1.0 MT",
+        "versionMaskingName": "rxl-10-mt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "23",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.40 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 440249,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "07/06/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 6885,
+        "versionName": "RXT",
+        "versionMaskingName": "rxt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "799",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "25",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.48 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 448242,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 7554,
+        "versionName": "Neotech RXL 1.0 MT",
+        "versionMaskingName": "neotech-rxl-10-mt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "23",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.60 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 459735,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "09/30/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 6886,
+        "versionName": "RXT 1.0 Opt",
+        "versionMaskingName": "rxt-10-opt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "23",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.78 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 477949,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 7355,
+        "versionName": "RXL 1.0 AMT",
+        "versionMaskingName": "rxl-10-amt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "AMT",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 946
+          },
+          {
+            "itemId": 12,
+            "value": "22",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.80 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 480130,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "07/06/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 7555,
+        "versionName": "Neotech RXL 1.0  AMT",
+        "versionMaskingName": "neotech-rxl-10-amt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "AMT",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 946
+          },
+          {
+            "itemId": 12,
+            "value": "22",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.92 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 491735,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "09/30/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 6889,
+        "versionName": "CLIMBER 1.0 Opt",
+        "versionMaskingName": "climber-10-opt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "Manual",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 35
+          },
+          {
+            "itemId": 12,
+            "value": "23",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 4.99 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 499133,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 6888,
+        "versionName": "RXT 1.0 AMT Opt",
+        "versionMaskingName": "rxt-10-amt-opt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "AMT",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 946
+          },
+          {
+            "itemId": 12,
+            "value": "22",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 5.18 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 517846,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      },
+      {
+        "versionId": 6891,
+        "versionName": "CLIMBER 1.0 AMT Opt",
+        "versionMaskingName": "climber-10-amt-opt",
+        "specsSummary": [
+          {
+            "itemId": 14,
+            "value": "999",
+            "itemName": "Displacement",
+            "unitType": "cc",
+            "customTypeId": -1
+          },
+          {
+            "itemId": 26,
+            "value": "Petrol",
+            "itemName": "Fuel Type ",
+            "unitType": "",
+            "customTypeId": 32
+          },
+          {
+            "itemId": 29,
+            "value": "AMT",
+            "itemName": "Transmission Type",
+            "unitType": "",
+            "customTypeId": 946
+          },
+          {
+            "itemId": 12,
+            "value": "22",
+            "itemName": "Mileage (ARAI)",
+            "unitType": "kmpl",
+            "customTypeId": -1
+          }
+        ],
+        "isSpecialVersion": false,
+        "makeId": 45,
+        "makeName": "Renault",
+        "makeMaskingName": "renault",
+        "modelId": 1258,
+        "modelName": "Kwid",
+        "modelMaskingName": "kwid",
+        "imagePath": "/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg",
+        "status": 2,
+        "priceOverview": {
+          "formattedPrice": "₹ 5.39 Lakh",
+          "priceLabel": "Avg. Ex-Showroom price",
+          "priceSuffix": "onwards",
+          "pricePrefix": "",
+          "labelColor": "price-label-text--grey text-light-grey ",
+          "priceStatus": 3,
+          "price": 539002,
+          "exShowRoomPrice": 0,
+          "colorType": 0
+        },
+        "defaultVariant": 0,
+        "launchedOn": "01/29/2020 00:00:00",
+        "unveiledOn": "",
+        "modelAggregateRating": 4.64,
+        "modelReviewCount": 39,
+        "bodyStyleId": 3
+      }
+    ],
+    "mileage": [
+      {
+        "fuelType": "Petrol",
+        "mileageUnit": "kmpl",
+        "displacement": "799",
+        "transmission": "Manual",
+        "arai": 25.0
+      },
+      {
+        "fuelType": "Petrol",
+        "mileageUnit": "kmpl",
+        "displacement": "999",
+        "transmission": "Manual",
+        "arai": 23.0
+      },
+      {
+        "fuelType": "Petrol",
+        "mileageUnit": "kmpl",
+        "displacement": "999",
+        "transmission": "AMT",
+        "arai": 22.0
+      }
+    ],
+    "applicableFilters": [
+      1,
+      2,
+      5
+    ],
+    "metaTags": {
+      "title": "Renault Kwid Price - Images, Colours \u0026 Reviews",
+      "description": "Renault Kwid Price (GST Rates) in India starts at ₹ 3.18 Lakh. Check out Renault Kwid Colours, Review, Images and Kwid Variants On Road Price at Carwale.com.",
+      "canonical": "https://www.carwale.com/renault-cars/kwid/",
+      "schema": "{\u0022@context\u0022:\u0022https://schema.org/\u0022,\u0022@graph\u0022:[{\u0022@type\u0022:\u0022Car\u0022,\u0022name\u0022:\u0022Renault Kwid\u0022,\u0022description\u0022:\u0022Renault Kwid is a 5 seater Hatchback available in a price range of ₹ 3.18  - 5.39 Lakh. It is available in 13 variants, 1 engine option and 2 transmission options : Manual and AMT. Other key specifications of the Kwid include a Ground Clearance of 184 mm and Bootspace of 279 litres. The Kwid is available in 8 colours. The mileage of Kwid ranges from 22 kmpl to 25 kmpl.\u0022,\u0022url\u0022:\u0022https://www.carwale.com/renault-cars/kwid/\u0022,\u0022model\u0022:\u0022Kwid\u0022,\u0022image\u0022:[{\u0022@type\u0022:\u0022ImageObject\u0022,\u0022url\u0022:\u0022https://imgd.aeplcdn.com/1280x720/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg?q=85\u0022,\u0022height\u0022:\u0022720\u0022,\u0022width\u0022:\u00221280\u0022},{\u0022@type\u0022:\u0022ImageObject\u0022,\u0022url\u0022:\u0022https://imgd.aeplcdn.com/1200x900/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg?q=85\u0022,\u0022height\u0022:\u0022900\u0022,\u0022width\u0022:\u00221200\u0022},{\u0022@type\u0022:\u0022ImageObject\u0022,\u0022url\u0022:\u0022https://imgd.aeplcdn.com/600x600/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg?q=85\u0022,\u0022height\u0022:\u0022600\u0022,\u0022width\u0022:\u0022600\u0022}],\u0022brand\u0022:\u0022Renault\u0022,\u0022manufacturer\u0022:{\u0022@type\u0022:\u0022Organization\u0022,\u0022name\u0022:\u0022Renault\u0022},\u0022offers\u0022:{\u0022@type\u0022:\u0022AggregateOffer\u0022,\u0022priceCurrency\u0022:\u0022INR\u0022,\u0022lowPrice\u0022:317873.0,\u0022highPrice\u0022:539002.0,\u0022offerCount\u0022:1},\u0022sku\u0022:\u002245-1258\u0022,\u0022aggregateRating\u0022:{\u0022@type\u0022:\u0022AggregateRating\u0022,\u0022reviewCount\u0022:271,\u0022ratingValue\u0022:4.210000038146973,\u0022worstRating\u0022:1,\u0022bestRating\u0022:5},\u0022review\u0022:[{\u0022@type\u0022:\u0022Review\u0022,\u0022author\u0022:\u0022Kanchan Mahadik\u0022,\u0022datePublished\u0022:\u00222021-05-31T10:38:13+05:30\u0022,\u0022name\u0022:\u0022Poor performance!! Totally unhappy with performance as well as service.\u0022,\u0022reviewBody\u0022:\u0022It was horrible experience. Service provided is very poor. Misguide regarding services provided. After using the car for six months, valuation of the car was 55% of purchase price. That means, no resale value for these vehicles.\u0022,\u0022reviewRating\u0022:{\u0022@type\u0022:\u0022Rating\u0022,\u0022ratingValue\u0022:\u00221\u0022}},{\u0022@type\u0022:\u0022Review\u0022,\u0022author\u0022:\u0022Harishbabu\u0022,\u0022datePublished\u0022:\u00222021-05-29T09:23:37+05:30\u0022,\u0022name\u0022:\u0022Renault Kwid RXT review\u0022,\u0022reviewBody\u0022:\u0022Driving experience it a good vehicle for family, we can easily survive in this with good mileage, its a rich car for poor people and nice seating we can go as long as we want we can feel comfort.\u0022,\u0022reviewRating\u0022:{\u0022@type\u0022:\u0022Rating\u0022,\u0022ratingValue\u0022:\u00225\u0022}},{\u0022@type\u0022:\u0022Review\u0022,\u0022author\u0022:\u0022John P James \u0022,\u0022datePublished\u0022:\u00222021-05-26T07:10:57+05:30\u0022,\u0022name\u0022:\u0022Overall \u0022,\u0022reviewBody\u0022:\u0022Pros. Good mileage, value for money, easy to drive in city. Maintenance of this car is easy and not costly. \\nCons Brake should have been better. Not good for long drive. Infotainment system is slow. Back door windows would have also been automatic.\u0022,\u0022reviewRating\u0022:{\u0022@type\u0022:\u0022Rating\u0022,\u0022ratingValue\u0022:\u00224\u0022}},{\u0022@type\u0022:\u0022Review\u0022,\u0022author\u0022:\u0022Subit Chatterjee\u0022,\u0022datePublished\u0022:\u00222021-05-21T08:03:56+05:30\u0022,\u0022name\u0022:\u0022Disappointed\u0022,\u0022reviewBody\u0022:\u0022Car looks good. Leg space is a problem. The main problem however is the engine sound. The engine makes a lot of noise. Servicing is another issue. Service centers are not available in most towns. Servicing cost is not as low as claimed by Renault.\u0022,\u0022reviewRating\u0022:{\u0022@type\u0022:\u0022Rating\u0022,\u0022ratingValue\u0022:\u00223\u0022}},{\u0022@type\u0022:\u0022Review\u0022,\u0022author\u0022:\u0022Shivasharana\u0022,\u0022datePublished\u0022:\u00222021-05-19T15:17:31+05:30\u0022,\u0022name\u0022:\u0022Kwid that inspires my movement\u0022,\u0022reviewBody\u0022:\u0022Kwid RXT is worth for money. Driving experience is super. Travelled upto 1200 km non stop. Fuel efficiency is very good and I get 22 km/l which is best car for small family.\u0022,\u0022reviewRating\u0022:{\u0022@type\u0022:\u0022Rating\u0022,\u0022ratingValue\u0022:\u00224\u0022}}],\u0022mpn\u0022:\u0022CW-Model-1258\u0022,\u0022color\u0022:[\u0022Fiery Red\u0022,\u0022Moonlight Silver\u0022,\u0022Ice Cool White\u0022,\u0022Outback Bronze\u0022,\u0022Electric Blue\u0022,\u0022Zanskar Blue\u0022,\u0022Moonlight Silver Body with Zanskar Blue roof\u0022,\u0022Zanskar Blue with Moonlight Silver roof\u0022],\u0022bodyType\u0022:\u0022Hatchback\u0022,\u0022vehicleEngine\u0022:[{\u0022@type\u0022:\u0022EngineSpecification\u0022,\u0022name\u0022:\u0022799\u0022},{\u0022@type\u0022:\u0022EngineSpecification\u0022,\u0022name\u0022:\u0022999\u0022}],\u0022vehicleSeatingCapacity\u0022:[{\u0022@type\u0022:\u0022QuantitativeValue\u0022,\u0022name\u0022:\u00225 seater\u0022}],\u0022driveWheelConfiguration\u0022:[{\u0022@type\u0022:\u0022DriveWheelConfigurationValue\u0022,\u0022name\u0022:\u0022FWD\u0022}],\u0022fuelType\u0022:[{\u0022@type\u0022:\u0022QualitativeValue\u0022,\u0022name\u0022:\u0022Petrol\u0022}],\u0022vehicleTransmission\u0022:[{\u0022@type\u0022:\u0022QualitativeValue\u0022,\u0022name\u0022:\u0022Manual\u0022},{\u0022@type\u0022:\u0022QualitativeValue\u0022,\u0022name\u0022:\u0022AMT\u0022}]},{\u0022@type\u0022:\u0022FAQPage\u0022,\u0022mainEntity\u0022:[{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022What is the on road price of Kwid?\u0022,\u0022text\u0022:\u0022What is the on road price of Kwid?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022The on-road \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/price-in-delhi/\u0027 title=\u0027Renault Kwid price in Delhi\u0027\u003eprice of Kwid in Delhi\u003c/a\u003e starts at ‎₹ 3.57 Lakh and goes upto ‎₹ 5.98 Lakh. The on road price is made up of ex-showroom price, RTO registration, road tax and insurance amount.\u0022}]},{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022Which car is better between Kwid and Alto?\u0022,\u0022text\u0022:\u0022Which car is better between Kwid and Alto?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022\u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e price starts at ₹ 3.18 Lakh ex-showroom and It comes with 799 cc engine. Whereas \u003ca href=\u0027https://www.carwale.com/maruti-suzuki-cars/alto/\u0027 title=\u0027Maruti Suzuki Alto\u0027\u003eAlto\u003c/a\u003e price starts at ₹ 3.00 Lakh ex-showroom and It comes with 796 cc engine. \u003ca class=\u0027faq-answer-link-font\u0027 href=\u0027/compare-cars/renault-kwid-vs-maruti-suzuki-alto/\u0027 title=\u0027Compare Renault Kwid vs Maruti Suzuki Alto\u0027\u003eCompare\u003c/a\u003e the two models to identify the best car for you. \u0022}]},{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022What is price of Kwid top model?\u0022,\u0022text\u0022:\u0022What is price of Kwid top model?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022Top model of \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e is CLIMBER 1.0 AMT Opt and the ex-showroom for \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/climber-10-amt-opt/\u0027 title=\u0027Kwid CLIMBER 1.0 AMT Opt\u0027\u003e\\n            Kwid CLIMBER 1.0 AMT Opt\u003c/a\u003e is ₹ 5.39 Lakh.\u0022}]},{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022What is the mileage of Renault Kwid?\u0022,\u0022text\u0022:\u0022What is the mileage of Renault Kwid?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022The \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/mileage/\u0027 title=\u0027Renault Kwid Mileage\u0027\u003eRenault Kwid mileage\u003c/a\u003e is 22 - 25 kmpl.\u0022}]},{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022Kwid is available in which colour options?\u0022,\u0022text\u0022:\u0022Kwid is available in which colour options?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022Renault Kwid is available in 8 colours in India: Fiery Red, Moonlight Silver, Ice Cool White, Outback Bronze, Electric Blue, Zanskar Blue, Moonlight Silver Body with Zanskar Blue roof \u0026 Zanskar Blue with Moonlight Silver roof.  To checkout Kwid colour images, \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/colours/\u0027 title=\u0027Kwid colours\u0027\u003eclick here.\u003c/a\u003e\u0022}]},{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022How many passengers can be accommodated in Renault Kwid?\u0022,\u0022text\u0022:\u0022How many passengers can be accommodated in Renault Kwid?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022Renault Kwid is a Hatchback in which 5 passengers (including driver) can seat. To checkout the list of all 5 seater cars, \u003ca href=\u0027/new/5-seater-cars-in-india/\u0027 title=\u00275 seater cars\u0027\u003eclick here.\u003c/a\u003e\u0022}]},{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022What are the transmission options available in Kwid?\u0022,\u0022text\u0022:\u0022What are the transmission options available in Kwid?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022Renault Kwid is available in 2 transmission options: Manual and AMT.\u0022}]},{\u0022@type\u0022:\u0022Question\u0022,\u0022answerCount\u0022:1,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale\u0022},\u0022name\u0022:\u0022Does Renault Kwid have sunroof or moonroof?\u0022,\u0022text\u0022:\u0022Does Renault Kwid have sunroof or moonroof?\u0022,\u0022acceptedAnswer\u0022:[{\u0022@type\u0022:\u0022Answer\u0022,\u0022dateCreated\u0022:\u00222020-04-23\u0022,\u0022author\u0022:{\u0022@type\u0022:\u0022Person\u0022,\u0022name\u0022:\u0022Carwale Experts\u0022},\u0022text\u0022:\u0022Sunroof/moonroof is not available in any version of Kwid.\u0022}]}]}]}",
+      "seoText": "Renault Kwid is a 5 seater Hatchback available in a price range of ₹ 3.18  - 5.39 Lakh. It is available in 13 variants, 1 engine option and 2 transmission options : Manual and AMT. Other key specifications of the Kwid include a Ground Clearance of 184 mm and Bootspace of 279 litres. The Kwid is available in 8 colours. The mileage of Kwid ranges from 22 kmpl to 25 kmpl.",
+      "deeplinkAlternativesAndroid": "/renault-cars/kwid/",
+      "ampHtml": "https://www.carwale.com/renault-cars/kwid/amp/",
+      "imageUrl": "https://imgd.aeplcdn.com/642x336/n/cw/ec/48543/kwid-exterior-right-front-three-quarter-17.jpeg?q=85"
+    },
+    "userLocation": {
+      "cityId": 0,
+      "isAreaAvailable": false,
+      "isDuplicate": false,
+      "areaId": 0,
+      "stateId": 0
+    },
+    "sameBrandModels": [],
+    "maxPrice": 539002,
+    "minPrice": 317873,
+    "keySpecs": [
+      {
+        "title": "Price",
+        "identifier": "price",
+        "keySpecsValue": [
+          {
+            "text": "₹ 3.18 Lakh onwards"
+          }
+        ]
+      },
+      {
+        "title": "Mileage",
+        "identifier": "12",
+        "keySpecsValue": [
+          {
+            "text": "22 to 25 kmpl"
+          }
+        ]
+      },
+      {
+        "title": "Engine",
+        "identifier": "14",
+        "keySpecsValue": [
+          {
+            "text": "799 to 999 cc"
+          }
+        ]
+      },
+      {
+        "title": "Transmission",
+        "identifier": "29",
+        "keySpecsValue": [
+          {
+            "text": "Manual"
+          },
+          {
+            "text": "AMT"
+          }
+        ]
+      },
+      {
+        "title": "Fuel Type",
+        "identifier": "26",
+        "keySpecsValue": [
+          {
+            "text": "Petrol"
+          }
+        ]
+      },
+      {
+        "title": "Seating Capacity",
+        "identifier": "9",
+        "keySpecsValue": [
+          {
+            "text": "5"
+          }
+        ]
+      }
+    ],
+    "isPopularCitiesSlug": true,
+    "is360Available": false,
+    "showWriteReviewSlug": true,
+    "usedCarModelLinkage": {
+      "totalStockCount": 1049,
+      "usedCarLink": "/used/renault-kwid-cars/",
+      "rootName": "Kwid"
+    },
+    "usedStockCountInCity": 0,
+    "faqs": [
+      {
+        "question": "What is the on road price of Kwid?",
+        "answer": "The on-road \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/price-in-delhi/\u0027 title=\u0027Renault Kwid price in Delhi\u0027\u003eprice of Kwid in Delhi\u003c/a\u003e starts at ‎₹ 3.57 Lakh and goes upto ‎₹ 5.98 Lakh. The on road price is made up of ex-showroom price, RTO registration, road tax and insurance amount."
+      },
+      {
+        "question": "Which car is better between Kwid and Alto?",
+        "answer": "\u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e price starts at ₹ 3.18 Lakh ex-showroom and It comes with 799 cc engine. Whereas \u003ca href=\u0027https://www.carwale.com/maruti-suzuki-cars/alto/\u0027 title=\u0027Maruti Suzuki Alto\u0027\u003eAlto\u003c/a\u003e price starts at ₹ 3.00 Lakh ex-showroom and It comes with 796 cc engine. \u003ca class=\u0027faq-answer-link-font\u0027 href=\u0027/compare-cars/renault-kwid-vs-maruti-suzuki-alto/\u0027 title=\u0027Compare Renault Kwid vs Maruti Suzuki Alto\u0027\u003eCompare\u003c/a\u003e the two models to identify the best car for you. "
+      },
+      {
+        "question": "What is price of Kwid top model?",
+        "answer": "Top model of \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/\u0027 title=\u0027Renault Kwid\u0027\u003eKwid\u003c/a\u003e is CLIMBER 1.0 AMT Opt and the ex-showroom for \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/climber-10-amt-opt/\u0027 title=\u0027Kwid CLIMBER 1.0 AMT Opt\u0027\u003e\n            Kwid CLIMBER 1.0 AMT Opt\u003c/a\u003e is ₹ 5.39 Lakh."
+      },
+      {
+        "question": "What is the mileage of Renault Kwid?",
+        "answer": "The \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/mileage/\u0027 title=\u0027Renault Kwid Mileage\u0027\u003eRenault Kwid mileage\u003c/a\u003e is 22 - 25 kmpl."
+      },
+      {
+        "question": "Kwid is available in which colour options?",
+        "answer": "Renault Kwid is available in 8 colours in India: Fiery Red, Moonlight Silver, Ice Cool White, Outback Bronze, Electric Blue, Zanskar Blue, Moonlight Silver Body with Zanskar Blue roof \u0026 Zanskar Blue with Moonlight Silver roof.  To checkout Kwid colour images, \u003ca href=\u0027https://www.carwale.com/renault-cars/kwid/colours/\u0027 title=\u0027Kwid colours\u0027\u003eclick here.\u003c/a\u003e"
+      },
+      {
+        "question": "How many passengers can be accommodated in Renault Kwid?",
+        "answer": "Renault Kwid is a Hatchback in which 5 passengers (including driver) can seat. To checkout the list of all 5 seater cars, \u003ca href=\u0027/new/5-seater-cars-in-india/\u0027 title=\u00275 seater cars\u0027\u003eclick here.\u003c/a\u003e"
+      },
+      {
+        "question": "What are the transmission options available in Kwid?",
+        "answer": "Renault Kwid is available in 2 transmission options: Manual and AMT."
+      },
+      {
+        "question": "Does Renault Kwid have sunroof or moonroof?",
+        "answer": "Sunroof/moonroof is not available in any version of Kwid."
+      }
+    ],
+    "versionTableSummary": "Renault Kwid price starts at ₹ 3.18 Lakh and goes upto ₹ 5.39 Lakh. The price of Petrol version for Kwid  ranges between ₹ 3.18 Lakh - ₹ 5.39 Lakh.",
+    "hiddenAdUnitIds": [],
+    "showFeatureTourOnTop": true,
+    "isLeaderBoardClosed": false,
+    "showLeftAlignedOverview": false,
+    "isUpcomingVersionsPriceAvailable": false,
+    "showOldOrderingSequence": false,
+    "showSpeakWithExpert": false,
+    "showCarwaleTakeBelowSummary": false,
+    "shouldReserveAdslotHeight": false
+  },
+  "isVernacularPopupVisible": true,
+  "isVernacularPopupClosed": false,
+  "isSecureCookieBrowserSupported": false,
+  "header": {
+    "isVisible": true,
+    "isNavDrawerActive": false,
+    "isSticky": false,
+    "hasLocation": true,
+    "isLocationActive": false,
+    "hasGlobalSearch": true,
+    "hasNavigationBar": true,
+    "showLocationToolTip": false,
+    "showLanguageSelectionPopup": false,
+    "showFinanceLoginIcon": false
+  },
+  "location": {
+    "areaCities": [
+      1,
+      12
+    ],
+    "areaId": -1,
+    "areaName": "",
+    "autoDetect": false,
+    "cityId": -1,
+    "cityName": "",
+    "isFetching": false,
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "userConfirmed": false
+  },
+  "appDownloadBanner": {
+    "isIos": false,
+    "isAndroid": false,
+    "isVisible": true
+  },
+  "showPwaInstallBanner": false,
+  "showCustomPwaInstallBanner": false,
+  "pageContext": {
+    "pageId": 31,
+    "pageName": "",
+    "pathName": "",
+    "search": "",
+    "makeMaskingName": "",
+    "modelMaskingName": ""
+  },
+  "globalMediaCampaign": {
+    "adTargetingData": [],
+    "ticker": {
+      "templateId": 0,
+      "campaignId": 0
+    },
+    "skin": {
+      "templateId": 0,
+      "campaignId": 0
+    },
+    "doodle": {
+      "templateId": 0,
+      "campaignId": 0
+    },
+    "isChatOn": false,
+    "availableMediaProperties": [],
+    "isFetching": true,
+    "isInitialPageLoad": true
+  }
+}

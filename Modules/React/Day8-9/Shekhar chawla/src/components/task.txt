@@ -1,0 +1,33 @@
+Day8/9
+
+What to Learn
+
+1. PropTypes
+
+2. isRequired and defaultProps
+
+3.propType Object Shape
+
+4. Controlled Input Form Submission
+
+5. uncontrolled Input with ref
+
+6. React Fragment          
+
+Practice Exercise:
+
+Do the hands on the video provided on tutorialsite.
+
+Do the hands on ToDo List Project provide on tutorialsite.
+
+Assignment
+
+1. Create Student Form With ID,FirstName, LastName,image, CollegeName and College Logo.
+
+Submit this value to the list. And display this list.
+
+Note: state and ref both should be used.
+
+State: ID,FirstName,LastName,CollegeName
+
+Ref: Logo and image
