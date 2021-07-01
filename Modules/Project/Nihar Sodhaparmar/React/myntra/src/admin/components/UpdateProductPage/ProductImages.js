@@ -1,5 +1,5 @@
 import React from "react";
-import { hostName } from "../../../Utils/global";
+import { hostName } from "../../../utils/Global";
 
 export default function Images({ image, index, removeImage }) {
   return (

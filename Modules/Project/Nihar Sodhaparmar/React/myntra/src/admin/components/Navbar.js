@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getToken } from "../../Utils/Storage";
+import { getToken } from "../../utils/Storage";
 
 export default function NavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -78,7 +78,10 @@ export default function NavBar() {
                   Logout
                 </Link>
               ) : (
-                <Link to="/login" className="btn btn-sm navbar-login-btn">
+                <Link
+                  to="/dashboard/login"
+                  className="btn btn-sm navbar-login-btn"
+                >
                   Login
                 </Link>
               )}

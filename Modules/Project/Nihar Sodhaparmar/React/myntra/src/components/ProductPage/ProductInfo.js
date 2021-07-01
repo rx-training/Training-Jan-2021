@@ -9,6 +9,7 @@ export default function ProductInfo({
   isInWishlist,
   addToBag,
   addToWishlist,
+  sizeError,
 }) {
   const {
     _id: productId,
@@ -20,7 +21,7 @@ export default function ProductInfo({
     details,
   } = product;
 
-  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [selectedSize, setSelectedSize] = useState("");
 
   return (
     <div>
@@ -39,8 +40,14 @@ export default function ProductInfo({
         <div className="col-sm col-md-4">
           <div className="product-info-padding">
             <div className="h5 font-weight-bold">
-              RS. {price}{" "}
-              <span style={{ color: "#ff905a" }}>
+              Rs.{" "}
+              {offer > 0
+                ? parseInt(price) - parseInt((price * offer) / 100)
+                : price}{" "}
+              <span className="text-muted mx-1 text-line-through">
+                {offer > 0 ? `Rs. ${price}` : ""}
+              </span>{" "}
+              <span className="text-orange">
                 {offer > 0 ? `(${offer} % OFF)` : null}
               </span>
             </div>
@@ -65,6 +72,7 @@ export default function ProductInfo({
                 );
               })}
             </div>
+            <p className="text-danger mb-0 font-weight-bold">{sizeError}</p>
           </div>
         </div>
       </div>

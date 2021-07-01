@@ -7,7 +7,7 @@ import CategoriesList from "../components/HomePage/CategoriesList";
 import ProductService from "../services/ProductService";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
-import { isAdmin } from "../Utils/Storage";
+import { isAdmin } from "../utils/Storage";
 
 export default function HomePage(props) {
   const [products, setProducts] = useState([]);

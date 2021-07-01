@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { hostName } from "../../Utils/global";
+import { hostName } from "../../utils/Global";
 
 export default function Product({ product }) {
   const { _id: id, imgurls, productName } = product;

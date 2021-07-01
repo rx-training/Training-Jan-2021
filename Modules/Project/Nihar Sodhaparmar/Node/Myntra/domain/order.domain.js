@@ -48,12 +48,19 @@ class OrderDomain {
           product: p.product,
           size: p.size,
           quantity: p.quantity,
-          salePrice: product.price,
+          salePrice:
+            parseInt(product.price) -
+            parseInt((parseInt(product.price) * parseInt(product.offer)) / 100),
         };
 
         newProductsArray.push(newProduct);
 
-        totalPrice += p.quantity * product.price;
+        totalPrice +=
+          parseInt(p.quantity) *
+          (parseInt(product.price) -
+            parseInt(
+              (parseInt(product.price) * parseInt(product.offer)) / 100
+            ));
         totalItems += p.quantity;
       }
 
@@ -97,6 +104,10 @@ class OrderDomain {
             <p style="font-size:1.2em">Hi,</p>
             <p style='font-size:1.1em'>
               Your oreder placed successfully. Here is your order details
+            </p>
+            <hr style="border:none;border-top:1px solid #eee" />
+            <p style="font-size:1.2em">
+              Order Reference Number : ${order._id}
             </p>
             <hr style="border:none;border-top:1px solid #eee" />
             <div>

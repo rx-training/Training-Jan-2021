@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import ProductImage from "../components/SingleProductPage/ProductImage";
 import ProductInfo from "../components/SingleProductPage/ProductInfo";
-import { getToken, removeUserSession } from "../../Utils/Storage";
+import { getToken, removeUserSession } from "../../utils/Storage";
 
 export default function SingleProductPage(props) {
   const [id] = useState(props.match.params.id);
@@ -52,7 +52,7 @@ export default function SingleProductPage(props) {
           props.history.push("/login");
           removeUserSession();
         } else if (error.response.status === 409) {
-          alert(error.response.data);
+          alert("Product is not allowed to delete");
         }
         setLoading(false);
       }

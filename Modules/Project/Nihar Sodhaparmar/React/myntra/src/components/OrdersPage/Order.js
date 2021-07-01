@@ -1,14 +1,20 @@
 import React from "react";
 import OrderItem from "./OrderItem";
 
-export default function Order({ products, totalPrice, totalItems, orderDate }) {
+export default function Order({
+  products,
+  totalPrice,
+  totalItems,
+  orderDate,
+  id,
+}) {
   function pad(s) {
     return s < 10 ? "0" + s : s;
   }
   orderDate = new Date(orderDate);
 
   return (
-    <li className="list-group-item px-5 py-5 my-4 rounded order-list-item">
+    <li className="list-group-item p-4 my-4 rounded order-list-item">
       <div>
         <ul className="list-group list-group-flush">
           {products.map((product) => {
@@ -34,6 +40,7 @@ export default function Order({ products, totalPrice, totalItems, orderDate }) {
                     orderDate.getFullYear(),
                   ].join("/")}
                 </div>
+                <div className="h6 font-weight-bold">Order # : {id}</div>
               </div>
             </div>
           </li>

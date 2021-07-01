@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import WishlistService from "../services/WishlistServie";
 import BagService from "../services/BagService";
-import { getUserId, getToken, removeUserSession } from "../Utils/Storage";
+import { getUserId, getToken, removeUserSession } from "../utils/Storage";
 import WishlistItem from "../components/WishlistPage/WishlistItem";
 import EmptyBanner from "../components/EmptyBanner";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
+import { NotificationManager } from "react-notifications";
 
 export default function WishlistPage(props) {
   const [wishlistItems, setWishlistItems] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [sizeError, setSizeError] = useState({});
 
   async function getData() {
     try {
@@ -41,21 +43,29 @@ export default function WishlistPage(props) {
   }, []);
 
   const deleteWishlistItem = async (wishlistItemId) => {
-    try {
-      setLoading(true);
-      await WishlistService.deleteWishlistItem(wishlistItemId, getToken());
-      setLoading(false);
-      getData();
-    } catch (error) {
-      if (error.response.status === 401) {
-        props.history.push("/login");
-        removeUserSession();
+    if (window.confirm("Are you sure you want to remove item from wishlist?")) {
+      try {
+        setLoading(true);
+        await WishlistService.deleteWishlistItem(wishlistItemId, getToken());
+        setLoading(false);
+        NotificationManager.error("Item removed from wishlist", "", 2000);
+        getData();
+      } catch (error) {
+        if (error.response.status === 401) {
+          props.history.push("/login");
+          removeUserSession();
+        }
+        console.error(error);
       }
-      console.error(error);
     }
   };
 
   const addToBag = async (wishlistItemId, size, quantity) => {
+    if (size === "" || size === null) {
+      setSizeError({ ...sizeError, [wishlistItemId]: "Please select a size" });
+      return;
+    }
+
     try {
       setLoading(true);
       await BagService.addWishlistToBag(
@@ -64,6 +74,7 @@ export default function WishlistPage(props) {
         getToken()
       );
       setLoading(false);
+      NotificationManager.success("Item added in bag", "", 2000);
       getData();
     } catch (error) {
       if (error.response.status === 401) {
@@ -98,7 +109,7 @@ export default function WishlistPage(props) {
         <div className="text-center pt-4 category-header text-capitalize">
           wishlist items
         </div>
-        <div className="container my-5" style={{ width: "fit-content" }}>
+        <div className="container my-4" style={{ width: "fit-content" }}>
           <ul className="list-group">
             {wishlistItems.map((item, index) => {
               return (
@@ -107,6 +118,7 @@ export default function WishlistPage(props) {
                   item={item}
                   deleteWishlistItem={deleteWishlistItem}
                   addToBag={addToBag}
+                  sizeError={sizeError}
                 />
               );
             })}

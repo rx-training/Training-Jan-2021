@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SizeButton from "../SizeButton";
 import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
-import { hostName } from "../../Utils/global";
+import { hostName } from "../../utils/Global";
 
 export default function BagItem({ item, removeFromBag, updateBagItem }) {
   const {
@@ -70,8 +70,14 @@ export default function BagItem({ item, removeFromBag, updateBagItem }) {
             />
           </div>
           <div className="h5 font-weight-bold mt-3">
-            Rs. : {price}{" "}
-            <span style={{ color: "#ff905a" }}>
+            Rs.{" "}
+            {offer > 0
+              ? parseInt(price) - parseInt((price * offer) / 100)
+              : price}{" "}
+            <span className="text-muted mx-1 text-line-through">
+              {offer > 0 ? `Rs. ${price}` : ""}
+            </span>{" "}
+            <span className="text-orange">
               {offer > 0 ? `(${offer} % OFF)` : null}
             </span>
           </div>

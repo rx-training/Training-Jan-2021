@@ -4,7 +4,7 @@ import Loading from "../components/Loading";
 import ProductService from "../services/ProductService";
 import { Link } from "react-router-dom";
 import Product from "../components/Product";
-import { FaSlidersH } from "react-icons/fa";
+import { FaSlidersH, FaTimes } from "react-icons/fa";
 import React, { Component } from "react";
 import Filter from "../components/Filter";
 
@@ -208,6 +208,9 @@ export default class SubCategoryWiseProductPage extends Component {
                     >
                       Filter
                     </span>
+                    <span>
+                      {isFiltershow ? <FaTimes className="pt-2" /> : ""}
+                    </span>
                   </div>
                   <div
                     className={`border filter-dropdown-menu bg-white ${
@@ -281,6 +284,9 @@ export default class SubCategoryWiseProductPage extends Component {
                     }}
                   >
                     Filter
+                  </span>
+                  <span>
+                    {isFiltershow ? <FaTimes className="pt-2" /> : ""}
                   </span>
                 </div>
                 <div

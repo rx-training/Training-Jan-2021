@@ -6,7 +6,8 @@ import CityService from "../services/CityService";
 import CountryService from "../services/CountryService";
 import StateService from "../services/StateService";
 import CustomerService from "../services/CustomerService";
-import { getToken, getUserId, removeUserSession } from "../Utils/Storage";
+import { getToken, getUserId, removeUserSession } from "../utils/Storage";
+import { NotificationManager } from "react-notifications";
 
 export default function EditProfilePage(props) {
   const id = getUserId();
@@ -373,11 +374,16 @@ export default function EditProfilePage(props) {
           city: "",
         });
         props.history.push("/profile");
+        NotificationManager.success("Profile updated successfully", "", 2000);
       } catch (error) {
         console.error(error.message);
       }
     } else {
     }
+  };
+
+  const cancel = () => {
+    props.history.push("/profile");
   };
 
   // ********** DESTRUCTRING OF CUSTOMER **********
@@ -760,12 +766,25 @@ export default function EditProfilePage(props) {
                 <div className="row mt-5">
                   <div className="col-md-3"></div>
                   <div className="col-md-9 register-form-control-container">
-                    <input
-                      className="btn login-btn btn-block w-50 mx-auto text-uppercase"
-                      type="submit"
-                      value="edit"
-                      style={{ borderRadius: "5px" }}
-                    />
+                    <div className="row">
+                      <div className="col-6">
+                        <div
+                          className="btn btn-secondary btn-block mx-auto text-uppercase text-btn"
+                          style={{ borderRadius: "5px" }}
+                          onClick={cancel}
+                        >
+                          cancel
+                        </div>
+                      </div>
+                      <div className="col-6">
+                        <input
+                          className="btn login-btn btn-block mx-auto text-uppercase"
+                          type="submit"
+                          value="update"
+                          style={{ borderRadius: "5px" }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 {/* ********** */}

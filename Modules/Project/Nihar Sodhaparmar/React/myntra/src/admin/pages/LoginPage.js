@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { setUserSession } from "../utils/Storage";
-import LoginService from "../services/LoginService";
+import { setUserSession } from "../../utils/Storage";
+import LoginService from "../../services/LoginService";
 import Navbar from "../components/Navbar";
-import { NotificationManager } from "react-notifications";
 
 export default function LoginPage(props) {
   const [user, setUser] = useState({
-    role: "customer",
+    role: "seller",
     email: "",
     password: "",
   });
@@ -29,7 +27,6 @@ export default function LoginPage(props) {
         if (isAdmin) {
           props.history.push("/dashboard/products");
         } else {
-          NotificationManager.success("Logged in successfully", "", 2000);
           props.history.push("/");
         }
 
@@ -124,7 +121,7 @@ export default function LoginPage(props) {
                   value="Login"
                 />
               </div>
-              <div className="text-muted mt-3 text-center">
+              {/* <div className="text-muted mt-3 text-center">
                 Don't have an account?{" "}
                 <Link className="text-highlighted register-link" to="/register">
                   Register
@@ -138,8 +135,8 @@ export default function LoginPage(props) {
                 >
                   Change Password
                 </Link>
-              </div>
-              <div style={{ paddingTop: "25px" }}></div>
+              </div> */}
+              <div style={{ paddingTop: "40px" }}></div>
             </form>
           </div>
         </div>

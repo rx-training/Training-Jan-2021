@@ -1,6 +1,6 @@
 import axios from "axios";
-import { hostName } from "../Utils/global";
-import { getToken } from "../Utils/Storage";
+import { hostName } from "../utils/Global";
+import { getToken } from "../utils/Storage";
 
 const MYNTRA_API_BASE_URL = `${hostName}`;
 

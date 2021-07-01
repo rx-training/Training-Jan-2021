@@ -1,5 +1,5 @@
 import React from "react";
-import { hostName } from "../../../Utils/global";
+import { hostName } from "../../../utils/Global";
 
 export default function Product({ product, applyOfferBtnClick }) {
   const { _id: id, imgurls, productName, offer } = product;
@@ -16,6 +16,7 @@ export default function Product({ product, applyOfferBtnClick }) {
             </div>
             <div className="mt-2 text-uppercase font-weight-bold">
               Offer : {offer}
+              <span style={{ fontSize: "small" }}>%</span>
             </div>
             <button
               className="btn btn-sm btn-primary mt-3"

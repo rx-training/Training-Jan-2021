@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OrderService from "../services/OrderService";
-import { getToken, getUserId, removeUserSession } from "../Utils/Storage";
+import { getToken, getUserId, removeUserSession } from "../utils/Storage";
 import EmptyBanner from "../components/EmptyBanner";
 import Loading from "../components/Loading";
 import Order from "../components/OrdersPage/Order";
@@ -66,6 +66,7 @@ export default function OrdersPage(props) {
                 <Order
                   products={order.products}
                   key={order._id}
+                  id={order._id}
                   totalPrice={order.totalPrice}
                   totalItems={order.totalItems}
                   orderDate={order.orderDate}

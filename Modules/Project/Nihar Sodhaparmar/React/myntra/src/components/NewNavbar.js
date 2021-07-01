@@ -1,26 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaBookmark, FaShoppingBag } from "react-icons/fa";
-import { getToken, getUserId } from "../utils/Storage";
-import { Navbar } from "react-bootstrap";
-import BagService from "../services/BagService";
+import { getToken } from "../Utils/Storage";
 
-export default function Navbar1() {
+export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [navExpanded, setNavExpanded] = useState(false);
-  const [bagItems, setBagItems] = useState(0);
-
-  async function getData() {
-    try {
-      let bagItems = await BagService.getBagItemsByCustomerId(
-        getUserId(),
-        getToken()
-      );
-
-      bagItems = bagItems.data;
-      setBagItems(bagItems.length);
-    } catch (error) {}
-  }
 
   useEffect(() => {
     if (getToken()) {
@@ -28,27 +12,11 @@ export default function Navbar1() {
     } else {
       setIsLoggedIn(false);
     }
-
-    getData();
-  }, [navExpanded, getData]);
-
-  const setNewNavExpanded = (expanded) => {
-    setNavExpanded(expanded);
-  };
-
-  const closeNav = () => {
-    setNavExpanded(false);
-  };
+  }, []);
 
   return (
     <>
-      <Navbar
-        onToggle={setNewNavExpanded}
-        expanded={navExpanded}
-        expand="lg"
-        fixed="top"
-        // className="navbar navbar-expand-lg navbar-light fixed-top"
-      >
+      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             <img
@@ -59,26 +27,21 @@ export default function Navbar1() {
             />
           </Link>
 
-          {/* <button
+          <button
             className="navbar-toggler navbar-toggler-right p-0"
             type="button"
             data-toggle="collapse"
             data-target="#navResponsive"
           >
             <span className="navbar-toggler-icon"></span>
-          </button> */}
+          </button>
 
-          <Navbar.Toggle />
-          {/* <div
+          <div
             className="collapse navbar-collapse"
             id="navResponsive"
             style={{ fontWeight: "600" }}
-          > */}
-          <Navbar.Collapse>
-            <ul
-              className="navbar-nav px-3 navbar-left-link-container"
-              style={{ fontWeight: "600" }}
-            >
+          >
+            <ul className="navbar-nav px-3 navbar-left-link-container">
               <li className="nav-item px-2">
                 <div className="nav-link">
                   <div className="dropdown navbar-dropdown-container">
@@ -96,7 +59,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/men/shirt"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         shirt
                       </Link>
@@ -104,7 +66,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/men/t-shirt"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         t-shirt
                       </Link>
@@ -112,7 +73,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/men/jeans"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         jeans
                       </Link>
@@ -120,7 +80,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/men/trouser"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         trouser
                       </Link>
@@ -128,7 +87,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/men/shoes"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         shoes
                       </Link>
@@ -153,7 +111,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/women/kurta"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         kurtas &#38; suits
                       </Link>
@@ -161,7 +118,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/women/saree"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         sarees
                       </Link>
@@ -169,7 +125,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/women/t-shirt"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         t-shirt
                       </Link>
@@ -177,7 +132,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/women/jeans"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         jeans
                       </Link>
@@ -185,7 +139,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/women/shoes"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         shoes
                       </Link>
@@ -210,7 +163,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/kids/shirt"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         shirt
                       </Link>
@@ -218,7 +170,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/kids/t-shirt"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         t-shirt
                       </Link>
@@ -226,7 +177,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/kids/jeans"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         jeans
                       </Link>
@@ -234,7 +184,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/kids/short"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         shorts
                       </Link>
@@ -242,7 +191,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/kids/shoes"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         shoes
                       </Link>
@@ -267,7 +215,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/home &#38; living/bedsheets"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         bedsheets
                       </Link>
@@ -275,7 +222,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/home &#38; living/bedding-sets"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         bedding sets
                       </Link>
@@ -283,7 +229,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/home &#38; living/blankets-quits-and-dohars"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         blankets, quilts and &#38; dohars
                       </Link>
@@ -291,7 +236,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/home &#38; living/towels"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         bath towels
                       </Link>
@@ -299,7 +243,6 @@ export default function Navbar1() {
                       <Link
                         to="/sub-category/home &#38; living/carpets"
                         className="text-capitalize dropdown-item"
-                        onClick={closeNav}
                       >
                         carpets
                       </Link>
@@ -310,10 +253,7 @@ export default function Navbar1() {
             </ul>
 
             <div className="search_container ml-auto">
-              <ul
-                className="navbar-nav"
-                style={{ fontSize: "13px", fontWeight: "600" }}
-              >
+              <ul className="navbar-nav" style={{ fontSize: "13px" }}>
                 {/* <li className="nav-item mr-3">
                   <div className="input-group mt-3">
                     <div className="input-group-prepend">
@@ -387,23 +327,18 @@ export default function Navbar1() {
                 <li className="nav-item">
                   <Link id="view-bag" to="/bag" className="nav-link">
                     <div className="nav-icon-container">
-                      {bagItems > 0 && (
-                        <div className="bag-items-count">{bagItems}</div>
-                      )}
                       <div className="text-center text-muted">
                         <FaShoppingBag aria-hidden="true" />
                       </div>
-
                       <div>Bag</div>
                     </div>
                   </Link>
                 </li>
               </ul>
             </div>
-          </Navbar.Collapse>
-          {/* </div> */}
+          </div>
         </div>
-      </Navbar>
+      </nav>
 
       <div className="navbar search-container2 pt-2">
         <div className="container-fluid">
@@ -474,9 +409,6 @@ export default function Navbar1() {
           <div>
             <Link to="/bag" className="nav-link">
               <div className="nav-icon-container">
-                {bagItems > 0 && (
-                  <div className="medium-bag-items-count">{bagItems}</div>
-                )}
                 <div className="text-center text-muted">
                   <FaShoppingBag aria-hidden="true" />
                 </div>

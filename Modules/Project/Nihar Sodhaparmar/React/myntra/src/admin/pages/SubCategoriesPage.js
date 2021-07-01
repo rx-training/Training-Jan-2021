@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { FaPlus } from "react-icons/fa";
-import { getToken, removeUserSession } from "../../Utils/Storage";
+import { getToken, removeUserSession } from "../../utils/Storage";
 import Loading from "../../components/Loading";
 import { Modal } from "react-bootstrap";
 import SubCategoryService from "../../services/SubCategoryService";
@@ -106,7 +106,7 @@ export default function SubCategoriesPage(props) {
           removeUserSession();
           props.history.push("/login");
         } else if (error.response.status === 409) {
-          alert(error.response.data);
+          alert("Sub Category is not allowed to delete");
         }
       }
     }

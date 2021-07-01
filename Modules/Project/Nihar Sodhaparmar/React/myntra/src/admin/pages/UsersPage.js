@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Loading from "../../components/Loading";
-import { getToken, removeUserSession } from "../../Utils/Storage";
+import { getToken, removeUserSession } from "../../utils/Storage";
 import CustomerService from "../../services/CustomerService";
 import UserRow from "../components/UsersPage/UserRow";
 
@@ -58,12 +58,14 @@ export default function UsersPage(props) {
   return (
     <>
       <Navbar />
-      <div className="container py-5">
+      <div className="container py-4">
         <h1 className="text-center pb-3">Users</h1>
         <table className="table table-hover table-bordered bg-white table-striped">
           <thead className="thead-dark">
             <tr>
-              <th style={{ letterSpacing: "2px" }}>No.</th>
+              <th className="text-center" style={{ letterSpacing: "2px" }}>
+                No.
+              </th>
               <th style={{ letterSpacing: "2px" }}>Name</th>
               <th style={{ letterSpacing: "2px" }}>E-mail</th>
               <th style={{ letterSpacing: "2px" }}>Contact number</th>

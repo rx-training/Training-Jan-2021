@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { hostName } from "../../Utils/global";
+import { hostName } from "../../utils/Global";
 import SizeButton from "../SizeButton";
 
-export default function WishlistItem({ item, deleteWishlistItem, addToBag }) {
+export default function WishlistItem({
+  item,
+  deleteWishlistItem,
+  addToBag,
+  sizeError,
+}) {
   const { wishlistItemId, imgurls, brand, productName, sizes, price, offer } =
     item;
 
-  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [selectedSize, setSelectedSize] = useState("");
   return (
     <li className="list-group-item px-5">
       <div className="row my-4">
@@ -37,9 +42,18 @@ export default function WishlistItem({ item, deleteWishlistItem, addToBag }) {
               );
             })}
           </div>
+          <p className="text-danger mb-0 font-weight-bold">
+            {sizeError[wishlistItemId]}
+          </p>
           <div className="h5 font-weight-bold mt-4">
-            Rs. : {price}{" "}
-            <span style={{ color: "#ff905a" }}>
+            Rs.{" "}
+            {offer > 0
+              ? parseInt(price) - parseInt((price * offer) / 100)
+              : price}{" "}
+            <span className="text-muted mx-1 text-line-through">
+              {offer > 0 ? `Rs. ${price}` : ""}
+            </span>{" "}
+            <span className="text-orange">
               {offer > 0 ? `(${offer} % OFF)` : null}
             </span>
           </div>
