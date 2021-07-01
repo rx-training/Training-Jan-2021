@@ -1,4 +1,5 @@
 const UserModel = require("../models/users.model");
+const PnrModel = require("../models/pnrs.model");
 var crypto = require("crypto");
 
 class UserDomain {
@@ -53,7 +54,7 @@ class UserDomain {
     let id = req.params.userId;
     const user = await UserModel.findByIdAndDelete(id);
     if (user) {
-      res.send("User Record Deleted Successfully");
+      res.send("success");
     } else {
       res.status(404).send("User Not Found");
     }
@@ -86,13 +87,27 @@ class UserDomain {
           { new: true }
         );
         if (result) {
-          res.send(result);
+          res.send(true);
         } else {
           res.status(404).send("User Not Found");
         }
       } catch (e) {
         res.send(e.message);
       }
+    }
+  }
+  //to get pnrs by user_id
+  async getPnrs(req, res) {
+    let id = req.params.userId;
+    const pnrs = await PnrModel.find({ user_id: id })
+      .populate("train", "train_name")
+      .populate("from", "station_name")
+      .populate("to", "station_name")
+      .populate("travel_class", "class_type");
+    if (pnrs.length > 0) {
+      res.status(200).send(pnrs);
+    } else {
+      res.status(200).send([]);
     }
   }
 }

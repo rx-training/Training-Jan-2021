@@ -1,4 +1,3 @@
-const { string } = require("joi");
 const mongoose = require("mongoose");
 
 const passengerSchema = new mongoose.Schema({
@@ -20,6 +19,11 @@ const passengerSchema = new mongoose.Schema({
     uppercase: true,
   },
   seat_no: { type: String, trim: true, uppercase: true, default: 0 },
+  seat_id: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 const pnrSchema = new mongoose.Schema({
@@ -65,7 +69,7 @@ const pnrSchema = new mongoose.Schema({
     orequired: true,
     trim: true,
   },
-  booking_date: { type: Date, trim: true },
+  journey_date: { type: String, trim: true },
   ticket_price: { type: Number, trim: true, required: true, min: 0 },
 });
 
@@ -77,7 +81,9 @@ pnrSchema.methods.joiValidate = (data) => {
     passengers: Joi.array().required(),
     from: Joi.string().required(),
     to: Joi.string().required(),
-    booking_date: Joi.date(),
+    fromTime: Joi.string(),
+    toTime: Joi.string(),
+    journey_date: Joi.string(),
     travel_class: Joi.string().required(),
     ticket_price: Joi.number().required(),
   });

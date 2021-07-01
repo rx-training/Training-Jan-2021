@@ -15,7 +15,7 @@ class Login {
 
     let token = jwt.sign(userdata, config.secretKey, {
       algorithm: config.algorithm,
-      expiresIn: "1h",
+      expiresIn: "2h",
     });
     const users = await UserModel.find();
 
@@ -30,13 +30,21 @@ class Login {
       (u) => u.email == userdata.email && u.password == userdata.password
     );
     if (user) {
+      const uData = {
+        id: user._id,
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        mobile: user.mobile,
+      };
       res.status(200).json({
         message: "Login Successful",
         jwtoken: token,
+        user: uData,
       });
     } else {
       res.status(401).json({
-        message: "Login Failed",
+        message: "Wrong EmailId Or Password",
       });
     }
   }

@@ -32,7 +32,9 @@ class TrainDomain {
     } else {
       try {
         const result = await train.save();
-        res.send(result);
+        if (result) {
+          res.send("success");
+        }
       } catch (e) {
         res.send(e.message);
       }
@@ -42,6 +44,8 @@ class TrainDomain {
   async deleteTrain(req, res) {
     let id = req.params.trainId;
     const train = await TrainModel.findByIdAndDelete(id);
+    const result = await StatusModel.deleteMany({ train: id });
+    const routes = await RouteModel.deleteMany({ train: id });
     if (train) {
       res.send("Train Record Deleted Successfully");
     } else {
@@ -52,7 +56,7 @@ class TrainDomain {
   async updateTrain(req, res) {
     //getting user input
     let data = req.body;
-    let id = req.params.userId;
+    let id = req.params.trainId;
 
     const train = new TrainModel(data);
     const { error, value } = train.joiValidate(data);
@@ -68,7 +72,7 @@ class TrainDomain {
           { new: true }
         );
         if (result) {
-          res.send(result);
+          res.send("success");
         } else {
           res.status(404).send("Train Not Found");
         }
@@ -89,10 +93,8 @@ class TrainDomain {
       let from = s1[0];
       let to = s2[0];
 
-      const train1 = await RouteModel.find({ station: from._id }).select(
-        "-_id"
-      );
-      const train2 = await RouteModel.find({ station: to._id }).select("-_id");
+      const train1 = await RouteModel.find({ station: from._id });
+      const train2 = await RouteModel.find({ station: to._id });
       let trains = [];
       for (let i = 0; i < train1.length; i++) {
         for (let j = 0; j < train2.length; j++) {
@@ -111,11 +113,13 @@ class TrainDomain {
                 distance: distance,
                 from: {
                   name: journeyFrom,
+                  id: from._id,
                   arr_time: train1[i].arr_time,
                   depart_time: train1[i].depart_time,
                 },
                 to: {
                   name: journeyTo,
+                  id: to._id,
                   arr_time: train2[j].arr_time,
                   depart_time: train2[j].depart_time,
                 },
@@ -129,10 +133,10 @@ class TrainDomain {
       if (trains.length > 0) {
         res.send(trains);
       } else {
-        res.send(`Train Not Available For ${journeyFrom} to ${journeyTo}`);
+        res.send([]);
       }
     } else {
-      res.send(`Train Not Available For ${journeyFrom} to ${journeyTo}`);
+      res.send([]);
     }
   }
 

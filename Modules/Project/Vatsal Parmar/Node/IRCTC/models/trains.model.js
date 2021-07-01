@@ -5,12 +5,16 @@ const trainSchema = new mongoose.Schema({
   train_type: {
     type: String,
     required: true,
-    enum: ["SPECIAL", "RAGULAR", "EXPRESS", "SHATABDI"],
+    enum: ["SPECIAL", "REGULAR", "EXPRESS", "SHATABDI"],
     uppercase: true,
     trim: true,
   },
   date: { type: Date, required: true },
-  days: { type: String, required: true, trim: true, uppercase: true },
+  days: {
+    type: Array,
+    trim: true,
+    default: ["Sn", "M", "T", "W", "Th", "F", "S"],
+  },
 });
 
 trainSchema.methods.joiValidate = (data) => {
@@ -18,8 +22,8 @@ trainSchema.methods.joiValidate = (data) => {
   const schema = Joi.object({
     train_name: Joi.string().required(),
     train_type: Joi.string().required(),
-    date: Joi.date().required(),
-    days: Joi.string().required(),
+    date: Joi.string().required(),
+    days: Joi.array(),
   });
   return schema.validate(data);
 };

@@ -23,7 +23,7 @@ function verifytoken(req, res, next) {
         });
       }
       req.decoded = decoded;
-      console.log(decoded);
+      //console.log(decoded);
 
       next();
     }

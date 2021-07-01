@@ -1,8 +1,11 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require("mongoose");
 var createError = require("http-errors");
 const mainRouter = require("./controllers/index");
-var mongoDB = "mongodb://localhost/irctc";
+const cors = require("cors");
+const MONGO_DB = process.env.MONGO_DB;
+var mongoDB = MONGO_DB;
 
 mongoose
   .connect(mongoDB, {
@@ -15,8 +18,23 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const app = express();
-const port = 3000;
+// const port = process.env.port;
+const port = 3001;
 
+// var corsOptions = {
+//   origin: "http://20.198.103.48:91",
+//   methods: "GET,POST,PUT,DELETE",
+//   credentials: true,
+//   allowedHeaders: "Content-Type,x-access-token",
+// };
+
+// app.use(cors(corsOptions));
+app.use(cors());
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Headers", "x-access-token, Content-Type");
+//   res.header("Allow", "GET,PUT,POST,DELETE");
+//   next();
+// });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", mainRouter);

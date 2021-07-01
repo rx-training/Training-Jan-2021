@@ -1,4 +1,5 @@
 const StationModel = require("../models/stations.model");
+const RouteModel = require("../models/routes.model");
 
 class StationDomain {
   //To get all stations
@@ -28,7 +29,9 @@ class StationDomain {
     } else {
       try {
         const result = await station.save();
-        res.send(result);
+        if (result) {
+          res.send("success");
+        }
       } catch (e) {
         res.send(e.message);
       }
@@ -38,8 +41,9 @@ class StationDomain {
   async deleteStation(req, res) {
     let id = req.params.stationId;
     const station = await StationModel.findByIdAndDelete(id);
+    const routes = await RouteModel.deleteMany({ station: id });
     if (station) {
-      res.send("Station Record Deleted Successfully");
+      res.send("success");
     } else {
       res.status(404).send("Station Not Found");
     }
@@ -64,7 +68,7 @@ class StationDomain {
           { new: true }
         );
         if (result) {
-          res.send(result);
+          res.send("success");
         } else {
           res.status(404).send("Station Not Found");
         }

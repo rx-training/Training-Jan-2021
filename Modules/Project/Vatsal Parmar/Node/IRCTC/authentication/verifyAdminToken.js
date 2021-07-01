@@ -1,5 +1,9 @@
 let jwt = require("jsonwebtoken");
 const config = require("./global.config");
+//admin details
+const email = "vatsalparmar33@gmail.com";
+const pass = "Vatsal";
+
 function verifyAdminToken(req, res, next) {
   //getting token from headers
   var token = req.headers["x-access-token"];
@@ -23,8 +27,8 @@ function verifyAdminToken(req, res, next) {
         });
       }
       req.decoded = decoded;
-      console.log(decoded);
-      if (decoded.email == "admin@irctc.com" && decoded.password == "admin") {
+      //console.log(decoded);
+      if (decoded.email == email && decoded.password == pass) {
         next();
       } else {
         return res.status(401).json({

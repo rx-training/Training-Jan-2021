@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  user_name: { type: String, required: true, trim: true, uppercase: true },
+  first_name: { type: String, required: true, trim: true, uppercase: true },
+  last_name: { type: String, required: true, trim: true, uppercase: true },
   password: { type: String, required: true, trim: true },
+  mobile: { type: String, required: true, trim: true },
   email: {
     type: String,
     required: true,
@@ -15,7 +17,9 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.joiValidate = (data) => {
   const Joi = require("joi");
   const schema = Joi.object({
-    user_name: Joi.string().required(),
+    first_name: Joi.string().required(),
+    last_name: Joi.string().required(),
+    mobile: Joi.string().required(),
     password: Joi.string().required(),
     email: Joi.string().required(),
   });
