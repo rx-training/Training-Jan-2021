@@ -1,0 +1,30 @@
+.banner{
+    background-color: rgb(48, 47, 47);
+    color: white;
+    font-size: larger;
+    text-align: center;
+}
+
+.breadcrumb{
+    background-color: rgb(48, 47, 47);
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 4px solid white;
+}
+
+table{
+    width: 800px;
+}
+
+td {
+    padding: 12px;
+}
+
+label{
+    font-size: normal;
+}

@@ -1,0 +1,23 @@
+    <div class="container">
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th>Student Id</th>
+                    <th>FullName</th>
+                    <th>DOB</th>
+                    <th>Place Of Birth</th>
+                    <th>Language Preference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let st of StudentList; let i = index">
+                    <td>{{ st.studentId }}</td>
+                    <td>{{ st.studentFirstName + " " + st.studentMiddleName + " " + st.studentLastName }}</td>
+                    <td>{{ st.dob }}</td>
+                    <td>{{ st.birthPlace }}</td>
+                    <td>{{ st.languagePreferred }}</td>
+                    <td><button class="btn btn-primary" (click)="UpdateStudent(st, st.studentId); show()">Update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

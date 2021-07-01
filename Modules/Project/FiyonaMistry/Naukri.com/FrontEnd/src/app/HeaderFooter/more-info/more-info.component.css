@@ -1,0 +1,12 @@
+.large{
+    font-size: large;
+}
+
+a{
+    text-decoration: none;
+    color: grey;
+}
+
+a:hover{
+    color: white;
+}

@@ -1,0 +1,75 @@
+<div class="text-end">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon" color="dark">close</mat-icon>
+    </button>
+  </div>
+<div class="px-4">
+    <h5 class="pb-3">Add Education</h5>
+    <form [formGroup]="Education">
+        <div class="py-2">
+            <label for="HighestQualification">Highest Qualification*</label>
+            <select class="form-select" formControlName="jobSeekerField" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerField') }">
+                <option value="0" selected>Select your highest qualification</option>
+                <option value="Doctorate/Phd">Doctorate/Phd</option>
+                <option value="Masters/Post-Graduation">Masters/Post-Graduation</option>
+                <option value="Graduation/Diploma">Graduation/Diploma</option>
+                <option value="12th">12th</option>
+                <option value="10th">10th</option>
+              </select>
+              <div *ngIf="isValidInput('jobSeekerField')" class="invalid-feedback text-start">
+                <div *ngIf="Education.controls['jobSeekerField'].errors.required">
+                  Highest Qualification is required.
+                </div>
+              </div>
+        </div>
+        <div class="py-2">
+            <label for="College">University/College*</label>
+            <input type="text" class="form-control" placeholder="Institute Name" formControlName="jobSeekerCollege" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerCollege') }">
+                  <div *ngIf="isValidInput('jobSeekerCollege')" class="invalid-feedback text-start">
+                    <div *ngIf="Education.controls['jobSeekerCollege'].errors.required">
+                      College is required.
+                    </div>
+                  </div>
+        </div><div class="row py-2">
+            <div class="col">
+                <label for="CourseType">Course Type*</label>
+            </div>
+            <div class="col">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Full Time" checked> 
+                <label class="form-check-label" for="inlineRadio1">Full Time</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Part Time"> 
+                <label class="form-check-label" for="inlineRadio2">Part Time</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Correspondence"> 
+                <label class="form-check-label" for="inlineRadio3">Correspondence</label>
+              </div>
+            </div>
+          </div>
+          <div class="py-2">
+            <label for="PassingYear">Passing Year*</label>
+            <select class="form-select" formControlName="jobSeekerYearOfCompletion" [ngClass]="{ 'is-invalid': isValidInput('jobSeekerYearOfCompletion') }">
+                <option value="0" selected>Select</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+            </select>
+            <div *ngIf="isValidInput('jobSeekerYearOfCompletion')" class="invalid-feedback text-start">
+              <div *ngIf="Education.controls['jobSeekerYearOfCompletion'].errors.required">
+                Passing Year is required.
+              </div>
+            </div>
+          </div>
+      <div class="text-end pt-4">
+        <button class="btn text-primary" [mat-dialog-close]="true">Cancel</button>
+        <button class="btn btn-primary" (click)="save()">Save</button>
+      </div>
+    </form>
+</div>

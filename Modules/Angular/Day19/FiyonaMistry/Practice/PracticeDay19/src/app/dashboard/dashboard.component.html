@@ -1,0 +1,9 @@
+<div class="text-center">
+    <h2>Top Heroes</h2>
+    <div class="heroes-menu">
+        <button *ngFor="let hero of heroes" routerLink="/detail/{{ hero.id }}" class="btn btn-success px-5 py-3 m-3">
+            {{ hero.name }}
+        </button>
+    </div>
+</div>
+<app-hero-search></app-hero-search>

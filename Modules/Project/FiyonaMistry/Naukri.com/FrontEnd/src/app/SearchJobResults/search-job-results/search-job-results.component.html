@@ -1,0 +1,63 @@
+<div class="mt-5 pt-4">
+    <div id="jobSearch" class="row pt-3 px-3 bg-light">
+        <div class="col-3 fixed">
+            <div class="card p-4">
+                <p><i class="fas fa-filter"></i> All Filters</p>
+            </div>
+        </div>
+        <div class="col">
+            <ng-container *ngFor="let job of jobs$">
+                <ng-container *ngFor="let j of job.data">
+                    <a href="" [routerLink]="['jobDetails', j.jobId]">
+                        <ng-container *ngIf="j.isOpen == 1">
+                            <div class="card p-4 mb-3 shadow-sm">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>{{ j.jobName }}</h5>
+                                        <div class="row py-2">
+                                            <div class="col-2">
+                                                {{ j.company.companyName }}
+                                            </div>
+                                            <div class="col-2">
+                                                {{ j.company.companyReview }} &nbsp; <i class="fas fa-star star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p><i class="fas fa-briefcase"></i> &nbsp;{{ j.jobExperienceNeeded }}</p>
+                                            </div>
+                                            <div class="col-2">
+                                                <p><i class="fas fa-rupee-sign"></i> &nbsp;{{ j.jobSalary }}</p>
+                                            </div>
+                                            <div class="col-3">
+                                                <p><i class="fas fa-map-marker-alt"></i> &nbsp;{{ j.jobLocation }}</p>
+                                            </div>
+                                        </div>
+                                        <p class="role"><i class="far fa-copy"></i> &nbsp;{{ j.jobRole }}</p>
+                                        <p class="role">{{ j.jobKeySkills }}</p>
+                                    </div>
+                                    <div class="col-1"></div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </a>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="col-3">
+            <div class="card p-4">
+                <div class="row">
+                    <div class="col-7">
+                        <h6>Get Personalised Job Recommendations</h6>
+                    </div>
+                    <div class="col">
+                        <img src="../../../assets/img/SearchJobResults/register.e0bc10df.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <p class="small pt-3">Registering gives you the benefit to browse & apply variety of jobs based on your preferences</p>
+                <button class="btn pt-3">Register Now</button>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

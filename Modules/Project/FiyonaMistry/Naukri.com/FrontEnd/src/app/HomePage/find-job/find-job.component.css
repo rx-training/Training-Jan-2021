@@ -1,0 +1,36 @@
+.card{
+    border-radius: 20px;
+}
+
+h4{
+    color: rgb(11, 11, 100);
+    font-weight: bold;
+}
+
+.input-group{
+    width: 410px;
+}
+
+.search{
+    font-size: 18px;
+    height: 50px;
+}
+
+.vertical{
+    border-left: 2px solid lightgray;
+}
+
+p{
+    font-size: small;
+}
+
+.register{
+    color: white;
+    font-weight: bold;
+    background-color: rgb(255, 123, 0)
+}
+
+.tab{
+    font-size: x-small;
+    margin-left: 52%;
+}

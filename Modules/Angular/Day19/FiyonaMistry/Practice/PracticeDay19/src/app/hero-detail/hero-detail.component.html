@@ -1,0 +1,11 @@
+<ng-contaier *ngIf="hero">
+    <h2>{{ hero.name | uppercase }} Details</h2>
+    <div><span>Id : </span>{{hero.id}}</div>
+  <div>
+    <label for="hero-name">Hero Name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name" class="form-control"/>
+  </div>
+  <br>
+  <button class="btn btn-primary mr-3" (click)="goBack()">Go Back</button>
+  <button class="btn btn-primary mx-3" (click)="save()">Save</button>
+</ng-contaier>

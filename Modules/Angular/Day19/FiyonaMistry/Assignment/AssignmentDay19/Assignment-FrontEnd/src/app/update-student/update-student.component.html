@@ -1,0 +1,2 @@
+<app-student-list (isUpdating)="isUpdatingStudent($event)"></app-student-list>
+<app-admission-form (newItemEvent)="submit($event)" [isEditing]="isUpdating" (isEdited)="isUpdatingCompleted($event)"></app-admission-form>
