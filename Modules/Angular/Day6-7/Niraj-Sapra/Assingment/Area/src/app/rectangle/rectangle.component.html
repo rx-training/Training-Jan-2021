@@ -1,0 +1,17 @@
+
+    <div class="textaligncenter">
+        <h3>Create a Rectangle Component which computes area of Rectangle.</h3>
+    </div>
+    <div>Enter lenght : </div>
+    <div>
+        <input   [(ngModel)] ="length" type="number">
+    </div>
+    <div>Enter Width : </div>
+    <div>
+        <input [(ngModel)] ="width" type="number">
+    </div>
+    <div>Get Area : </div>
+        <div>
+        <input  type="button" [value] = "Submit" (click) = "GetArea()">
+        </div>
+        <div>Final get data is {{GetArea()}}</div>

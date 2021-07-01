@@ -1,0 +1,22 @@
+<p>hello world! name =" {{ Name }}"</p>
+
+<!--InterPoletion-->
+<span>Enter name  </span>
+<input [value]="Name">
+<div>
+<input type="button" [value] = "btn">
+</div>
+<div>Enter string {{names}}  </div>
+<div>Enter Address {{Address}}  </div>
+<div>Enter value {{value}}  </div>
+
+
+<!--InterPoletion-->
+<div>
+    <span>Your Name is {{EmpName}}</span>
+</div>
+
+<input [(ngModel)]="EmpName" type="text">
+<div>
+<input type="button" [value] = "btnemp" (click)="demo()">
+</div>

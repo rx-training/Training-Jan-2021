@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <title>admin penel</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-sm " style="background-color: #fff;">
+        <div class="row w-100">
+                <div class="col-lg-2">
+                    <a class="navbar-brand" href="#">
+                     <img src="../../assets/img/swi.png" alt="logo" style="width: 85px;">
+                    </a>
+                </div>
+                <div class="col-lg-10">
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link mx-5 py-3 active" routerLink="adminUser"  id="dashborad" style="color: #3d4152;
+                            font-size: 16px;
+                            font-weight: 500;"><i class="fas fa-gair"></i>Dashborad</a>
+                          </li>
+                        <li class="nav-item">
+                          <a class="nav-link mx-5 py-3" routerLink="City" id="citylink" style="color: #3d4152;
+                          font-size: 16px;
+                          font-weight: 500;"><i class="fas fa-archway"></i>City</a>
+                        </li>
+                        <li class="nav-item">
+                          <a id="restorentlink" class="nav-link mx-5 py-3" routerLink="Restaurant" style="color: #3d4152;
+                          font-size: 16px;
+                          font-weight: 500;"><i class="fas fa-utensils"></i>Restaurant</a>
+                        </li>
+                        <li class="nav-item">
+                          <a id="productlink" class="nav-link mx-5 py-3" routerLink="Product" style="color: #3d4152;
+                          font-size: 16px;
+                          font-weight: 500;"><i class="fas fa-utensils"></i>product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logout" onclick="logout()" class="nav-link mx-5 py-3" href="../../index.html" style="color: #3d4152;
+                            font-size: 16px;
+                            font-weight: 500;"><i class="fas fa-user-times"></i>logout</a>
+                          </li>
+                      </ul>
+                </div>
+            </div>    
+        </nav>              
+        <router-outlet></router-outlet>     
+    </body>
+</html>

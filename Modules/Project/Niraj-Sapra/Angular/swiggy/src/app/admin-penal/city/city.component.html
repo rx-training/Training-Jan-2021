@@ -1,0 +1,99 @@
+<header>
+  <div class="bg-primary text-white py-2">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h1><i class="far fa-cog"></i>City Branchs</h1>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+<section>
+  <div class="container mx-auto my-3"> 
+      <div class="col-lg-3">
+          <a  class="btn btn-warning btn-block" id="Addbtcity" data-toggle="modal" data-target="#AddCitY">
+              <i class="fa fa-plus" aria-hidden="true"></i> Add city
+          </a>
+      </div>
+  </div>
+</section>
+<dIV>
+    <div class="modal" id="updateCitY">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">New City Data</h4>
+          <button  id ="closecity"  class="close colseclass" (click)="colseuse()" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form [formGroup]="cityForm" (ngSubmit)="updatecitys(cityForm.value)"> 
+                  <div class="form-group">
+                  <input type="text" formControlName="cityname" [(ngModel)]="updatecity"  class="form-control focusforuse" placeholder="Enter name" id="citynamead" value="">
+                  <div id="validcity" class="valdefault text-danger">Enter valid city </div> 
+                </div>
+                <button type="button" class="btn btn-secondary mr-3 colseclass" (click)="colseuse()" data-dismiss="modal">Close</button>
+                  <button class="btn btn-primary" >Submit</button>
+              </form>
+          </div>
+      </div>
+    </div>
+</div>
+</dIV>
+<div class="users">
+  <div class="container">
+      <div class="row">
+          <div class="col">
+            <div class="modal" id="AddCitY">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">New City Data</h4>
+                    <button  id ="closecity"  class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                      <form [formGroup]="cityForm" (ngSubmit)="addcitys(cityForm.value)"> 
+                          <div class="form-group">
+                            <input type="text" formControlName="cityname"  class="form-control focusforuse" placeholder="Enter name" id="citynamead" value="">
+                            <div id="validcity" class="valdefault text-danger">Enter valid city </div> 
+                          </div>
+                          <button type="button" class="btn btn-secondary mr-3" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary" >Submit</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+          </div>
+              <div class="card">
+                  <div class="card-header">
+                      <h4 class="card-title">
+                      </h4>
+                  </div>
+                  <table id="my_table" class="display table table-striped">
+                    <thead>
+                      <tr>
+                        <th>No</th>  
+                        <th>City Name</th>
+                        <th >Action</th>
+                        <th>Update</th>
+                    </tr> 
+                    </thead> 
+                    <tbody id="tblbody">                          
+                      <tr *ngFor="let item of citysdata;let idx = index" class='my-5'> 
+                        <td>{{item.cityId}}</td>
+                        <td>{{item.cityName}}</td>
+                        <td><button class='btn btn-danger deletebtn' (click)="deleterow(item.cityId)"><i class='fas fa-trash-alt'></i>delete</button></td>
+                        <td><button class='btn btn-warning deletebtn' (click)="updaterow(item.cityId)" ><i class='fas fa-trash-alt'></i>Update</button></td>
+                      </tr>
+                      <br>
+                    </tbody>
+                </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

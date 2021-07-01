@@ -1,0 +1,33 @@
+<p>book works!</p>
+
+<div class="my-5 text-center">
+        <form [formGroup]="newtest" (ngSubmit)="onsubmit()">
+            <label for="">name</label>
+            <input type="text" formControlName="name">
+            <label for="">auther</label>
+            <input type="text" formControlName="Author">
+            <label >Price</label>
+            <input type="text" formControlName="price">
+            <div formGroupName="Publiser" class="my-5">
+                <div class="my-5">
+                    city <input type="text" formControlName="city">
+                </div>
+                <div class="my-5">
+                    state <input type="text" formControlName="state"> 
+                </div>    
+            </div>
+            <div class="my-5"> 
+                <button type="text" (click)="addSubscriberName()">Add</button>
+            </div>
+            <div formArrayName="Subscribers">
+                <div *ngFor="let item of getSubscribers.controls ; let idx=index">
+                    <div [formGroupName]="idx">
+                        <input type="text" formControlName="SubscriberName"/>
+                        <input type="text" formControlName="SubscriberContectNumber"/>
+                        <input type="date" formControlName="PerchaseDate"/>
+                    </div> 
+                </div>
+            </div>
+        <button type="submit">click</button>
+    </form>
+</div>          

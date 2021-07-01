@@ -1,0 +1,15 @@
+hello working appcomponent
+<div>
+  <div id="header" style="border:1px solid red; height:200px ; width: 300px;"></div>
+  <a [routerLink]="['/']" style="margin: 15px 15px;">Home</a>
+  <a [routerLink]="['/home']" style="margin: 15px 15px;">home</a>
+  <a [routerLink]="['/contact']" style="margin: 15px 15px;">Contact</a>
+  <div>
+  <div>
+    <button (click) = "navstudent()">Student</button>
+    <button (click) = "navfaculat()">Faculat </button>
+  </div>
+    <!-- <[routerLink]="['/routePath']" routerLinkActive="router-link-active" -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

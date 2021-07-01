@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <title>Day 20 Assignment </title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="my-5 card w-75 mx-auto">
+                <div class="card-header text-center">Product Detils</div>
+                <div class="card-body text-center my-2">
+                    <div class="my-1">
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                              <th scope="col">ProductID</th>
+                              <th scope="col">ProductName</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col"></th>
+                              <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr scope="row">
+                              <td id="productid1" value="1">1</td>
+                              <td id="productname" value="Cheese">Cheese</td>
+                              <td id="productprice" value="100">100</td>
+                              <td id="productquantity" value="1">1</td>
+                              <td><input id="addtocart1" type="button" onclick="Addtocart(addtocart1)" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                              <td><input id="cart1" type="button" onclick="mycart(cart1)" class="btn btn-warning text-white p-1" value="Cart"></td>  
+                            </tr>
+                            <tr scope="row">
+                                <td id="productid2" value="2">2</td>
+                                <td id="productname2" value="Pan">Pen</td>
+                                <td id="productprice2" value="150">150</td>
+                                <td id="productquantity2" value="2">2</td>
+                                <td><input id="addtocart2" type="button" onclick="Addtocart(addtocart2)" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                                <td><input id="cart2" type="button" onclick="mycart(cart2)" class="btn btn-warning text-white p-1" value="Cart"></td>
+                            </tr>
+                            <tr scope="row">
+                                <td id="productid3" value="1">3</td>
+                                <td id="productname3" value="Butter">Butter</td>
+                                <td id="productprice3" value="150">150</td>
+                                <td id="productquantity3" value="1">1</td>
+                                <td><input id="addtocart3" type="button" onclick="Addtocart(addtocart3)" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                                <td><input id="cart3" type="button" onclick="mycart(cart3)" class="btn btn-warning text-white p-1" value="Cart"></td>
+                            </tr>
+                            <tr scope="row">
+                                <td id="productid4" value="4">4</td>
+                                <td id="productname4" value="Pencil">Pencil</td>
+                                <td id="productprice4" value="100">100</td>
+                                <td id="productquantity4" value="1">1</td>
+                                <td><input id="addtocart4" type="button" onclick="Addtocart(addtocart4)" class="btn btn-primary text-white p-1" value="Add to Cart"></td>
+                                <td><input id="cart4" type="button" onclick="mycart(cart4)" class="btn btn-warning text-white p-1" value="Cart"></td>
+                            </tr>                            
+                        </tbody>        
+                        </table>
+                    </div>
+                <!--    <div class="my-1"><input type="button" onclick="return Area()" class="btn btn-primary my-2 p-2" value="Submit"></div> 
+                    <div id="answer"></div>-->
+                </div>
+            </div>
+            <div class="my-5 card w-75 mx-auto">
+                <div class="card-header text-center">Cart Summary</div>
+                <div class="card-body text-center my-2">
+                    <div class="my-1">
+                        <div id="answer1"></div>
+                        <div id="answer2"></div>
+                        <div id="answer3"></div>
+                        <div id="answer4"></div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var productid4 = document.getElementById("productid4");
+        var productname4 = document.getElementById("productname4").value;
+        var productprice4 = document.getElementById("productprice4").value;
+        var productquntity4 = document.getElementById("productquantity4").value;
+        console.log(productid4);
+         var product = {
+          ProductId:"4",
+          ProductName: "Pencil",
+          ProductPrice:"100",
+          ProductQuntity: "1"
+        }; 
+        function Addtocart(id){
+            switch(id){
+                case addtocart1:
+                localStorage.setItem("productid1", "1");
+                localStorage.setItem("productname1", "Cheese");
+                localStorage.setItem("productprice1", "100");
+                localStorage.setItem("productquntity1", "1");    
+                break;
+                case addtocart2:
+                localStorage.setItem("productid2", "2");
+                localStorage.setItem("productname2", "Pan");
+                localStorage.setItem("productprice2", "150");
+                localStorage.setItem("productquntity2", "2");
+                break;
+                case addtocart3:
+                localStorage.setItem("productid3", "3");
+                localStorage.setItem("productname3", "Butter");
+                localStorage.setItem("productprice3", "100");
+                localStorage.setItem("productquntity3", "1");
+                break;
+                case addtocart4:
+                localStorage.setItem("productid4", "4");
+                localStorage.setItem("productname4", "Pancil");
+                localStorage.setItem("productprice4", "10");
+                localStorage.setItem("productquntity4", "1");
+                break;
+            }
+        }
+        function mycart(id){
+            switch(id){
+                case cart1:
+                console.log(localStorage.getItem("productid1"));
+                console.log(localStorage.getItem("productname1"));
+                console.log(localStorage.getItem("productprice1"));
+                console.log(localStorage.getItem("productquntity1"));
+                document.getElementById("answer1").innerHTML=localStorage.getItem("productid1");
+                document.getElementById("answer2").innerHTML=localStorage.getItem("productname1");
+                document.getElementById("answer3").innerHTML=localStorage.getItem("productprice1");
+                document.getElementById("answer4").innerHTML=localStorage.getItem("productquntity1");    
+                break;
+                case cart2:
+                console.log(localStorage.getItem("productid2"));
+                console.log(localStorage.getItem("productname2"));
+                console.log(localStorage.getItem("productprice2"));
+                console.log(localStorage.getItem("productquntity2"));
+                document.getElementById("answer1").innerHTML=localStorage.getItem("productid2");
+                document.getElementById("answer2").innerHTML=localStorage.getItem("productname2");
+                document.getElementById("answer3").innerHTML=localStorage.getItem("productprice2");
+                document.getElementById("answer4").innerHTML=localStorage.getItem("productquntity2");                // code block
+                break;
+                case cart3:
+                console.log(localStorage.getItem("productid3"));
+                console.log(localStorage.getItem("productname3"));
+                console.log(localStorage.getItem("productprice3"));
+                console.log(localStorage.getItem("productquntity3"));
+                document.getElementById("answer1").innerHTML=localStorage.getItem("productid3");
+                document.getElementById("answer2").innerHTML=localStorage.getItem("productname3");
+                document.getElementById("answer3").innerHTML=localStorage.getItem("productprice3");
+                document.getElementById("answer4").innerHTML=localStorage.getItem("productquntity3");
+                break;
+                case cart4:
+                console.log(localStorage.getItem("productid4"));
+                console.log(localStorage.getItem("productname4"));
+                console.log(localStorage.getItem("productprice4"));
+                console.log(localStorage.getItem("productquntity4"));
+                document.getElementById("answer1").innerHTML=localStorage.getItem("productid4");
+                document.getElementById("answer2").innerHTML=localStorage.getItem("productname4");
+                document.getElementById("answer3").innerHTML=localStorage.getItem("productprice4");
+                document.getElementById("answer4").innerHTML=localStorage.getItem("productquntity4");
+                break;
+            }
+            
+        }
+        /* function mycart(){
+            localStorage.setItem("productdata", myObject);
+        } */
+
+       /*  fetch ("data.json")
+        .then(x => x.text())
+        .then(y => document.getElementById("answer").innerHTML = y)
+        .then(z => localStorage.setItem("dataofjson", z));
+
+        console.log(localStorage.getItem("dataofjson")); */
+    </script>
+</html>

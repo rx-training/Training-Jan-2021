@@ -1,0 +1,17 @@
+
+     <p>login works!</p>
+
+    <div class="h4" > Create Login Component which validate a user with below credential username=admin, password=admin 
+    </div>
+    <div>Enter User Name : </div>
+    <div>
+        <input [(ngModel)] = "uname" type="text">
+    </div>
+    <div>Enter password : </div>
+    <div>
+        <input [(ngModel)] = "lpassword" type="text">
+    </div>
+     <div>Get Login User : </div>
+     <div>
+        <input  type="button" [value] = "Login" (click) = "Loginuser()">
+    </div>

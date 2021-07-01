@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse ">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" [routerLink]="['home']">Traingplan</a>
+        </div>
+        <ul class="nav navbar-nav h3">
+          <li ><a [routerLink]="['html']">Html</a></li>
+          <li><a [routerLink]="['css']">Css</a></li>
+          <li><a [routerLink]="['js']">JS</a></li>
+        </ul>
+      </div>
+  </nav>
+  
+  <div class="h1 text-center" style="height: 500px;"> 
+    <router-outlet></router-outlet>  
+  </div>
+  <footer class="bg-primary footer mt-5">
+    <div class="text-center h5 text-warning">This is Day Assingment</div>
+  </footer>
+  <style>
+    .footer {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       background-color:yellowgreen;
+       color: white;
+       text-align: center;
+    }
+    </style>
+    

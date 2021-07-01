@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Practice first</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="my-2 card w-75 mx-auto">
+                <div class="card-header text-center">prctice 4</div>
+                <div class="card-body text-center my-2">
+                    <div class="my-1">
+                        <input type="number" name="cirle" id="redius" placeholder="Enter Employ name">
+                    </div>
+                    <div class="my-1"><input type="button" onclick="return Area()" class="btn btn-primary my-2 p-2" value="Submit"></div>
+                    <div id="answer"></div>
+                    <div id="demo"></div>
+                    <div id="empdeils"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var myEmp = {
+            firstName :"Niraj",
+            lastName :"Sapra",
+            Address : "Nirmal nager,bhavnager",
+            Designation :"Software Devlopment",
+            fullName: function(city, country) {
+                return this.firstName + " " + this.lastName + "," + city + "," + country;
+            }
+        }
+        var emp1 = {
+          firstName:"John",
+          lastName: "Doe"
+        }
+        var emp2 = {
+          firstName:"Mary",
+          lastName: "Doe"
+        }
+        var x = myEmp.fullName.call(emp1,"surat","india"); 
+        document.getElementById("answer").innerHTML = " Enter first Employ Details : " + x;
+        document.getElementById("demo").innerHTML = " Enter sec Employ Details : " + myEmp.fullName.call(emp2 ,"Oslo", "Norway"); 
+        document.getElementById("empdeils").innerHTML ="Enter third Employ Detils" +myEmp.fullName("bhavnagar","India"); 
+    </script>
+</html>
