@@ -1,0 +1,13 @@
+.imgShadow:hover{
+    transform: scale(1.05);
+}
+@media screen and (max-width:600px) {
+    .imgHeight{
+        height : 100px;
+    }
+}
+@media screen and (min-width:600px) {
+    .imgHeight{
+        height : 180px;
+    }
+}

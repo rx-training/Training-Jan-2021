@@ -1,0 +1,46 @@
+
+<div class="row mb-3">
+    <div class="col-md-4 col-sm-1 col-1">
+    </div>
+    <div class="col-md-4 col-sm-10 col-10 mb-2">
+        <div class="input-group location" >
+            <div class="input-group-prepend dropdown">
+                <span class="input-group-text dropdown-toggle" data-toggle="dropdown">Search by {{searchName}}</span>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" (click)="SearchSet('Seller')">Seller name</a>
+                    <a class="dropdown-item" (click)="SearchSet('Company')">Company name</a>
+                </div>
+            </div>
+            <input type="text" class="form-control" (change)="search()" [(ngModel)]="searchSet" placeholder="Search here...">
+        </div>
+    </div>
+    <div class="col-md-1 col-sm-0 "></div>
+    <div class="col-md-2 col-sm-12 col-12 text-center">
+        <button class="btn btn-outline-success" data-toggle='modal' data-target='#insertProduct'
+            >+&nbsp;Seller</button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let l of sellers">
+            <div  class="col-lg-3 col-md-4 col-sm-6 col-6 mb-2">
+                <div class="card backBrand h-100" (click)="SellerInfo(l.sellerId)">
+                    <div class="card-body colorAdd h4 center text-center">
+                        {{l.sellerCompanyName}}
+                    </div>
+                    <div class="card-footer text-center colorFooter h6">
+                        Owner : {{l.sellerName}}
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-2">
+            <div class="card AddBack h-100" data-toggle='modal'
+                data-target='#CategoryModal'>
+                <div class="card-body AddColor p-4 center h4  text-center">
+                    <i class="fas fa-plus AddColor"></i>&nbsp; Add
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

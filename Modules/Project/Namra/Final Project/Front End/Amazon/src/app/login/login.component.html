@@ -1,0 +1,129 @@
+<div class="navbarBack">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-2">
+
+            </div>
+            <div class="col-lg-4 col-md-8 mt-4">
+                <div class="card py-3 rounded loginBack">
+                    <div class="card-body">
+                        <h1 class="text-center mt-2 pb-3 text-white">
+                            Login
+                        </h1>
+                        <form action="post" class="text-center">
+                            <div class="form-group form-control formBack">
+                                <label for="UserName" class="text-white">
+                                    Username
+                                </label>
+                                <input type="text" [(ngModel)]="LogInModel.Username" [ngModelOptions]="{standalone: true}" class="form-control text-center">
+                            </div>
+                            <div class="form-group form-control formBack">
+                                <label for="UserName" class="text-white">
+                                    Password
+                                </label>
+                                <div class="input-group">
+                                    <input type="{{type}}" [(ngModel)]="LogInModel.Password" [ngModelOptions]="{standalone: true}" class="form-control text-center border-right border-white">
+                                    <div class="input-group-append" (click)="changeVisible()">
+                                        <span *ngIf="visiblePassword == false" class="input-group-text bg-white"><i class="far fa-eye-slash"></i></span>
+                                        <span *ngIf="visiblePassword == true" class="input-group-text bg-white"><i class="far fa-eye"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" (click)="Login()" class="btn btn-md btn-outline-dark text-warning">
+                        </form>
+                        <p class="text-white mt-2" style="font-size: small;">By continuing, you agree to Amazon's <a href="">Conditions of Use</a> and <a href="">Privacy Notice</a></p>
+                        <div class="row">
+                            <div class="col-3">
+                                <hr class="bg-white">
+                            </div>
+                            <div class="col-6 text-center text-white">
+                                New to Amazon?
+                            </div>
+                            <div class="col-3">
+                                <hr class="bg-white">
+                            </div>
+                        </div>
+                        <button data-toggle='modal' data-target='#insertProduct' class="btn btn-white form-control">Create your Amazon account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="insertProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Register your self here..</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form [formGroup]="UserFormBuilder" #f='ngForm'>
+                    <div formGroupName="Name">
+                        <div>
+                            <label for="UserFirstName">First Name</label>
+                            <input type="text" [(ngModel)]="user.userFirstName"
+                                [ngClass]="{danger : (FirstName.touched && FirstName.invalid), shadow : (FirstName.untouched || FirstName.valid)}"
+                                placeholder="First Name" class="form-control p-3 mb-3" formControlName="FirstName">
+                        </div>
+                        <div>
+                            <label for="UserMiddleName">Middle Name</label>
+                            <input type="text" [(ngModel)]="user.userMiddleName"
+                                [ngClass]="{danger : (MiddleName.touched && MiddleName.invalid), shadow : (MiddleName.untouched || MiddleName.valid)}"
+                                placeholder="Middle Name" class="form-control p-3 mb-3" formControlName="MiddleName">
+                        </div>
+                        <div>
+                            <label for="UserLastName">Last Name</label>
+                            <input type="text" [(ngModel)]="user.userLastName"
+                                [ngClass]="{danger : (LastName.touched && LastName.invalid), shadow : (LastName.untouched || LastName.valid)}"
+                                placeholder="Last Name" class="form-control p-3 mb-3" formControlName="LastName">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="Login">Log in</label>
+                        <input type="text" [(ngModel)]="user.userLogIn" 
+                            [ngClass]="{danger : (LoginId.touched && LoginId.invalid), shadow : (LoginId.untouched || LoginId.valid)}"
+                            placeholder="Log in" class="form-control p-3 mb-3" formControlName="LoginId">
+                    </div>
+                    <div>
+                        <label for="Password">Password</label>
+                        <input type="text" [(ngModel)]="user.userPassword"
+                            [ngClass]="{danger : (Password.touched && Password.invalid), shadow : (Password.untouched || Password.valid)}"
+                            placeholder="Password" class="form-control p-3 mb-3" formControlName="PassWord">
+                    </div>
+                    <div>
+                        <label for="ContactNo">ContactNo</label>
+                        <input type="text" [(ngModel)]="user.userContactNo" 
+                            [ngClass]="{danger : (ContactNo.touched && ContactNo.invalid), shadow : (ContactNo.untouched || ContactNo.valid)}"
+                            placeholder="ContactNo" class="form-control p-3 mb-3" formControlName="ContactNo">
+                    </div>
+                    <div>
+                        <label for="Email">Email</label>
+                        <input type="text" [(ngModel)]="user.userEmail" 
+                            [ngClass]="{danger : (Email.touched && Email.invalid), shadow : (Email.untouched || Email.valid)}"
+                            placeholder="Email" class="form-control p-3 mb-3" formControlName="Email">
+                    </div>
+                    <div>
+                        <label for="BirthDate">BirthDate</label>
+                        <input type="date" [(ngModel)]="user.userBirthDate"
+                            [ngClass]="{danger : (BirthDate.touched && BirthDate.invalid), shadow : (BirthDate.untouched || BirthDate.valid)}"
+                            placeholder="BirthDate" class="form-control p-3 mb-3" formControlName="BirthDate">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" [disabled]='UserFormBuilder.status=="INVALID"' class="btn btn-primary"
+                    (click)="submit();RegisterFlag=true">Submit</button>
+                <button type="button" [disabled]="RegisterFlag==false" (click)="RegisterUser();RegisterFlag=false;RESETUSER()" class="btn btn-success">
+                    Register
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

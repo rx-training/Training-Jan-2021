@@ -1,0 +1,278 @@
+<div class="row mb-3">
+    <div class="col-md-4 col-sm-2 col-2">
+    </div>
+    <div class="col-md-4 col-sm-8 col-8 mb-2">
+        <input type="text" class="form-control" placeholder="search here..." (change)="Display()"
+            [(ngModel)]="productSearch">
+    </div>
+    <div class="col-md-1 col-sm-0 "></div>
+    <div class="col-md-2 col-sm-12 col-12 text-center">
+        <button class="btn btn-outline-success" data-toggle='modal' data-target='#insertProduct'
+            (click)="insertFlag = true;ResetPrc()">+&nbsp;Product</button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-3" *ngFor="let l of products">
+            <div class="card  border border-dark">
+                <div class="card-header bg-dark font-weight-normal h5 text-white">
+                    <i (click)="Delete(l.productId)" data-toggle='modal' data-target='#DeleteModal'
+                        class="fas fa-trash-alt float-right ml-2 text-danger"></i>{{l.productName}}
+                </div>
+                <div class="card-body card-height" data-toggle='modal' data-target='#insertProduct'
+                    (click)="clickProduct(l);insertFlag = false;">
+                    <a>
+                        <img src="../../../{{l.imgPath}}" *ngIf="imgPath(l.imgPath)" alt="Card1"
+                            class="seachProduct card-img">
+                        <img src="{{l.imgPath}}" *ngIf="!imgPath(l.imgPath)" alt="Card1" class="seachProduct card-img">
+
+                    </a>
+                </div>
+                <div class="card-footer bg-white">
+                    <div class="row">
+                        <button class="btn btn-outline-success border border-white" data-toggle='modal'
+                            data-target='#Images' (click)="Images(l.productId)">
+                            <i class="far fa-images"></i>&nbsp;Images
+                        </button>&nbsp;
+                        <button class="btn btn-outline-primary border border-white" data-toggle='modal'
+                        data-target='#DescriptionModal'  (click)="description(l.productId)">
+                            <i class="fas fa-file"></i>&nbsp;Description
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="insertProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 *ngIf="insertFlag==false" class="modal-title text-primary">Update Product</h5>
+                <h5 *ngIf="insertFlag==true" class="modal-title text-success">Add Product</h5>
+                <button type="button" (click)="ResetPrc();Display()" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="productForm" #f='ngForm'>
+                    <div *ngIf="insertFlag==false" class="text-center display-4">
+                        Product Id : #{{prc.productId}}
+                    </div>
+                    <div>
+                        <label for="Product Name">Product Name</label>
+                        <input type="text" [(ngModel)]="prc.productName"
+                            [ngClass]="{danger : (proName.touched && proName.invalid), shadow : (proName.untouched || proName.valid)}"
+                            placeholder="Name" class="form-control p-3 mb-3" formControlName="proName">
+                    </div>
+                    <div>
+                        <label for="Price">Price</label>
+                        <input type="number" [(ngModel)]="prc.productPrice"
+                            [ngClass]="{danger : (proPrice.touched && proPrice.invalid), shadow : (proPrice.untouched || proPrice.valid)}"
+                            placeholder="Price" class="form-control p-3 mb-3" formControlName="proPrice">
+                    </div>
+                    <div>
+                        <label for="Offer">Offer</label>
+                        <input type="number" [(ngModel)]="prc.offer"
+                            [ngClass]="{danger : (proOffer.touched && proOffer.invalid), shadow : (proOffer.untouched || proOffer.valid)}"
+                            placeholder="Offer" class="form-control p-3 mb-3" formControlName="proOffer">
+                    </div>
+                    <div>
+                        <label for="Brand">Brand</label>
+                        <select name="brand" [(ngModel)]="brandName"
+                            [ngClass]="{danger : (proBrandId.touched && proBrandId.invalid), shadow : (proBrandId.untouched || proBrandId.valid)}"
+                            class="form-control" formControlName="proBrandId">
+                            <option value="">Choose one brand</option>
+                            <ng-container *ngFor="let l of brands">
+                                <option value="{{l.brandName}}" *ngIf="l.brandName != 'DUMMY'" [selected]='brandName==l.brandName'>{{l.brandName}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="ContactNo">Category</label>
+                        <select name="category" [(ngModel)]="categoryName"
+                            [ngClass]="{danger : (proCategoryId.touched && proCategoryId.invalid), shadow : (proCategoryId.untouched || proCategoryId.valid)}"
+                            class="form-control" formControlName="proCategoryId">
+                            <option value="">Choose one category</option>
+                            <ng-container *ngFor="let l of categories">
+                                <option value="{{l.categoryName}}" *ngIf="l.categoryName != 'Dummy'" [selected]='categoryName==l.categoryName'>
+                                    {{l.categoryName}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Image Path">Profile Image Path</label>
+                        <input type="text" [(ngModel)]="prc.imgPath"
+                            [ngClass]="{danger : (proImagePath.touched && proImagePath.invalid), shadow : (proImagePath.untouched || proImagePath.valid)}"
+                            placeholder="Image Path" class="form-control p-3 mb-3" formControlName="proImagePath">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-6 col-sm-6">
+                            <div class="card  border border-white">
+                                <div class="card-body">
+                                    <span class="cancelImage text-danger" (click)="clearPath()">
+                                        <i class="fas fa-times"></i>
+                                    </span>
+                                    <a>
+                                        <img src="../../../{{prc.imgPath}}" *ngIf="imgPath(prc.imgPath)" alt="Image"
+                                            class="seachProduct card-img">
+                                        <img src="{{prc.imgPath}}" *ngIf="!imgPath(prc.imgPath)" alt="Image"
+                                            class="seachProduct card-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="Validity">Validity</label>
+                        <input type="number" [(ngModel)]="prc.produtValidity"
+                            [ngClass]="{danger : (proValidity.touched && proValidity.invalid), shadow : (proValidity.untouched || proValidity.valid)}"
+                            placeholder="Validity" class="form-control p-3 mb-3" formControlName="proValidity">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancelBtn" (click)="ResetPrc();Display()"
+                    data-dismiss="modal">Close</button>
+                <button class="btn updateButtn" *ngIf='insertFlag==false' data-dismiss="modal" (click)="update()">
+                    <i class="fas fa-pencil-alt"></i>&nbsp;Update
+                </button>
+                <button class="btn addButtn" *ngIf='insertFlag==true' data-dismiss="modal" (click)="Display();InsertProduct();">
+                    <i class="fas fa-plus"></i>&nbsp;Insert
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Images" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary">Images Product #{{ProductId}}</h5>
+                <button type="button" (click)="AddImagePath=''" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group form-control w-100 location">
+
+                    <input type="text" class="form-control" [(ngModel)]="AddImagePath" placeholder="Enter Image Path">
+                    <div class="input-group-append" (click)="AddImage()">
+                        <span class="input-group-text bg-light text-dark"><i class="fas fa-camera-retro"></i></span>
+                    </div>
+                </div>
+                <div class="row" *ngIf="AddImagePath!=''">
+                    <div class="col-md-4 col-6 col-sm-6">
+                        <div class="card  border border-white">
+                            <div class="card-body">
+                                <span class="cancelImage text-danger" (click)="AddImagePath='';">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                                <a>
+                                    <img src="../../../{{AddImagePath}}" *ngIf="imgPath(AddImagePath)" alt="Image"
+                                        class="seachProduct card-img">
+                                    <img src="{{AddImagePath}}" *ngIf="!imgPath(AddImagePath)" alt="Image"
+                                        class="seachProduct card-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4 col-6 col-sm-6" *ngFor="let l of prcImages">
+                        <div class="card  border border-white">
+                            <div class="card-body">
+                                <span class="cancelImage text-danger" (click)="deleteImage(l.imageId)" >
+                                    <i class="fas fa-times"></i>
+                                </span>
+                                <a>
+                                    <img src="../../../{{l.imagePath}}" *ngIf="imgPath(l.imagePath)" alt="Image"
+                                        class="seachProduct card-img">
+                                    <img src="{{l.imagePath}}" *ngIf="!imgPath(l.imagePath)" alt="Image"
+                                        class="seachProduct card-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancelBtn" data-dismiss="modal" (click)="AddImagePath=''">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DescriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 *ngIf="descriptionFlag==true" class="modal-title text-primary">Update Description</h5>
+                <h5 *ngIf="descriptionFlag==false" class="modal-title text-success">Add Description</h5>
+                <button (click)="ResetDescription()" type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="DescriptionForm" #f='ngForm'>
+                    <div *ngIf="descriptionFlag==true" class="text-center display-4">
+                        Product Id : #{{prcDescription.productId}}
+                    </div>
+                    <div>
+                        <label for="Product Description">Product Description</label>
+                        <textarea class="form-control p-3 mb-3" rows="2" [(ngModel)]="prcDescription.productDescription1"
+                        [ngClass]="{danger : (fProductDescription.touched && fProductDescription.invalid), shadow : (fProductDescription.untouched || fProductDescription.valid)}"
+                        placeholder="Description" formControlName="fProductDescription"></textarea>
+                    </div>
+                    <div>
+                        <label for="ExtraDescription">Product Extra Description / Tag</label>
+                        <input type="text" [(ngModel)]="prcDescription.extraDescription"
+                            [ngClass]="{danger : (fExtraDescription.touched && fExtraDescription.invalid), shadow : (fExtraDescription.untouched || fExtraDescription.valid)}"
+                            placeholder="Extra Tag / Description" class="form-control p-3 mb-3" formControlName="fExtraDescription">
+                    </div>
+                    <div>
+                        <label for="Related">Related Category</label>
+                        <input type="text" [(ngModel)]="prcDescription.relatedCategory"
+                            [ngClass]="{danger : (fRelatedCategory.touched && fRelatedCategory.invalid), shadow : (fRelatedCategory.untouched || fRelatedCategory.valid)}"
+                            placeholder="Related Category" class="form-control p-3 mb-3" formControlName="fRelatedCategory">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cancelBtn" (click)="ResetDescription()" 
+                    data-dismiss="modal">Close</button>
+                <button *ngIf="descriptionFlag==true" class="btn updateButtn" (click)="UpdateDescription()" data-dismiss="modal">
+                    <i class="fas fa-pencil-alt"></i>&nbsp;Update
+                </button>
+                <button *ngIf="descriptionFlag==false" class="btn addButtn" (click)="CreateDescription()" data-dismiss="modal">
+                    <i class="fas fa-plus"></i>&nbsp;Insert
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+           
+            <div class="modal-body p-5">
+                <p class="h4 font-weight-normal mb-2">Are you sure you want to delete?</p>
+                <div class="row mt-2">
+                    <div class="col-6 text-center">
+                        <button class="btn btn-outline-danger" data-dismiss="modal" (click)="IDelete()"> <i class="fas fa-trash"></i> &nbsp;Delete</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

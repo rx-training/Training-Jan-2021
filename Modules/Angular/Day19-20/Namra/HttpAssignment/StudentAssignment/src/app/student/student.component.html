@@ -1,0 +1,99 @@
+<div class="container my-5 border border-dark"> 
+
+    <p class="display-4 text-center">Student Data</p>
+    <hr class="bg-dark">
+
+    <table class="table table-responsive-md text-center">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Middle Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Contact
+            </th>
+            <th>
+                Marks
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+    
+        </tr>
+        <tr *ngFor='let l of StudentArr'>
+            <td>
+                {{l.studentId}}
+            </td>
+            <td>
+                {{l.studentFirstName}}
+            </td>
+            <td>
+                {{l.studentMiddleName}}
+            </td>
+            <td>
+                {{l.studentLastName}}
+            </td>
+            <td>
+                {{l.address}}
+            </td>
+            <td>
+                {{l.contact}}
+            </td>
+            <td>
+                {{l.marks}}
+            </td>
+            <td>
+                <button class="btn btn-primary text-center" (click)='Edit(l.studentId)'><i class="far fa-edit"></i></button>
+            </td>
+            <td>
+                <button class="btn btn-danger text-center" (click)='Delete(l.studentId)'><i class="fas fa-trash-alt"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-success">
+                <span class="pt-2" *ngIf="Editflag==false">Add&nbsp;>></span>
+                <span *ngIf="Editflag==true">Edit&nbsp;>></span>
+            </td>
+            <td>
+                <input type="text" #edit class="form-control" [(ngModel)]="StudentAdd.studentFirstName">
+            </td>
+            <td>
+                <input type="text" class="form-control" [(ngModel)]="StudentAdd.studentMiddleName">
+            </td>
+            <td>
+                <input type="text" class="form-control" [(ngModel)]="StudentAdd.studentLastName">
+            </td>
+            <td>
+                <input type="text" class="form-control" [(ngModel)]="StudentAdd.address">
+            </td>
+            <td>
+                <input type="text" class="form-control" [(ngModel)]="StudentAdd.contact">
+            </td>
+            <td>
+                <input type="number" class="form-control" [(ngModel)]="StudentAdd.marks">
+            </td>
+            <td>
+                <button *ngIf='Editflag==false' class="btn btn-outline-success form-control"
+                    [disabled]="StudentAdd.Marks<=0 ||StudentAdd.Marks>100 ||StudentAdd.StudentFirstName=='' || StudentAdd.StudentMiddleName=='' || StudentAdd.StudentLastName=='' || StudentAdd.Address == '' || StudentAdd.Contact==''" (click)="Add()">Add</button>
+                <button *ngIf="Editflag==true" class="form-control btn btn-outline-primary" (click)='Update()'>Update</button>
+            </td>
+            <td>
+                <button *ngIf ='Editflag== true' class="form-control btn btn-outline-danger" (click)='CancelUpdate()'>Cancel</button>
+            </td>
+        </tr>
+    </table>
+</div>

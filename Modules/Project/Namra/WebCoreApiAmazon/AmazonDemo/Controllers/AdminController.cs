@@ -16,7 +16,6 @@ namespace AmazonDemo.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-
         private readonly AmazonContext context;
         IAdmin admin;
         IUser user;

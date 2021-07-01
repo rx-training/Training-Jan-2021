@@ -1,0 +1,16 @@
+
+<div class="my-5 pb-1 ">
+    <p class="px-5 pt-3">
+        <span class=" h4">
+            {{Description}}
+        </span>
+    </p>
+    <div class="table-responsive my-3 text-secondary">
+        <tr>
+           <td *ngFor= "let l of  productArr" class="imgShadow">
+            <img class="mx-2 imgHeight" *ngIf="imgPath(l.imgPath)" src="../../../{{l.imgPath}}" (click)='showProduct(l.productId)' alt="">
+            <img class="mx-2 imgHeight" *ngIf="!imgPath(l.imgPath)" src="{{l.imgPath}}" (click)='showProduct(l.productId)' alt="">
+           </td> 
+        </tr>
+    </div>
+</div>

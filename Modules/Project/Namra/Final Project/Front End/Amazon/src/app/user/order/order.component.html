@@ -1,0 +1,234 @@
+<p class="display-3 my-3 text-center">Orders&nbsp;<i class="fas bagLogo fa-shopping-bag"></i></p>
+<hr class="container">
+<div class="container">
+    <h2 class="pl-3 homeLogo">Choose Address <i class="fas homeLogo fa-home"></i></h2>
+    <div class="row mt-3">
+        <div class="col-md-4 col-lg-3 col-sm-6 col-6" *ngFor="let l of addresses">
+            <label>
+                <input type="radio" value="l.userAddressId" (click)="check(l.userAddressId)" name="product"
+                    class="card-input-element" />
+                <div class="card text-dark border border-dark card-input">
+                    <div class="card-header h5  ">
+                        <span class="float-right float-top"><i class="fas fa-times"></i></span> {{l.userAddressFullName}} 
+                    </div>
+                    <div class="card-footer">
+                        {{l.userAdressContact}} <br>
+                        Address type : {{l.addressType}}
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="col-md-4 col-lg-3 my-auto col-sm-6 col-6" data-toggle='modal' data-target='#insertAddress'>
+            <label>
+                <div class="card text-dark card-input">
+                    <div class="card-header h5 p-3">
+                        Add Address
+                    </div>
+                    <div class="card-footer text-center p-4">
+                        <i class="fas fa-home h2"></i>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table border rounded-bottom border-warning">
+        <tr class="table-success text-center">
+            <td>
+                Product
+            </td>
+            <td>
+                Price
+            </td>
+            <td>
+                Offer
+            </td>
+            <td>
+                Quantity
+            </td>
+            <td>
+                Prize
+            </td>
+        </tr>
+        <ng-container *ngFor="let l of orders;let idx = index">
+            <tr class="text-center" [ngClass]="{dangerOrder : flags[idx]}">
+                <td rowspan="2">
+                    <img *ngIf="imgPath(products[idx].imgPath)" src="../../../{{products[idx].imgPath}}" class="img-fluid m-auto imgOrder" alt="">
+                    <img *ngIf="!imgPath(products[idx].imgPath)" src="{{products[idx].imgPath}}" class="img-fluid m-auto imgOrder" alt="">
+                </td>
+                <td>
+                    {{products[idx].productPrice}}
+                </td>
+                <td>
+                    {{products[idx].offer}}
+                </td>
+                <td>
+                    <input type="number" class="text-center" style="width: 100px;border-radius:10px;" min="1" max="10"
+                        (change)="update(l.orderId,products[idx].productId,orders[idx].quantity)"
+                        [(ngModel)]="orders[idx].quantity">
+
+                </td>
+                <td>
+                    {{l.bill}}
+                </td>
+            </tr>
+            <tr class="text-center" [ngClass]="{dangerOrder : flags[idx]}">
+                <td colspan="4">
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-4">
+                            <p *ngIf="sellersId[idx]!=null" class="p-3">
+                                Sold by : <br>
+                                {{sellersId[idx].sellerCompanyName}}
+                            </p>
+
+                            <p *ngIf="sellersId[idx]==null" class="p-3">
+                                No seller found, kindly check it after sometime.
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 p-3">
+                            <button (click)="deleteOrder(l.orderId)" [disabled]="placeFlag"
+                                class="btn btn-outline-danger">
+                                Cancel&nbsp;<i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+
+    </table>
+</div>
+
+<div class="smOrder">
+    <div *ngFor="let l of orders; let idx = index">
+        <div class="row" [ngClass]="{dangerOrder : flags[idx]}">
+            <div class="col-5 text-center p-3">
+                <img src="../../../{{products[idx].imgPath}}" class="img-fluid m-auto imgOrder" alt="">
+            </div>
+            <div class="col-7">
+                <p class="text-center font-weight-bold">
+                    {{products[idx].productName}}
+                </p>
+                <p class="px-2">
+                    Price : {{products[idx].productPrice}} ({{products[idx].offer}} % Off ) <br>
+                    <span class="my-1">
+                        Quantity : &nbsp;<input type="number" class="text-center"
+                            style="width: 50px;border-radius:10px;" min="1" max="10"
+                            (change)="update(l.orderId,products[idx].productId,orders[idx].quantity)"
+                            [(ngModel)]="orders[idx].quantity">
+                    </span>
+                    <br>
+                    Bill : {{l.bill}}
+                </p>
+            </div>
+        </div>
+        <div class="row" [ngClass]="{dangerOrder : flags[idx]}">
+            <div class="col-12 text-center">
+                <p *ngIf="sellersId[idx]!=null" class="p-3">
+                    Sold by : <br>
+                    {{sellersId[idx].sellerCompanyName}}
+                </p>
+
+                <p *ngIf="sellersId[idx]==null" class="p-3">
+                    No seller found, kindly check it after sometime.
+                </p>
+            </div>
+            <div class="col-12 text-center">
+                <button class="btn-sm btn-outline-danger" [disabled]="placeFlag"
+                    (click)="cancelOrder(l.orderId)">Cancel</button>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<hr class="my-5">
+<div class="row mb-5">
+    <div class="col-md-4 col-sm-2">
+
+    </div>
+    <div class="CheckOut col-md-4 col-sm-8 text-center">
+        <p class="display-3 mb-2">
+            Check Out&nbsp;<i class="fas fa-shipping-fast"></i>
+        </p>
+        <p>
+            your Bill : {{Bill}}
+        </p>
+
+        <button (click)="placeOrders()" [disabled]="Bill==0">
+            Place your order
+        </button>
+    </div>
+    <div class="col-md-4 col-sm-2">
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="insertAddress" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-home h2"></i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form [formGroup]="addressForm" >
+                    
+                    <div>
+                        <label for="Login">Full Name</label>
+                        <input type="text" [(ngModel)]="Address.userAddressFullName" 
+                            [ngClass]="{danger : (AddressUserName.touched && AddressUserName.invalid), shadow : (AddressUserName.untouched || AddressUserName.valid)}"
+                            placeholder="Full Name" class="form-control p-3 mb-3" formControlName="Name">
+                    </div>
+                   
+                    <div>
+                        <label for="Address">Address Detail</label>
+                        <input type="text" [(ngModel)]="Address.userAddressDetail" placeholder="Address"
+                        [ngClass]="{danger : (AddressDetail.touched && AddressDetail.invalid), shadow : (AddressDetail.untouched || AddressDetail.valid)}"
+                        class="form-control p-3 mb-3" formControlName="Address">
+                    </div>
+                    <div>
+                        <label for="Contact">Contact </label>
+                        <input type="text" [(ngModel)]="Address.userAdressContact" placeholder="+91**********"
+                        [ngClass]="{danger : (AddressContact.touched && AddressContact.invalid), shadow : (AddressContact.untouched || AddressContact.valid)}"
+                        class="form-control p-3 mb-3" formControlName="Contact">
+                    </div>
+                    <div>
+                        <label for="UserName">City </label>
+                        <select name="City" class="form-control"  [(ngModel)]="CityId" formControlName="CityId">
+                            <option value="">Choose one city...</option>
+                            <ng-container *ngFor="let l of cities">
+                                <option *ngIf="l.cityName!='Dummy'" value="{{l.cityName}}">{{l.cityName}}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="UserName">Address Type</label>
+                        <select name="Type" class="form-control" [(ngModel)]="Address.addressType" formControlName="AddressType">
+                            <option value="">Choose address type</option>
+                            <option value="Home">Home(Delivery : 9AM to 7PM)</option>
+                            <option value="Office">Office(Delivery : Monday-Friday)</option>
+                        </select>    
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button"  class="btn btn-primary" [disabled]='addressForm.status=="INVALID"'
+                    (click)="AddAddress();">+&nbsp;Add Address</button>
+            </div>
+        </div>
+    </div>
+</div>

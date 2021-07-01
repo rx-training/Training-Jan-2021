@@ -1,0 +1,16 @@
+
+@media screen and (max-width:600px) {
+    .imgHeight{
+        max-height : 100px;
+        opacity: 1;
+    }
+}
+@media screen and (min-width:600px) {
+    .imgHeight{
+        max-height : 180px;
+        opacity: 1;
+    }
+    .imgHeight:hover{
+        transform: scale(1.09);
+    }
+}

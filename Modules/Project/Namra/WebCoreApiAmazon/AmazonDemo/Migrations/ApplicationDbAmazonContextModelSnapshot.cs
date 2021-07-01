@@ -493,6 +493,26 @@ namespace AmazonDemo.Migrations
                     b.ToTable("ProductDescription");
                 });
 
+            modelBuilder.Entity("AmazonDemo.Models.ProductImage", b =>
+                {
+                    b.Property<int>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImageId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImages");
+                });
+
             modelBuilder.Entity("AmazonDemo.Models.ProductOrderedDetail", b =>
                 {
                     b.Property<long>("OrderId")
@@ -1027,6 +1047,17 @@ namespace AmazonDemo.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("AmazonDemo.Models.ProductImage", b =>
+                {
+                    b.HasOne("AmazonDemo.Models.Product", "product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("product");
                 });
 
             modelBuilder.Entity("AmazonDemo.Models.SellerAddress", b =>

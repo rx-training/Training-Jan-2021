@@ -112,13 +112,18 @@ CREATE TABLE ProductDescription
 );
 
 --10. Creating table of usercart
-
+DROP TABLE Carts
 CREATE TABLE Carts
 (
 	CartId BIGINT NOT NULL CONSTRAINT pkCart PRIMARY KEY IDENTITY(1,1),
 	UserId INT NOT NULL CONSTRAINT fkCartUserId FOREIGN KEY REFERENCES Users(UserId),
 	ProductId INT NOT NULL CONSTRAINT fkProductsCart FOREIGN KEY REFERENCES Products(ProductId) 
+	--Cart NVARCHAR(MAX) DEFAULT NULL
 )
+CREATE TABLE UseCart
+(
+	ProductId INT NOT NULL CONSTRAINT fkUseCartProduct FOREIGN KEY REFERENCES Products(ProductId)
+);
 --11. Creating table of user orders
 
 CREATE TABLE Orders
@@ -198,6 +203,14 @@ CREATE TABLE Admin
 	AdminEmail VARCHAR(100) NOT NULL,
 	AdminAuthority VARCHAR(20) DEFAULT 'Nothing',
 	AdminDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+--Creatin table for ProductImage
+CREATE TABLE ProductImages
+(
+	ImageId int not null CONSTRAINT pkProductImage PRIMARY KEY IDENTITY(1,1),
+	ProductId INT CONSTRAINT FKProductImageProductId FOREIGN KEY REFERENCES Products(ProductId),
+	ImagePath VARCHAR(MAX) NOT NULL
 );
 -------------------------------------------- [Countries]Procedure for adding Country --------------------------------------------------
 CREATE PROCEDURE spCountry
@@ -796,7 +809,90 @@ EXEC spUpdateBrandCategory 'Category','Apple Air Laptop','laptop'
 
 ---------------------------------------------------------------[cart] to add and delete a product from cart------------------------------------------
 
-ALTER PROCEDURE spCartAddDelete 
+--ALTER PROCEDURE spCartAddDelete
+--(
+--	@operation VARCHAR(10),
+--	@productId INT,
+--	@UserID INT
+--)
+--AS
+--BEGIN
+--	BEGIN TRY
+--		IF LOWER(@operation) = 'add'
+--		BEGIN 
+--			IF(@UserID IN (SELECT UserId FROM Users))
+--			BEGIN
+--				IF(@UserID IN (SELECT UserId FROM Carts))
+--				BEGIN
+--					IF(@productId IN (SELECT ProductId FROM Products))
+--					BEGIN
+--								DECLARE @cart VARCHAR(MAX);
+--								SET @cart = (SELECT Cart FROM Carts WHERE UserId = @UserID);
+--								INSERT INTO UseCart 
+--								SELECT * FROM  OPENJSON(@cart) WITH (ProductId INT '$.ProductId');
+						
+--						IF(@productId IN (SELECT ProductId FROM UseCart))
+--							BEGIN
+--								DELETE FROM UseCart;
+--								RAISERROR('Product is already in cart...',16,1);
+--							END
+--						ELSE
+--							BEGIN
+								
+--								INSERT INTO UseCart VALUES (@productId);
+--								UPDATE Carts 
+--								SET Cart = (SELECT * FROM UseCart FOR JSON PATH)
+--								WHERE UserId = @UserID;
+--								DELETE FROM UseCart;
+--								RAISERROR('Product is added successfully',16,1);
+--							END
+--					END
+--					ELSE
+--						RAISERROR('Product is not found...',16,1);
+--				END
+--				ELSE
+--				BEGIN
+--					IF(@productId IN (SELECT ProductId FROM Products))
+--					BEGIN
+--						INSERT INTO UseCart VALUES (@productId);
+--						INSERT INTO Carts(UserId, Cart) VALUES (@UserID, (SELECT ProductId FROM UseCart FOR JSON PATH));
+--						DELETE FROM UseCart;
+--						RAISERROR('New cart is added...',16,1);
+--					END
+--					ELSE
+--						RAISERROR('Product is not found...',16,1);
+--				END
+--			END
+--			ELSE
+--				RAISERROR('User is not found...',16,1);
+
+--		END
+--		ELSE IF LOWER(@operation)='delete'
+--		BEGIN
+--			IF(@UserID IN (SELECT UserId FROM Carts))
+--			BEGIN
+--				DECLARE @cartDel VARCHAR(MAX);
+--				SET @cartDel = (SELECT Cart FROM Carts WHERE UserId = 1);
+--				INSERT INTO UseCart SELECT * FROM  OPENJSON(@cartDel) WITH (ProductId INT '$.ProductId');
+--				DELETE FROM UseCart WHERE ProductId = 1;		
+--				UPDATE Carts
+--				SET Cart = (SELECT * FROM UseCart FOR JSON PATH)
+--				WHERE UserId = 1;
+
+--				DELETE FROM UseCart;
+--			END
+--		END
+--		ELSE
+--			RAISERROR('Please choose a proper operation',16,1);
+--	END TRY
+--	BEGIN CATCH
+--		PRINT ERROR_MESSAGE();
+--	END CATCH
+--END
+--EXEC spCartAddDelete 'add',3,1
+----+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++====================================+++++++++++++++++
+DROP PROCEDURE spCartAddDelete 
+CREATE PROCEDURE spCartAddDelete 
 	(
 		@Operation VARCHAR(10),
 		@ProductName VARCHAR(100),
@@ -845,7 +941,7 @@ BEGIN
 				BEGIN 
 					IF(@Quantity <= 10)
 						BEGIN
-							INSERT INTO Orders(UserId, ProductId, Quantity, Bill) VALUES(@CustomerId, @ProductId, @Quantity, (SELECT ProductPrice FROM Products WHERE ProductId = @ProductId) * @Quantity);
+							INSERT INTO Orders(UserId, ProductId, Quantity, Bill) VALUES(@CustomerId, @ProductId, @Quantity, ((SELECT ProductPrice FROM Products WHERE ProductId = @ProductId)-(SELECT ProductPrice FROM Products WHERE ProductId = @ProductId)*(SELECT Offer FROM Products WHERE ProductId = @ProductId)/100) * @Quantity);
 						END
 					ELSE
 						RAISERROR('Product quantity should be less than 10...',16,1);
@@ -862,6 +958,7 @@ BEGIN
 END
 
 EXECUTE spOrder 1,2,5;
+EXECUTE spOrder 2,3,4;
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------Views-------------------------------------------------------------------------------

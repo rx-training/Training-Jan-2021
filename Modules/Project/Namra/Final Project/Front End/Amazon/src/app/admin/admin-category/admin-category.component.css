@@ -1,0 +1,21 @@
+.AddBack{
+    background-image: linear-gradient(to right, rgb(255, 121, 121) , rgb(255, 255, 140));
+}
+.backBrand
+{
+    background-image: linear-gradient(to right, rgb(121, 255, 244) , rgb(159, 255, 140));
+}
+
+
+.AddColor
+{
+    background: -webkit-linear-gradient(rgb(0, 255, 234) , rgb(43, 255, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px black;
+}
+.colorAdd{
+    background: -webkit-linear-gradient(rgb(124, 0, 0) , rgb(255, 255, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

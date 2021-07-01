@@ -1,0 +1,59 @@
+.cartImg{
+    max-height: 250px;
+}
+.card .button{
+    position: absolute;
+    top: -2%;
+    left: 90%;    
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+.cart1:hover{
+    transform : scale(1.015);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width : 600px) {
+    .display-1{
+        font-size: xx-large;
+    }
+}
+.newPrice{
+    text-decoration: line-through;
+    color : red;
+}
+.cartLogo{
+  background: -webkit-linear-gradient(#eee, rgb(0, 31, 134));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+  }
+
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 135px;
+  padding: 5px 0;
+  background-color: #3498db;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  color: #fff;
+  font: 700 11px/1 'Lato', sans-serif;
+  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ribbon-top-left span {
+  left: -30px;
+  top: 30px;
+  transform: rotate(-45deg);
+}

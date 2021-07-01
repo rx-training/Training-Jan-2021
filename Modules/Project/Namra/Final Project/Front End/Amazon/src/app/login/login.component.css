@@ -1,0 +1,23 @@
+.navbarBack{
+    background-image: url("../../assets/Image/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;   
+    height: 100vh;
+}
+.loginBack{
+    background-color: rgba(0, 0, 0, 0.651);
+}
+.formBack{
+    background-color: rgba(0, 0, 0, 0.151);
+    box-shadow: 5px 10px 8px #ffbb00b9;
+}
+
+.danger{
+    box-shadow: 0 15px 25px 0 rgba(255, 0, 0, 0.2), 0 16px 20px 0 rgba(255, 0, 0, 0.19);
+    
+}
+.shadow{
+    box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+}

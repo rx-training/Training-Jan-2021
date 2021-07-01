@@ -1,0 +1,51 @@
+.userImage{
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 5px #888888;
+}
+.orderLogo{
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(5, 150, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+}
+.lookLogo{
+    background: -webkit-linear-gradient(rgb(204, 0, 255), rgb(5, 150, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.lookLogo :hover{
+box-shadow: 0px 0px 10px 5px black;
+}
+
+@media screen and (max-width : 600px) {
+    .orderLogo{
+        font-size: xx-large;
+    }
+}
+@media screen and (min-width : 600px) {
+    
+    .returnButton{
+        transition: all 0.5s;
+    }
+    .returnButton span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+    .returnButton span:after {
+        content: '\21BA';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+    .returnButton:hover span {
+        padding-right: 20px;
+      }
+      
+      .returnButton:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+}

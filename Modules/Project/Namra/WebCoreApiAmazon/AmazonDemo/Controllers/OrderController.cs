@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace AmazonDemo.Controllers
 {
 
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class OrderController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace AmazonDemo.Controllers
         IOrder order;
         IProduct product;
         IUser user;
-        public OrderController(AmazonContext _context , IOrder _order, IProduct product, IUser user)
+        public OrderController(AmazonContext _context, IOrder _order, IProduct product, IUser user)
         {
             this.context = _context;
             this.order = _order;
@@ -30,23 +30,40 @@ namespace AmazonDemo.Controllers
         }
 
         // To get all order detail
-        [Authorize(Roles = UserRolesAmazon.Admin)]
+        
         [HttpGet]
         public IEnumerable<Order> GetAllOrder()
         {
             return order.GetAll();
         }
 
-        [Authorize]
+        
         [HttpGet("{Id}")]
         public Order GetOrderById(int Id)
         {
-            return order.GetById(Id);
+            return context.Orders.Where(s=>s.OrderId == Id).First();
         }
 
-        [Authorize]
+        [HttpGet("{UserId}")]
+        public IEnumerable<Order> GetOrderByUserId(int UserId)
+        {
+            return order.Find(s => s.UserId == UserId);
+        }
+        
+        [HttpGet("{UserId}")]
+        public IEnumerable<Product> GetProductByUser(int UserId)
+        {
+            IEnumerable<Order> orders = order.Find(s => s.UserId == UserId);
+            List<Product> products = new List<Product>();
+            foreach (var item in orders)
+            {
+                products.Add(product.Find(s => s.ProductId == item.ProductId).First());
+            }
+            return products;
+        }
+
         [HttpGet("{OrderId}")]
-        public string AnyOrderById( int OrderId)
+        public string AnyOrderById(int OrderId)
         {
             if (order.Any(s => s.OrderId == OrderId))
             {
@@ -58,11 +75,10 @@ namespace AmazonDemo.Controllers
             }
         }
         //To find is there any order is placed by customer id
-        [Authorize]
         [HttpGet("{CustomerId}")]
         public string AnyOrderByCustomer(int CustomerId)
         {
-            if(order.Any(s=> s.UserId == CustomerId))
+            if (order.Any(s => s.UserId == CustomerId))
             {
                 return $"Records has been found for customer id :  {CustomerId}";
             }
@@ -71,46 +87,59 @@ namespace AmazonDemo.Controllers
                 return $"Record has not found...";
             }
         }
-        [Authorize]
-        [HttpGet("{CustomerId}")]
-        public IEnumerable<Order> GetOrderByUserid( int CustomerId)
-        {
-            IEnumerable<Order> orders = order.GetAll();
-            return orders.Where(s => s.UserId == CustomerId);
-        }
+     
 
-        [Authorize]
+        
         [HttpDelete("{OrderId}")]
-        public string DeleteOrder(int OrderId)
+        public bool DeleteOrder(int OrderId)
         {
-            if(order.Any(s=>s.OrderId == OrderId))
+            if (order.Any(s => s.OrderId == OrderId))
             {
-                Order deleteOrder = order.GetById(OrderId);
+                Order deleteOrder = context.Orders.Where(s=> s.OrderId == OrderId).First();
                 order.Delete(deleteOrder);
-                return $"Order {OrderId} is deleted successfully....";
+                return true;
             }
             else
             {
-                return $"there is no such record has been found for order id : {OrderId}";
+                return false;
             }
         }
 
-        [Authorize]
+        
         [HttpPost]
-        public string CreateOrder([FromBody] ClassOrder clsOrder)
+        public int CreateOrder([FromBody] ClassOrder clsOrder)
         {
-            if(user.Any(s=>s.UserId == clsOrder.UserId) && product.Any(s => s.ProductId == clsOrder.ProductId) && clsOrder.Quantity <=10)
+            if (user.Any(s => s.UserId == clsOrder.UserId) && product.Any(s => s.ProductId == clsOrder.ProductId) && clsOrder.Quantity <= 10)
             {
-                context.Database.ExecuteSqlRaw($"exec spOrders {clsOrder.UserId},{clsOrder.ProductId},{clsOrder.Quantity}");
+                context.Database.ExecuteSqlRaw($"exec spOrder {clsOrder.UserId},{clsOrder.ProductId},{clsOrder.Quantity}");
 
                 Order placedOrder = context.Orders.ToList().Last();
 
-                return $"Hello User {clsOrder}, your order for product id {clsOrder.ProductId} with quantity {clsOrder.Quantity} is placed successfully. Your order id is {placedOrder.OrderId}, Bill is {placedOrder.Bill} and your order is placed at {placedOrder.OrderedDate}";
+                return (int)placedOrder.OrderId;
             }
             else
             {
-                return $"Either product id or user id is not valid, or quantity is greater than 10. To make sure your order please make quantity less than 10.";
+                return 0;
             }
+        }
+        
+        [HttpPut("{OrderID}")]
+        public bool UpdateOrder(int OrderID, [FromBody] ClassOrder clsorder)
+        {
+            if (user.Any(s => s.UserId == clsorder.UserId))
+            {
+                if (product.Any(s => s.ProductId == clsorder.ProductId))
+                {
+                    order.updateOrder(OrderID, clsorder);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+                return false;
         }
     }
 }

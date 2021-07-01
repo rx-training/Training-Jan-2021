@@ -1,0 +1,28 @@
+.light{
+    color : black;
+    background-color: white;
+}
+.dark
+{
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+.darkTheme{
+    position: fixed;
+    right:30px;
+    top: 70px;
+    z-index: 1;
+    border-radius: 50%;
+    padding: 5px 10px;
+    box-shadow:5px 5px 10px 2px #73AD21 inset;
+}
+.lightTheme{
+    position: fixed;
+    right:30px;
+    top: 70px;
+    z-index: 1;
+    border-radius: 50%;
+    padding: 5px 10px;
+    color : #adab21;
+    box-shadow:5px 5px 10px 1px #adab21 inset;
+}

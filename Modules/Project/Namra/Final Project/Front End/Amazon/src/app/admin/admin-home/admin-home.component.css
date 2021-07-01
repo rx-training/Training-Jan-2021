@@ -1,0 +1,13 @@
+.logOut:hover{
+    cursor: pointer;
+}
+@media screen and (max-width : 769px) {
+    .fontSize{
+        font-size: 25px;
+    }
+}
+@media screen and (min-width : 769px) {
+    .fontSize{
+        font-size: 40px;
+    }
+}

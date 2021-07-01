@@ -1,0 +1,62 @@
+<p class="text-center display-4 my-3">{{productDetail.productName}}</p>
+
+<div class="card-deck mx-2 my-3 mb-4" class="DisplayImageLG" *ngIf="Images.length != 0">
+    <div class="card  border border-white" *ngFor="let l of Images">
+        <div class=" h-100 card-body center">
+            <a>
+                <img src="{{l.imagePath}}" *ngIf="!Starts(l.imagePath)" width="100%" alt="" class="zoom card-img m-auto">
+                <img width="100%" *ngIf="Starts(l.imagePath)" src="../../{{l.imagePath}}" alt="Card1" class="zoom card-img m-auto">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="text-center" *ngIf="Images.length == 0">
+    <img src="../../{{productDetail.imgPath}}" class="AltImg" alt="">
+</div>
+<div class="DisplayImageSM" *ngIf="Images.length != 0">
+    <div class="row">
+        <div class="col">
+            <div data-ride="carousel" id="slider3" class="carousel slide mb-5">
+                <div role="listbox" class="carousel-inner">
+                    <ng-container *ngFor="let l of Images;let i = index">
+                        <div class="carousel-item" [ngClass]="i == 0 ?'active':''">
+                            <img src="../../{{l.imagePath}}" *ngIf="Starts(l.imagePath)" width="100%" class="d-block m-auto SmImage" alt="">
+                            <img src="{{l.imagePath}}" *ngIf="!Starts(l.imagePath)" width="100%" class="d-block m-auto SmImage" alt="">
+                        </div>
+                    </ng-container>
+                    <a href="#slider3" data-slide="prev" class="carousel-control-prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a href="#slider3" data-slide="next" class="carousel-control-next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4 text-center">
+            <h3 class="font-weight-normal">Price</h3>
+            <span>{{productDetail.productPrice}}<i class="fas fa-rupee-sign"></i></span>
+        </div>
+        <div class="col-md-7">
+            <p>
+                {{productDescription.productDescription1}}
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-2"></div>
+    <div class="col-md-2 col-4 text-center">
+        <button (click)="AddProduct()" class="button"><i class="fas fa-shopping-cart"></i>&nbsp;Cart</button>
+    </div>
+    <div class="col-md-2 col-4 text-center">
+        <button class="button" (click)="Buy()"><i class="fas fa-shopping-bag"></i>&nbsp;Buy</button>
+    </div>
+    <div class="col-md-4 col-2"></div>
+</div>
+<app-similar-product [product]="productDescription" [related]="productDescription.relatedCategory"></app-similar-product>
