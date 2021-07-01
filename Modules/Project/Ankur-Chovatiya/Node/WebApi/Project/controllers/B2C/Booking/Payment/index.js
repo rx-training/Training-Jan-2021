@@ -34,7 +34,7 @@ class Payment {
 }
 
 router.post('/paymentReview' ,[express.json() , auth] ,Payment.PaymentReview);
-router.post('/payment' , [express.json() , auth] , Payment.doPayment);
+router.post('/payment' , [express.json() ] , Payment.doPayment);
 
 
 

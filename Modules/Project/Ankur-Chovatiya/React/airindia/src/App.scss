@@ -1,0 +1,348 @@
+body{
+  font-family: 'Roboto Slab', serif;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+.navbar{
+  img{
+    width: 60%;
+  }
+   
+}
+#navLinks{
+  
+  li {
+    font-size: 1.5rem;
+  }
+}
+
+.search-form{
+  font-size: 14px;
+}
+#flightIcon {
+  transform: rotate(180deg)
+}
+
+.flight-row{
+  height: 150px;
+}
+.price-box {
+  cursor: pointer;
+  border: 1px gray solid;
+  padding-top: 40px;
+  font-size: 1.8rem;
+  text-align: center;
+  justify-content: center;
+  color: black;
+  background-color:lightcyan;
+  height: 150px;
+}
+.service-type{
+  background-color: lightsalmon;
+}
+.flight-time{
+  background-color: lightgray;
+  border: 1px gray solid;
+}
+.booking-summary{
+  
+  .heading{
+    background-color:  rgb(172, 72, 72);
+    color: white;
+    margin: 10px;
+    padding:10px;
+  }
+
+  .summary-box{
+    background-color: lightgray;
+    border:1px solid;
+  }
+ 
+  // button{
+  //   background-color: red;   
+  //   color: white;   
+  //   border-radius: 6px;
+
+  // }
+}
+.flight-heading{
+  background-color: lightsalmon;
+  height: 100px;
+  text-align: center;
+  padding-top: 20px;
+}
+#passengerList{
+
+ ul{
+    list-style: none;
+    text-align: center;
+    background-color: lightcoral;
+    padding: 10px;
+ }
+ li{
+   display: inline-block;
+   margin-right: 35px;
+   height: 35px;
+   padding: 6px 10px;
+   color: white;
+   cursor: pointer;
+ 
+ }
+ 
+
+}
+
+#policy{
+  overflow-y: scroll;
+  background-color: lightgray;
+  height: 300px;
+}
+.heading{
+  background-color: rgb(172, 72, 72);
+  color: white;
+  margin: 10px;
+  padding:10px;
+}
+
+#seatSection{
+  
+  #seatPart{
+    
+    .seat{
+      font-size: 2rem;
+      width: 90px;
+      height: 60px;
+      background-color: lightpink;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+  }
+}
+.danger{
+  border: 1px black solid;
+}
+
+.notice{
+  background-color: rgb(236, 235, 235);
+  h3 {
+    margin-left: 15px;
+  }
+  p{
+    margin-left: 15px;
+  }
+}
+
+.flight-name{
+  background-color: lightgrey;
+  .flight-confirmed{
+    margin: 10px;
+   border: 1px solid black;
+   .date{
+     display: flex;
+     text-align: center;
+     justify-content: center;
+     background-color: rgb(22, 22, 94);
+     color: white;
+   }
+   .flight{
+      border-right: 1px solid black; 
+   }
+   .confirmed{
+     color: rgb(35, 122, 35);
+     font-weight: 700;
+   }
+  }
+  .name{
+    border:1px black solid;
+    height: 55px;
+    margin: 10px;
+    .user-icon{
+      font-size: 2rem;
+      background-color: rgb(30, 30, 116);
+      color: white;
+    }
+    .user-name {
+      justify-content: center;
+      text-transform: uppercase;
+    }
+  }
+}
+.ticket {
+  background-color: rgb(243, 240, 240);
+  padding: 8px;
+  text-align: left;
+  .details-heading{
+    background-color: lightgrey;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .details-h{
+    text-transform: uppercase;
+  }
+}
+
+// header
+
+.search-icon{
+  font-size: 32px;
+}
+.logo-1{
+  text-align: right;
+}
+.logo-2{
+  text-align: left;
+}
+.login-enroll{
+  text-align: left;
+  display: flex;
+  align-items:flex-end;
+  // align-content: flex-start;
+  // justify-content: center;
+  font-size: 2rem;
+  .link a{
+    text-decoration: none;
+    color: black;
+  }
+ 
+}
+
+@media screen and (max-width:600px) {
+  .header {
+    display: none;
+  }
+  #mainForm {
+    position: initial;
+    width: 200px;
+  }
+ 
+  
+}
+
+@media screen and (min-width:900px) {
+  
+  #mainForm {
+    position: absolute;
+  top:14rem;
+  left:15rem;
+  }
+ 
+}
+// @media all  {
+//   .header {
+//     display: none;
+//   }
+//   #mainForm {
+//     position: absolute;
+//     top:30vh;
+//     left:25vh;
+//   }
+// }
+
+// home page
+
+.headlines{
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  height: 40px;
+}
+.options {
+  font-size: 2rem;
+  color: white;
+  background-color: rgb(187, 67, 67);
+
+  .icon{
+    font-size: 4rem;
+  }
+}
+
+.news{
+  background-color: rgb(187, 67, 67);
+  height: 150px;
+}
+
+// #mainForm{
+//   position: absolute;
+//   top:14rem;
+//   left:15rem;
+// }
+
+// .images{
+//   .img{
+
+//   }
+// }
+
+
+// footer 
+
+.footer {
+  background-color: rgb(64, 72, 80);
+  color: white;
+  .footer-links{
+      border-right:1px solid white;
+
+    ul{
+      list-style: none;
+      
+    }
+  }
+  .copyright{
+      text-align: center;
+      border-top: 1px solid white;
+      
+      .visitors{
+        margin-left: 250px;
+      }
+  }
+}
+// special offer
+
+.offer{
+  
+  text-align: center;
+  .offer-types{
+    display: flex;
+    justify-content: center;
+  }
+  .lists{
+    display: flex;
+    justify-content: center;
+    .list ul {
+      // background-color: crimson;
+      list-style: none;
+      li {
+        border-bottom: 1px solid black;
+        text-align: left; 
+        span {
+          text-align: end;
+        }
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
+
+// contact
+.contact{
+  text-align: left;
+  .support-img{
+    width: 100%;
+  }
+  // .contact-list{
+  //   table tr {
+      
+  //   }
+  // }
+}
+
+.gst{
+  text-align: left;
+}

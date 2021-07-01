@@ -12,6 +12,7 @@ class Flight {
             res.send("data saved successfully!");
             next();
         }).catch(err =>{
+            console.log('unable to save data');
             res.send("unable to save data!");
             next();
         })

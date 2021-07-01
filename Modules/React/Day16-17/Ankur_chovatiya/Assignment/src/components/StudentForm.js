@@ -324,7 +324,7 @@ function StudentForm(props) {
         }
         if(id === 'add'){
             StudentService.createStudent(student).then(res =>{
-                     props.history.push('/students')
+                props.history.push('/students')
                     })
             }
         else{

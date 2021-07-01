@@ -63,7 +63,11 @@ const EmployeeSchema = new mongoose.Schema({
 
 const AirFareSchema = new mongoose.Schema({
     AirFareId : Number,
-    FareAmount : Number , 
+    WebSpecialFareAmount : Number , 
+    SupervalueFareAmount : Number ,
+    BFlexisaver : Number ,
+    BFlexible : Number ,
+    ChargesAndfees:Number,
     ExtraFare : Number , 
     SpecialServicesFare : Number , 
 })
@@ -123,8 +127,7 @@ const loginSchema = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema({
     UserId : {
-        type : Number , 
-        required : true
+        type : Number 
     },
     Title : String , 
     Gender  :{
@@ -141,29 +144,38 @@ const userSchema = new mongoose.Schema({
     PassportNumber : String ,
     PassportExDate : Date ,
     IdProof : String ,
-    Address :{
-        type : mongoose.Schema.Types.ObjectId ,
-        ref : 'Address'
-    } ,
+    // Address :{
+    //     type : mongoose.Schema.Types.ObjectId ,
+    //     ref : 'Address'
+    // } ,
+    BlockNo : String,
+    Building: String ,
+    Street : String ,
+    Area : String ,
+    Country : String ,
+    State  :String ,
+    City : String ,
+    PostalCode : String ,
+    LandMark : String ,
+    CountryCode : String ,
     MobileNo : Number ,
     EmailId : {
-        type : String , 
-        required : true 
+        type : String  
+       
     },
-    UpdateVaiMail : Boolean ,
-    ReturnViaMail : Boolean ,
+    FRUpdateVaiMail : Boolean ,
+    FRPromotionViaMail : Boolean ,
     NotificationViaMail : Boolean,
-    UpdateVaiSMS : Boolean ,
-    ReturnViaSMS : Boolean ,
     NotificationViaSMS : Boolean ,
+    PromotionViaSMS : Boolean ,
+    RedemptionVaiSMS : Boolean ,
     Password : String ,
 
 });
 
 const passengerSchema = new mongoose.Schema({
     PassengerId : {
-        type : Number , 
-        required : true
+        type : Number 
     },
     Title : String ,
     FirstName : String ,
@@ -174,7 +186,7 @@ const passengerSchema = new mongoose.Schema({
     },
     FrequentFlyerNumber : String ,
     MealSelection : String,
-    AvailDomesticConcession : Boolean,
+    AvailDomesticConcession : String,
     ConcessionType : String,
     Adults :{
         type:Number,
@@ -198,13 +210,16 @@ const passengerSchema = new mongoose.Schema({
              },
         FrequentFlyerNumber : String ,
         MealSelection : String,
+        SpecialAssistanceRequest : String 
     }],
-    PromotionCode :{
-        type :mongoose.Schema.Types.ObjectId ,
-        ref : 'Offer'
-    },
-    AddGstInfo : Boolean,
+    PromotionCode : String ,
+    // PromotionCode :{
+    //     type :mongoose.Schema.Types.ObjectId ,
+    //     ref : 'Offer'
+    // },
+    // AddGstInfo : Boolean,
     SpecialAssistanceRequest : String ,
+    HomeNumber : Number ,
     MobileNo : Number, 
     PrimaryEmail : String ,
     ScecondaryEmail : String
@@ -237,10 +252,10 @@ const commonUser = new mongoose.Schema({
         type : String , 
         required : true ,
     },
-    emailId : {
-        type : String ,
-        required : true 
-    },
+    // emailId : {
+    //     type : String ,
+    //     required : true 
+    // },
     password : {
         type : String ,
         required : true

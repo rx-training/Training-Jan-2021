@@ -12,6 +12,7 @@ class User {
         const user = new model.User(req.body);
         user.save().then(result =>{
             res.send("your are successfully register");
+            console.log("user added");
             next();
         }).catch(err =>{
             if(err) throw err;
@@ -33,7 +34,7 @@ class User {
 }
 
 // router.get('/' , [security ,admin],(req , res , next)=>{res.send('res demo')});
-router.post('/add' ,[express.json() , security , admin]  ,User.addUser);
+router.post('/add' ,[express.json() ]  ,User.addUser);
 router.delete('/:id/delete' , [express.json(),security , admin] , User.deleteuser);
 module.exports = router;
 
