@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+<div>
+<form [formGroup]="studentAdmission" (ngSubmit)="Submit()">
+    
+    Name<div formGroupName="Name">
+        <div class="form-group">
+        FirstName<input class="form-control" type="text" formContorlName="FirstName">
+        MiddleName<input class="form-control" type="MiddleName" formControlName="MiddleName">
+        LastName<input class="form-control" type="LastName" formControlName="LastName">
+    </div>
+    </div>
+
+    <div class="form-group">
+    DOB<input class="form-control" type="date" formControlName ="DOB">
+    </div>
+
+    <div class="form-group">
+    Place of Birth<input class="form-control" type="text" formControlName="PlaceOfBirth">
+    </div>
+
+    <div class="form-group">
+    First Language<input class="form-control" type="text" formControlName="FirstLanguage">
+    </div>
+
+    <div class="form-group">
+    Address<div formGroupName="Address">
+        City<input class="form-control" type="text" formControlName="City">
+        State<input class="form-control" type="text" formControlName="State">
+        Country<input class="form-control" type="text" formControlName="Country">
+        Pin<input class="form-control" type="text" formControlName="Pin">
+    </div>
+    </div>
+
+    Father's Details:
+    <div class="form-group">
+    <div formGroupName="FFather">
+        <div formGroupName="FullName">
+            FirstName<input class="form-control" type="text" formControlName="FirstName">
+            MiddleName<input class="form-control" type="text" formControlName="MiddleName">
+            LastName<input class="form-control" type="text" formControlName="LastName">
+        </div>
+        Email<input class="form-control" type="text" formControlName="Email">
+        EducationQualification<input class="form-control" type="text" formControlName="EducationQualification">
+            Profession <input class="form-control" type="text" formControlName="Profession">
+            Designation<input class="form-control" type="text" formControlName="Designation">
+            Phone<input class="form-control" type="text" formControlName="Phone">
+    </div>
+    </div>
+
+    Mother's Details:
+    <div class="form-group">
+    <div formGroupName="Mother">
+        <div formGroupName="Name">
+            FirstName<input class="form-control" type="text" formControlName="FirstName">
+            MiddleName<input class="form-control" type="text" formControlName="MiddleName">
+            LastName<input class="form-control" type="text" formControlName="LastName">
+        </div>
+        Email<input class="form-control" type="text" formControlName="Email">
+        EducationQualification<input class="form-control" type="text" formControlName="EducationQualification">
+        Profession<input class="form-control" type="text" formControlName="Profession">
+        Designation<input class="form-control" type="text" formControlName="Designation">
+        Phone<input class="form-control" type="text" formControlName="Phone">
+    </div>
+    </div>
+
+    Emergency Contact List:
+    <div class="form-group">
+    <div formArrayName="EmergencyContactList">
+        <div *ngFor="let list of getEmergencyContactLists.controls; let idx=index">
+            <div [formGroupName] = "idx">
+            Relation<input class="form-control" type="text" formControlName="Relation">
+            Number<input class="form-control" type="text" formControlName="Number">
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <div>
+            <button type="text" class="btn btn-primary  mb-2" (click)="AddContactList()">ADD more Contact List</button>
+        </div>
+    </div>
+
+    Reference Details:
+    <div class="form-group">
+        <div formArrayName="ReferenceDetails1">
+            <div *ngFor="let detail of getReferenceDetails.controls; let idx=index">
+                <div [formGroupName] = "idx">
+                    ReferenceDetails<input class="form-control" type="text" formControlName="ReferenceDetails">
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div class="form-group">
+        <div>
+            <button type="text" class="btn btn-primary mb-2" (click)="ReferenceDetails()">ADD more Reference Details</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary  mb-2">Submit Data</button>
+    </div>
+
+</form>
+</div>
+</body>
+</html>

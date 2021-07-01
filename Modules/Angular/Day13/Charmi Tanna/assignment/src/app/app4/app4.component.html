@@ -1,0 +1,7 @@
+<p>app4 works!</p>
+<div class="col-sm-6">
+    <form [formGroup] = "loginForm">
+    <input type="email" class="formControl" formControlName="email">
+    <span class="error" *ngIf="loginForm.email.invalid">Email is required</span>
+</form>
+</div>

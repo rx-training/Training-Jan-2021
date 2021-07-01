@@ -1,0 +1,229 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+<div>
+<form [formGroup]="studentAdmission" (ngSubmit)="Submit()">
+        <div class="form-group">
+        Name<div formGroupName="SName">
+        FirstName<input class="form-control" type="text" formControlName="SFirstName1">
+        <span style="color: red;" *ngIf="FirstName1.touched && FirstName1.invalid">First Name is required</span><br>
+        MiddleName<input class="form-control" type="text" formControlName="SMiddleName">
+        <span style="color: red;" *ngIf = "MiddleName.touched && MiddleName.invalid">Middle Name is required</span><br>
+        LastName<input class="form-control" type="text" formControlName="SLastName">
+        <span style="color: red;" *ngIf = "LastName.touched  && LastName.invalid">Last Name is required</span><br>
+    </div>
+    
+    </div>
+
+    <div class="form-group">
+    DOB<input class="form-control" type="date" formControlName ="DOB">
+    <span style="color: red;" *ngIf = "studentAdmission.controls.DOB.touched && studentAdmission.controls.DOB.invalid ">DOB is required</span> 
+    </div>
+
+    <div class="form-group">
+    Place of Birth<input class="form-control" type="text" formControlName="PlaceOfBirth">
+    <span style="color: red;" *ngIf = "studentAdmission.controls.PlaceOfBirth.touched && studentAdmission.controls.PlaceOfBirth.invalid">Place of Birth is required</span>
+    </div>
+
+    <div class="form-group">
+    First Language<input class="form-control" type="text" formControlName="FirstLanguage">
+    <span style="color: red;" *ngIf = "studentAdmission.controls.FirstLanguage.touched && studentAdmission.controls.FirstLanguage.invalid">First Language is required</span>
+    </div>
+
+    <div class="form-group">
+    Address<div formGroupName="Address">   
+    <label>City</label> 
+    <input class="form-control" type="text" formControlName="City">
+    <span style="color: red;" *ngIf = "City1.touched &&City1.invalid">City name is required</span><br>
+    <label>State</label>
+    <input class="form-control" type="text" formControlName="State" required>
+    <span style="color: red;" *ngIf = "State1.touched && State1.invalid">State name is required</span><br>
+    <label>Country</label>
+    <input class="form-control" type="text" formControlName="Country" required>
+    <span style="color: red;" *ngIf = "Country1.touched && Country1.invalid">Country name is required</span><br>
+    <label>Pin</label>
+    <input class="form-control" type="text" formControlName="Pin" required>
+    <span style="color: red;" *ngIf = "Pin1.touched && Pin1.invalid">Pin number is required</span><br>
+    </div>
+    </div>
+
+    Father's Details:
+    <div class="form-group">
+    <div formGroupName="Father">
+        <div formGroupName="FName">
+            FirstName<input class="form-control" type="text" formControlName="FFirstName">
+            <span style="color: red;" *ngIf="FFName.touched && FFName.invalid ">Father's First Name is required</span><br>
+            MiddleName<input class="form-control" type="text" formControlName="FMiddleName">
+            <span style="color: red;" *ngIf="FMName.touched && FMName.invalid">Father's Middle Name is required</span><br>
+            LastName<input class="form-control" type="text" formControlName="FLastName">
+            <span style="color: red;" *ngIf="FLName.touched && FLName.invalid">Father's Last Name is required</span><br>
+        </div>
+        Email<input class="form-control" type="text" formControlName="FEmail">
+        <span style="color: red;" *ngIf="FEmail1.touched && FEmail1.invalid ">Father's Email ID is required</span><br>
+        EducationQualification<input class="form-control" type="text" formControlName="FEducationQualification">
+        <span style="color: red;" *ngIf="FEducationQualification1.touched && FEducationQualification1.invalid">Father's Education Qualification detail is required</span><br>
+        Profession <input class="form-control" type="text" formControlName="FProfession">
+        <span style="color: red;" *ngIf="FProfession1.touched && FProfession1.invalid">Father's Education Profession detail isrequired</span><br>
+        Designation<input class="form-control" type="text" formControlName="FDesignation">
+        <span style="color: red;" *ngIf="FDesignation1.touched && FDesignation1.invalid">Father's is Designation detail is required</span><br>
+        Phone<input class="form-control" type="text" formControlName="FPhone">
+        <span style="color: red;" *ngIf="FPhone1.touched && FPhone1.invalid">Father's Phone Number is required</span><br>
+    </div>
+    </div>
+
+    Mother's Details:
+    <div class="form-group">
+    <div formGroupName="Mother">
+        <div formGroupName="MName">
+            FirstName<input class="form-control" type="text" formControlName="MFirstName">
+            <span style="color: red;" *ngIf="MFName.touched && MFName.invalid">Mother's First Name is required</span><br>
+            MiddleName<input class="form-control" type="text" formControlName="MMiddleName">
+            <span style="color: red;" *ngIf="MMName.touched && MMName.invalid">Mother's Middle Name is required</span><br>
+            LastName<input class="form-control" type="text" formControlName="MLastName">
+            <span style="color: red;" *ngIf="MLName.touched && MLName.invalid">Mother's Last Name is required</span><br>
+        </div>
+        Email<input class="form-control" type="text" formControlName="MEmail">
+        <span style="color: red;" *ngIf="MEmail1.touched && MEmail1.invalid">Mother's email id is required</span><br>
+        EducationQualification<input class="form-control" type="text" formControlName="MEducationQualification">
+        <span style="color: red;" *ngIf="MEducationQualification1.touched && MEducationQualification1.invalid">Mother's Education Qualification detail is required</span><br>
+        Profession<input class="form-control" type="text" formControlName="MProfession">
+        <span style="color: red;" *ngIf="MProfession1.touched && MProfession1.invalid">Mother's Education Profession detail isrequired</span><br>
+        Designation<input class="form-control" type="text" formControlName="MDesignation">
+        <span style="color: red;" *ngIf="MDesignation1.touched && MDesignation1.invalid">Mother's is Designation detail is required</span><br>
+        Phone<input class="form-control" type="text" formControlName="MPhone">
+        <span style="color: red;" *ngIf="MPhone1.touched && MPhone1.invalid">Mother's Phone Number is required</span><br>
+    </div>
+    </div>
+
+    Emergency Contact List:
+    <div class="form-group">
+    <div formArrayName="EmergencyContactList">
+        <div *ngFor="let list of getEmergencyContactLists.controls; let idx=index">
+            <div [formGroupName] = "idx">
+            Relation<input class="form-control" type="text" formControlName="Relation">
+            <div *ngIf="!getList(idx).controls.Relation.valid && getList(idx).controls.Relation.errors!=null">
+                <span style="color: red;" *ngIf="getList(idx).controls.Relation.touched && getList(idx).controls.Relation.errors">Required</span>
+            </div>
+            <!-- <span style="color: red;" *ngIf="Relation.invalid">Contact name is required</span>  -->
+            Number<input class="form-control" type="text" formControlName="Number">
+            <div *ngIf="!getList(idx).controls.Number.valid && getList(idx).controls.Number.errors!=null">
+                <span style="color: red;" *ngIf="getList(idx).controls.Number.touched && getList(idx).controls.Number.errors">Required</span>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <div>
+            <button type="text" class="btn btn-primary  mb-2" (click)="AddContactList()">ADD more Contact List</button>
+        </div>
+    </div>
+
+    Reference Details:
+    <div class="form-group">
+        <div formArrayName="ReferenceDetails1">
+            <div *ngFor="let detail of getReferenceDetails.controls; let idx=index">
+                <div [formGroupName] = "idx">
+                    ReferenceDetails<input class="form-control" type="text" formControlName="ReferenceDetails">
+                    <div *ngIf="!getDetails(idx).controls.ReferenceDetails.valid && getDetails(idx).controls.ReferenceDetails.errors!=null">
+                        <span style="color: red;" *ngIf="getDetails(idx).controls.ReferenceDetails.touched && getDetails(idx).controls.ReferenceDetails.errors">Required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div class="form-group">
+        <div>
+            <button type="text" class="btn btn-primary mb-2" (click)="ReferenceDetails()">ADD more Reference Details</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary  mb-2">Submit Data</button>
+    </div>
+</form>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>Student First Name</th>
+          <th>Student Middle Name</th>
+          <th>Student Last Name</th>
+          <th>Student DOB</th>
+          <th>Student Place Of Birth</th>
+          <th>Student First Language</th>
+          <th>Student City</th>
+          <th>Student State</th>
+          <th>Student Country</th>
+          <th>Student Pin</th>
+          <th>Father Email</th>
+          <th>Father Education Qualification</th>
+          <th>Father Profession</th>
+          <th>Father Designation</th>
+          <th>Father Phone</th>
+          <th>Father FirstName</th>
+          <th>Father MiddleName</th>
+          <th>Father LastName</th>
+          <th>Mother FirstName</th>
+          <th>Mother MiddleName</th>
+          <th>Mother LastName</th>
+          <th>Mother Email</th>
+          <th>Mother Education Qualification</th>
+          <th>Mother Profession</th>
+          <th>Mother Designation</th>
+          <th>Mother Phone</th>
+          <th>Relation</th>
+          <th>Number</th>
+          <th>Refernce Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of Student1">
+        <td>{{ student.SFirstName }}</td>
+        <td>{{ student.SMiddleName }}</td>
+        <td>{{ student.SLastName }}</td>
+        <td>{{ student.DOB}}</td>
+        <td>{{ student.PlaceOfBirth }}</td>
+        <td>{{ student.FirstLanguage }}</td>
+        <td>{{ student.City }}</td>
+        <td>{{ student.State}}</td>
+        <td>{{ student.Country }}</td>
+        <td>{{ student.Pin }}</td>
+        <td>{{ student.FEmail }}</td>
+        <td>{{ student.FEducationQualification}}</td>
+        <td>{{ student.FProfession }}</td>
+        <td>{{ student.FDesignation }}</td>
+        <td>{{ student.FPhone }}</td>
+        <td>{{ student.FFirstName}}</td>
+        <td>{{ student.FMiddleName }}</td>
+        <td>{{ student.FLastName }}</td>
+        <td>{{ student.MFirstName }}</td>
+        <td>{{ student.MMiddleName}}</td>
+        <td>{{ student.MLastName }}</td>
+        <td>{{ student.MEmail}}</td>
+        <td>{{ student.MEducationQualification }}</td>
+        <td>{{ student.MProfession}}</td>
+        <td>{{ student.MDesignation }}</td>
+        <td>{{ student.MPhone }}</td>
+        <td>{{ student.Relation }}</td>
+        <td>{{ student.Number}}</td>
+        <td>{{ student.ReferenceDetails }}</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

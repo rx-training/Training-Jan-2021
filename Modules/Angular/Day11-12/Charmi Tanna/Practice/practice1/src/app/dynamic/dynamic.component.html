@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2>Registration Form</h2>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" formControlName="username" class="form-control">
+                <span class="text-danger" *ngIf="registrationForm.controls.username.touched && registrationForm.controls.username.invalid ">Required</span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <button type="button" class="btn btn-secondary btn-sm m-2 " (click)="addalternateEmails()">Add Alternate Emails</button>
+                <input type="email" formControlName="email" class="form-control">
+                <span class="text-danger" *ngIf="registrationForm.controls.email.touched && registrationForm.controls.email.invalid">Required</span>
+                <div formArrayName="alternateEmails" *ngFor="let email of alternateEmails1.controls; let i=index">
+                    <input type="text" class="form-control my-1" [formControlName]="i">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control">
+                <span class="text-danger" *ngIf="registrationForm.controls.password.touched && registrationForm.controls.password.invalid ">Required</span>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type ="ConfirmPassword" formControlName="ConfirmPassword" class="form-control">
+                <span class="text-danger" *ngIf="registrationForm.controls.ConfirmPassword.touched && registrationForm.controls.ConfirmPassword.invalid ">Required</span>
+            </div>
+
+            <div formGroupName ="address">
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" formControlName = "city" class="form-control">
+               <span class="text-danger" *ngIf="City.touched && City.invalid">Required</span>
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" formControlName = "state" class="form-control">
+                <span class="text-danger" *ngIf="State.touched && State.invalid">Required</span>
+            </div>
+            <div class="form-group">
+                <label>Pin</label>
+                <input type="text" formControlName = "pin" class="form-control">
+                <span class="text-danger" *ngIf="Pin.touched && Pin.invalid">Required</span>
+            </div>
+        </div>
+
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+        {{registrationForm.value|json}}
+    </div>
+</body>
+</html>

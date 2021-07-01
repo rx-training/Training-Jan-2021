@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <p>register-component works!</p>
+    <form [formGroup]="Registerform" (ngSubmit)="Submit()">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" formControlName="FirstName">
+            <span class="text-danger" *ngIf="Registerform.controls.FirstName.touched && Registerform.controls.FirstName.invalid">First Name is required</span>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" formControlName="LastName">
+            <span class="text-danger" *ngIf="Registerform.controls.LastName.touched && Registerform.controls.LastName.invalid">Last Name is required</span>
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" formControlName="Username">
+            <span class="text-danger" *ngIf="Registerform.controls.Username.touched && Registerform.controls.Username.invalid">Username is required</span>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="Password">
+            <span class="text-danger" *ngIf="Registerform.controls.Password.touched && Registerform.controls.Password.invalid">Password is required</span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  </body>
+</html>

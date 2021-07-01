@@ -1,0 +1,9 @@
+.leftbar
+{
+    width: 200px;
+    height: 1000px;
+}
+.leftbar a
+{
+    text-decoration: none;
+}

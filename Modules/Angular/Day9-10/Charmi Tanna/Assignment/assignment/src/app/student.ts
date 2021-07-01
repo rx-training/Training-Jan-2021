@@ -1,0 +1,32 @@
+export interface IStudent
+{
+    SFirstName : any;
+    SMiddleName : any;
+    SLastName : any;
+    DOB : any;
+    PlaceOfBirth : any;
+    FirstLanguage : any;
+    City : any;
+    State : any;
+    Country : any;
+    Pin : any;
+    FEmail : any;
+    FEducationQualification : any;
+    FProfession : any;
+    FDesignation : any;
+    FPhone : any;
+    FFirstName : any;
+    FMiddleName : any;
+    FLastName : any;
+    MFirstName : any;
+    MMiddleName : any;
+    MLastName : any;
+    MEmail : any;
+    MEducationQualification : any;
+    MProfession : any;
+    MDesignation : any;
+    MPhone : any;
+    Relation :  any;
+    Number : any;
+    ReferenceDetails : any;
+}

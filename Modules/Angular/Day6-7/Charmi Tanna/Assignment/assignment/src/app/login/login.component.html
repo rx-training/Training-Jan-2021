@@ -1,0 +1,19 @@
+<p>login works!</p>
+
+<div class="mb-row-3">
+<div class="col-4 mb-3">
+<label>Username</label>
+</div>
+<div class="col-4 mb-3">
+<input type="text" name="Username" [(ngModel)]="username">
+</div>
+<div class="col-4 mb-3">
+<label>Password</label>
+</div>
+<div class="col-4 mb-3">
+<input type="text" name="Password" [(ngModel)]="password">
+</div>
+</div>
+<p>Usernameis : {{username}} Password is : {{password}}</p>
+<button (click)="get()" class="bg-danger text-light">Get</button>
+<p>{{result}}</p>
