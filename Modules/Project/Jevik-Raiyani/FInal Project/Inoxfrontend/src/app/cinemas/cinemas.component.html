@@ -1,0 +1,166 @@
+<div class="container cinema">
+  <p>Select Your City and Cinema</p>
+
+  <form name="" id="">
+    Select City: <select name="city" id="country" size="" (change)="onSelect($event.target.value)">
+      <option value="" selected="selected">Select City</option>
+      <option *ngFor='let item of UniqueCity' value="{{item.cinemaCity}}">{{item.cinemaCity}}</option>
+    </select>
+
+    Select Cinema: <select name="cinema" size="" (change)="onSelectCinema($event.target.value)">
+      <option value="" selected="selected">Select Cinema</option>
+      <option *ngFor='let item of UniqueCinema' value="{{item.cinemaName}}">{{item.cinemaName}}</option>
+    </select>
+  </form>
+
+  <div class="form-check" *ngIf='cinemaAdmin && totalMovies'>
+    <div>
+      <input class="form-check-input" (change)="changeCheckbox($event.target.value)" value='add' type="radio"
+        name="flexRadioDisabled" id="flexRadioDisabled" [checked]='checkFlag'>
+      <label class="form-check-label" for="flexRadioDisabled">
+        Add Show
+      </label>
+    </div>
+    <div>
+      <input class="form-check-input" (change)="changeCheckbox($event.target.value)" value='delete' type="radio"
+        name="flexRadioDisabled" id="flexRadioDisabled" [checked]='!checkFlag'>
+      <label class="form-check-label" for="flexRadioDisabled">
+        Delete Show
+      </label>
+    </div>
+  </div>
+
+
+  <div class="container" *ngIf='!cinemaAdmin '>
+    <div class="row">
+      <div *ngFor='let movie of Movies' class="card col-lg-3 p-2" style="border: none;">
+        <img class="card-img-top" src="../../assets/img/MovieImages/{{getMovieImages(movie.movieId)}}" alt="">
+        <h6 class="card-subtitle mt-2">{{movie.movieName}}</h6>
+        <p class="my-0">{{movie.language}}</p>
+        <hr class="my-0">
+        <p class="my-0">{{movie.duration}} min</p>
+        <button class="d-block border-danger text-danger"
+          [routerLink]="['book-now',movie.movieId,CinemaCity,CinemaName]">BOOK NOW</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container" *ngIf='cinemaAdmin && checkFlag && !addMovieId'>
+    <div class="row">
+      <div *ngFor='let movie of totalMovies' class="card col-lg-3 p-2" style="border: none;">
+        <img class="card-img-top" src="../../assets/img/MovieImages/{{getMovieImages(movie.movieId)}}" alt="">
+        <h6 class="card-subtitle mt-2">{{movie.movieName}}</h6>
+        <p class="my-0">{{movie.language}}</p>
+        <hr class="my-0">
+        <p class="my-0">{{movie.duration}} min</p>
+        <button class="d-block border-danger text-danger" (click)='AddShow(movie.movieId)'>Add Show</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf='cinemaAdmin && checkFlag && addMovieId'>
+    <div>
+
+      <div class="row">
+        <div class="card col-lg-3 p-2" style="border: none;">
+          <img class="card-img-top" src="../../assets/img/MovieImages/{{movieImages}}" alt="">
+          <p>Release Date: {{thisMovie?.releaseDate | date:'dd/MM/yyyy'}}</p>
+          <p>Duration: {{thisMovie?.duration}} min </p>
+          <p *ngIf='DateFlag'> Rating: {{thisMovie?.rationg}} </p>
+        </div>
+        <div class="card col-lg-9 p-2" style="border: none;">
+          <img class="card-img-top" src="../../assets/img/MovieTrailler/{{movieTrailer}}" alt="">
+
+          <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+              href="#list-home" role="tab" aria-controls="home">INFORMATION</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+              href="#list-profile" role="tab" aria-controls="profile">SYNOPSIS</a>
+          </div>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+              <p> Director : <span *ngFor='let cast of thisMovieCast' [ngSwitch]="cast.role">
+                  <span *ngSwitchCase='"Director"'>
+                    <span>
+                      {{cast.name}},
+                    </span>
+                  </span>
+                </span>
+              </p>
+              <p> Cast : <span *ngFor='let cast of thisMovieCast'>
+                  <span *ngIf="cast.role != 'Director'">
+                    {{cast.name}},
+                  </span>
+                </span>
+              </p>
+
+            </div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+              {{thisMovie?.descripton}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+        <form>
+        <button type="" (click)='back()' class="btn btn-primary">Back</button>
+
+        <div class="form-group">
+          Select Screen: <select name="cinema" size="" (change)="onSelectScreen($event.target.value)">
+            <option value="" selected="selected">Select Screen</option>
+            <option *ngFor='let item of perticularCinemaScreens' value="{{item.screenId}}">{{item.screenNo}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Show Date</label>
+          <input type="date" class="form-control" [ngModel]="date " (ngModelChange)="date = $event" name="date" required>
+           {{date |date:'dd-MM-yyyy' }}
+        </div>
+ 
+        
+        <div class="form-group">
+          <label for="time">Show time:</label>
+          <input [ngModel]="time " (ngModelChange)="time = $event" name="time"  class="form-control" type="time">
+          {{time }}
+        </div>
+        <button type="" class="btn btn-primary" (click)='addNewShow()' >Add New Show</button>
+        
+      </form>
+    </div>
+  </div>
+
+  <div class="container" *ngIf='cinemaAdmin && !checkFlag'>
+    <div style="margin-top: 15px;">
+      <div class="container">
+        <div *ngFor='let data of totalShowOfCinema' style="padding: 12px;">
+          <div class="row">
+            <div class="col-md-9">
+              <div>
+                Show Date & Time
+                {{data.date | date:'dd/MM/yyyy'}} {{data.startTime.hours}}:{{data.startTime.minutes}}
+
+                <br>
+                Screen no. {{data.screenNo}} & Capacity {{data.capacity}}
+
+                <br> Cinema Location
+                {{data.cinemaName}}
+                {{data.cinemaAddress}}-{{data.cinemaPincode}}
+                {{data.cinemaCity}}
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <button type="button" class="btn btn-danger" (click)="deleteShow(data.showTimeId)">Delete Show</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="bookSeat container">
+
+    <div class="main">
+        <div class="Screen">Screen</div> 
+
+        <div class="row my-2" *ngFor="let j of TotaRowId">
+            <!-- style="display: flex;justify-content: center;" -->
+            <div *ngFor="let i of TotalSeat; let idx = index;">
+                <div *ngIf='j == i.rowId' class="style">
+
+                    <!-- <div class="row"  *ngIf= 'idx!=0 && TotalSeat[idx-1].rowId != TotalSeat[idx].rowId'> <br>  </div> -->
+
+                    <div *ngIf='avalableSeatMap.get(i.seatId) == true'>
+                        <div>
+                            <input class="form-check-input"  [ngStyle]="{height:getHeight(i.seatTypeId)}"
+                                 type="checkbox" value="{{i.seatId}}"
+                                (change)="onSelect($event.target.value)">
+                            <label class="form-check-label" [ngStyle]="{'padding-left':paddingleft(i.seatTypeId)}"
+                            for="flexCheckDisabled">
+                                {{i.seatNo}}
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div *ngIf='avalableSeatMap.get(i.seatId) == false'>
+                        <div>
+
+                            <input class="form-check-input" [ngStyle]="{height:getHeight(i.seatTypeId)}"
+                             type="checkbox" checked disabled>
+                            <label class="form-check-label" [ngStyle]="{'padding-left':paddingleft(i.seatTypeId)}"
+                            for="flexCheckCheckedDisabled">
+                                {{i.seatNo}}
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <button  type="button" class="btn btn-success" (click)='book()' > Book </button>
+    </div>
+</div>
