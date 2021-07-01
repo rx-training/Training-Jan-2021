@@ -30,7 +30,7 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/Certifications/1
-        [Authorize(Roles = UserRoles.Admin)]
+        
         [HttpGet("{id}")]
         public ActionResult<Certification> GetCertification(int id)
         {

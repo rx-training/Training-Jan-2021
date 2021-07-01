@@ -9,6 +9,7 @@ namespace BookMyShowAPI.IRepository
 {
     public interface ITheatre : IGenericInterface<Theatre>
     {
+        public IEnumerable GetTheatreById(int id);
         public IEnumerable GetScreensById(int id);
         public void CreateScreenById(int id);
         public void DeleteScreenById(int id);

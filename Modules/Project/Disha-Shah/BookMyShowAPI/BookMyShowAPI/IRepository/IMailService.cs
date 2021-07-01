@@ -8,6 +8,6 @@ namespace BookMyShowAPI.IRepository
 {
     public interface IMailService
     {
-        Task SendEmailAsync(MailRequest mailRequest);
+        void SendEmailAsync(MailRequest mailRequest);
     }
 }

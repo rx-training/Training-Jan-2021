@@ -26,13 +26,15 @@ namespace BookMyShowAPI.Controllers
         private readonly IAdmin admins;
         private readonly IMailService mailService;
         private readonly IConfiguration _configuration;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public AuthenticateController(IUser user, IAdmin admin, IMailService mailService, IConfiguration configuration)
+        public AuthenticateController(IUser user, IAdmin admin, IMailService mailService, IConfiguration configuration, UserManager<ApplicationUser> userManager)
         {
             users = user;
             admins = admin;
             this.mailService = mailService;
             _configuration = configuration;
+            this.userManager = userManager;
         }
 
         // POST: api/bookmyshow/authenticate/login?otp=1234
@@ -42,32 +44,48 @@ namespace BookMyShowAPI.Controllers
         {
             var username = "";
             var pass = "";
-            if (users.FindName(model.Username) != null && otp == 1234)
+            var role = "";
+            var userOtp = 0;
+
+            if (users.FindName(model.Username) != null)
             {
                 username = model.Username;
-                pass = users.FindName(model.Username).Password;
+                pass = model.Password;
+                userOtp = users.FindName(model.Username).Otp;
+                role = "User";
+
+                if (otp != userOtp)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
+                }
+
             }
-            else if (admins.FindName(model.Username) != null && otp == 1234)
+            else if (admins.FindName(model.Username) != null)
             {
                 username = model.Username;
-                pass = admins.FindName(model.Username).Password;
+                //pass = admins.FindName(model.Username).Password;
+                pass = model.Password;
+                role = "Admin";
+
+                if (otp != 1234)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect OTP!" });
+                }
+
             }
             else
             {
-                return Unauthorized();
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Username or Password!" });
             }
 
-            if(model.Password.Trim() != pass)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Password!" });
-            }
-
-            var newToken = await users.LoginUser(username);
+            var newToken = await users.LoginUser(username, pass);
 
             if (newToken != null)
             {
                 return Ok(new
                 {
+                    role = role,
+                    username = username,
                     token = newToken
                 });
             }
@@ -85,11 +103,16 @@ namespace BookMyShowAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
             }
 
+            if (users.FindContact(model.PhoneNumber) != null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Contact No. already exists!" });
+            }
+
             var result = await users.RegisterUser(model);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
 
-            users.CreateUser(model);
+            //users.CreateUser(model);
 
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
 
@@ -103,6 +126,11 @@ namespace BookMyShowAPI.Controllers
             if (admins.FindName(model.Username) != null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Admin already exists!" });
+            }
+
+            if (admins.FindContact(model.PhoneNumber) != null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Contact no. already exists!" });
             }
 
             var result = await admins.RegisterAdmin(model);

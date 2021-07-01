@@ -1,6 +1,7 @@
 ﻿using BookMyShowAPI.IRepository;
 using BookMyShowAPI.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,6 +14,22 @@ namespace BookMyShowAPI.Repository
         {
 
         }
+
+        public IEnumerable GetAllFilmCategories()
+        {
+            var filmCategories = context.FilmCategories;
+
+            var g1 = from x in filmCategories
+                     select new FilmCategory
+                     {
+                         FilmCategory1 = x.FilmCategory1,
+                         FilmCategoryId = x.FilmCategoryId,
+                         MovieFilmCategories = context.MovieFilmCategories.Where(m => m.FilmCategoryId == x.FilmCategoryId).ToArray()
+                     };
+
+            return g1;
+        }
+
 
         // Add FilmCategory
         public override void Create(FilmCategory filmCategory)

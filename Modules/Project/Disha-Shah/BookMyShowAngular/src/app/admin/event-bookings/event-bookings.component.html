@@ -1,0 +1,52 @@
+<div class="bg-light">
+    <div class="d-flex p-4 justify-content-between">
+        <h1 class="h4">Latest Event Bookings</h1>
+    </div>
+    <div class="table-responsive w-100">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Booking Id</th>
+                    <th>Event</th>
+                    <th>Event Venue</th>
+                    <th>Event Type</th>
+                    <th>Date of Event</th>
+                    <th>Show Time</th>
+                    <th>Booking Date</th>
+                    <th>Ticket Count</th>
+                    <th>user Contact No.</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody id="tblMovie">
+
+                <tr *ngFor="let booking of bookingsList">
+                    <td>{{booking.eventBookingId}}</td>
+                    <td>{{booking.event.event}}</td>
+                    <td>{{booking.eventVenue.name}}</td>
+                    <td>{{booking.eventType.eventType1}}</td>
+                    <td>{{booking.event.dateOfEvent}}</td>
+                    <td>
+                        <ng-container *ngIf="booking.showTiming.showTime.hours < 10">
+                            0{{booking.showTiming.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf="booking.showTiming.showTime.hours >= 10">
+                            {{booking.showTiming.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes < 10">
+                            0{{booking.showTiming.showTime.minutes}}
+                        </ng-container>
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes >= 10">
+                            {{booking.showTiming.showTime.minutes}}
+                        </ng-container>
+                    </td>
+                    <td>{{booking.bookingDate}}</td>
+                    <td>{{booking.ticketCount}}</td>
+                    <td>{{booking.user.contactNo}}</td>
+                    <td>{{booking.totalAmount}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

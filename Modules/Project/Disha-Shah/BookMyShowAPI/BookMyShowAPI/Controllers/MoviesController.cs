@@ -47,6 +47,12 @@ namespace BookMyShowAPI.Controllers
             return Ok(movies.GetMoviesByFilmCategory(filmCategory));
         }
 
+        [HttpGet("Genres/{genre}/Languages/{language}")]
+        public ActionResult<IEnumerable<Movie>> GetMovieByGenreLanguage(string genre, string language)
+        {
+            return Ok(movies.GetMoviesByGenreLanguage(genre, language));
+        }
+
         // GET: api/BookMyShow/Movies/5
         [HttpGet("{id}")]
         public ActionResult<Movie> GetMovie(int id)
@@ -103,6 +109,19 @@ namespace BookMyShowAPI.Controllers
             return Ok(theatres);
         }
 
+        [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreId}/ShowTimings")]
+        public ActionResult<TheatresMovie> GetShowTimings(int id, string language, string filmCategory, int theatreId)
+        {
+            var showTimings = movies.GetShowTimingsByTheatre(id, language, filmCategory, theatreId);
+
+            if (showTimings == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(showTimings);
+        }
+
         // GET: api/BookMyShow/Movies/5/Languages/English/FilmCategories/2D/Theatres/4/ShowTimings/03:00 PM/SeatCategories
         [HttpGet("{id}/Languages/{language}/FilmCategories/{filmCategory}/Theatres/{theatreid}/ShowTimings/{showTime}/SeatCategories")]
         public ActionResult<TheatresMovie> GetSeatCategories(int id, string language, string filmCategory, int theatreid, string showTime)
@@ -135,12 +154,12 @@ namespace BookMyShowAPI.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = UserRoles.Admin)]
-        public IActionResult PutMovie(int id, Movie movie)
+        public IActionResult PutMovie(MovieDTO movie)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            movies.Update(id, movie);
+            movies.Update(movie);
 
             return Ok();
         }
@@ -149,12 +168,12 @@ namespace BookMyShowAPI.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize(Roles = UserRoles.Admin)]
-        public ActionResult<Movie> PostMovie(Movie movie)
+        public ActionResult<MovieDTO> PostMovie(MovieDTO movie)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            movies.Create(movie);
+            movies.CreateMovie(movie);
 
             return Ok();
         }

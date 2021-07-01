@@ -18,47 +18,161 @@ namespace BookMyShowAPI.Repository
         // Get all the information of all movies
         public IEnumerable GetAllMovies()
         {
-            var movie = context.VMovies.ToList();
+            var movies = context.Movies.Where(x=> x.IsActive == true);
 
-            return movie;
+            var m1 = from x in movies
+                     select new Movie
+                     {
+                         About = x.About,
+                         Certification = x.Certification,
+                         CertificationId = x.CertificationId,
+                         DateOfRelease = x.DateOfRelease,
+                         Image = x.Image,
+                         IsPremiere = x.IsPremiere,
+                         IsRecommended = x.IsRecommended,
+                         MovieId = x.MovieId,
+                         Name = x.Name,
+                         Time = x.Time,
+                         BackgroundImage = x.BackgroundImage,
+                         Cast = x.Cast,
+                         CastImages= x.CastImages,
+                         MovieGenres = context.MovieGenres.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieFilmCategories = context.MovieFilmCategories.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieLanguages = context.MovieLanguages.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         ScreensMovies = context.ScreensMovies.Where(m => m.MovieId == x.MovieId).ToArray()
+                     };
+
+
+            return m1;
+
+            //var movies = context.VMovies.ToList();
+
+            //return movies;
         }
 
         // Get information of a particular movie
         public IEnumerable GetMovieById(int id)
         {
-            var movie = context.VMovies
-                                .Where(x=>x.MovieId==id)
-                                .ToList();
+            var movies = context.Movies
+                                .Where(x=>x.MovieId == id && x.IsActive == true);
 
-            return movie;
+            var m1 = from x in movies
+                     select new Movie
+                     {
+                         About = x.About,
+                         Certification = x.Certification,
+                         CertificationId = x.CertificationId,
+                         DateOfRelease = x.DateOfRelease,
+                         Image = x.Image,
+                         IsPremiere = x.IsPremiere,
+                         IsRecommended = x.IsRecommended,
+                         MovieId = x.MovieId,
+                         Name = x.Name,
+                         Time = x.Time,
+                         BackgroundImage = x.BackgroundImage,
+                         Cast = x.Cast,
+                         CastImages = x.CastImages,
+                         MovieGenres = context.MovieGenres.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieFilmCategories = context.MovieFilmCategories.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         MovieLanguages = context.MovieLanguages.Where(m => m.MovieId == x.MovieId).ToArray(),
+                         ScreensMovies = context.ScreensMovies.Where(m => m.MovieId == x.MovieId).ToArray()
+                     };
+
+            return m1;
+
+            //var movie = context.VMovies
+            //                    .Where(x=>x.MovieId==id)
+            //                    .ToList();
+
+            //return movie;
         }
 
         // Add Movie
-        public override void Create(Movie movie)
+        public void CreateMovie(MovieDTO movie)
         {
-            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == movie.Certification.Certification1);
+            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == movie.Certification);
+
+            //var newMovie = new Movie
+            //{
+            //    Name = movie.Name,
+            //    About = movie.About,
+            //    Image = movie.Image,
+            //    DateOfRelease = movie.DateOfRelease,
+            //    Time = movie.Time,
+            //    IsRecommended = movie.IsRecommended,
+            //    IsPremiere = movie.IsPremiere,
+            //    CertificationId = certification.CertificationId
+            //};
 
             context.Movies.Add(new Movie()
             {
                 Name = movie.Name,
-                About=movie.About,
-                Image=movie.Image,
-                DateOfRelease=movie.DateOfRelease,
-                Time=movie.Time,
-                IsRecommended=movie.IsRecommended,
-                IsPremiere=movie.IsPremiere,
-                CertificationId=certification.CertificationId
+                About = movie.About,
+                Image = movie.Image,
+                DateOfRelease = movie.DateOfRelease,
+                Time = movie.Time,
+                IsRecommended = movie.IsRecommended,
+                IsPremiere = movie.IsPremiere,
+                CertificationId = certification.CertificationId,
+                BackgroundImage = movie.BackgroundImage,
+                Cast = movie.Cast,
+                CastImages = movie.CastImages,
+                IsActive = true
             });
 
             context.SaveChanges();
+
+            var movies = context.Movies.ToList();
+            var totalMovies = movies.Count();
+            var movieId = movies[totalMovies - 2].MovieId;
+
+            foreach (var item in movie.Genres)
+            {
+                var gen = context.Genres.SingleOrDefault(x => x.Genre1 == item);
+
+                context.MovieGenres.Add(new MovieGenre()
+                {
+                    MovieId = movieId + 1,
+                    GenreId = gen.GenreId
+                });
+
+                context.SaveChanges();
+            }
+
+            foreach (var item in movie.Languages)
+            {
+                var lang = context.Languages.SingleOrDefault(x => x.Language1 == item);
+
+                context.MovieLanguages.Add(new MovieLanguage()
+                {
+                    MovieId = movieId + 1,
+                    LanguageId = lang.LanguageId
+                });
+
+                context.SaveChanges();
+            }
+
+            foreach (var item in movie.FilmCategories)
+            {
+                var film = context.FilmCategories.SingleOrDefault(x => x.FilmCategory1 == item);
+
+                context.MovieFilmCategories.Add(new MovieFilmCategory()
+                {
+                    MovieId = movieId + 1,
+                    FilmCategoryId = film.FilmCategoryId
+                });
+
+                context.SaveChanges();
+            }
+
         }
 
         // Update Movie
-        public override void Update(int id, Movie entity)
+        public void Update(MovieDTO entity)
         {
-            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == entity.Certification.Certification1);
+            var certification = context.Certifications.SingleOrDefault(x => x.Certification1 == entity.Certification);
 
-            var existingMovie = context.Movies.Where(s => s.MovieId == id)
+            var existingMovie = context.Movies.Where(s => s.MovieId == entity.MovieId)
                                                     .SingleOrDefault<Movie>();
 
             existingMovie.Name = entity.Name;
@@ -69,8 +183,66 @@ namespace BookMyShowAPI.Repository
             existingMovie.IsRecommended = entity.IsRecommended;
             existingMovie.IsPremiere = entity.IsPremiere;
             existingMovie.CertificationId = certification.CertificationId;
+            existingMovie.BackgroundImage = entity.BackgroundImage;
+            existingMovie.Cast = entity.Cast;
+            existingMovie.CastImages = entity.CastImages;
+            existingMovie.IsActive = true;
 
             context.SaveChanges();
+
+            var existingGenres = context.MovieGenres.Where(x => x.MovieId == entity.MovieId).ToList();
+
+            context.MovieGenres.RemoveRange(existingGenres);
+            context.SaveChanges();
+
+            foreach (var item in entity.Genres)
+            {
+                var gen = context.Genres.SingleOrDefault(x => x.Genre1 == item);
+
+                context.MovieGenres.Add(new MovieGenre()
+                {
+                    MovieId = entity.MovieId,
+                    GenreId = gen.GenreId
+                });
+
+                context.SaveChanges();
+            }
+
+            var existingLang = context.MovieLanguages.Where(x => x.MovieId == entity.MovieId).ToList();
+
+            context.MovieLanguages.RemoveRange(existingLang);
+            context.SaveChanges();
+
+            foreach (var item in entity.Languages)
+            {
+                var gen = context.Languages.SingleOrDefault(x => x.Language1 == item);
+
+                context.MovieLanguages.Add(new MovieLanguage()
+                {
+                    MovieId = entity.MovieId,
+                    LanguageId = gen.LanguageId
+                });
+
+                context.SaveChanges();
+            }
+
+            var existingFilm = context.MovieFilmCategories.Where(x => x.MovieId == entity.MovieId).ToList();
+
+            context.MovieFilmCategories.RemoveRange(existingFilm);
+            context.SaveChanges();
+
+            foreach (var item in entity.FilmCategories)
+            {
+                var gen = context.FilmCategories.SingleOrDefault(x => x.FilmCategory1 == item);
+
+                context.MovieFilmCategories.Add(new MovieFilmCategory()
+                {
+                    MovieId = entity.MovieId,
+                    FilmCategoryId = gen.FilmCategoryId
+                });
+
+                context.SaveChanges();
+            }
 
         }
 
@@ -81,7 +253,8 @@ namespace BookMyShowAPI.Repository
                 .Where(s => s.MovieId == id)
                 .SingleOrDefault();
 
-            context.Movies.Remove(movie);
+            //context.Movies.Remove(movie);
+            movie.IsActive = false;
             context.SaveChanges();
         }
 
@@ -276,11 +449,47 @@ namespace BookMyShowAPI.Repository
                                     City = x.City,
                                     CityId = x.CityId,
                                     ShowTime=x.ShowTime,
-                                    ShowTimingId=x.ShowTimingId
+                                    ShowTimingId=x.ShowTimingId,
+                                    EndDate = x.EndDate
                                 })
                                 .Distinct();
 
             return theatres;
+        }
+
+        public IEnumerable GetShowTimingsByTheatre(int id, string language, string filmCategory, int theatreId)
+        {
+            var movie = context.Movies.SingleOrDefault(x => x.MovieId == id);
+
+            var showTimings = context.TheatresMovies
+                                .Where(x => x.Movie == movie.Name && x.Language == language && x.FilmCategory == filmCategory && x.TheatreId == theatreId)
+                                .Select(x => new TheatresMovie
+                                {
+                                    Movie = x.Movie,
+                                    About = x.About,
+                                    DateOfRelease = x.DateOfRelease,
+                                    Image = x.Image,
+                                    IsPremiere = x.IsPremiere,
+                                    IsRecommended = x.IsRecommended,
+                                    Time = x.Time,
+                                    Certification = x.Certification,
+                                    CertificationId = x.CertificationId,
+                                    Language = x.Language,
+                                    LanguageId = x.LanguageId,
+                                    FilmCategory = x.FilmCategory,
+                                    FilmCategoryId = x.FilmCategoryId,
+                                    TheatreId = x.TheatreId,
+                                    Theatre = x.Theatre,
+                                    Address = x.Address,
+                                    City = x.City,
+                                    CityId = x.CityId,
+                                    ShowTime = x.ShowTime,
+                                    ShowTimingId = x.ShowTimingId,
+                                    EndDate = x.EndDate
+                                })
+                                .Distinct();
+
+            return showTimings;
         }
 
         // Get Seatcategory and seats for a particular movie and theatre
@@ -369,6 +578,15 @@ namespace BookMyShowAPI.Repository
                                 .Distinct();
 
             return seats;
+        }
+
+        public IEnumerable GetMoviesByGenreLanguage(string genre, string language)
+        {
+            var movie = context.VMovies
+                                .Where(x => x.Language == language && x.Genre == genre)
+                                .ToList();
+
+            return movie;
         }
     }
 }

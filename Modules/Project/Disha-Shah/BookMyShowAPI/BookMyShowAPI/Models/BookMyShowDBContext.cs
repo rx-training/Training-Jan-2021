@@ -23,6 +23,7 @@ namespace BookMyShowAPI.Models
         public virtual DbSet<Certification> Certifications { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Comedy> Comedys { get; set; }
+        public virtual DbSet<DynamicNavbar> DynamicNavbars { get; set; }
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<EventBooking> EventBookings { get; set; }
         public virtual DbSet<EventLanguage> EventLanguages { get; set; }
@@ -224,6 +225,18 @@ namespace BookMyShowAPI.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<DynamicNavbar>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("Name");
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Event>(entity =>
             {
                 entity.Property(e => e.DateOfEvent).HasColumnType("date");
@@ -255,6 +268,45 @@ namespace BookMyShowAPI.Models
                     .HasForeignKey(d => d.EventVenueShowTimingId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("EventVenueShowTimings_EventVenueShowTimingId_FK");
+
+                entity.Property(e => e.MinAge)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.BackgroundImage)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.About)
+                    .HasMaxLength(5000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Note)
+                    .HasMaxLength(10000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ArtistName)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ArtistImage)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Disclaimer)
+                    .HasMaxLength(20000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FAQs)
+                    .HasMaxLength(20000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TermsAndConditions)
+                    .HasMaxLength(20000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<EventBooking>(entity =>
@@ -263,32 +315,63 @@ namespace BookMyShowAPI.Models
                     .HasColumnType("date")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.DateOfEvent).HasColumnType("date");
+                //entity.Property(e => e.DateOfEvent).HasColumnType("date");
 
-                entity.Property(e => e.Event)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Event)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.EventType)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.EventType)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.EventVenue)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.EventVenue)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.TotalAmount)
                     .HasColumnType("money")
                     .HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.UserContact)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                //entity.Property(e => e.UserContact)
+                //    .IsRequired()
+                //    .HasMaxLength(10)
+                //    .IsUnicode(false)
+                //    .IsFixedLength(true);
+
+                entity.HasOne(d => d.Event)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.EventId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_EventId_FK");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_UserId_FK");
+
+                entity.HasOne(d => d.EventVenue)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.EventVenueId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_EventVenueId_FK");
+
+                entity.HasOne(d => d.ShowTiming)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.ShowTimingId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_ShowTimingId_FK");
+
+                entity.HasOne(d => d.EventType)
+                    .WithMany(p => p.EventBookings)
+                    .HasForeignKey(d => d.EventTypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("EventBookings_EventTypeId_FK");
+
             });
 
             modelBuilder.Entity<EventLanguage>(entity =>
@@ -335,6 +418,10 @@ namespace BookMyShowAPI.Models
                     .HasForeignKey(d => d.CityId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("EventVenues_Cities_CityId_FK");
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<EventVenueShowTiming>(entity =>
@@ -410,6 +497,22 @@ namespace BookMyShowAPI.Models
                     .HasForeignKey(d => d.CertificationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Certifications_CertificationId_FK");
+
+                entity.Property(e => e.BackgroundImage)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Cast)
+                    .HasMaxLength(2000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CastImages)
+                    .HasMaxLength(10000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("bit")
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<MovieBooking>(entity =>
@@ -418,47 +521,96 @@ namespace BookMyShowAPI.Models
                     .HasColumnType("date")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.City)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.City)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.DateToWatch).HasColumnType("date");
 
-                entity.Property(e => e.FilmCategory)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.FilmCategory)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.Language)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Language)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.Movie)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Movie)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.SeatNo)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Theatre)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Theatre)
+                //    .IsRequired()
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
                 entity.Property(e => e.TotalAmount)
                     .HasColumnType("money")
                     .HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.UserContact)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                //entity.Property(e => e.UserContact)
+                //    .IsRequired()
+                //    .HasMaxLength(10)
+                //    .IsUnicode(false)
+                //    .IsFixedLength(true);
+
+                entity.HasOne(d => d.Movie)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.MovieId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Movies_MovieId_FK");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Users_UserId_FK");
+
+                entity.HasOne(d => d.Theatre)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.TheatreId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Theatres_TheatreId_FK");
+
+                entity.HasOne(d => d.ShowTiming)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.ShowTimingId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("ShowTimings_ShowTimingId_FK");
+
+                entity.HasOne(d => d.Screen)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.ScreenId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Screens_ScreenId_FK");
+
+                entity.HasOne(d => d.City)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.CityId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Cities_CityId_FK");
+
+                entity.HasOne(d => d.Language)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.LanguageId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Languages_LanguageId_FK");
+
+                entity.HasOne(d => d.FilmCategory)
+                    .WithMany(p => p.MovieBookings)
+                    .HasForeignKey(d => d.FilmCategoryId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FilmCategories_FilmCategoryId_FK");
+
             });
 
             modelBuilder.Entity<MovieFilmCategory>(entity =>
@@ -938,6 +1090,8 @@ namespace BookMyShowAPI.Models
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+                entity.Property(e => e.EndDate).HasColumnType("date");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -954,11 +1108,13 @@ namespace BookMyShowAPI.Models
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .HasColumnType("nvarchar(max)");
 
                 entity.Property(e => e.UserName)
                     .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Otp)
                     .IsUnicode(false);
             });
 

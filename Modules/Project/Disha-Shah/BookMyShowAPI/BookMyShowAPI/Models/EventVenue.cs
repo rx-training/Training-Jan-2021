@@ -10,6 +10,7 @@ namespace BookMyShowAPI.Models
         public EventVenue()
         {
             EventVenueShowTimings = new HashSet<EventVenueShowTiming>();
+            EventBookings = new HashSet<EventBooking>();
         }
 
         public int EventVenueId { get; set; }
@@ -17,8 +18,10 @@ namespace BookMyShowAPI.Models
         public string Address { get; set; }
         public int TotalTickets { get; set; }
         public int CityId { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual City City { get; set; }
         public virtual ICollection<EventVenueShowTiming> EventVenueShowTimings { get; set; }
+        public virtual ICollection<EventBooking> EventBookings { get; set; }
     }
 }

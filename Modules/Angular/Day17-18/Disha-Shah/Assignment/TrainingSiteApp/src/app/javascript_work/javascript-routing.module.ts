@@ -26,7 +26,7 @@ import { Day20PracticeComponent } from './day20-practice/day20-practice.componen
 import { JavascriptComponent } from './javascript/javascript.component';
 
 const javascriptRoutes: Routes = [
-  { path: 'javascript', component: JavascriptComponent, children:[
+  { path: '', component: JavascriptComponent, children:[
     { 
       path: 'day15practice1', 
       component: Day15Practice1Component

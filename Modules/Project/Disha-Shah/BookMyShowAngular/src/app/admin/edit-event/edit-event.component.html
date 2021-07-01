@@ -1,0 +1,210 @@
+<div class="container">
+    <small class="text-danger">* Required</small>
+    <form [formGroup] = "addEventForm" (ngSubmit)="eventSubmit()">
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="movieName" formControlName="name" maxlength="50">
+                <small class="text-danger" *ngIf="addEventForm.controls.name.invalid && (addEventForm.controls.name.dirty || addEventForm.controls.name.touched)" id="errName">
+                    Name is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="image" class="col-sm-3 col-form-label h5">Image</label>
+            <div class="col-sm-9" id="parentImg">
+                <input type="file" class="form-control-file" id="movieImage" (change)="getImage($event)" maxlength="1000">
+                <img [src]="'../../../../../assets/' + eventImage" alt="" id="eventImageShow" class="img-fluid w-25 mt-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="backgroundImage" class="col-sm-3 col-form-label h5">Large Image<span class="text-danger"> *</span></label>
+            <div class="col-sm-9" id="parentImg">
+                <input type="file" class="form-control-file" id="movieImage" (change)="getBgImage($event)" maxlength="1000">
+                <small class="text-danger" *ngIf="addEventForm.controls.backgroundImage.invalid && (addEventForm.controls.backgroundImage.dirty || addEventForm.controls.backgroundImage.touched)" id="errName">
+                    Large Image is required
+                </small>
+                <img [src]="'../../../../../assets/' + bgImage" alt="" id="movieImageShow" class="img-fluid w-25 mt-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="artistName" class="col-sm-3 col-form-label h5">Artist Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="artistName" formControlName="artistName" maxlength="500">
+            </div>
+            
+        </div>
+        <div class="form-group row">
+            <label for="artistImage" class="col-sm-3 col-form-label h5">Artist Image</label>
+            <div class="col-sm-9" id="parentImg">
+                <input type="file" class="form-control-file" id="artistImage" (change)="getArtistImage($event)" maxlength="1000">
+                
+                <img [src]="'../../../../../assets/' + artistImage" alt="" id="artistImageShow" class="img-fluid w-25 mt-3">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="ticketPrice" class="col-sm-3 col-form-label h5">Ticket Price<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" id="eventTicketPrice" formControlName="ticketPrice">
+                <small class="text-danger" *ngIf="addEventForm.controls.ticketPrice.invalid && (addEventForm.controls.ticketPrice.dirty || addEventForm.controls.ticketPrice.touched)" id="errName">
+                    <div *ngIf="addEventForm.controls.ticketPrice.errors?.required">
+                        Ticket price is required.
+                    </div>
+                    <div *ngIf="addEventForm.controls.ticketPrice.errors?.pattern">
+                        Enter valid Ticket price
+                    </div>
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="movieLanguage" class="col-sm-3 col-form-label h5">Language<span class="text-danger">
+                    *</span></label>
+            <div class="col-sm-9 d-flex flex-row flex-wrap">
+                <div class="form-check mr-2 mt-2" *ngFor = "let language of languagesList; let i = index">
+                    <input class="form-check-input" type="checkbox" [value]="language.language1" [id]="language.language1" name="language" (change)="selectLanguage(i, $event)">
+                    <label class="form-check-label" [for]="language.language1">
+                        {{language.language1}}
+                    </label>
+                </div>
+                <small class="text-danger mt-2" *ngIf="addEventForm.controls.languages.length == 0" id="errLanguage">
+                    Language is required
+                </small>
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+            <label for="time" class="col-sm-3 col-form-label h5">Time<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="eventTime" formControlName="time">
+                <small class="text-danger" *ngIf="addEventForm.controls.time.invalid && (addEventForm.controls.time.dirty || addEventForm.controls.time.touched)" id="errName">
+                    <ng-container *ngIf = "addEventForm.controls.time.errors.required">
+                        Time is required
+                    </ng-container>
+                    <ng-container *ngIf = "addEventForm.controls.time.errors.pattern">
+                        Ex: 1h 30m
+                    </ng-container>
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="dateOfEvent" class="col-sm-3 col-form-label h5">Date of Event<span class="text-danger">
+                    *</span></label>
+            <div class="col-sm-9">
+                <input type="date" class="form-control" id="dateOfEvent" formControlName="dateOfEvent">
+                <small class="text-danger" *ngIf="addEventForm.controls.dateOfEvent.invalid && (addEventForm.controls.dateOfEvent.dirty || addEventForm.controls.dateOfEvent.touched)" id="errName">
+                    <ng-container *ngIf = "addEventForm.controls.dateOfEvent.errors.required">
+                        Date of event is required
+                    </ng-container>
+                    <ng-container *ngIf = "addEventForm.controls.dateOfEvent.errors.pastDate">
+                        Date of event should not be in past
+                    </ng-container>
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="eventType" class="col-sm-3 col-form-label h5">Event Type<span class="text-danger">
+                    *</span></label>
+            <div class="col-sm-9">
+                <select class="custom-select" formControlName="eventType">
+                    <option selected value="">Choose Event Type</option>
+                    <option *ngFor = "let eventType of eventTypesList">
+                        {{eventType.eventType1}}
+                    </option>
+                </select>
+                <small class="text-danger" *ngIf="addEventForm.controls.eventType.invalid && (addEventForm.controls.eventType.dirty || addEventForm.controls.eventType.touched)" id="errName">
+                    Event Type is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="eventVenue" class="col-sm-3 col-form-label h5">Event Venue<span class="text-danger">
+                    *</span></label>
+            <div class="col-sm-9">
+                <select class="custom-select" formControlName="eventVenue" [(ngModel)]="selectVenue" (change)="getShowTiming();">
+                    <option selected value="">Choose Event Venue</option>
+                    <option *ngFor = "let eventVenue of eventVenuesList" value={{eventVenue.name}}>
+                        {{eventVenue.name}}
+                    </option>
+                </select>
+                <small class="text-danger" *ngIf="addEventForm.controls.eventVenue.invalid && (addEventForm.controls.eventVenue.dirty || addEventForm.controls.eventVenue.touched)" id="errName">
+                    Event Venue is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="showTime" class="col-sm-3 col-form-label h5">Show Time<span class="text-danger">
+                    *</span></label>
+            <div class="col-sm-9">
+                <select class="custom-select" formControlName="showTime" >
+                    <option selected value="">Choose Show Time</option>
+                    <option *ngFor = "let showTime of showTimingsList" >
+                        {{showTime.showTime.hours}}:{{showTime.showTime.minutes}}
+                    </option>
+                </select>
+                <small class="text-danger" *ngIf="addEventForm.controls.showTime.invalid && (addEventForm.controls.showTime.dirty || addEventForm.controls.showTime.touched)" id="errName">
+                    Show time is required
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="minAge" class="col-sm-3 col-form-label h5">Min Age<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" id="minAge" formControlName="minAge">
+                <small class="text-danger" *ngIf="addEventForm.controls.minAge.invalid && (addEventForm.controls.minAge.dirty || addEventForm.controls.minAge.touched)" id="errName">
+                    <div *ngIf="addEventForm.controls.minAge.errors?.required">
+                        Min Age is required.
+                    </div>
+                    <div *ngIf="addEventForm.controls.minAge.errors?.pattern">
+                        Enter valid Min Age
+                    </div>
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="about" class="col-sm-3 col-form-label h5">About</label>
+            <div class="col-sm-9">
+                <textarea name="" id="about" rows="3" class="form-control" formControlName="about" maxlength="5000"></textarea>
+                
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="note" class="col-sm-3 col-form-label h5">Note<span class="text-danger"> *</span></label>
+            <div class="col-sm-9">
+                <textarea name="" id="note" rows="5" class="form-control" formControlName="note"></textarea>
+                <small class="text-danger" *ngIf="addEventForm.controls.note.invalid && (addEventForm.controls.note.dirty || addEventForm.controls.note.touched)" id="errName">
+                    Note is required
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="disclaimer" class="col-sm-3 col-form-label h5">Disclaimer</label>
+            <div class="col-sm-9">
+                <textarea name="" id="disclaimer" rows="5" class="form-control" formControlName="disclaimer"></textarea>
+                
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="faQs" class="col-sm-3 col-form-label h5">FAQs</label>
+            <div class="col-sm-9">
+                <textarea name="" id="faQs" rows="5" class="form-control" formControlName="faQs"></textarea>
+                
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="termsAndConditions" class="col-sm-3 col-form-label h5">Terms and Conditions</label>
+            <div class="col-sm-9">
+                <textarea name="" id="termsAndConditions" rows="5" class="form-control" formControlName="termsAndConditions"></textarea>
+            </div>
+        </div>
+
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-danger btn-lg" id="saveActivity" [disabled]="!addEventForm.valid">Update</button>
+        </div>
+
+    </form>
+</div>

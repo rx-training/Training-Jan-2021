@@ -31,7 +31,7 @@ namespace BookMyShowAPI.Controllers
         }
 
         // GET: api/BookMyShow/MovieBookings/9845125623
-        [Authorize(Roles = UserRoles.Admin)]
+        [Authorize]
         [HttpGet("{contactno}")]
         public ActionResult<IEnumerable<MovieBooking>> GetMovieBookingsByContact(string contactno)
         {

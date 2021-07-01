@@ -11,6 +11,8 @@ namespace BookMyShowAPI.IRepository
     {
         public IEnumerable GetAllMovies();
         public IEnumerable GetMovieById(int id);
+        public void CreateMovie(MovieDTO movie);
+        public void Update(MovieDTO entity);
 
         public IEnumerable GetMoviesByLangugage(string language);
         public void CreateMovieLanguages(int id, string language);
@@ -24,9 +26,12 @@ namespace BookMyShowAPI.IRepository
         public void CreateMovieFilmCategories(int id, string filmCategory);
         public void DeleteMovieFilmCategories(int id, string filmCategory);
 
+        public IEnumerable GetMoviesByGenreLanguage(string genre, string language);
+
         public IEnumerable GetLanguagesByMovie(int id);
         public IEnumerable GetFilmCategoriesByLanguage(int id, string language);
         public IEnumerable GetTheatresByFilmCategory(int id, string language, string filmCategory);
+        public IEnumerable GetShowTimingsByTheatre(int id, string language, string filmCategory, int theatreId);
         public IEnumerable GetSeatCategoriesByTheatreShowTimings(int id, string language, string filmCategory, int theatreId, string showTime);
         public IEnumerable GetSeatsBySeatCategories(int id, string language, string filmCategory, int theatreId, string showTime, string seatsCategory);
     }

@@ -1,0 +1,26 @@
+#heading-img {
+    margin-top: -20px;
+    margin-right: -10px; }
+  
+.movieContent {
+color: white;
+}
+
+@media only screen and (max-width: 575px) {
+    #movie-detail{
+        margin-top: 65px;
+        margin-bottom: 60px;
+    }
+
+    .movieContent{
+        padding: 20px;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 576px) {
+    .movieBgImg{
+        margin-right: -30px;
+    }
+}
+
+  

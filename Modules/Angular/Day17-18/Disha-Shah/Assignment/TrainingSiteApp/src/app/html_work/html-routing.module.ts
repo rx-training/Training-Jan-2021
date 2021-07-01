@@ -8,7 +8,7 @@ import { Day3PracticeComponent } from './day3-practice/day3-practice.component';
 import { HtmlComponent } from './html/html.component';
 
 const htmlRoutes: Routes = [
-  { path: 'html', component: HtmlComponent,children: [
+  { path: '', component: HtmlComponent,children: [
     {
       path: 'day3assignment', // child route path
       component: Day3AssignmentComponent, // child route component that the router renders

@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Mail;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,13 +36,18 @@ namespace BookMyShowAPI.Repository
         }
 
         // Login Users
-        public async Task<string> LoginUser(string userName)
+        public async Task<string> LoginUser(string userName, string password)
         {
             if (await IsEmailConfirmedAsync(userName))
             {
                 var user = await userManager.FindByNameAsync(userName);
 
                 var userRoles = await userManager.GetRolesAsync(user);
+
+                if(user == null || !await userManager.CheckPasswordAsync(user, password))
+                {
+                    return null;
+                }
 
                 var authClaims = new List<Claim>
                 {
@@ -58,7 +65,7 @@ namespace BookMyShowAPI.Repository
                 var token = new JwtSecurityToken(
                     issuer: _configuration["JWT:ValidIssuer"],
                     audience: _configuration["JWT:ValidAudience"],
-                    expires: DateTime.Now.AddHours(3),
+                    expires: DateTime.Now.AddHours(8),
                     claims: authClaims,
                     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                     );
@@ -91,6 +98,20 @@ namespace BookMyShowAPI.Repository
 
             if (result.Succeeded)
             {
+                Random rnd = new Random();
+                var otp = rnd.Next(1000, 9999);
+
+                context.Users.Add(new User()
+                {
+                    ContactNo = model.PhoneNumber,
+                    Email = model.Email,
+                    Password = user.PasswordHash,
+                    UserName = model.Username,
+                    Otp = otp
+                });
+
+                context.SaveChanges();
+
                 var confirmEmailToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
                 var encodedEmailToken = Encoding.UTF8.GetBytes(confirmEmailToken);
                 var validEmailToken = WebEncoders.Base64UrlEncode(encodedEmailToken);
@@ -101,11 +122,11 @@ namespace BookMyShowAPI.Repository
 
                 request.ToEmail = model.Email;
                 request.Subject = $"Hello {model.Username}, Confirm Your Email!";
-                request.Body = $"<h1>You have successfully registered yourself with BookMyShow!</h1><h4>Your OTP is: 1234</h4><p><a href='{url}'>Click here</a> to verify your email</p>";
+                request.Body = $"<h1>You have successfully registered yourself with BookMyShow!</h1><h4>Your OTP is: {otp}</h4><p><a href='{url}'>Click here</a> to verify your email</p>";
 
                 try
                 {
-                    await mailService.SendEmailAsync(request);
+                    mailService.SendEmailAsync(request);
                 }
                 catch (Exception ex)
                 {
@@ -116,24 +137,16 @@ namespace BookMyShowAPI.Repository
             return result;
         }
 
-        // Map user details to Users table in BookMyShowDB from Users table in BookMyShowAuthenticationAPIDB
-        public void CreateUser(RegisterModel model)
-        {
-            context.Users.Add(new User()
-            {
-                ContactNo = model.PhoneNumber,
-                Email = model.Email,
-                Password = model.Password,
-                UserName = model.Username
-            });
-
-            context.SaveChanges();
-        }
-
         // Get information of a particular user based on username
         public User FindName(string name)
         {
             var registeredUser = context.Users.SingleOrDefault(x=>x.UserName==name);
+            return registeredUser;
+        }
+
+        public User FindContact(string contact)
+        {
+            var registeredUser = context.Users.SingleOrDefault(x => x.ContactNo == contact);
             return registeredUser;
         }
 
@@ -183,5 +196,13 @@ namespace BookMyShowAPI.Repository
 
             return false;
         }
+
+        public IEnumerable GetAllUsers()
+        {
+            var users = context.Users;
+
+            return users;
+        }
+
     }
 }

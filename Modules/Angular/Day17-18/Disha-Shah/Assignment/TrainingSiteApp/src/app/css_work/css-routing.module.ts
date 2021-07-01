@@ -18,7 +18,7 @@ import { Day8assignmentLayout2Component } from './day8assignment-layout2/day8ass
 
 const cssRoutes: Routes = [
   
-  { path: 'css', component: CssComponent, children: [
+  { path: '', component: CssComponent, children: [
     {
       path: 'day4practice', 
       component: Day4PracticeComponent

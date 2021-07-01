@@ -1,0 +1,60 @@
+<div class="bg-light">
+    <div class="d-flex p-4 justify-content-between">
+        <h1 class="h4">Latest Event Venues</h1>
+        <button class="btn btn-danger px-md-5" data-toggle="modal" data-target="#addEventVenueModal">Add Event Venue&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+    </div>
+    <div class="table-responsive w-100">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Event Venue Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Total tickets</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tblActivities">
+
+                <tr *ngFor = "let venue of eventVenuesList">
+                    <td>{{venue.eventVenueId}}</td>
+                    <td>{{venue.name}}</td>
+                    <td>{{venue.address}}</td>
+                    <td>{{venue.totalTickets}}</td>
+                    <td>
+                        <div class='d-md-block d-lg-inline'>
+                            <a routerLink="./detail/{{venue.name}}/{{venue.eventVenueId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class="fa fa-2x fa-eye"></i>
+                            </a>
+                            <a routerLink="./edit/{{venue.name}}/{{venue.eventVenueId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class='fa fa-2x fa-pencil'></i>
+                            </a>
+                            <a class='text-dark m-1' (click)="removeEventVenue(venue.eventVenueId)">
+                                <i class='fa fa-2x fa-trash'></i>
+                            </a>
+                            
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addEventVenueModal" tabindex="-1" aria-labelledby="addEventVenueModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title mx-3" id="addEventVenueModalLabel">Add Event Venue</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body mx-3">
+            <app-add-event-venue></app-add-event-venue>
+        </div>
+    </div>
+    </div>
+</div>

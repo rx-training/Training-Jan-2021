@@ -1,0 +1,26 @@
+.search-item {
+    color: #fd627c; }
+
+#outdoor-events .badge {
+    font-size: medium; }
+      
+
+@media only screen and (max-width: 575px) {
+    #main-content {
+        margin-left: 20px; }
+    /* .slick-recommended-movies img {
+        width: 40px; }
+    .slick-recommended-movies .slick-prev:before, .slick-entertainment .slick-prev:before {
+        display: none; }
+    .slick-recommended-movies .slick-next:before, .slick-entertainment .slick-next:before {
+    display: none; } */
+}
+
+@media (max-width: 992px) and (min-width: 576px) {
+    #main-content {
+      margin-left: 20px; }
+    /* .slick-recommended-movies .slick-prev:before, .slick-entertainment .slick-prev:before {
+    display: none; }
+    .slick-recommended-movies .slick-next:before, .slick-entertainment .slick-next:before {
+    display: none; } */
+}

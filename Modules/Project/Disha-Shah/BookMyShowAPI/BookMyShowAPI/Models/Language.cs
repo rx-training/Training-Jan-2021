@@ -11,6 +11,7 @@ namespace BookMyShowAPI.Models
         {
             EventLanguages = new HashSet<EventLanguage>();
             MovieLanguages = new HashSet<MovieLanguage>();
+            MovieBookings = new HashSet<MovieBooking>();
         }
 
         public int LanguageId { get; set; }
@@ -18,5 +19,6 @@ namespace BookMyShowAPI.Models
 
         public virtual ICollection<EventLanguage> EventLanguages { get; set; }
         public virtual ICollection<MovieLanguage> MovieLanguages { get; set; }
+        public virtual ICollection<MovieBooking> MovieBookings { get; set; }
     }
 }

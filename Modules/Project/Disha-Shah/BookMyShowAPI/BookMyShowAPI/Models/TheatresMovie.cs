@@ -37,5 +37,6 @@ namespace BookMyShowAPI.Models
         public string Genre { get; set; }
         public int FilmCategoryId { get; set; }
         public string FilmCategory { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

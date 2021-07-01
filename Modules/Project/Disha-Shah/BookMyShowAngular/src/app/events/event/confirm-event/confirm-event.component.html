@@ -1,0 +1,57 @@
+<div class="py-4" id="confirm-event">
+    <div class="container">
+        <h1 class="display-4">Booking Summary</h1>
+        <h3 class="font-weight-normal">{{event.event}}</h3>
+        <p class="h5 font-weight-normal">{{event.eventType}} | 
+            <ng-container *ngFor="let language of event.languages; let l = last">
+                <ng-container *ngIf="l==true">
+                    {{language}}
+                </ng-container>
+                <ng-container *ngIf="l==false">
+                    {{language}},
+                </ng-container>
+            </ng-container>
+            | {{minAge}}yrs+
+        </p>
+        On {{dateToWatch}} at 
+        <ng-container *ngIf = "event.showTime.hours < 10">
+            0{{event.showTime.hours}}:
+        </ng-container>
+        <ng-container *ngIf = "event.showTime.hours >= 10">
+            {{event.showTime.hours}}:
+        </ng-container>
+        <ng-container *ngIf = "event.showTime.minutes < 10">
+            0{{event.showTime.minutes}}
+        </ng-container>
+        <ng-container *ngIf = "event.showTime.minutes >= 10">
+            {{event.showTime.minutes}}
+        </ng-container> &nbsp;&nbsp;&nbsp;
+        <i class="fa fa-map-marker mr-2"></i>{{event.eventVenue}} | Rs.{{event.ticketPrice}}
+        <hr>
+
+        <table class="table table-borderless">
+            <tbody id="bookingSummary">
+                <tr>
+                    <td class="h4 font-weight-normal">Tickets Booked: {{numberOfSeats}}</td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr class="bg-light">
+                    <td class="h4 font-weight-normal">Amount Payable: Rs.{{totalAmount}}</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="row p-3">
+            <div class="col-md-6">
+                <button routerLink="/home" routerLinkActive="active" type="button" class="btn btn-secondary btn-block mt-2" data-dismiss="modal" id="cancelBooking" >Cancel</button>
+        
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-danger btn-block mt-2" id="finalPayment" (click)="doBooking()">Proceed to Pay</button>
+        
+            </div>
+        </div>
+    </div>
+</div>

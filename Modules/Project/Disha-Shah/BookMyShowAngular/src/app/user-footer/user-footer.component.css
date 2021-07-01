@@ -1,0 +1,31 @@
+#services a {
+    color: gray;
+    text-decoration: none; }
+  
+  #services a:hover {
+    color: white; }
+  
+  #links h6 {
+    text-transform: uppercase;
+    font-size: small; }
+  
+  #links li a {
+    text-decoration: none;
+    color: gray;
+    border-right: 2px solid gray;
+    padding: 0 5px;
+    font-size: x-small; }
+  
+  #links li a:hover {
+    color: white; }
+  
+.footer-logo span {
+    border: 1px solid gray;
+    width: 600px; }
+    
+    .socials i {
+    color: gray; }
+    
+    .socials i:hover {
+    color: white; }
+      

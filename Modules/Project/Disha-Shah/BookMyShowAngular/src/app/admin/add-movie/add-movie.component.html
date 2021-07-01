@@ -1,0 +1,201 @@
+<small class="text-danger">* Required</small>
+<form [formGroup] = "addMovieForm" (ngSubmit)="movieSubmit()">
+
+    <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label h5">Name<span class="text-danger"> *</span></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="movieName" formControlName="name" maxlength="50">
+            <small class="text-danger" *ngIf="addMovieForm.controls.name.invalid && (addMovieForm.controls.name.dirty || addMovieForm.controls.name.touched)" id="errName">
+                Name is required
+            </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="image" class="col-sm-3 col-form-label h5">Image</label>
+        <div class="col-sm-9" id="parentImg">
+            <input type="file" class="form-control-file" id="movieImage" formControlName="image" (change)="getImage($event)" maxlength="1000">
+            
+            <img [src]="'../../../../../assets/images/' + movieImage" alt="" id="movieImageShow" class="img-fluid w-25 mt-3">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="backgroundImage" class="col-sm-3 col-form-label h5">Large Image</label>
+        <div class="col-sm-9" id="parentImg">
+            <input type="file" class="form-control-file" id="movieImage" formControlName="backgroundImage" (change)="getBgImage($event)" maxlength="1000">
+            
+            <img [src]="'../../../../../assets/images/' + movieBgImage" alt="" id="movieImageShow" class="img-fluid w-25 mt-3">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="movieFilm" class="col-sm-3 col-form-label h5">Film<span class="text-danger"> *</span></label>
+        <div class="col-sm-9 d-flex flex-row flex-wrap">
+            <div class="form-check mr-2 mt-2" *ngFor = "let category of filmCategoriesList; let i = index">
+                <input class="form-check-input" type="checkbox" [value]="category.filmCategory1" name="film" (change)="selectFilmCategory(i, $event)" required>
+                <label class="form-check-label" [for]="category.filmCategory1">
+                    {{category.filmCategory1}}
+                </label>
+            </div>
+            <small class="text-danger mt-2" *ngIf="addMovieForm.controls.filmCategories.length == 0" id="errFilm">
+                Film Category is required
+            </small>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label for="movieLanguage" class="col-sm-3 col-form-label h5">Language<span class="text-danger">
+                *</span></label>
+        <div class="col-sm-9 d-flex flex-row flex-wrap">
+            <div class="form-check mr-2 mt-2" *ngFor = "let language of languagesList; let i = index">
+                <input class="form-check-input" type="checkbox" [value]="language.language1" name="language" (change)="selectLanguage(i, $event)">
+                <label class="form-check-label" [for]="language.language1">
+                    {{language.language1}}
+                </label>
+            </div><br>
+            <small class="text-danger mt-2" *ngIf="addMovieForm.controls.languages.length == 0" id="errLanguage">
+                Language is required
+            </small>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label for="time" class="col-sm-3 col-form-label h5">Time<span class="text-danger"> *</span></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="movieTime" formControlName="time">
+            <small class="text-danger" *ngIf="addMovieForm.controls.time.invalid && (addMovieForm.controls.time.dirty || addMovieForm.controls.time.touched)" id="errName">
+                <ng-container *ngIf = "addMovieForm.controls.time.errors.required">
+                    Time is required
+                </ng-container>
+                <ng-container *ngIf = "addMovieForm.controls.time.errors.pattern">
+                    Ex: 1h 30m
+                </ng-container>
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="movieGenre" class="col-sm-3 col-form-label h5">Genre<span class="text-danger"> *</span></label>
+        <div class="col-sm-9 d-flex flex-row flex-wrap">
+            <div class="form-check mr-2 mt-2" *ngFor = "let genre of genresList; let i = index">
+                <input class="form-check-input" type="checkbox" [value]="genre.genre1" name="genre" (change) ="selectGenre(i, $event)">
+                <label class="form-check-label" [for]="genre.genre1">
+                    {{genre.genre1}}
+                </label>
+            </div><br>
+            <small class="text-danger" *ngIf="addMovieForm.controls.genres.length == 0" id="errGenre">
+                Genre is required
+            </small>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label for="certification" class="col-sm-3 col-form-label h5">Certification<span class="text-danger">
+                *</span></label>
+        <div class="col-sm-9 d-flex flex-row flex-wrap">
+            <div class="form-check mr-2 mt-2" *ngFor="let certification of certificationsList">
+                <input class="form-check-input" type="radio" [value]="certification.certification1" name="certification" formControlName="certification">
+                <label class="form-check-label" [for]="certification.certification1">
+                    {{certification.certification1}}
+                </label>
+            </div>
+            
+            <small class="text-danger" *ngIf="addMovieForm.controls.certification.invalid && (addMovieForm.controls.certification.dirty || addMovieForm.controls.certification.touched)" id="errName">
+                Certification is required
+            </small>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label for="dateOfRelease" class="col-sm-3 col-form-label h5">Date of Release<span class="text-danger">
+                *</span></label>
+        <div class="col-sm-9">
+            <input type="date" class="form-control" id="movieReleaseDate" formControlName="dateOfRelease">
+            <small class="text-danger" *ngIf="addMovieForm.controls.dateOfRelease.invalid && (addMovieForm.controls.dateOfRelease.dirty || addMovieForm.controls.dateOfRelease.touched)" id="errName">
+                <ng-container *ngIf = "addMovieForm.controls.dateOfRelease.errors.required">
+                    Date of release is required
+                </ng-container>
+                <ng-container *ngIf = "addMovieForm.controls.dateOfRelease.errors.pastDate">
+                    Date of release should not be in past
+                </ng-container>
+            </small>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label for="about" class="col-sm-3 col-form-label h5">About<span class="text-danger"> *</span></label>
+        <div class="col-sm-9">
+            <textarea name="" id="movieAbout" rows="3" class="form-control" formControlName="about" maxlength="100"></textarea>
+            <small class="text-danger" *ngIf="addMovieForm.controls.about.invalid && (addMovieForm.controls.about.dirty || addMovieForm.controls.about.touched)" id="errName">
+                About is required
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="movieCategory" class="col-sm-3 col-form-label h5">Category</label>
+        <div class="col-sm-9 d-flex flex-row flex-wrap">
+            <div class="form-check mr-2 mt-2">
+                <input class="form-check-input" type="checkbox" value="Recommended" name="category" id="Recommended" formControlName="isRecommended">
+                <label class="form-check-label" for="Recommended">
+                    Recommended
+                </label>
+            </div>
+            <div class="form-check mr-2 mt-2">
+                <input class="form-check-input" type="checkbox" value="Premiere" name="category" id="Premiere" formControlName="isPremiere">
+                <label class="form-check-label" for="Premiere">
+                    Premiere
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+     <!--form array for casts-->
+     <div formArrayName="cast">
+        <h5>Casts</h5>
+        <div *ngFor="let cast of getCasts.controls; let i=index">
+
+            <!--form group for casts list-->
+            <div [formGroupName]="i">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>
+                            Actor:
+                        </label>
+                        <input type="text" name="" id="" formControlName="actor" class="form-control">
+                        
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>
+                            Character:
+                        </label>
+                        <input type="text" name="" id="" formControlName="character" class="form-control"
+                            required>
+                        
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>
+                            Image:
+                        </label>
+                        <input  type="file" class="form-control-file" name="" id="" formControlName="image" (change) = "getCastImage(i, $event)">
+                        <img [src]="'../../../../../assets/' + castImages[i]" alt="" id="movieImageShow" class="img-fluid w-25 mt-3">
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <button (click)="addCasts()" class="btn btn-secondary" type="button">Add Cast</button>
+
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-danger btn-lg" id="saveMovie" [disabled]="!addMovieForm.valid">Add</button>
+    </div>
+</form>

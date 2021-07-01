@@ -66,7 +66,7 @@ namespace BookMyShowAPI.Repository
 
                 try
                 {
-                    await mailService.SendEmailAsync(request);
+                    mailService.SendEmailAsync(request);
                 }
                 catch (Exception ex)
                 {
@@ -95,6 +95,12 @@ namespace BookMyShowAPI.Repository
         public Admin FindName(string name)
         {
             var registeredAdmin = context.Admins.SingleOrDefault(x => x.UserName == name);
+            return registeredAdmin;
+        }
+
+        public Admin FindContact(string contact)
+        {
+            var registeredAdmin = context.Admins.SingleOrDefault(x => x.ContactNo == contact);
             return registeredAdmin;
         }
 

@@ -1,0 +1,123 @@
+<div class="container">
+    <div>
+        <h1 class="font-weight-normal">{{movie.name}} Details</h1>
+        <div class="row">
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col font-weight-normal">Movie Id:</h4>
+                    <h5 class="col font-weight-normal">{{movie.movieId}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Image:</h4>
+                    <div class="col ">
+                        <img [src]="'../../../../../assets/' + movie.image" alt="" class="img-fluid rounded w-100 ">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Large Image:</h4>
+                    <div class="col ">
+                        <img [src]="'../../../../../assets/' + movie.backgroundImage" alt="" class="img-fluid rounded w-100 ">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Release date:</h4>
+                    <h5 class="col font-weight-normal">{{movie.dateOfRelease}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Time:</h4>
+                    <h5 class="col font-weight-normal ">{{movie.time}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Certification:</h4>
+                    <h5 class="col font-weight-normal">{{movie.certification.certification1}}</h5>
+                </div>
+            </div>
+        
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Languages:</h4>
+                    <h5 class="col font-weight-normal">
+                        <span *ngFor = "let languages of movie.movieLanguages; let l = last" class="font-weight-normal">
+                            <span *ngIf = "l==true">
+                                {{languages.language}}
+                            </span>
+                            <span *ngIf = "l==false">
+                                {{languages.language}},
+                            </span>
+                        </span>
+                    </h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Genres:</h4>
+                    <h5 class="col font-weight-normal ">
+                        <span *ngFor = "let genres of movie.movieGenres; let l = last" class="font-weight-normal">
+                            <span *ngIf = "l==true">
+                                {{genres.genre}}
+                            </span>
+                            <span *ngIf = "l==false">
+                                {{genres.genre}},
+                            </span>
+                        </span>
+                    </h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">Film Categories:</h4>
+                    <h5 class="col font-weight-normal ">
+                        <span *ngFor = "let filmCategories of movie.movieFilmCategories; let l = last" class="font-weight-normal">
+                            <span *ngIf = "l==true">
+                                {{filmCategories.filmCategories}}
+                            </span>
+                            <span *ngIf = "l==false">
+                                {{filmCategories.filmCategories}},
+                            </span>
+                        </span>
+                    </h5>
+                </div>
+            </div>
+        
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">IsRecommended:</h4>
+                    <h5 class="col font-weight-normal">{{movie.isRecommended}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">IsPremiere:</h4>
+                    <h5 class="col font-weight-normal">{{movie.isPremiere}}</h5>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-2">
+                <div class="row">
+                    <h4 class="col float-left font-weight-normal">About:</h4>
+                    <h5 class="col font-weight-normal " style="height: 100px;overflow: auto;">{{movie.about}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col text-center" *ngFor = "let cast of castImagesList; let i = index">
+                <img [src]="'../../../../assets/' + cast" alt="" class="img-fluid rounded-circle text-center">
+                <p class="lead">
+                    {{castNamesList[i][0]}}<br>
+                    as {{castNamesList[i][1]}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

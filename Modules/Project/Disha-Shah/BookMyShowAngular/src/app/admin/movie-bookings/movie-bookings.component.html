@@ -1,0 +1,60 @@
+<div class="bg-light">
+    <div class="d-flex p-4 justify-content-between">
+        <h1 class="h4">Latest Movie Bookings</h1>
+    </div>
+    <div class="table-responsive w-100">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Booking Id</th>
+                    <th>Movie</th>
+                    <th>Movie Language</th>
+                    <th>Movie Category</th>
+                    <th>City</th>
+                    <th>Theatre</th>
+                    <th>Show Timing</th>
+                    <th>Screen</th>
+                    <th>Seat No</th>
+                    <th>Total Tickets</th>
+                    <th>Booking Date</th>
+                    <th>Date to Watch</th>
+                    <th>User Contact No.</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody id="tblMovie">
+
+                <tr *ngFor="let booking of bookingsList">
+                    <td>{{booking.movieBookingId}}</td>
+                    <td>{{booking.movie.name}}</td>
+                    <td>{{booking.language.language1}}</td>
+                    <td>{{booking.filmCategory.filmCategory1}}</td>
+                    <td>{{booking.theatre.city.name}}</td>
+                    <td>{{booking.theatre.name}}</td>
+                    <td>
+                        <ng-container *ngIf="booking.showTiming.showTime.hours < 10">
+                            0{{booking.showTiming.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf="booking.showTiming.showTime.hours >= 10">
+                            {{booking.showTiming.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes < 10">
+                            0{{booking.showTiming.showTime.minutes}}
+                        </ng-container>
+                        <ng-container *ngIf="booking.showTiming.showTime.minutes >= 10">
+                            {{booking.showTiming.showTime.minutes}}
+                        </ng-container>
+                    </td>
+                    <td>{{booking.screenId}}</td>
+                    <td>{{booking.seatNo}}</td>
+                    <td>{{booking.totalTickets}}</td>
+                    <td>{{booking.bookingDate}}</td>
+                    <td>{{booking.dateToWatch}}</td>
+                    <td>{{booking.user.contactNo}}</td>
+                    <td>{{booking.totalAmount}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

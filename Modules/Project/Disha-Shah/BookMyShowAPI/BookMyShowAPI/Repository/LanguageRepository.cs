@@ -1,6 +1,7 @@
 ﻿using BookMyShowAPI.IRepository;
 using BookMyShowAPI.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,22 @@ namespace BookMyShowAPI.Repository
         public LanguageRepository(BookMyShowDBContext context) : base(context)
         {
 
+        }
+
+        public IEnumerable GetAllLanguages()
+        {
+            var languages = context.Languages;
+
+            var l1 = from x in languages
+                     select new Language
+                     {
+                         Language1 = x.Language1,
+                         LanguageId = x.LanguageId,
+                         MovieLanguages = context.MovieLanguages.Where(m => m.LanguageId == x.LanguageId).ToArray(),
+                         EventLanguages = context.EventLanguages.Where(m => m.LanguageId == x.LanguageId).ToArray()
+                     };
+
+            return l1;
         }
 
         // Add Language

@@ -26,7 +26,7 @@ namespace BookMyShowAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Genre>> GetGenres()
         {
-            return Ok(genres.GetAll());
+            return Ok(genres.GetAllGenres());
         }
 
         // GET: api/BookMyShow/Genres/5

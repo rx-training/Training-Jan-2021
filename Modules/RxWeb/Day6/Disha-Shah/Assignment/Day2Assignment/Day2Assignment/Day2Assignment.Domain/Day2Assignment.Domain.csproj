@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.13.0" />
+    <PackageReference Include="MimeKit" Version="2.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Day2Assignment.BoundedContext\Day2Assignment.BoundedContext.csproj" />
+    <ProjectReference Include="..\Day2Assignment.UnitOfWork\Day2Assignment.UnitOfWork.csproj" />
+    <ProjectReference Include="..\Day2Assignment.Models\Day2Assignment.Models.csproj" />
+    <ProjectReference Include="..\Day2Assignment.Infrastructure\Day2Assignment.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

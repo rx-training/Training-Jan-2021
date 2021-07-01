@@ -26,7 +26,7 @@ namespace BookMyShowAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Language>> GetLanguages()
         {
-            return Ok(languages.GetAll());
+            return Ok(languages.GetAllLanguages());
         }
 
         // GET: api/BookMyShow/Languages/5

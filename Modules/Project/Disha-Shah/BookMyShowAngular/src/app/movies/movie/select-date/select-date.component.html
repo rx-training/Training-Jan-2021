@@ -1,0 +1,110 @@
+<div id="select-showtime">
+    <ng-container *ngFor = "let theatre of uniqueTheatres">
+        <div class="col-md-3" placement="top" [ngbTooltip]="theatre.address">
+            <h6>{{theatre.theatre}}</h6>
+        </div>
+        <ng-container *ngFor = "let showTimes of showTimings">
+            <ng-container *ngFor = "let showTime of showTimes">
+                <span class="col-md-9" id="showTimings" *ngIf="showTime.theatreId == theatre.theatreId">
+                    <a style="border:1px solid green" class="btn btn-outline-success mt-2" data-toggle="modal" data-target="#timingsModal" (click)="terms(theatre.theatre, theatre.theatreId, showTime.showTime)">
+                        <ng-container *ngIf = "showTime.showTime.hours < 10">
+                            0{{showTime.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf = "showTime.showTime.hours >= 10">
+                            {{showTime.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf = "showTime.showTime.minutes < 10">
+                            0{{showTime.showTime.minutes}}
+                        </ng-container>
+                        <ng-container *ngIf = "showTime.showTime.minutes >= 10">
+                            {{showTime.showTime.minutes}}
+                        </ng-container>
+                    </a>
+                </span>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>
+
+<!-- Timings Modal -->
+<div class="modal fade" id="timingsModal" tabindex="-1" aria-labelledby="timingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div id="termsBtn" *ngIf="isOnTerms">
+            <div class="modal-header">
+            <h5 class="modal-title h6" id="timingsModalLabel">Terms & Conditions</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        
+            <div class="modal-body text-muted small">
+                1. Tickets are compulsory for children 3 years and above.<br>
+                2. Outside eatables and beverages are not allowed.<br>
+                3. The ticket is not transferable or refundable.<br>
+                4. Rights of admission are reserved.<br>
+                5. Refund, if any, will be processed through your booking medium only.<br>
+                6. Covid-19 Related: Customers will have to follow procedures as ordered by the Govt.<br>
+                7. Screen 5 and 6 are couple seats. Customer has to purchase minimum 2 tickets and in multiples of 2 only. Single ticket not allowed for screen 5 and 6.<br>
+            </div>
+            
+                <div class="row p-3">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-outline-danger btn-block mt-2" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-danger btn-block mt-2" id="acceptBtn" (click)="seats()">Accept</button>
+                    </div>
+                </div>
+        </div>
+
+            <div id="seatsBtn" *ngIf="isOnSeats">
+                <div class="modal-header">
+                    <h5 class="modal-title h6" id="timingsModalLabel">How many seats?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-muted small">
+                    <select class="custom-select" id="seatSelect" (change)="noOfSeats($event)">
+                        <option selected name="seats" value="1">1</option>
+                        <option name="seats" value="2">2</option>
+                        <option name="seats" value="3">3</option>
+                        <option name="seats" value="4">4</option>
+                        <option name="seats" value="5">5</option>
+                    </select>
+                    <hr>
+                    <div class="row">
+                        <div class="col text-center py-3" *ngFor="let seatsCategory of uniqueSeatsCategories">
+                            <small class="text-muted h6 font-weight-normal">{{seatsCategory.seatCategory}}</small><br>
+                            <small class="h6 font-weight-normal text-dark">{{seatsCategory.price}}</small><br>
+                            <ng-container *ngIf="seatsCategory.seatCategory=='Executive'">
+                                <small class="text-success h6 font-weight-normal" *ngIf="isExecutiveAvailable==true">Available</small>
+                                <small class="text-warning h6 font-weight-normal" *ngIf="isExecutiveAvailable==false">Fast Filling</small>
+                            </ng-container>
+                            <ng-container *ngIf="seatsCategory.seatCategory=='Normal'">
+                                <small class="text-success h6 font-weight-normal" *ngIf="isNormalAvailable==true">Available</small>
+                                <small class="text-warning h6 font-weight-normal" *ngIf="isNormalAvailable==false">Fast Filling</small>
+                            </ng-container>
+                            <ng-container *ngIf="seatsCategory.seatCategory=='Premium'">
+                                <small class="text-success h6 font-weight-normal" *ngIf="isPremiumAvailable==true">Available</small>
+                                <small class="text-warning h6 font-weight-normal" *ngIf="isPremiumAvailable==false">Fast Filling</small>
+                            </ng-container>
+                            <ng-container *ngIf="seatsCategory.seatCategory=='Recliner'">
+                                <small class="text-success h6 font-weight-normal" *ngIf="isReclinerAvailable==true">Available</small>
+                                <small class="text-warning h6 font-weight-normal" *ngIf="isReclinerAvailable==false">Fast Filling</small>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col-md-12">
+                        <a routerLink = "{{theatre}}/{{theatreId}}/{{showTime}}/{{numberOfSeats}}" routerLinkActive="active" class="btn btn-danger btn-block" data-dismiss="modal" id="seatsSelected">Select Seats</a>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="bg-light">
+    <div class="d-flex p-4 justify-content-between">
+        <h1 class="h4">Latest Events</h1>
+        <button class="btn btn-danger px-md-5" data-toggle="modal" data-target="#addActivityModal">Add Event&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+    </div>
+    <div class="table-responsive w-100">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Date of Event</th>
+                    <th>Time</th>
+                    <th>Event Type</th>
+                    <th>Event Venue</th>
+                    <th>Show Time</th>
+                    <th>Ticket Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tblActivities">
+
+                <tr *ngFor = "let event of events" class="text-center">
+                    <td>{{event.eventId}}</td>
+                    <td>{{event.event}}</td>
+                    <td>
+                        <img [src]="'../../../assets/' + event.image" alt='' class='img-fluid rounded' style='width:70px'>
+                    </td>
+                    <td>{{event.dateOfEvent}}</td>
+                    <td>{{event.time}}</td>
+                    <td>{{event.eventType}}</td>
+                    <td>{{event.eventVenue}}</td>
+                    <td>
+                        <ng-container *ngIf="event.showTime.hours < 10">
+                            0{{event.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf="event.showTime.hours >= 10">
+                            {{event.showTime.hours}}:
+                        </ng-container>
+                        <ng-container *ngIf="event.showTime.minutes < 10">
+                            0{{event.showTime.minutes}}
+                        </ng-container>
+                        <ng-container *ngIf="event.showTime.minutes >= 10">
+                            {{event.showTime.minutes}}
+                        </ng-container>
+                    </td>
+                    <td>{{event.ticketPrice}}</td>
+                    <td>
+                        <div class='d-md-block d-lg-inline'>
+                            <a routerLink="./detail/{{event.event}}/{{event.eventId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class="fa fa-2x fa-eye"></i>
+                            </a>
+                            <a routerLink="./edit/{{event.event}}/{{event.eventId}}" routerLinkActive="active" class='text-dark m-1'>
+                                <i class='fa fa-2x fa-pencil'></i>
+                            </a>
+                            <a class='text-dark m-1' (click)="removeEvent(event.eventId)">
+                                <i class='fa fa-2x fa-trash'></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="addActivityModal" tabindex="-1" aria-labelledby="addActivityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title mx-3" id="addActivityModalLabel">Add Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body mx-3">
+             <app-add-event></app-add-event>
+        </div>
+    </div>
+    </div>
+</div>

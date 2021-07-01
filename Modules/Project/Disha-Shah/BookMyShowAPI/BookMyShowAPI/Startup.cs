@@ -57,6 +57,7 @@ namespace BookMyShowAPI
             services.AddTransient<IBookingHistory, BookingHistoryRepository>();
             services.AddTransient<IUser, UserRepository>();
             services.AddTransient<IAdmin, AdminRepository>();
+            services.AddTransient<IDynamicNavbar, DynamicNavbarRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -133,17 +134,18 @@ namespace BookMyShowAPI
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors("BookMyShowPolicy");
 
-            app.UseCors("MyPolicy");
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers().RequireCors("BookMyShowPolicy");
+                endpoints.MapControllers();
             });
         }
     }

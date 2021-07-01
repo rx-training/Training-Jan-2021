@@ -15,34 +15,64 @@ namespace BookMyShowAPI.Repository
 
         }
 
-        // Add EventVenues
-        public override void Create(EventVenue eventVenue)
+        public IEnumerable GetAllVenues()
         {
-            var city = context.Cities.SingleOrDefault(x => x.Name == eventVenue.City.Name);
+            var venues = context.EventVenues.Where(x => x.IsActive == true);
+            return venues;
+        }
+        public IEnumerable GetVenueById(int id)
+        {
+            var venues = context.EventVenues.Where(x => x.IsActive == true && x.EventVenueId == id);
+            return venues;
+        }
+
+        // Add EventVenues
+        public void CreateEventVenue(EventVenueDTO eventVenue)
+        {
+            var city = context.Cities.SingleOrDefault(x => x.Name == eventVenue.City);
 
             context.EventVenues.Add(new EventVenue()
             {
                 Name=eventVenue.Name,
                 Address = eventVenue.Address,
                 TotalTickets = eventVenue.TotalTickets,
-                CityId=city.CityId
+                CityId=city.CityId,
+                IsActive = true
+            });
+
+            context.SaveChanges();
+
+            var venues = context.EventVenues.ToList();
+            var totalVenues = venues.Count();
+            var venueId = venues[totalVenues - 2].EventVenueId;
+
+            TimeSpan ts = DateTime.Parse(eventVenue.ShowTime).TimeOfDay;
+
+            var showTime = context.ShowTimings
+                                .SingleOrDefault(x => x.ShowTime == ts);
+
+            context.EventVenueShowTimings.Add(new EventVenueShowTiming()
+            {
+                EventVenueId = venueId + 1,
+                ShowTimingId = showTime.ShowTimingId
             });
 
             context.SaveChanges();
         }
 
         // Update EventVenues
-        public override void Update(int id, EventVenue entity)
+        public void UpdateEventVenue(EventVenueDTO entity)
         {
-            var city = context.Cities.SingleOrDefault(x => x.Name == entity.City.Name);
+            var city = context.Cities.SingleOrDefault(x => x.Name == entity.City);
 
-            var existingEventVenue = context.EventVenues.Where(s => s.EventVenueId == id)
+            var existingEventVenue = context.EventVenues.Where(s => s.EventVenueId == entity.EventVenueId)
                                                     .SingleOrDefault<EventVenue>();
 
             existingEventVenue.Name = entity.Name;
             existingEventVenue.Address = entity.Address;
             existingEventVenue.TotalTickets = entity.TotalTickets;
             existingEventVenue.CityId = city.CityId;
+            existingEventVenue.IsActive = true;
 
             context.SaveChanges();
 
@@ -55,7 +85,8 @@ namespace BookMyShowAPI.Repository
                 .Where(s => s.EventVenueId == id)
                 .SingleOrDefault();
 
-            context.EventVenues.Remove(eventVenue);
+            //context.EventVenues.Remove(eventVenue);
+            eventVenue.IsActive = false;
             context.SaveChanges();
         }
 
@@ -94,7 +125,7 @@ namespace BookMyShowAPI.Repository
                 .Where(s => s.EventVenueId== id && s.ShowTimingId == showTime.ShowTimingId)
                 .SingleOrDefault();
 
-            context.EventVenueShowTimings .Remove(eventVenueShowTiming);
+            context.EventVenueShowTimings.Remove(eventVenueShowTiming);
             context.SaveChanges();
         }
     }

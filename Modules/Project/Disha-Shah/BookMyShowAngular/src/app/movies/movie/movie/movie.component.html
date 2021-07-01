@@ -1,0 +1,99 @@
+<div id="movie-detail">
+    <div>
+        <div [ngStyle]="{'background-image': 'url(../../../../assets/' + movie.backgroundImage + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover'}" class="movieBgImg">    
+            <div class="container">
+                <div class="row py-4">
+                    <div class="col-md-4 col-lg-3">
+                        <img [src]="'../../../../assets/' + movie.image" alt="" class="img-fluid rounded " id="movieImg">
+                    </div>
+                    <div class="col-md-8 col-lg-9 align-self-center" class="movieContent">
+                        <h3 class="pb-3">{{movie.name}}</h3>
+                        <h5>
+                            <span *ngFor = "let filmCategories of movie.movieFilmCategories; let l = last" class="font-weight-normal">
+                                <span *ngIf = "l==true">
+                                    {{filmCategories.filmCategories}}
+                                </span>
+                                <span *ngIf = "l==false">
+                                    {{filmCategories.filmCategories}},
+                                </span>
+                            </span>
+                        </h5>
+                        <h5>
+                            <span *ngFor = "let languages of movie.movieLanguages; let l = last" class="font-weight-normal">
+                                {{languages.language}}
+                            </span>
+                        </h5> 
+                        <h5 class="py-3">
+                            <span class="font-weight-normal">{{movie.time}}</span> • 
+                            <span *ngFor = "let genres of movie.movieGenres; let l = last" class="font-weight-normal">
+                                <span *ngIf = "l==true">
+                                    {{genres.genre}}
+                                </span>
+                                <span *ngIf = "l==false">
+                                    {{genres.genre}},
+                                </span>
+                            </span> • 
+                            <span class="font-weight-normal">{{movie.certification.certification1}}</span> • 
+                            <span class="font-weight-normal">{{dateOfRelease}}</span>
+                        </h5> 
+                        <input type="button" value="Book Now" class="btn btn-danger" id="btnBook" data-toggle="modal" data-target="#bookModal">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content mt-4">
+        <div class="container">
+            <h4>About the Movie</h4>
+            <p class="lead" id="about">
+                {{movie.about}}
+            </p>
+            <hr>
+            <div class="pt-5">
+                <h4>Cast</h4>
+                <div class="row">
+                    <div class="col text-center" *ngFor = "let cast of castImagesList; let i = index">
+                        <img [src]="'../../../../assets/' + cast" alt="" class="img-fluid rounded-circle w-50 text-center">
+                        <p class="lead">
+                            {{castNamesList[i][0]}}<br>
+                            as {{castNamesList[i][1]}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<!-- Book Modal -->
+<div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h2 class="modal-title h5" id="bookModalLabel">Select Language & Format</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="lead bg-light" *ngFor="let languages of movie.movieLanguages">
+                    {{languages.language}}
+                    <br>
+                    <ng-container *ngFor="let categories of categoriesByLanguageList">
+                        <ng-container *ngFor="let category of categories">
+                            <a routerLink = "/movies/{{movie.name}}/{{movie.movieId}}/showTimings/{{category.language}}/{{category.filmCategory}}" routerLinkActive="active" class="btn btn-outline-danger rounded-pill mx-2 mt-2" id="film-2"  type="button" data-dismiss="modal" aria-label="Close" *ngIf="languages.language==category.language">
+                                {{category.filmCategory}}
+                            </a>
+                        </ng-container>
+                    </ng-container>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+

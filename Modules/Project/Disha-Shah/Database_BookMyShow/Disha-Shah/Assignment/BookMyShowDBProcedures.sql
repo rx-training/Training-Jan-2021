@@ -1573,7 +1573,8 @@ BEGIN
 	BEGIN TRY
 		DECLARE @BookingDate DATE, @Movie VARCHAR(50), @UserContact CHAR(10), @Theatre VARCHAR(50), @ShowTiming TIME, 
 		@City VARCHAR(50), @Language VARCHAR(50), @FilmCategory VARCHAR(50), @DateToWatch DATE, @Seat VARCHAR(50),
-		@TotalSeats INT, @FinalSeats VARCHAR(MAX), @SeatCategoryId VARCHAR(MAX), @TotalAmount INT, @Flag INT;  
+		@TotalSeats INT, @FinalSeats VARCHAR(MAX), @SeatCategoryId VARCHAR(MAX), @TotalAmount INT, @Flag INT, @MovieId INT,
+		@CityId INT, @FilmCategoryId INT, @LanguageId INT, @ScreenId INT, @ShowTimingId INT, @TheatreId INT, @UserId INT;  
 		SET @TotalSeats = 0
 		SET @FinalSeats = ''
 		SET @SeatCategoryId = ''
@@ -1654,7 +1655,16 @@ BEGIN
 				DECLARE @SelectedSeats VARCHAR(MAX)
 				SET @SelectedSeats = SUBSTRING(@FinalSeats, 2, LEN(@FinalSeats))
 
-				INSERT INTO MovieBookings VALUES (@BookingDate, @Movie, @UserContact, @SelectedSeats, @Theatre, @ShowTiming, @TotalAmount, @Screen, @City, @Language, @FilmCategory, @DateToWatch, @TotalSeats) 
+				SELECT @MovieId=MovieId FROM Movies WHERE Name=@Movie
+				SELECT @CityId=CityId FROM Cities WHERE Name=@City
+				SELECT @FilmCategoryId=FilmCategoryId FROM FilmCategories WHERE FilmCategory=@FilmCategory
+				SELECT @LanguageId=LanguageId FROM Languages WHERE Language=@Language
+				SELECT @ScreenId=ScreenId FROM Screens WHERE ScreenId=@Screen
+				SELECT @ShowTimingId=ShowTimingId FROM ShowTimings WHERE ShowTime=@ShowTiming
+				SELECT @TheatreId=TheatreId FROM Theatres WHERE Name=@Theatre
+				SELECT @UserId=UserId FROM Users WHERE ContactNo=@UserContact
+
+				INSERT INTO MovieBookings VALUES (@BookingDate, @SelectedSeats, @TotalAmount, @DateToWatch, @TotalSeats, @CityId, @FilmCategoryId, @LanguageId, @MovieId, @ScreenId, @ShowTimingId, @TheatreId, @UserId) 
 
 				DECLARE @SeatNo VARCHAR(50); 
   
@@ -1703,15 +1713,15 @@ BEGIN
 END
 
 EXECUTE prcBook N'{  
-						"Movie": "Monster Hunter",
-						"UserContact": "9429410249",
-						"SeatNo": ["C1", "C2", "B1"],
+						"Movie": "Tenet",
+						"UserContact": "9900898890",
+						"SeatNo": ["C2", "B2"],
 						"Theatre": "Cineplex",
 						"ShowTiming": "3:00 PM",
 						"City": "Ahmedabad",
-						"Language": "Hindi",
-						"FilmCategory": "2D",
-						"DateToWatch": "2021-04-05"
+						"Language": "Tamil",
+						"FilmCategory": "MX4D",
+						"DateToWatch": "2021-06-28"
 					}';
 					
 SELECT * FROM MovieBookings
@@ -1731,7 +1741,8 @@ SET NOCOUNT ON;
 BEGIN
 	BEGIN TRY
 		DECLARE @BookingDate DATE, @TicketCount TINYINT, @Event VARCHAR(50), @UserContact CHAR(10), @EventVenue VARCHAR(50),
-		@ShowTiming TIME, @EventType VARCHAR(50), @DateOfEvent DATE;  
+		@ShowTiming TIME, @EventType VARCHAR(50), @DateOfEvent DATE, @EventId INT, @UserId INT, @EventVenueId INT, @ShowTimingId INT,
+		@EventTypeId INT;  
 
 		SELECT @TicketCount=TicketCount, @Event=Event, @UserContact=UserContact, @EventVenue=EventVenue, @ShowTiming=ShowTiming,
 		@EventType=EventType, @DateOfEvent=DateOfEvent
@@ -1756,7 +1767,14 @@ BEGIN
 			BEGIN
 				DECLARE @Total MONEY
 				SET @Total = @TicketCount * @TicketPrice
-				INSERT INTO EventBookings VALUES (@BookingDate, @TicketCount, @Event, @UserContact, @EventVenue, @ShowTiming, @Total, @EventType, @DateOfEvent)
+
+				SELECT @EventId = EventId FROM Events WHERE Name=@Event
+				SELECT @UserId = UserId FROM Users WHERE ContactNo = @UserContact
+				SELECT @EventVenueId = EventVenueId FROM EventVenues WHERE Name = @EventVenue
+				SELECT @ShowTimingId=ShowTimingId FROM ShowTimings WHERE ShowTime=@ShowTiming
+				SELECT @EventTypeId = EventTypeId FROM EventTypes WHERE EventType=@EventType
+
+				INSERT INTO EventBookings VALUES (@BookingDate, @TicketCount, @Total, @EventId, @UserId, @EventVenueId, @ShowTimingId, @EventTypeId)
 				UPDATE vEvents SET TotalTickets = TotalTickets-@TicketCount WHERE Event=@Event AND [Event Venue]=@EventVenue AND ShowTime=@ShowTiming AND EventType=@EventType AND DateOfEvent=@DateOfEvent
   			END
 			ELSE
@@ -1779,11 +1797,11 @@ BEGIN
 END
 
 EXECUTE prcEventBook N'{  
-						"TicketCount": "2",
+						"TicketCount": "3",
 						"Event": "Sunday Brunch at the Nine Restaurant",
-						"UserContact": "9429410249",
+						"UserContact": "9900898890",
 						"EventVenue": "Snow World: Ahmedabad",
-						"ShowTiming": "3:00 PM",
+						"ShowTiming": "8:00 PM",
 						"EventType": "Food & Drinks",
 						"DateOfEvent": "2021-02-14"
 					}'; 

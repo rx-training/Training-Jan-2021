@@ -22,6 +22,12 @@ namespace BookMyShowAPI.Controllers
             events = context;
         }
 
+        [HttpGet("UniqueEvents")]
+        public ActionResult<IEnumerable<Event>> GetUniqueEvents()
+        {
+            return Ok(events.GetAllUniqueEvents());
+        }
+
         // GET: api/BookMyShow/Events
         [HttpGet]
         public ActionResult<IEnumerable<Event>> GetEvents()
@@ -78,6 +84,20 @@ namespace BookMyShowAPI.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("Activities/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Activity>> GetActivityByPrice(int min, int max)
+        {
+            var entity = events.GetActivitiesByPrice(min, max);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+
         // GET: api/BookMyShow/Events/Comedies
         [HttpGet("Comedies")]
         public ActionResult<IEnumerable<Comedy>> GetComedies()
@@ -104,6 +124,19 @@ namespace BookMyShowAPI.Controllers
         public ActionResult<Comedy> GetComediesByCity(string city)
         {
             var entity = events.GetComedyByCity(city);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+        [HttpGet("Comedies/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Comedy>> GetComediesByPrice(int min, int max)
+        {
+            var entity = events.GetComedyByPrice(min, max);
 
             if (entity == null)
             {
@@ -148,6 +181,19 @@ namespace BookMyShowAPI.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("Outdoors/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Outdoor>> GetOutdoorByPrice(int min, int max)
+        {
+            var entity = events.GetOutdoorsByPrice(min, max);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
         // GET: api/BookMyShow/Events/Plays
         [HttpGet("Plays")]
         public ActionResult<IEnumerable<Play>> GetPlays()
@@ -174,6 +220,19 @@ namespace BookMyShowAPI.Controllers
         public ActionResult<Play> GetPlayByCity(string city)
         {
             var entity = events.GetPlaysByCity(city);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+        [HttpGet("Plays/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Play>> GetPlayByPrice(int min, int max)
+        {
+            var entity = events.GetPlaysByPrice(min, max);
 
             if (entity == null)
             {
@@ -218,6 +277,19 @@ namespace BookMyShowAPI.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("Populars/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Popular>> GetPopularByPrice(int min, int max)
+        {
+            var entity = events.GetPopularsByPrice(min, max);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
         // GET: api/BookMyShow/Events/Sports
         [HttpGet("Sports")]
         public ActionResult<IEnumerable<Sport>> GetSports()
@@ -253,6 +325,19 @@ namespace BookMyShowAPI.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("Sports/Price/{min}/{max}")]
+        public ActionResult<IEnumerable<Sport>> GetSportByPrice(int min, int max)
+        {
+            var entity = events.GetSportsByPrice(min, max);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
         // Get: api/BookMyShow/Events/Languages/English
         [HttpGet("Languages/{language}")]
         public ActionResult<IEnumerable<Event>> GetEventByLanguage(string language)
@@ -262,28 +347,28 @@ namespace BookMyShowAPI.Controllers
 
         // PUT: api/BookMyShow/Events/5/ShowTimes/03:00 PM
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}/ShowTimes/{showTime}")]
+        [HttpPut("{id}")]
         [Authorize(Roles = UserRoles.Admin)]
-        public IActionResult PutEvent(int id, string showTime, Event entity)
+        public IActionResult PutEvent(EventDTO entity)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            events.UpdateEvent(id, showTime, entity);
+            events.UpdateEvent(entity);
 
             return Ok();
         }
 
         // POST: api/BookMyShow/Events/ShowTimes/03:00 PM
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost("ShowTimes/{showTime}")]
+        [HttpPost]
         [Authorize(Roles = UserRoles.Admin)]
-        public ActionResult<Event> PostEvent(Event entity, string showTime)
+        public ActionResult PostEvent(EventDTO entity)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
-            events.CreateEvent(entity, showTime);
+            events.CreateEvent(entity);
 
             return Ok();
         }
