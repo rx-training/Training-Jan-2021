@@ -12,10 +12,10 @@ export default function AdminHeader() {
                 className="text-center d-flex justify-content-center"
                 style={{ fontSize: "16px" }}
             >
-                <Link to="/admin">Admin</Link> /
-                <Link to="/userdata">All Users Data</Link> /
-                <Link to="/addCategory">Add Category</Link> /
-                <Link to="/addProducts">Add Products</Link>
+                <Link to="/admin">Dashboard </Link> /
+                <Link to="/userdata">Users </Link> /
+                <Link to="/addCategory"> Category </Link> /
+                <Link to="/addProducts"> Products </Link>
             </div>
         </>
     );

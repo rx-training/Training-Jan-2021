@@ -6,10 +6,18 @@ import { GoPlus } from "react-icons/go";
 import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import Spinners from "../../components/dummyPage/Spinners";
+import { NotificationManager } from "react-notifications";
+import Pagination from "../../components/Pagination/Pagination";
 
 export default function AddCategory(props) {
     const [category, setCateogry] = useState([]);
     const [message, setMessage] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemPerPage] = useState(5);
+    const [currentItems, setCurrentItems] = useState([]);
+    const [pageNumberLimit] = useState(5);
+    const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
+    const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
     useEffect(() => {
         async function Category() {
             try {
@@ -28,19 +36,23 @@ export default function AddCategory(props) {
         }
         Category();
     }, []);
-    const handleDelete = (id) => {
-        PaytmServices.deleteCategory(getUserId(), getToken(), id)
-            .then((res) => {
-                window.location.href = "/addcategory";
-            })
-            .catch((error) => {
-                if (error.response.status === 401) {
-                    removeUserSession();
-                    window.location.href = "/login";
-                } else {
-                    setMessage("Something wrong");
-                }
-            });
+    const handleDelete = (id, name) => {
+        let val = window.confirm(`Are you sure to Delete ${name} cateogry`);
+        if (val) {
+            PaytmServices.deleteCategory(getUserId(), getToken(), id)
+                .then((res) => {
+                    NotificationManager.success(`${name} deleted successfully`);
+                    window.location.href = "/addcategory";
+                })
+                .catch((error) => {
+                    if (error.response.status === 401) {
+                        removeUserSession();
+                        window.location.href = "/login";
+                    } else {
+                        setMessage("Something wrong");
+                    }
+                });
+        }
     };
 
     return (
@@ -57,7 +69,7 @@ export default function AddCategory(props) {
                     <table className="table table-hover">
                         <thead className="bg-dark text-white">
                             <tr>
-                                <th>Id</th>
+                                <th>No</th>
                                 <th>Category Name</th>
                                 <th></th>
                                 <th></th>
@@ -65,10 +77,14 @@ export default function AddCategory(props) {
                         </thead>
 
                         <tbody>
-                            {category.map((category, index) => {
+                            {currentItems.map((category, index) => {
                                 return (
                                     <tr key={index}>
-                                        <td>{category._id}</td>
+                                        <td>
+                                            {(currentPage - 1) * itemPerPage +
+                                                index +
+                                                1}
+                                        </td>
                                         <td>{category.CategoryName}</td>
                                         <td>
                                             <button
@@ -87,7 +103,10 @@ export default function AddCategory(props) {
                                             <button
                                                 className="btn btn-danger"
                                                 onClick={() => {
-                                                    handleDelete(category._id);
+                                                    handleDelete(
+                                                        category._id,
+                                                        category.CategoryName
+                                                    );
                                                 }}
                                             >
                                                 <FaTrash /> Delete
@@ -108,6 +127,19 @@ export default function AddCategory(props) {
                             <GoPlus className="icons1" /> Add Category
                         </button>
                     </div>
+                    <Pagination
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                        itemPerPage={itemPerPage}
+                        pageNumberLimit={pageNumberLimit}
+                        maxPageNumberLimit={maxPageNumberLimit}
+                        setmaxPageNumberLimit={setmaxPageNumberLimit}
+                        minPageNumberLimit={minPageNumberLimit}
+                        setminPageNumberLimit={setminPageNumberLimit}
+                        data={category}
+                        currentItems={currentItems}
+                        setCurrentItems={setCurrentItems}
+                    />
                 </div>
             </div>
         </div>

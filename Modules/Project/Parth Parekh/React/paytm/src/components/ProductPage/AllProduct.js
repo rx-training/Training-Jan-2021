@@ -4,6 +4,8 @@ import { FaRupeeSign } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 
 import PaytmServices from "../../Services/paytmServices";
+import { hostServer } from "../../Services/paytmServices";
+import Backbutton from "../Backbutton";
 
 export default function AllProduct({ id }) {
     const [values, setValues] = useState({
@@ -84,8 +86,8 @@ export default function AllProduct({ id }) {
         if (name === "search") {
             if (value.length > 0) {
                 tempData = tempData.filter((item) => {
-                    let tempSearch = value.toLocaleLowerCase();
-                    let tempName = item.ProductName.toLocaleLowerCase().slice(
+                    let tempSearch = value.toLowerCase();
+                    let tempName = item.ProductName.toLowerCase().slice(
                         0,
                         value.length
                     );
@@ -99,6 +101,7 @@ export default function AllProduct({ id }) {
         }
         if (name === "price") {
             //filter price
+            setSearch("");
             tempData = tempData.filter((item) => item.ProductPrice <= value);
             setValues({ ...values, price: value });
         }
@@ -111,93 +114,101 @@ export default function AllProduct({ id }) {
     };
 
     return (
-        <div className="row">
-            <div
-                className="col-md-3 text-capitalize alert alert-success"
-                style={{ fontFamily: "initial" }}
-            >
-                <h1>Sort by</h1>
-                <form onSubmit={handleSubmit}>
-                    <h4 className="mt-5">Search by name</h4>
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            name="search"
-                            value={search}
-                            className="form-control"
-                            placeholder="search by name"
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="d-flex justify-content-between">
-                        <span className="h4">Price</span>
-                        <span className="h4">{values.price}</span>
-                    </div>
+        <>
+            <Backbutton />
+            <div className="row">
+                <div
+                    className="col-md-3 text-capitalize alert alert-success"
+                    style={{ fontFamily: "initial" }}
+                >
+                    <h1>Sort by</h1>
+                    <form onSubmit={handleSubmit}>
+                        <h4 className="mt-5">Search by name</h4>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                name="search"
+                                value={search}
+                                className="form-control"
+                                placeholder="search by name"
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="d-flex justify-content-between">
+                            <span className="h4">Price</span>
+                            <span className="h4">{values.price}</span>
+                        </div>
 
-                    <div className="form-group">
-                        <input
-                            type="range"
-                            name="price"
-                            min={values.min}
-                            max={values.max}
-                            value={values.price}
-                            className="form-control"
-                            onChange={handleChange}
-                        />
-                    </div>
-                </form>
-            </div>
-            <div className="col-md-8">
-                <div className="row d-flex justify-content-around">
-                    {filterItem.length === 0 && (
-                        <h1
-                            className="alert alert-primary"
-                            style={{ fontFamily: "initial" }}
-                        >
-                            No Item Found !!
-                        </h1>
-                    )}
-                    {filterItem.map((item, index) => {
-                        return (
-                            <div
-                                className="card col-md-5 mt-1 text-muted p-4 hovereffect"
-                                key={index}
+                        <div className="form-group">
+                            <input
+                                type="range"
+                                name="price"
+                                min={values.min}
+                                max={values.max}
+                                value={values.price}
+                                className="form-control"
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </form>
+                </div>
+                <div className="col-md-8">
+                    <div className="row mx-auto p-2">
+                        {filterItem.length === 0 && (
+                            <h1
+                                className="alert alert-primary mx-auto"
+                                style={{ fontFamily: "initial" }}
                             >
-                                <div className="mx-auto ">
-                                    <img
-                                        src={item.image}
-                                        alt={index}
-                                        className=""
-                                        height="230px"
-                                    />
-                                </div>
+                                No Item Found !!
+                            </h1>
+                        )}
+                        {filterItem.map((item, index) => {
+                            return (
+                                <div className="col-md-6" key={index}>
+                                    <div className="card mt-1 text-muted p-4 hovereffect">
+                                        <div className="mx-auto">
+                                            <img
+                                                src={`${hostServer}/${item.image}`}
+                                                alt={index}
+                                                className=""
+                                                height="230px"
+                                            />
+                                        </div>
 
-                                <h5> {item.ProductName}</h5>
-                                <h5 className="mt-1 d-flex justify-content-between">
-                                    <span>
-                                        <FaRupeeSign /> {item.ProductPrice}{" "}
-                                    </span>
-                                    <div className="ratingbtn">
-                                        {item.Rating}/5{" "}
-                                        <AiFillStar
-                                            style={{
-                                                fontSize: "1.7rem",
-                                                color: "yellow",
-                                            }}
-                                        />
+                                        <h5> {item.ProductName}</h5>
+                                        <h5 className="mt-1 d-flex justify-content-between">
+                                            <span>
+                                                <FaRupeeSign />{" "}
+                                                {item.ProductPrice}{" "}
+                                            </span>
+                                            <div className="ratingbtn">
+                                                {item.Rating}/5{" "}
+                                                <AiFillStar
+                                                    style={{
+                                                        fontSize: "1.7rem",
+                                                        color: "yellow",
+                                                    }}
+                                                />
+                                            </div>
+                                        </h5>
+                                        <Link
+                                            to={
+                                                "/product/" +
+                                                id +
+                                                "/" +
+                                                item._id
+                                            }
+                                            className="alert alert-info text-center rounded-pill "
+                                        >
+                                            View more
+                                        </Link>
                                     </div>
-                                </h5>
-                                <Link
-                                    to={"/product/" + id + "/" + item._id}
-                                    className="alert alert-info text-center rounded-pill "
-                                >
-                                    View more
-                                </Link>
-                            </div>
-                        );
-                    })}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

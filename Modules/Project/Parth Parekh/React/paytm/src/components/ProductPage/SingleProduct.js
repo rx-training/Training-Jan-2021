@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaRupeeSign } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
-
 import { getUserId, getToken } from "../../Utils/Common";
 import PaytmServices from "../../Services/paytmServices";
+import { hostServer } from "../../Services/paytmServices";
+import Backbutton from "../Backbutton";
+
 export default function SingleProduct(props) {
     const [imagePath, setImagePath] = useState("");
 
@@ -13,7 +15,6 @@ export default function SingleProduct(props) {
         moreInfo: [],
     });
     let data = useParams();
-
     //To get Product Details Form Id
     useEffect(() => {
         PaytmServices.getProductDetailsFromId(data.productid).then((res) => {
@@ -43,7 +44,8 @@ export default function SingleProduct(props) {
         <div className="main-container">
             {/* Signle Product {data.id} {data.productid} */}
             <br />
-            <div className="container-fluid mt-2 mx-auto">
+            <div className="container-fluid  mx-auto">
+                <Backbutton />
                 <div className="row mx-5  bg-white">
                     <div className=" col-md-6 col-lg-7 ">
                         <div className="row p-3 mx-5">
@@ -52,7 +54,7 @@ export default function SingleProduct(props) {
                                     return (
                                         <div className="row" key={index}>
                                             <img
-                                                src={`${item}`}
+                                                src={`${hostServer}/${item}`}
                                                 alt={item}
                                                 width="50%"
                                                 className="img-fluid my-1 singlehovereffect"
@@ -69,7 +71,7 @@ export default function SingleProduct(props) {
                             </div>
                             <div className=" col-9 col-md-9  text-center">
                                 <img
-                                    src={imagePath}
+                                    src={`${hostServer}/${imagePath}`}
                                     alt={imagePath}
                                     style={{
                                         maxHeight: "500px",

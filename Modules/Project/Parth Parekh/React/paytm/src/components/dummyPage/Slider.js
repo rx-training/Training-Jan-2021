@@ -8,13 +8,16 @@ import {
 
 const items = [
     {
-        src: "./img/slider1.webp",
+        src: "https://assetscdn1.paytm.com/images/catalog/view_item/723817/1620730189617.jpg?imwidth=758&impolicy=hq_80",
     },
     {
-        src: "./img/slider2.webp",
+        src: "https://assetscdn1.paytm.com/images/catalog/view_item/731438/1617101551687.png?imwidth=758&impolicy=hq_80",
     },
     {
-        src: "./img/slider3.webp",
+        src: "https://assetscdn1.paytm.com/images/catalog/view_item/741754/1613724842057.jpg?imwidth=758&impolicy=hq_80",
+    },
+    {
+        src: "https://assetscdn1.paytm.com/images/catalog/view_item/822802/1622451986651.jpg?imwidth=758&impolicy=hq_80",
     },
 ];
 
@@ -41,14 +44,31 @@ const Slider = (props) => {
         setActiveIndex(newIndex);
     };
 
-    const slides = items.map((item) => {
+    const slides = items.map((item, index) => {
         return (
             <CarouselItem
                 onExiting={() => setAnimating(true)}
                 onExited={() => setAnimating(false)}
                 key={item.src}
             >
-                <img src={item.src} alt={item.altText} className="img-fluid" />
+                {index === 0 || index === 1 ? (
+                    <img
+                        src={item.src}
+                        alt={item.altText}
+                        className="img-fluid"
+                        onClick={() => {
+                            window.location.href = "/products";
+                        }}
+                        width="968px"
+                    />
+                ) : (
+                    <img
+                        src={item.src}
+                        alt={item.altText}
+                        className="img-fluid"
+                        width="968px"
+                    />
+                )}
             </CarouselItem>
         );
     });

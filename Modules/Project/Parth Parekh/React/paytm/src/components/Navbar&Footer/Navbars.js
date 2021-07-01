@@ -4,7 +4,7 @@ import { FaHome } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
 import { FaWallet } from "react-icons/fa";
 import { RiLogoutCircleLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+
 
 import { SiGnuprivacyguard } from "react-icons/si";
 import { IoLogIn } from "react-icons/io5";
@@ -25,6 +25,7 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
+    NavLink,
 } from "reactstrap";
 import { removeUserSession } from "../../Utils/Common";
 
@@ -44,47 +45,53 @@ export default function Navbars(props) {
             <div className="container-fuild navwrapper bg-light ">
                 <Navbar color="light" light expand="lg">
                     <div className="row">
-                        <NavbarBrand className="logo">
+                        <NavbarBrand className="logo" href="/">
                             <img src={logo} alt="paytm logo" width="180" />
                         </NavbarBrand>
                     </div>
 
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
-                        <Nav className="ml-auto mr-5" navbar>
+                        <Nav className="ml-auto " navbar>
                             <NavItem className="nav-links my-auto mx-3">
-                                <Link to="/" className="linkstyle">
+                                <NavLink href="/" className="linkstyle">
                                     <FaHome className="react-icons" /> Home
-                                </Link>
+                                </NavLink>
                             </NavItem>
                             <NavItem className="nav-links my-auto ">
-                                <Link to="/addMoney" className="linkstyle">
+                                <NavLink href="/addMoney" className="linkstyle">
                                     <img
                                         src={addmoney}
                                         alt="add Money"
                                         className="m-2"
                                     />
                                     Add Money
-                                </Link>
+                                </NavLink>
                             </NavItem>
                             <NavItem className="nav-links my-auto mx-3">
-                                <Link to="/transfermoney" className="linkstyle">
+                                <NavLink
+                                    href="/transfermoney"
+                                    className="linkstyle"
+                                >
                                     <FaHandshake className="react-icons" />
                                     Money Transfer
-                                </Link>
+                                </NavLink>
                             </NavItem>
                             <NavItem className="nav-links my-auto ">
-                                <Link to="/passbook" className="linkstyle">
+                                <NavLink href="/passbook" className="linkstyle">
                                     <FaWallet
                                         className="react-icons"
                                         style={{ fontSize: "1.4rem" }}
                                     />
                                     Passbook
-                                </Link>
+                                </NavLink>
                             </NavItem>
                             {login && (
                                 <NavItem className="nav-links  my-auto mx-3">
-                                    <Link to="/login" className="linkstyle">
+                                    <NavLink
+                                        href="/login"
+                                        className="linkstyle"
+                                    >
                                         {" "}
                                         <IoLogIn
                                             style={{
@@ -95,13 +102,16 @@ export default function Navbars(props) {
                                             }}
                                         />{" "}
                                         Login
-                                    </Link>
+                                    </NavLink>
                                 </NavItem>
                             )}
 
                             {signup && (
                                 <NavItem className="nav-links my-auto">
-                                    <Link to="/signup" className="linkstyle">
+                                    <NavLink
+                                        href="/signup"
+                                        className="linkstyle"
+                                    >
                                         {" "}
                                         <SiGnuprivacyguard
                                             style={{
@@ -112,7 +122,7 @@ export default function Navbars(props) {
                                             }}
                                         />{" "}
                                         Signup
-                                    </Link>
+                                    </NavLink>
                                 </NavItem>
                             )}
 
@@ -124,7 +134,7 @@ export default function Navbars(props) {
                                         style={{
                                             color: "#164182",
                                         }}
-                                        className="ml-3"
+                                        className="ml-3 mt-2"
                                     >
                                         Profile
                                     </DropdownToggle>
@@ -132,9 +142,12 @@ export default function Navbars(props) {
                                         right
                                         className="p-3 bg-light"
                                     >
-                                        <Link to="/profile" className="btn">
+                                        <NavLink
+                                            href="/profile"
+                                            className="btn"
+                                        >
                                             Account Info
-                                        </Link>
+                                        </NavLink>
                                         <DropdownItem divider />
 
                                         <button

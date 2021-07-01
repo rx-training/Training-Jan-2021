@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import addmoney from "../add_money.svg";
-
 import PaytmServices from "../Services/paytmServices";
 import { getUserId, getToken, removeUserSession } from "../Utils/Common";
+import { NotificationManager } from "react-notifications";
+import Backbutton from "../components/Backbutton";
 export default function AddMoney(props) {
     const [amount, setAmount] = useState("");
     const [message, setMessage] = useState("");
@@ -35,6 +36,11 @@ export default function AddMoney(props) {
         PaytmServices.addMoney(getUserId(), getToken(), data)
             .then((res) => {
                 console.log("Money added to your account");
+                NotificationManager.success(
+                    `${amount} Rupees added to your account`,
+                    "",
+                    3000
+                );
                 props.history.push("/passbook");
             })
             .catch((error) => {
@@ -48,10 +54,12 @@ export default function AddMoney(props) {
     };
     return (
         <div className="main-container">
+            <Backbutton />
             <div className="container my-5 p-5 text-capitalize">
                 {message.length > 0 && (
                     <h3 className="text-center">{message}</h3>
                 )}
+
                 <h3 style={{ fontFamily: "monospace", letterSpacing: "3px" }}>
                     <img src={addmoney} alt="add Money" width="45" /> Add Money
                     To your Wallet

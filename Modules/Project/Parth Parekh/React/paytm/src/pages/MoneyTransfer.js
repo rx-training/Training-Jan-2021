@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { FaHandshake } from "react-icons/fa";
 import PaytmServices from "../Services/paytmServices";
 import { getToken, getUserId, removeUserSession } from "../Utils/Common";
+import { NotificationManager } from "react-notifications";
+import Backbutton from "../components/Backbutton";
 
 export default function MoneyTransfer(props) {
     const [amount, setAmount] = useState("");
@@ -54,11 +56,20 @@ export default function MoneyTransfer(props) {
         if (message.length === 0) {
             PaytmServices.moneyTransfer(getUserId(), getToken(), data)
                 .then((res) => {
+                    NotificationManager.success(
+                        "Money transfer successfully",
+                        "",
+                        3000
+                    );
                     props.history.push("/passbook");
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
                         setMess("Receiver Mobile Number not Found !!!");
+                    } else if (error.response.status === 406) {
+                        setMess(
+                            "You can not tranfer money to your own account!!!"
+                        );
                     } else if (error.response.status === 404) {
                         setMess("Something went Wrong!!!");
                     } else if (error.response.status === 402) {
@@ -73,6 +84,7 @@ export default function MoneyTransfer(props) {
 
     return (
         <div className="main-container">
+            <Backbutton />
             <div className="container my-5 p-5 text-capitalize">
                 <h3 style={{ fontFamily: "initial", letterSpacing: "3px" }}>
                     Money Transfer

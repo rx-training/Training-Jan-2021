@@ -3,6 +3,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Spinners from "../dummyPage/Spinners";
+import { hostServer } from "../../Services/paytmServices";
 
 export default function DisplayFeatured(props) {
     const item = props.item;
@@ -19,7 +20,11 @@ export default function DisplayFeatured(props) {
                         key={index}
                     >
                         <div className="mx-auto ">
-                            <img src={item.image} alt={index} height="230px" />
+                            <img
+                                src={`${hostServer}/${item.image}`}
+                                alt={index}
+                                height="230px"
+                            />
                         </div>
 
                         <h5> {item.ProductName}</h5>

@@ -3,6 +3,7 @@ import PaytmServices from "../../Services/paytmServices";
 import { setUserSession } from "../../Utils/Common";
 import Spinners from "../dummyPage/Spinners";
 import { Link } from "react-router-dom";
+import { NotificationManager } from "react-notifications";
 
 export default function LoginModal() {
     const [errors, SetErrors] = useState({
@@ -68,6 +69,7 @@ export default function LoginModal() {
                     console.log(res);
                     setLoading(false);
                     setUserSession(res.data.jwttoken, res.data.userId);
+                    NotificationManager.success("Login Successfully");
                     window.location.href = "/";
                 })
                 .catch((error) => {
@@ -139,7 +141,7 @@ export default function LoginModal() {
                                             required
                                         />
                                         {errors.email.length > 1 ? (
-                                            <small className="text-danger text-capitalize">
+                                            <small className="text-danger ">
                                                 {errors.email}
                                             </small>
                                         ) : (
@@ -159,7 +161,7 @@ export default function LoginModal() {
                                             required
                                         />
                                         {errors.password.length > 1 ? (
-                                            <small className="text-danger text-capitalize">
+                                            <small className="text-danger ">
                                                 {errors.password}
                                             </small>
                                         ) : (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NotificationManager } from "react-notifications";
 import { useParams } from "react-router-dom";
 import PaytmServices from "../../Services/paytmServices";
 import { getToken, getUserId, removeUserSession } from "../../Utils/Common";
@@ -37,6 +38,11 @@ export default function CategoryForm(props) {
         if (id === "add") {
             PaytmServices.addCategory(getUserId(), getToken(), data)
                 .then((res) => {
+                    NotificationManager.success(
+                        `Category : ${cname} added`,
+                        "",
+                        3000
+                    );
                     props.history.push("/addcategory");
                 })
                 .catch((error) => {
@@ -50,6 +56,7 @@ export default function CategoryForm(props) {
         } else {
             PaytmServices.updateCategory(getUserId(), getToken(), id, data)
                 .then((res) => {
+                    NotificationManager.success(`Category  updated`, "", 3000);
                     props.history.push("/addcategory");
                 })
                 .catch((error) => {

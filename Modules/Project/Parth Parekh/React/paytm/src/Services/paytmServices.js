@@ -1,9 +1,10 @@
 import axios from "axios";
+//export const hostServer = "http://20.198.103.48:92";
+export const hostServer = "http://localhost:9000";
+const PAYTM_API_PRODUCTS_URL = `${hostServer}/product`;
 
-const PAYTM_API_PRODUCTS_URL = "http://localhost:9000/product";
-
-const PAYTM_API_USER = "http://localhost:9000/user";
-const PAYTM_API_OTP = "http://localhost:9000/otp";
+const PAYTM_API_USER = `${hostServer}/user`;
+const PAYTM_API_OTP = `${hostServer}/otp`;
 
 class PaytmService {
     //To get Product

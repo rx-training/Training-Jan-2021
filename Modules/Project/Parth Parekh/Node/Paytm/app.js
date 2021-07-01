@@ -38,6 +38,9 @@ app.use("/otp", login);
 
 app.use("/uploads", express.static("uploads"));
 
+// app.listen(process.env.port, () => {
+//     console.log(`app listening at http://localhost:${process.env.port}`);
+// });
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`);
 });
