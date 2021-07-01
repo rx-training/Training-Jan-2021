@@ -186,12 +186,6 @@ namespace UberAPI.Migrations
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
-
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -366,12 +360,6 @@ namespace UberAPI.Migrations
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
 
                     b.Property<double?>("Salary")
                         .HasColumnType("float");
@@ -767,12 +755,6 @@ namespace UberAPI.Migrations
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
-
                     b.Property<DateTime?>("SessionExpiresIn")
                         .HasColumnType("datetime");
 
@@ -1066,6 +1048,72 @@ namespace UberAPI.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.ToView("vRiders", "Riders");
+                });
+
+            modelBuilder.Entity("UberAPI.Models.VTripsData", b =>
+                {
+                    b.Property<double?>("ActualFairAmount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(0.0);
+
+                    b.Property<string>("CancelledBy")
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("DestinationLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("DriverId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("DriverName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<double?>("EstimatedFairAmount")
+                        .HasColumnType("float");
+
+                    b.Property<string>("RegistrationNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RideName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("RiderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("RiderName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SourceLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("StartTime")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<long>("TripId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("TripID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("VehicleBrand")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VehicleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToView("vTripsData");
                 });
 
             modelBuilder.Entity("UberAPI.Models.Vehicle", b =>

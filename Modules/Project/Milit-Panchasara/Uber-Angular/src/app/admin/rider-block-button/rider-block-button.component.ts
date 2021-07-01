@@ -22,21 +22,23 @@ export class RiderBlockButtonRenderer implements  OnDestroy  {
   }
 
   unblockRider(value) {
-    this.adminService.blockUnblockRider("unblock", this.params.value.riderId)
+    let blockUnblockRiderSub = this.adminService.blockUnblockRider("unblock", this.params.value.riderId)
     .subscribe(x => {
       if(x.status == "1"){
         this.adminService.allData.riders.find(x => x.riderId == this.params.value.riderId).isBlocked = false;
         alert(x.message);
+        blockUnblockRiderSub.unsubscribe();
       }
     });
   }
 
   blockRider(value) {
-    this.adminService.blockUnblockRider("block", this.params.value.riderId)
+    let blockUnblockRiderSub = this.adminService.blockUnblockRider("block", this.params.value.riderId)
     .subscribe(x => {
       if(x.status == "1"){
         this.adminService.allData.riders.find(x => x.riderId == this.params.value.riderId).isBlocked = true;
         alert(x.message);
+        blockUnblockRiderSub.unsubscribe();
       }
     });
   }

@@ -11,7 +11,7 @@ namespace UberAPI.Code.Interfaces
     {
         Task<IdentityResult> CreateUser(Register request, string role);
         Task<string> GetToken(AppUser user);
-        Task<string> LoginUser(string id);
+        Task<string> LoginUser(string id, string password);
         Task<string> SendEmail(string id);
         Task<bool> confirmToken(string userId, string token);
         bool VerifyContactNumber(string userId);

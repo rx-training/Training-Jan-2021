@@ -24,13 +24,15 @@ export class RiderSourceComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initMap();
-    this.tripService.getLocations().subscribe(x => {
+    let getLocationsSub = this.tripService.getLocations().subscribe(x => {
       this.locationList.push(...x);
+      getLocationsSub.unsubscribe();
     },
     error => {
       if(error.status == 0) {
         // alert("Something went wrong!");
         this.router.navigate(['/']);
+        getLocationsSub.unsubscribe();
       }
     });
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalConstants } from 'src/app/common/global-constants';
 import { RiderProfile, RiderProfileInterface } from 'src/app/models/RiderProfile';
 import { TripService } from 'src/app/services/trip.service';
 import { RiderService } from '../rider.service';
@@ -38,9 +39,10 @@ export class RiderHomeComponent implements OnInit {
     })
 
     //fetching profile data from api.
-    this.riderService.getProfileData().subscribe(x => {
+    let getProfileDataSub = this.riderService.getProfileData().subscribe(x => {
       this.profileData = x as RiderProfile;
       this.riderService.setData(x);
+      getProfileDataSub.unsubscribe();
     }, 
     error => {
       console.log(error);
@@ -54,21 +56,24 @@ export class RiderHomeComponent implements OnInit {
         this.router.navigate(['/']);
         alert(error.error.message);
       }
+      getProfileDataSub.unsubscribe();
     });
 
     //get trips to check for ongoing trip.
-    this.tripService.getTrips()
+    let getTripsSub = this.tripService.getTrips()
     .subscribe(x => {
-      this.tripService.currentTrip = x.find(x => x.status == 'Started' || x.status == 'New');
+      this.tripService.currentTrip = x.find(x => x.status == GlobalConstants.tripStatus.Started || x.status == GlobalConstants.tripStatus.New);
       if(this.tripService.currentTrip != null) {
         this.router.navigate(['/rider/current-trip']);
       }
+      getTripsSub.unsubscribe();
     },
     error => {
       if(error.status == 0) {
 
         this.router.navigate(['/']);
       }
+      getTripsSub.unsubscribe();
     });
     // console.clear();
   }

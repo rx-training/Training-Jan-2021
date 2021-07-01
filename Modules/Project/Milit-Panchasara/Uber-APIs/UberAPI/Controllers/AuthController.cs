@@ -29,14 +29,16 @@ namespace UberAPI.Controllers
         private readonly IDriverRepo driverRepo;
         private readonly IAdminRepo adminRepo;
         private readonly IConfiguration configuration;
+        private readonly UserManager<AppUser> userManager;
 
-        public AuthController(IUserRepo userRepo, IRiderRepo riderRepo, IDriverRepo driverRepo, IAdminRepo adminRepo, IConfiguration configuration)
+        public AuthController(IUserRepo userRepo, UserManager<AppUser> userManager, IRiderRepo riderRepo, IDriverRepo driverRepo, IAdminRepo adminRepo, IConfiguration configuration)
         {
             this.riderRepo = riderRepo;
             this.userRepo = userRepo;
             this.driverRepo = driverRepo;
             this.adminRepo = adminRepo;
             this.configuration = configuration;
+            this.userManager = userManager;
         }
 
         // POST: api/<AuthController>/register/{userRole}
@@ -74,7 +76,7 @@ namespace UberAPI.Controllers
                     LastName = request.LastName,
                     Email = request.Email,
                     ContactNumber = Convert.ToDecimal(request.ContactNumber),
-                    Password = request.Password, User = newUser,
+                   // Password = request.Password, User = newUser,
                     InviteCode = request.ContactNumber,
                     CreatedAt = DateTime.Now
                 };
@@ -109,7 +111,7 @@ namespace UberAPI.Controllers
                     LastName = request.LastName,
                     Email = request.Email,
                     ContactNumber = Convert.ToDecimal(request.ContactNumber),
-                    Password = request.Password,
+                   // Password = request.Password,
                     User = newUser,
                     CreatedAt = DateTime.Now
                 };
@@ -130,40 +132,43 @@ namespace UberAPI.Controllers
                     var addedVehicle = driverRepo.AddVehicleDetails(vehicleDetails);
                 }
             }
-            else if (userRole.ToLower() == "admin")
-            {
-                if (adminRepo.IsExist(x => x.Email == request.Email))
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Admin already exists!" });
-                }
-                // User Creation
-                role = UserRoles.AdminRole;
-                var result = await userRepo.CreateUser(request, role);
-                if (!result.Succeeded)
-                {
-                    var mes = "Error:";
-                    foreach (var error in result.Errors)
-                    {
-                        mes += " " + error.Description;
-                    }
-                    return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = mes });
-                }
 
-                newUser = userRepo.Find(x => x.Email == request.Email).Single();
+#region adminsignup
+            //else if (userRole.ToLower() == "admin")
+            //{
+            //    if (adminRepo.IsExist(x => x.Email == request.Email))
+            //    {
+            //        return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Admin already exists!" });
+            //    }
+            //    // User Creation
+            //    role = UserRoles.AdminRole;
+            //    var result = await userRepo.CreateUser(request, role);
+            //    if (!result.Succeeded)
+            //    {
+            //        var mes = "Error:";
+            //        foreach (var error in result.Errors)
+            //        {
+            //            mes += " " + error.Description;
+            //        }
+            //        return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = mes });
+            //    }
 
-                // Admin Table entry
-                var newAdmin = new Admin()
-                {
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
-                    Email = request.Email,
-                    ContactNumber = Convert.ToDecimal(request.ContactNumber),
-                    Password = request.Password,
-                    User = newUser,
-                    CreatedAt = DateTime.Now
-                };
-                var addedAdmin = adminRepo.Add(newAdmin);
-            }
+            //    newUser = userRepo.Find(x => x.Email == request.Email).Single();
+
+            //    // Admin Table entry
+            //    var newAdmin = new Admin()
+            //    {
+            //        FirstName = request.FirstName,
+            //        LastName = request.LastName,
+            //        Email = request.Email,
+            //        ContactNumber = Convert.ToDecimal(request.ContactNumber),
+            //    //    Password = request.Password,
+            //        User = newUser,
+            //        CreatedAt = DateTime.Now
+            //    };
+            //    var addedAdmin = adminRepo.Add(newAdmin);
+            //}
+            #endregion
             else
             {
                 return Unauthorized();
@@ -185,9 +190,9 @@ namespace UberAPI.Controllers
                     id = driverRepo.Find(x => x.UserId == userId).First().DriverId;
                     break;
 
-                case "admin":
-                    id = adminRepo.Find(x => x.UserId == userId).First().Id;
-                    break;
+                //case "admin":
+                //    id = adminRepo.Find(x => x.UserId == userId).First().Id;
+                //    break;
 
                 default:
                     break;
@@ -206,7 +211,7 @@ namespace UberAPI.Controllers
         [Route("login/{userRole}")]
         public async Task<IActionResult> Login(string userRole, [FromBody] Login request)
         {
-            string userPass;
+            //string userPass;
             string userId;
             string role = String.Empty;
 
@@ -224,7 +229,7 @@ namespace UberAPI.Controllers
                     return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
                 }
 
-                userPass = rider.Password;
+                //userPass = rider.Password;
                 userId = rider.UserId;
                 role = UserRoles.RiderRole;
             }
@@ -242,7 +247,7 @@ namespace UberAPI.Controllers
                     return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Account has been block by Admin" });
                 }
 
-                userPass = driver.Password;
+                //userPass = driver.Password;
                 userId = driver.UserId;
                 role = UserRoles.DriverRole;
             }
@@ -254,7 +259,7 @@ namespace UberAPI.Controllers
                 }
 
                 var admin = adminRepo.Find(x => x.ContactNumber.ToString() == request.ContactNumber).Single();
-                userPass = admin.Password;
+                //userPass = admin.Password;
                 userId = admin.UserId;
                 role = UserRoles.AdminRole;
             }
@@ -262,14 +267,14 @@ namespace UberAPI.Controllers
             {
                 return Unauthorized();
             }
-            if (request.Password.Trim() != userPass)
+            
+
+            // generate login token for a user
+            var newToken = await userRepo.LoginUser(userId, request.Password);
+            if (newToken == String.Empty)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Incorrect Password!" });
             }
-
-            // generate login token for a user
-            var newToken = await userRepo.LoginUser(userId);
-
             long id = 0;
 
             switch (userRole.ToLower())

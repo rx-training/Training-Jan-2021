@@ -34,7 +34,7 @@ export class LoginPasswordFormComponent implements OnInit {
   verifyPasswordAndRedirect() {
     this.submitingForm = true;
     this.authService.loginPassword = this.passwordInput;
-    this.authService.loginRider()
+    let loginRiderSub = this.authService.loginRider()
     .subscribe(x => {
 
       // save user data and session data if response is received.
@@ -44,17 +44,20 @@ export class LoginPasswordFormComponent implements OnInit {
       localStorage.setItem('session',CryptoJS.AES.encrypt((new Date()).toString(), this.cryptoPassword).toString());
       
       //call get profile api to get profile data
-      this.riderService.getProfileData().subscribe(x => {
+      let getProfileDataSub = this.riderService.getProfileData().subscribe(x => {
         this.riderService.setData(x);
+        getProfileDataSub.unsubscribe();
       },
       error => {
         if(error.status == 0) {
           alert("Something went wrong!");
           this.router.navigate(['/']);
         }
+        getProfileDataSub.unsubscribe();
       });
       this.submitingForm = false;
       this.router.navigate(['/rider/dashboard']);
+      loginRiderSub.unsubscribe();
     },
     error => {
       console.log(error);
@@ -63,6 +66,7 @@ export class LoginPasswordFormComponent implements OnInit {
         this.errorMessage = error.error.message
       }
       this.submitingForm = false;
+      loginRiderSub.unsubscribe();
     });
   }
 }

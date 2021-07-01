@@ -19,7 +19,7 @@ namespace UberAPI.Code.RepositoryDB
         public long? FindDriver(long rideTypeId)
         {
             // assigning random driver to trip who is currently not doing any trips
-            var driverIds = context.Drivers.Include(x => x.Trips).Include(x => x.Vehicles).Where(x => !x.Trips.Any(x => x.Status == "Started" || x.Status == "New") && x.Vehicles.Any(x => x.CurrentRideTypeId == rideTypeId)).Select(x => x.DriverId).ToList();
+            var driverIds = context.Drivers.Include(x => x.Trips).Include(x => x.Vehicles).Where(x => !x.Trips.Any(x => x.Status == TripStatus.Started || x.Status == TripStatus.New) && x.Vehicles.Any(x => x.CurrentRideTypeId == rideTypeId)).Select(x => x.DriverId).ToList();
             if (driverIds.Count == 0) return null;
             var index = new Random().Next(driverIds.Count);
             var driver = driverIds[index];
@@ -62,7 +62,7 @@ namespace UberAPI.Code.RepositoryDB
                     new SqlParameter("@SourceLocationID", source.LocationId),
                     new SqlParameter("@DestinationLocationID", destination.LocationId),
                     new SqlParameter("@RideTypeID", rideType.RideTypeId),
-                    new SqlParameter("@Status", "New"),
+                    new SqlParameter("@Status", TripStatus.New),
                     new SqlParameter("@EstimatedFairAmount", estimatedFairAmount),
                 };
 
@@ -82,7 +82,7 @@ namespace UberAPI.Code.RepositoryDB
                 }
 
                 // fetching result from view
-                var trip = context.VTripsData.Where(x => x.RiderId == riderId && x.Status == "New").FirstOrDefault();
+                var trip = context.VTripsData.Where(x => x.RiderId == riderId && x.Status == TripStatus.New).FirstOrDefault();
                 return trip;
             }
             catch (Exception)
@@ -99,7 +99,7 @@ namespace UberAPI.Code.RepositoryDB
             {
                 object[] lspParam;
                 int rowAfftected;
-                if (updateTripInput.Action != "TripStarted")
+                if (updateTripInput.Action != TripAction.TripStarted)
                 {
                     var trip = context.VTripsData.Where(x => x.TripId == updateTripInput.TripId).FirstOrDefault();
 

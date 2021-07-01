@@ -13,7 +13,7 @@ namespace UberAPI.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public decimal ContactNumber { get; set; }
-        public string Password { get; set; }
+        //public string Password { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public AppUser User { get; set; }

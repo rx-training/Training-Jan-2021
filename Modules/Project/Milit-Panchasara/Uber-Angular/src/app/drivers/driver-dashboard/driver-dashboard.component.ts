@@ -35,23 +35,26 @@ export class DriverDashboardComponent implements OnInit,OnDestroy {
   }
 
   acceptTrip(riderId) {
-    this.driverService.acceptTempTrips(riderId).subscribe(x => {
+    let acceptTempTripsSub = this.driverService.acceptTempTrips(riderId).subscribe(x => {
       console.log(x);
       if(x != null) {
         this.tripService.currentTrip = x;
-        this.driverService.removeTempTrips(riderId).subscribe(x => {
+        let removeTempTripsSub = this.driverService.removeTempTrips(riderId).subscribe(x => {
           console.log(x);
+          removeTempTripsSub.unsubscribe();
         });
         this.driverService.tempTrips.splice(this.driverService.tempTrips.findIndex(x => x.key.item2 == riderId), 1);
         this.tripService.currentTrip = x;
         this.router.navigate(['/driver/current-trip']);
       }
+      acceptTempTripsSub.unsubscribe();
     });
   }
 
   rejectTrip(riderId) {
-    this.driverService.removeTempTrips(riderId).subscribe(x => {
+    let removeTempTripsSub = this.driverService.removeTempTrips(riderId).subscribe(x => {
       console.log(x);
+      removeTempTripsSub.unsubscribe();
     });
   }
 

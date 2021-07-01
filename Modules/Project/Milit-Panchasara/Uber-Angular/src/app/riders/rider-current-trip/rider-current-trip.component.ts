@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RiderTripInterface } from 'src/app/models/RiderTrip';
 import { TripService } from 'src/app/services/trip.service';
 import { LocationInterface } from 'src/app/models/Location';
+import { GlobalConstants } from 'src/app/common/global-constants';
 
 @Component({
   selector: 'app-rider-current-trip',
@@ -34,30 +35,31 @@ export class RiderCurrentTripComponent implements OnInit, OnDestroy {
 
     this.trip = this.tripService.currentTrip;
 
-    this.tripService.getLocations().subscribe(x => {
+    let getLocationsSub = this.tripService.getLocations().subscribe(x => {
       this.tripService.locations = x;
       this.locations = x;
       this.source = this.locations.find(x => x.locationName == this.trip.sourceLocation);
       this.destination = this.locations.find(x => x.locationName == this.trip.destinationLocation);
+      getLocationsSub.unsubscribe();
     })
     
     this.initMap();
 
     // start and complete trip after 5 seconds and 10 seconds interval respectively.
     let interval = setInterval(()=> {
-        this.tripService.getCurrentTrip(this.tripService.currentTrip.tripId).subscribe(x => {
+        let getCurrentTripSub = this.tripService.getCurrentTrip(this.tripService.currentTrip.tripId).subscribe(x => {
           // let tripExists = x.find(x => x.status == 'New');
           console.log(x);
           
           if(x != null) {
-            if(x.status == 'New' || x.status == 'Started'){
+            if(x.status == GlobalConstants.tripStatus.New || x.status == GlobalConstants.tripStatus.Started){
               this.tripService.currentTrip = x;
               this.trip = x;
             }
             else {
               this.trip = null;
               clearInterval(interval);
-              if(x.status == "Cancelled"){
+              if(x.status == GlobalConstants.tripStatus.Cancelled){
                 alert("Trip has been cancelled by the driver.");
               }
               else {
@@ -66,13 +68,15 @@ export class RiderCurrentTripComponent implements OnInit, OnDestroy {
               this.router.navigate(['/rider/trip-rating']);
             }
           }
+
+          getCurrentTripSub.unsubscribe();
         });
     }, 2000);
   }
 
   //cancelling trip.
   cancelTrip() {
-    this.tripService.cancelTrip()
+    let cancelTripSub = this.tripService.cancelTrip()
     .subscribe(x => {
       console.log(x);
       this.tripService.currentTrip = null;
@@ -80,6 +84,7 @@ export class RiderCurrentTripComponent implements OnInit, OnDestroy {
       clearInterval(this.interval);
       alert('Trip has been cancelled successfully');
       this.router.navigate(['/rider/dashboard']);
+      cancelTripSub.unsubscribe();
     });
   }
 

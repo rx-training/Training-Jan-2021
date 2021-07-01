@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\assignment1.Domain\assignment1.Domain.csproj" />
+    <ProjectReference Include="..\assignment1.BoundedContext\assignment1.BoundedContext.csproj" />
+    <ProjectReference Include="..\assignment1.Models\assignment1.Models.csproj" />
+    <ProjectReference Include="..\assignment1.Infrastructure\assignment1.Infrastructure.csproj" />
+    <ProjectReference Include="..\assignment1.UnitOfWork\assignment1.UnitOfWork.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
+    <PackageReference Include="RxWeb.Core.AspNetCore" Version="3.0.4-preview1" />
+    <PackageReference Include="RxWeb.Core.Localization" Version="3.0.1" />
+    <PackageReference Include="RxWeb.Core.Logging" Version="3.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+</Project>

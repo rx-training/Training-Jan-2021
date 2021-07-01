@@ -28,7 +28,7 @@ namespace UberAPI.Models
         public bool? IsBlocked { get; set; }
         public bool? IsLoggedIn { get; set; }
         public DateTime? SessionExpiresIn { get; set; }
-        public string Password { get; set; }
+        //public string Password { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
 
