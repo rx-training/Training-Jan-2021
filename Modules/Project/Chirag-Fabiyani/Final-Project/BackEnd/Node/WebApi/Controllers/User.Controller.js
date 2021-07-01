@@ -18,9 +18,11 @@ class User{
         const User = new Users(req.body);
         const salt = bcrypt.genSaltSync(10);
         User.Password = bcrypt.hashSync(User.Password, salt);
-        User.save().then((data)=>{
-            res.send(data)
-        });
+            User.save().then((data)=>{
+                res.send(data)
+            }).catch(err=>{
+                res.send(false)
+            });
     }
 
     static allData(req,res,next){
