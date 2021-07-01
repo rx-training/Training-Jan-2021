@@ -1,0 +1,45 @@
+<div class="clr pb-5">
+    <div class="container ">
+        <div class="row">
+        <div class="col-sm-4 py-5">
+        <p class="text-warning font-weight-bold" style="font-size: larger;" >Destination City</p>
+        <p class="text-white font-weight-bold" style="font-size: medium;" >{{DestinationCity}}</p>
+        </div>
+        <div class="col-sm-4 py-5">
+        <p class="text-warning font-weight-bold" style="font-size: larger;" >CheckIn Date</p>
+        <p class="text-white font-weight-bold" style="font-size: medium;" >{{CheckinDate}}</p>
+        </div>
+        <div class="col-sm-4 py-5">
+        <p class="text-warning font-weight-bold" style="font-size: larger;" >Check Out Date</p>
+        <p class="text-white font-weight-bold" style="font-size: medium;" >{{CheckOutDate}}</p>
+       
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<div class="bg-light">
+    <div class="container bg-white p-4" style="margin-top: -60px;">
+        <ng-container *ngFor="let item of FilterHotel">
+          
+            <div class="card">
+                <div class="card-header bg-success text-white text-center font-weight-bold">{{item.hotelName}}</div>
+                <img src="{{item.imgPath1}}" class="card-img-top" height="300px" alt="...">
+                <div class="card-body">
+                  <p> <span class="font-weight-bold">Rating :- </span> <span>{{item.rating}}</span> </p>
+                  <p> <span class="font-weight-bold">Available Room :- </span> <span>{{item.noOfRoomAvailable}}</span> </p>
+                  <p> <span class="font-weight-bold">Email Address :- </span> <span>{{item.hotelEmail}}</span> </p>
+                  <p> <span class="font-weight-bold">Hotel Mobile Number :- </span> <span>{{item.hotelMobileNumber}}</span> </p>
+                  <p> <button class="btn btn-outline-warning" [routerLink]="['../viewMore',item.hotelId]">View More Details</button></p>
+                </div>
+              </div>
+         
+        </ng-container>
+
+        <div>
+        <button class="btn btn-outline-primary" (click)="Back()">Back</button>
+    </div>
+    </div>
+
+</div>

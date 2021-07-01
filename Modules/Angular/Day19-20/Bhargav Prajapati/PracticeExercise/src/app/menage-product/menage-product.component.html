@@ -1,0 +1,59 @@
+<div class="container bg-light mt-5">
+    <h1 class="text-center text-primary">
+        Menage Product
+    </h1>
+
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <h4>Add Product</h4>
+            <form action="">
+                <div class="form-group">
+                    <label for="">Product Id</label>
+                    <input type="text" class="form-control" id="id" #id>
+                </div>
+                <div class="form-group">
+                    <label for="">Product Name</label>
+                    <input type="text" class="form-control" id="name" #name>
+                </div>
+                <div>
+                    <label for="">Product Price</label>
+                    <input type="number" class="form-control" id="Price" #price>
+                </div>
+
+                <button type="button" class="btn btn-primary m-2" (click)="AddProduct(id,name,price)"> {{EditMode?"Update Product":"Add Product"}} </button>
+                <button type="button" class="btn btn-success m-2" (click)="saveProduct()">Save Product</button>
+                <button type="button" class="btn btn-warning text-white m2" (click)="fetchProduct()">Fatch Product</button>
+
+            </form>
+        </div>
+        <div class="col-md-6 mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ProductId</th>
+                        <th>ProductName</th>
+                        <th>ProductPrice</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="!fatching">
+                    <tr *ngFor="let item of Product; let idx=index">
+                            <td>{{idx+1}}</td>
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.Price}}</td>
+                            <td><button type="button" class="btn btn-danger" (click)="DeleteData(idx)">DELETE</button></td>
+                            <td><button type="button" class="btn btn-primary" (click)="EditData(idx)">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center" *ngIf="fatching">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>                  
+                fetching Product</div>
+        </div>
+    </div>
+</div>

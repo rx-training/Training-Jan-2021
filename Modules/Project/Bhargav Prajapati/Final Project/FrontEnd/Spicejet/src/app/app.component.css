@@ -1,0 +1,22 @@
+#navbar1 .nav-link:hover {
+  background-color: #d31e1e;
+  color: white;
+}
+#drop-down-list:hover
+{
+    font-size: 15px;
+    font-weight:bold;
+}
+
+
+
+
+div.dropdown-multicol2{
+    width: 35em;
+  }
+  div.dropdown-multicol2>div.dropdown-col{
+    display:inline-block;
+    width: 50%;
+    
+  }
+

@@ -1,0 +1,69 @@
+<div class="container"  style="overflow-x: scroll;">
+    
+    <table class="table table-hover table-bordered text-center">
+
+        <thead class="thead-dark">
+                <tr>
+                    <th>CostId</th>
+                    <th>Amount</th>
+                    <th>Tax</th>
+                    <th>Totel Amount</th>
+                    
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of CostCurd">
+                <td>{{item.costId}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.tax}}</td>
+                <td>{{item.totelPrice}}</td>
+            
+                    <td><button class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal1" (click)="Edit(item)">Edit</button> </td>
+                    <td> <button class="btn btn-outline-danger" (click)="Delete(item.costId)">Delete</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+<!-- Update Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update New Cost</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <form action="" [formGroup]="uCostForm">
+                  <div class="form-group">
+                      <label for="">Amount</label>
+                      <input type="number" class="form-control" [(ngModel)]="Amount" name="Amount" formControlName="Amount" [ngClass]="{'is-invalid':uamount?.errors && (uamount.touched || uamount.dirty)}">
+                      <div class="invalid-feedback" *ngIf="uamount?.errors && (uamount.touched ||uamount.dirty)">
+                        <div *ngIf="uamount.errors?.required">Amount is Required Fild</div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label for="">Tax</label>
+                    <input type="number" class="form-control" [(ngModel)]="Tax" name="Amount" formControlName="Tax" [ngClass]="{'is-invalid':utax?.errors && (utax.touched || utax.dirty)}">
+                    <div class="invalid-feedback" *ngIf="utax?.errors && (utax.touched ||utax.dirty)">
+                        <div *ngIf="utax.errors?.required">Tax is Required Fild</div>
+                    </div>
+                </div>
+
+              </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Update()"  [disabled]="uCostForm.invalid" >Update Cost</button>
+        </div>
+      </div>
+    </div>
+  </div>

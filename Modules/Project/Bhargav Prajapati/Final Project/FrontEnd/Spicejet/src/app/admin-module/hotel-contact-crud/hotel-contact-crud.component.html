@@ -1,0 +1,72 @@
+<div class="container"  style="overflow-x: scroll;">
+    
+    <table class="table table-hover table-bordered text-center">
+
+        <thead class="thead-dark">
+                <tr>
+                    <th>Hotel Contect Id</th>
+                    <th>Hotel Mobile Number</th>
+                    <th>Hotel Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of ContactCrud">
+                <td>{{item.hotelContectId}}</td>
+                <td>{{item.hotelMobileNumber}}</td>
+                <td>{{item.hotelEmail}}</td>
+                
+                    <td><button class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal1" (click)="Edit(item)">Edit</button> </td>
+                    <td> <button class="btn btn-outline-danger" (click)="Delete(item.hotelContectId)">Delete</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<!-- Update Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update New Cost</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <form action="" [formGroup]="HotelContact" >
+                  <div class="form-group">
+                      <label for="">Hotel ContectNumber</label>
+                      <input type="text" class="form-control" [(ngModel)]="hotelmobileNumber" formControlName="HotelContect" [ngClass]="{'is-invalid':hotelcontect?.errors &&(hotelcontect.touched || hotelcontect.dirty)}">
+                      <div class="invalid-feedback"
+                                    *ngIf="hotelcontect?.errors && (hotelcontect.touched || hotelcontect.dirty)">
+                                    <div *ngIf="hotelcontect.errors?.required">MobileNumber is Required Fild</div>
+                                    <div
+                                        *ngIf="(hotelcontect.errors?.maxlength  || hotelcontect.errors?.minlength)">
+                                        Please Enter 10 Digit Number</div>
+                                </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Hotel Email</label>
+                    <input type="text" class="form-control" [(ngModel)]="hotelemail" formControlName="HotelEmail" [ngClass]="{'is-invalid':hotelEmail?.errors &&  (hotelEmail.touched || hotelEmail.dirty)}">
+                    <div class="invalid-feedback" *ngIf="hotelEmail?.errors && (hotelEmail.touched || hotelEmail.dirty)">
+                        <div *ngIf="hotelEmail.errors?.required">Email is Required Fild</div>
+                        <div *ngIf="hotelEmail.errors?.email">Please Enter Valid Email</div>
+                    </div>
+                </div>
+              </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Update()"  [disabled]="" >Update Cost</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

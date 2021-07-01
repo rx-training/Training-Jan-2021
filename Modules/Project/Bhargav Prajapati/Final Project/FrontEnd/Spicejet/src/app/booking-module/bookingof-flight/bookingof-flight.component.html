@@ -1,0 +1,179 @@
+<div class="bg-light">
+<div style="background-color:rgb(102, 0, 102); padding: 60px;">
+    <p class="text-center text-white" style="font-size: 40px;">Traveller <span style="font-weight: 800;">Details</span> </p>
+    <div class="row">
+    <div class="col-sm-3  pb-2">
+        <p class="text-warning font-weight-bold" style="font-size: larger;" >Depature City</p>
+        <p class="text-white font-weight-bold" style="font-size: medium;" >{{DepartCity}}</p>
+      </div>
+      <div class="col-sm-3  pb-2">
+        <p class="text-warning font-weight-bold" style="font-size: larger;" >Passanger</p>
+        <p class="text-white font-weight-bold" style="font-size: medium;" >{{Passangers}}</p>
+
+      </div>
+      <div class="col-sm-3 pb-2">
+        <p class="text-warning font-weight-bold" style="font-size: larger;" >Currency</p>
+        <p class="text-white font-weight-bold" style="font-size: medium;" >{{Money}}</p>
+
+      </div>
+
+      <div class="col-sm-3 pb-2 ">
+        <p class="text-warning font-weight-bold" style="font-size: larger;" >Arrived City</p>
+        <p class="text-white font-weight-bold" style="font-size: medium;" >{{ArrivedCity}}</p>
+      </div>
+</div>
+</div>
+    <div class="container ">
+        <div class="row" style="margin-top: -50px;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div style="background-color: rgb(236,111,12);">
+                    <div class="container">
+                        <form action="">
+                    <div class="row">
+                        <div class="col-md-3  mt-3">
+                            <p class="text-white font-weight-bold" style="font-size: 20px;">Are you a member of SpiceClub?</p>
+                        </div>
+                        
+                        <div class="col-md-3 mt-3">
+                            <div class="form-group">
+                                <label for="" class="text-white" style="font-size: small;">Enter E-MAIL ID :</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3  mt-3">
+                            <div class="form-group">
+                                <label for="" class="text-white" style="font-size: small;">Enter PassWord :</label>
+                                <input type="Password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3  mt-3">
+                            
+                            <button class="btn btn-success " style="margin-top: 27px;">LOGIN</button>
+                        
+                        </div>
+                    
+                    </div>
+                </form>
+                </div>
+                <div class="text-center pb-5">
+                    <small class="text-white ">SC Member ID is your registered Email Address</small>
+                </div>
+                </div>
+
+                <div style="background-color: white; " class="py-3">
+                    <div class="container" *ngIf="flag1">
+                        <p class="text-center font-weight-bold"style="font-size: 20px;"> Passanger {{count}}</p>
+                    <form [formGroup]="UserData" (ngSubmit)="StoreUserData()">
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">First Name</label>
+                                        <input type="text" class="form-control" formControlName="UserFirstName" [ngClass]="{'is-invalid':userfirstname?.errors && (userfirstname.touched || userfirstname.dirty)}">
+                                        <div class="invalid-feedback" *ngIf="userfirstname?.errors && userfirstname.touched">
+                                            <div *ngIf="userfirstname.errors?.required">First Name Required</div>
+                                            <div *ngIf="userfirstname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="">Middle Name</label>
+                                        <input type="text" class="form-control" formControlName="UserMiddleName" [ngClass]="{'is-invalid':usermiddlename?.errors && (usermiddlename.touched ||usermiddlename.dirty)}">
+
+                                        <div class="invalid-feedback" *ngIf="usermiddlename?.errors && usermiddlename.touched">
+                                            <div *ngIf="usermiddlename.errors?.required">Middle Name Required</div>
+                                            <div *ngIf="usermiddlename.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="">Last Name</label>
+                                        <input type="text" class="form-control " formControlName="UserLastName" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                                        <div class="invalid-feedback" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                                            <div *ngIf="userlastname.errors?.required">Last Name Required</div>
+                                            <div *ngIf="userlastname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="text" class="form-control" formControlName="UserEmail" [ngClass]="{'is-invalid':useremail?.errors &&  (useremail.touched || useremail.dirty)}">
+                                <div class="invalid-feedback" *ngIf="useremail?.errors && (useremail.touched || useremail.dirty)">
+                                <div *ngIf="useremail.errors?.required">Email is Required Fild</div>
+                                <div *ngIf="useremail.errors?.email">Please Enter Valid Email</div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="">Mobile Number</label>
+                                 <input type="text" value="" class="form-control" formControlName="UserPhoneNumber" [ngClass]="{'is-invalid':userPhoneNumber?.errors &&(userPhoneNumber.touched || userPhoneNumber.dirty)}">
+                                 <div class="invalid-feedback"
+                                    *ngIf="userPhoneNumber?.errors && (userPhoneNumber.touched || userPhoneNumber.dirty)">
+                                    <div *ngIf="userPhoneNumber.errors?.required">MobileNumber is Required Fild</div>
+                                    <div *ngIf="userPhoneNumber.errors?.Nodigit">Please Enter Digit Only</div>
+                                    <div
+                                        *ngIf="(userPhoneNumber.errors?.maxlength  || userPhoneNumber.errors?.minlength)">
+                                        Please Enter 10 Digit Number</div>
+                                </div>
+
+                             </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                        <div>
+                        <button type="submit" class="btn btn-outline-success btn-block" [disabled]="UserData.invalid">Save Record</button>
+                    </div>
+                    </form>
+                </div>
+
+                <div class="container" *ngIf="flag2">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white text-center" style="font-size: 25px;">Payment Details</div>
+                        <div class="card-body text-center">
+                            
+                            <img src="../../../assets/Images/TierPage_1.jpg" class="card-img-top img-fluid" alt="...">
+                
+                            <p class="mt-4">Depart AirPort :- {{DepartAirportName}}</p>
+                            <p>Arrived  AirPort :- {{ArrivedAirportName}}</p>
+                            <p>AirPlane :-  {{Model}} {{AirPlaneName}} </p>
+                            <p>Departure Date :- {{DepartDate}} </p>
+                            <p>Arrival Date :- {{ArriveDate}} </p>
+                            <p>Departure Time :- {{DepartTime}} </p>
+                            <p>Arrival Time :- {{ArriveTime}} </p>
+                            <p> Passangers :- {{Passangers}} </p>
+                            <p>Amount :- {{Amount}} </p>
+                            <p>Tax :- {{Tax*100}} % </p>
+                            <p>Total Amount :-{{TotelAmount}} </p>
+                            <p class="font-weight-bold text-success"  style="font-size: larger;">Grand Totel :- {{TotelAmount* Passangers}} </p>
+                        </div>
+                        <div class="card-footer"><button  [routerLink]="['']" class="btn btn-outline-success btn-block" (click)="MakePayment()">Make Payment</button></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-1">
+
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+ 

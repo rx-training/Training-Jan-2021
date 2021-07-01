@@ -1,0 +1,48 @@
+<div class="container-fluid bg-light pt-5">
+    <div class="container">
+        <form action="" [formGroup]="HotelBooking" (ngSubmit)="StoreData()">
+            <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="" class="font-weight-bold" style="font-size: 12px;">Enter Destination City</label>
+                    <input type="text" value="" formControlName="DestinationCity" class="form-control"  placeholder="Enter City" [ngClass]="{'is-invalid': DestinationCity?.errors && (DestinationCity.touched || DestinationCity.dirty)}">
+                    <div class="invalid-feedback"
+                                    *ngIf="DestinationCity?.errors && (DestinationCity.touched || DestinationCity.dirty)">
+                                    <div *ngIf="DestinationCity.errors.required">Destination City is Required</div>
+                                    <div *ngIf="DestinationCity.errors.Nocharactor">Only Charactor Are Allowed </div>
+                                </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="" class="font-weight-bold" style="font-size: 12px;">Checked-in Date</label>
+                    <input type="date" value="" class="form-control" formControlName="CheckInDate" [ngClass]="{'is-invalid':CheckInDate?.errors && (CheckInDate.touched || CheckInDate.dirty)}">
+                    <div class="invalid-feedback"
+                                    *ngIf="CheckInDate.errors?.required && (CheckInDate.touched || CheckInDate.dirty)">
+                                    Check in Date Date Required
+                                </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="" class="font-weight-bold" style="font-size: 12px;">Check Out Date</label>
+                    <input type="date" value="" class="form-control" [ngClass]="{'is-invalid':CheckOutDate?.errors && (CheckOutDate.touched || CheckOutDate.dirty)}" formControlName="CheckOutDate" >
+                    <div class="invalid-feedback"
+                    *ngIf="CheckOutDate.errors?.required && (CheckOutDate.touched || CheckOutDate.dirty)">
+                    Check Out Date Date Required
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <button class="btn" [disabled]="HotelBooking.invalid" type="submit"><img class="rounded-circle" src="../../../assets/Images/Search Flight.jpg" height="60px" width="60px" alt=""></button>
+                <p class="ml-3 " style="font-weight: 500; color: cadetblue;">SEARCH</p>               
+            </div>
+           
+        </div>
+        </form>
+        <div class="col-lg-12 py-2">
+            <button type="button" (click)="MenageHotelBooking()" class="btn btn-block btn-outline-primary mt-3">Manage Your Booking</button>
+        </div>
+    </div>
+</div>
+
