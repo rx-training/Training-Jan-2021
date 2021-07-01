@@ -1,0 +1,260 @@
+*{
+    box-sizing: border-box;;
+    text-decoration: none;
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    body {
+      font-size: small;
+    }
+  }
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    body {
+        font-size: smaller;
+    }
+  }
+body{
+    min-height: 100vh;
+}
+.container {
+    min-height: 100vh;;
+    width: auto;
+    /* border: 2px solid black; */
+    margin: auto;
+   
+}
+
+.logo {
+    background-color:whitesmoke;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    clear: both;
+ 
+}
+
+.navbar {
+    background-color: black;
+    height: 40px;
+    width: 100%;
+   
+       
+}
+.navbar ul{
+    overflow: none;
+   
+    margin-left: 300px;
+   
+    list-style-type:none;}
+.navbar li{
+     margin: auto;
+    float: left;
+    padding: 10px 20px;
+    color:grey; }
+    .navbar  a{
+        margin:auto;
+        color:grey;
+        text-decoration: none;
+        position: relative;
+    }
+    .navbar  a:before{
+        position: absolute;
+        color: white;
+        content: "";
+        left: 0%;
+    
+        top: 100%;
+        height: 5px;
+        width: 0%;
+        background-color: rgb(45, 199, 226);
+        
+    }
+    .navbar a:hover::before{
+        width:500px;
+    }
+
+
+
+.banner-section{
+    background-image: url('./pictures/banner.jpg');
+
+    background-repeat: no-repeat;
+    
+    
+    
+}
+.banner-content{
+    background-image: url('./pictures/banner.jpg');
+    position: relative;
+   margin-top: -10px;
+    /* background-color:black; */
+    color:rgb(10, 10, 10);
+    opacity: 0.6;
+    width: 100%; 
+    height: 30px;
+    text-align: center;
+    padding-top: 250px;
+    
+
+    
+}
+.icons-selection{
+   
+    padding: 30px 200px;
+    text-align: center;
+    float: left;
+    color: grey;
+    background-color: white;
+}
+.icons-selection h3{
+    color: black;
+}
+.img1{
+
+   
+    width: 33%;
+    float: left;
+}
+.img2{
+    width: 33%;
+    float: left;
+}
+.img3{
+    width: 33%;
+    float: right;
+}
+
+.header{
+    
+   
+    text-align: center;
+    background-color: rgb(230, 222, 222);
+    padding-top: 140px;
+    text-decoration: none;
+}
+.header1{
+    margin-top: 200px;
+    padding:30px 0px 30px 0px;
+    color: black;
+    text-decoration: none;
+}
+.header2{
+    
+
+    padding-top: 90px;
+    color: grey;
+    text-decoration: none;
+}
+.things{
+    margin: 100px;
+    float: left;
+    background-color: white;
+}
+.things h2{
+    padding-left: 150px;
+    color: black;
+   
+}
+.things p{
+    color:grey;
+    text-align: left;
+    margin-left: 20px;
+}
+.things img{
+    float: left;
+}
+.thing1{
+    padding: 15px;
+    float: left;
+    width: 50%;
+}
+
+.thing2{
+    padding: 15px;
+    float: left;
+    width: 50%;
+}
+.thing3{
+    padding:15px;
+    float: left;
+    width: 50%;
+}
+.thing4{
+    padding: 15px;
+    float:left;
+    width: 50%;
+}
+.quest{
+    
+    text-align: center;
+    background-color: rgb(21, 172, 218);
+    color: white !important;
+    clear: both;
+}
+.quest>h2>a:link{
+        text-decoration: none;
+        color: white;
+        font-size: 15px;
+        
+        border-radius: 5px;
+        background-color:  white;
+        padding: 7px 20px;
+    }
+.logo p{
+    text-align: center;
+    padding: 15px;
+    color: rgb(102, 102, 145);
+   
+    
+}
+.footer1{
+    padding-left: 140px;
+    
+    background-color: lightgrey !important;
+    margin-bottom: 400px;
+    margin-top: 50px;
+    clear: both;
+    
+}
+.ul1{
+    
+    float: left;
+    clear: both;
+}
+.ul2{
+    float: left;
+    padding-left: 20px;
+}
+.footer1 li{
+    padding: 5px;
+}
+.intouch{
+    float: left;
+ 
+    
+   
+}
+.footer1 ul1{
+    list-style-type: none;
+}
+    
+
+.footer li{
+    color: rgb(131, 128, 128);
+}
+.form{
+    float: left;
+    padding-left: 20px;
+}
+.intouch h3{
+    color: black !important;
+}
+.contact{
+    clear: left;
+    text-align: center;
+    padding-top: 250px;
+    word-spacing: 30px;
+    color: rgb(83, 11, 11);
+}

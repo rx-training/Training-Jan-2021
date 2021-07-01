@@ -1,0 +1,17 @@
+<!-- <app-calc></app-calc>
+<app-component1></app-component1>
+<app-component2></app-component2>
+
+<app-valuedata></app-valuedata> -->
+
+<app-injectors></app-injectors>
+<h2>User</h2>
+<p id="user">
+  {{userInfo}}
+  <button (click)="nextUser()">Next User</button>
+<p>
+    <app-heroes id="authorized" *ngIf="isAuthorized"></app-heroes>
+    <app-heroes id="unauthorized" *ngIf="!isAuthorized"></app-heroes>
+    <app-heroes-tsp id="tspAuthorized" *ngIf="isAuthorized"></app-heroes-tsp>
+ <app-student></app-student>
+ <app-student-list [studentList]="studentlist"></app-student-list>

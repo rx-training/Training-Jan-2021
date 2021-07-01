@@ -1,0 +1,123 @@
+<div class="container">
+    <div class="text-center">
+        <div class="h2">Ready to go? click below button</div>
+        <button onclick="greater()" class="btn btn-primary ">Click to get max number</button>
+        <p id="max"></p>
+        <p id="max40"></p>
+        <h2>name of the 5 cities?!!!!</h2>
+        <button onclick="city()" class="btn btn-warning ">click here to have lsit of 5 citties</button>
+        <p id="city"></p>
+    </div>
+</div>
+
+<!-- asignment  -->
+<div class="container">
+    <div class="row">
+        <form id=form class="form col-6">
+
+            <div class=" form-group">
+                <label for="n1">Please enter first number: </label>
+                <input type="number" class="form-control m-2 " placeholder="number 1" id="number1" required>
+            </div>
+            <div class=" form-group">
+                <label for="n2">Please enter second number: </label>
+                <input type="n2" class="form-control  " placeholder="number 2" id="number2" required>
+            </div>
+            <div class="form-group">
+                <label for="operation" class=" text-right">Please select operation you want to perform:</label>
+
+                <div class="form-check">
+                    <label><input type="radio" value="addition" id="add" name="op" > Addition</label>
+                </div>
+                <div class="form-check">
+                    <label><input type="radio" value="Subtraction" id="sub" name="op"> Subtraction</label>
+                </div>
+                <div class="form-check">
+                    <label><input type="radio" value="multiplication" id="mul" name="op"> Multiplication </label>
+                </div>
+                <div class="form-check">
+                    <label><input type="radio" value="divison" id="div" name="op"> Divison </label>
+                </div>
+
+            </div>
+            <div class="form-check form-check-input">
+                <button onclick="calculate()" class="btn btn-warning " type="button">calulate</button>
+                <button type="reset" onclick="reset()" class="btn btn-danger ">reset</button>
+
+            </div>
+
+        </form>
+
+
+        <div  class="col-6">
+            <h3 >resutls are: <span id="ans"></span></h3>
+        </div>
+    </div>
+</div>
+<script>
+    function greater() {
+   
+   var num1 = prompt("enter 1st number");
+   var num2 = prompt("enter 2nd number");
+   var num3 = prompt("enter 3rd number");
+   parseInt(num1);
+   parseInt(num2);
+   parseInt(num3);
+  
+  
+   // if(num1 ==' ' || num3 ==' ' || num2 ==' ' ){
+   //     alert("enter all 3 numbers");
+
+   // }
+
+   if (num1 > num2) {
+       if (num1 > num3) {
+           var max = num1;
+       }
+       else {
+           var max = num3;
+       }
+   }
+   else {
+       if (num2 > num3) {
+           var max = num2;
+       }
+       else {
+           var max = num3;
+       }
+
+   }
+   if (num1 > 40) {
+       var maxn1 =parseInt( num1);
+   }
+   else{
+       maxn1=0;
+   }
+   if (num2 > 40) {
+       var maxn2 = parseInt(num2);
+   }
+   else{
+       maxn2=0;
+   }
+   if (num3 > 40) {
+       var maxn3 = parseInt(num3);
+   }
+   else{
+       maxn3=0;
+   }
+
+
+  var max40 = parseInt( maxn1 + maxn2 + maxn3);
+
+
+
+   document.getElementById("max").innerHTML = "max number is " + max;
+   document.getElementById("max40").innerHTML = "sum of number value greater then 40 is " + max40;
+
+}
+</script>
+<script src="js/jquery.min.js"></script>
+    <script src="/s/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/javascript.js"></script>
+

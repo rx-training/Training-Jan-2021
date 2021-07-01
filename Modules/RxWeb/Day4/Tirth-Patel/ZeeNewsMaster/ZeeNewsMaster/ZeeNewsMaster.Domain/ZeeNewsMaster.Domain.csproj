@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZeeNewsMaster.BoundedContext\ZeeNewsMaster.BoundedContext.csproj" />
+    <ProjectReference Include="..\ZeeNewsMaster.UnitOfWork\ZeeNewsMaster.UnitOfWork.csproj" />
+    <ProjectReference Include="..\ZeeNewsMaster.Models\ZeeNewsMaster.Models.csproj" />
+    <ProjectReference Include="..\ZeeNewsMaster.Infrastructure\ZeeNewsMaster.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

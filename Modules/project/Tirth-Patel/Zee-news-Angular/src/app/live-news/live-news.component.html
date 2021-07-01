@@ -1,0 +1,40 @@
+<section id="news" class="mt-2 py-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 col-lg-8 col-xl-9 ">
+                <div class="card" id="card1">
+                    <img src="assets\Pictures\News\941826-pm-modi-gen (1).webp" alt="" height="100%" class="card-img">
+                    <div class="card-img-overlay">
+                        <h3 class="card-title">
+                            PM Narendra Modi to address the nation at 5 PM as COVID cases decline
+                        </h3>
+                        <p class="card-text">
+                            PM to Speak on <b>COVID</b> <strong>Low Rate Cases</strong>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-4 col-xl-3 d-flex flex-column" id="subnews">
+                <div *ngFor="let item of LiveNews,let  idx =index">
+                    <div class="card" id="card2">
+
+                        <img src= "../{{item.imagesLink}}" class="card-img">
+
+                        <div class="card-img-overlay">
+
+                            <h3 class="card-title">
+                                Lorem ipsum dolor sit amet.
+                            </h3>
+                            <p class="card-text">
+                                {{item.description}}
+                            </p>
+                            <a [routerLink]="['/Home',newstype,item.contentId]" class=" card-text">Read More<i
+                                    class="fas fa-arrow-alt-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

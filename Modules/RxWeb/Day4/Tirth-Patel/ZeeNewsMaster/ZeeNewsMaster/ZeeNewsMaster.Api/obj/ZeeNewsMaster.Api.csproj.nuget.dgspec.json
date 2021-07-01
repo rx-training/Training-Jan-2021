@@ -1,0 +1,464 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Api\\ZeeNewsMaster.Api.csproj": {}
+  },
+  "projects": {
+    "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Api\\ZeeNewsMaster.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Api\\ZeeNewsMaster.Api.csproj",
+        "projectName": "ZeeNewsMaster.Api",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Api\\ZeeNewsMaster.Api.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Domain\\ZeeNewsMaster.Domain.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Domain\\ZeeNewsMaster.Domain.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\ZeeNewsMaster.Infrastructure.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\ZeeNewsMaster.Infrastructure.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "RxWeb.Core.AspNetCore": {
+              "target": "Package",
+              "version": "[3.0.4-preview1, )"
+            },
+            "RxWeb.Core.Localization": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "RxWeb.Core.Logging": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.14, 3.1.14]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj",
+        "projectName": "ZeeNewsMaster.BoundedContext",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "RxWeb.Core.Data": {
+              "target": "Package",
+              "version": "[3.0.2-preview1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Domain\\ZeeNewsMaster.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Domain\\ZeeNewsMaster.Domain.csproj",
+        "projectName": "ZeeNewsMaster.Domain",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Domain\\ZeeNewsMaster.Domain.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\ZeeNewsMaster.Infrastructure.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\ZeeNewsMaster.Infrastructure.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\ZeeNewsMaster.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\ZeeNewsMaster.Infrastructure.csproj",
+        "projectName": "ZeeNewsMaster.Infrastructure",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\ZeeNewsMaster.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj"
+              },
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "RxWeb.Core": {
+              "target": "Package",
+              "version": "[2.0.3-preview1, )"
+            },
+            "RxWeb.Core.Annotations": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "RxWeb.Core.Cache": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
+            "RxWeb.Core.Sanitizers": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "RxWeb.Core.Security": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj",
+        "projectName": "ZeeNewsMaster.Models",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\ZeeNewsMaster.Models.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "RxWeb.Core.Annotations": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "RxWeb.Core.Data": {
+              "target": "Package",
+              "version": "[3.0.2-preview1, )"
+            },
+            "RxWeb.Core.Sanitizers": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj",
+        "projectName": "ZeeNewsMaster.UnitOfWork",
+        "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\ZeeNewsMaster.UnitOfWork.csproj",
+        "packagesPath": "C:\\Users\\tirth\\.nuget\\packages\\",
+        "outputPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.UnitOfWork\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tirth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj": {
+                "projectPath": "F:\\day4\\Modules\\RxWeb\\Day4\\Tirth-Patel\\ZeeNewsMaster\\ZeeNewsMaster\\ZeeNewsMaster.BoundedContext\\ZeeNewsMaster.BoundedContext.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

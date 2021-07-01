@@ -1,0 +1,15 @@
+table{
+    width: 50%;
+    height: 300px;
+    border-collapse: collapse;
+    margin:auto;
+}
+
+h2{
+text-align: center;
+}
+td,th{
+    border:solid;
+  
+    padding: 8px;
+}

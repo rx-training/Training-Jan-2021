@@ -1,0 +1,45 @@
+.main-container {
+    height: 50%;
+    width: 50%;
+    border: 2px solid purple;
+    margin: auto;
+
+}
+
+.div1 {
+    height: 100px;
+    width: 300px;
+    border: 3px solid red;
+    overflow-y: auto;
+    overflow-x: auto;
+    float: left;
+}
+
+.div2 {
+    height: 100px;
+    width: 300px;
+    border: 3px solid blue;
+    float: left;
+    overflow: hidden;
+
+}
+
+.div3 {
+    height: 100px;
+    width: 300px;
+    border: 3px solid green;
+    float: left;
+
+    overflow: scroll;
+
+}
+
+.div4 {
+    height: 100px;
+    width: 300px;
+    border: 3px solid green;
+    clear: both;
+    position: static;
+    overflow: auto;
+
+}

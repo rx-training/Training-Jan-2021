@@ -1,0 +1,7 @@
+.content1{
+    border:2px solid blue;
+}
+@media all and (max-width: 500px)
+{   .content1{
+    border:2px solid red;
+}        }

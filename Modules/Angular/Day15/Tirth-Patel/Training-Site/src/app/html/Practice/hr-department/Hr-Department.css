@@ -1,0 +1,28 @@
+.manager ul li {
+    font-size: x-large;
+    padding: 5px;
+    margin: auto;
+}
+
+.manager ul li ul li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.manager ul ol li ol {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.manager ul li ol li {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.manager li ol {
+
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.manager ul ol li ol li {
+    font-size: small;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

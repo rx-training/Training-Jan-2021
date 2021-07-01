@@ -1,0 +1,17 @@
+label{
+    color: rgb(48, 4, 4);
+    box-shadow: crimson;
+    font-size: large;
+    font-weight:bolder
+}
+body{
+    background-color: rgb(178, 178, 199);
+}
+.row{
+    margin-top: 10px;
+    padding: 2px;
+}
+#myform{
+    border: 2px dotted rgb(140, 218, 62);
+    box-shadow: 2px 2px rgb(123, 123, 145);
+}
