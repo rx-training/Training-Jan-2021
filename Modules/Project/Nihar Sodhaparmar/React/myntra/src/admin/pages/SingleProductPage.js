@@ -49,7 +49,7 @@ export default function SingleProductPage(props) {
       } catch (error) {
         console.error(error);
         if (error.response.status === 403 || error.response.status === 401) {
-          props.history.push("/login");
+          props.history.push("/dashboard/login");
           removeUserSession();
         } else if (error.response.status === 409) {
           alert("Product is not allowed to delete");
@@ -72,6 +72,7 @@ export default function SingleProductPage(props) {
     return (
       <>
         <Navbar />
+
         <div className="container-fluid py-5">
           <div className="text-center mx-auto error-container p-5">
             <div className="rounded px-5">
@@ -92,10 +93,18 @@ export default function SingleProductPage(props) {
       </>
     );
   } else {
-    const { productName, brand, category, imgurls, subCategory } = product;
+    const { productName, brand, category, imgurls, mainCategory } = product;
     return (
       <>
         <Navbar />
+        <div>
+          <Link
+            to="/dashboard/products"
+            className="btn btn-secondary text-capitalize back-btn"
+          >
+            bact to products
+          </Link>
+        </div>
         <div className="container mb-5">
           <div className="margin-left-sm">
             <div className="text-center pt-4 h2 text-capitalize">
@@ -103,7 +112,7 @@ export default function SingleProductPage(props) {
             </div>
             <div className="text-center h4 text-muted text-capitalize">
               {brand.brandName} {category.categoryName}{" "}
-              {subCategory.subCategoryName}
+              {mainCategory.mainCategoryName}
             </div>
           </div>
 

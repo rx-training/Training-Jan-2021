@@ -38,8 +38,8 @@ import AddProductPage from "./admin/pages/AddProductPage";
 import CategoryPage from "./admin/pages/CategoryPage";
 import BrandsPage from "./admin/pages/BrandsPage";
 import OffersPage from "./admin/pages/OffersPage";
-import SubCategoriesPage from "./admin/pages/SubCategoriesPage";
-import SubCategoryWiseProductPage from "./pages/SubCategoryWiseProductPage";
+import MainCategoriesPage from "./admin/pages/MainCategoriesPage";
+import MainCategoryWiseProductPage from "./pages/MainCategoryWiseProductPage";
 import UsersPage from "./admin/pages/UsersPage";
 import AdminRegisterPage from "./admin/pages/RegisterPage";
 import AdminLoginPage from "./admin/pages/LoginPage";
@@ -84,8 +84,8 @@ function App() {
         <PrivateRoute path="/orders" component={OrdersPage} />
         <Route path="/category/:category" component={CategoryWiseProductPage} />
         <Route
-          path="/sub-category/:subCategory/:category"
-          component={SubCategoryWiseProductPage}
+          path="/main-category/:mainCategory/:category"
+          component={MainCategoryWiseProductPage}
         />
         {/* *************** */}
         <AdminRoute exact path="/dashboard/products" component={ProductsPage} />
@@ -106,8 +106,8 @@ function App() {
         <AdminRoute path="/dashboard/brands" component={BrandsPage} />
         <AdminRoute path="/dashboard/offers" component={OffersPage} />
         <AdminRoute
-          path="/dashboard/sub-categories"
-          component={SubCategoriesPage}
+          path="/dashboard/main-categories"
+          component={MainCategoriesPage}
         />
         <AdminRoute path="/dashboard/users" component={UsersPage} />
         <AdminRoute

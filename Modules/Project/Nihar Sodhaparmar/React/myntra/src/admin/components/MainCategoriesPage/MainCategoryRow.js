@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function SubCategoryRow({
-  subCategory,
+  mainCategory,
   index,
   deleteCategory,
   updateCategory,
@@ -9,13 +9,13 @@ export default function SubCategoryRow({
   return (
     <tr>
       <td>{index + 1}</td>
-      <td className="text-capitalize">{subCategory.subCategoryName}</td>
+      <td className="text-capitalize">{mainCategory.mainCategoryName}</td>
       <td>
         <button
           type="button"
           className="btn btn-sm btn-primary"
           onClick={() =>
-            updateCategory(subCategory._id, subCategory.subCategoryName)
+            updateCategory(mainCategory._id, mainCategory.mainCategoryName)
           }
         >
           Update
@@ -25,7 +25,7 @@ export default function SubCategoryRow({
         <button
           type="button"
           className="btn btn-sm btn-danger"
-          onClick={() => deleteCategory(subCategory._id)}
+          onClick={() => deleteCategory(mainCategory._id)}
         >
           Delete
         </button>

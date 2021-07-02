@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import CategoryService from "../../services/CategoryService";
-import SubCategoryService from "../../services/SubCategoryService";
+import MainCategoryService from "../../services/MainCategoryService";
 import BrandService from "../../services/BrandService";
 import Loading from "../../components/Loading";
 import ProductService from "../../services/ProductService";
@@ -10,12 +10,14 @@ import Images from "../components/AddProductPage/ProductImages";
 
 export default function AddProductPage(props) {
   const [loading, setLoading] = useState(false);
+  const [mainCategories, setMainCategories] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [subCategories, setSubCategories] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [filteredBrands, setFilteredBrands] = useState([]);
   const [product, setProduct] = useState({
     category: "select",
-    subCategory: "select",
+    mainCategory: "select",
     brand: "select",
     productName: "",
     details: "",
@@ -30,7 +32,7 @@ export default function AddProductPage(props) {
 
   const [errors, setErrors] = useState({
     category: "",
-    subCategory: "",
+    mainCategory: "",
     brand: "",
     productName: "",
     details: "",
@@ -44,8 +46,8 @@ export default function AddProductPage(props) {
 
   const validate = {
     category: (category) => selectionValidation("Category", category),
-    subCategory: (subCategory) =>
-      selectionValidation("Sub Category", subCategory),
+    mainCategory: (mainCategory) =>
+      selectionValidation("Main Category", mainCategory),
     brand: (brand) => selectionValidation("Brand", brand),
     productName: (productName) => nameValidation("Product Name", productName),
     details: (details) => requiredValidation("Details", details),
@@ -59,7 +61,7 @@ export default function AddProductPage(props) {
 
   const {
     category,
-    subCategory,
+    mainCategory,
     brand,
     productName,
     details,
@@ -76,8 +78,8 @@ export default function AddProductPage(props) {
         let categories = await CategoryService.getAllCategories();
         setCategories(categories.data);
 
-        let subCategories = await SubCategoryService.getAllSubCategories();
-        setSubCategories(subCategories.data);
+        let mainCategories = await MainCategoryService.getAllMainCategories();
+        setMainCategories(mainCategories.data);
 
         let brands = await BrandService.getAllBrands();
         setBrands(brands.data);
@@ -91,6 +93,60 @@ export default function AddProductPage(props) {
 
     getData();
   }, []);
+
+  // ********** MAIN CATEGORY CHANGE FUNCTION **********
+  const mainCategoryChange = (event) => {
+    let value = event.target.value;
+
+    if (value !== "select") {
+      let filteredCategories = categories.filter(
+        (category) => category.mainCategory._id === value
+      );
+
+      setFilteredCategories(filteredCategories);
+      setFilteredBrands([]);
+      setProduct({
+        ...product,
+        mainCategory: value,
+        category: "select",
+        brand: "select",
+      });
+    } else {
+      setFilteredCategories([]);
+      setFilteredBrands([]);
+      setProduct({
+        ...product,
+        mainCategory: "select",
+        category: "select",
+        brand: "select",
+      });
+    }
+  };
+
+  // ********** CATEGORY CHANGE FUNCTION **********
+  const categoryChange = (event) => {
+    let value = event.target.value;
+
+    if (value !== "select") {
+      let filteredBrands = brands.filter(
+        (brand) => brand.category._id === value
+      );
+
+      setFilteredBrands(filteredBrands);
+      setProduct({
+        ...product,
+        category: value,
+        brand: "select",
+      });
+    } else {
+      setFilteredBrands([]);
+      setProduct({
+        ...product,
+        category: "select",
+        brand: "select",
+      });
+    }
+  };
 
   // ********** VALIDATION FUNCTIONS **********
   const selectionValidation = (fieldName, fieldValue) => {
@@ -212,7 +268,7 @@ export default function AddProductPage(props) {
       } catch (error) {
         console.error(error);
         if (error.response.status === 403 || error.response.status === 401) {
-          props.history.push("/login");
+          props.history.push("/dashboard/login");
           removeUserSession();
         } else if (error.response.status === 400) {
           setErrors({ ...errors, offer: error.response.data });
@@ -248,34 +304,34 @@ export default function AddProductPage(props) {
                   <div className="col-md-3">
                     <label
                       className="add-product-form-control-label"
-                      htmlFor="brand"
+                      htmlFor="mainCategory"
                     >
-                      Select Brand
+                      Select Maincategory
                     </label>
                   </div>
                   <div className="col-md-9 add-product-form-control-container">
                     <select
                       className="form-control add-product-form-control"
-                      name="brand"
-                      id="brand"
-                      value={brand}
-                      onChange={handeChange}
+                      name="mainCategory"
+                      id="mainCategory"
+                      value={mainCategory}
+                      onChange={mainCategoryChange}
                     >
-                      <option value="select"> Select Brand</option>
-                      {brands.map((brand) => {
+                      <option value="select"> Select Maincategory</option>
+                      {mainCategories.map((mainCategory) => {
                         return (
                           <option
-                            value={brand._id}
+                            value={mainCategory._id}
                             className="text-capitalize"
-                            key={brand._id}
+                            key={mainCategory._id}
                           >
-                            {brand.brandName}
+                            {mainCategory.mainCategoryName}
                           </option>
                         );
                       })}
                     </select>
                     <p className="text-danger mb-0 font-weight-bold">
-                      {errors.brand}
+                      {errors.mainCategory}
                     </p>
                   </div>
                 </div>
@@ -297,10 +353,10 @@ export default function AddProductPage(props) {
                       name="category"
                       id="category"
                       value={category}
-                      onChange={handeChange}
+                      onChange={categoryChange}
                     >
                       <option value="select"> Select Category</option>
-                      {categories.map((category) => {
+                      {filteredCategories.map((category) => {
                         return (
                           <option
                             value={category._id}
@@ -324,34 +380,34 @@ export default function AddProductPage(props) {
                   <div className="col-md-3">
                     <label
                       className="add-product-form-control-label"
-                      htmlFor="subCategory"
+                      htmlFor="brand"
                     >
-                      Select Subcategory
+                      Select Brand
                     </label>
                   </div>
                   <div className="col-md-9 add-product-form-control-container">
                     <select
                       className="form-control add-product-form-control"
-                      name="subCategory"
-                      id="subCategory"
-                      value={subCategory}
+                      name="brand"
+                      id="brand"
+                      value={brand}
                       onChange={handeChange}
                     >
-                      <option value="select"> Select Subcategory</option>
-                      {subCategories.map((subCategory) => {
+                      <option value="select"> Select Brand</option>
+                      {filteredBrands.map((brand) => {
                         return (
                           <option
-                            value={subCategory._id}
+                            value={brand._id}
                             className="text-capitalize"
-                            key={subCategory._id}
+                            key={brand._id}
                           >
-                            {subCategory.subCategoryName}
+                            {brand.brandName}
                           </option>
                         );
                       })}
                     </select>
                     <p className="text-danger mb-0 font-weight-bold">
-                      {errors.subCategory}
+                      {errors.brand}
                     </p>
                   </div>
                 </div>

@@ -11,15 +11,17 @@ export default function Navbar1() {
   const [bagItems, setBagItems] = useState(0);
 
   async function getData() {
-    try {
-      let bagItems = await BagService.getBagItemsByCustomerId(
-        getUserId(),
-        getToken()
-      );
+    if (getToken()) {
+      try {
+        let bagItems = await BagService.getBagItemsByCustomerId(
+          getUserId(),
+          getToken()
+        );
 
-      bagItems = bagItems.data;
-      setBagItems(bagItems.length);
-    } catch (error) {}
+        bagItems = bagItems.data;
+        setBagItems(bagItems.length);
+      } catch (error) {}
+    }
   }
 
   useEffect(() => {
@@ -94,7 +96,7 @@ export default function Navbar1() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/men/shirt"
+                        to="/main-category/men/shirt"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -102,7 +104,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/men/t-shirt"
+                        to="/main-category/men/t-shirt"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -110,7 +112,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/men/jeans"
+                        to="/main-category/men/jeans"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -118,7 +120,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/men/trouser"
+                        to="/main-category/men/trouser"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -126,7 +128,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/men/shoes"
+                        to="/main-category/men/shoes"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -151,7 +153,7 @@ export default function Navbar1() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/women/kurta"
+                        to="/main-category/women/kurta"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -159,7 +161,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/women/saree"
+                        to="/main-category/women/saree"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -167,7 +169,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/women/t-shirt"
+                        to="/main-category/women/t-shirt"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -175,7 +177,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/women/jeans"
+                        to="/main-category/women/jeans"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -183,7 +185,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/women/shoes"
+                        to="/main-category/women/shoes"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -208,7 +210,7 @@ export default function Navbar1() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/kids/shirt"
+                        to="/main-category/kids/shirt"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -216,7 +218,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/t-shirt"
+                        to="/main-category/kids/t-shirt"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -224,7 +226,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/jeans"
+                        to="/main-category/kids/jeans"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -232,7 +234,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/short"
+                        to="/main-category/kids/short"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -240,7 +242,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/shoes"
+                        to="/main-category/kids/shoes"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -265,7 +267,7 @@ export default function Navbar1() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/home &#38; living/bedsheets"
+                        to="/main-category/home &#38; living/bedsheets"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -273,7 +275,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/bedding-sets"
+                        to="/main-category/home &#38; living/bedding-sets"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -281,7 +283,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/blankets-quits-and-dohars"
+                        to="/main-category/home &#38; living/blankets-quits-and-dohars"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -289,7 +291,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/towels"
+                        to="/main-category/home &#38; living/towels"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >
@@ -297,7 +299,7 @@ export default function Navbar1() {
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/carpets"
+                        to="/main-category/home &#38; living/carpets"
                         className="text-capitalize dropdown-item"
                         onClick={closeNav}
                       >

@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 export default function SearchContainer({ handleChange, search, error }) {
   return (
     <div className="container">
-      <div className="py-5">
+      <div className="py-4">
         <div className="search-input-group-container mx-auto">
           <form onSubmit={search}>
             <div className="input-group  ">
