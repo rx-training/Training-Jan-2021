@@ -40,4 +40,3 @@ $(document).ready(function(){
     }
     $("#displayBus").append(str);
 })
-
