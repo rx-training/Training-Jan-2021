@@ -14,7 +14,7 @@ export default function Products() {
             ) : (
                 ""
             )}
-            <div className="container-fluid mx-4 p-3">
+            <div className="mx-5">
                 {id === "mobiles" && <AllProduct id={id} />}
 
                 {id === "fashion" && <AllProduct id={id} />}

@@ -44,11 +44,11 @@ export default function SingleProduct(props) {
         <div className="main-container">
             {/* Signle Product {data.id} {data.productid} */}
             <br />
-            <div className="container-fluid  mx-auto">
+            <div className="container-fluid">
                 <Backbutton />
-                <div className="row mx-5  bg-white">
+                <div className="row mx-4 bg-white">
                     <div className=" col-md-6 col-lg-7 ">
-                        <div className="row p-3 mx-5">
+                        <div className="row p-md-3 mx-md-5">
                             <div className="col-md-2 col-lg-3 ">
                                 {product.moreInfo.map((item, index) => {
                                     return (

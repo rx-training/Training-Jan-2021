@@ -98,6 +98,7 @@ export default function AllProduct({ id }) {
                 });
             }
             setSearch(value);
+            setValues({ ...values, price: values.max });
         }
         if (name === "price") {
             //filter price
@@ -118,7 +119,7 @@ export default function AllProduct({ id }) {
             <Backbutton />
             <div className="row">
                 <div
-                    className="col-md-3 text-capitalize alert alert-success"
+                    className="col-md-3  text-capitalize alert alert-success"
                     style={{ fontFamily: "initial" }}
                 >
                     <h1>Sort by</h1>
@@ -152,8 +153,8 @@ export default function AllProduct({ id }) {
                         </div>
                     </form>
                 </div>
-                <div className="col-md-8">
-                    <div className="row mx-auto p-2">
+                <div className="col-md-9">
+                    <div className="row ">
                         {filterItem.length === 0 && (
                             <h1
                                 className="alert alert-primary mx-auto"
@@ -170,7 +171,6 @@ export default function AllProduct({ id }) {
                                             <img
                                                 src={`${hostServer}/${item.image}`}
                                                 alt={index}
-                                                className=""
                                                 height="230px"
                                             />
                                         </div>

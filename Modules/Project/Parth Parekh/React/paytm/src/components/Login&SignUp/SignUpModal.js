@@ -158,8 +158,8 @@ export default function SignUpModal(props) {
     return (
         <div className="main-container">
             <div className="container-fluid ">
-                <div className="row m-5">
-                    <div className=" col-12 col-sm-12 col-md-6 m-5 alert mx-auto alert-primary boxeffect">
+                <div className="row p-3">
+                    <div className="col-md-5 mt-5 alert mx-auto alert-primary boxeffect">
                         <h1
                             className="text-center h2  my-auto"
                             style={{
