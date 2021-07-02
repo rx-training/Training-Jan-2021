@@ -15,6 +15,9 @@ class Otp {
     let email = req.params.email;
     let transporter = nodemailer.createTransport({
       service: "gmail",
+      host: "smtp.gmail.com",
+      ignoreTLS: false,
+      secure: false,
       auth: {
         user: EMAIL, //sender's email
         pass: PASSWORD, //password

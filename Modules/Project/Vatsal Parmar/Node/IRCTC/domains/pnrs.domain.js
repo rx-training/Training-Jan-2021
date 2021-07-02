@@ -191,9 +191,8 @@ class PnrDomain {
       if (error) {
         res.status(400).send(error.details[0].message);
       } else {
+        const result = await pnr.save();
         try {
-          const result = await pnr.save();
-
           let email = user.email;
           // console.log(email);
           let transporter = nodemailer.createTransport({

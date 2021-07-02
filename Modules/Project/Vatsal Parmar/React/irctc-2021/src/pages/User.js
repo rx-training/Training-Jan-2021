@@ -15,7 +15,7 @@ const User = (props) => {
   };
   return (
     <div style={{ minHeight: "70vh" }}>
-      <div className="col-10 col-md-6 my-4 mx-auto">
+      <div className="col-md-6 my-4 mx-auto">
         <h3 className="text-center p-2 bg-primary rounded-top mb-0">
           User Details
         </h3>

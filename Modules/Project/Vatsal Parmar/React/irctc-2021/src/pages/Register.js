@@ -223,7 +223,7 @@ const Register = (props) => {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-light p-5 border rounded"
+                  className="bg-light p-4 p-md-5 border rounded"
                 >
                   <div className="form-group">
                     <label htmlFor="fname">First Name</label>
@@ -271,7 +271,9 @@ const Register = (props) => {
                       <small className="text-danger">{errors.email}</small>
                     )}
                     {alreadyRegistered && (
-                      <p className="text-danger">Email Is Already Registered</p>
+                      <p className="text-danger">
+                        Email-Id Is Already Registered
+                      </p>
                     )}
                   </div>
                   <div className="form-group">
