@@ -16,22 +16,22 @@ function  verify(req,res,next){
                      expiredAt: err.expiredAt
                 };
                 console.log(errordata);
-                return res.status(401).json({
+                return res.json({
                         message: 'Unauthorized Access'
                  });
             } 
             var hash = Encdec.encPassword(decoded.password)
 
-            const userData = await Collections.Users.find({ email : decoded.email, password : hash})
+            const userData = await Collections.Users.findOne({ email : decoded.email, password : hash})
             if(userData.length == 0) return res.send("login please")
             const url = req.url.split('/')
             const userId = parseInt(url[1])
-            if((userData[0]._id) == userId){
+            if((userData._id) == userId){
                 req.decoded = decoded;
                 console.log(decoded);
                 next();
             } else {
-            return res.status(401).json({ message: 'Please login'});
+            return res.json({ message: 'Please login'});
             }
         
          })

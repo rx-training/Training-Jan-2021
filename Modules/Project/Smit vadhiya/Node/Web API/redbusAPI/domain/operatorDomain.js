@@ -12,7 +12,7 @@ class Operatores{
     //GET OPERATOR BY ID
     static async getOperatorById(req,res){
         var id =  parseInt(req.params.id)
-         const operator = await Collections.Operators.findById(id).populate('city','cityName -_id').select('-__v')
+        const operator = await Collections.Operators.findById(id).populate('city','cityName -_id').select('-__v')
         if(!operator) return res.status(404).send("Operator not found")
         res.send(operator)  
     }
@@ -106,7 +106,7 @@ class Operatores{
         bus = bus[0]
         res.send(bus)
         for( var i in body){
-           bus[i] = body[i]
+            bus[i] = body[i]
         }
         try {
             const result =await bus.save()
@@ -177,7 +177,6 @@ class Operatores{
 
     static async findMyRoute(req,res){
         const id = parseInt(req.params.id)
-
         const myData = await Collections.MainRoute
                 .find()
                 .populate({
@@ -185,18 +184,17 @@ class Operatores{
                     populate : {
                         path : 'operator'
                     }
-                })
+                }).populate('fromCity toCity')
         const final = []
         for(var i of myData){
             if(i.busNumber.operator._id == id)
                 final.push(i);
         }
-        if(final.length  == 0) return res.status(404).send("Route not found")
+        console.log(final);
+        if(final.length  == 0) return res.send("Route not found")
         const myRoute = await Collections.MainRoute.find({_id : final})
-        res.send(myRoute)
+        res.send(final)
     }
-    
-
 }
 
 module.exports = Operatores

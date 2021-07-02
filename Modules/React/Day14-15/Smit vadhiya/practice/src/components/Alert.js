@@ -7,3 +7,4 @@ export const Alert = ({type,text}) => {
       </div>
    )
 }
+

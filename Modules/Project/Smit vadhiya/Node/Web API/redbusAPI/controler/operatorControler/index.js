@@ -10,7 +10,7 @@ router.post('/signup/verify/:otp',operatorDomain.addData)
 router.use('/',operatorLogin)
 
 
-router.use(security)
+//router.use(security)
 router.use('/:id',operatore) //API USER (DISPLAY AND UPDATE USER'S DATA)
 
 module.exports = router

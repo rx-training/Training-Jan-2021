@@ -5,11 +5,11 @@ const Users = Joi.object({
     firstName: Joi.string().required(),
     lastName: Joi.string().required(),
     email: Joi.string().email().required(),
-    gender: Joi.string().valid('male','female').required(),
+    gander: Joi.string().valid('male','female').required(),
     DOB: Joi.date(),
     password: Joi.string().min(3).max(15).required(),
     phoneNumber: Joi.string().length(10).pattern(/^[6-9]\d{9}$/).required(),
-    city: Joi.number().required(),
+    city: Joi.number(),
     signupDateTime: Joi.date().default(Date.now())
 })
 
@@ -63,14 +63,13 @@ const MainRoute = Joi.object({
 
 // VALIDATE TRIP'S DATA
 const  Trip = Joi.object({
-    fromCity: Joi.number().required(),
-    toCity: Joi.number().required(),
+    fromCity: Joi.string().required(),
+    toCity: Joi.string().required(),
     userId: Joi.number().required(),
     routeId: Joi.number().required(),
     bookIngDate: Joi.date(),
     tripDate: Joi.date(),
     farePrice: Joi.number().min(0),
-    totalSeat: Joi.number(),
     seatNo: Joi.array(),
     travelerList : Joi.array(),
     departureTime : Joi.string(),

@@ -12,7 +12,7 @@ class UserLogin{
             password :req.body.password
         }
         const user = await Collections.Users.find({email : userdata.email})
-        if(user.length == 0) return res.status(404).send("emailId not found")
+        if(user.length == 0) return res.send("emailId not found")
 
         var myPassword = Encdec.decPassword(user[0].password)
 
@@ -23,13 +23,20 @@ class UserLogin{
     
         let token = jwt.sign(userdata, global.config.secretKey, {
               algorithm: global.config.algorithm,
-              expiresIn: '5m'
+              expiresIn: '1h'
               });
         
         if(userdata.email == actualData.userEmail && userdata.password == actualData.userPassword){
-            res.status(200).send(token)
+            res.status(200).send({
+                token : {
+                    headers : {
+                        token : token
+                    }
+                },
+                id : user[0]._id
+            })
         } else {
-            res.status(401).send("Login faild!! Wrong Password")
+            res.send("Login faild!! Wrong Password")
         }
     }
 }

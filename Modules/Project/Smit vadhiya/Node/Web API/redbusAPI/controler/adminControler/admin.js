@@ -6,6 +6,7 @@ const cities = require('./city/cities')
 const operator = require('./operator/operator')
 const mainRoute = require('./busRoute/route')
 const income = require('./income/income')
+const Trip = require('./trip/trip')
 
 router.use('/user',users)
 router.use('/city',cities)
@@ -13,5 +14,5 @@ router.use('/bus',buses)
 router.use('/operator/',operator)
 router.use('/route',mainRoute)
 router.use('/income',income)
-
+router.use('/trip',Trip)
 module.exports = router

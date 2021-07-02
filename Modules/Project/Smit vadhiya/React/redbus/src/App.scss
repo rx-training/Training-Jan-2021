@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap');
+
+$mainRed : rgb(230,78,81);
+$lightRed : rgb(233, 95, 98);
+$mainWhite : white;
+$lightGrey : rgba(219, 217, 217, 0.753);
+$darkGrey : rgb(136, 136, 136);
+body{
+   margin: 0;
+   padding: 0;
+   background-color: $mainWhite;
+
+}
+
+.text-theme{
+   color: $mainRed;
+}
+
+.bg-theme{
+   background: $mainRed;
+   color: white;
+}
+.btn-theme{
+   background: $mainRed;
+   color: $mainWhite;
+   font-size: 18px;
+   text-transform: capitalize;
+}
+.btn-theme:hover{
+   background: $lightRed;
+   color: $mainWhite;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+   padding: 5px 50px;
+   font-family: 'Nunito Sans', sans-serif;
+   .nav-link{
+      color: $mainWhite!important;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+   }
+   .pool{
+      text-transform: none;
+   }
+   .active{
+      border-bottom: 3px solid $mainWhite;
+      font-weight: bold;
+   }
+   .nav-link:hover{
+      color: $lightGrey!important;
+   }
+   .user-icon{
+      font-size: 3rem;
+      padding: 0px;
+      margin: 0;
+   }
+   .navbar-nav{
+      align-items: center;
+   }
+   .dropdown{
+      li{
+         cursor: pointer;
+      }
+   }
+   .link{
+   text-decoration: none;
+   color: black;
+}
+   .link:hover{
+   text-decoration: none;
+   color: black;
+   
+}
+}
+@media screen and (max-width : 737px){
+   .navbar-nav{
+      align-items: unset!important;
+   }
+}
+
+
+/* HOME PAGE */
+
+.home-head{
+   background-color: $mainRed;
+   position: relative;
+   padding: 2px 0;
+   .head-img-container{
+      box-shadow: 5px 5px 30px 11px rgba(0,0,0,0.56);
+      width : 98%;
+      margin: 2% auto;
+   } 
+}
+
+
+.form-container{
+   position: absolute;
+   top: 40%;
+   .row{
+      width: 80%;
+   }
+   input{
+      border-radius: 0;
+      border: 0;
+      height: 40px;
+   }
+   .input-group-text{
+      background-color: $mainWhite!important;
+      border-radius: 0!important;
+      border: 0;
+      padding: 0px 5px;
+      font-size: 35px;
+   }
+   
+}
+
+
+
+/* coupan */
+.coupan{
+   width: 350px;
+   padding: 5px;
+   background: $mainWhite;
+   text-align: center;
+   text-align: center;
+   box-shadow: 0px 0px 10px 0.3px rgba(0,0,0,0.56);
+   transition: all 0.3s linear;
+   
+}
+
+.coupan-title{
+   padding: 5px;
+   font-size: 13px!important;
+   color: $darkGrey;
+}
+.coupan:hover{
+   transform: scale(1.06);
+}
+
+
+/* SAFETY */
+.safety{
+   .container{
+      border: 0.5px solid $lightGrey;
+   }
+   .lead{
+      font-size: 25px;
+   }
+   .h6{
+      font-size: 12px;
+   }
+}
+.seatManage{
+   .mySeat {
+      width: 70px;
+      text-align: right;
+      border: 1px solid black;
+      height: 30px;
+      border-radius: 2px;
+   }
+}
+
+.myModel{
+   width: 70vw; /* Occupy the 90% of the screen width */
+   max-width: 90vw;
+   
+   input[type=radio] {
+   width: 30px;
+   height: 30px;
+   .form-check-label{
+      font-size: 50px!important;
+   }
+}
+}
+
+Model{
+   span{
+      cursor: pointer;
+   }
+}
+
+.alert{
+   display: flex;
+   text-align: center;
+   position: fixed;
+   top: 100px;
+   width: 100%;
+   justify-content: center;
+   z-index: 999;
+   padding: 0;
+   div{
+      border-radius: 10px;
+   }
+}
+
+.search-form{
+   input{
+      border: none; 
+      border-width: 0; 
+      box-shadow: none;
+      font-size: 20px;
+      color :white!important;
+      border-bottom: 1px solid white;
+      text-align: center;
+   }
+   input:focus{
+      border: none; 
+      border-width: 0; 
+      box-shadow: none;
+      outline: none;
+      color :white!important;
+      border-bottom: 1px solid white;
+   }
+}
+
+.profile{
+   height: 100vh!important;
+   input{
+      border: none; 
+      border-width: 0; 
+      box-shadow: none;
+      font-size: 20px;
+      display: inline;
+   }
+   input:focus{
+      border: none; 
+      border-width: 0; 
+      box-shadow: none;
+      outline: none;
+      border-bottom: 1px solid grey;
+   }
+}
+
+.profile-nav{
+   font-size: 30px;
+   border: 1px solid grey;
+   text-decoration: none!important;
+   .icon{
+      color: grey;
+      font-size: 40px;
+   }
+   
+   .item{
+      cursor: pointer;
+      border-bottom: 1px solid gray;
+      color: grey;
+   }
+}
+
+.my-profile, .myTrip{
+   box-shadow: 1px 0px 10px 2px rgba(0,0,0,0.6);
+   border-radius: 15px;
+   
+   input:disabled{
+      background-color: rgba(255, 255, 255, 0);
+   }
+
+}
+
+.dialouge{
+   width: 100%;
+}
+
+.adminLogin{
+   height: 100vh;
+}
+.adminHome{
+   .card-header{
+      text-align: center;
+   }
+   .card-body{
+      font-size : 70px;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+   }
+   .btn{
+      padding: 0px!important;
+      font-size: 20px;
+      font-weight: bold;
+   }
+}
+.link{
+   text-decoration: none;
+   color: white;
+}
+.link:hover{
+   text-decoration: none;
+   color: white;
+   
+}
+
+.print-main{
+   background-color: $mainRed;
+}

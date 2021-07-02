@@ -8,7 +8,7 @@ const security = require('../../authenticater/admin/secutity')
 router.use('/',adminLogin)
 
 
-//router.use(security)
+router.use(security)
 
 router.use('/',admin) //API USER (DISPLAY AND UPDATE USER'S DATA)
 
