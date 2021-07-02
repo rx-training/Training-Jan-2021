@@ -8,6 +8,7 @@ export default function UserRow({ user, index, deleteUser }) {
       <td className="text-capitalize">{customerName}</td>
       <td>{email}</td>
       <td>{contactNumber}</td>
+      <td></td>
       <td className="text-center">
         <button
           type="button"

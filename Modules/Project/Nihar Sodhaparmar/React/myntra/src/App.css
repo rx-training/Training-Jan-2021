@@ -103,6 +103,14 @@ nav {
   letter-spacing: 3px;
 }
 
+.add-btn {
+  /* border-radius: 0px; */
+  color: #fff;
+  background-color: #ff3f6c;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
 .login-form-control {
   border-radius: 0px !important;
 }
@@ -128,6 +136,10 @@ nav {
 
 .text-orange {
   color: #ff905a;
+}
+
+.text-spacing {
+  letter-spacing: 2px;
 }
 
 .text-btn {
@@ -443,6 +455,18 @@ nav {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.line-1 {
+  line-height: 1.5em;
+  height: 2.3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  text-decoration: none;
+  border-bottom: none !important;
 }
 
 .filter-dropdown {

@@ -94,6 +94,7 @@ export default function RegisterPage(props) {
             state.country.countryName.toLowerCase() === value.toLowerCase()
         );
         setStates(states);
+        setCities([]);
         setCustomer({
           ...customer,
           country: value,
@@ -369,7 +370,7 @@ export default function RegisterPage(props) {
         });
 
         alert("Added Successfully");
-        props.history.push("/login");
+        props.history.push("/dashboard/login");
       } catch (error) {
         console.error(error.message);
       }

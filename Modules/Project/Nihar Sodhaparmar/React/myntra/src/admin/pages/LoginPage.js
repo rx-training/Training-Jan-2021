@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { setUserSession } from "../../utils/Storage";
 import LoginService from "../../services/LoginService";
 import Navbar from "../components/Navbar";
+import { NotificationManager } from "react-notifications";
 
 export default function LoginPage(props) {
   const [user, setUser] = useState({
@@ -25,6 +26,7 @@ export default function LoginPage(props) {
         let isAdmin = res.data.isAdmin;
         setUserSession(token, userId, isAdmin);
         if (isAdmin) {
+          NotificationManager.success("Logged in successfully", "", 2000);
           props.history.push("/dashboard/products");
         } else {
           props.history.push("/");

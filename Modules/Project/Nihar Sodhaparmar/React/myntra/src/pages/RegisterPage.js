@@ -95,6 +95,7 @@ export default function RegisterPage(props) {
             state.country.countryName.toLowerCase() === value.toLowerCase()
         );
         setStates(states);
+        setCities([]);
         setCustomer({
           ...customer,
           country: value,

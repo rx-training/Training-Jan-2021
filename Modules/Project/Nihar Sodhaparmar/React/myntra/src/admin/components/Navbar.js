@@ -46,8 +46,8 @@ export default function NavBar() {
               </Link>
             </li>
             <li className="nav-item px-2">
-              <Link to="/dashboard/brands" className="nav-link">
-                BRANDS
+              <Link to="/dashboard/main-categories" className="nav-link">
+                MAIN CATEGORIES
               </Link>
             </li>
             <li className="nav-item px-2">
@@ -56,18 +56,18 @@ export default function NavBar() {
               </Link>
             </li>
             <li className="nav-item px-2">
-              <Link to="/dashboard/sub-categories" className="nav-link">
-                SUB CATEGORIES
-              </Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/dashboard/offers" className="nav-link">
-                OFFERS
+              <Link to="/dashboard/brands" className="nav-link">
+                BRANDS
               </Link>
             </li>
             <li className="nav-item px-2">
               <Link to="/dashboard/users" className="nav-link">
                 USERS
+              </Link>
+            </li>
+            <li className="nav-item px-2">
+              <Link to="/dashboard/offers" className="nav-link">
+                OFFERS
               </Link>
             </li>
           </ul>

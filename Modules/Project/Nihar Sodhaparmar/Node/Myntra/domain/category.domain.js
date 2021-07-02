@@ -1,6 +1,6 @@
 const { Category, validateCategory } = require("../models/category.model");
 const Joi = require("joi");
-const { Product } = require("../models/product.model");
+const { Brand } = require("../models/brand.model");
 
 class CategoryDomain {
   // add category
@@ -13,7 +13,9 @@ class CategoryDomain {
 
     try {
       const category = new Category({
+        mainCategory: req.body.mainCategory,
         categoryName: req.body.categoryName,
+        inCategoriesToBag: req.body.inCategoriesToBag,
       });
 
       await category.save();
@@ -26,7 +28,7 @@ class CategoryDomain {
 
   // get all categories
   async getAllCategories(req, res) {
-    const categories = await Category.find().select("categoryName");
+    const categories = await Category.find().populate("mainCategory");
     res.send(categories);
   }
 
@@ -40,7 +42,7 @@ class CategoryDomain {
       return res.status(404).send(error.details[0].message);
     }
 
-    const cateory = await Category.findById(categoryId).select("categoryName");
+    const cateory = await Category.findById(categoryId);
 
     if (!cateory) {
       return res.status(404).send("Category not found");
@@ -73,7 +75,9 @@ class CategoryDomain {
 
     try {
       category.set({
+        mainCategory: req.body.mainCategory,
         categoryName: req.body.categoryName,
+        inCategoriesToBag: req.body.inCategoriesToBag,
       });
 
       await category.save();
@@ -94,7 +98,7 @@ class CategoryDomain {
       return res.status(404).send(error.details[0].message);
     }
 
-    const isUsed = await Product.findOne({ category: categoryId });
+    const isUsed = await Brand.findOne({ category: categoryId });
 
     if (isUsed) {
       return res.status(409).send("Category is not allowed to delete");

@@ -20,10 +20,10 @@ const Product = mongoose.model(
       required: true,
       ref: "categories",
     },
-    subCategory: {
+    mainCategory: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "sub-categories",
+      ref: "main-categories",
     },
     details: {
       type: String,
@@ -92,7 +92,7 @@ function validateProduct(product) {
     productName: Joi.string().required(),
     brand: Joi.objectId().required(),
     category: Joi.objectId().required(),
-    subCategory: Joi.objectId().required(),
+    mainCategory: Joi.objectId().required(),
     details: Joi.string().required(),
     price: Joi.number().required(),
     offer: Joi.number(),

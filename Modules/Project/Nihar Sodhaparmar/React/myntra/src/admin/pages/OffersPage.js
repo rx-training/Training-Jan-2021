@@ -96,7 +96,7 @@ export default function OffersPage(props) {
       setLoading(false);
       console.error(error);
       if (error.response.status === 403 || error.response.status === 401) {
-        props.history.push("/login");
+        props.history.push("/dashboard/login");
         removeUserSession();
       }
     }
