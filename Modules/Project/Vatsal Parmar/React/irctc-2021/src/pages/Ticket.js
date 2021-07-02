@@ -48,7 +48,7 @@ const Ticket = (props) => {
           <img src={loadingImg} width="70%" alt="loading.." />
         </div>
       ) : (
-        <div className="container alert alert-secondary">
+        <div className="container alert alert-secondary mt-4">
           <div>
             <h4 className="text-center">Journey Details</h4>
             <div className="row text-capitalize">
