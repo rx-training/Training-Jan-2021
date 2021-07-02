@@ -22,7 +22,7 @@ class ProductDomain {
         productName: req.body.productName,
         brand: req.body.brand,
         category: req.body.category,
-        subCategory: req.body.subCategory,
+        mainCategory: req.body.mainCategory,
         details: req.body.details,
         price: req.body.price,
         returnable: req.body.returnable,
@@ -45,7 +45,7 @@ class ProductDomain {
     const products = await Product.find()
       .populate("brand", "brandName")
       .populate("category", "categoryName")
-      .populate("subCategory", "subCategoryName");
+      .populate("mainCategory", "mainCategoryName");
     res.send(products);
   }
 
@@ -62,7 +62,7 @@ class ProductDomain {
     const product = await Product.findById(productId)
       .populate("brand", "brandName")
       .populate("category", "categoryName")
-      .populate("subCategory", "subCategoryName");
+      .populate("mainCategory", "mainCategoryName");
 
     if (!product) {
       return res.status(404).send("Product not found");
@@ -98,7 +98,7 @@ class ProductDomain {
         productName: req.body.productName,
         brand: req.body.brand,
         category: req.body.category,
-        subCategory: req.body.subCategory,
+        mainCategory: req.body.mainCategory,
         details: req.body.details,
         price: req.body.price,
         returnable: req.body.returnable,

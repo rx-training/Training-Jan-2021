@@ -13,6 +13,8 @@ class BrandDomain {
 
     try {
       const brand = new Brand({
+        mainCategory: req.body.mainCategory,
+        category: req.body.category,
         brandName: req.body.brandName,
       });
 
@@ -26,7 +28,9 @@ class BrandDomain {
 
   // get all brands
   async getAllBrands(req, res) {
-    const brands = await Brand.find().select("brandName");
+    const brands = await Brand.find()
+      .populate("mainCategory")
+      .populate("category");
     res.send(brands);
   }
 
@@ -40,7 +44,9 @@ class BrandDomain {
       return res.status(404).send(error.details[0].message);
     }
 
-    const brand = await Brand.findById(brandId).select("brandName");
+    const brand = await Brand.findById(brandId)
+      .populate("mainCategory")
+      .populate("category");
 
     if (!brand) {
       return res.status(404).send("Brand not found");
@@ -73,6 +79,8 @@ class BrandDomain {
 
     try {
       brand.set({
+        mainCategory: req.body.mainCategory,
+        category: req.body.category,
         brandName: req.body.brandName,
       });
 

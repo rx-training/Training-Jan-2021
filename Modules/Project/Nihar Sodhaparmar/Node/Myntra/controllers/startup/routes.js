@@ -12,7 +12,8 @@ const wishlistRouter = require("../wishlist/wishlist");
 const bagRouter = require("../bag/bag");
 const otpRouter = require("../otp/otp");
 const verifyRouter = require("../core/verify");
-const subCategoryRouter = require("../sub-categories/sub-categories");
+const mainCategoryRouter = require("../main-categories/main-categories");
+const categoriesToBagRouter = require("../categories-to-bag/categories-to-bag");
 
 const error = require("../../middleware/error");
 
@@ -31,7 +32,8 @@ module.exports = function (router) {
   router.use("/verify", verifyRouter);
   router.use("/wishlist", wishlistRouter);
   router.use("/bag", bagRouter);
-  router.use("/sub-categories", subCategoryRouter);
+  router.use("/main-categories", mainCategoryRouter);
+  router.use("/categories-to-bag", categoriesToBagRouter);
 
   router.use(error);
 };
