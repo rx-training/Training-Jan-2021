@@ -32,6 +32,13 @@ const port = 9000;
 app.use(cors());
 app.use(loggerMiddleware);
 app.use(express.json());
+
+app.get("/", (req, res) => {
+    res.send("Welecome to Paytm");
+});
+app.get("/undefined", (req, res) => {
+    res.send("Welecome to Paytm ");
+});
 app.use("/product", product);
 app.use("/user", user);
 app.use("/otp", login);

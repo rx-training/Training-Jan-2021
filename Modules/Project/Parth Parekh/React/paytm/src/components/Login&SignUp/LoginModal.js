@@ -97,8 +97,8 @@ export default function LoginModal() {
     return (
         <div className="main-container">
             <div className="container-fluid">
-                <div className="row m-5">
-                    <div className="col-12 col-sm-12 col-md-5 mx-auto m-5 alert alert-primary boxeffect">
+                <div className="row p-3">
+                    <div className="col-md-5 mx-auto mt-5 alert alert-primary boxeffect">
                         {loading === true ? (
                             <Spinners />
                         ) : (
