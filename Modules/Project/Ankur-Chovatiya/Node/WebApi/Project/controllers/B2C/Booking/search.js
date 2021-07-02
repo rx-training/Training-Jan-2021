@@ -11,7 +11,8 @@ class Search {
     static async searchFlight(req , res , next){
         // console.log(req.body);
         var searchObj = _.pick(req.body ,['TakeoffPoint','LandingPoint','TackoffDate' ,'Economy'])
-        console.log(searchObj);
+
+        // console.log(searchObj);
         model.Flight.find(searchObj).populate('AirFare').populate('Route').populate('Aircraft').then(result =>{
             console.log(result);
             res.send(result);

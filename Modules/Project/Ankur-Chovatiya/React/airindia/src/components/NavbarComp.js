@@ -67,8 +67,9 @@ function NavbarComp(props) {
           <div className="col-4 logo-2">
               <img src={starlogo} />
           </div>
+          {/* <a href="/login"> Login </a> */}
           <div className="col-3 login-enroll">
-             <p className="link text-start"> <FaUserLock></FaUserLock><a href="/login"> Login </a>|<a href="/Register"> Enroll</a></p>
+             <p className="link text-start"> <FaUserLock></FaUserLock><a href="/Register"> Enroll</a></p>
           </div>
         </div>
     </div>
@@ -81,8 +82,8 @@ function NavbarComp(props) {
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav ml-5" id="navLinks">
       <li className="nav-item active ml-4">
-       { isLogin ? <a className="nav-link" href="/AirIndia">Home </a> :
-        <a className="nav-link" href="/login">Home </a>}
+       {/* { isLogin ? <a className="nav-link" href="/AirIndia">Home </a> : */}
+        <a className="nav-link" href="/">Home </a>
       </li>
       <li className="nav-item active ml-4">
         <a className="nav-link" href="/special-offers">Special Offers </a>

@@ -27,7 +27,7 @@ function Login(props) {
             if(res.data != null && res.status == 200){
                 localStorage.setItem('token' , res.data.jwtoken)
                 localStorage.setItem('isLogin' , "true");
-                props.history.push('./AirIndia')
+                props.history.push('./')
                 window.location.reload();
             }
             

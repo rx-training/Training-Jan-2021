@@ -25,8 +25,8 @@ function App() {
       <Navbar ></Navbar>
         <Switch>
         
-          <Route exact path="/" component={Login}></Route>
-          <Route path="/AirIndia" exact component={Home}></Route>
+          <Route exact path="/" component={Home}></Route>
+          {/* <Route path="/AirIndia" exact component={Home}></Route> */}
           <Route path="/AirIndia/select" exact component={FlightList}></Route>
           <Route path="/AirIndia/passengers-details" exact component={Passengers}></Route>
           <Route path="/AirIndia/seatmap" component={Seatmap}></Route>

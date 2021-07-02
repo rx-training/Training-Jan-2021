@@ -8,8 +8,8 @@ const { loginSchema } = require('../../../MongoDB/Schema');
 class SeatMap {
 
     static async selectSeat(req , res , next){
-        console.log('hi');
-        console.log(req.body);
+        // console.log('hi');
+        // console.log(req.body);
 
         var searchObj = _.pick(req.body ,['TakeoffPoint','LandingPoint', 'TackoffDate', 'LandingDate','Economy'])
 
