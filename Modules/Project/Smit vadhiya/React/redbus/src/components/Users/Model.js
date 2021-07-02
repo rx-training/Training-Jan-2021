@@ -159,8 +159,7 @@ const UserSignUpModel = ({isOpen,closeModal,openOther,openOtp}) => {
             break;
 
          case (name.match(/email$/) || {}).input : 
-            var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]+$/;
-            
+            var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             setErrors({...errors, [name] :  value.match(pattern) || value.length === 0 ? (allEmails.find(item => item.email === value) ? "Email id already exist" : "") : "Please enter valid Email"})
             break;
          case 'password' : 
@@ -463,9 +462,7 @@ export const UserOtpModel = (props) => {
                      value="signup"
                   />
                </form>
-               <div className="text-center">
-                  <span style={{cursor: "pointer"}} className="text-primary" onClick={() => {closeModal()}}>Signup</span>
-               </div>
+               
             </Modal.Body>
             <Modal.Footer>
                <Button variant="secondary" onClick={closeModal}>

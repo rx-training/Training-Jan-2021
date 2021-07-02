@@ -12,6 +12,7 @@ class RedbusProvider extends Component {
       isLogin : false,
       isSignup : false,
       isOtp : false,
+      alert : false,
       fromCity : "",
       toCity : "",
       date : "",
@@ -21,6 +22,15 @@ class RedbusProvider extends Component {
 
    handleLogin = () => {
       this.setState( {login : !this.state.login})
+   }
+
+   closeAlert = () => {
+      this.setState({alert: false})
+   }
+
+   handleAlert =() =>{
+      this.setState({alert: true})
+      setTimeout(()=>{this.setState({alert: false})},3000)
    }
 
    handleAdminLogin = () =>{
@@ -34,6 +44,10 @@ class RedbusProvider extends Component {
 
    handleChange =(e) => {
       const {name,value} = e.target
+      if(name === 'fromCity'){
+         console.log(e.target.type);
+         e.target.type = 'dropdown'
+      }
       this.setState({[name] : value})
    }
 
@@ -100,6 +114,9 @@ class RedbusProvider extends Component {
                handleLogout : this.handleLogout,
                handleAdminLogin : this.handleAdminLogin,
                handleAdminLoginTrue : this.handleAdminLoginTrue,
+               closeAlert : this.closeAlert,
+               handleAlert : this.handleAlert,
+
             }}
          >
             {this.props.children}

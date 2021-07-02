@@ -1,12 +1,15 @@
 import React, { useEffect,useState } from 'react'
 import UserService from '../../services/UserService'
 import {IoArrowForwardCircleOutline} from 'react-icons/io5'
+import {Modal,Button} from 'react-bootstrap'
+import { TicketPrint } from '../../components/Users/TicketPrint'
+
 export const SelectedBus = (props) => {
 
 
    const [inputs, setInputs] = useState({})
-   //const [travelerList, setTravelerList] = useState([])
-   
+   const [travelerList, setTravelerList] = useState([])
+   const [isConfirm, setisConfirm] = useState(false)
    
    const [busData, setbusData] = useState({
       busNumber : [],
@@ -17,6 +20,11 @@ export const SelectedBus = (props) => {
       selectedSeat : [],
       ticketPrise : "",
    })
+
+   const [show, setShow] = useState(false);
+
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
 
 
    useEffect(() => {
@@ -36,7 +44,6 @@ export const SelectedBus = (props) => {
       } else {
          setInputs({...inputs,[name.slice(6)] : {...inputs[name.slice(6)], gender : value}})   
       }
-      
    }
 
    const tripDate = JSON.parse(localStorage.getItem('searchData'))
@@ -48,7 +55,8 @@ export const SelectedBus = (props) => {
       for(var key in inputs){
          travelerList.push(inputs[key])
       }
-         console.log(busData);
+      setTravelerList(travelerList)
+
       const body = {
          fromCity : busData.fromCity,
          toCity : busData.toCity,
@@ -65,9 +73,8 @@ export const SelectedBus = (props) => {
 
       UserService.userAddNewTrip(body,id,token).then(res => {
          console.log(res.data);
-         props.history.push('/')
-      })
-
+         setisConfirm(true)
+      }) 
    }
 
    return (
@@ -84,7 +91,7 @@ export const SelectedBus = (props) => {
                      <h3>pickup time : {busData.timeAtStartpoint.slice(0,5)}</h3>
                      <h3 className="ml-auto">destination time : {busData.timeAtEndpoint.slice(0,5)}</h3>
                      <h3>seat numbers : {JSON.stringify(busData.selectedSeat)}</h3>
-                     <h3 className="ml-auto">Ticket price : {busData.ticketPrise * busData.selectedSeat.length}</h3>
+                     <h3 className="ml-auto">Ticket price : {busData.ticketPrise * busData.selectedSeat.length} <i class="fas fa-rupee-sign"></i></h3>
                   </div>
 
                   
@@ -95,8 +102,17 @@ export const SelectedBus = (props) => {
                   </div>
                </div>
 
-
-               <div className="col-12 col-md-12 my-4 p-2  mx-auto border">
+               {isConfirm ? <TicketPrint trip={{
+         fromCity : busData.fromCity,
+         toCity : busData.toCity,
+         routeId : {busNumber : { busName : busData.busName}},
+         tripDate : tripDate.date,
+         seatNo : busData.selectedSeat,
+         travelerList : travelerList,
+         departureTime : busData.timeAtStartpoint,
+         destinationTime : busData.timeAtEndpoint,
+         farePrice : busData.ticketPrise,
+      }}/> : <div className="col-12 col-md-12 my-4 p-2  mx-auto border">
                   <h4 className="text-center py-2">passenger Details</h4>
                   <form action="" onSubmit={handleSubmit}  >
                      <div className="justify-content-around row">
@@ -122,47 +138,78 @@ export const SelectedBus = (props) => {
                                     placeholder="age" 
                                  />
                            {/* GENDER */}
-                        <div className="col-12">
-                           <label htmlFor="dob">Gender<sup className="text-danger">*</sup></label>
-                           <div className="d-inline mx-2" >
-                              <div className="form-check form-check-inline">
-                                 <input 
-                                    className="form-check-input" 
-                                    type="radio"
-                                    name={`gender${item}`} 
-                                    id={`male${item}`} 
-                                    required 
-                                    onChange={handleChange} 
-                                    value="male"
-                                 />
-                                 <label className="form-check-label" htmlFor={`male${item}`} >Male</label>
-                              </div>
-                              <div className="form-check form-check-inline ">
-                                 <input 
-                                    className="form-check-input" 
-                                    type="radio" 
-                                    name={`gender${item}`} 
-                                    id={`female${item}`}  
-                                    required
-                                    onChange={handleChange} 
-                                    value="female"
-                                 />
-                                 <label className="form-check-label" htmlFor={`female${item}`} >Female</label>
+                           <div className="col-12">
+                              <label htmlFor="dob">Gender<sup className="text-danger">*</sup></label>
+                              <div className="d-inline mx-2" >
+                                 <div className="form-check form-check-inline">
+                                    <input 
+                                       className="form-check-input" 
+                                       type="radio"
+                                       name={`gender${item}`} 
+                                       id={`male${item}`} 
+                                       required 
+                                       onChange={handleChange} 
+                                       value="male"
+                                    />
+                                    <label className="form-check-label" htmlFor={`male${item}`} >Male</label>
+                                 </div>
+                                 <div className="form-check form-check-inline ">
+                                    <input 
+                                       className="form-check-input" 
+                                       type="radio" 
+                                       name={`gender${item}`} 
+                                       id={`female${item}`}  
+                                       required
+                                       onChange={handleChange} 
+                                       value="female"
+                                    />
+                                    <label className="form-check-label" htmlFor={`female${item}`} >Female</label>
+                                 </div>
                               </div>
                            </div>
                         </div>
-
-
-                              </div>
                         })}
                      </div>
                      <div className="text-center">
                         <input type="submit" className="btn btn-theme" value="payment" />
                      </div>
                   </form>
-               </div>
+               </div> }
+               
             </div>
          </div>
+
+         <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+            dialogClassName="dialouge"
+            size='lg'
+         >
+         <Modal.Header className="bg-success text-white" closeButton>
+            <Modal.Title  >Ticket is comnfirmed</Modal.Title>
+         </Modal.Header>
+         <Modal.Body className="p-0 table-responsive" >
+            <TicketPrint trip={{
+         fromCity : busData.fromCity,
+         toCity : busData.toCity,
+         routeId : {busNumber : { busName : busData.busName}},
+         tripDate : tripDate.date,
+         seatNo : busData.selectedSeat,
+         travelerList : travelerList,
+         departureTime : busData.timeAtStartpoint,
+         destinationTime : busData.timeAtEndpoint,
+         farePrice : busData.ticketPrise,
+      }}/>
+         </Modal.Body>
+         <Modal.Footer>
+            <Button variant="danger" onClick={handleClose}>
+               Close
+            </Button>
+            <Button variant="secondary">print</Button>
+         </Modal.Footer>
+         </Modal>
       </div>
    )
 }

@@ -92,8 +92,7 @@ body{
       box-shadow: 5px 5px 30px 11px rgba(0,0,0,0.56);
       width : 98%;
       margin: 2% auto;
-   }
-   
+   } 
 }
 
 
@@ -184,14 +183,17 @@ Model{
 }
 
 .alert{
-   border: 1px solid black;
-   background-color: yellow;
-   padding: 20px;
+   display: flex;
    text-align: center;
-   position: relative;
+   position: fixed;
    top: 100px;
-   width: 80%;
-   
+   width: 100%;
+   justify-content: center;
+   z-index: 999;
+   padding: 0;
+   div{
+      border-radius: 10px;
+   }
 }
 
 .search-form{
@@ -258,6 +260,10 @@ Model{
 
 }
 
+.dialouge{
+   width: 100%;
+}
+
 .adminLogin{
    height: 100vh;
 }
@@ -287,3 +293,6 @@ Model{
    
 }
 
+.print-main{
+   background-color: $mainRed;
+}

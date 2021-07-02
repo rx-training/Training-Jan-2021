@@ -19,12 +19,14 @@ import { SingleUser } from './pages/Admin/SingleUser';
 import { OperatorNavbar } from './components/Operator/OperatorNavbar';
 import { OperatorHome } from './pages/Operator/OperatorHome';
 import { OpLogin } from './pages/Operator/OpLogin';
+import { Alert } from './components/Users/Alert';
 
 
 function App() {
    return (
       <Router>
          <RedbusProvider>
+            <Alert />
             <Switch>
                <Route  path='/user' component={Navbar} /> 
                <Route path='/admin' component={AdminNavbar} />

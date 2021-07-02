@@ -7,8 +7,8 @@ const Otp = require('./otpDomain')
 const EncDec = require('./passwordDomain')
  global.config = require('../static/config')
 var jwt = require('jsonwebtoken')
-
-
+const ticket  = require('../domain/ticket')
+console.log(ticket);
 var newUser
 
 //*********    USER CLASSES  **********
@@ -104,8 +104,8 @@ class Users{
                 var to = await logicalFunctions.getField(Collections.Users,userId,'email')
                 var subject = "Congratulation for your trip" 
                 var text = "your ticket "
-                var html = JSON.stringify(newTrip)
-                await mailTo("redbusapis@gmail.com",subject,text,html)
+                var html = ticket(newTrip)
+                await mailTo(to,subject,text,html)
 
                 const result =await newTrip.save()
                 res.send(result); 

@@ -17,7 +17,7 @@ export const OperatorHome = (props) => {
                   setroute(res.data)
                   setbusData(res.data.busNumber)
                   console.log(res.data);
-               })
+               }).catch((error)=>props.history.push('/operator/login'))
             } else {
             props.history.push('/operator/login') 
          }})

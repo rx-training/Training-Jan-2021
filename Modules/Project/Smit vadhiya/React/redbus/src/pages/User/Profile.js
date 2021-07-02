@@ -3,6 +3,8 @@ import UserService from '../../services/UserService'
 import {HiOutlineUserCircle} from 'react-icons/hi'
 import {BsGear} from 'react-icons/bs'
 import {FaTicketAlt} from 'react-icons/fa'
+import PrintComponents from "react-print-components";
+import { TicketPrint } from '../../components/Users/TicketPrint'
 
 export const Profile = () => {
 
@@ -40,7 +42,6 @@ export const Profile = () => {
    }
 
    const handleEdited = () => {
-
       var temp = 0
       for(var i in errors){
          if(errors[i].length > 0){
@@ -79,13 +80,14 @@ export const Profile = () => {
       if(window.confirm("cancel this trip??")){
          UserService.userCancelTrip(id,tripId,token).then(res => {
          console.log(res.data);
-         })
+      })
 
          UserService.userGetMyTrip(id,token).then(res => {
             setMyTrips(res.data);
          })
       } 
 }
+
 
    const handleChange = (e) =>{
       const {name, value} = e.target
@@ -111,7 +113,7 @@ export const Profile = () => {
    }
 
    return (
-      <div className="bg-light profile h-100 mt-5 pt-5">
+      <div className=" profile h-100 mt-5 pt-5">
          <div className="row justify-content-between m-0">
             <div className="col-12 profile-nav text-capitalize d-flex flex-row text-center  flex-md-column justify-content-center h-100  col-md-3 p-0 ">
                <div className="p-2 item" onClick={handleProfile}>
@@ -276,48 +278,38 @@ export const Profile = () => {
                               {MyTrips.map(trip => {
 
                                  const flag = new Date(trip.tripDate) > new Date()
+                                 const {fromCity,toCity,departureTime,destinationTime,tripDate,seatNo,farePrice} = trip
+
                                  return (
-                                    <div key={trip._id} className="row border border-success m-2 p-3 text-capitalize justify-content-between">
+                                    <div key={trip._id} className=" border border-success table-responsive m-2 p-3 text-capitalize ">
+                                       <table className="table my-2 table-bordered ">
+                                          <tr>
+                                             <th>Bus name</th> <td>{trip.routeId.busNumber.busName}</td>
+                                             <th>Boarding Date  </th> <td>{tripDate.slice(0,10)}</td>
+                                          </tr>
+                                          <tr>
+                                             <th>Journey From </th> <td>{fromCity}</td>
+                                             <th>Journey to </th> <td>{toCity}</td>
+                                          </tr>
+                                          <tr>
+                                             <th>Departure Time </th> <td>{departureTime}</td>
+                                             <th>Destination Time </th> <td>{destinationTime}</td>
+                                          </tr>
+                                          <tr>
+                                             <th>total amount </th> <td>{farePrice} <i class="fas fa-rupee-sign"></i></td>
+                                             <th>Seats No/s  </th> <td>{seatNo.toString()}</td>
+                                          </tr>
+                                       </table>
+
+                                       
                                        <div className="col-12 text-center">
-                                          <h3>
-                                             {trip.routeId.busNumber.busName}
-                                          </h3>
+                                          {flag ? <button className="btn btn-danger" onClick={()=> handleCancelTicket(trip._id)} >Cancel</button> : null }
+                                          <PrintComponents
+                                             trigger={<button className="btn btn-dark mx-2 ">Print</button>}
+                                          >
+                                             <TicketPrint trip={trip} />
+                                          </PrintComponents>
                                        </div>
-                                       <div className="col-12 col-md-5">
-                                          <h4>
-                                             From : {trip.fromCity}
-                                          </h4>
-                                       </div>
-                                       <div className="col-12 col-md-5">
-                                          <h4>
-                                             To : {trip.toCity}
-                                          </h4>
-                                       </div>
-                                       <div className="col-12 col-md-5">
-                                          <h4>
-                                             Departure Time : {trip.departureTime}
-                                          </h4>
-                                       </div>
-                                       <div className="col-12 col-md-5">
-                                          <h4>
-                                             arrival Time : {trip.destinationTime}
-                                          </h4>
-                                       </div>
-                                       <div className="col-12 col-md-5">
-                                          <h4>
-                                             journy date : {trip.tripDate.slice(0,10)}
-                                             
-                                          </h4>
-                                       </div>
-                                       <div className="col-12 col-md-5">
-                                          <h4>
-                                             seat no : {JSON.stringify(trip.seatNo)}
-                                          </h4>
-                                       </div>
-                                       {flag ? 
-                                       <div className="col-12 text-center">
-                                          <button className="btn btn-danger" onClick={()=> handleCancelTicket(trip._id)} >cancel</button>
-                                       </div> : null }
                                     </div>
                                  )
                               })}

@@ -3,6 +3,7 @@ import {GiModernCity} from 'react-icons/gi'
 import {MdDateRange} from 'react-icons/md'
 import { withRouter } from 'react-router';
 import {RedbusConsumer} from '../../../context/context'
+import { Example } from '../../Auto';
 
 const SearchForm = () => { 
       return(
@@ -19,8 +20,9 @@ const SearchForm = () => {
                                  <div className="input-group border">
                                     <div className="input-group-prepend">
                                        <span className="input-group-text "><GiModernCity /></span>
-                                    </div>                           
+                                    </div>                          
                                     <input 
+
                                        type="text" 
                                        className="form-control" 
                                        name="fromCity"
@@ -53,7 +55,9 @@ const SearchForm = () => {
                                  <div className="input-group border">
                                     <div className="input-group-prepend">
                                        <span className="input-group-text "><MdDateRange /></span>
-                                    </div>                           
+                                    </div>   
+                                    
+                        
                                     <input 
                                        type="date"
                                        className="form-control" 
@@ -62,7 +66,7 @@ const SearchForm = () => {
                                        value={date}
                                        onChange={handleChange}
                                        required
-                                    />
+                                    /> 
                                  </div>
                               </div>
                               <div className="col-12 col-sm-6   col-md-3 mx-auto">
