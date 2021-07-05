@@ -25,7 +25,7 @@ export default function SingleProduct(props) {
         });
     }, []);
 
-    const { ProductName, ProductPrice, Rating, Qty, _id } = product;
+    const { ProductName, ProductPrice, Rating, Qty, _id, Spec } = product;
 
     //Buynow ,if user login then redirect to payment page otherwise redirect to login page
     const handleBuynow = (id) => {
@@ -104,24 +104,30 @@ export default function SingleProduct(props) {
                             </div>
                         </h5>
                         <div className="my-3">
-                            {data.id === "mobiles" && (
-                                <h5 className="text-dark">
-                                    Product Hightlights
-                                </h5>
-                            )}
+                            {Spec.length > 0 && (
+                                <>
+                                    {data.id === "mobiles" && (
+                                        <h5 className="text-dark">
+                                            Product Hightlights
+                                        </h5>
+                                    )}
 
-                            {data.id === "electronics" && (
-                                <h5 className="text-dark">
-                                    Product HightLights
-                                </h5>
-                            )}
+                                    {data.id === "electronics" && (
+                                        <h5 className="text-dark">
+                                            Product HightLights
+                                        </h5>
+                                    )}
 
-                            {data.id === "fashion" && <h5>Available Size</h5>}
-                            <ul>
-                                {product.Spec.map((item, index) => {
-                                    return <li key={index}>{item}</li>;
-                                })}
-                            </ul>
+                                    {data.id === "fashion" && (
+                                        <h5>Available Size</h5>
+                                    )}
+                                    <ul>
+                                        {Spec.map((item, index) => {
+                                            return <li key={index}>{item}</li>;
+                                        })}
+                                    </ul>
+                                </>
+                            )}
                         </div>
                         {Qty <= 0 ? (
                             <button

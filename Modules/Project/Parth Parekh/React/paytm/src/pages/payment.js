@@ -95,7 +95,11 @@ export default function Payment(props) {
             .then((res) => {
                 let data = res.data;
 
-                setProduct({ ...data, Spec: data.Spec.split(",") });
+                setProduct({
+                    ...data,
+                    ProductCategory: data.ProductCategory.CategoryName,
+                    Spec: data.Spec.split(","),
+                });
             })
             .catch((error) => {
                 if (error.response.status === 404) {
@@ -167,8 +171,15 @@ export default function Payment(props) {
         }
     };
 
-    const { ProductName, ProductPrice, Rating, image, ProductType, Spec, _id } =
-        product;
+    const {
+        ProductName,
+        ProductPrice,
+        Rating,
+        image,
+        Spec,
+        _id,
+        ProductCategory,
+    } = product;
     return (
         <div className="main-container">
             <div
@@ -220,13 +231,15 @@ export default function Payment(props) {
                                         />
                                     </div>
                                     <div className="my-3">
-                                        {ProductType === "mobiles" ||
-                                        ProductType === "electronics" ? (
+                                        {ProductCategory === "mobiles" ||
+                                        ProductCategory === "electronics" ? (
                                             <h5 className="text-lead">
                                                 Product HightLights
                                             </h5>
-                                        ) : (
+                                        ) : ProductCategory === "fashion" ? (
                                             <h5>Available Size</h5>
+                                        ) : (
+                                            ""
                                         )}
 
                                         {Spec.map((item, index) => {
@@ -248,7 +261,7 @@ export default function Payment(props) {
                                             <FaRupeeSign />{" "}
                                         </h3>
 
-                                        {ProductType === "fashion" && (
+                                        {ProductCategory === "fashion" && (
                                             <>
                                                 {" "}
                                                 <h3>Select Size</h3>

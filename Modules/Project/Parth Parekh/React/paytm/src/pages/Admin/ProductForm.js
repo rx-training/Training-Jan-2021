@@ -128,6 +128,13 @@ export default function ProductForm(props) {
             formData.append("featured", values.featured);
             formData.append("Rating", values.Rating);
 
+            formData.append("image", values.image[0]);
+
+            for (const key of Object.keys(values.moreInfo)) {
+                formData.append("moreInfo", values.moreInfo[key]);
+            }
+
+            console.log(formData);
             PaytmServices.updateProduct(id, getToken(), formData)
                 .then((res) => {
                     //console.log(res.data);
@@ -156,7 +163,6 @@ export default function ProductForm(props) {
         Qty,
         Rating,
         featured,
-
         Spec,
     } = values;
 
@@ -287,32 +293,32 @@ export default function ProductForm(props) {
                                 />
                             </div>
                         </div>
-                        {id === "add" && (
-                            <div className="row my-3 justify-content-around">
-                                <div className="col-md-4 my-3">
-                                    <label className="h5">Product Image</label>
-                                    <input
-                                        type="file"
-                                        className="form-control"
-                                        name="image"
-                                        onChange={handleChange}
-                                    />
-                                </div>
 
-                                <div className="col-md-4 my-3">
-                                    <label className="h5">
-                                        More Images (Max 3 Images)
-                                    </label>
-                                    <input
-                                        multiple
-                                        type="file"
-                                        className="form-control"
-                                        name="moreInfo"
-                                        onChange={handleChange}
-                                    />
-                                </div>
+                        <div className="row my-3 justify-content-around">
+                            <div className="col-md-4 my-3">
+                                <label className="h5">Product Image</label>
+                                <input
+                                    type="file"
+                                    className="form-control"
+                                    name="image"
+                                    onChange={handleChange}
+                                />
                             </div>
-                        )}
+
+                            <div className="col-md-4 my-3">
+                                <label className="h5">
+                                    More Images (Max 3 Images)
+                                </label>
+                                <input
+                                    multiple
+                                    type="file"
+                                    className="form-control"
+                                    name="moreInfo"
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+
                         <div className="row my-3">
                             <div className="col-md-4 h5">
                                 Specifications or Size
@@ -324,6 +330,7 @@ export default function ProductForm(props) {
                                     rows="3"
                                     value={Spec}
                                     onChange={handleChange}
+                                    required
                                 ></textarea>
                             </div>
                         </div>

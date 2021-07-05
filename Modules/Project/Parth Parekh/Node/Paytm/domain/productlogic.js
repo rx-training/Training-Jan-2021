@@ -50,7 +50,7 @@ class ProductData {
         const data = req.body;
         // console.log(req.files);
         let dd = [];
-        const host = req.headers.host;
+
         for (let i of req.files.moreInfo) {
             dd.push(`${i.path}`);
         }
@@ -94,17 +94,80 @@ class ProductData {
     }
     async updateProductDetails(req, res) {
         const data = req.body;
+        console.log(data);
+        var pdata;
+        let dd = [];
+        console.log(req.files);
 
-        const pdata = {
-            ProductName: data.ProductName,
-            ProductCategory: data.ProductCategory,
-            Rating: parseFloat(data.Rating),
-            ProductType: data.ProductType,
-            featured: data.featured,
-            Spec: data.Spec,
-            ProductPrice: parseInt(data.ProductPrice),
-            Qty: parseInt(data.Qty),
-        };
+        if (req.files.moreInfo == undefined && req.files.image == undefined) {
+            pdata = {
+                ProductName: data.ProductName,
+                ProductCategory: data.ProductCategory,
+                Rating: parseFloat(data.Rating),
+                ProductType: data.ProductType,
+
+                featured: data.featured,
+
+                Spec: data.Spec,
+                ProductPrice: parseInt(data.ProductPrice),
+                Qty: parseInt(data.Qty),
+            };
+        } else if (
+            req.files.moreInfo != undefined &&
+            req.files.image == undefined
+        ) {
+            for (let i of req.files.moreInfo) {
+                dd.push(`${i.path}`);
+            }
+            pdata = {
+                ProductName: data.ProductName,
+                ProductCategory: data.ProductCategory,
+                Rating: parseFloat(data.Rating),
+                ProductType: data.ProductType,
+
+                featured: data.featured,
+                moreInfo: dd,
+                Spec: data.Spec,
+                ProductPrice: parseInt(data.ProductPrice),
+                Qty: parseInt(data.Qty),
+            };
+        } else if (
+            req.files.moreInfo == undefined &&
+            req.files.image != undefined
+        ) {
+            pdata = {
+                ProductName: data.ProductName,
+                ProductCategory: data.ProductCategory,
+                Rating: parseFloat(data.Rating),
+                ProductType: data.ProductType,
+
+                featured: data.featured,
+                image: `${req.files.image[0].path}`,
+                Spec: data.Spec,
+                ProductPrice: parseInt(data.ProductPrice),
+                Qty: parseInt(data.Qty),
+            };
+        } else if (
+            req.files.moreInfo != undefined &&
+            req.files.image != undefined
+        ) {
+            for (let i of req.files.moreInfo) {
+                dd.push(`${i.path}`);
+            }
+            pdata = {
+                ProductName: data.ProductName,
+                ProductCategory: data.ProductCategory,
+                Rating: parseFloat(data.Rating),
+                ProductType: data.ProductType,
+                image: `${req.files.image[0].path}`,
+                featured: data.featured,
+                moreInfo: dd,
+                Spec: data.Spec,
+                ProductPrice: parseInt(data.ProductPrice),
+                Qty: parseInt(data.Qty),
+            };
+        }
+
         const productObject = new ProductModel(pdata);
         const { error, value } = productObject.joivalidate(pdata);
         if (error) {
