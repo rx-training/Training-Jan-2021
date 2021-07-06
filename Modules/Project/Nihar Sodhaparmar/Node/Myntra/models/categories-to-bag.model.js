@@ -3,7 +3,7 @@ const Joi = require("joi");
 
 // model
 const CategoryToBag = mongoose.model(
-  "categories-to-bag",
+  "categories-to-bags",
   new mongoose.Schema({
     category: {
       type: mongoose.Schema.Types.ObjectId,

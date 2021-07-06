@@ -45,7 +45,7 @@ class CategoryToBagDomain {
 
   // get all categories to bag
   async getAllCategoriesToBag(req, res) {
-    const categoriesToBag = await CategoryToBag.find().populate("categoy");
+    const categoriesToBag = await CategoryToBag.find().populate("category");
     res.send(categoriesToBag);
   }
 
@@ -61,7 +61,8 @@ class CategoryToBagDomain {
 
     categoryId = mongoose.Types.ObjectId(categoryId);
 
-    const isAvailable = await CategoryToBag.find({ category: categoryId });
+    const isAvailable = await CategoryToBag.findOne({ category: categoryId });
+    // console.log(isAvailable);
 
     if (!isAvailable) {
       return res.status(404).send("Category To Bag not found");

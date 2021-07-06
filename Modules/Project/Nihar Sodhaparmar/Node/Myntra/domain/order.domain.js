@@ -131,7 +131,24 @@ class OrderDomain {
 
   // get all orders
   async getAllOrders(req, res) {
-    const orders = await Order.find();
+    const orders = await Order.find()
+      .populate({
+        path: "products.product",
+        model: "products",
+        populate: {
+          path: "brand",
+          model: "brands",
+        },
+      })
+      .populate({
+        path: "products.product",
+        model: "products",
+        populate: {
+          path: "category",
+          model: "categories",
+        },
+      })
+      .sort({ orderDate: -1 });
     res.send(orders);
   }
 
@@ -145,7 +162,24 @@ class OrderDomain {
       return res.status(404).send(error.details[0].message);
     }
 
-    const order = await Order.findById(orderId);
+    const order = await Order.findById(orderId)
+      .populate({
+        path: "products.product",
+        model: "products",
+        populate: {
+          path: "brand",
+          model: "brands",
+        },
+      })
+      .populate({
+        path: "products.product",
+        model: "products",
+        populate: {
+          path: "category",
+          model: "categories",
+        },
+      })
+      .sort({ orderDate: -1 });
 
     if (!order) {
       return res.status(500).send("Order not found");
