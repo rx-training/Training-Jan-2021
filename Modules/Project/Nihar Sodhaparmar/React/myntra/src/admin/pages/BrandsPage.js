@@ -8,6 +8,7 @@ import BrandRow from "../components/BrandsPage/BrandRow";
 import BrandService from "../../services/BrandService";
 import MainCategoryService from "../../services/MainCategoryService";
 import CategoryService from "../../services/CategoryService";
+import { NotificationManager } from "react-notifications";
 
 export default function BrandsPage(props) {
   const [loading, setLoading] = useState(false);
@@ -118,12 +119,6 @@ export default function BrandsPage(props) {
 
           return null;
         });
-      }
-
-      if (filterCategory !== "select") {
-        filteredBrands = filteredBrands.filter(
-          (brand) => brand.category._id === filterCategory
-        );
       }
 
       setData(filteredBrands);
@@ -278,7 +273,7 @@ export default function BrandsPage(props) {
           setLoading(true);
 
           await BrandService.updateBrand(id, { ...brand }, getToken());
-
+          NotificationManager.success("Brand updated successfully", "", 2000);
           getData();
           closeModal();
           setIsUpdate(false);
@@ -295,7 +290,7 @@ export default function BrandsPage(props) {
           setLoading(true);
 
           await BrandService.addBrand({ ...brand }, getToken());
-
+          NotificationManager.success("Brand added successfully", "", 2000);
           getData();
           closeModal();
           setLoading(false);
@@ -334,6 +329,11 @@ export default function BrandsPage(props) {
   const updateBrand = (id, mainCategory, category, brandName) => {
     setIsUpdate(true);
     setId(id);
+    let filteredCategories = categories.filter(
+      (category) => category.mainCategory._id === mainCategory
+    );
+
+    setFilteredCategories(filteredCategories);
     setOldBrand({
       oldMainCategory: mainCategory,
       oldCategory: category,
@@ -353,9 +353,10 @@ export default function BrandsPage(props) {
         setLoading(true);
 
         await BrandService.deleteBrand(id, getToken());
-
+        NotificationManager.error("Brand deleted successfully", "", 2000);
         getData();
         setLoading(false);
+        setCurrentPage(1);
       } catch (error) {
         if (error.response.status === 401) {
           removeUserSession();

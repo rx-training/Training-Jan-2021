@@ -1,6 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function ProductRow({ product, index, viewProductBtnClick }) {
+export default function ProductRow({
+  product,
+  index,
+  viewProductBtnClick,
+  deleteProduct,
+}) {
   return (
     <tr>
       <td>{index + 1}</td>
@@ -20,12 +26,18 @@ export default function ProductRow({ product, index, viewProductBtnClick }) {
         </button>
       </td>
       <td>
-        <button type="button" className="btn btn-sm btn-primary">
-          Update
-        </button>
+        <Link to={`/dashboard/update-product/${product._id}`}>
+          <button type="button" className="btn btn-sm btn-primary">
+            Update
+          </button>
+        </Link>
       </td>
       <td>
-        <button type="button" className="btn btn-sm btn-danger">
+        <button
+          type="button"
+          className="btn btn-sm btn-danger"
+          onClick={() => deleteProduct(product._id)}
+        >
           Delete
         </button>
       </td>

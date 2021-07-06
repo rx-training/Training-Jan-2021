@@ -8,6 +8,7 @@ import Loading from "../../components/Loading";
 import { Modal } from "react-bootstrap";
 import MainCategoryService from "../../services/MainCategoryService";
 import CategoriesToBagService from "../../services/CategoriesToBagService";
+import { NotificationManager } from "react-notifications";
 
 export default function CategoryPage(props) {
   const [loading, setLoading] = useState(false);
@@ -151,6 +152,7 @@ export default function CategoryPage(props) {
           },
           getToken()
         );
+        NotificationManager.success("Category updated successfully", "", 2000);
         getData();
         closeModel();
         setCategoryName("");
@@ -175,6 +177,7 @@ export default function CategoryPage(props) {
           },
           getToken()
         );
+        NotificationManager.success("Category added successfully", "", 2000);
         getData();
         closeModel();
         setCategoryName("");
@@ -211,6 +214,8 @@ export default function CategoryPage(props) {
       try {
         setLoading(true);
         await CategoryService.deleteCategory(id, getToken());
+        NotificationManager.error("Category deleted successfully", "", 2000);
+        setCurrentPage(1);
         getData();
         setLoading(false);
       } catch (error) {

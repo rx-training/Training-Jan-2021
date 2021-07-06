@@ -467,6 +467,8 @@ nav {
   -webkit-box-orient: vertical;
   text-decoration: none;
   border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
 }
 
 .filter-dropdown {

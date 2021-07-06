@@ -11,8 +11,8 @@ export default function Navbar1() {
   const [bagItems, setBagItems] = useState(0);
 
   async function getData() {
-    if (getToken()) {
-      try {
+    try {
+      if (getToken()) {
         let bagItems = await BagService.getBagItemsByCustomerId(
           getUserId(),
           getToken()
@@ -20,8 +20,8 @@ export default function Navbar1() {
 
         bagItems = bagItems.data;
         setBagItems(bagItems.length);
-      } catch (error) {}
-    }
+      }
+    } catch (error) {}
   }
 
   useEffect(() => {
@@ -61,21 +61,8 @@ export default function Navbar1() {
             />
           </Link>
 
-          {/* <button
-            className="navbar-toggler navbar-toggler-right p-0"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navResponsive"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button> */}
-
           <Navbar.Toggle />
-          {/* <div
-            className="collapse navbar-collapse"
-            id="navResponsive"
-            style={{ fontWeight: "600" }}
-          > */}
+
           <Navbar.Collapse>
             <ul
               className="navbar-nav px-3 navbar-left-link-container"
@@ -403,7 +390,6 @@ export default function Navbar1() {
               </ul>
             </div>
           </Navbar.Collapse>
-          {/* </div> */}
         </div>
       </Navbar>
 

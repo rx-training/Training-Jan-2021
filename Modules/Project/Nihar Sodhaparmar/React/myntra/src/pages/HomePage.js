@@ -5,6 +5,7 @@ import Title from "../components/HomePage/Title";
 import DealsProductsList from "../components/HomePage/DealsProductsList";
 import CategoriesList from "../components/HomePage/CategoriesList";
 import ProductService from "../services/ProductService";
+import CategoriesToBagService from "../services/CategoriesToBagService";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
 import { isAdmin } from "../utils/Storage";
@@ -12,6 +13,7 @@ import { isAdmin } from "../utils/Storage";
 export default function HomePage(props) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [categoriesToBag, setCategoriesToBag] = useState([]);
 
   function sortProducts(field) {
     return function (a, b) {
@@ -24,27 +26,34 @@ export default function HomePage(props) {
     };
   }
 
+  async function getData() {
+    try {
+      setLoading(true);
+
+      let res = await ProductService.getAllProducts();
+      const products = res.data;
+      if (products.length < 1) {
+        setProducts([]);
+      } else {
+        products.sort(sortProducts("offer"));
+        var newProducts = products.splice(0, 6);
+        setProducts(newProducts);
+      }
+
+      let categoriesToBag =
+        await CategoriesToBagService.getAllCategoriesToBag();
+      setCategoriesToBag(categoriesToBag.data);
+
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error(error.message);
+    }
+  }
+
   useEffect(() => {
     if (isAdmin()) {
       props.history.push("/dashboard/products");
-    }
-    async function getData() {
-      try {
-        setLoading(true);
-        let res = await ProductService.getAllProducts();
-        const products = res.data;
-        if (products.length < 1) {
-          setProducts([]);
-        } else {
-          products.sort(sortProducts("offer"));
-          var newProducts = products.splice(0, 6);
-          setProducts(newProducts);
-        }
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-        console.error(error.message);
-      }
     }
 
     getData();
@@ -75,7 +84,7 @@ export default function HomePage(props) {
 
       {/* ***** CATEGORIES TO BAG ***** */}
       <Title title="categories to bag" />
-      <CategoriesList />
+      <CategoriesList categoriesToBag={categoriesToBag} />
     </>
   );
 }

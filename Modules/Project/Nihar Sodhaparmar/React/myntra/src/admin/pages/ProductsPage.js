@@ -10,6 +10,8 @@ import ProductRow from "../components/ProductsPage/ProductRow";
 import MainCategoryService from "../../services/MainCategoryService";
 import CategoryService from "../../services/CategoryService";
 import BrandService from "../../services/BrandService";
+import { getToken, removeUserSession } from "../../utils/Storage";
+import { NotificationManager } from "react-notifications";
 
 export default function ProductsPage(props) {
   const [loading, setLoading] = useState(false);
@@ -28,36 +30,36 @@ export default function ProductsPage(props) {
     brand: "select",
   });
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        setLoading(true);
-        // let categories = await CategoryService.getAllCategories();
-        // setCategories(categories.data);
+  async function getData() {
+    try {
+      setLoading(true);
+      // let categories = await CategoryService.getAllCategories();
+      // setCategories(categories.data);
 
-        // let brands = await BrandService.getAllBrands();
-        // setBrands(brands.data);
+      // let brands = await BrandService.getAllBrands();
+      // setBrands(brands.data);
 
-        let proucts = await ProductService.getAllProducts();
-        setProducts(proucts.data);
-        setData(proucts.data);
+      let proucts = await ProductService.getAllProducts();
+      setProducts(proucts.data);
+      setData(proucts.data);
 
-        let mainCategories = await MainCategoryService.getAllMainCategories();
-        setMainCategories(mainCategories.data);
+      let mainCategories = await MainCategoryService.getAllMainCategories();
+      setMainCategories(mainCategories.data);
 
-        let categories = await CategoryService.getAllCategories();
-        setCategories(categories.data);
+      let categories = await CategoryService.getAllCategories();
+      setCategories(categories.data);
 
-        let brands = await BrandService.getAllBrands();
-        setBrands(brands.data);
+      let brands = await BrandService.getAllBrands();
+      setBrands(brands.data);
 
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-        console.error(error);
-      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
     }
+  }
 
+  useEffect(() => {
     getData();
   }, []);
 
@@ -204,59 +206,46 @@ export default function ProductsPage(props) {
   const handleFilterDataChange = (event) => {
     const { name, value } = event.target;
 
+    let filteredProducts = products;
+
     if (name === "brand") {
       if (value !== "select") {
-        let filteredProducts = products.filter(
+        filteredProducts = filteredProducts.filter(
           (product) => product.brand._id === value
         );
+      }
 
-        if (productName.length > 0) {
-          filteredProducts = filteredProducts.filter((product) => {
-            let tempSearch = productName.toLowerCase();
-            let tempTitle = product.productName
-              .toLowerCase()
-              .slice(0, tempSearch.length);
-            console.log(tempSearch, tempTitle);
-            if (tempSearch === tempTitle) {
-              return product;
-            }
+      if (productName.length > 0) {
+        filteredProducts = filteredProducts.filter((product) => {
+          let tempSearch = productName.toLowerCase();
+          let tempTitle = product.productName
+            .toLowerCase()
+            .slice(0, tempSearch.length);
+          console.log(tempSearch, tempTitle);
+          if (tempSearch === tempTitle) {
+            return product;
+          }
 
-            return null;
-          });
-        }
+          return null;
+        });
+      }
 
-        setData(filteredProducts);
-        setCurrentPage(1);
-        setFilterData({ ...filterData, brand: value });
-      } else {
-        let filteredProducts = products.filter(
+      if (mainCategory !== "select") {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.mainCategory._id === mainCategory
+        );
+      }
+
+      if (category !== "select") {
+        filteredProducts = filteredProducts.filter(
           (product) => product.category._id === category
         );
-
-        if (productName.length > 0) {
-          filteredProducts = filteredProducts.filter((product) => {
-            let tempSearch = productName.toLowerCase();
-            let tempTitle = product.productName
-              .toLowerCase()
-              .slice(0, tempSearch.length);
-            console.log(tempSearch, tempTitle);
-            if (tempSearch === tempTitle) {
-              return product;
-            }
-
-            return null;
-          });
-        }
-
-        setData(filteredProducts);
-        setCurrentPage(1);
-        setFilterData({ ...filterData, brand: "select" });
       }
     }
 
     if (name === "productName") {
-      if (value.length > 0) {
-        let filteredProducts = products.filter((product) => {
+      if (productName.length > 0) {
+        filteredProducts = filteredProducts.filter((product) => {
           let tempSearch = value.toLowerCase();
           let tempTitle = product.productName
             .toLowerCase()
@@ -268,34 +257,30 @@ export default function ProductsPage(props) {
 
           return null;
         });
+      }
 
-        console.log(filteredProducts);
+      if (mainCategory !== "select") {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.mainCategory._id === mainCategory
+        );
+      }
 
-        if (mainCategory !== "select") {
-          filteredProducts = filteredProducts.filter(
-            (product) => product.mainCategory._id === mainCategory
-          );
-        }
+      if (category !== "select") {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.category._id === category
+        );
+      }
 
-        if (category !== "select") {
-          filteredProducts = filteredProducts.filter(
-            (product) => product.category._id === category
-          );
-        }
-
-        if (brand !== "select") {
-          filteredProducts = filteredProducts.filter(
-            (product) => product.brand._id === brand
-          );
-        }
-        console.log(filteredProducts);
-        setData(filteredProducts);
-        setCurrentPage(1);
-        setFilterData({ ...filterData, productName: value });
-      } else {
-        setFilterData({ ...filterData, productName: value });
+      if (brand !== "select") {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.brand._id === brand
+        );
       }
     }
+
+    setData(filteredProducts);
+    setCurrentPage(1);
+    setFilterData({ ...filterData, [name]: value });
   };
 
   const addProductBtnClick = () => {
@@ -304,6 +289,28 @@ export default function ProductsPage(props) {
 
   const viewProductBtnClick = (id) => {
     props.history.push(`/dashboard/products/${id}`);
+  };
+
+  const deleteProduct = async (id) => {
+    if (window.confirm("Are you sure, you want to delete?")) {
+      try {
+        setLoading(true);
+        await ProductService.deleteProduct(id, getToken());
+        setLoading(false);
+        NotificationManager.error("Product deleted successfully", "", 2000);
+        getData();
+        setCurrentPage(1);
+      } catch (error) {
+        console.error(error);
+        if (error.response.status === 403 || error.response.status === 401) {
+          props.history.push("/dashboard/login");
+          removeUserSession();
+        } else if (error.response.status === 409) {
+          alert("Product is not allowed to delete");
+        }
+        setLoading(false);
+      }
+    }
   };
 
   // *************** PAGINATION ***************
@@ -550,6 +557,7 @@ export default function ProductsPage(props) {
                       product={product}
                       index={(currentPage - 1) * itemsPerPage + index}
                       viewProductBtnClick={viewProductBtnClick}
+                      deleteProduct={deleteProduct}
                     />
                   );
                 })}

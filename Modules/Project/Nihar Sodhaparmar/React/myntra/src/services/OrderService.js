@@ -19,6 +19,14 @@ class OrderService {
       },
     });
   }
+
+  getAllOrders(token) {
+    return axios.get(MYNTRA_API_BASE_URL, {
+      headers: {
+        "x-access-token": token,
+      },
+    });
+  }
 }
 
 export default new OrderService();

@@ -167,8 +167,18 @@
 
 .back-btn {
   position: absolute;
-  top: 105px;
-  margin-left: 10px;
+  top: 100px;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  text-decoration: none;
+}
+
+.back-btn-arrow {
+  font-size: 30px;
+  color: #111;
 }
 
 @media (max-width: 768px) {
@@ -213,4 +223,26 @@
 
 .product-images-container {
   padding: 0 6%;
+}
+
+.dasboard-icon {
+  margin: 35px 15px 30px 0px;
+  font-size: 60px;
+}
+
+.dashboard-text {
+  margin-top: 27px;
+}
+.dashboard-link {
+  color: black;
+}
+
+.dashboard-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.dashboard-link-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
 }

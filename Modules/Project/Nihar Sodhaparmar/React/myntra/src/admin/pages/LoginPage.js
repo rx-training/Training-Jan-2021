@@ -27,7 +27,7 @@ export default function LoginPage(props) {
         setUserSession(token, userId, isAdmin);
         if (isAdmin) {
           NotificationManager.success("Logged in successfully", "", 2000);
-          props.history.push("/dashboard/products");
+          props.history.push("/dashboard");
         } else {
           props.history.push("/");
         }

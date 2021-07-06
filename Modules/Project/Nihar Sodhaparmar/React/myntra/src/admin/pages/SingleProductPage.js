@@ -6,6 +6,8 @@ import Loading from "../../components/Loading";
 import ProductImage from "../components/SingleProductPage/ProductImage";
 import ProductInfo from "../components/SingleProductPage/ProductInfo";
 import { getToken, removeUserSession } from "../../utils/Storage";
+import { MdKeyboardBackspace } from "react-icons/md";
+import { NotificationManager } from "react-notifications";
 
 export default function SingleProductPage(props) {
   const [id] = useState(props.match.params.id);
@@ -45,6 +47,7 @@ export default function SingleProductPage(props) {
         setLoading(true);
         await ProductService.deleteProduct(id, getToken());
         setLoading(false);
+        NotificationManager.error("Product deleted successfully", "", 2000);
         props.history.push("/dashboard/products");
       } catch (error) {
         console.error(error);
@@ -98,11 +101,8 @@ export default function SingleProductPage(props) {
       <>
         <Navbar />
         <div>
-          <Link
-            to="/dashboard/products"
-            className="btn btn-secondary text-capitalize back-btn"
-          >
-            bact to products
+          <Link to="/dashboard/products" className="text-capitalize back-btn">
+            <MdKeyboardBackspace className="back-btn-arrow" />
           </Link>
         </div>
         <div className="container mb-5">

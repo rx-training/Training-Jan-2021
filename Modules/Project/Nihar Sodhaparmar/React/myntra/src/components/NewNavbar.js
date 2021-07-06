@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaBookmark, FaShoppingBag } from "react-icons/fa";
-import { getToken } from "../Utils/Storage";
+import { getToken, getUserId } from "../utils/Storage";
+import { Navbar } from "react-bootstrap";
+import BagService from "../services/BagService";
 
-export default function Navbar() {
+export default function Navbar1() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [navExpanded, setNavExpanded] = useState(false);
+  const [bagItems, setBagItems] = useState(0);
+
+  async function getData() {
+    if (getToken()) {
+      try {
+        let bagItems = await BagService.getBagItemsByCustomerId(
+          getUserId(),
+          getToken()
+        );
+
+        bagItems = bagItems.data;
+        setBagItems(bagItems.length);
+      } catch (error) {}
+    }
+  }
 
   useEffect(() => {
     if (getToken()) {
@@ -12,11 +30,27 @@ export default function Navbar() {
     } else {
       setIsLoggedIn(false);
     }
-  }, []);
+
+    getData();
+  }, [navExpanded, getData]);
+
+  const setNewNavExpanded = (expanded) => {
+    setNavExpanded(expanded);
+  };
+
+  const closeNav = () => {
+    setNavExpanded(false);
+  };
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+      <Navbar
+        onToggle={setNewNavExpanded}
+        expanded={navExpanded}
+        expand="lg"
+        fixed="top"
+        // className="navbar navbar-expand-lg navbar-light fixed-top"
+      >
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             <img
@@ -27,21 +61,13 @@ export default function Navbar() {
             />
           </Link>
 
-          <button
-            className="navbar-toggler navbar-toggler-right p-0"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navResponsive"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <Navbar.Toggle />
 
-          <div
-            className="collapse navbar-collapse"
-            id="navResponsive"
-            style={{ fontWeight: "600" }}
-          >
-            <ul className="navbar-nav px-3 navbar-left-link-container">
+          <Navbar.Collapse>
+            <ul
+              className="navbar-nav px-3 navbar-left-link-container"
+              style={{ fontWeight: "600" }}
+            >
               <li className="nav-item px-2">
                 <div className="nav-link">
                   <div className="dropdown navbar-dropdown-container">
@@ -57,36 +83,41 @@ export default function Navbar() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/men/shirt"
+                        to="/main-category/men/shirt"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         shirt
                       </Link>
 
                       <Link
-                        to="/sub-category/men/t-shirt"
+                        to="/main-category/men/t-shirt"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         t-shirt
                       </Link>
 
                       <Link
-                        to="/sub-category/men/jeans"
+                        to="/main-category/men/jeans"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         jeans
                       </Link>
 
                       <Link
-                        to="/sub-category/men/trouser"
+                        to="/main-category/men/trouser"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         trouser
                       </Link>
 
                       <Link
-                        to="/sub-category/men/shoes"
+                        to="/main-category/men/shoes"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         shoes
                       </Link>
@@ -109,36 +140,41 @@ export default function Navbar() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/women/kurta"
+                        to="/main-category/women/kurta"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         kurtas &#38; suits
                       </Link>
 
                       <Link
-                        to="/sub-category/women/saree"
+                        to="/main-category/women/saree"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         sarees
                       </Link>
 
                       <Link
-                        to="/sub-category/women/t-shirt"
+                        to="/main-category/women/t-shirt"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         t-shirt
                       </Link>
 
                       <Link
-                        to="/sub-category/women/jeans"
+                        to="/main-category/women/jeans"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         jeans
                       </Link>
 
                       <Link
-                        to="/sub-category/women/shoes"
+                        to="/main-category/women/shoes"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         shoes
                       </Link>
@@ -161,36 +197,41 @@ export default function Navbar() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/kids/shirt"
+                        to="/main-category/kids/shirt"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         shirt
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/t-shirt"
+                        to="/main-category/kids/t-shirt"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         t-shirt
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/jeans"
+                        to="/main-category/kids/jeans"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         jeans
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/short"
+                        to="/main-category/kids/short"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         shorts
                       </Link>
 
                       <Link
-                        to="/sub-category/kids/shoes"
+                        to="/main-category/kids/shoes"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         shoes
                       </Link>
@@ -213,36 +254,41 @@ export default function Navbar() {
                       aria-labelledby="dropdownMenuButton"
                     >
                       <Link
-                        to="/sub-category/home &#38; living/bedsheets"
+                        to="/main-category/home &#38; living/bedsheets"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         bedsheets
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/bedding-sets"
+                        to="/main-category/home &#38; living/bedding-sets"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         bedding sets
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/blankets-quits-and-dohars"
+                        to="/main-category/home &#38; living/blankets-quits-and-dohars"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         blankets, quilts and &#38; dohars
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/towels"
+                        to="/main-category/home &#38; living/towels"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         bath towels
                       </Link>
 
                       <Link
-                        to="/sub-category/home &#38; living/carpets"
+                        to="/main-category/home &#38; living/carpets"
                         className="text-capitalize dropdown-item"
+                        onClick={closeNav}
                       >
                         carpets
                       </Link>
@@ -253,7 +299,10 @@ export default function Navbar() {
             </ul>
 
             <div className="search_container ml-auto">
-              <ul className="navbar-nav" style={{ fontSize: "13px" }}>
+              <ul
+                className="navbar-nav"
+                style={{ fontSize: "13px", fontWeight: "600" }}
+              >
                 {/* <li className="nav-item mr-3">
                   <div className="input-group mt-3">
                     <div className="input-group-prepend">
@@ -327,18 +376,22 @@ export default function Navbar() {
                 <li className="nav-item">
                   <Link id="view-bag" to="/bag" className="nav-link">
                     <div className="nav-icon-container">
+                      {bagItems > 0 && (
+                        <div className="bag-items-count">{bagItems}</div>
+                      )}
                       <div className="text-center text-muted">
                         <FaShoppingBag aria-hidden="true" />
                       </div>
+
                       <div>Bag</div>
                     </div>
                   </Link>
                 </li>
               </ul>
             </div>
-          </div>
+          </Navbar.Collapse>
         </div>
-      </nav>
+      </Navbar>
 
       <div className="navbar search-container2 pt-2">
         <div className="container-fluid">
@@ -409,6 +462,9 @@ export default function Navbar() {
           <div>
             <Link to="/bag" className="nav-link">
               <div className="nav-icon-container">
+                {bagItems > 0 && (
+                  <div className="medium-bag-items-count">{bagItems}</div>
+                )}
                 <div className="text-center text-muted">
                   <FaShoppingBag aria-hidden="true" />
                 </div>

@@ -7,6 +7,9 @@ import Loading from "../../components/Loading";
 import ProductService from "../../services/ProductService";
 import { removeUserSession, getToken } from "../../utils/Storage";
 import Images from "../components/AddProductPage/ProductImages";
+import { MdKeyboardBackspace } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { NotificationManager } from "react-notifications";
 
 export default function AddProductPage(props) {
   const [loading, setLoading] = useState(false);
@@ -264,6 +267,7 @@ export default function AddProductPage(props) {
         });
         setBlobImages([]);
         setLoading(false);
+        NotificationManager.success("Product added successfully", "", 2000);
         props.history.push("/dashboard/products/" + res.data._id);
       } catch (error) {
         console.error(error);
@@ -291,6 +295,13 @@ export default function AddProductPage(props) {
   return (
     <>
       <Navbar />
+
+      <div>
+        <Link to="/dashboard/products" className="text-capitalize back-btn">
+          <MdKeyboardBackspace className="back-btn-arrow" />
+        </Link>
+      </div>
+
       <div className="gradient-container pb-5">
         <div className="container py-3 add-product-form-card-container">
           <div className="card add-product-card">

@@ -7,6 +7,7 @@ import EmptyBanner from "../components/EmptyBanner";
 import Product from "../components/OffersPage/Product";
 import { Modal } from "react-bootstrap";
 import { getToken, removeUserSession } from "../../utils/Storage";
+import { NotificationManager } from "react-notifications";
 
 export default function OffersPage(props) {
   const [loading, setLoading] = useState(false);
@@ -88,6 +89,7 @@ export default function OffersPage(props) {
     try {
       setLoading(true);
       await ProductService.updateProduct(id, product, getToken());
+      NotificationManager.success("Offer applied successfully", "", 2000);
       setShowModal(false);
       setOffer("");
       setOfferError("");

@@ -16,9 +16,9 @@ export default function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
       <div className="container-fluid">
-        <Link to="#" className="navbar-brand">
+        <Link to="/dashboard" className="navbar-brand">
           <img
-            src="../../images/myntra-logo.png"
+            src="../../../images/myntra-logo.png"
             alt="Logo"
             height="50"
             width="50"

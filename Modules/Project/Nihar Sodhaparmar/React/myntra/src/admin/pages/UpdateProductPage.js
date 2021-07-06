@@ -8,6 +8,9 @@ import Loading from "../../components/Loading";
 import { getToken, removeUserSession } from "../../utils/Storage";
 import Images from "../components/UpdateProductPage/ProductImages";
 import NewImages from "../components/AddProductPage/ProductImages";
+import { MdKeyboardBackspace } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { NotificationManager } from "react-notifications";
 
 export default function UpdateProductPage(props) {
   const [loading, setLoading] = useState(false);
@@ -272,6 +275,7 @@ export default function UpdateProductPage(props) {
         setLoading(true);
         await ProductService.updateProduct(id, newData, getToken());
         setLoading(false);
+        NotificationManager.success("Product updated successfully", "", 2000);
         props.history.push("/dashboard/products/" + id);
       } catch (error) {
         setLoading(false);
@@ -371,6 +375,11 @@ export default function UpdateProductPage(props) {
   return (
     <>
       <Navbar />
+      <div>
+        <Link to="/dashboard/products" className="text-capitalize back-btn">
+          <MdKeyboardBackspace className="back-btn-arrow" />
+        </Link>
+      </div>
       <div className="gradient-container pb-5">
         <div className="container py-3 add-product-form-card-container">
           <div className="card add-product-card">

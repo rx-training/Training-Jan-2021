@@ -43,6 +43,9 @@ import MainCategoryWiseProductPage from "./pages/MainCategoryWiseProductPage";
 import UsersPage from "./admin/pages/UsersPage";
 import AdminRegisterPage from "./admin/pages/RegisterPage";
 import AdminLoginPage from "./admin/pages/LoginPage";
+import UserOrdersPage from "./admin/pages/UserOrdersPage";
+import AdminHomePage from "./admin/pages/HomePage";
+import AdminOrdersPage from "./admin/pages/OrdersPage";
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -88,6 +91,7 @@ function App() {
           component={MainCategoryWiseProductPage}
         />
         {/* *************** */}
+        <AdminRoute exact path="/dashboard" component={AdminHomePage} />
         <AdminRoute exact path="/dashboard/products" component={ProductsPage} />
         <AdminRoute
           path="/dashboard/products/:id"
@@ -109,7 +113,12 @@ function App() {
           path="/dashboard/main-categories"
           component={MainCategoriesPage}
         />
-        <AdminRoute path="/dashboard/users" component={UsersPage} />
+        <AdminRoute exact path="/dashboard/users" component={UsersPage} />
+        <AdminRoute
+          path="/dashboard/users/orders/:id"
+          component={UserOrdersPage}
+        />
+        <AdminRoute path="/dashboard/orders/" component={AdminOrdersPage} />
         <AdminRoute
           exact
           path="/dashboard/register"

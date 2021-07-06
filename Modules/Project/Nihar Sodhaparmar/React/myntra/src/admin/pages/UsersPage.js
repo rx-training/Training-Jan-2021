@@ -5,16 +5,20 @@ import Loading from "../../components/Loading";
 import { getToken, removeUserSession } from "../../utils/Storage";
 import CustomerService from "../../services/CustomerService";
 import UserRow from "../components/UsersPage/UserRow";
+import { NotificationManager } from "react-notifications";
 
 export default function UsersPage(props) {
   const [loading, setLoading] = useState(false);
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [filterData, setFilterData] = useState({
+    filterValue: "",
+  });
 
   async function getData() {
     try {
       setLoading(true);
       let users = await CustomerService.getAllCustomers(getToken());
-      // setUsers(users.data);
+      setUsers(users.data);
       setData(users.data);
       setLoading(false);
     } catch (error) {
@@ -30,11 +34,46 @@ export default function UsersPage(props) {
     getData();
   }, []);
 
+  const filterDataChange = (event) => {
+    const { name, value } = event.target;
+
+    let filteredUsers = users;
+
+    if (value.length > 0) {
+      filteredUsers = filteredUsers.filter((user) => {
+        let tempSearch = value.toLowerCase();
+        let tempName = user.customerName
+          .toLowerCase()
+          .slice(0, tempSearch.length);
+        let tempEmail = user.email.toLowerCase().slice(0, tempSearch.length);
+        let tempContactNumber = user.contactNumber
+          .toLowerCase()
+          .slice(0, tempSearch.length);
+
+        if (
+          tempSearch === tempName ||
+          tempSearch === tempEmail ||
+          tempSearch === tempContactNumber
+        ) {
+          return user;
+        }
+
+        return null;
+      });
+    }
+
+    setFilterData({ ...filterData, [name]: value });
+    setData(filteredUsers);
+    setCurrentPage(1);
+  };
+
   const deleteUser = async (id) => {
     if (window.confirm("Are you sure, you want to delete?")) {
       try {
         setLoading(true);
         await CustomerService.deleteCustomer(id, getToken());
+        NotificationManager.error("User deleted successfully", "", 2000);
+        setCurrentPage(1);
         getData();
         setLoading(false);
       } catch (error) {
@@ -129,6 +168,8 @@ export default function UsersPage(props) {
   }
   // *************** END OF PAGINATION ***************
 
+  const { filterValue } = filterData;
+
   if (loading) {
     return (
       <>
@@ -143,7 +184,21 @@ export default function UsersPage(props) {
       <Navbar />
       <div className="container-fluid py-4">
         <div className="row">
-          <div className="col col-md-3 col-lg-2"></div>
+          <div className="col col-md-3 col-lg-2">
+            <div className="form-group mt-2">
+              <label className="form-control-label mb-1" htmlFor="filterValue">
+                Search By Name / E-mail / Contact Number
+              </label>
+              <input
+                type="search"
+                className="form-control"
+                id="filterValue"
+                name="filterValue"
+                value={filterValue}
+                onChange={filterDataChange}
+              />
+            </div>
+          </div>
           <div className="col col-md-9 col-lg-10">
             <table className="table table-hover table-bordered bg-white table-striped">
               <thead className="thead-dark">
@@ -154,7 +209,7 @@ export default function UsersPage(props) {
                   <th className="text-spacing">Name</th>
                   <th className="text-spacing">E-mail</th>
                   <th className="text-spacing">Contact number</th>
-                  <th className="text-spacing">Orders</th>
+                  <th className="text-spacing text-center">Orders</th>
                   <th></th>
                 </tr>
               </thead>

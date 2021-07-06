@@ -6,6 +6,7 @@ import Loading from "../../components/Loading";
 import { Modal } from "react-bootstrap";
 import MainCategoryService from "../../services/MainCategoryService";
 import MainCategoryRow from "../components/MainCategoriesPage/MainCategoryRow";
+import { NotificationManager } from "react-notifications";
 
 export default function MainCategoriesPage(props) {
   const [loading, setLoading] = useState(false);
@@ -82,6 +83,11 @@ export default function MainCategoriesPage(props) {
         setLoading(false);
         setIsUpdate(false);
         setError("");
+        NotificationManager.success(
+          "Maincategory updated successfully",
+          "",
+          2000
+        );
       } catch (error) {
         if (error.response.status === 401) {
           removeUserSession();
@@ -101,6 +107,11 @@ export default function MainCategoriesPage(props) {
         setMainCategoryName("");
         setLoading(false);
         setError("");
+        NotificationManager.success(
+          "Maincategory added successfully",
+          "",
+          2000
+        );
       } catch (error) {
         if (error.response.status === 401) {
           removeUserSession();
@@ -123,6 +134,11 @@ export default function MainCategoriesPage(props) {
       try {
         setLoading(true);
         await MainCategoryService.deleteMainCategory(id, getToken());
+        NotificationManager.error(
+          "Maincategory deleted successfully",
+          "",
+          2000
+        );
         getData();
         setLoading(false);
       } catch (error) {
