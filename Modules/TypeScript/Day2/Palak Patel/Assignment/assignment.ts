@@ -22,7 +22,7 @@ class Product implements Inventory{
         this.origenalQuant=quant;
     }
 
-    reorderRequest(){
+    private reorderRequest(){
         this.Quantity=this.Quantity+this.origenalQuant;
         console.log(`${this.Name} has been restocked. Current Quantity is ${this.Quantity}`);
     }

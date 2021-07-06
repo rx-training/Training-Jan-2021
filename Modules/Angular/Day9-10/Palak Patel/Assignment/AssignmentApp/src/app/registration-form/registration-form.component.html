@@ -1,0 +1,332 @@
+<div class="container my-5">
+  <div class="title text-center display-4">Student Registration Form</div>
+  <p *ngIf="isValidFormSubmitted && studentData.pristine" style="color: green;">
+    Form submitted successfully.
+  </p>
+  <form class="mt-5" [formGroup]="studentData" (ngSubmit)="onFormSubmit()">
+    <div class="card">
+      <div class="card-header bg-white">
+        <legend class="display-5">Personal Details</legend>
+      </div>
+      <div class="card-body">
+        <div formGroupName="personalData">
+          <div class="row " formGroupName="name">
+            <div class="col-lg-4">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control text-small" formControlName="FirstName" required>
+              <div *ngIf="firstname.errors"> 
+                <div *ngIf="firstname.errors.required && firstname.touched" style="color: red;">
+                  First Name is required.
+                </div>  
+                <div *ngIf="firstname.errors.pattern" style="color: red;">
+                  First Name can only contain alphabate.
+                </div> 
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <label for="middleName">Middle Name</label>
+              <input type="text" class="form-control" formControlName="MiddleName">
+              <div *ngIf="middlename.errors "> 
+                <div *ngIf="middlename.errors.required && middlename.touched" style="color: red;">
+                  Middle Name is required.
+                </div>  
+                <div *ngIf="middlename.errors.pattern" style="color: red;">
+                  Middle Name can only contain alphabate.
+                </div> 
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" formControlName="LastName">
+              <div *ngIf="lastname.errors "> 
+                <div *ngIf="lastname.errors.required && lastname.touched" style="color: red;">
+                  Last Name is required.
+                </div>  
+                <div *ngIf="lastname.errors.pattern" style="color: red;">
+                  Last Name can only contain alphabate.
+                </div> 
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-lg-4">
+              <label for="dob">Date Of Birth</label>
+              <input type="date" class="form-control" formControlName="DOB">
+              <span class="text-small" style="color: red;"
+                *ngIf="this.studentData.get('personalData.DOB').invalid && !this.studentData.get('personalData.DOB').untouched">Date
+                of Birth is required</span>
+            </div>
+            <div class="col-lg-4">
+              <label for="birthPlace">Place of Birth</label>
+              <input type="text" class="form-control" formControlName="BirthPlace">
+
+            </div>
+            <div class="col-lg-4">
+              <label for="firstLanguage">First Language</label>
+              <input type="text" class="form-control" formControlName="FirstLanguage">
+              <div *ngIf="language.errors "> 
+                <div *ngIf="language.errors.required && language.touched" style="color: red;">
+                  First Langugae is required.
+                </div>  
+                <div *ngIf="language.errors.pattern" style="color: red;">
+                  First Langugae can only contain alphabate.
+                </div> 
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3 mb-2" formGroupName="Address">
+            <div class="col-lg-3">
+              <label for="city">City</label>
+              <input type="text" class="form-control" formControlName="City">
+              <span class="text-small" style="color: red;"
+                *ngIf="this.studentData.get('personalData.Address.City').invalid && !this.studentData.get('personalData.Address.City').untouched">City
+                is required</span>
+            </div>
+            <div class="col-lg-3">
+              <label for="state">State</label>
+              <input type="text" class="form-control" formControlName="State">
+              <span class="text-small" style="color: red;"
+                *ngIf="this.studentData.get('personalData.Address.State').invalid && !this.studentData.get('personalData.Address.State').untouched">State
+                is required</span>
+            </div>
+            <div class="col-lg-3">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" formControlName="Country">
+              <span class="text-small" style="color: red;"
+                *ngIf="this.studentData.get('personalData.Address.Country').invalid && !this.studentData.get('personalData.Address.Country').untouched">Country
+                is required</span>
+            </div>
+            <div class="col-lg-3">
+              <label for="pin">PIN Code</label>
+              <input type="text" class="form-control" formControlName="PIN">
+              <div *ngIf="pincode.errors "> 
+                <div *ngIf="pincode.errors.required && pincode.touched" style="color: red;">
+                  Pincode is required.
+                </div>  
+                <div *ngIf="pincode.errors.pattern" style="color: red;">
+                  Pincode is not valid.
+                </div> 
+              </div>
+              <!-- <div *ngIf="this.studentData.get('personalData.Address.PIN').touched; then thenBlock else elseBlock"></div>
+              <div style="color: red;">
+                <ng-template #thenBlock>PIN Code is required</ng-template>
+                <ng-template #elseBlock >
+                  <span *ngIf="this.studentData.get('personalData.Address.PIN').invalid">Please enter valid PIN code</span>
+                </ng-template>
+              </div> -->
+              <!-- <span *ngIf="pincode.touched" style="color: red;">PIN Code is required</span>
+              <span *ngIf="pincode.touched && pincode.errors.pattern" style="color: red;">Please Enter valid PIN code</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-white mt-4">
+      <div class="card-header bg-white">
+        <legend class="display-5">Parents Details</legend>
+      </div>
+      <div class="card-body">
+        <div formGroupName="parentsData">
+          <legend>Father's Details</legend>
+          <div formGroupName="FatherDetail">
+            <div class="row" formGroupName="FatherName">
+              <div class="col-lg-4">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" formControlName="FirstName">
+                <div *ngIf="fatherFirstName.errors "> 
+                  <div *ngIf="fatherFirstName.errors.required && fatherFirstName.touched" style="color: red;">
+                    First Name is required.
+                  </div>  
+                  <div *ngIf="fatherFirstName.errors.pattern" style="color: red;">
+                    First Name can only contain alphabate.
+                  </div> 
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <label for="middleName">Middle Name</label>
+                <input type="text" class="form-control" formControlName="MiddleName">
+              </div>
+              <div class="col-lg-4">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" formControlName="LastName">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-4">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="Email">
+                <div *ngIf="femail.errors "> 
+                  <div *ngIf="femail.errors.required && femail.touched" style="color: red;">
+                    Email ID is required.
+                  </div>  
+                  <div *ngIf="femail.errors.email" style="color: red;">
+                    Email ID is not valid.
+                  </div> 
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <label for="eduQualification">Education Qualification</label>
+                <input type="text" class="form-control" formControlName="EducationQualification">
+              </div>
+              <div class="col-lg-4">
+                <label for="Profession">Profession</label>
+                <input type="text" class="form-control" formControlName="Profession">
+              </div>
+            </div>
+            <div class="row mt-3 mb-3">
+              <div class="col-lg-6">
+                <label for="Designation">Designation</label>
+                <input type="text" class="form-control" formControlName="Designation">
+              </div>
+              <div class="col-lg-6">
+                <label for="Phone">Phone</label>
+                <input type="text" class="form-control" formControlName="Phone">
+                <div *ngIf="fphoneNo.errors "> 
+                  <div *ngIf="fphoneNo.errors.required && fphoneNo.touched" style="color: red;">
+                    Phone No. is required.
+                  </div>  
+                  <div *ngIf="fphoneNo.errors.pattern" style="color: red;">
+                    Phone No. is not valid.
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <legend class="mt-3">Mother's Details</legend>
+          <div formGroupName="MotherDetail">
+            <div class="row mt-3" formGroupName="MotherName">
+              <div class="col-lg-4">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" formControlName="FirstName">
+                <div *ngIf="motherFirstName.errors "> 
+                  <div *ngIf="motherFirstName.errors.required && motherFirstName.touched" style="color: red;">
+                    First Name is required.
+                  </div>  
+                  <div *ngIf="motherFirstName.errors.pattern" style="color: red;">
+                    First Name can only contain alphabate.
+                  </div> 
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <label for="middleName">Middle Name</label>
+                <input type="text" class="form-control" formControlName="MiddleName">
+              </div>
+              <div class="col-lg-4">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" formControlName="LastName">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-4">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="Email">
+                <div *ngIf="memail.errors "> 
+                  <div *ngIf="memail.errors.required && memail.touched" style="color: red;">
+                    Email ID is required.
+                  </div>  
+                  <div *ngIf="memail.errors.email" style="color: red;">
+                    Email ID is not valid.
+                  </div> 
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <label for="eduQualification">Education Qualification</label>
+                <input type="text" class="form-control" formControlName="EducationQualification">
+              </div>
+              <div class="col-lg-4">
+                <label for="Profession">Profession</label>
+                <input type="text" class="form-control" formControlName="Profession">
+              </div>
+            </div>
+            <div class="row mt-3 mb-4">
+              <div class="col-lg-6">
+                <label for="Designation">Designation</label>
+                <input type="text" class="form-control" formControlName="Designation">
+              </div>
+              <div class="col-lg-6">
+                <label for="Phone">Phone</label>
+                <input type="text" class="form-control" formControlName="Phone">
+                <div *ngIf="mphoneNo.errors"> 
+                  <div *ngIf="mphoneNo.errors.required && mphoneNo.touched" style="color: red;">
+                    Phone No. is required.
+                  </div>  
+                  <div *ngIf="mphoneNo.errors.pattern" style="color: red;">
+                    Phone No. is not valid.
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card bg-white my-4">
+      <div class="card-header bg-white">
+        <legend>Emergency Contacts</legend>
+      </div>
+      <div class="card-body">
+        <div formArrayName="EmergencyContact">
+          <div *ngFor="let item of getEmergencyContact.controls; let i=index">
+            <div class="row" [formGroupName]="i">
+              <div class="col-lg-5">
+                <label for="relation">Relation</label>
+                <input type="text" class="form-control" formControlName="Relation">
+              </div>
+              <div class="col-lg-5">
+                <label for="contactNo">Contact No.</label>
+                <input type="text" class="form-control" formControlName="ContactNumber">
+              </div>
+              <div class="col-lg-2">
+                <br>
+                <button class="btn btn-secondary w-100 mt-2" (click)="removeEmergencyContact(i)">Remove</button>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-lg-2">
+              <button class="btn btn-secondary w-100" (click)="addEmergencyContact()">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-white mt-4">
+      <div class="card-header bg-white">
+        <legend>References</legend>
+      </div>
+      <div class="card-body">
+        <div formArrayName="ReferenceDetails">
+          <div *ngFor="let item of getReferences.controls; let i=index">
+            <div class="row" [formGroupName]="i">
+              <div class="col-lg-5">
+                <label for="ReferenceThrough">Reference Through</label>
+                <input type="text" class="form-control" formControlName="ReferenceThrough">
+              </div>
+              <div class="col-lg-5">
+                <label for="ReferenceAddress">Reference Address</label>
+                <input type="text" class="form-control" formControlName="ReferenceAddress">
+              </div>
+              <div class="col-lg-2">
+                <br>
+                <button class="btn btn-secondary w-100 mt-2" (click)="removeReference(i)">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2">
+            <button class="btn btn-secondary w-100 mt-2" (click)="addReference()">Add</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <button class="btn btn-success w-25">Submit</button>
+    </div>
+  </form>
+</div>

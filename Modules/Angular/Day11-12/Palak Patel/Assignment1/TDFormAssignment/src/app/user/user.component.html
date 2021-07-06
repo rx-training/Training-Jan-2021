@@ -1,0 +1,111 @@
+<div class="container">
+  <h3>User Information</h3>
+  <p *ngIf="isValidFormSubmitted" [ngClass]="'success'">
+    Form submitted successfully.
+  </p>
+  <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" novalidate>
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="username">Username</label>
+      </div>
+      <div class="col-lg-6">
+        <input name="userName" required minlength="5" ngModel #userName="ngModel">
+        <div *ngIf="userName.errors && userForm.submitted && !isValidFormSubmitted" class="error">
+          <div *ngIf="userName.errors.required">
+            Username required.
+          </div>
+          <div *ngIf="userName.errors.minlength">
+            Minimum length 5 characters.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="age">Age</label>
+      </div>
+      <div class="col-lg-3">
+        <input type="number" name="age" ngModel required min="18" #age="ngModel">
+        <div *ngIf="age.errors && userForm.submitted && !isValidFormSubmitted" class="error">
+          <div *ngIf="age.errors.required">
+            Age required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="profile">Select Profile</label>
+      </div>
+      <div class="col-lg-6">
+        <select name="profile" [ngModel]="initialProfileVal" ngModel required #profile="ngModel">
+          <option [ngValue]="null">Choose your profile</option>
+          <option *ngFor="let prf of allProfiles" [ngValue]="prf">
+            {{ prf.prName }}
+          </option>
+        </select>
+        <div *ngIf="profile.errors && userForm.submitted && !isValidFormSubmitted" class="error">
+          <div *ngIf="profile.errors.required">
+            Profile required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="technologies">Select Technologies</label>
+      </div>
+      <div class="col-lg-6">
+        <select multiple name="technologies" [compareWith]="compareTech" ngModel required #selectedTechs="ngModel">
+          <option *ngFor="let tech of allTechnologies" [ngValue]="tech">
+            {{ tech.techName }}
+          </option>
+        </select>
+        <div *ngIf="selectedTechs.errors && userForm.submitted && !isValidFormSubmitted" class="error">
+          <div *ngIf="selectedTechs.errors.required">
+            Technologies required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="gender">Gender</label>
+      </div>
+      <div class="col-lg-6">
+        <input type="radio" value="male" name="gender" ngModel required #gender="ngModel"> Male
+        <input type="radio" value="female" name="gender" ngModel required #gender="ngModel"> Female
+        <div *ngIf="gender.errors && userForm.submitted && !isValidFormSubmitted" class="error">
+          <div *ngIf="gender.errors.required">
+            Gender required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="marriageStatus">Are you Married?</label>
+      </div>
+      <div class="col-lg-6">
+        <input type="checkbox" name="isMarried" ngModel>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">Accept T & C</div>
+      <div class="col-lg-6">
+        <input type="checkbox" name="isTCAccepted" ngModel required #tc="ngModel">
+        <div *ngIf="tc.invalid && userForm.submitted && !isValidFormSubmitted" class="error">
+          Accept T & C.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <button type="button" (click)="setDefaultValues(userForm)">Set Default</button>
+      </div>
+      <div class="col-lg-3">
+        <button type="reset" (click)="resetUserForm(userForm)">Reset</button>
+      </div>
+    </div>
+  </form>
+</div>
