@@ -41,14 +41,14 @@ class FlightSearchService {
     //     return axios.post(BASE_URL + "/AirIndia/B2C/Booking/payment/payment" , mailId)
     // }
 
-    verifyToken(token, userData){
-        return axios.post(BASE_URL + "/AirIndia/B2C/user/login/verifyToken" , userData , {
-            headers : {
-                'token' : token 
-                // 'isAdmin' : 
-            }
-        })
-    }
+    // verifyToken(token, userData){
+    //     return axios.post(BASE_URL + "/AirIndia/B2C/user/login/verifyToken" , userData , {
+    //         headers : {
+    //             'token' : token 
+    //             // 'isAdmin' : 
+    //         }
+    //     })
+    // }
 }
 
 export default new FlightSearchService()

@@ -30,7 +30,7 @@ function TicketConfirm(props) {
     const data = {selectedFlight , returnSelectedFlight , passengerDetails , name , guests , flight , returnFlight , totalTicket , totalFare , totalCharge , totalExtras ,grandTotal  }
 
     const handleClick = (e) =>{
-        props.history.push('/Airindia')
+        props.history.push('/')
     }
     const componentRef = useRef();
     return (

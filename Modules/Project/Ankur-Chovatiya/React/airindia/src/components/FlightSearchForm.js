@@ -83,7 +83,7 @@ function FlightSearchForm(props) {
             localStorage.setItem('searchData' , searchData);
             sessionStorage.setItem('search',requiredValue )
             
-        props.history.push(`${props.match.url}/select`)
+        props.history.push(`AirIndia/select`)
     }
     // useEffect(()=>{
         // const data = sessionStorage.getItem('search')

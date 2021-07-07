@@ -60,7 +60,7 @@ function Seatmap(props) {
         console.log(a);
         setSelectedSeat([...selectedSeat , seat])
         console.log(selectedSeat);
-        setSeats( Seats.filter(s => s != a[btn] ))
+        // setSeats( Seats.filter(s => s != a[btn] ))
         setBtn(btn + 1)
         
         if(person !== undefined ){

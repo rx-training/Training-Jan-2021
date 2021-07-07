@@ -7,12 +7,12 @@ function BookingTotal(props) {
     // console.log(returnFlight);
 
     const search = JSON.parse(localStorage.getItem('searchData'))
-    const totalTicket = parseInt(search.Adults) + parseInt(search.Children) + parseInt(search.Infants)
-    const totalFare = parseInt(flight.price + returnFlight.price)
-    const  totalCharge = (flight.AirFare ? flight.AirFare.ChargesAndfees : 0 )
-    const totalExtras = (flight.AirFare ?  flight.AirFare.ExtraFare : 0 )
+    const totalTicket = parseInt(search.Adults) + parseInt(search.Children) + parseInt(search.Infants) 
+    const totalFare = parseInt(flight.price + returnFlight.price) || 0
+    const  totalCharge = (flight.AirFare ? flight.AirFare.ChargesAndfees : 0 ) || 0
+    const totalExtras = (flight.AirFare ?  flight.AirFare.ExtraFare : 0 ) || 0
 
-    const grandTotal = totalFare + totalCharge + totalExtras + totalFare*0.18 
+    const grandTotal = totalFare + totalCharge + totalExtras + totalFare*0.18 || 0 
 
     // const {handleFinalClick} = props
 
@@ -176,11 +176,11 @@ collected.
                     </div>
                     <div className="col">
                         <h3 className="heading">FARES & FEES</h3>
-                        <p>Fares  - {totalFare * totalTicket}</p>
-                        <p>Charges & fees - {totalCharge * totalTicket}</p>
-                        <p>Taxes - {totalFare *0.18 * totalTicket}</p>
-                        <p>Extras - {totalExtras * totalTicket}</p><hr />
-                        <h4>Booking Total - { grandTotal * totalTicket }</h4>
+                        <p>Fares  - {totalFare * totalTicket} Rs.</p>
+                        <p>Charges & fees - {totalCharge * totalTicket}  Rs.</p>
+                        <p>Taxes - {totalFare *0.18 * totalTicket} Rs.</p>
+                        <p>Extras - {totalExtras * totalTicket} Rs.</p><hr />
+                        <h4>Booking Total - { grandTotal * totalTicket } Rs.</h4>
 
                     {/* //props.handleSendMail() */}
                        { props.review ? <button className="btn btn-danger btn-block" onClick={(e) => {props.handleFinalClick()}} >BOOK</button> :

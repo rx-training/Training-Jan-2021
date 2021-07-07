@@ -41,10 +41,13 @@ var returnSearchQuery = {}
         returnSearchQuery = {LandingPoint : TakeoffPoint , TakeoffPoint :LandingPoint ,Economy ,TackoffDate : ReturningDate }
         
 
-
+    const [selectedClass , setSelectedClass] = useState(0)
     const handleClick = (e , id) =>{
+        // console.log(id);
         const p = e.target.innerText.split('- ')
         setprice(parseInt(p[1]))
+        setSelectedClass(id)
+        // e.target.style.backgroundColor = 'darkred';   
         // console.log(price);
 
         setId(id)
@@ -52,6 +55,7 @@ var returnSearchQuery = {}
         setShowSummary(true)
         
     }
+    // console.log(selectedClass);
     const RhandleClick = (e , id) =>{
         const p = e.target.innerText.split('- ')
         setRprice(parseInt(p[1]))
@@ -64,7 +68,7 @@ var returnSearchQuery = {}
     }
 
         const selectedflight = JSON.stringify({...selectedFlight , price })
-        localStorage.setItem('selectedFlight' , selectedflight);
+        localStorage.setItem ('selectedFlight' , selectedflight);
 
         const returnSelectedflight = JSON.stringify({...returnSelectedFlight , price:Rprice})
         localStorage.setItem('returnSelectedflight' , returnSelectedflight);
@@ -133,16 +137,16 @@ var returnSearchQuery = {}
                                 </div>
                                 <div className="col-8 border ">
                                     <div className="row ">
-                                    <div className = "col-3 price-box" name="divweb" onClick={(e ,id) => handleClick(e , flight.FlightId )}>  
+                                    <div className = {`col-3 price-box ${price === 5000 ? 'bg-danger' : null}`} name="divweb" onClick={(e ,id) => handleClick(e , flight.FlightId )}>  
                                        INR  -  { flight.AirFare.WebSpecialFareAmount}
                                     </div>
-                                    <div className="col-3 price-box" onClick={(e ,id) => handleClick(e , flight.FlightId )}>
+                                    <div className={`col-3 price-box ${price === 7000 ? 'bg-danger' : null}`} onClick={(e ,id) => handleClick(e , flight.FlightId )}>
                                     INR - {flight.AirFare.SupervalueFareAmount }
                                     </div>
-                                    <div className="col-3 price-box" onClick={(e ,id) => handleClick(e , flight.FlightId )}>
+                                    <div className={`col-3 price-box ${price === 15000 ? 'bg-danger' : null}`} onClick={(e ,id) => handleClick(e , flight.FlightId )}>
                                     INR - {flight.AirFare.BFlexisaver}
                                     </div>
-                                    <div className="col-3 price-box" onClick={(e ,id) => handleClick(e , flight.FlightId )}>
+                                    <div className={`col-3 price-box ${price === 17000 ? 'bg-danger' : null}`} onClick={(e ,id) => handleClick(e , flight.FlightId )}>
                                     INR- {flight.AirFare.BFlexible}
                                     </div>
                             </div>
@@ -196,16 +200,16 @@ var returnSearchQuery = {}
                                 </div>
                                 <div className="col-8 border ">
                                     <div className="row ">
-                                    <div className = "col-3 price-box" name="divweb" onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>  
+                                    <div className = {`col-3 price-box ${Rprice === 5000 ? 'bg-danger' : null}`} name="divweb" onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>  
                                        INR  -  { flight.AirFare.WebSpecialFareAmount}
                                     </div>
-                                    <div className="col-3 price-box" onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>
+                                    <div className={`col-3 price-box ${Rprice === 7000 ? 'bg-danger' : null}`} onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>
                                     INR - {flight.AirFare.SupervalueFareAmount }
                                     </div>
-                                    <div className="col-3 price-box" onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>
+                                    <div className={`col-3 price-box ${Rprice === 15000 ? 'bg-danger' : null}`} onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>
                                     INR - {flight.AirFare.BFlexisaver}
                                     </div>
-                                    <div className="col-3 price-box" onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>
+                                    <div className={`col-3 price-box ${Rprice === 17000 ? 'bg-danger' : null}`} onClick={(e ,id) => RhandleClick(e , flight.FlightId )}>
                                     INR- {flight.AirFare.BFlexible}
                                     </div>
                             </div>
