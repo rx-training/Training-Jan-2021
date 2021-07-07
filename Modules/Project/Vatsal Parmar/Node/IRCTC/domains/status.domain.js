@@ -5,7 +5,7 @@ class StatusDomain {
   async getAllStatus(req, res) {
     const status = await StatusModel.find()
       .populate("train", "train_name")
-      .sort({ train: 1 });
+      .sort({ train: -1 });
     res.send(status);
   }
   //To get status

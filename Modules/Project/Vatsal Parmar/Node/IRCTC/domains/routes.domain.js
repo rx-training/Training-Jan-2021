@@ -6,7 +6,7 @@ class RouteDomain {
     const routes = await RouteModel.find()
       .populate("train", "train_name")
       .populate("station", "station_name")
-      .sort({ train: 1 });
+      .sort({ train: -1 });
     res.send(routes);
   }
   //To get route
