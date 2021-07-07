@@ -1,0 +1,10 @@
+.backround-img
+{
+    height: 100vh;
+    background: url(../../../assets/Images/arie-wubben-pFUEpJUSyyE-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    
+}

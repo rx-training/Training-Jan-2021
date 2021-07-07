@@ -1,0 +1,116 @@
+<div class="bg-light pb-4">
+    <div style="background-color:rgb(102, 0, 102); padding: 60px;">
+        <p class="text-center text-white" style="font-size: 40px;">Traveller <span style="font-weight: 800;">Details</span> </p>
+        
+    </div>
+    <div class="container" style="margin-top: -40px;">
+            <div  *ngIf="flag1">
+                    <div class="bg-white  border-success">
+                           
+                               <div class="card m-2 " *ngFor="let item of ShowData;let idex=index">
+                                <div class="card-header bg-primary"style="font-size: 20px;"> <p class=" text-center text-warning"> <i class="fas fa-plane-departure" style="font-size: 40px;"></i> </p>  <p class=" text-white font-weight-bold text-center ">BOARDING PASS</p> </div>
+                                <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="font-weight-bold text-left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depature Airport Name</p>
+                                        <p class="font-weight-bold text-left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.departureAirportName}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="font-weight-bold text-md-right" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrive Airport Name</p>
+                                        <p class="font-weight-bold text-md-right" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedAirportName}}</p>
+                                    </div>
+                                   
+                                    
+                                    
+                                </div>
+                               
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depature City</p>
+                                        <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.depatureCity}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrive City</p>
+                                        <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedCity}}</p>
+                                    </div>
+                                    
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4"> 
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Name :- </span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;"> {{item.userFirstName}} {{item.userMiddleName}} {{item.userLastName}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">PNR Number :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.pnrNumber}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Email Address:-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.userEmail}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4"> 
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Mobile Number :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.userContactNumber}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Airplane Name :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.airplaneName}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Booking DateTime :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.bookingDateTime.split("T")[0]}} {{item.bookingDateTime.split("T")[1]}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"> 
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depature Date :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.departDateTime.split("T")[0]}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrive Date :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedDateTime.split("T")[0]}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depart Time :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.departDateTime.split("T")[1]}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"> 
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrived Time :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedDateTime.split("T")[1]}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Amount:-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;"> <i class="fas fa-rupee-sign"></i> {{item.amount}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Tax  :-</span>
+                                        <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.tax*100}} %</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center" > 
+                                        <span class="text-center text-success font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Totel Amount :-</span>
+                                        <span class="text-center text-success font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;"><i class="fas fa-rupee-sign"></i> {{item.totelCost}}</span>
+                                    </div>
+                                   
+                                </div>
+                               
+                                </div>
+                               </div>
+                             
+                           
+                    </div>
+            </div>
+            
+        </div>
+        <div class="text-danger bg-white text-center" *ngIf="flag2" style="font-size: 20px;">Please Check Your PNRNumber And Email Address</div>
+        <div class="m-3"> <button class="btn btn-outline-success" (click)="Back()">Back</button> </div>
+            </div>
+     
+

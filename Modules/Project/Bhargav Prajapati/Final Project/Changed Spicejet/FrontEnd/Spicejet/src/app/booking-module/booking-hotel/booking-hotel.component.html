@@ -1,0 +1,131 @@
+<div style="background-color:rgb(102, 0, 102); padding: 30px;">
+    <p class="text-center text-white" style="font-size: 40px;">Guest <span style="font-weight: 800;">Details</span> </p>
+    
+</div>
+  <div class="bg-light p-3">
+  <div class="container" *ngIf="flag1">
+        <form [formGroup]="UserData" (ngSubmit)="StoreUserData()">
+      
+      <div class="row">
+          <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="">First Name</label>
+                      <input type="text" class="form-control" formControlName="UserFirstName" [ngClass]="{'is-invalid':userfirstname?.errors && (userfirstname.touched || userfirstname.dirty)}">
+                      <div class="invalid-feedback" *ngIf="userfirstname?.errors && (userfirstname.touched ||userfirstname.dirty)">
+                          <div *ngIf="userfirstname.errors?.required">First Name Required</div>
+                          <div *ngIf="userfirstname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                      </div>
+                  </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <div class="form-group">
+                      <label for="">Middle Name</label>
+                      <input type="text" class="form-control" formControlName="UserMiddleName" [ngClass]="{'is-invalid':usermiddlename?.errors && (usermiddlename.touched ||usermiddlename.dirty)}">
+
+                      <div class="invalid-feedback" *ngIf="usermiddlename?.errors && usermiddlename.touched">
+                          <div *ngIf="usermiddlename.errors?.required">Middle Name Required</div>
+                          <div *ngIf="usermiddlename.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <div class="form-group">
+                      <label for="">Last Name</label>
+                      <input type="text" class="form-control " formControlName="UserLastName" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                      <div class="invalid-feedback" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                          <div *ngIf="userlastname.errors?.required">Last Name Required</div>
+                          <div *ngIf="userlastname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" class="form-control" formControlName="UserEmail" [ngClass]="{'is-invalid':useremail?.errors &&  (useremail.touched || useremail.dirty)}">
+              <div class="invalid-feedback" *ngIf="useremail?.errors && (useremail.touched || useremail.dirty)">
+              <div *ngIf="useremail.errors?.required">Email is Required Fild</div>
+              <div *ngIf="useremail.errors?.email">Please Enter Valid Email</div>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4">
+           <div class="form-group">
+               <label for="">Mobile Number</label>
+               <input type="text" value="" class="form-control" formControlName="UserPhoneNumber" [ngClass]="{'is-invalid':userPhoneNumber?.errors &&(userPhoneNumber.touched || userPhoneNumber.dirty)}">
+               <div class="invalid-feedback"
+                  *ngIf="userPhoneNumber?.errors && (userPhoneNumber.touched || userPhoneNumber.dirty)">
+                  <div *ngIf="userPhoneNumber.errors?.required">MobileNumber is Required Fild</div>
+                  <div *ngIf="userPhoneNumber.errors?.Nodigit">Please Enter Digit Only</div>
+                  <div
+                      *ngIf="(userPhoneNumber.errors?.maxlength  || userPhoneNumber.errors?.minlength)">
+                      Please Enter 10 Digit Number</div>
+              </div>
+
+           </div>
+
+
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+            <label for="">Number Of Guest</label>
+           <select class="form-control" [(ngModel)]="Totelperson" name="Totelperson" formControlName="Guest" [ngClass]="{'is-invalid':Guest?.errors && (Guest.touched || Guest.dirty)}">
+            <option disabled>Select Guest</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="Guest.errors?.required && (Guest.touched || Guest.dirty)">
+                    Check Out Date Date Required
+        </div>
+          </div>
+         </div>
+        </div>
+
+   
+      <div>
+      <button type="submit" class="btn btn-outline-success btn-block" [disabled]="UserData.invalid">Save Record</button>
+  </div>
+  </form>
+</div>
+</div>
+
+<div class="container"  *ngIf="flag2">
+  <div class="card">
+      <div class="card-header bg-primary text-white text-center" style="font-size: 25px;">Payment Details</div>
+      <div class="card-body text-center">
+          
+        <ng-container *ngFor="let item of data" >
+          <img src="{{item.imgPath1}}" class="card-img-top" height="300px" alt="...">
+
+          <p class="mt-4"></p>
+          <p> HotelName :-  {{item.hotelName}}</p>
+          <p> Hotel City :- {{item.hotelCity}} </p>
+          <p> Hotel State :- {{item.hotelState}} </p>
+          <p>Hotel Address :- {{item.hotelState}}</p>
+          <p>PinCode Number :- {{item.pinNumber}} </p>
+          <p>Rating :- {{item.rating}} </p>
+          <p>Hotel Mobile Number :- {{item.hotelMobileNumber}}</p>
+          <p>Hotel Email :- {{item.hotelContectNumber}}</p>
+           <p>Totel Number Of Person :- {{Totelperson}} </p> 
+          <p>Amount :- {{item.amount}}</p>
+          <p>Tax :- {{item.tax}}</p>
+          <p>Totel Price :- {{item.totelAmount}}</p>
+
+          <p class="font-weight-bold text-success"  style="font-size: larger;">Grand Totel :- {{item.totelAmount*Totelperson}}</p>
+        </ng-container>
+        </div>
+   
+      <div class="card-footer"><button  class="btn btn-outline-success btn-block" (click)="MakePayment()">Make Payment</button></div>
+  </div>
+</div>
+

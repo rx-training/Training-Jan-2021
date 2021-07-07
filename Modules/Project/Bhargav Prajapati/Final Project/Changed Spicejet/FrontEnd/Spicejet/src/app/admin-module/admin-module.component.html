@@ -1,0 +1,52 @@
+<div class="backround-img">
+    <div class="container" style="padding-top: 100px;">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-center">
+                            Welecome To The Spicejet Admin Log In Page
+                    </div>
+                    <div class="card-body">
+                        <form  [formGroup]="AdminLogIn" (ngSubmit)="storeAdminData()" >
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">Admin Code</label>
+                                <input type="text" class="form-control" (click)="fun()" formControlName="AdminCode" [ngClass]="{'is-invalid':admincode?.errors && (admincode.touched || admincode.dirty)}">
+                                <div class="invalid-feedback"  *ngIf="admincode.errors?.required && (admincode.touched || admincode.dirty)">
+                                   Admin Code is required     
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">Admin Email</label>
+                                <input type="text" class="form-control" (click)="fun()" formControlName="AdminEmail" [ngClass]="{'is-invalid':adminemail?.errors && (adminemail.touched ||adminemail.dirty)}">
+                                <div class="invalid-feedback" *ngIf="adminemail?.errors && (adminemail.touched || adminemail.dirty)">
+                                    <div *ngIf="adminemail.errors?.required">Admin Email is Required</div>
+                                    <div *ngIf="adminemail.errors?.email">Please Enter Valid Email Address</div>
+                                 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">Admin Password</label>
+                                <input type="password"  (click)="fun()" class="form-control" formControlName="AdminPassword" [ngClass]="{'is-invalid':adminpassword?.errors && (adminpassword.touched ||adminpassword.dirty)}">
+                                <div class="invalid-feedback" *ngIf="adminpassword?.errors && (adminpassword.touched ||adminpassword.dirty)">
+                                    <div *ngIf="adminpassword.errors?.required">Admin Password is Required</div> 
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="AdminLogIn.invalid">LogIn</button>
+                        </form>
+                        <span class="text-danger"  style="font-size: small;" *ngIf="flag">Please Enter Correct Details</span>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline-success" (click)="Backtohome()">Back</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+               
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    
+</div>
+

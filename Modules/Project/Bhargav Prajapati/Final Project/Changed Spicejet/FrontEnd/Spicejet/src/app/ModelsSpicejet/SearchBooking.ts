@@ -1,0 +1,28 @@
+export interface SearchBooking
+{
+    userId:number,
+    pnrNumber:string,
+    userFirstName:string,
+    userMiddleName:string,
+    userLastName:string,
+    userContactNumber:number,
+    userEmail:string,
+    bookingDateTime:Date,
+    airplaneId: number,
+    costId:number,
+    tripId:number,
+    airplaneName:string,
+    manufactureDate:Date,
+    airplaneModel:string,
+    manufactureCompony:string,
+    seatingCapacity:number,
+    amount:number,
+    tax:number,
+    totelCost: number,
+    departureAirportName:string,
+    arrivedAirportName: string,
+    depatureCity:string,
+    arrivedCity:string,
+    departDateTime:Date,
+    arrivedDateTime:Date
+}

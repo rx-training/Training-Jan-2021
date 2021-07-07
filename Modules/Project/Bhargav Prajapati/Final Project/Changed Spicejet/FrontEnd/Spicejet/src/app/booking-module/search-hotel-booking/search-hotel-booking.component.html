@@ -1,0 +1,43 @@
+<div class="container-fluid bg-light">
+
+    <div class="container">
+
+        
+
+        <form action="" [formGroup]="CheckinDetails" (ngSubmit)="submitCheckIn()">
+            <p class="text-center text-muted pt-5" style="font-size: 25px;">Menage Your Hotel Booking</p>
+        <div class="row">
+            
+            <div class="col-lg-4">
+                <div class="form-group mt-3">
+                    <label for="" class="font-weight-bold">Conformation Number</label>
+                    <input type="text" class="form-control"  formControlName="ConformationNumber" [ngClass]="{'is-invalid':conformationNumber?.errors && (conformationNumber.touched || conformationNumber.dirty)}">
+                    <div class="invalid-feedback"
+                                    *ngIf="conformationNumber?.errors && (conformationNumber.touched || conformationNumber.dirty)">
+                                    <div *ngIf="conformationNumber?.errors.required">Conformation number is Required Fild</div>
+                                    <div *ngIf="(conformationNumber?.errors.maxlength  || conformationNumber.errors.minlength)">
+                                        Conformation Number Must Be 8 Digit Only</div>
+                                </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group mt-3">
+                <label for="" class="font-weight-bold">Email Address</label>
+                <input type="text"  class="form-control" formControlName="Email" [ngClass]="{'is-invalid':Emails?.errors &&  (Emails.touched || Emails.dirty)}">
+                <div class="invalid-feedback"
+                *ngIf="Emails?.errors && (Emails.touched || Emails.dirty)">
+                <div *ngIf="Emails?.errors.required">Email is Required Fild</div>
+                <div *ngIf="Emails?.errors.email">Please Enter Valid Email</div>
+            </div>
+            </div>
+            </div>
+            <div class="col-lg-4">
+                <button class="btn btn-outline-success ml-5 my-5" type="submit" [disabled]="CheckinDetails.invalid" >Search</button>
+            
+            </div>
+        </div>
+    </form>
+       
+    </div>
+</div>

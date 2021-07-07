@@ -1,0 +1,205 @@
+<div class="bg-light pb-4">
+    <div style="background-color:rgb(102, 0, 102); padding: 60px;">
+        <p class="text-center text-white" style="font-size: 40px;">Traveller <span style="font-weight: 800;">Details</span> </p>
+        
+    </div>
+    <div class="container" style="margin-top: -40px;">
+        <div class="card " *ngIf="flag1">
+
+            <div class="bg-white  border-success">
+                           
+              <div class="card m-2 " *ngFor="let item of ShowData;let idex=index">
+               <div class="card-header bg-primary"style="font-size: 20px;"> <p class=" text-center text-warning"> <i class="fas fa-plane-departure" style="font-size: 40px;"></i> </p>  <p class=" text-white font-weight-bold text-center ">BOARDING PASS</p> </div>
+               <div class="card-body">
+               <div class="row">
+                   <div class="col-md-6">
+                       <p class="font-weight-bold text-left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depature Airport Name</p>
+                       <p class="font-weight-bold text-left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.departureAirportName}}</p>
+                   </div>
+                   <div class="col-md-6">
+                       <p class="font-weight-bold text-md-right" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrive Airport Name</p>
+                       <p class="font-weight-bold text-md-right" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedAirportName}}</p>
+                   </div>
+                  
+                   
+                   
+               </div>
+              
+               <div class="row">
+                   <div class="col-md-6">
+                       <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depature City</p>
+                       <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.depatureCity}}</p>
+                   </div>
+                   <div class="col-md-6">
+                       <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrive City</p>
+                       <p class="font-weight-bold text-md-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedCity}}</p>
+                   </div>
+                   
+               </div>
+               <hr>
+               <div class="row">
+                   <div class="col-md-4"> 
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Name :- </span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;"> {{item.userFirstName}} {{item.userMiddleName}} {{item.userLastName}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">PNR Number :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.pnrNumber}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Email Address:-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.userEmail}}</span>
+                   </div>
+               </div>
+
+               <div class="row">
+                   <div class="col-md-4"> 
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Mobile Number :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.userContactNumber}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Airplane Name :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.airplaneName}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Booking DateTime :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.bookingDateTime.split("T")[0]}} {{item.bookingDateTime.split("T")[1]}}</span>
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-4"> 
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depature Date :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.departDateTime.split("T")[0]}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrive Date :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedDateTime.split("T")[0]}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Depart Time :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.departDateTime.split("T")[1]}}</span>
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-4"> 
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Arrived Time :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.arrivedDateTime.split("T")[1]}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Amount:-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;"> <i class="fas fa-rupee-sign"></i> {{item.amount}}</span>
+                   </div>
+                   <div class="col-md-4">
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Tax  :-</span>
+                       <span class="font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;">{{item.tax*100}} %</span>
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12 text-center" > 
+                       <span class="text-center text-success font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: larger;">Totel Amount :-</span>
+                       <span class="text-center text-success font-weight-bold" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:medium;"><i class="fas fa-rupee-sign"></i> {{item.totelCost}}</span>
+                   </div>
+                  
+               </div>
+              
+               </div>
+           
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-warning text-white btn-block"  (click)="Update(item)" data-toggle="modal" data-target="#exampleModal" >Update Record</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-danger btn-block" (click)="Delete(item.userId)">Delete Record</button>
+                    </div>
+
+
+               
+                
+            </div>
+              </div>
+            
+          
+   </div>
+           
+        </div>
+        <div class="text-danger bg-white text-center" *ngIf="flag2" style="font-size: 20px;">Please Check Your PNRNumber And Email Address</div>
+        <div class="m-3"> <button class="btn btn-outline-success" (click)="Back()" >Back</button> </div>
+    </div>
+     
+
+</div>
+
+
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Your Record</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <form action="" [formGroup]="UserData">
+              <div class="form-group">
+                <label for="">Enter First Name</label>
+                <input type="text" value="" [ngModel]="ufirstname" name="ufirstname" formControlName="UserFirstName" [ngClass]="{'is-invalid':userfirstname?.errors && (userfirstname.touched || userfirstname.dirty)}"class="form-control">
+                <div class="invalid-feedback" *ngIf="userfirstname?.errors && userfirstname.touched">
+                  <div *ngIf="userfirstname.errors?.required">First Name Required</div>
+                  <div *ngIf="userfirstname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="">Enter Middle  Name</label>
+                <input type="text" value=""  [ngModel]="umiddlename" name="umiddlename" class="form-control" formControlName="UserMiddleName" [ngClass]="{'is-invalid':usermiddlename?.errors && (usermiddlename.touched ||usermiddlename.dirty)}">
+                <div class="invalid-feedback" *ngIf="usermiddlename?.errors && usermiddlename.touched">
+                  <div *ngIf="usermiddlename.errors?.required">Middle Name Required</div>
+                  <div *ngIf="usermiddlename.errors?.Nocharactor">Only Charactor Are Allowed </div>
+              </div>
+
+              </div>
+              <div class="form-group">
+                <label for="">Enter LastName  Name</label>
+                <input type="text" value="" [ngModel]="ulastname" name="ulastname" class="form-control" formControlName="UserLastName" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                <div class="invalid-feedback" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                  <!-- <div *ngIf="userlastname.errors?.required">Last Name Required</div> -->
+                  <div *ngIf="userlastname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="">Enter Email</label>
+                <input type="text" value="" [ngModel]="uemail"  name="uemail"  class="form-control" formControlName="UserEmail" [ngClass]="{'is-invalid':useremail?.errors &&  (useremail.touched || useremail.dirty)}">
+                <div class="invalid-feedback" *ngIf="useremail?.errors && (useremail.touched || useremail.dirty)">
+                  <!-- <div *ngIf="useremail.errors?.required">Email is Required Fild</div> -->
+                  <div *ngIf="useremail.errors?.email">Please Enter Valid Email</div>
+              </div>
+              </div>
+              <div>
+                <label for="">Enter Phone Number</label>
+                <input type="text" class="form-control" [ngModel]="uphonenumber" name="uphonenumber" formControlName="UserPhoneNumber" [ngClass]="{'is-invalid':userPhoneNumber?.errors &&(userPhoneNumber.touched || userPhoneNumber.dirty)}">
+                <div class="invalid-feedback"
+                                    *ngIf="userPhoneNumber?.errors && (userPhoneNumber.touched || userPhoneNumber.dirty)">
+                                    <div *ngIf="userPhoneNumber.errors?.required">MobileNumber is Required Fild</div>
+                                    <div *ngIf="userPhoneNumber.errors?.Nodigit">Please Enter Digit Only</div>
+                                    <div
+                                        *ngIf="(userPhoneNumber.errors?.maxlength  || userPhoneNumber.errors?.minlength)">
+                                        Please Enter 10 Digit Number</div>
+                                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Save()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

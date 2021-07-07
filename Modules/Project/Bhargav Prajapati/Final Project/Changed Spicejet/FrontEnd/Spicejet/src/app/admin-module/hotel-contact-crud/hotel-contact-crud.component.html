@@ -1,0 +1,77 @@
+<div class="container"  style="overflow-x: scroll;">
+    
+    <table class="table table-hover table-bordered text-center">
+
+        <thead class="thead-dark">
+                <tr>
+                    <th>listId</th>
+                    <th>CostId</th>
+                    <th>HotelId</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Hotelelist">
+                <td>{{item.listId}}</td>
+                <td>{{item.costId}}</td>
+                <td>{{item.hotelId}}</td>
+                
+                    <td><button class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal1" (click)="Edit(item)">Edit</button> </td>
+                    <td> <button class="btn btn-outline-danger" (click)="Delete(item.listId)">Delete</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<!-- Update Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update New Cost</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <form action="" [formGroup]="HotelListData" >
+                  <div class="form-group">
+                      <label for=""> CostId</label>
+                      <select  class="form-control" [(ngModel)]="cid" formControlName="CostId" [ngClass]="{'is-invalid':costid?.errors &&(costid.touched || costid.dirty)}">
+                        <ng-container *ngFor="let item of hotelcost">
+                          <option value="{{item.costId}}">{{item.costId}}</option>
+                        </ng-container>
+                      </select>
+                      <div class="invalid-feedback"
+                                    *ngIf="costid?.errors && (costid.touched || costid.dirty)">
+                                    <div *ngIf="costid.errors?.required">CostId is Required Fild</div>
+                                                                   </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Hotel Id</label>
+                    <select class="form-control" [(ngModel)]="hid" formControlName="HotelId" [ngClass]="{'is-invalid':hotelid?.errors &&  (hotelid.touched || hotelid.dirty)}">
+                      <ng-container *ngFor="let item of hoteldetailss">
+                        <option value="{{item.hotelId}}">{{item.hotelId}}</option>
+                      </ng-container>
+                    </select>
+                      <div class="invalid-feedback" *ngIf="hotelid?.errors && (hotelid.touched || hotelid.dirty)">
+                        <div *ngIf="hotelid.errors?.required">Email is Required Fild</div>
+                       
+                    </div>
+                </div>
+              </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Update()"  [disabled]="" >Update Cost</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

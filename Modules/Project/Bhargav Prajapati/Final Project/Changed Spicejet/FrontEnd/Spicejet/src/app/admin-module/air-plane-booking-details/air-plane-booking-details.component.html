@@ -1,0 +1,108 @@
+<div class="container"  style="overflow-x: scroll;">
+    <table class="table table-hover table-bordered text-center">
+
+        <thead class="thead-dark">
+                <tr>
+                    <th>BookingId</th>
+                    <th>PnrNumber</th>
+                    <th>UserFirstName</th>
+                    <th>UserMiddleName</th>
+                    <th>UserLastName</th>
+                    <th>UserEmail</th>
+                    <th>UserPhoneNumber</th>
+                    <th>BookingDateTime</th>
+                    <th>AirplaneId</th>
+                    <th>CostId</th>
+                    <th>TravelId</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Booking">
+                    <td>{{item.userId}}</td>
+                    <td>{{item.pnrNumber}}</td>
+                    <td>{{item.userFirstName}}</td>
+                    <td>{{item.userMiddleName}}</td>
+                    <td>{{item.userLastName}}</td>
+                    <td>{{item.userEmail}}</td>
+                    <td>{{item.userContactNumber}}</td>
+                    <td>{{item.bookingDateTime.split("T")[0]}} {{item.bookingDateTime.split("T")[1]}}</td>
+                    <td>{{item.airplaneId}}</td>
+                    <td>{{item.costId}}</td>
+                    <td>{{item.tripId}}</td>
+                    <td><button class="btn btn-outline-primary" (click)="UpdateFlight(item)" data-toggle="modal" data-target="#exampleModal" >Edit</button> </td>
+                    <td> <button class="btn btn-outline-danger" (click)="DeleteFlight(item.userId)">Delete</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Your Record</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+                <form action="" [formGroup]="UserData">
+                    <div class="form-group">
+                        <label for="">User First Name</label>
+                        <input type="text" [(ngModel)]="ufname"  class="form-control" formControlName="UserFirstName" [ngClass]="{'is-invalid':userfirstname?.errors && (userfirstname.touched ||userfirstname.dirty)}">
+                        <div class="invalid-feedback" *ngIf="userfirstname?.errors && (userfirstname.touched ||userfirstname.dirty)">
+                            <div *ngIf="userfirstname.errors?.required">First Name Required</div>
+                            <div *ngIf="userfirstname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">User Middle Name</label>
+                        <input type="text" [(ngModel)]="umname" class="form-control" formControlName="UserMiddleName" [ngClass]="{'is-invalid':usermiddlename?.errors && (usermiddlename.touched ||usermiddlename.dirty)}">
+                        <div class="invalid-feedback" *ngIf="usermiddlename?.errors && (usermiddlename.touched ||usermiddlename.dirty)">
+                            
+                            <div *ngIf="usermiddlename.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">User Last Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="ulastname"  formControlName="UserLastName" [ngClass]="{'is-invalid':userlastname?.errors && (userlastname.touched ||userlastname.dirty)}">
+                        <div class="invalid-feedback" *ngIf="userlastname?.errors && (userlastname.touched ||userlastname.dirty)">
+                       <div *ngIf="userlastname.errors?.Nocharactor">Only Charactor Are Allowed </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">User Email</label>
+                        <input type="text" class="form-control" [(ngModel)]="uemail" formControlName="UserEmail" [ngClass]="{'is-invalid':useremail?.errors &&  (useremail.touched ||useremail.dirty)}">
+                        <div class="invalid-feedback" *ngIf="useremail?.errors && (useremail.touched ||useremail.dirty)">
+                            <div *ngIf="useremail.errors?.email">Please Enter Valid Email</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">User Phone Number</label>
+                        <input type="text" class="form-control" [(ngModel)]="uphonenumber" formControlName="UserPhoneNumber" [ngClass]="{'is-invalid':userphonenumber?.errors &&(userphonenumber.touched ||userphonenumber.dirty)}">
+                        <div class="invalid-feedback"
+                                    *ngIf="userphonenumber?.errors && (userphonenumber.touched || userphonenumber.dirty)">
+                                    <div *ngIf="userphonenumber.errors?.required">MobileNumber is Required Fild</div>
+                                    <div *ngIf="userphonenumber.errors?.Nodigit">Please Enter Digit Only</div>
+                                    <div
+                                        *ngIf="(userphonenumber.errors?.maxlength  ||userphonenumber.errors?.minlength)">
+                                        Please Enter 10 Digit Number</div>
+                                </div>
+                    </div>
+                </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="UserData.invalid" (click)="Save()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
