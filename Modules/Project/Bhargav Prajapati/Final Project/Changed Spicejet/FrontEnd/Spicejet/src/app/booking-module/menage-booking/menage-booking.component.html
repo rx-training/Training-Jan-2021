@@ -1,0 +1,40 @@
+<div class="container-fluid bg-light">
+
+    <div class="container">
+
+        <form action="" [formGroup]="BookingDetails" (ngSubmit)="submitBooking()">
+            <p class="text-center text-muted pt-5" style="font-size: 25px;">Menage Your Booking</p>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group mt-5">
+                    <label for="" class="font-weight-bold">PNR Number</label>
+                    <input type="text" class="form-control" formControlName="PNRNumber" [ngClass]="{'is-invalid':PNRNumber?.errors && (PNRNumber.touched || PNRNumber.dirty)}">
+                    <div class="invalid-feedback"
+                                    *ngIf="PNRNumber?.errors && (PNRNumber.touched || PNRNumber.dirty)">
+                                    <div *ngIf="PNRNumber.errors.required">PNR Number is Required Fild</div>
+                                    <div *ngIf="(PNRNumber.errors.maxlength  || PNRNumber.errors.minlength)">
+                                        PNRNumber Must Be 8 Digit Only</div>
+                                </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group mt-5">
+                <label for="" class="font-weight-bold">Email Address</label>
+                <input type="text"  class="form-control" formControlName="Email" [ngClass]="{'is-invalid':Email?.errors &&  (Email.touched || Email.dirty)}">
+                <div class="invalid-feedback"
+                *ngIf="Email?.errors && (Email.touched || Email.dirty)">
+                <div *ngIf="Email.errors.required">Email is Required Fild</div>
+                <div *ngIf="Email.errors.email">Please Enter Valid Email</div>
+            </div>
+            </div>
+            </div>
+            <div class="col-lg-4">
+                <button class="btn ml-5 mt-5" [disabled]="BookingDetails.invalid" ><img class="rounded-circle" src="../../../assets/Images/Search Flight.jpg" height="60px" width="60px" alt=""></button>
+            <div class="ml-5" style="font-weight: 500; color: cadetblue;">SEARCH</div>
+            </div>
+        </div>
+    </form>
+       
+    </div>
+</div>

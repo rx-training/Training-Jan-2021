@@ -1,0 +1,63 @@
+<div class="backround-img">
+    <div class="container" style="padding-top:3px;">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="card">
+                   
+                    <div class="card-header bg-primary text-center text-white">Welecome To the Spicejet Registration</div>
+                    <div class="card-body">
+                        <form [formGroup]="SigninForm" (ngSubmit)="submitData()">
+                            <div class="form-group">
+                            <label for="" class="font-weight-bold">Role</label>
+                            <select class="form-control" formControlName="UserRole" [ngClass]="{'is-invalid':userrole?.errors && (userrole.touched ||userrole.dirty)}">
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                            <div class="invalid-feedback" *ngIf="userrole?.errors && (userrole.touched ||userrole.dirty)">
+                                <div *ngIf="userrole.errors?.required">Role is Required</div>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">User  Name</label>
+                                <input type="text" class="form-control" formControlName="UserName" [ngClass]="{'is-invalid':username?.errors && (username.touched ||username.dirty)}">
+                                <div class="invalid-feedback" *ngIf="username?.errors && (username.touched || username.dirty)">
+                                    <div *ngIf="username.errors?.required">UserName is Required</div>
+                                </div>
+                            
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold">Email</label>
+                                <input type="text" class="form-control" formControlName="UserEmail" [ngClass]="{'is-invalid':useremail?.errors && (useremail.touched ||useremail.dirty)}">
+                                <div class="invalid-feedback" *ngIf="useremail?.errors && (useremail.touched || useremail.dirty)">
+                                    <div *ngIf="useremail.errors?.required"> Email Address is Required</div>
+                                    <div *ngIf="useremail.errors?.email">Please Enter Valid Email Address</div>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="font-weight-bold"> Password</label>
+                                <input type="password"   class="form-control" formControlName="UserPassword" [ngClass]="{'is-invalid':userpassword?.errors && (userpassword.touched ||userpassword.dirty)}">
+                                <div class="invalid-feedback" *ngIf="userpassword?.errors && (userpassword.touched || userpassword.dirty)">
+                                    <div *ngIf="userpassword.errors?.required">Password is Required</div>
+                                    <div *ngIf="userpassword.errors?.pattern">Password Must Be One Capital Latter,One Special Charactor And One Digit</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-outline-primary btn-block" [disabled]="SigninForm.invalid" type="submit" >Sign Up</button>
+                        </form>
+                        <span class="text-danger" *ngIf="flag" style="font-size: small;">Something Want to Wrong Please Try Angain </span>
+                      
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline-success" (click)="Back()" >Back</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+               
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>

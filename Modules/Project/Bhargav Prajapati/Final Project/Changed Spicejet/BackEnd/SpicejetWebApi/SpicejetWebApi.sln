@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpicejetWebApi", "SpicejetWebApi.csproj", "{BCB86545-DD00-4162-976D-766A6B0F0668}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCB86545-DD00-4162-976D-766A6B0F0668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB86545-DD00-4162-976D-766A6B0F0668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB86545-DD00-4162-976D-766A6B0F0668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB86545-DD00-4162-976D-766A6B0F0668}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D8D5C88-9686-489D-A07C-BD8C40E5BE42}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,154 @@
+<div class="container"  style="overflow-x: scroll;">
+    <div>
+        <button data-toggle="modal" data-target="#exampleModal"  class="btn btn-warning mb-3    text-white"><i class="fa fa-plus" aria-hidden="true"></i> Add New Route</button>
+    </div>
+    <table class="table table-hover table-bordered text-center">
+        
+        <thead class="thead-dark">
+                <tr>
+                    <th>RouteId</th>
+                    <th>TripId</th>
+                    <th>CostId</th>
+                    <th>AirplaneId</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Route">
+                <td>{{item.routeId}}</td>
+                <td>{{item.tripId}}</td>
+                <td>{{item.costId}}</td>
+                <td>{{item.airplaneId}}</td>
+                <td><button class="btn btn-outline-primary" (click)="Edit(item)" data-toggle="modal" data-target="#exampleModal1">Edit</button></td>
+                <td> <button class="btn btn-outline-danger"  (click)="DeleteTrip(item.routeId)">Delete</button> </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+<!-- Add Model -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Insert New Route</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+           <form [formGroup]="RouteInsertFrom">
+               <div class="form-group">
+                   <label for="">Select TripId</label>
+               <select class="form-control" formControlName="TripID"  [ngClass]="{'is-invalid':Itripid?.errors && (Itripid.touched || Itripid.dirty)}">
+                   <ng-container *ngFor="let item of Trip">
+                    <option value="{{item.tripId}}">{{item.tripId}}</option>
+                </ng-container>
+               </select>
+               <div class="invalid-feedback" *ngIf="Itripid?.errors && (Itripid.touched ||Itripid.dirty)">
+                <div *ngIf="Itripid.errors?.required">Trip Id is Required Fild</div>
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Select Cost Id</label>
+                <select class="form-control" formControlName="CostId"  [ngClass]="{'is-invalid':Icostid?.errors && (Icostid.touched || Icostid.dirty)}">
+                    <ng-container *ngFor="let item of Cost" >
+                     <option value="{{item.costId}}">{{item.costId}}</option>
+                    </ng-container>
+                </select>
+                <div class="invalid-feedback" *ngIf="Icostid?.errors && (Icostid.touched ||Icostid.dirty)">
+                 <div *ngIf="Icostid.errors?.required">Cost Id is Required Fild</div>
+             </div>
+             </div>
+
+
+             <div class="form-group">
+                <label for="">Select Airplane Id</label>
+                <select class="form-control" formControlName="AirplaneId"  [ngClass]="{'is-invalid':Iairplaneid?.errors && (Iairplaneid.touched || Iairplaneid.dirty)}">
+                    <ng-container *ngFor="let item of Airplane" >
+                     <option value="{{item.airplaneId}}">{{item.airplaneId}}</option>
+                    </ng-container>
+                </select>
+                <div class="invalid-feedback" *ngIf="Iairplaneid?.errors && (Iairplaneid.touched ||Iairplaneid.dirty)">
+                 <div *ngIf="Iairplaneid.errors?.required">Airplane Id is Required Fild</div>
+             </div>
+             </div>
+           </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="RouteInsertFrom.invalid" (click)="AddRoute()"  >InsertCost</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Update Model -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Update Route</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+           <form [formGroup]="RouteUpdateForm">
+               <div class="form-group">
+                   <label for="">Select TripId</label>
+               <select class="form-control"  [(ngModel)]="tid" name="tid" formControlName="TripID"  [ngClass]="{'is-invalid':Utripid?.errors && (Utripid.touched || Utripid.dirty)}">
+                   <ng-container *ngFor="let item of Trip">
+                    <option value="{{item.tripId}}" >{{item.tripId}}</option>
+                </ng-container>
+               </select>
+               <div class="invalid-feedback" *ngIf="Utripid?.errors && (Utripid.touched ||Utripid.dirty)">
+                <div *ngIf="Utripid.errors?.required">Trip Id is Required Fild</div>
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Select Cost Id</label>
+                <select class="form-control" formControlName="CostId" [(ngModel)]="cid" name="cid" [ngClass]="{'is-invalid':Ucostid?.errors && (Ucostid.touched ||Ucostid.dirty)}">
+                    <ng-container *ngFor="let item of Cost" >
+                     <option value="{{item.costId}}">{{item.costId}}</option>
+                    </ng-container>
+                </select>
+                <div class="invalid-feedback" *ngIf="Ucostid?.errors && (Ucostid.touched ||Ucostid.dirty)">
+                 <div *ngIf="Ucostid.errors?.required">Cost Id is Required Fild</div>
+             </div>
+             </div>
+
+
+             <div class="form-group">
+                <label for="">Select Airplane Id</label>
+                <select class="form-control" formControlName="AirplaneId" [(ngModel)]="aid" name="aid" [ngClass]="{'is-invalid':Uairplaneid?.errors && (Uairplaneid.touched || Uairplaneid.dirty)}">
+                    <ng-container *ngFor="let item of Airplane" >
+                     <option value="{{item.airplaneId}}">{{item.airplaneId}}</option>
+                    </ng-container>
+                </select>
+                <div class="invalid-feedback" *ngIf="Uairplaneid?.errors && (Uairplaneid.touched ||Uairplaneid.dirty)">
+                 <div *ngIf="Uairplaneid.errors?.required">Airplane Id is Required Fild</div>
+             </div>
+             </div>
+           </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="RouteUpdateForm.invalid" (click)="UpdateRecord()" >Update Record</button>
+        </div>
+      </div>
+    </div>
+</div>

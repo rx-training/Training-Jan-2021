@@ -1,0 +1,179 @@
+<div class="container" style="overflow-x: scroll;">
+  <div>
+    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-warning mb-3  text-white"><i
+        class="fa fa-plus" aria-hidden="true"></i> Add New Airplane</button>
+  </div>
+  <table class="table table-hover table-bordered text-center">
+
+    <thead class="thead-dark">
+      <tr>
+        <th>AirplaneId</th>
+        <th>AirplaneName</th>
+        <th>SeatingCapacity</th>
+        <th>AirplaneModel</th>
+        <th>AirpaneMakeingDate</th>
+        <th>AirplaneManufacturingCompony</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Airplane">
+        <td>{{item.airplaneId}}</td>
+        <td>{{item.airplaneName}}</td>
+        <td>{{item.seatingCapacity}}</td>
+        <td>{{item.airplaneModel}}</td>
+        <td>{{item.manufactureDate.split("T")[0] }} </td>
+        <td>{{item.manufactureCompony}}</td>
+        <td><button class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal1"
+            (click)="Eidt(item)">Edit</button> </td>
+        <td> <button class="btn btn-outline-danger" (click)="DeleteFlight(item.airplaneId)">Delete</button></td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+
+<!-- Add Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Insert New Airplane</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form action="" [formGroup]="AirplaneData">
+
+            <div class="form-group">
+              <label for="">Airplane Name</label>
+              <input type="text" class="form-control" formControlName="AirplanName"
+                [ngClass]="{'is-invalid':airplanename?.errors && (airplanename.touched || airplanename.dirty)}">
+              <div class="invalid-feedback" *ngIf="airplanename?.errors && (airplanename.touched ||airplanename.dirty)">
+                <div *ngIf="airplanename.errors?.required">Airplane Name is Required Fild</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Airplane Seating Capacity</label>
+              <input type="number" class="form-control" formControlName="SeatingCapacity"
+                [ngClass]="{'is-invalid':seatingcapasity?.errors && (seatingcapasity.touched || seatingcapasity.dirty)}">
+              <div class="invalid-feedback"
+                *ngIf="seatingcapasity?.errors && (seatingcapasity.touched ||seatingcapasity.dirty)">
+                <div *ngIf="seatingcapasity.errors?.required">Seating CapasCity is Required Fild</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for=""> Airplane Model Name</label>
+              <input type="text" class="form-control" formControlName="Model"
+                [ngClass]="{'is-invalid':model?.errors && (model.touched || model.dirty)}">
+              <div class="invalid-feedback" *ngIf="model?.errors && (model.touched ||model.dirty)">
+                <div *ngIf="model.errors?.required">Airplane Model is Required Fild</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for=""> Airplane Making Date</label>
+              <input type="date" class="form-control" formControlName="Make"
+                [ngClass]="{'is-invalid': make?.errors && ( make.touched ||  make.dirty)}">
+              <div class="invalid-feedback" *ngIf=" make?.errors && (make.touched ||make.dirty)">
+                <div *ngIf="make.errors?.required">Airplane Making Date is Required Fild</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for=""> Airplane Manufacturing Compony</label>
+              <input type="text" class="form-control" formControlName="Compony"
+                [ngClass]="{'is-invalid': compony?.errors && (compony.touched || compony.dirty)}">
+              <div class="invalid-feedback" *ngIf="compony?.errors && (compony.touched ||compony.dirty)">
+                <div *ngIf="compony.errors?.required">Airplane Manufacturing Compony is Required Fild</div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="AirplaneData.invalid"
+          (click)="AddAirplane()">Insert Flight</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Update Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Insert New Cost</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form action="" [formGroup]="uAirplaneData">
+
+            <div class="form-group">
+              <label for="">Airplane Name</label>
+              <input type="text" class="form-control" [(ngModel)]="AirplaneName" formControlName="AirplanName"
+                [ngClass]="{'is-invalid':uairplanename?.errors && (uairplanename.touched || uairplanename.dirty)}">
+              <div class="invalid-feedback"
+                *ngIf="uairplanename?.errors && (uairplanename.touched ||uairplanename.dirty)">
+                <div *ngIf="uairplanename.errors?.required">Airplane Name is Required Fild</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Airplane Seating Capacity</label>
+              <input type="number" class="form-control" [(ngModel)]="SeatingCapacit" formControlName="SeatingCapacity"
+                [ngClass]="{'is-invalid':useatingcapasity?.errors && (useatingcapasity.touched || useatingcapasity.dirty)}">
+              <div class="invalid-feedback"
+                *ngIf="useatingcapasity?.errors && (useatingcapasity.touched ||useatingcapasity.dirty)">
+                <div *ngIf="useatingcapasity.errors?.required">Seating CapasCity is Required Fild</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for=""> Airplane Model Name</label>
+              <input type="text" class="form-control" formControlName="Model" [(ngModel)]="Model"
+                [ngClass]="{'is-invalid':umodel?.errors && (umodel.touched || umodel.dirty)}">
+              <div class="invalid-feedback" *ngIf="umodel?.errors && (umodel.touched ||umodel.dirty)">
+                <div *ngIf="umodel.errors?.required">Airplane Model is Required Fild</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for=""> Airplane Making Date</label>
+              <input type="date" class="form-control" formControlName="Make" [(ngModel)]="MakingDate"
+                [ngClass]="{'is-invalid':umake?.errors && ( umake.touched ||  umake.dirty)}">
+              <div class="invalid-feedback" *ngIf=" umake?.errors && (make.touched ||umake.dirty)">
+                <div *ngIf="umake.errors?.required">Airplane Making Date is Required Fild</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for=""> Airplane Manufacturing Compony</label>
+              <input type="text" class="form-control" [(ngModel)]="cmp"  formControlName="Compony"
+                [ngClass]="{'is-invalid': ucompony?.errors && (ucompony.touched || ucompony.dirty)}">
+              <div class="invalid-feedback" *ngIf="ucompony?.errors && (ucompony.touched ||ucompony.dirty)">
+                <div *ngIf="ucompony.errors?.required">Airplane Manufacturing Compony is Required Fild</div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="uAirplaneData.invalid"
+          (click)="UpdatedData()">Update Flight</button>
+      </div>
+    </div>
+  </div>
+</div>

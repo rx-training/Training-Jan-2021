@@ -1,0 +1,12 @@
+.backround-img
+{
+    height: 100vh;
+   width: 100%;
+   
+    background-image: url(../../assets/Images/2D6HJXD.jpg);
+     background-repeat: no-repeat;
+    background-size: cover;
+    /*background-position: center center;
+    background-attachment: fixed; */
+    
+}

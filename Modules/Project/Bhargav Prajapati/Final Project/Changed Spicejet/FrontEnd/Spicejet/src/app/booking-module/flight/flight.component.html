@@ -1,0 +1,274 @@
+<div class="container-fluid bg-light w-100">
+
+    <div class="container" *ngIf="flag1">
+        <div class="row">
+        <div class="col-lg-12 pt-3"> 
+            <div class="form-group">
+            <input type="radio" name="Trip" checked id="" (click)="DisableDate()"><span class="mr-5 pl-2">One Way</span>
+            <input type="radio" name="Trip" (click)="EnableDate()" id=""> <span class="pl-2"> Round Trip </span>
+            </div>
+        </div>
+        </div>
+        <form action="" [formGroup]="FlightBooking" (ngSubmit)="SearchFlight()">
+        <div class="row pt-5">
+            
+            <div class="col-lg-2">
+
+                    <div class="form-group">
+                <label for="" class="font-weight-bold" style="font-size: 12px;">Depart From</label>
+                        <select class="form-control" [(ngModel)]="DepartCity"  name="DepartCity" formControlName="Departfrom" [ngClass]="{'is-invalid':Departfrom?.errors && (Departfrom.touched || Departfrom.dirty)}">
+                            <!-- <option disabled>Select City</option>
+                            <option value="Ahmedabad">Ahmedabad(AMD)</option>
+                            <option value="Agra">Agra(AGR)</option>
+                            <option value="Aizawl">Aizawl(AJL)</option>
+                            <option value="Ajmer">Ajmer(KQH)</option>
+                            <option value="Bagdora">Bagdogra(IXB)</option>
+                            <option value="Bhopal">Bhopal(BHO)</option>
+                            <option value="Chennai">Chennai(MAA)</option>
+                            <option value="Madurai">Madurai(IXM)</option>
+                            <option value="Kandla">Kandla(IXY)</option>
+                            <option value="Pune">Pune(PNQ)</option> -->
+                            <ng-container *ngFor="let item of UniqueDepartCity">
+                              <option value="{{item}}">{{item}}</option>  
+                            </ng-container>
+                        </select>
+                        <div class="invalid-feedback"
+                                    *ngIf="Departfrom.errors?.required && (Departfrom.touched ||Departfrom.dirty)">
+                                    Depart Address Required
+                                </div>   
+                    </div>    
+                    
+                
+
+            </div>
+            <div class="col-lg-2">
+                
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold" style="font-size: 12px;">Arrival From</label>
+                        <select class="form-control" [(ngModel)]="ArrivedCity" name="ArrivedCity"  formControlName="Arrivefrom" [ngClass]="{'is-invalid':Arrivefrom?.errors && (Arrivefrom.touched || Arrivefrom.dirty)}">
+                            
+                            <ng-container  *ngFor="let item of  UniqueArrivedCity">
+                            <option value="{{item}}">{{item}}</option>
+                          </ng-container>
+                            
+                        </select>
+                        <div class="invalid-feedback"
+                        *ngIf="Arrivefrom.errors?.required && (Arrivefrom.touched ||Arrivefrom.dirty)">
+                        Arrived  Address Required
+                    </div> 
+                    </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                <label for="" class="font-weight-bold" style="font-size: 12px;">Depart date</label>
+                <input type="datetime-local" class="form-control" formControlName="DepartDate" [ngClass]="{'is-invalid':DepartDate?.errors && (DepartDate.touched || DepartDate.dirty)}">
+                <div class="invalid-feedback"
+                        *ngIf="DepartDate.errors?.required && (DepartDate.touched ||DepartDate.dirty)">
+                        Depart Date is Required
+                    </div>
+            </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group" class="font-weight-bold">
+                    <label for="" style="font-size: 12px;">Arrive Date</label>
+                    <input type="datetime-local" class="form-control" [disabled]="flag"  >
+                    
+            </div>
+        </div>
+        <div class="col-lg-1">
+           <label for="" class="font-weight-bold" style="font-size: 12px;">Passenger</label>
+           <select class="form-control" [(ngModel)]="Passangers" formControlName="Passanger" [ngClass]="{'is-invalid':Passanger?.errors && (Passanger.touched || Passanger.dirty)}">
+            <option disabled>SelectPassengers</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <div class="invalid-feedback"  *ngIf="Passanger.errors?.required && (Passanger.touched || Passanger.dirty)">
+                                    Number of Passengers Required
+        </div>
+        </div>
+        <div class="col-lg-1">
+            <label for="" class="font-weight-bold" style="font-size: 12px;" >Currency
+            </label>
+            <select class="form-control" [(ngModel)]="Money" name="currency" formControlName="Currency" [ngClass]="{'is-invalid':Currency?.errors && (Currency.touched || Currency.dirty)}">
+             <option disabled>Select Currency</option>
+             <option value="BDT">BDT</option>
+             <option value="GBP">GBP</option>
+             <option value="INR">INR</option>
+             <option value="AED">AED</option>
+             <option value="USD">USD</option>
+         </select>
+         <div class="invalid-feedback"  *ngIf="Currency.errors?.required && (Currency.touched || Currency.dirty)">
+          PLease Select the currency
+        </div>
+         </div>
+
+         <div class="col-lg-2">
+            <button class="btn" type="submit"><img class="rounded-circle" src="../../../assets/Images/Search Flight.jpg" height="60px" width="60px" alt=""></button>
+            <p class="ml-3 " style="font-weight: 500; color: cadetblue;">SEARCH</p>
+    </div>
+
+</div>
+</form>    
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox1" value="Family&Friends">
+    <label class="form-check-label" for="inlineCheckbox1">Family&Friends</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox2" value="Sr.Citizen">
+    <label class="form-check-label" for="inlineCheckbox2">Sr.Citizen</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">ArmedForces</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">LTCFare</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">Govt.Employee</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">Student</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">Minor</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="check" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">Healthcare Professionals</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="check" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">Special Assistance</label>
+  </div>
+  <div class="p-3">
+  <span class="font-weight-bold">For refund requests, please write to</span><span>
+    <a href="mailto:refunds@spicejet.com"  class="text-danger font-weight-bold"> refunds@spicejet.com.</a>
+  </span>
+  </div>
+
+    </div>   
+    
+    
+    <div class="row bg-danger" style="padding: 20px;"  *ngIf="showflight">      
+      
+        <div class="col-sm-3 py-5">
+          <p class="text-warning font-weight-bold" style="font-size: larger;" >Depature City</p>
+          <p class="text-white font-weight-bold" style="font-size: medium;" >{{DepartCity}}</p>
+        </div>
+        <div class="col-sm-3  py-5">
+          <p class="text-warning font-weight-bold" style="font-size: larger;" >Passanger</p>
+          <p class="text-white font-weight-bold" style="font-size: medium;" >{{Passangers}}</p>
+
+        </div>
+        <div class="col-sm-3  py-5">
+          <p class="text-warning font-weight-bold" style="font-size: larger;" >Currency</p>
+          <p class="text-white font-weight-bold" style="font-size: medium;" >{{Money}}</p>
+
+        </div>
+
+        <div class="col-sm-3  py-5">
+          <p class="text-warning font-weight-bold" style="font-size: larger;" >Arrived City</p>
+          <p class="text-white font-weight-bold" style="font-size: medium;" >{{ArrivedCity}}</p>
+        </div>
+      </div>
+      <div class="container bg-white " style="margin-top: -40px;" *ngIf="showflight">
+        
+            <div class="row">
+              <div class="col-sm-1"> </div>
+                <div class="col-sm-10 ">
+                  <div class="row">
+                  <div class="col-sm-6">
+                    <h5 class="text-muted">
+                      CHOOSE A
+                    </h5>
+                    <h4 class="text-muted">DEPARTURE FLIGHT</h4>
+                  </div>
+                  <div class="col-sm-6" style="text-align: end;">
+                    <h5 class="text-muted pt-4">Sorted By: SpiceSaver Fare</h5> 
+                  </div>
+
+                </div>
+
+                <div class="table-responsive-xl" style="overflow-x: scroll;" >
+                  <table class="table table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>#</th>
+                      <th>DepartAirport </th>
+                      <th>ArrivedAirport </th>
+                      <th>AirPlane</th>
+                      <th>NoOfSeatAvailable</th>
+                      <th> Amount</th>
+                      <th>Tax</th>
+                      <th>TotelAmount</th>
+                      <th>DepatureDate</th>
+                       <th>DepatureTime</th>
+                      <th>ArrivedDate</th>
+                      <th>ArrivedTime</th>
+                      <th>BookNow</th>
+
+                    </tr>
+                    </thead>
+                    
+                    <tbody>
+                      
+                        
+                          <tr *ngFor="let item of SortedFlight; let idex=index"> 
+                            <th>
+                              {{(idex)+1}}
+                            </th>
+                            <td>{{item.departureAirportName}}</td>
+                            <td>{{item.arrivedAirportName}}</td>
+                            <td>{{item.airplaneName}}</td>
+                            <td>{{item.seatingCapacity}}</td>
+                            <td>{{item.amount}}</td>
+                            <td>{{(item.tax)*100}}%</td>
+                            <td>{{item.totelCost}}</td>
+                            <td>
+                              {{item.departDateTime.split("T")[0]}}</td>
+                            <td>{{item.departDateTime.split("T")[1]}} {{item.departDateTime.split("T")[1].split(":")[0]>= 12 ? "PM":"AM"}} </td>
+                            <td>{{item.arrivedDateTime.split("T")[0]}}</td>
+                            <td>{{item.arrivedDateTime.split("T")[1]}} {{item.arrivedDateTime.split("T")[1].split(":")[0]>= 12 ? "PM":"AM"}}</td>
+                            <td><button class="btn btn-outline-primary"  [routerLink]="['../BookingFlight',item.tripId]">Book Now</button></td>
+                            </tr>
+                    </tbody>
+                   
+                   
+                  </table>
+                </div>
+                </div>
+                <div class="col-sm-1">
+                </div>
+
+
+              </div>
+              
+            </div>
+
+            <div *ngIf="NoFlightAvaliable" class="text-center text-danger" style="font-size: 20px;">Sorry Flight is Not Available</div>
+
+            <div style="padding-bottom: 40px;"></div>
+            
+            
+   </div> 
+
+
+ 
+      
+  

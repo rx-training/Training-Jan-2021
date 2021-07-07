@@ -1,0 +1,11 @@
+.clr
+{
+    background-color: rgb(29, 0, 19);
+}
+.card
+{
+    display: inline-block;
+    margin: 0 10px 10px;
+    width: 45%;
+    
+}

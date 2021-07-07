@@ -1,0 +1,123 @@
+<div class="W-100">
+    <div class="container-fluid" >
+        <div class="row">
+          <div class="col-lg-12  text-center">
+            <!-- NavigationBar -->
+      
+            <nav class="navbar navbar-expand-xl navbar-light bg-white" id="navbar1">
+              <a class="navbar-brand" href="#"><img src="../assets/Images/spicjetlogo.jpg" height="50px" alt=""></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav" style="font-size: 15px;">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold" routerLink="/Booking" routerLinkActive="btn btn-danger text-white">BOOK</a>
+                  </li>
+                  <li class="nav-item dropdown  multi-column columns-2">
+                    <a class="nav-link font-weight-bold  dropdown-toggle font-weight-bold btn" data-toggle="dropdown"
+                      href="#">ADD-ONS</a>
+      
+                    <div class="dropdown-menu dropdown-multicol2  bg-light">
+                      <div class="dropdown-col">
+                        <a href="" id="drop-down-list" class="dropdown-item border-bottom" *ngFor="let item of DropDownList1"> 
+                          {{item}}
+                        </a>
+      
+                      </div>
+                      <div class="dropdown-col">
+                        <a href="" id="drop-down-list" class="dropdown-item border-bottom" *ngFor="let item of DropDownList2"> 
+                          {{item}}
+                        </a>
+                      </div>
+                    </div>
+      
+                  </li>
+                  <li class="nav-item mx-1" >
+                    <a class="nav-link font-weight-bold btn" href="#">DEALS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold btn" href="#">GIFT CARD</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold btn" href="#">SPICECLUB</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold btn" href="#">SPICESCREEN</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold btn" href="#">CARGO</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link  font-weight-bold btn" href="#">SPICESTYLE</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold btn" href="#">SPICESHUTTLE</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold btn" href="#">CHARTER</a>
+                  </li>
+      
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item  dropdown">
+                    <a  routerLink="/Admin-Module" *ngIf="!Islogedin"  routerLinkActive="active" class="nav-link  font-weight-bold btn " style="font-size: large;"
+                      >
+                      LogIn/SignUp
+                    </a> 
+                    <a  routerLink="" (click)="Logout()"  *ngIf="Islogedin" class="nav-link  font-weight-bold btn " style="font-size: large;"
+                      >
+                      Log Out
+                    </a>               
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      
+<div class="bg-danger">
+    <div class="container " id="navbar-red">
+        <div class="row" >
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()" routerLink="Flight"><i class="fas fa-plane-departure"></i>Flight</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="toggle()" routerLink="Hotel"><i class="fas fa-hotel"></i> Hotels</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="toggle()" routerLink="Covid-19"><i class="fas fa-head-side-mask"></i>Covid-19Information</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()"  routerLink="flightstatus" ><i class="fas fa-clock"></i>Flight Status</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()" routerLink="check-in" ><i class="fas fa-ticket-alt"></i> Check In</a>
+            </div>
+            <div class="col-lg-2">
+                <a class="btn text-white m-2 text-center" (click)="showbutton()" routerLink="MenageBooking"><i class="fas fa-cogs "></i>  Manage Booking</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="show">
+<app-slider></app-slider>
+</div>
+<div *ngIf="show" class="d-none d-xl-block">
+    <app-spice-info></app-spice-info>
+</div>
+
+<div>
+    <app-spice-contect></app-spice-contect>
+</div>
+<div>
+    <app-spicejet-footer></app-spicejet-footer>
+</div>
+   
+</div>
