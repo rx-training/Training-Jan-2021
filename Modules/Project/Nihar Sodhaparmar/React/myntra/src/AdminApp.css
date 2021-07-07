@@ -1,5 +1,6 @@
 :root {
   --pinkColor: #ff3f6c;
+  --mainTransition: all 0.3s ease-in-out;
 }
 
 .navbar-login-btn {
@@ -245,4 +246,5 @@
 .dashboard-link-container:hover {
   transform: scale(1.02);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
+  transition: var(--mainTransition);
 }
