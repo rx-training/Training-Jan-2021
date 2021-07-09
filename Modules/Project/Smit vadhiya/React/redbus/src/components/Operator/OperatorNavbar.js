@@ -20,7 +20,7 @@ export const OperatorNavbar = () => {
                   <Link to="/operator/buses" className="nav-link" >Buses</Link>
                </li>
                <li >
-                  <Link to="/operator/buses" className="nav-link" >Routes</Link>
+                  <Link to="/operator/routes" className="nav-link" >Routes</Link>
                </li>
             </ul>
          </div>

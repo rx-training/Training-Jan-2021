@@ -20,7 +20,8 @@ import { OperatorNavbar } from './components/Operator/OperatorNavbar';
 import { OperatorHome } from './pages/Operator/OperatorHome';
 import { OpLogin } from './pages/Operator/OpLogin';
 import { Alert } from './components/Users/Alert';
-
+import { OpBuses } from './pages/Operator/OpBuses';
+import { OpRoute } from './pages/Operator/OpRoute';
 
 function App() {
    return (
@@ -53,6 +54,8 @@ function App() {
 
                <Route path="/operator" exact component={OperatorHome} />
                <Route path="/operator/login" exact component={OpLogin} />
+               <Route path="/operator/buses" exact component={OpBuses} />
+               <Route path="/operator/routes" exact component={OpRoute} />
 
 
                <Router path="*" component={Error} />

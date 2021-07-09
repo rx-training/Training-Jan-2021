@@ -35,8 +35,6 @@ export const OpLogin = (props) => {
    return (
       <div className="mt-5 pt-3" >
          <div className="container">
-
-
          <div className="row">
             <div className="col-11 mx-auto col-sm-8 col-md-5">
 
@@ -52,7 +50,7 @@ export const OpLogin = (props) => {
                         onChange={handleChange}
                      />
                      <input 
-                        type="text" 
+                        type="password" 
                         className="form-control my-2" 
                         placeholder="Password"
                         name="password"

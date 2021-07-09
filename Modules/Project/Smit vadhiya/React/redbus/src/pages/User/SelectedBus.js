@@ -3,6 +3,8 @@ import UserService from '../../services/UserService'
 import {IoArrowForwardCircleOutline} from 'react-icons/io5'
 import {Modal,Button} from 'react-bootstrap'
 import { TicketPrint } from '../../components/Users/TicketPrint'
+import { Link } from 'react-router-dom'
+import PrintComponents from 'react-print-components'
 
 export const SelectedBus = (props) => {
 
@@ -81,6 +83,43 @@ export const SelectedBus = (props) => {
       <div className="pt-5 mt-5"> 
          <div className="container">
             <div className="row text-capitalize">
+               
+
+               {isConfirm ?<div > 
+               <div className="h3 bg-success text-white p-2 w-100 text-center">Ticket Confirm</div>
+               <TicketPrint trip={{
+                  fromCity : busData.fromCity,
+                  toCity : busData.toCity,
+                  routeId : {busNumber : { busName : busData.busNumber.busName}},
+                  tripDate : tripDate.date,
+                  seatNo : busData.selectedSeat,
+                  travelerList : travelerList,
+                  departureTime : busData.timeAtStartpoint,
+                  destinationTime : busData.timeAtEndpoint,
+                  farePrice : busData.ticketPrise,
+               }}/>
+               <div className="mx-auto my-2">
+                  <PrintComponents
+                     trigger={<button className="btn btn-dark mx-2 ">Print</button>}
+                  >
+                     <TicketPrint trip={{
+                  fromCity : busData.fromCity,
+                  toCity : busData.toCity,
+                  routeId : {busNumber : { busName : busData.busNumber.busName}},
+                  tripDate : tripDate.date,
+                  seatNo : busData.selectedSeat,
+                  travelerList : travelerList,
+                  departureTime : busData.timeAtStartpoint,
+                  destinationTime : busData.timeAtEndpoint,
+                  farePrice : busData.ticketPrise,
+               }} />
+                  </PrintComponents>
+                  <Link to='/' >
+                     <button className="btn btn-primary mx-auto" >Go to home</button>
+                  </Link>
+               </div>
+      
+      </div> : <>
                <div className="col-12 col-md-10 border text-center p-3 bg-dark text-light mx-auto">
                   <h1 className="d-block text-theme" style={{borderBottom : "2px solid "}}  >details</h1>
 
@@ -101,18 +140,7 @@ export const SelectedBus = (props) => {
                   <div className="d-flex" >
                   </div>
                </div>
-
-               {isConfirm ? <TicketPrint trip={{
-         fromCity : busData.fromCity,
-         toCity : busData.toCity,
-         routeId : {busNumber : { busName : busData.busName}},
-         tripDate : tripDate.date,
-         seatNo : busData.selectedSeat,
-         travelerList : travelerList,
-         departureTime : busData.timeAtStartpoint,
-         destinationTime : busData.timeAtEndpoint,
-         farePrice : busData.ticketPrise,
-      }}/> : <div className="col-12 col-md-12 my-4 p-2  mx-auto border">
+               <div className="col-12 col-md-12 my-4 p-2  mx-auto border">
                   <h4 className="text-center py-2">passenger Details</h4>
                   <form action="" onSubmit={handleSubmit}  >
                      <div className="justify-content-around row">
@@ -174,7 +202,7 @@ export const SelectedBus = (props) => {
                         <input type="submit" className="btn btn-theme" value="payment" />
                      </div>
                   </form>
-               </div> }
+               </div></> }
                
             </div>
          </div>

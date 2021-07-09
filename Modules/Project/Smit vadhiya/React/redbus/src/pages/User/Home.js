@@ -4,7 +4,6 @@ import { OfferComponent } from '../../components/Users/HomePage/OfferComponent'
 import {coupanData} from '../../RowData/Coupans'
 import { Safety } from '../../components/Users/HomePage/Safety'
 import {RedbusContext} from '../../context/context'
-import  {Example} from '../../components/Auto'
 
 
 export const Home = () => {
@@ -43,7 +42,6 @@ export const Home = () => {
                </div>
             </div>
          </div> */}
-
 
       </div>
    )

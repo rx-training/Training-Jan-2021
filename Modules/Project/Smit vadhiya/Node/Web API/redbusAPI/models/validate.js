@@ -42,7 +42,7 @@ const Buses = Joi.object({
     operator: Joi.number(),
     busName: Joi.string().required(),
     busType: Joi.string().required(),
-    busReleasesate: Joi.date(),
+    busReleaseDate: Joi.date(),
     totalSleeperseat: Joi.number(),
     totalSeaterSeat: Joi.number(),
     totalSemiSleeperSeat: Joi.number(),

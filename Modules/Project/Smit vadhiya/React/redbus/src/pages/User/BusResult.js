@@ -2,13 +2,20 @@ import React,{useEffect,useState} from 'react'
 import  SingleBusDetail  from '../../components/Users/BusResult/SingleBusDetail'
 import MyBuses from '../../services/BusServices'
 import {HiArrowRight} from 'react-icons/hi'
+import {CgArrowsExchangeAlt} from 'react-icons/cg'
+
 
 export const BusResult = (props) => {
 
    const [searchData, setSearchData] = useState([])
-   const [data, setData] = useState({})
+   const [data, setData] = useState({fromCity:"",toCity:"",date:""})
    const [isEdit, setisEdit] = useState(false)
    
+
+   const exchangeCity =()=>{
+
+      setData({...data, fromCity : data.toCity,toCity : data.fromCity})
+   }
 
    useEffect(() => {
       setData({...props.match.params},localStorage.setItem('searchData',JSON.stringify({...props.match.params})))
@@ -48,7 +55,7 @@ export const BusResult = (props) => {
          ? 
          <div className=" container search-form  bg-dark text-white py-2 ">
                <form onSubmit={handleSubmit} className="form gy-2  text-center d-block  " >
-                  <div className="d-flex flex-column flex-md-row justify-content-center w-75 mx-auto">
+                  <div className="d-flex flex-column flex-md-row align-items-center justify-content-center w-75 mx-auto">
                      <input 
                         type="text" 
                         className="bg-dark form-control mx-2" 
@@ -57,6 +64,13 @@ export const BusResult = (props) => {
                         onChange={handleChange}
                         value={data.fromCity}
                      />
+                     <span 
+                        className="text-white" 
+                        style={{fontSize:'25px'}} 
+                        onClick={exchangeCity} 
+                     >
+                        <CgArrowsExchangeAlt />
+                     </span>
                      <input 
                         type="text" 
                         className="bg-dark form-control  mx-2" 
@@ -65,6 +79,7 @@ export const BusResult = (props) => {
                         value={data.toCity}
                         required
                      />
+                     
                      <input 
                         type="date" 
                         className="bg-dark form-control  mx-2" 

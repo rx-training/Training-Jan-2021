@@ -46,7 +46,9 @@ class AdminServices {
       return axios.get(BASE_URL+'user/'+id,header)
    }
 
-
+   getAllCity(){
+      return axios(BASE_URL+'allCity')
+   }
 }
 
 export default new AdminServices()

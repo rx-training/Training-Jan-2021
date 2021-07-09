@@ -90,7 +90,7 @@ class Operatores{
                 myBuses.push(i)
             }
         }
-        if(myBuses.length == 0) return res.status(404).send("Operator has not register any bus")
+        if(myBuses.length == 0) return res.send([])
         res.send(myBuses)
     }
 
@@ -102,17 +102,18 @@ class Operatores{
         //const body = req.body
         
         var  bus = await Collections.Buses.find({_id : busid, operator : id})
-        if(bus.length == 0) return res.status(404).send("Bus not found")
+        if(bus.length == 0) return res.send("Bus not found")
         bus = bus[0]
-        res.send(bus)
-        for( var i in body){
-            bus[i] = body[i]
+
+        for( var i in req.body){
+            bus[i] = req.body[i]
+            console.log(i);
         }
         try {
-            const result =await bus.save()
+            const result = await bus.save()
             res.send(result);
         } catch(ex) {
-            res.status(422).send(ex.message)
+            res.send(ex.message)
         } 
     }
 
@@ -122,16 +123,9 @@ class Operatores{
     static async postNewBus(req,res){
         var body = req.body
         var busData = {  _id: body._id,
-                        operator: parseInt(req.params.id),
-                        busName: body.busName,
-                        busType: body.busType,
-                        busReleasesate: body.busReleasesate,
-                        totalSleeperseat: body.totalSleeperseat,
-                        totalSeaterSeat: body.totalSeaterSeat,
-                        totalSemiSleeperSeat: body.totalSemiSleeperSeat,
-                        activeStatus: body.activeStatus,
-                        rating: body.rating
-                    }
+            operator: parseInt(req.params.id),
+            ...body
+        }
 
         busData = validate.Buses.validate(busData)
         if(busData.error){
@@ -154,6 +148,7 @@ class Operatores{
             res.send(mainRoute.error.message)
         } else {
             const count = await logicalFunctions.incId('MainRoute')
+            
             try{
                 const myRoute = new Collections.MainRoute({
                     _id : count,
@@ -181,6 +176,11 @@ class Operatores{
                 .find()
                 .populate({
                     path: 'busNumber',
+                    populate : {
+                        path : 'operator'
+                    }
+                }).populate({
+                    path: 'subCities',
                     populate : {
                         path : 'operator'
                     }

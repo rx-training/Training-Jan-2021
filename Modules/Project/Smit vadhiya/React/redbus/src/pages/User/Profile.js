@@ -268,58 +268,55 @@ export const Profile = () => {
                </div>
                : 
                <div className="myTrip container p-3">
-                  
-                        {MyTrips.length === 0 
-                           ?  <div className="text-center text-danger p-4 h4">
-                                 No trips found
+                  {MyTrips.length === 0 
+                     ?  
+                     <div className="text-center text-danger p-4 h4">
+                        No trips found
+                     </div>
+                     :  
+                     <>
+                        {MyTrips.map(trip => {
+
+                           const flag = new Date(trip.tripDate) > new Date()
+                           const {fromCity,toCity,departureTime,destinationTime,tripDate,seatNo,farePrice} = trip
+
+                           return (
+                              <div key={trip._id} className=" border border-success table-responsive m-2 p-3 text-capitalize ">
+                                 <table className="table my-2 table-bordered ">
+                                    <tr>
+                                       <th>Bus name</th> <td>{trip.routeId.busNumber.busName}</td>
+                                       <th>Boarding Date  </th> <td>{tripDate.slice(0,10)}</td>
+                                    </tr>
+                                    <tr>
+                                       <th>Journey From </th> <td>{fromCity}</td>
+                                       <th>Journey to </th> <td>{toCity}</td>
+                                    </tr>
+                                    <tr>
+                                       <th>Departure Time </th> <td>{departureTime}</td>
+                                       <th>Destination Time </th> <td>{destinationTime}</td>
+                                    </tr>
+                                    <tr>
+                                       <th>total amount </th> <td>{farePrice} <i class="fas fa-rupee-sign"></i></td>
+                                       <th>Seats No/s  </th> <td>{seatNo.toString()}</td>
+                                    </tr>
+                                 </table>
+
+                                 
+                                 <div className="col-12 text-center">
+                                    {flag ? <button className="btn btn-danger" onClick={()=> handleCancelTicket(trip._id)} >Cancel</button> : null }
+                                    <PrintComponents
+                                       trigger={<button className="btn btn-dark mx-2 ">Print</button>}
+                                    >
+                                       <TicketPrint trip={trip} />
+                                    </PrintComponents>
+                                 </div>
                               </div>
-                           :  
-                           <>
-                              {MyTrips.map(trip => {
-
-                                 const flag = new Date(trip.tripDate) > new Date()
-                                 const {fromCity,toCity,departureTime,destinationTime,tripDate,seatNo,farePrice} = trip
-
-                                 return (
-                                    <div key={trip._id} className=" border border-success table-responsive m-2 p-3 text-capitalize ">
-                                       <table className="table my-2 table-bordered ">
-                                          <tr>
-                                             <th>Bus name</th> <td>{trip.routeId.busNumber.busName}</td>
-                                             <th>Boarding Date  </th> <td>{tripDate.slice(0,10)}</td>
-                                          </tr>
-                                          <tr>
-                                             <th>Journey From </th> <td>{fromCity}</td>
-                                             <th>Journey to </th> <td>{toCity}</td>
-                                          </tr>
-                                          <tr>
-                                             <th>Departure Time </th> <td>{departureTime}</td>
-                                             <th>Destination Time </th> <td>{destinationTime}</td>
-                                          </tr>
-                                          <tr>
-                                             <th>total amount </th> <td>{farePrice} <i class="fas fa-rupee-sign"></i></td>
-                                             <th>Seats No/s  </th> <td>{seatNo.toString()}</td>
-                                          </tr>
-                                       </table>
-
-                                       
-                                       <div className="col-12 text-center">
-                                          {flag ? <button className="btn btn-danger" onClick={()=> handleCancelTicket(trip._id)} >Cancel</button> : null }
-                                          <PrintComponents
-                                             trigger={<button className="btn btn-dark mx-2 ">Print</button>}
-                                          >
-                                             <TicketPrint trip={trip} />
-                                          </PrintComponents>
-                                       </div>
-                                    </div>
-                                 )
-                              })}
-                              </>
-
-                        }
-
+                           )
+                        })}
+                     </>
+                  }
                </div>
             }
-
             </div>
          </div> 
       </div>

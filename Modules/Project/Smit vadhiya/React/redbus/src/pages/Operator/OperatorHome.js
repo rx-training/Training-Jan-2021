@@ -13,10 +13,12 @@ export const OperatorHome = (props) => {
          OperatorServices.getById(tokenData.id,tokenData.token).then(res => {
             if(res.data._id){
                setOperatorData(res.data)
+               console.log(operatorData);
                OperatorServices.getRouteById(tokenData.id,tokenData.token).then(res => {
                   setroute(res.data)
                   setbusData(res.data.busNumber)
                   console.log(res.data);
+
                }).catch((error)=>props.history.push('/operator/login'))
             } else {
             props.history.push('/operator/login') 
@@ -24,10 +26,11 @@ export const OperatorHome = (props) => {
       } else {
          props.history.push('/operator/login') 
       }
-   }, [])
+   }, []) 
 
    return (
-      <div className="mt-5 pt-5" >
+      <div className="mt-5 pt-4">
+         <div className="text-center text-capitalize h1 p-2 text-white bg-primary">{operatorData.companyName}</div>
          <div className="container">
             <table className="table text-capitalize">
                <thead>
@@ -40,9 +43,9 @@ export const OperatorHome = (props) => {
                   </tr> 
                </thead>
                <tbody>
-                  {route.map(item => {
+                  {route.map((item,index) => {
                      return (
-                        <tr>
+                        <tr key={index} >
                            <td>{item.fromCity.cityName}</td> 
                            <td>{item.toCity.cityName}</td> 
                            <td>{item.fromTime}</td> 

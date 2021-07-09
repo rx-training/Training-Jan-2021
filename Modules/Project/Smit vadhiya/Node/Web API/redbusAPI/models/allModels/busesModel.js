@@ -10,11 +10,20 @@ const BusesSchema = new Schema({
     },
     busName: String,
     busType: String,
-    busReleasesate: Date,
-    totalSleeperseat: Number,
+    busReleaseDate: {
+        type : Date,
+        default : new Date()
+    },
+    totalSleeperseat: {
+        type : Number,
+        default : 30
+    },
     totalSeaterSeat: Number,
     totalSemiSleeperSeat: Number,
-    activeStatus: Boolean,
+    activeStatus: {
+        type : Boolean,
+        default :true
+    },
     rating: {
         type :Number,
         default: 3.5
