@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand pl-4" routerLink="/home-page" routerLinkActive="active"><img src="../../assets/img/logo_main.png" alt="" width="80" height="70"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-2"><a routerLink="/home-page" routerLinkActive="active" class="nav-link" href="#"
+                    style="font-size: 20px; font-weight: 500;">Home</a></li>
+            <li class="nav-item mx-2"><a routerLink="/html" routerLinkActive="active" class="nav-link"
+                    style="font-size: 20px; font-weight: 500;">HTML</a></li>
+            <li class="nav-item mx-2"><a routerLink="/css" routerLinkActive="active" class="nav-link"
+                    style="font-size: 20px; font-weight: 500;">CSS</a></li>            
+            <li class="nav-item mx-2"><a routerLink="/JS" routerLinkActive="active" class="nav-link"
+                    style="font-size: 20px; font-weight: 500;">Javascript</a></li>
+           
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
