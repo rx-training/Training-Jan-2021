@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <nav id="sidebar">
+        <div class="sidebar-header">
+
+        </div>
+        <ul class="list-unstyled components">
+            <li>
+                <a href="#day4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 4</a>
+                <ul class="collapse list-unstyled" id="day4">
+                    <li>
+                        <a [routerLink]="['day4p']" routerLinkActive= "active" >Practice Exercise</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['day4a']" routerLinkActive= "active">Assignment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#day5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 5</a>
+                <ul class="collapse list-unstyled" id="day5">
+                    <li>
+                        <a [routerLink]="['day5p']" routerLinkActive= "active">Practice Exercise</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['day5a']" routerLinkActive= "active">Assignment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#day6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 6</a>
+                <ul class="collapse list-unstyled" id="day6">
+                    <li>
+                        <a [routerLink]="['day6p']" routerLinkActive= "active">Practice Exercise</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="#day7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 7</a>
+                <ul class="collapse list-unstyled" id="day7">
+                    <li>
+                        <a [routerLink]="['day7p']" routerLinkActive= "active">Practice Exercise</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#day8" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day 8</a>
+                <ul class="collapse list-unstyled" id="day8">
+                    <li>
+                        <a [routerLink]="['day8p']" routerLinkActive= "active">Practice Exercise</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>My Work</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="containt text-center">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

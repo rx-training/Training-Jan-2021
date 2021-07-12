@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <nav id="sidebar">
+        <div class="sidebar-header">
+
+        </div>
+        <ul class="list-unstyled components">
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Day
+                    3</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a [routerLink]="['day3Practice']" routerLinkActive="active">Practice Exercise</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['day3Assignment']" routerLinkActive="active">Assignment</a>
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+    </nav>
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>My Work</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+        </nav>
+        <div class="containt text-center">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

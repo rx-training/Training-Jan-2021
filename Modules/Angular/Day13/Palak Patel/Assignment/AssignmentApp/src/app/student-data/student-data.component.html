@@ -1,4 +1,26 @@
+<div class="text-center m-5">
+  <button class="btn btn-primary" (click)="isActiveFunc()">Display Data</button>
+</div>
 
-<div *ngFor="let item of data">
-    {{item}}
+<div *ngIf="isActiveInList">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">DOB</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngFor="let items of studentData">
+        <div *ngFor="let item of items; index as i">
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <th>{{item.Name.FirstName}} {{item.Name.LastName}}</th>
+          <th>{{item.DOB}}</th> 
+        </tr>
+      </div>
+      </div>
+    </tbody>
+  </table>
 </div>

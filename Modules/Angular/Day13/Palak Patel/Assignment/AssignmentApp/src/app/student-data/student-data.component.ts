@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { IStudent } from 'src/Models/interfaces';
 
 @Component({
@@ -8,10 +8,25 @@ import { IStudent } from 'src/Models/interfaces';
 })
 export class StudentDataComponent implements OnInit {
 
-  @Input() data :IStudent[] = [];
+  @Input() studentData: Array<IStudent> = [];
+  isActiveInList : boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.studentData);
   }
 
+  isActiveFunc(){
+    this.isActiveInList = !this.isActiveInList;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    for(let property in changes){
+      if(property === 'StudentList'){
+        console.log("Previous : ", changes[property].previousValue);
+        console.log("Current : ", changes[property].currentValue);
+        console.log("firstChange : ", changes[property].firstChange);
+      }
+    }
+  }
 }

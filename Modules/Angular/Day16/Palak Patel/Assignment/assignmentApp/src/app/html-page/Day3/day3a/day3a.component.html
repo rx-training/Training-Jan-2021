@@ -1,0 +1,71 @@
+<div class="containt">
+    <form class="form" action="index.html" name="myform" onsubmit="return myFun()">
+        <fieldset>
+            <legend> Employee Detail Form </legend><br>
+            <table cellspacing="15">
+                <tr>
+                    <td>Employee Name</td>
+                    <td><input type="text" name="fname" placeholder="Employee name" required></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="number" name="age" placeholder="Age" required></td>
+                </tr>
+
+
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" required>male
+                        <input type="radio" name="gender" required>female
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Designation:</td>
+                    <td><input type="text" name="designation" placeholder="Designation" required></td>
+                </tr>
+
+                <tr>
+                    <td>Salary:</td>
+                    <td><input type="number" name="salary" placeholder="Salary in INR" required></td>
+                </tr>
+
+
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <select name="city" required>
+                            <option value="vadodara"> vadodara </option>
+                            <option value="Surat">Surat </option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>E-mail: </td>
+                    <td><input type="email" name="email" placeholder="Email ID" required></td>
+                    <!--<td><span id="msg"></span></td>-->
+                </tr>
+
+                <tr>
+                    <td>Date of Joining</td>
+                    <td><input type="date" type="doj" placeholder="Date of Joining" required></td>
+                </tr>
+
+                <tr>
+                    <td>Contact No:</td>
+                    <td><input type="number" name="contact" placeholder="Contact No." required></td>
+                </tr>
+
+                <tr>
+                    <td class="btns" colspan="2">
+                        <input class="btn btn-success" type="submit" name="submit" value="Submit">
+                        <input class="btn btn-success" type="reset" name="reset" value="Reset">
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+    </form>
+</div>

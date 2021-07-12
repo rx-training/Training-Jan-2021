@@ -1,0 +1,25 @@
+<div class="text-center m-5">
+  <button class="btn btn-primary" (click)="isActiveFunc()">Display Data</button>
+</div>
+
+<div *ngIf="isActiveInList">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Birth Place</th>
+        <th scope="col">Father Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngFor="let item of studentData">
+        <tr>
+          <!-- <th scope="row">{{idx}}</th> -->
+          <th>{{item}}</th>
+        </tr>
+      </div>
+    </tbody>
+  </table>
+</div>
