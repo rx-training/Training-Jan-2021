@@ -1,0 +1,253 @@
+.main{
+    width: 100%;
+    background-color: #171a29;
+    color: #fff;
+    height: 245px;
+}
+.sizes{
+    width: 25%;
+    margin: 40px 40px 40px 40px;
+    display: contents;
+}
+.sizese{
+    width: 44%;
+    height: 100%;
+}
+.resimg{
+    height: 170px;
+    width: 250px;
+    display: inline-block;
+    position: relative;  
+    overflow: hidden;
+}
+.font{
+    font-weight: 300;
+}
+.resname{
+    font-size: 32px;
+    margin-top: 48px;
+}
+.type{
+    opacity: .7;
+    font-size: 15px;
+}
+.lastpoints{
+    margin-top:21px;
+    width :70%;
+}
+.smallsize{
+    font-size: 12px;
+}
+.ssmmfirst{
+    width: 28%;
+}
+.smss{
+    width: 30%;
+    padding-left: 30px;
+}
+.sscenter{
+    width: 42%;
+    text-align: center;
+    border-right:1px solid hsla(0,0%,100%,.2);
+    border-left:1px solid hsla(0,0%,100%,.2);
+}
+.left{
+    margin-right: 15px;
+}
+.offerped{
+    padding: 40px 20px;
+}
+.QWCzK {
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #171a29;
+    display: inline-block;
+    margin-top: 40px;
+    text-transform: uppercase;
+    position: absolute;
+}
+.offer{
+    border-top: none;
+    border: 1px solid;
+    margin-right: 25px;
+}
+.secmain{
+ display: table;
+    width: 100%;
+   
+}
+.categorys{
+    width: 23%;   
+    /* margin-top: 90px; */
+}
+.innerline{
+    border-right: 1px solid rgb(213 211 215);
+    padding: 30px 5px 30px 60px;
+}
+.cate{
+    padding:25px 25px;
+}
+.products{
+    margin: 18px 40px;
+    width: 44%;
+ }
+.carts{
+    width: 23%;
+    margin-top: 18px;
+}
+.categorynames{
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.categorynames:hover{
+    color: #fc8019;
+}
+.clickcategory{
+    color: #fc8019;
+    border-right: 5px solid #fc8019;;
+}
+.catenameprod{
+    font-size: 32px;
+    font-weight: 600;
+    color: #282c3f;
+}
+.itemsdatas{
+    padding-bottom: 30px;
+    font-size: 13px;
+    color: #686b78;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.proddatass{
+    font-size: 1.22rem;
+    font-weight: 500;
+    color: #282c3f;
+    width: 70%;
+}
+.prodimgss{
+    width: 30%;
+    width: 128px;
+    height: 108px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.prodbox{
+    margin: 25px 0px;
+}
+.texts{
+    font-size: 1.22rem;
+    font-weight: 500;
+    color: #282c3f;
+}
+.price{
+    font-size: 1rem;
+    font-weight: 300;
+    color: #282c3f;
+}
+.dis{
+    margin-top: 8px;
+    font-weight: 500;
+    color: #686b78;
+    font-size: 12px;
+}
+.F8dpS {
+    position: absolute;
+    bottom: 8px;
+    width: 96px;
+    min-height: 36px;
+    line-height: 36px;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+._3L1X9 {
+    display: inline-block;
+    height: 30px;
+    /* width: 83px; */
+    border: 1px solid #d4d5d9;
+    color: #60b246;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 30px;
+    position: relative;
+    text-align: center;
+    background-color: #fff;
+}
+._3yZyp {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    line-height: 0;
+}
+._18ZFk ._2vS77 {
+    color: #fff;
+}
+._2vS77 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    font-size: 14px;
+    font-weight: 600;
+}
+._18ZFk ._173fq {
+    stroke: #60b246;
+    fill: #60b246;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+.maincarttitle{
+    font-size: 32px;
+    font-weight: 600;
+    color: #282c3f;
+}
+.wids{
+    width: 100%;
+    color: #3d4152;
+    font-size: 15px;
+    font-weight: 600
+}
+.subtotls{
+    width: 86%;
+}
+.checkout{
+    background-color: #60b246;
+    margin-top: 28px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+}
+.extrachage{
+    font-size: 13px;
+    font-weight: 500;
+    color: #7e808c;
+    margin-top: 2px;
+}
+.col1{
+    width: 60%;
+    margin-bottom: 20px;
+}
+.col2{
+    width: 20%;    
+    margin-bottom: 20px;
+}
+.col3{
+    width: 20%;
+    margin-bottom: 20px;
+}
+.hrs{
+    width: 87%;
+}
+.shownone{
+    display: none;
+}
+.updelcartbutton{
+    display: table;
+}

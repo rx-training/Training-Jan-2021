@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import {usersingupdata } from '../../login-singup/usersingupdata';
 import { HttpClient } from '@angular/common/http';  
 import { HttpHeaders } from '@angular/common/http';  
-import { Observable } from 'rxjs';  
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  url = 'https://localhost:44391/api/UserSignups';  
+  url = "https://localhost:44391/api/UserSignups";
+  // url = environment.baseurl+'UserSignups';  
 
   constructor(private http: HttpClient) { }  
   getAllUsers(): Observable<usersingupdata[]> {  

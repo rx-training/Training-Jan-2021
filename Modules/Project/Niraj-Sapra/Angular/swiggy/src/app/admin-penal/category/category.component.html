@@ -1,0 +1,117 @@
+<header>
+    <div class="bg-primary text-white py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1><i class="far fa-cog"></i>Category</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="container mx-auto my-3"> 
+        <div class="col-lg-3">
+              <button class="btn btn-warning btn-block" id="adduser" (click)="open(Adduser)">
+              <i class="fa fa-plus" aria-hidden="true"></i> Add Category
+            </button>
+
+        </div>
+    </div>
+</section>
+<div class="users">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="modal" id="AddModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title"> Category Data Update</h4>
+                          <button  id ="closes" class="close" (click)="closemodel()">&times;</button>
+                        </div>
+                        <!-- Modal body -->
+                        <!-- <div class="modal-body">
+                            <form [formGroup]="cityForm" (ngSubmit)="updatedata(cityForm.value)">
+                                <div class="form-group">
+                                  <input formControlName="ucategoryName" [(ngModel)]="updateusername" type="text" class="form-control" placeholder="Enter name" id="name" value="">
+                                  <div id="names" class="validdatas text-danger">Enter valid Name.</div>-->
+                             <!--   </div>
+                                <div class="form-group">
+                                    <label for="">Restaurant Name</label>
+                                    <select formControlName="uresnames" class="form-control focusforuse">
+                                        <option [ngValue]="null" disabled>Choose your Restarant</option>
+                                         <option *ngFor="let item of restaurantdata;let idx = index" class='my-5' [ngValue]="item">{{item.restaurantName}}</option>
+                                    </select>
+                                    <div id="validcity" class="valdefault text-danger">Enter valid city </div>
+ 
+                                  </div>
+                                <button type="button" class="btn btn-secondary mr-3" (click)="closemodel()">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                        </div> -->
+                      </div>
+                    </div>
+                </div>
+                <ng-template #Adduser let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">New Category Data</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="cityForm" (ngSubmit)="addnewdata(cityForm.value)">
+                      <div class="form-group">
+                        <input formControlName="categoryName" type="text" class="form-control" placeholder="Enter name" id="newname" value="">
+                          
+                        <span style="color: red;" *ngIf = "cityForm.controls.categoryName.touched && cityForm.controls.categoryName.invalid ">Name is required</span> 
+                      </div>
+                      <div class="form-group">
+                        <label for="">Restaurant Name</label>
+                        <select formControlName="resnames" class="form-control focusforuse">
+                            <option [ngValue]="null" disabled>Choose your Restarant</option>
+                             <option *ngFor="let item of restaurantdata;let idx = index" class='my-5' [ngValue]="item">{{item.restaurantName}}</option>
+                        </select>
+                        
+                        <span style="color: red;" *ngIf = "cityForm.controls.resnames.touched && cityForm.controls.resnames.invalid ">Email Id is required</span> 
+                      </div>
+                        <button type="submit"  (click)="modal.close('Save click')" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+
+                </ng-template>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                        </h4>
+                    </div>
+                    <table id="my_table" class="display">
+                        <thead>
+                            <tr>
+                                <th>Id</th>                                 
+                                <th>Category Name</th>
+                                <th>Restarant Name</th>
+                                <th>Action</th>
+                                <!-- <th>Update</th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="tblbody">                         
+                          <tr *ngFor="let item of usersingupdatas;let idx = index" class='my-5'>
+                            <td>{{item.categoryId}}</td>
+                            <td>{{item.categoryName}}</td>
+                            <td>{{item.resName}}</td>
+                            <td><button class='btn btn-danger deletebtn' (click)="deleterow(item.categoryId)"
+                            ><i class='fas fa-trash-alt'></i>delete</button></td>
+                            <!-- <td><button class='btn btn-warning deletebtn' (click)='updaterow(item.categoryId)'><i class='fas fa-trash-alt'></i>Update</button></td> -->
+                          </tr>
+                          <br>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

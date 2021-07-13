@@ -4,6 +4,7 @@ import {UserComponent} from '../admin-penal/user/user.component';
 import {RestaurantComponent} from './restaurant/restaurant.component';
 import {CityComponent} from '../admin-penal/city/city.component';
 import {ProductComponent} from '../admin-penal/product/product.component';
+import {CategoryComponent} from '../admin-penal/category/category.component';
 import { AdminPenalComponent } from './admin-penal.component';
 
 // const routes: Routes = [
@@ -22,7 +23,8 @@ import { AdminPenalComponent } from './admin-penal.component';
                   {path:'adminUser', component : UserComponent},
                   {path:'Restaurant', component : RestaurantComponent},
                   {path:'City', component : CityComponent},
-                  {path:'Product', component : ProductComponent}
+                  {path:'Product', component : ProductComponent},
+                  {path:'Category', component : CategoryComponent}
               ]
           }
       ])

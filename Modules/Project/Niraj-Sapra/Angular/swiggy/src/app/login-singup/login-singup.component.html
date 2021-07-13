@@ -24,13 +24,11 @@
                                             </div>
                                             <ng-template #mymodal let-modal>
                                               <div class="modal-header">
-                                                <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
                                                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                                   <span aria-hidden="true">×</span>
                                                 </button>
                                               </div>
                                               <div class="modal-body">
-                                                This is example from ItSolutionStuff.com
                                                 <div class="w-50 float-left">
                                                     <span class="h2">Login</span><br>
                                                     <span class="">or</span>
@@ -55,11 +53,13 @@
                                                     <input class="model-input focusforuse" type="tel" formControlName = "phoneno" name="mobile" id="mobilenologin" tabindex="1" autocomplete="off" value="">
                                                     <div class=""></div>
                                                     <label class="phoneno phoneloginno"  id="loginphoneno" for="mobile" >Phone number</label>
+                                                    <span style="color: red;" *ngIf = "loginForm.controls.phoneno.touched && loginForm.controls.phoneno.invalid ">Phone number is required</span>
                                                 </div>
                                                 <div class="form-group mx-3 mb-0" style="position: relative; border: 1px solid #d4d5d9;">
                                                     <input class="model-input" type="password" name="pwds" formControlName = "lpassword" id="passwords"  tabindex="1" autocomplete="off" value="">
                                                     <div class=""></div>
                                                     <label class="phoneno pass" id="loginpass" for="password">Password</label>
+                                                    <span style="color: red;" *ngIf = "loginForm.controls.phoneno.touched && loginForm.controls.phoneno.invalid ">Password is required</span>   
                                                 </div>
                                                 <div class="validdatas mx-3" id="validdata">Enter Valid Phone no and Password</div>
                                                 <div class="my-3 text-center text-white">
@@ -70,7 +70,7 @@
                                             <!--sec Model-->
                                             <ng-template #secModal let-modal>
                                                 <div class="modal-header">
-                                                  <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+                                
                                                   <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                                     <span aria-hidden="true">×</span>
                                                   </button>
@@ -95,27 +95,32 @@
                                                             <option value="admin">Admin</option>
                                                         </select>
                                                         <label class="phoneno" for="mobile">Select Visitor Type</label>
+                                                        <span style="color: red;" *ngIf = "signupForm.controls.options.touched && signupForm.controls.options.invalid ">Select Visitor Type is required</span>
                                                     </div>
                                                     <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
                                                         <input class="model-input focusforuse" type="tel" formControlName = "phoneno" name="mobile"  id="mobileno" tabindex="1" autocomplete="off" value="">
                                                         <div class=""></div>
                                                         <label class="phoneno phonesignup" id="signphoneno" for="mobile">Phone number</label>
+                                                        <span style="color: red;" *ngIf = "signupForm.controls.phoneno.touched && signupForm.controls.phoneno.invalid ">Phone number is required</span>
                                                     </div>
                                                 
                                                     <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
                                                         <input class="model-input focusforuse"  type="text" formControlName = "names"  name="name" id="name" tabindex="1" autocomplete="off" value="">
                                                         <div class=""></div>
                                                         <label class="name" for="name" id="signname">Name</label>
+                                                        <span style="color: red;" *ngIf = "signupForm.controls.names.touched && signupForm.controls.names.invalid ">Name is required</span>
                                                     </div>
                                                     <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
                                                         <input class="model-input focusforuse" type="email" formControlName = "emails"  name="email" id="email" tabindex="1" autocomplete="off" value="">
                                                         <div class=""></div>
                                                         <label class="email" for="email" id="signemail">Email-Id</label>
+                                                        <span style="color: red;" *ngIf = "signupForm.controls.emails.touched && signupForm.controls.emails.invalid ">Email Id is required</span> 
                                                     </div>
                                                     <div class="focusforuse mx-3" style="position: relative; border: 1px solid #d4d5d9;">
                                                         <input class="model-input focusforuse" type="password" formControlName = "lpassword"  name="pwd" id="pwd" tabindex="1" autocomplete="off" value="">
                                                         <div class=""></div>
                                                         <label class="password"  for="password" id="signpassword">Password</label>
+                                                        <span style="color: red;" *ngIf = "signupForm.controls.lpassword.touched && signupForm.controls.lpassword.invalid ">Password is required</span>
                                                     </div>
                                                     <div class=" py-2 my-3 text-center text-white">
                                                         <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="modal.close('Save click')">SignUp</button>

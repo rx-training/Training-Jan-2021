@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfferService {
-  url = 'https://localhost:44391/api/Offer';  
+  url = "https://localhost:44391/api/Offer";
+  //url = environment.baseurl+'Offer';  
 
 
   constructor(private http: HttpClient) { }

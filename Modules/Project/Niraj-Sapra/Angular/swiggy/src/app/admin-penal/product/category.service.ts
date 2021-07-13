@@ -4,11 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  url = 'https://localhost:44391/api/Category';  
+  url = "https://localhost:44391/api/Category";
+  //url = environment.baseurl+'Category';  
 
   constructor(private http: HttpClient) { }  
   getAllproduct(): Observable<Category[]> {  
@@ -18,6 +20,7 @@ export class CategoryService {
   //push data
   PushnewProduct(cityob: Category): Observable<Category> {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
+    console.log(cityob);
     return this.http.post<Category>(this.url,  
     cityob, httpOptions);  
   }  

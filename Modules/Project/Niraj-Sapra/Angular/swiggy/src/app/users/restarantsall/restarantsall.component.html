@@ -1,6 +1,7 @@
+<script src="https://use.fontawesome.com/your-embed-code.js"></script>
 <section   class="bg-white w-100 " style="display: table;">
                   <div class="container-fluid" *ngFor="let item of restaurantdata;let idx = index" id="dynemiccard">
-                     <div class='col-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 float-left cardend py-3 my-3'>
+                     <div class='hovereffect col-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 float-left cardend py-3 my-3'>
                         <div class='card cardbodys'>
                             <div >
                                 <img class='card-img-top res-images' src={{Image(item.restorentImage)}} alt='Card image'>
@@ -15,14 +16,18 @@
                                             <span>4.2</span>
                                         </div>
                                     </div>
-                                    <div class='col'>30 MINS</div>
-                                    <div class='col'>₹{{item.restFoodPricetwoperson}} FOR TWO</div>
+                                        <div class='col'>30 MINS</div>
+                                        <div class='col'>₹{{item.restFoodPricetwoperson}} FOR TWO</div>
                                 </div>
-                                <hr>
-                                <div class='offercolor text-center' style="font-size: 18px;">{{Offer(item.offer1id)}}</div>
-                                <div class='offercolor my-1 text-center' style="font-size: 18px;">{{Offer(item.offer2id)}}</div><hr>
+                                <div class="bods">
+                                <div class='offercolor offername text-center'><span class="lefts"><i class="fas fa-badge-percent"></i></span>{{Offer(item.offer1id)}}</div>
+                                </div>
+                                <div class="bodes">
+                                <div class='offercolor offername my-1 text-center'><span class="lefts"><i class="fas fa-badge-percent"></i></span>{{Offer(item.offer2id)}}</div>
+                                </div>
+                                <div class="bods"></div>
                                 <div class='text-center'>
-                                    <a class='linkshow' href='../html/product_category.html'>Quick View</a>
+                                    <span [routerLink]="['Product', item.restaurantId]">Quick View</span>
                                 </div>
                             </div>
                         </div>

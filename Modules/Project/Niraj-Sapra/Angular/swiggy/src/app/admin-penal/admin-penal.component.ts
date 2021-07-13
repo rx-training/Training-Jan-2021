@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-penal',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPenalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router,@Inject(DOCUMENT) private _document: Document) { }
 
   ngOnInit(): void {
+  }
+  
+  logout(){
+    localStorage.setItem('login', "false")
+    localStorage.removeItem('Customerid');
+    localStorage.removeItem('Customerphoneno');
+    localStorage.removeItem('Customername');
+    this.router.navigate(['user/Login_signup']);
   }
 
 }

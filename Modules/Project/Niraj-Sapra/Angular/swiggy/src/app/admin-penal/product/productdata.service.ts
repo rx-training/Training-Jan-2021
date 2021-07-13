@@ -4,11 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductdataService {
-  url = 'https://localhost:44391/api/Product';  
+  url = "https://localhost:44391/api/Product";
+  //url = environment.baseurl+'Product';  
 
   constructor(private http: HttpClient) { }  
   getAllproduct(): Observable<product[]> {  
