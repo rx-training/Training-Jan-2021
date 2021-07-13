@@ -1,0 +1,33 @@
+.deletebtn{
+    margin: 10px 0px;
+    border-radius: 20px;
+}
+.valdefault{
+    display: none;
+}
+.displayclass{
+    display: table;
+}
+.removeclass{
+    display: none;
+}
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 750px;
+    margin: 1.75rem auto;
+}
+}
+.wid{
+    width:35%;
+}
+.widths{
+    width: 40%;
+}
+.butts{
+    width: max-content;
+    margin-left: 35%;
+}
+.updatedivs{
+    width: auto;
+    display: -webkit-inline-box;
+}

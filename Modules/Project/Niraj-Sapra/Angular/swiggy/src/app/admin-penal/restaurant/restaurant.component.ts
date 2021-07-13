@@ -11,7 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { FormControl } from '@angular/forms';
-
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
@@ -25,6 +25,7 @@ export class RestaurantComponent implements OnInit {
   paymentdata : payment[];
   citydata: any=[];
   cityForm :any;
+  closeResult:string;
   updateid:number;
   
   ufoottype = new FormControl('', [Validators.required, Validators.maxLength(100)]);
@@ -52,12 +53,8 @@ export class RestaurantComponent implements OnInit {
   paymentName:string;
   paymentId:number;
   mainimages:string;
-  // age = new FormControl(20, Validators.required);  
-  // city = new FormControl();
-  // country = new FormControl({value: 'India', disabled: true});
-  // married = new FormControl(true);
   
-  constructor(private formbuilder: FormBuilder,private cityess: CitydataService , private offers: OfferService, private payments: PaymentService, private http: RestorentService,@Inject(DOCUMENT) private _document: Document) {
+  constructor(private formbuilder: FormBuilder,private modalService: NgbModal,private cityess: CitydataService , private offers: OfferService, private payments: PaymentService, private http: RestorentService,@Inject(DOCUMENT) private _document: Document) {
    }
    
   ngOnInit(): void {
@@ -94,7 +91,25 @@ export class RestaurantComponent implements OnInit {
         resimage : ['',[Validators.required]]
       });
     }
-
+    open(content) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {console.log("working");
+      console.log(result);
+        
+      this.closeResult = `Closed with: ${result}`;
+        console.log(this.closeResult);
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return  `with: ${reason}`;
+      }
+    }
     onFileSelected(event) {
       if(event.target.files.length > 0) 
        {

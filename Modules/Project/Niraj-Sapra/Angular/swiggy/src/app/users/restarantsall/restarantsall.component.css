@@ -1,3 +1,29 @@
 .res-images{
     height: 165px;
 }
+.hovereffect:hover{ 
+    border-color: #d3d5df;
+    box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
+}
+.hovereffect{
+    border: 1px solid #fff;
+}
+.offername{
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #8a584b;
+}
+.lefts{
+    margin:0px 8px
+}   
+
+.bods{
+    padding:2px 2px;
+    border-top:1px solid #d3d5df;
+}
+.bodes{
+   
+    border-top:1px solid #d3d5df;
+}

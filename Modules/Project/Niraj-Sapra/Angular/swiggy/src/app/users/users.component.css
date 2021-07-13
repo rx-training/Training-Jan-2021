@@ -23,6 +23,12 @@ outline: 0px solid;
 .cardbodys{
     border: 0px solid;
 }
+.cartproduct{
+    font-size: 20px;
+}
+.cartproduct:hover{
+    color:green;
+} 
 .sizes{
     font-size: 10px;
 }
@@ -75,4 +81,18 @@ outline: 0px solid;
         font-size: smaller;
         height: 58px;
     }
+   
     } 
+    #collapsibleNavbar{
+        margin-left: 3%;
+    }
+    .shownone{
+        display: table;
+    }
+    
+/* #linebt[_ngcontent-anp-c108]:focus {
+    outline: 5px solid;
+} */
+.navbar-toggler:focus {
+     box-shadow: 0 0 0 0; 
+}

@@ -22,39 +22,36 @@ export class LoginSingupComponent implements OnInit {
   loginForm: any;
   signupForm: any;
   allUser: any;
+  Customerids:number;
   studentIdUpdate = 1;
   closeResult: string;
   usersingupdata : usersingupdata[] = [];
-  constructor(private formbuilder: FormBuilder,private modalService: NgbModal,private _location: Location, private http: UserdataService, private route : Router, private router : Router,@Inject(DOCUMENT) private document: Document) {}
+  constructor(private formbuilder: FormBuilder,@Inject(DOCUMENT) private _document: Document,private modalService: NgbModal,private _location: Location, private http: UserdataService, private router : Router,@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
-      // user_id : ['',[Validators.required]],
       options : ['',[Validators.required]],
-      phoneno : ['',[Validators.required]],
-      // emails : ['',[Validators.required]],
-      lpassword : ['',[Validators.required]]
+      phoneno : ['',Validators.compose([Validators.required,Validators.pattern('^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+$')])],
+      lpassword : ['',Validators.compose([Validators.required,Validators.pattern('^[0-9a-zA-Z]+$')])]
     });
     this.signupForm = this.formbuilder.group({
       options : ['',[Validators.required]],
-      phoneno : ['',[Validators.required]],
-      names : ['',[Validators.required]],
-      emails : ['',[Validators.required]],
-      lpassword : ['',[Validators.required]]
+      phoneno : ['',Validators.compose([Validators.required,Validators.pattern('^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+$')])],
+      names : ['',Validators.compose([Validators.required,,Validators.pattern('^[a-z A-Z]+$')])],
+      emails : ['',Validators.compose([Validators.required,Validators.email])],
+      lpassword : ['',Validators.compose([Validators.required,Validators.pattern('^[0-9a-zA-Z]+$')])]
     });
-    console.log("data");
-    
+
+    //UserDATA
     this.http.getAllUsers().subscribe(data=>{ console.log(data);
-        this.allUser = data; });
+        this.allUser = data; 
+      });
       
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {console.log("working");
-    console.log(result);
-      
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {console.log("working");     
     this.closeResult = `Closed with: ${result}`;
-      console.log(this.closeResult);
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
@@ -69,35 +66,36 @@ export class LoginSingupComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
-
-  
   backClicked() {
     this._location.back();
   }
-  
+
+  //login Data
    login(value : any){
-    //this.router.navigate(['admin']);
-    //  this._location.back();
      const loginuser = this.loginForm.value;
      var values = 1;
-     console.log(loginuser);     
      this.allUser.forEach(Element => {
-      console.log('backed route'); 
-      console.log(this.allUser);
       if(Element.phoneno == loginuser.phoneno && Element.lpassword == loginuser.lpassword && Element.options == loginuser.options){
-      console.log(loginuser.options);
       values = 0;
+      let checks:usersingupdata[]   = this.allUser.filter(s=>s.phoneno == loginuser.phoneno);
+           this.Customerids = checks[0].userId;
+      localStorage.setItem('login',"true");
+      localStorage.setItem('Customerid', this.Customerids.toString());
+      localStorage.setItem('Customerphoneno', checks[0].phoneno.toString());
+      localStorage.setItem('Customername', checks[0].names.toString());
       this.router.navigate([loginuser.options]);
       }   
      });
-    //  if(values==1){
-    //   this.document.defaultView.location.reload();
-    //  }
     }
+    refreshPage() {
+      this._document.defaultView.location.reload();
+    }
+  //Signup Data  
   signup(value : any){
     const signupuser = this.signupForm.value;
-    var id = this.allUser.length + 1;
-    this.http.createUser({userId:id,options:signupuser.options,phoneno:signupuser.phoneno.toString(),emails:signupuser.emails,names:signupuser.names,lpassword:signupuser.lpassword}).subscribe();
+    this.http.createUser({userId:0,options:signupuser.options.toString(),phoneno:signupuser.phoneno.toString(),emails:signupuser.emails.toString(),names:signupuser.names.toString(),lpassword:signupuser.lpassword.toString()}).subscribe();
+    alert(signupuser.names+" Signup Successfully");
     this.signupForm.reset();
-  }   
+    this.refreshPage();
+   }   
 }

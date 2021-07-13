@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CitydataService {
-  url = 'https://localhost:44391/api/Cities';  
+  url = "https://localhost:44391/api/Cities";
+  //environment.baseurl+'Cities';  
 
 
   constructor(private http: HttpClient) { }

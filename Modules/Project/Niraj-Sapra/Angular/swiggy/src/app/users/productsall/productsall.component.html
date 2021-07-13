@@ -1,1 +1,107 @@
-<p>productsall works!</p>
+<div class="main">
+    <div class="sizes resimg float-left"><img class="resimg"  src="{{restorentImage}}" alt=""></div>
+    <div class="sizese float-left">
+        <div class="font resname">{{this.restaurantName}}</div>
+        <div class="font type">{{this.restaurantfoodtype}}</div>
+        <div class="font lastpoints">
+            <div class="ssmmfirst float-left">
+                <div><i class="fas fa-star"> --</i></div>
+                <div class="smallsize"> Too Few Ratings</div>
+            </div>
+            <div class="sscenter float-left">
+                <div>25 mins</div>
+                <div class="smallsize">Delivery Time</div>
+            </div>
+            <div class="smss float-left">
+                <div style="font-weight:bold;">₹ {{this.restFoodPricetwoperson}}</div>
+                <div class="smallsize">Cost for two</div>
+            </div>
+        </div>
+        <div></div>
+    </div>
+    <div class="sizes float-left offers QWCzK">
+            <div class="offer">
+                <span class="offername" style="text-align: center;">Offer</span>
+                <div class="offerped">
+                    <div><span class="left"><i class="fas fa-badge-percent"></i></span>{{this.offer1name}}</div>
+                    <div><span class="left"><i class="fas fa-badge-percent"></i></span>{{this.offer2name}}</div>
+                </div>
+            </div>
+    </div>
+</div>
+<section>
+    <div class="secmain">
+        <div class="categorys float-left">
+            <div class="innerline">
+                <div class="" *ngFor="let item of catdatas;let idx = index">
+                    <div id="categorynamesclick{{item.categoryId}}" class="categorynames" (click)="categoryfunc(item.categoryId)">{{item.categoryName}}</div>
+                </div>  
+            </div>
+        </div>
+        <div class="products float-left">            
+            <div class="catenameprod">{{productcategorynames}}</div>
+            <div class="itemsdatas">{{categorysnum}} ITEMS</div>
+            <div class="prodbox texts"  *ngFor="let item of this.proddata;let idx = index">
+                <div class="proddatass float-left">
+                    <div>{{item.productName}}</div>
+                    <div class="price">₹ {{item.productPrice}}</div>
+                    <div class="dis">Product Discription :</div>
+                </div>
+                <div class="">
+                    <div><img class="prodimgss" src="../../../assets/img/Prodcut/{{item.productImage}}" alt=""></div>
+                    <div class="">
+                        <div id="Add{{item.productId}}">
+                          <a class="btn btn-primary" (click)="addprod(item.productId,1,item.productName,item.productPrice)">Add</a>
+                        </div>
+                        <!-- *ngIf="Useridbutton" -->
+                        <div class="shownone" id="number{{item.productId}}">
+                          <a class="btn btn-primary"><span class=" mx-2" (click)="updateadd(item.productId)">+</span><span class="username px-3">{{mainqua}}</span><span class=" mx-2" (click)="deleteprod(item.productId)"> -</span></a>
+                        </div>    
+                    </div>
+                    
+                    <!-- <div>
+                        <div class="btn btn-primary" (click)="addprod(item.productId,1,item.productName,item.productPrice)">Add</div>
+                    </div> -->
+                </div>
+
+                <hr>
+            </div>
+            
+        </div>
+        <div class="carts float-left">
+            <div>
+                <div class="maincarttitle">Cart</div>
+                <div class="itemsdatas">{{defaultcategory}} ITEMS</div>
+            </div>
+            <section>
+                <div>
+                    <!-- <div class="row" *ngFor="let item of this.cartdata;let idx = index">
+                        
+                            <div class="col1">{{item.productName}}</div>
+                            <div class="col2">{{item.productQuantity}}</div>
+                            <div class="col3">{{item.productPrice}}</div>
+                            <hr>
+                        
+                    </div> -->
+                    <div class="row" *ngFor="let item of this.cartProd;let idx = index">
+                        <div class="row" *ngFor="let items of item;let idx = index">
+                            <div class="col1">{{items.productName}}</div>
+                            <div class="col2">{{quatity(items.productId)}}</div>
+                            <div class="col3">{{items.productPrice}}</div>
+                        <div>
+                        <hr>
+                    </div>
+                    </div></div></div>
+            </section>
+            <div>
+                <div class="wids">
+                <div class="subtotls float-left">Subtotal</div>
+                <div class="">{{subtotal}}</div>
+                </div>
+                <div class="extrachage">Extra charges may apply</div>
+            </div>
+            <div class="btn  py-3 checkout" (click)="checkout()">Checkout <span> →</span></div>
+            
+        </div>
+    </div>
+</section>

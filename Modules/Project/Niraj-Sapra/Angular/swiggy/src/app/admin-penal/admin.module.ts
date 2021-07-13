@@ -6,13 +6,15 @@ import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { CityComponent } from './city/city.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     ProductComponent,
     CityComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,

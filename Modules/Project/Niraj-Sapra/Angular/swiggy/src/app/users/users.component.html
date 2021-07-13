@@ -4,42 +4,16 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+        <meta charset="utf-8">
+
         <title>Swiggi Project</title>
-        <!-- <script  src="../Js/home.js"></script> -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    //     window.onload = () => {
-    //       citynameshow();
-    //       restaurants();
-    //     }
-    //     function citynameshow(){ 
-    //     var lines = document.getElementById('citydynamic');
-    //    // var citylist = JSON.parse(localStorage.getItem('citylist'));
-    //     var str = "";
-    //     for(i = 0; i<citysdata.length ; i++){
-    //      str +="<div class='col-6 col-sm-6 col-md-4  col-lg-3 col-xl-3 float-left colforuse mt-4 px-5'>"+"hello"+"</div>"
-    //     }
-    //     lines.innerHTML += str;
-    //     }
-    //     function restaurants(){
-    //       var dynemiccard = document.getElementById('dynemiccard');
-    //       var reslist = JSON.parse(localStorage.getItem('reslist'));
-    //       var str = "";
-    //       for(i = 0; i<reslist.length ; i++){
-    //       //  str +="<div class='col-md-3  col-lg-3 float-left colforuse mt-4 px-5'>"+citylist[i].cityname+"</div>";
-    //       str +="<div class='col-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 float-left cardend py-3 my-3'><div class='card cardbodys'><img class='card-img-top' src="+reslist[i].resimg+" alt='Card image'><div class='card-body px-0'><div class='card-title text-left h5'>"+reslist[i].resname+"</div><p class='card-text text-secondary'>"+reslist[i].foodtype+"</p><div class='row text-secondary sizes'><div class='col'><div class='bg-success text-white text-center'><i class='fas fa-star'></i><span>  4.2</span></div></div><div class='col'>28 MINS</div><div class='col'>₹"+reslist[i].twopersonprice+"FOR TWO</div></div><hr><div class='offercolor'>"+reslist[i].resoffer1+"</div><div class='offercolor my-1'>"+reslist[i].resoffer2+"</div><hr><div class='text-center'><a class='linkshow' href='../html/product_category.html'>Quick View</a></div></div></div></div>";
-    //     }
-    //     dynemiccard.innerHTML += str;
-    //     }
-    </script>
     </head>
     <body>
         <div id="#homepage">
             <nav style="border-bottom: 2px solid #dfdfd6;" class="navbar navbar-expand-md bg-white navbar-white">
                 <a class="navbar-brand" ><img routerLink="login" width="175px" height="60px" src="../../../assets/img/swi.jpg" alt="Swiggi-logo"></a>
-                <button class="navbar-toggler " id="linebt" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                  <span class="navbar-toggler-icon"><i class="fas fa-align-justify smallbt"></i></span>
+                <button class="navbar-toggler " id="linebt" type="button" (click)="buttonsdata()">
+                  <span class="navbar-toggler-icon" ><i class="fas fa-align-justify smallbt"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                   <ul class="navbar-nav ml-lg-5 ml-md-3">
@@ -52,11 +26,20 @@
                     <li class="nav-item mx-md-2 mx-lg-4">
                       <a class="nav-link link " routerLink="Help"><i class="fas fa-life-ring"></i> Help</a>
                     </li>
-                    <li class="nav-item mx-md-2 mx-lg-4">
-                        <a class="nav-link link " routerLink="Login_signup"><i class="far fa-user-alt"></i> Sign ln</a>
+                    <li class="nav-item mx-md-2 mx-lg-4" >
+                        <!-- <a class="nav-link link" routerLink="Login_signup"><i class="far fa-user-alt"></i><span class="username">Sign ln</span></a> -->
+                        <div *ngIf="cardnumbers; else elseBlock">
+                            <a class="nav-link link" routerLink="Login_signup"><i class="far fa-user-alt"></i><span class="username">Sign ln</span></a>
+                          </div>
+                          <ng-template #elseBlock>
+                            <a class="nav-link link" (click)="logout()"><i class="far fa-user-alt"></i><span class="username">{{UserNames}}</span></a>
+                          </ng-template>
                     </li>
                       <li class="nav-item mx-md-3 mx-lg-4">
-                        <a class="nav-link link" ><i class="far fa-shopping-cart"></i> Cart</a>
+                        <a class="nav-link link" >
+                            <span class="cartproduct" ><i class="far fa-shopping-cart"></i><sup>{{cartproducts}}{{cartproduct}}</sup></span>
+                            <span> Cart</span>
+                        </a>
                       </li>    
                   </ul>
                 </div>  

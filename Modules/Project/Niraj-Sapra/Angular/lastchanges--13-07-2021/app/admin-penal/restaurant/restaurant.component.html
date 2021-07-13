@@ -1,0 +1,193 @@
+<header>
+    <div class="bg-primary text-white py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1><i class="far fa-cog"></i>Restaurants </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="container mx-auto my-3"> 
+        <div class="col-lg-3">
+            <a href="" class="btn btn-warning btn-block" id="adduser" data-toggle="modal" data-target="#Adduser">
+                <i class="fa fa-plus" aria-hidden="true"></i> Add New Restaurant 
+            </a>
+        </div>
+    </div>
+</section>
+<div class="users">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="modal" id="updateRestorent">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Update Restaurant Data</h4>
+                          <button type="button"  class="close colseclass" (click)="colseuse()"  data-dismiss="modal">&times;</button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form [formGroup]="cityForm" (ngSubmit)="updaterestorent(cityForm.value)">
+                                <div class="updatedivs">
+                                    <div class="form-group wid float-left  mr-2">
+                                    <label for="">Enter Restaurant Name :</label>
+                                      <input type="text"  formControlName="urestaurantname" [(ngModel)]="updaterestaurantname" class="form-control" placeholder="Restaurant Name" >
+                                      <label id="name" class="text-danger valdefault">Enter valid Restaurant Name</label> 
+                                    </div>
+                                    <div class="form-group widths float-left mr-2">
+                                        <label for="price">Enter Food Type :</label>
+                                        <input type="text" formControlName="ufoottype" [(ngModel)]="updatefoottype" class="form-control" placeholder="Food type" >
+                                        <label id="phpneno" class="text-danger valdefault">Enter Food Veraity</label>
+                                    </div>
+                                    <div class="form-group widthsec float-left">
+                                        <label for="price">Enter Price Two person :</label>
+                                        <input type="number" formControlName="utwoperprice" [(ngModel)]="updatepricetwo" class="form-control" placeholder="Price ">
+                                        <label id="phpneno" class="text-danger valdefault">Enter Food Veraity</label>
+                                    </div>
+                                </div>    
+                                    <div class="form-group  widthsec float-left  mr-5">
+                                        <label for="price">Choose Offer Restorent :</label>
+                                      <select name="forprice" formControlName="uoffer1" [(ngModel)]="updateoffer1" class="form-control w-100">
+                                        <option *ngFor="let item of offerdata;let idx = index" class='my-5' [ngValue]="item">{{item.offerName}}</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group widthsec float-left ml-2">
+                                        <label for="price">Choose Offer Of Restorent :</label>
+                                        <select formControlName="uoffer2" [(ngModel)]="updateoffer2" class="form-control w-100" >
+                                            <option *ngFor="let item of offerdata;let idx = index" class='my-5'[ngValue]="item">{{item.offerName}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group  widths float-left  mr-5">
+                                        <label for="price">Choose Payment Type Restorent :</label>
+                                      <select formControlName="upayment1" [(ngModel)]="updatepayment1"  class="form-control w-100" >
+                                        <option *ngFor="let item of paymentdata;let idx = index" class='my-5' [ngValue]="item">{{item.paymentName}}</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group widths float-left ml-2">
+                                        <label for="price">Choose Payment Type Restorent :</label>
+                                        <select formControlName="upayment2" [(ngModel)]="updatepayment2" name="forprice" class="form-control w-100" >
+                                            <option *ngFor="let item of paymentdata;let idx = index" class='my-5' [ngValue]="item">{{item.paymentName}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="butts">
+                                        <button type="button" class="btn btn-secondary mr-3 colseclass" (click)="colseuse()" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                                    </div>
+                                </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal" id="Adduser">
+                    <div class="modal-dialog" style="max-width: 411px;">
+                      <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">New Restaurants Data</h4>
+                          <button  id ="closecity"  class="close colseclass" (click)="colseuse()" data-dismiss="modal">&times;</button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form [formGroup]="cityForm" (ngSubmit)="addrestaurant(cityForm.value)">
+                                <div class="form-group">
+                                    <label >Choose City :</label>
+                                    <select  formControlName="cityname" class="form-control w-100" id="citynameslist">
+                                        <option [ngValue]="null" disabled>Choose your Restarant</option>
+                                        <option *ngFor="let item of citydata;let idx = index" class='my-5' [ngValue]="item">{{item.cityName}}</option>
+                                    </select>
+                                </div>  
+                                <div class="form-group">
+                                    <label for="">Enter Restaurant Name :</label>
+                                  <input type="text" formControlName="resname" class="form-control" placeholder="Restaurant Name" id="newresname" value="">
+                                  <label id="name" class="text-danger valdefault">Enter valid Restaurant Name</label> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Enter Food Type :</label>
+                                    <input type="text"  formControlName="resfoodtype" class="form-control" placeholder="Food type" id="newfoodtype" value="">
+                                    <label id="phpneno" class="text-danger valdefault">Enter Food Veraity</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Choose Price Two person :</label>
+                                    <input type="number" formControlName="twoperprice" class="form-control" placeholder="Tow person price ">
+                                    <label id="phpneno" class="text-danger valdefault">Enter Food Veraity</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Choose Offer Restorent :</label>
+                                  <select name="forprice" formControlName="offer1" class="form-control w-100" >
+                                    <option *ngFor="let item of offerdata;let idx = index" class='my-5' [ngValue]="item">{{item.offerName}}</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Choose Offer Of Restorent :</label>
+                                    <select name="forprice" formControlName="offer2" class="form-control w-100" >
+                                        <option *ngFor="let item of offerdata;let idx = index" class='my-5' [ngValue]="item">{{item.offerName}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Choose Payment Type Restorent :</label>
+                                  <select name="forprice" formControlName="price1" class="form-control w-100">
+                                    <option *ngFor="let item of paymentdata;let idx = index" class='my-5' [ngValue]="item">{{item.paymentName}}</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">CChoose Payment Type Restorent :</label>
+                                    <select name="forprice" formControlName="price2" class="form-control w-100" >
+                                        <option *ngFor="let item of paymentdata;let idx = index" class='my-5' [ngValue]="item">{{item.paymentName}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Choose Restorent Images :</label>
+                                    <input type="file" (change)="onFileSelected($event)" formControlName="resimage" class="form-control" placeholder="Enter Restaurant Image" id="file" required>
+                                    <label id="resimgs" class="text-danger valdefault">Enter Restorent Image</label>
+                                </div>
+                                <button type="button" class="btn btn-secondary mr-3" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" >Submit</button>
+                              </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                        </h4>
+                    </div>
+                    <table id="my_table" class="display table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>  
+                                <th>City</th>
+                                <th>Restaurant Name</th>
+                                <th>Discount Offer1</th>
+                                <th>Discount Offer2</th>
+                                <th>Payment type1</th>
+                                <th>Payment type2</th>
+                                <th>Action</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblbody">                         
+                          <tr *ngFor="let item of restaurantdata;let idx = index" class='my-5'>
+                            <td>{{item.restaurantId}}</td>
+                            <td>{{item.restaurantCity}}</td>
+                            <td>{{item.restaurantName}}</td>
+                            <td>{{Offer(item.offer1id)}}</td> 
+                            <td>{{Offer(item.offer2id)}}</td>
+                            <td>{{Payment(item.payment1id)}}</td>
+                            <td>{{Payment(item.payment2id)}}</td> 
+                            <td><button class='btn btn-danger deletebtn' (click)="deleterow(item.restaurantId)"><i class='fas fa-trash-alt'></i>delete</button></td>
+                            <td><button class='btn btn-warning deletebtn' (click)='updaterow(item.restaurantId)'><i class='fas fa-trash-alt'></i>Update</button></td>
+                          </tr>
+                          <br>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

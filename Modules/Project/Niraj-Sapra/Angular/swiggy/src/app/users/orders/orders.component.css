@@ -1,0 +1,207 @@
+.main{
+    width: 100%;
+}
+.firstdiv{
+    width: 70%;
+}
+.secdiv{
+    width: 30%;
+}
+.imgs{
+    margin-left: 80px;
+}
+.icons{
+    width: 30px;}
+.texes{
+    margin-left: 30px;
+    font-weight: 700;
+    color: #3d4152;
+    text-transform: uppercase;
+}    
+.link{
+    color: #3d4152;
+    font-size: 16px;
+    font-weight: 500;
+}
+.link:hover{
+ color:#fc8019;
+}
+.username{
+    margin-left: 10px;
+}
+.main
+title{
+    font-size: 32px;
+    font-weight: 600;
+    color: #282c3f;
+    margin-bottom: 10px;
+}
+.wids{
+    width: 100%;
+    color: #3d4152;
+    font-size: 15px;
+    font-weight: 600
+}
+.subtotls{
+    width: 86%;
+}
+.checkout{
+    background-color: #60b246;
+    margin-top: 28px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+}
+.extrachage{
+    font-size: 13px;
+    font-weight: 500;
+    color: #7e808c;
+    margin-top: 2px;
+}
+.col1{
+    width: 60%;
+    margin-bottom: 20px;
+}
+.col2{
+    width: 20%;    
+    margin-bottom: 20px;
+}
+.col3{
+    width: 20%;
+    margin-bottom: 20px;
+}
+.hrs{
+    width: 87%;
+}
+.secmain
+{
+height: 100%;
+background: #e9ecee;
+position: relative;
+margin: 0 auto;
+display: flex;
+padding-top: 31px;
+padding-bottom: 150px;
+}
+.secfirstdiv{
+    width: 50%;
+    margin-left: 100px;
+    height: 100%;
+}
+.secsecdiv{
+    width: 30%;
+    margin-left: 30px;
+    background-color: #fff;
+    height: 100%;
+    padding-right: 25px;
+}
+.resimg{
+    width: 33px;
+    margin-right: 30px;
+}
+.resnames{
+    font-size: 17px;
+    color: #282c3f;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.col11{
+    width: 65%;
+    margin-bottom: 20px;
+}
+.col12{
+    width: 15%;    
+    margin-bottom: 20px;
+}
+.product{
+    margin-top: 30px;
+}
+.lefts{
+    margin-right: 10px;
+}
+.appycoupon{
+    border: 1px dashed #a9abb2;
+    color: #535665;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 9px 65px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.billing{
+    margin-top:10px;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #282c3f;
+}
+.textes{
+    margin:8px 0px;
+    width: 100%;
+}
+.finalborder{
+    color: black;
+}
+.totalname{
+    width: 75%;
+}
+.totals{
+    text-align: end;
+}
+.nameadd{   
+    font-size: 32px;
+    font-weight: 600;
+    color: #282c3f;
+    margin-bottom: 32px;
+    align-items: center;
+}
+.smalltext{
+    display: block;
+    font-size: 16px;
+    color: #7e808c;
+    font-weight: 400;
+    margin-bottom: 36px;
+    margin-top: -30px;
+}
+.addressbox{
+    height: 100%;
+    padding: 30px;
+    background-color: #fff;
+}
+.offfers{
+    margin: 30px 0px;
+    background-color: #fff;
+    padding: 30px 30px;
+    
+}
+.offermain{
+    width: 100%;
+    
+}
+.offserbox{
+    display: table;
+    width: 40%;
+    border: 3px dashed orange;
+    text-align: center;
+}
+.inputs{
+    position: relative; border: 1px solid #d4d5d9;
+}
+.cardno{
+    width: 30%;
+}
+
+.pay{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin:0px 0px 10px 0px; 
+}
+.carts{
+    width: 100%; 
+    padding-bottom:16px;  
+}

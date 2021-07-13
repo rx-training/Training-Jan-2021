@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
@@ -21,17 +23,35 @@ export class CityComponent implements OnInit{
   updatecityname:string;
   updateid :number;
   updatecity:string;
-  constructor(private formbuilder: FormBuilder,private dataservice:CitydataService,@Inject(DOCUMENT) private _document: Document) { }
+  closeResult:string;
+  constructor(private formbuilder: FormBuilder,private modalService: NgbModal,private dataservice:CitydataService,@Inject(DOCUMENT) private _document: Document) { }
   
 
   ngOnInit(): void {
     this.getloaddata();
     this.cityForm = this.formbuilder.group({
-      cityname : ['',[Validators.required]
-    ]
+      cityname : ['',Validators.compose([Validators.required,,Validators.pattern('^[a-z A-Z]+$')])]
     });
   }
-  
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {console.log("working");
+    console.log(result);
+      
+    this.closeResult = `Closed with: ${result}`;
+      console.log(this.closeResult);
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
   getloaddata(){
     this.dataservice.getAllCity().subscribe((data)=>{​​​​​​​​
       this.citysdata = data    
@@ -51,7 +71,9 @@ export class CityComponent implements OnInit{
      }    
     });  
   if(cityno == 0){
+    if(citysd.cityname != null){
       this.dataservice.PushnewCity({cityId:0,cityName:citysd.cityname}).subscribe();
+    }
       this.cityForm.reset();
       this.refreshPage();
     } 

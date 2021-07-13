@@ -1,0 +1,150 @@
+<head>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<div class="main row ">
+    <div class="firstdiv float-left my-3">
+        <div class="imgs">
+            <img class="icons" src="../../../assets/img/swiggy-logo.png" alt="">
+            <span class="texes">SECURE CHECKOUT</span>            
+        </div>
+    </div>
+    <div class="secdiv my-3">
+        <div class=" ml-lg-0 ml-md-3">
+         <div class="nav-item mx-md-2 mx-lg-4 float-left">
+            <a class="nav-link link " routerLink="Help"><i class="fas fa-life-ring"></i> Help</a>
+         </div>
+          <div class="nav-item mx-md-2 mx-lg-4 float-left" ng-app init="{UserNames: ''}">
+              <div *ngIf="!UserNames; else elseBlock">
+                <a class="nav-link link " routerLink="Login_signup"><i class="far fa-user-alt"></i><span class="username">Sign ln</span></a>
+              </div>
+              <ng-template #elseBlock>
+                <a class="nav-link link " ><i class="far fa-user-alt"></i><span class="username">{{UserNames}}</span></a>
+              </ng-template>    
+          </div>
+        </div>
+    </div>
+</div>
+<div class="row secmain">
+    <div class="secfirstdiv float-left">
+        <div class="addressbox">
+            <div class="nameadd">Add a delivery address</div>
+            <div class="smalltext">You seem to be in the new location</div>
+            <div class="addbox"></div>
+        </div>
+        <div class="offfers">
+            <div class="offserbox float-left mx-3">
+                <div>Offer 1</div>
+                <div>{{offer1}}</div>
+                <div>{{offerdiscountprice1}}</div>
+                <div class="btn btn-success" (click)="addoffer(offer1,offerdiscountprice1)">Choose</div>
+            </div>
+            <div class="offserbox mx-3">
+                <div>Offer 2</div>
+                <div>{{offer2}}</div>
+                <div>{{offerdiscountprice2}}</div>
+                <div class="btn btn-success" (click)="addoffer(offer2,offerdiscountprice2)">Choose</div>
+            </div>
+        </div> 
+
+           
+        <div *ngIf="paymentshow">
+            <div class="payments offfers"> 
+                <label class="pay">Payment Method</label>
+                <label class="pay">Credit/Debit Method</label>
+                <form [formGroup]="loginForm" (ngSubmit)="paymentsform(loginForm.value,paymentfinal)">
+                    <div class="form-group mx-3 mb-0" >
+                        <label class="cardno" >Card Number :</label>
+                        <input class="inputs" type="string" formControlName="cardsno">
+                        <div>
+                        <span style="color: red;" *ngIf = "loginForm.controls.cardsno.touched && loginForm.controls.cardsno.invalid ">Card Number is required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mx-3 mb-0">
+                        <label class="cardno"  id="loginphoneno" for="mobile" >Cvv :</label>
+                        <input class="model-input focusforuse inputs" type="text" formControlName="cvv">
+                        <div>
+                        <span style="color: red;" *ngIf = "loginForm.controls.cvv.touched && loginForm.controls.cvv.invalid ">Cvv is required</span>
+                    </div>
+                    </div>
+                    <div class="form-group mx-3 mb-0" >
+                        <label class="cardno">Card Name :</label>
+                        <input type="text" class="inputs" formControlName="cardname">
+                      <div>
+                        <span style="color: red;" *ngIf = "loginForm.controls.cardname.touched && loginForm.controls.cardname.invalid ">Card Name is required</span>
+                    </div>
+                    </div>
+                    <div class="form-group mx-3 mb-0">
+                    <span class="cardno float-left">Total Value :</span>
+                    <div formControlName="cardtotal">{{paymentfinal}}</div>
+                    </div>
+                    <div class="my-3 text-center text-white">
+                        <button type="submit" class="btn btn-primary">Payment</button>
+                    </div>
+                </form>
+              </div>
+         </div>   
+       
+    </div>
+    <div class="secsecdiv">
+        <div class="carts float-left">
+            <div>
+                <div class="maincarttitle">
+                    <div class="float-left resmainimg"><img class="resimg" src="{{resImage}}" alt=""></div>
+                    <div class="resnames ">{{resName}}</div>
+                </div>
+                <div class="itemsdatas">{{totalcart}} ITEMS</div>
+            </div>
+            <div class="product">
+                    <section>
+                        <div class="row" *ngFor="let item of this.cartProd;let idx = index">
+                            <div class="row" *ngFor="let items of item;let idx = index">
+                                <div class="col1">{{items.productName}}</div>
+                                <div class="col2">{{quatity(items.productId)}}</div>
+                                <div class="col3">{{items.productPrice}}</div>
+                            <div>
+                            <hr>
+                        </div></div></div>                
+                    </section>
+            </div>
+            <div class="offerfor">
+                <div class="appycoupon"><span class="lefts"><i class="fas fa-badge-percent"></i></span> Apply Coupon</div>
+            </div>
+            <div class="billing">
+                <div>Bill Details</div>
+                <div class="textes">
+                    <div class="totalname float-left">Item Total</div>
+                    <div class="totals">{{subtotal}}</div>
+                </div>
+                <div class="textes">
+                    <div class="totalname float-left">Delivery Partner Fee</div>
+                    <div class="totals">{{this.Deliverytext}}</div>
+                </div>
+                <hr>
+                <div class="">
+                    <div class="totalname float-left offermain">Offer Discount</div>
+                    <div class="textes">
+                        <div class="totalname float-left">{{offernamecart}}</div>
+                        <div class="totals">- {{offerdiscountpricecart}}</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="textes extrachage">Taxes and Charges By Gst</div>
+                <div class="textes">
+                    <div class="totalname float-left">SGST 2.5%</div>
+                    <div class="totals">{{SGST}}</div>
+                </div>
+                <div class="textes">
+                    <div class="totalname float-left">CGST 2.5%</div>
+                    <div class="totals">{{CGSt}}</div>
+                </div>
+                <hr class="finalborder">
+                <div class="textes">
+                    <div class="totalname float-left subtotls"> To PAY </div>
+                    <div class="totals">{{FinalTotals}}</div>
+                </div>
+            </div>
+            <div class="btn  py-3 checkout" (click) = "Payment(FinalTotals)">Payment <span> →</span></div>
+        </div>
+    </div>
+</div>
+
